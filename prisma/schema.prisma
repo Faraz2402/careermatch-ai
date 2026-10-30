@@ -1,0 +1,237 @@
+// CareerMatch AI data model. SQLite for local dev; switch the provider to
+// "postgresql" for production (all JSON payloads are stored as TEXT so the
+// schema stays portable).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  passwordHash String
+  isDemo       Boolean  @default(false)
+  role         String   @default("user") // user | admin
+  emailVerifiedAt DateTime?
+  googleId     String?  @unique
+  plan         String   @default("free") // free | pro
+  stripeCustomerId String? @unique
+  planRenewsAt DateTime?
+  createdAt    DateTime @default(now())
+
+  sessions    Session[]
+  resetTokens PasswordResetToken[]
+  profile     Profile?
+  preferences Preferences?
+  jobStates   UserJob[]
+  generations Generation[]
+  resumeVersions ResumeVersion[]
+  savedSearches  SavedSearch[]
+  usage          UsageEvent[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+/// Single-use emailed tokens (password reset, email verification).
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  purpose   String    @default("reset") // reset | verify
+  tokenHash String    @unique
+  userId    String
+  expiresAt DateTime
+  usedAt    DateTime?
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Profile {
+  id         String   @id @default(cuid())
+  userId     String   @unique
+  slug       String   @unique
+  isPublic   Boolean  @default(false)
+  /// JSON: ResumeData (see src/lib/resume/schema.ts)
+  data       String
+  /// JSON: Visibility (which sections / contact fields are public)
+  visibility String
+  resumeText String   @default("")
+  parsedBy   String   @default("heuristic")
+  theme      String   @default("aurora")
+  views      Int      @default(0)
+  /// JSON number[] - optional embedding of the profile (VOYAGE_API_KEY)
+  embedding  String?
+  updatedAt  DateTime @updatedAt
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Preferences {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  /// JSON: JobPreferences
+  data      String
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+/// Normalized listing as returned by a connected source. Never created
+/// except from a source response (or a user-imported URL).
+model Job {
+  id             String    @id // `${source}:${externalId}`
+  source         String
+  externalId     String
+  title          String
+  company        String
+  location       String    @default("")
+  /// Detected from `location` (src/lib/geo/detect.ts): primary ISO country,
+  /// all named countries (comma list), city, and remote eligibility scope.
+  country        String?
+  countries      String    @default("")
+  city           String?
+  remoteScope    String? // "any" | comma list of regions
+  workMode       String    @default("unknown") // remote | hybrid | onsite | unknown
+  employmentType String    @default("")
+  salaryMin      Int?
+  salaryMax      Int?
+  salaryCurrency String?
+  salaryPeriod   String?
+  /// Salary normalised to yearly USD (approximate FX) for filtering/insights
+  salaryYearlyUsd Int?
+  description    String
+  url            String
+  postedAt       DateTime?
+  fetchedAt      DateTime  @default(now())
+  firstSeenAt    DateTime  @default(now())
+  /// Last time the source still returned this listing
+  lastSeenAt     DateTime  @default(now())
+  embedding      String?
+  /// The user that imported this job via URL (null for feed listings)
+  importedById   String?
+
+  states      UserJob[]
+  generations Generation[]
+
+  @@index([source, lastSeenAt])
+  @@index([country, city])
+}
+
+model UserJob {
+  id        String   @id @default(cuid())
+  userId    String
+  jobId     String
+  saved     Boolean  @default(false)
+  hidden    Boolean  @default(false)
+  status    String   @default("none") // none | interested | applied | interviewing | offer | rejected
+  notes     String   @default("")
+  appliedAt DateTime?
+  followUpAt DateTime?
+  followUpNotifiedAt DateTime?
+  contactName  String @default("")
+  contactEmail String @default("")
+  resumeVersionId String?
+  position  Int      @default(0)
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, jobId])
+}
+
+model Generation {
+  id        String   @id @default(cuid())
+  userId    String
+  jobId     String?
+  kind      String // ats_resume | cover_letter | match_analysis | missing_skills | talking_points
+  /// JSON payload of the generated result (encrypted at rest)
+  content   String
+  /// User-reviewed version (after accepting/rejecting changes)
+  finalContent String?
+  resumeVersionId String?
+  engine    String // model id, or "template" when AI is not configured
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job       Job?     @relation(fields: [jobId], references: [id], onDelete: SetNull)
+
+  @@index([userId, createdAt])
+}
+
+model ResumeVersion {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  /// JSON ResumeData (encrypted at rest)
+  data      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model SavedSearch {
+  id          String    @id @default(cuid())
+  userId      String
+  name        String
+  /// JSON SearchFilters
+  filters     String
+  frequency   String    @default("weekly") // off | daily | weekly
+  lastAlertAt DateTime  @default(now())
+  createdAt   DateTime  @default(now())
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+/// One ingestion attempt per source - powers caching (TTL) and health.
+model SourceRun {
+  id         String   @id @default(cuid())
+  source     String
+  startedAt  DateTime @default(now())
+  durationMs Int
+  ok         Boolean
+  count      Int
+  error      String?
+
+  @@index([source, startedAt])
+}
+
+/// Operator overrides for sources (secrets stay in env vars).
+model SourceSetting {
+  id      String   @id // source id
+  enabled Boolean?
+  /// comma-separated board tokens for employer feeds
+  boards  String?
+  updatedAt DateTime @updatedAt
+}
+
+/// Metered AI actions for plan limits.
+model UsageEvent {
+  id        String   @id @default(cuid())
+  userId    String
+  kind      String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+}
+
+/// Emails captured when no provider is configured (dev outbox).
+model OutboxEmail {
+  id        String   @id @default(cuid())
+  to        String
+  subject   String
+  html      String
+  createdAt DateTime @default(now())
+}

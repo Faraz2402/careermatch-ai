@@ -1,0 +1,32 @@
+Sample Person
+Procurement Analyst
+Hyderabad, India | sample.person@example.com | +91 90000 00000
+
+Experience
+Senior Consultant
+Infosys, Hyderabad, India | Client: British Petroleum Jul 2026 – Oct 2026
+• Extended an existing Power BI contract dashboard to cover 12K contracts and 16K suppliers, giving BP
+procurement leads one view of contract owners, expired contracts and contracts due within 90 days;
+flagged contracts for renewal before they lapsed.
+• Automated a Power Query check that matched contract-role emails from SAP Ariba and Salesforce
+against the employee master; found ~600 contracts (5%) with a non-employee as owner.
+• Corrected percentage logic in 6 DAX measures that double-counted rows and removed duplicate
+records from reports, so dashboard KPIs now match finance numbers.
+Procurement Analyst
+Acme Corp, Dallas, TX Feb 2024 – Mar 2026
+• Built a Power BI spend dashboard covering $306M annual spend across 973 suppliers; showed that the
+top 4 categories made up ~90% of spend.
+• Cut purchase-order
+approval time from 4.2 to 2.7 days (35%).
+• Automated weekly reporting, raising
+team productivity by 25%.
+Purchasing Coordinator
+Beta LLC, Austin, TX Jul 2023 – Feb 2024
+• Produced monthly Power BI reports on spend and performance for 800+ suppliers; the reports supported
+3 supplier
+reviews.
+• Set up an Excel tracker for 100+ software subscriptions.
+
+Education
+University of Hyderabad
+MBA, 2023

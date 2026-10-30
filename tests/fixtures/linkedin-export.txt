@@ -1,0 +1,28 @@
+Contact
+sam.lee@example.com
+www.linkedin.com/in/samlee-demo (LinkedIn)
+Top Skills
+React
+TypeScript
+GraphQL
+Languages
+English (Native Or Bilingual)
+Sam Lee
+Frontend Engineer at Example Corp
+Seattle, Washington, United States
+Summary
+Frontend engineer focused on accessible, fast React applications for consumer products.
+Experience
+Example Corp
+Frontend Engineer
+March 2021 - Present (3 years 8 months)
+Seattle, Washington
+Built the design system used across 12 product teams, improving UI consistency and cutting build time by 30%.
+Sample Startup
+Software Engineer
+June 2018 - February 2021 (2 years 9 months)
+Developed React and Node.js features for a marketplace serving 200k monthly users.
+Education
+University of Washington
+Bachelor of Science - BS, Computer Science · (2014 - 2018)
+Page 1 of 1
