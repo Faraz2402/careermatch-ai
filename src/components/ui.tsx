@@ -5,7 +5,7 @@ import { cx } from "@/lib/format";
 export function Logo({ className }: { className?: string }) {
   return (
     <Link href="/" className={cx("flex items-center gap-2.5 text-slate-900", className)} aria-label="CareerMatch AI home">
-      <Image src="/brand/mark.png" alt="" width={32} height={32} priority className="size-8" />
+      <Image src="/brand/mark.png" alt="" width={32} height={32} priority unoptimized className="size-8" />
       <span className="font-display text-xl">CareerMatch</span>
     </Link>
   );

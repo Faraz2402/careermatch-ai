@@ -47,11 +47,10 @@ export default async function Landing() {
   return (
     <div className="lux relative min-h-screen overflow-x-clip">
       <LandingFx />
-      <div className="lux-grain" aria-hidden />
 
       {/* Ambient light */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[900px] overflow-hidden">
-        <div className="lux-aurora absolute -top-64 left-1/2 h-[720px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.28),rgba(8,145,178,0.10)_55%,transparent)] blur-2xl" />
+        <div className="lux-aurora absolute -top-64 left-1/2 h-[720px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.16),rgba(8,145,178,0.05)_55%,transparent)] blur-xl" />
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,#050505_85%)]" />
       </div>
 
@@ -59,7 +58,7 @@ export default async function Landing() {
       <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-[#050505]/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-8">
           <Link href="/" className="flex items-center gap-2.5" aria-label="CareerMatch AI home">
-            <Image src="/brand/mark.png" alt="" width={32} height={32} priority className="size-8" />
+            <Image src="/brand/mark.png" alt="" width={32} height={32} priority unoptimized className="size-8" />
             <span className="lux-serif text-xl">CareerMatch</span>
           </Link>
           <nav className="hidden items-center gap-8 text-[15px] text-[#d4d4d8] md:flex" aria-label="Sections">
@@ -112,7 +111,7 @@ export default async function Landing() {
 
           {/* Product glass card */}
           <div className="reveal-now relative lg:col-span-5 lg:pt-10" style={{ "--delay": "200ms" } as React.CSSProperties}>
-            <div aria-hidden className="absolute -inset-8 rounded-[2.5rem] bg-[radial-gradient(closest-side,rgba(139,92,246,0.22),transparent)] blur-2xl" />
+            <div aria-hidden className="absolute -inset-6 rounded-[2.5rem] bg-[radial-gradient(closest-side,rgba(139,92,246,0.10),transparent)] blur-xl" />
             <div className="lux-glass relative rounded-[1.75rem] p-6 sm:p-7" data-magnet>
               <div className="flex items-start justify-between gap-4">
                 <div>
@@ -280,7 +279,7 @@ export default async function Landing() {
         {/* Final CTA */}
         <section className="px-4 pb-28 sm:px-8">
           <div className="reveal lux-glass relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-6 py-20 text-center sm:px-12 sm:py-28">
-            <div aria-hidden className="lux-aurora pointer-events-none absolute -bottom-40 left-1/2 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.35),rgba(8,145,178,0.12)_60%,transparent)] blur-2xl" />
+            <div aria-hidden className="lux-aurora pointer-events-none absolute -bottom-40 left-1/2 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.18),rgba(8,145,178,0.06)_60%,transparent)] blur-xl" />
             <h2 className="lux-serif relative text-4xl leading-[1.05] sm:text-6xl lg:text-7xl">
               Two minutes from now,
               <br />
@@ -298,7 +297,7 @@ export default async function Landing() {
       <footer className="relative z-10 border-t border-[#27272a]">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-[#d4d4d8] sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:whitespace-nowrap">
           <div className="flex items-center gap-2.5">
-            <Image src="/brand/mark.png" alt="" width={20} height={20} className="size-5" />
+            <Image src="/brand/mark.png" alt="" width={20} height={20} unoptimized className="size-5" />
             <span className="font-medium text-white">CareerMatch AI</span>
             <span className="text-[#a1a1aa]">© {new Date().getFullYear()}</span>
           </div>
