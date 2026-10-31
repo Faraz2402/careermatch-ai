@@ -1,0 +1,3 @@
+// Generated: logo files present in public/brand/pay (Razorpay CDN assets).
+export const BANK_LOGOS = new Set(["AIRP", "ALLA", "AUBL", "BARB", "BARB_R", "BKID", "BKID_C", "CBIN", "CIUB", "CNRB", "CORP", "CSBK", "DCBL", "DEUT", "DLXB", "ESFB", "FDRL", "FSFB", "HDFC", "IBKL", "ICIC", "IDFB", "IDIB", "INDB", "IOBA", "JAKA", "JSFB", "KARB", "KKBK", "KVBL", "LAVB_R", "MAHB", "NKGS", "NSPB", "ORBC", "PSIB", "PUNB", "PUNB_R", "RATN", "SBIN", "SIBL", "SRCB", "SVCB", "TMBL", "UBIN", "UCBA", "UJVN", "UTBI", "UTIB", "VIJB", "YESB"]);
+export const WALLET_LOGOS = new Set(["airtelmoney", "amazonpay", "freecharge", "jiomoney", "mobikwik", "olamoney", "paytm", "payzapp", "phonepe"]);

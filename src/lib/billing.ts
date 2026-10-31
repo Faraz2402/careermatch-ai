@@ -151,7 +151,9 @@ export async function handleWebhook(rawBody: string, signature: string) {
 
 // --- Payment methods shown to users ---------------------------------------------
 
-export type MethodsView = { live: boolean; banks: string[]; wallets: string[] };
+/** A bank or wallet with its Razorpay code (for its logo), when known. */
+export type MethodItem = { code: string | null; name: string };
+export type MethodsView = { live: boolean; banks: MethodItem[]; wallets: MethodItem[] };
 
 let methodsCache: { at: number; value: MethodsView } | null = null;
 
@@ -161,7 +163,11 @@ let methodsCache: { at: number; value: MethodsView } | null = null;
  */
 export async function paymentMethods(): Promise<MethodsView> {
   if (methodsCache && Date.now() - methodsCache.at < 24 * 3600_000) return methodsCache.value;
-  const fallback: MethodsView = { live: false, banks: MAJOR_BANKS, wallets: MAJOR_WALLETS };
+  const fallback: MethodsView = {
+    live: false,
+    banks: MAJOR_BANKS.map((name) => ({ code: BANK_CODES[name] ?? null, name })),
+    wallets: MAJOR_WALLETS.map((code) => ({ code, name: WALLET_NAMES[code] })),
+  };
   if (!keyId()) return fallback;
   try {
     const res = await fetch(`${API}/methods`, {
@@ -170,9 +176,9 @@ export async function paymentMethods(): Promise<MethodsView> {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const m = (await res.json()) as { netbanking?: Record<string, string>; wallet?: Record<string, boolean> };
-    const banks = Object.values(m.netbanking ?? {}).sort((a, b) => a.localeCompare(b));
-    const wallets = Object.entries(m.wallet ?? {}).filter(([, on]) => on).map(([k]) => WALLET_NAMES[k] ?? k);
-    const value = { live: true, banks: banks.length ? banks : MAJOR_BANKS, wallets: wallets.length ? wallets : MAJOR_WALLETS };
+    const banks = Object.entries(m.netbanking ?? {}).map(([code, name]) => ({ code, name })).sort((a, b) => a.name.localeCompare(b.name));
+    const wallets = Object.entries(m.wallet ?? {}).filter(([, on]) => on).map(([code]) => ({ code, name: WALLET_NAMES[code] ?? code }));
+    const value = { live: true, banks: banks.length ? banks : fallback.banks, wallets: wallets.length ? wallets : fallback.wallets };
     methodsCache = { at: Date.now(), value };
     return value;
   } catch (e) {
@@ -186,7 +192,18 @@ const WALLET_NAMES: Record<string, string> = {
   jiomoney: "JioMoney", amazonpay: "Amazon Pay", phonepe: "PhonePe", payzapp: "PayZapp",
 };
 
-const MAJOR_WALLETS = ["Paytm", "Amazon Pay", "PhonePe", "MobiKwik", "Freecharge", "Airtel Payments Bank"];
+const MAJOR_WALLETS = ["paytm", "amazonpay", "phonepe", "mobikwik", "freecharge", "airtelmoney"];
+
+/** Razorpay net-banking codes for the fallback list's banks (for their logos). */
+const BANK_CODES: Record<string, string> = {
+  "State Bank of India": "SBIN", "HDFC Bank": "HDFC", "ICICI Bank": "ICIC", "Axis Bank": "UTIB", "Kotak Mahindra Bank": "KKBK",
+  "Punjab National Bank": "PUNB", "Bank of Baroda": "BARB", "Canara Bank": "CNRB", "Union Bank of India": "UBIN", "Bank of India": "BKID",
+  "Indian Bank": "IDIB", "Central Bank of India": "CBIN", "Indian Overseas Bank": "IOBA", "UCO Bank": "UCBA", "Bank of Maharashtra": "MAHB",
+  "Punjab & Sind Bank": "PSIB", "IDBI Bank": "IBKL", "IndusInd Bank": "INDB", "Yes Bank": "YESB", "IDFC FIRST Bank": "IDFB",
+  "Federal Bank": "FDRL", "South Indian Bank": "SIBL", "Karur Vysya Bank": "KVBL", "Karnataka Bank": "KARB", "City Union Bank": "CIUB",
+  "Tamilnad Mercantile Bank": "TMBL", "RBL Bank": "RATN", "DCB Bank": "DCBL", "Dhanlaxmi Bank": "DLXB", "AU Small Finance Bank": "AUBL",
+  "Equitas Small Finance Bank": "ESFB", "Jammu & Kashmir Bank": "JAKA", "Deutsche Bank": "DEUT", "Airtel Payments Bank": "AIRP",
+};
 
 /** Shown when Razorpay keys aren't set; the live list replaces it. */
 export const MAJOR_BANKS = [

@@ -138,7 +138,9 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
         </section>
 
         <section className="mt-16" aria-labelledby="pay">
-          <h2 id="pay" className="text-center font-display text-3xl sm:text-4xl">Pay your way</h2>
+          <h2 id="pay" className="text-center font-display text-4xl sm:text-5xl">
+            Pay <span className="bg-gradient-to-r from-violet-500 via-fuchsia-500 to-amber-400 bg-clip-text text-transparent italic">your way</span>
+          </h2>
           <p className="mx-auto mt-3 mb-6 max-w-2xl text-center text-base text-slate-700">
             UPI, debit and credit cards, net banking and wallets, through Razorpay&rsquo;s secure, RBI-compliant checkout. Your card details never touch our servers.
           </p>
