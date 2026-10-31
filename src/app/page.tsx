@@ -31,13 +31,13 @@ function Ring({ value }: { value: number }) {
 }
 
 const Chip = ({ ok, children }: { ok?: boolean; children: React.ReactNode }) => (
-  <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[11px] font-medium ${ok ? "border-emerald-400/20 bg-emerald-400/[0.07] text-emerald-300" : "border-rose-400/20 bg-rose-400/[0.07] text-rose-300"}`}>
+  <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium ${ok ? "border-emerald-400/20 bg-emerald-400/[0.07] text-emerald-300" : "border-rose-400/20 bg-rose-400/[0.07] text-rose-300"}`}>
     {ok ? "✓" : "✗"} {children}
   </span>
 );
 
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-[11px] font-medium tracking-[0.22em] text-[#71717a] uppercase">{children}</p>
+  <p className="text-xs font-medium tracking-[0.18em] text-[#a1a1aa] uppercase">{children}</p>
 );
 
 export default async function Landing() {
@@ -62,7 +62,7 @@ export default async function Landing() {
             <Image src="/brand/mark.png" alt="" width={32} height={32} priority className="size-8" />
             <span className="lux-serif text-xl">CareerMatch</span>
           </Link>
-          <nav className="hidden items-center gap-8 text-sm text-[#a1a1aa] md:flex" aria-label="Sections">
+          <nav className="hidden items-center gap-8 text-[15px] text-[#d4d4d8] md:flex" aria-label="Sections">
             <a href="#product" className="transition hover:text-white">Product</a>
             <a href="#method" className="transition hover:text-white">Method</a>
             <Link href="/pricing" className="transition hover:text-white">Pricing</Link>
@@ -72,7 +72,7 @@ export default async function Landing() {
               <Link href="/dashboard" className="btn-fluid !px-5 !py-2.5">Dashboard <span className="arrow">→</span></Link>
             ) : (
               <>
-                <Link href="/login" className="hidden px-3 py-2 text-sm text-[#a1a1aa] transition hover:text-white sm:block">Sign in</Link>
+                <Link href="/login" className="hidden px-3 py-2 text-[15px] text-[#d4d4d8] transition hover:text-white sm:block">Sign in</Link>
                 <Link href="/signup" className="btn-fluid !px-5 !py-2.5">Get started <span className="arrow">→</span></Link>
               </>
             )}
@@ -84,7 +84,7 @@ export default async function Landing() {
         {/* Hero */}
         <section className="mx-auto grid max-w-7xl gap-14 px-4 pt-20 pb-24 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:pt-28 lg:pb-32">
           <div className="lg:col-span-7">
-            <div className="reveal-now inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-[#a1a1aa] backdrop-blur">
+            <div className="reveal-now inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm text-[#d4d4d8] backdrop-blur">
               <span className="size-1.5 rounded-full bg-gradient-to-r from-violet-400 to-cyan-400 shadow-[0_0_12px_rgba(167,139,250,0.9)]" />
               Career intelligence for India and the world
             </div>
@@ -93,7 +93,7 @@ export default async function Landing() {
               <br />
               <em className="lux-sheen not-italic sm:italic">found</em>, not searched for.
             </h1>
-            <p className="reveal-now mt-7 max-w-xl text-base leading-relaxed text-[#a1a1aa] sm:text-lg" style={{ "--delay": "160ms" } as React.CSSProperties}>
+            <p className="reveal-now mt-7 max-w-xl text-base leading-relaxed text-[#d4d4d8] sm:text-lg" style={{ "--delay": "160ms" } as React.CSSProperties}>
               CareerMatch reads your résumé, scores every fresh opening against it, finds the employer&rsquo;s own posting, and drafts the
               application. Honest about the gaps. Done in minutes.
             </p>
@@ -105,7 +105,7 @@ export default async function Landing() {
                 <DemoButton className="btn-fluid">Explore the live demo</DemoButton>
               )}
             </div>
-            <p className="reveal-now mt-5 text-xs text-[#71717a]" style={{ "--delay": "300ms" } as React.CSSProperties}>
+            <p className="reveal-now mt-5 text-sm text-[#a1a1aa]" style={{ "--delay": "300ms" } as React.CSSProperties}>
               Free to start. No card. The demo uses a fictional résumé and labelled sample listings.
             </p>
           </div>
@@ -118,7 +118,7 @@ export default async function Landing() {
                 <div>
                   <Eyebrow>Example match</Eyebrow>
                   <p className="mt-2 text-lg font-semibold tracking-tight">Senior Procurement Analyst</p>
-                  <p className="mt-1 text-sm text-[#a1a1aa]">Bengaluru · Hybrid · posted today</p>
+                  <p className="mt-1 text-base text-[#d4d4d8]">Bengaluru · Hybrid · posted today</p>
                 </div>
                 <Ring value={86} />
               </div>
@@ -133,18 +133,18 @@ export default async function Landing() {
               <div className="mt-6 grid grid-cols-3 divide-x divide-white/[0.07] rounded-2xl border border-white/[0.07] bg-black/30 text-center">
                 {[["Low", "₹14 LPA"], ["Typical", "₹19 LPA"], ["High", "₹26 LPA"]].map(([k, v]) => (
                   <div key={k} className="px-2 py-3">
-                    <p className="text-[10px] tracking-wider text-[#71717a] uppercase">{k}</p>
-                    <p className="mt-1 text-sm font-semibold">{v}</p>
+                    <p className="text-xs tracking-wider text-[#a1a1aa] uppercase">{k}</p>
+                    <p className="mt-1 text-base font-semibold">{v}</p>
                   </div>
                 ))}
               </div>
               <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.07] pt-5">
-                <span className="text-xs text-[#71717a]">Original posting, verified</span>
-                <span className="rounded-full bg-white px-3.5 py-1.5 text-xs font-medium text-black">Apply on careers.company.com ↗</span>
+                <span className="text-sm text-[#a1a1aa]">Original posting, verified</span>
+                <span className="rounded-full bg-white px-3.5 py-1.5 text-sm font-medium text-black">Apply on careers.company.com ↗</span>
               </div>
             </div>
-            <div className="lux-glass absolute -bottom-6 -left-4 hidden rounded-2xl px-4 py-3 text-xs sm:block">
-              <span className="text-[#71717a]">Also posted on</span> <span className="ml-1 font-medium">LinkedIn · Naukri</span>
+            <div className="lux-glass absolute -bottom-6 -left-4 hidden rounded-2xl px-4 py-3 text-sm sm:block">
+              <span className="text-[#a1a1aa]">Also posted on</span> <span className="ml-1 font-medium">LinkedIn · Naukri</span>
             </div>
           </div>
         </section>
@@ -152,9 +152,9 @@ export default async function Landing() {
         {/* Sources strip */}
         <section className="border-y border-[#27272a]" aria-label="Job sources">
           <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-7 sm:px-8 md:flex-row md:items-center md:gap-10">
-            <p className="shrink-0 text-xs text-[#71717a]">Listings from official APIs and employer feeds</p>
-            <ul className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-[#a1a1aa]">
-              {SOURCES.map((s) => <li key={s} className="lux-serif text-lg text-white/70">{s}</li>)}
+            <p className="shrink-0 text-sm text-[#a1a1aa]">Listings from official APIs and employer feeds</p>
+            <ul className="flex flex-wrap gap-x-8 gap-y-2 text-base text-[#d4d4d8]">
+              {SOURCES.map((s) => <li key={s} className="lux-serif text-lg text-white/90">{s}</li>)}
             </ul>
           </div>
         </section>
@@ -167,10 +167,10 @@ export default async function Landing() {
               <h2 className="reveal lux-serif mt-4 text-4xl leading-[1.05] sm:text-6xl">
                 Less scrolling.
                 <br />
-                <span className="text-[#71717a] italic">More signal.</span>
+                <span className="text-[#a1a1aa] italic">More signal.</span>
               </h2>
             </div>
-            <p className="reveal self-end text-[#a1a1aa] lg:col-span-5 lg:col-start-8" style={{ "--delay": "120ms" } as React.CSSProperties}>
+            <p className="reveal self-end text-[#d4d4d8] lg:col-span-5 lg:col-start-8" style={{ "--delay": "120ms" } as React.CSSProperties}>
               Every listing is read, scored and traced back to its source before it reaches you, so the time you spend goes on applications that can land.
             </p>
           </div>
@@ -180,15 +180,15 @@ export default async function Landing() {
             <article className="bento reveal p-7 md:col-span-4 md:row-span-2" data-magnet>
               <Eyebrow>Explainable matching</Eyebrow>
               <h3 className="lux-serif mt-3 text-3xl sm:text-4xl">Every score shows its working.</h3>
-              <p className="mt-3 max-w-md text-sm text-[#a1a1aa]">Skills, role, seniority, location, pay and freshness, each weighed, explained and colour-coded. No black-box numbers.</p>
+              <p className="mt-3 max-w-md text-base text-[#d4d4d8]">Skills, role, seniority, location, pay and freshness, each weighed, explained and colour-coded. No black-box numbers.</p>
               <div className="mt-8 space-y-3.5">
                 {[["Skills", 34, 40, "from-emerald-400 to-teal-300"], ["Role & title", 17, 20, "from-emerald-400 to-teal-300"], ["Seniority", 10, 10, "from-emerald-400 to-teal-300"], ["Location", 6, 10, "from-amber-400 to-orange-300"], ["Recency", 5, 5, "from-emerald-400 to-teal-300"]].map(([label, pts, max, g]) => (
-                  <div key={String(label)} className="grid grid-cols-[110px_1fr_44px] items-center gap-4 text-sm">
-                    <span className="text-[#a1a1aa]">{label}</span>
+                  <div key={String(label)} className="grid grid-cols-[110px_1fr_44px] items-center gap-4 text-base">
+                    <span className="text-[#d4d4d8]">{label}</span>
                     <span className="h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
                       <span className={`block h-full rounded-full bg-gradient-to-r ${g}`} style={{ width: `${(Number(pts) / Number(max)) * 100}%` }} />
                     </span>
-                    <span className="text-right tabular-nums text-white/80">{pts}/{max}</span>
+                    <span className="text-right tabular-nums text-white/90">{pts}/{max}</span>
                   </div>
                 ))}
               </div>
@@ -198,8 +198,8 @@ export default async function Landing() {
             <article className="bento reveal p-7 md:col-span-2" data-magnet style={{ "--delay": "80ms" } as React.CSSProperties}>
               <Eyebrow>Straight to the source</Eyebrow>
               <h3 className="lux-serif mt-3 text-2xl">Skip the middlemen.</h3>
-              <p className="mt-2 text-sm text-[#a1a1aa]">We find the employer&rsquo;s own posting, verify it, and link you there, plus LinkedIn and Naukri when it&rsquo;s live.</p>
-              <div className="mt-5 flex flex-wrap gap-1.5 text-[11px]">
+              <p className="mt-2 text-base text-[#d4d4d8]">We find the employer&rsquo;s own posting, verify it, and link you there, plus LinkedIn and Naukri when it&rsquo;s live.</p>
+              <div className="mt-5 flex flex-wrap gap-1.5 text-xs">
                 <span className="rounded-full bg-white px-2.5 py-1 font-medium text-black">Workday ↗</span>
                 <span className="rounded-full border border-white/15 px-2.5 py-1">LinkedIn ↗</span>
                 <span className="rounded-full border border-white/15 px-2.5 py-1">Naukri ↗</span>
@@ -210,29 +210,29 @@ export default async function Landing() {
             <article className="bento reveal p-7 md:col-span-2" data-magnet style={{ "--delay": "140ms" } as React.CSSProperties}>
               <Eyebrow>ATS résumé</Eyebrow>
               <h3 className="lux-serif mt-3 text-2xl">Tailored. Never invented.</h3>
-              <p className="mt-2 text-sm text-[#a1a1aa]">Rewrites mirror each posting&rsquo;s language using only what you&rsquo;ve done. You approve every line, word by word.</p>
+              <p className="mt-2 text-base text-[#d4d4d8]">Rewrites mirror each posting&rsquo;s language using only what you&rsquo;ve done. You approve every line, word by word.</p>
             </article>
 
             {/* Salary */}
             <article className="bento reveal p-7 md:col-span-2" data-magnet>
               <Eyebrow>Market pay</Eyebrow>
               <h3 className="lux-serif mt-3 text-2xl">Know your worth, in ₹.</h3>
-              <p className="mt-2 text-sm text-[#a1a1aa]">Public salary figures for the same title and city, with a link to every source.</p>
-              <p className="lux-serif mt-5 text-4xl">₹19<span className="text-xl text-[#71717a]"> LPA typical</span></p>
+              <p className="mt-2 text-base text-[#d4d4d8]">Public salary figures for the same title and city, with a link to every source.</p>
+              <p className="lux-serif mt-5 text-4xl">₹19<span className="text-xl text-[#a1a1aa]"> LPA typical</span></p>
             </article>
 
             {/* Profile */}
             <article className="bento reveal p-7 md:col-span-2" data-magnet style={{ "--delay": "80ms" } as React.CSSProperties}>
               <Eyebrow>Public profile</Eyebrow>
               <h3 className="lux-serif mt-3 text-2xl">A page worth sharing.</h3>
-              <p className="mt-2 text-sm text-[#a1a1aa]">Your own URL, privacy controls for every section, and one link for recruiters.</p>
+              <p className="mt-2 text-base text-[#d4d4d8]">Your own URL, privacy controls for every section, and one link for recruiters.</p>
             </article>
 
             {/* Interview */}
             <article className="bento reveal p-7 md:col-span-2" data-magnet style={{ "--delay": "140ms" } as React.CSSProperties}>
               <Eyebrow>Mock interview</Eyebrow>
               <h3 className="lux-serif mt-3 text-2xl">Rehearse before it counts.</h3>
-              <p className="mt-2 text-sm text-[#a1a1aa]">Five questions built from the role, with feedback after every answer and a closing summary.</p>
+              <p className="mt-2 text-base text-[#d4d4d8]">Five questions built from the role, with feedback after every answer and a closing summary.</p>
             </article>
           </div>
         </section>
@@ -255,7 +255,7 @@ export default async function Landing() {
                 >
                   <span className="lux-serif bg-gradient-to-br from-white to-white/30 bg-clip-text text-5xl text-transparent italic">{s.n}</span>
                   <h3 className="mt-6 text-lg font-semibold tracking-tight">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#a1a1aa]">{s.body}</p>
+                  <p className="mt-2 text-base leading-relaxed text-[#d4d4d8]">{s.body}</p>
                 </li>
               ))}
             </ol>
@@ -269,9 +269,9 @@ export default async function Landing() {
             <p className="reveal lux-serif mt-8 text-3xl leading-[1.2] sm:text-5xl">
               We don&rsquo;t scrape behind logins.
               <br className="hidden sm:block" /> We don&rsquo;t invent your experience.
-              <br className="hidden sm:block" /> <span className="text-[#71717a] italic">We don&rsquo;t sell your data.</span>
+              <br className="hidden sm:block" /> <span className="text-[#a1a1aa] italic">We don&rsquo;t sell your data.</span>
             </p>
-            <p className="reveal mx-auto mt-8 max-w-xl text-sm text-[#a1a1aa]" style={{ "--delay": "120ms" } as React.CSSProperties}>
+            <p className="reveal mx-auto mt-8 max-w-xl text-base text-[#d4d4d8]" style={{ "--delay": "120ms" } as React.CSSProperties}>
               Every listing shows where it came from and when it was last seen. Every suggestion is grounded in your own résumé.
             </p>
           </div>
@@ -286,7 +286,7 @@ export default async function Landing() {
               <br />
               <em className="lux-sheen">you&rsquo;ll have a shortlist.</em>
             </h2>
-            <p className="relative mx-auto mt-6 max-w-lg text-[#a1a1aa]">Upload your résumé and see your ranked matches, gaps and apply links before your coffee cools.</p>
+            <p className="relative mx-auto mt-6 max-w-lg text-[#d4d4d8]">Upload your résumé and see your ranked matches, gaps and apply links before your coffee cools.</p>
             <div className="relative mt-10 flex flex-wrap justify-center gap-3">
               <Link href={start} className="btn-fluid is-solid">Start free <span className="arrow">→</span></Link>
               {!user && <DemoButton className="btn-fluid">Try the demo</DemoButton>}
@@ -296,14 +296,14 @@ export default async function Landing() {
       </main>
 
       <footer className="relative z-10 border-t border-[#27272a]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 text-xs text-[#71717a] sm:px-8 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-[#d4d4d8] sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:whitespace-nowrap">
           <div className="flex items-center gap-2.5">
             <Image src="/brand/mark.png" alt="" width={20} height={20} className="size-5" />
-            <span className="lux-serif text-base text-white">CareerMatch</span>
-            <span>© {new Date().getFullYear()}</span>
+            <span className="font-medium text-white">CareerMatch AI</span>
+            <span className="text-[#a1a1aa]">© {new Date().getFullYear()}</span>
           </div>
-          <p className="max-w-xl md:text-right">Job data comes only from connected, authorised sources and is shown with attribution. Salary figures link to their public sources.</p>
-          <nav className="flex gap-6" aria-label="Footer">
+          <p className="text-[#a1a1aa]">Jobs from authorised sources, always shown with attribution.</p>
+          <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer">
             <Link href="/pricing" className="transition hover:text-white">Pricing</Link>
             <Link href="/privacy" className="transition hover:text-white">Privacy</Link>
             <Link href="/terms" className="transition hover:text-white">Terms</Link>
