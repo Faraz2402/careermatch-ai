@@ -4,6 +4,8 @@ import { Logo } from "@/components/ui";
 import { requireUser } from "@/lib/auth";
 import { hasSocialLogin } from "@/lib/oauth";
 
+export const metadata = { robots: { index: false, follow: false } };
+
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const user = await requireUser();
   const unverified = !user.isDemo && !user.emailVerifiedAt && !hasSocialLogin(user);

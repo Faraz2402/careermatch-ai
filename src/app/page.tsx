@@ -1,8 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { DemoButton } from "@/components/client";
+import { JsonLd, organization, softwareApplication } from "@/components/json-ld";
 import { LandingFx } from "@/components/landing-fx";
+import type { Metadata } from "next";
 import { getCurrentUser } from "@/lib/auth";
+import { appUrl } from "@/lib/site-url";
+
+export const metadata: Metadata = {
+  title: { absolute: "CareerMatch AI: AI Résumé Builder & Job Matching for India" },
+  description: "Upload your résumé and get jobs ranked for you across India and worldwide: match scores with reasons, skill gaps, employer apply links, salaries in ₹, and AI-tailored résumés and cover letters. Free to start.",
+  alternates: { canonical: "/" },
+  openGraph: { url: "/", title: "CareerMatch AI: your next role, found, not searched for", description: "Upload your résumé and get jobs ranked for you across India and worldwide: match scores with reasons, skill gaps, employer apply links, salaries in ₹, and AI-tailored résumés and cover letters. Free to start." },
+};
 
 const SOURCES = ["Adzuna", "Careerjet", "Jooble", "Greenhouse", "Lever", "Ashby", "Remotive", "USAJOBS"];
 
@@ -47,6 +57,12 @@ export default async function Landing() {
   return (
     <div className="lux relative min-h-screen overflow-x-clip">
       <LandingFx />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [organization(), { "@type": "WebSite", "@id": `${appUrl()}/#site`, name: "CareerMatch AI", url: `${appUrl()}/`, inLanguage: "en-IN", publisher: { "@id": `${appUrl()}/#org` } }, softwareApplication()],
+        }}
+      />
 
       {/* Ambient light */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[900px] overflow-hidden">

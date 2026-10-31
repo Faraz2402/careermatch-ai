@@ -6,6 +6,7 @@ import { LAWS, LEGAL } from "@/lib/legal";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How CareerMatch AI collects, uses, shares and protects your personal data under India's DPDP Act 2023 and IT Act 2000.",
+  alternates: { canonical: "/privacy" },
 };
 
 const Law = ({ k, children }: { k: keyof typeof LAWS; children: React.ReactNode }) => (

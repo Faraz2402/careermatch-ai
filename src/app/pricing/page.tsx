@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd, softwareApplication } from "@/components/json-ld";
 import { LandingFx } from "@/components/landing-fx";
 import { PaymentMethods } from "@/components/payment-methods";
 import { PlanPicker } from "@/components/plan-picker";
@@ -8,7 +10,12 @@ import { paymentMethods } from "@/lib/billing";
 import { LEGAL } from "@/lib/legal";
 import { billingConfigured, PLANS, planOf, proPrices } from "@/lib/plans";
 
-export const metadata = { title: "Pricing", description: "CareerMatch AI Free and Pro plans in Indian Rupees: AI-tailored résumés, exports, alerts and more." };
+export const metadata: Metadata = {
+  title: "Pricing: Free & Pro Plans in ₹",
+  description: "CareerMatch AI is free to start. Pro from about ₹14 a day: unlimited résumé and cover-letter exports, job analyses with employer apply links, 400 AI actions a month and a daily job email. UPI, cards and net banking.",
+  alternates: { canonical: "/pricing" },
+  openGraph: { url: "/pricing", title: "CareerMatch AI pricing: Free & Pro in ₹" },
+};
 
 const { free, pro } = PLANS;
 
@@ -41,6 +48,13 @@ const FAQ: [string, React.ReactNode][] = [
   ["Are prices inclusive of tax?", "Yes. Prices are in Indian Rupees and include any applicable taxes."],
 ];
 
+/** Plain-text answers for structured data, matching the visible FAQ. */
+const FAQ_TEXT: Record<string, string> = {
+  "Is there a free plan?": `Yes, free forever with no card: ${free.aiActionsPerMonth} AI actions and ${free.jobAnalysesPerMonth} job analyses a month, one résumé and one cover-letter export, plus the full jobs feed, match scores, skills check and tracker.`,
+  "What is a job analysis?": "Opening a job for the first time finds the employer's own posting, reads the full description and looks up market salary. Re-opening a job you've analysed is free, and jobs someone else already analysed cost nothing. Pro is unlimited within fair use.",
+  "Can I get a refund?": "Yes. If Pro doesn't work as described, ask within 7 days of paying. See the refund terms in our Terms of Service.",
+};
+
 const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 export default async function PricingPage({ searchParams }: { searchParams: Promise<{ limit?: string }> }) {
@@ -52,6 +66,18 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
   return (
     <div className="relative min-h-screen overflow-hidden">
       <LandingFx />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            softwareApplication(),
+            {
+              "@type": "FAQPage",
+              mainEntity: FAQ.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: typeof a === "string" ? a : FAQ_TEXT[q] } })),
+            },
+          ],
+        }}
+      />
       <div aria-hidden className="lux-aurora pointer-events-none absolute -top-72 left-1/2 h-[640px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.13),rgba(8,145,178,0.04)_55%,transparent)] blur-xl" />
       <header className="relative mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
         <Logo />

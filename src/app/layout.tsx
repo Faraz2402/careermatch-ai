@@ -11,9 +11,14 @@ const jakarta = Plus_Jakarta_Sans({ variable: "--font-jakarta", subsets: ["latin
 const playfair = Playfair_Display({ variable: "--font-playfair", subsets: ["latin"], weight: ["400", "500", "600", "700"], style: ["normal", "italic"] });
 
 export const metadata: Metadata = {
-  title: { default: "CareerMatch AI", template: "%s · CareerMatch AI" },
-  description: "Turn your resume into a smarter job search: a shareable profile, ranked job matches from compliant sources, and tailored application materials.",
   metadataBase: new URL(appUrl()),
+  title: { default: "CareerMatch AI: AI Résumé Builder & Job Matching for India", template: "%s · CareerMatch AI" },
+  description: "Upload your résumé and get jobs ranked for you across India and worldwide: match scores with reasons, skill gaps, employer apply links, salaries in ₹, and AI-tailored résumés and cover letters. Free to start.",
+  applicationName: "CareerMatch AI",
+  keywords: ["AI resume builder", "ATS resume", "job matching", "jobs in India", "resume score", "cover letter generator", "salary in India", "job search"],
+  openGraph: { type: "website", siteName: "CareerMatch AI", locale: "en_IN" },
+  twitter: { card: "summary_large_image" },
+  formatDetection: { telephone: false },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

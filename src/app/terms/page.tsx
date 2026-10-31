@@ -7,6 +7,7 @@ import { proPrices } from "@/lib/plans";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "The terms for using CareerMatch AI, under Indian law: accounts, acceptable use, AI content, paid passes and refunds, liability and grievances.",
+  alternates: { canonical: "/terms" },
 };
 
 const Law = ({ k, children }: { k: keyof typeof LAWS; children: React.ReactNode }) => (
