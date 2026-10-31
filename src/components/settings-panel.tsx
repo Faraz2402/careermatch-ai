@@ -11,7 +11,8 @@ type Account = {
   name: string | null;
   isDemo: boolean;
   verified: boolean;
-  google: boolean;
+  /** Linked sign-in providers ("Google", "Microsoft", "LinkedIn"). */
+  social: string[];
   plan: "free" | "pro";
   planName: string;
   /** ISO date Pro is paid until (null on Free) */
@@ -58,7 +59,7 @@ export function SettingsPanel({ account: a, flash }: { account: Account; flash: 
         <p className="text-sm">{a.name ?? "—"} · {a.isDemo ? "Demo account" : a.email}</p>
         <div className="flex flex-wrap items-center gap-2 text-sm">
           {a.verified ? <span className="chip bg-emerald-50 text-emerald-700">✓ Email verified</span> : <span className="chip bg-amber-50 text-amber-800">Email not verified</span>}
-          {a.google && <span className="chip bg-slate-100 text-slate-700">Google sign-in linked</span>}
+          {a.social.map((p) => <span key={p} className="chip bg-slate-100 text-slate-700">{p} sign-in linked</span>)}
           {!a.verified && !a.isDemo && (
             <button className="btn-secondary px-3 py-1 text-xs" disabled={busy === "verify"} onClick={() => go("verify", async () => {
               const r = await api<{ devUrl?: string }>("/api/auth/verify", { method: "POST" });
@@ -111,7 +112,7 @@ export function SettingsPanel({ account: a, flash }: { account: Account; flash: 
 
       {!a.isDemo && (
         <section className="card space-y-3 p-6">
-          <h2 className="font-display text-lg font-bold">{a.google ? "Set a password" : "Change password"}</h2>
+          <h2 className="font-display text-lg font-bold">{a.social.length ? "Set a password" : "Change password"}</h2>
           <form className="grid gap-3 sm:grid-cols-3" onSubmit={(e) => {
             e.preventDefault();
             go("pw", async () => {
@@ -120,7 +121,7 @@ export function SettingsPanel({ account: a, flash }: { account: Account; flash: 
               toast("Password updated. Other devices were signed out.");
             });
           }}>
-            {!a.google && <input className="input" type="password" autoComplete="current-password" placeholder="Current password" aria-label="Current password" value={pw.current} onChange={(e) => setPw({ ...pw, current: e.target.value })} required />}
+            {!a.social.length && <input className="input" type="password" autoComplete="current-password" placeholder="Current password" aria-label="Current password" value={pw.current} onChange={(e) => setPw({ ...pw, current: e.target.value })} required />}
             <input className="input" type="password" autoComplete="new-password" placeholder="New password" aria-label="New password" minLength={8} value={pw.next} onChange={(e) => setPw({ ...pw, next: e.target.value })} required />
             <button className="btn-primary" disabled={busy === "pw"}>Update password</button>
           </form>
@@ -146,7 +147,7 @@ export function SettingsPanel({ account: a, flash }: { account: Account; flash: 
             router.refresh();
           });
         }}>
-          {!a.google && !a.isDemo && <input className="input" type="password" placeholder="Your password" aria-label="Password" value={del.password} onChange={(e) => setDel({ ...del, password: e.target.value })} required />}
+          {!a.social.length && !a.isDemo && <input className="input" type="password" placeholder="Your password" aria-label="Password" value={del.password} onChange={(e) => setDel({ ...del, password: e.target.value })} required />}
           <input className="input" placeholder='Type "DELETE"' aria-label='Type DELETE to confirm' value={del.confirm} onChange={(e) => setDel({ ...del, confirm: e.target.value })} required />
           <button className="btn bg-rose-600 text-white hover:bg-rose-700" disabled={del.confirm !== "DELETE" || busy === "delete"}>Delete forever</button>
         </form>

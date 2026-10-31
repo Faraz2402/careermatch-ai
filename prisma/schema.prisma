@@ -20,6 +20,8 @@ model User {
   role         String   @default("user") // user | admin
   emailVerifiedAt DateTime?
   googleId     String?  @unique
+  microsoftId  String?  @unique
+  linkedinId   String?  @unique
   plan         String   @default("free") // free | pro
   /// Pro is prepaid: it stays active until this date (then reverts to free)
   planRenewsAt DateTime?

@@ -4,6 +4,7 @@ import { formatSalary } from "./format";
 import { searchJobs, STRONG_MATCH, type JobCard, type SearchFilters } from "./jobs/service";
 import { log } from "./log";
 import { appUrl, emailLayout, escapeHtml, sendEmail } from "./mailer";
+import { hasSocialLogin } from "./oauth";
 
 const PERIOD_MS = { daily: 86_400_000, weekly: 7 * 86_400_000 } as const;
 export const ALERT_MIN_SCORE = 50;
@@ -28,7 +29,7 @@ function digestHtml(name: string, jobs: JobCard[]) {
 export async function sendDigest(searchId: string, opts: { force?: boolean } = {}) {
   const s = await db.savedSearch.findUnique({ where: { id: searchId }, include: { user: true } });
   if (!s) return { sent: false, reason: "not found" };
-  if (!s.user.emailVerifiedAt && !s.user.googleId) return { sent: false, reason: "Verify your email to receive alerts." };
+  if (!s.user.emailVerifiedAt && !hasSocialLogin(s.user)) return { sent: false, reason: "Verify your email to receive alerts." };
   const filters = parseJson<SearchFilters>(s.filters, {});
   const res = await searchJobs(s.userId, { ...filters, newSince: opts.force ? undefined : s.lastAlertAt, pageSize: 50, sort: "match" });
   const jobs = res.jobs.filter((j) => j.match.score >= ALERT_MIN_SCORE).slice(0, 15);
@@ -46,7 +47,7 @@ async function sendFollowUps() {
   });
   let sent = 0;
   for (const d of due) {
-    if (!d.user.emailVerifiedAt && !d.user.googleId) continue;
+    if (!d.user.emailVerifiedAt && !hasSocialLogin(d.user)) continue;
     await sendEmail({
       to: d.user.email,
       subject: `Follow up: ${d.job.title} at ${d.job.company}`,

@@ -4,6 +4,7 @@ import { apiUser, jsonError, readBody } from "@/lib/api";
 import { destroySession, verifyPassword } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { log } from "@/lib/log";
+import { hasSocialLogin } from "@/lib/oauth";
 
 const Body = z.object({ password: z.string().optional(), confirm: z.literal("DELETE") });
 
@@ -14,8 +15,8 @@ export async function DELETE(req: Request) {
   const { data, error: bodyError } = await readBody(req, Body);
   if (bodyError) return jsonError('Type "DELETE" to confirm.');
   const row = await db.user.findUniqueOrThrow({ where: { id: user.id } });
-  // Password accounts must re-enter their password; Google-only accounts confirm by typing DELETE.
-  if (!row.googleId && !row.isDemo && !(data.password && (await verifyPassword(data.password, row.passwordHash))))
+  // Password accounts must re-enter their password; social sign-in accounts confirm by typing DELETE.
+  if (!hasSocialLogin(row) && !row.isDemo && !(data.password && (await verifyPassword(data.password, row.passwordHash))))
     return jsonError("Incorrect password.", 401);
 
   await db.job.deleteMany({ where: { importedById: user.id } });

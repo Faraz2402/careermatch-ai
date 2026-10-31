@@ -4,6 +4,7 @@ import { apiUser, jsonError, readBody } from "@/lib/api";
 import { createSession, hashPassword, validatePassword, verifyPassword } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { rateLimit } from "@/lib/rate-limit";
+import { hasSocialLogin } from "@/lib/oauth";
 
 const Body = z.object({ current: z.string().max(200).optional(), next: z.string().max(200) });
 
@@ -15,8 +16,8 @@ export async function POST(req: Request) {
   const { data, error: bodyError } = await readBody(req, Body);
   if (bodyError) return bodyError;
   const row = await db.user.findUniqueOrThrow({ where: { id: user.id } });
-  // Google-only accounts may set a first password without the current one.
-  const needsCurrent = !row.googleId;
+  // Accounts made with Google / Microsoft / LinkedIn may set a first password without the current one.
+  const needsCurrent = !hasSocialLogin(row);
   if (needsCurrent && !(data.current && (await verifyPassword(data.current, row.passwordHash)))) return jsonError("Current password is incorrect.", 401);
   const problem = validatePassword(data.next);
   if (problem) return jsonError(problem);

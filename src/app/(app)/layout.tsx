@@ -2,10 +2,11 @@ import Link from "next/link";
 import { NavLinks, UserMenu } from "@/components/nav";
 import { Logo } from "@/components/ui";
 import { requireUser } from "@/lib/auth";
+import { hasSocialLogin } from "@/lib/oauth";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const user = await requireUser();
-  const unverified = !user.isDemo && !user.emailVerifiedAt && !user.googleId;
+  const unverified = !user.isDemo && !user.emailVerifiedAt && !hasSocialLogin(user);
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-30 border-b border-slate-200 bg-surface/90 backdrop-blur">

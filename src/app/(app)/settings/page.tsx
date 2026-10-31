@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/ui";
 import { requireUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PLANS, planOf, usageThisMonth } from "@/lib/plans";
+import { hasSocialLogin } from "@/lib/oauth";
 
 export const metadata = { title: "Settings" };
 
@@ -19,8 +20,8 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
           email: user.email,
           name: user.name,
           isDemo: user.isDemo,
-          verified: !!user.emailVerifiedAt || !!user.googleId,
-          google: !!user.googleId,
+          verified: !!user.emailVerifiedAt || hasSocialLogin(user),
+          social: [user.googleId && "Google", user.microsoftId && "Microsoft", user.linkedinId && "LinkedIn"].filter((x): x is string => !!x),
           plan,
           planName: PLANS[plan].name,
           proUntil: plan === "pro" && user.planRenewsAt ? user.planRenewsAt.toISOString() : null,

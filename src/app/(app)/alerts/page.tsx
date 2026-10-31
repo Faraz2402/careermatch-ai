@@ -5,13 +5,14 @@ import { requireUser } from "@/lib/auth";
 import { db, parseJson } from "@/lib/db";
 import { mailConfigured } from "@/lib/mailer";
 import { PLANS, planOf } from "@/lib/plans";
+import { hasSocialLogin } from "@/lib/oauth";
 
 export const metadata = { title: "Job alerts" };
 
 export default async function AlertsPage() {
   const user = await requireUser();
   const rows = await db.savedSearch.findMany({ where: { userId: user.id }, orderBy: { createdAt: "desc" } });
-  const verified = !!user.emailVerifiedAt || !!user.googleId;
+  const verified = !!user.emailVerifiedAt || hasSocialLogin(user);
   return (
     <div className="mx-auto max-w-3xl">
       <PageHeader title="Saved searches & alerts" subtitle="Get a digest of new strong matches by email, daily or weekly." />

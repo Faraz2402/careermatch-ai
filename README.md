@@ -159,5 +159,5 @@ The end-to-end test runs the full user journey:
 - Add a Razorpay webhook at `$APP_URL/api/billing/webhook` with a secret (`RAZORPAY_WEBHOOK_SECRET`) for these events:
   - `payment.captured`
   - `order.paid`
-- Register Google's redirect URI: `$APP_URL/api/auth/google/callback`.
+- Register each sign-in redirect URI: `$APP_URL/api/auth/oauth/google/callback`, `.../oauth/microsoft/callback`, `.../oauth/linkedin/callback`.
 - FX rates for salary insights are static approximations (`src/lib/jobs/salary.ts`) and are labelled "approx." in the UI.

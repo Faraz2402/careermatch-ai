@@ -10,7 +10,7 @@ export async function GET() {
   if (error) return error;
   if (!(await rateLimit(`export:${user.id}`, 5, 60 * 60_000)).ok) return new Response("Too many exports", { status: 429 });
   const [account, profile, prefs, versions, states, generations, searches, usage, imports] = await Promise.all([
-    db.user.findUniqueOrThrow({ where: { id: user.id }, select: { id: true, email: true, name: true, plan: true, emailVerifiedAt: true, createdAt: true, googleId: true } }),
+    db.user.findUniqueOrThrow({ where: { id: user.id }, select: { id: true, email: true, name: true, plan: true, emailVerifiedAt: true, createdAt: true, googleId: true, microsoftId: true, linkedinId: true } }),
     getProfile(user.id),
     db.preferences.findUnique({ where: { userId: user.id } }),
     db.resumeVersion.findMany({ where: { userId: user.id } }),
@@ -22,7 +22,7 @@ export async function GET() {
   ]);
   const body = {
     exportedAt: new Date().toISOString(),
-    account: { ...account, googleLinked: !!account.googleId, googleId: undefined },
+    account: { ...account, googleLinked: !!account.googleId, microsoftLinked: !!account.microsoftId, linkedinLinked: !!account.linkedinId, googleId: undefined, microsoftId: undefined, linkedinId: undefined },
     profile: profile && { slug: profile.slug, isPublic: profile.isPublic, theme: profile.theme, views: profile.views, data: profile.data, visibility: profile.visibility, resumeText: profile.resumeText },
     preferences: parseJson(prefs?.data, null),
     resumeVersions: versions.map((v) => ({ name: v.name, createdAt: v.createdAt, data: unsealJson(v.data, null) })),
