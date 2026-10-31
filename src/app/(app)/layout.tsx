@@ -29,6 +29,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         </div>
       )}
       <main id="main" className="mx-auto max-w-7xl px-4 py-8 sm:px-6">{children}</main>
+      <footer className="border-t border-slate-200 py-6"><nav className="flex justify-center gap-5 text-xs text-slate-500" aria-label="Legal"><Link href="/privacy" className="hover:text-slate-800">Privacy Policy</Link><Link href="/terms" className="hover:text-slate-800">Terms of Service</Link></nav></footer>
     </div>
   );
 }

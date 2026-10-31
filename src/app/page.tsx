@@ -305,6 +305,8 @@ export default async function Landing() {
           <p className="max-w-xl md:text-right">Job data comes only from connected, authorised sources and is shown with attribution. Salary figures link to their public sources.</p>
           <nav className="flex gap-6" aria-label="Footer">
             <Link href="/pricing" className="transition hover:text-white">Pricing</Link>
+            <Link href="/privacy" className="transition hover:text-white">Privacy</Link>
+            <Link href="/terms" className="transition hover:text-white">Terms</Link>
             <Link href="/login" className="transition hover:text-white">Sign in</Link>
             <Link href="/signup" className="transition hover:text-white">Get started</Link>
           </nav>

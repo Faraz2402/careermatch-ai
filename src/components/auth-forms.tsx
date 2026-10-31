@@ -152,6 +152,10 @@ export function SignupForm({ providers }: { providers: Provider[] }) {
       <p className="text-center text-sm text-slate-600">
         Already have an account? <Link href="/login" className="font-semibold text-brand-600 hover:underline">Sign in</Link>
       </p>
+      <p className="text-center text-xs text-slate-500">
+        By creating an account you agree to our <Link href="/terms" className="underline hover:text-slate-800">Terms of Service</Link> and{" "}
+        <Link href="/privacy" className="underline hover:text-slate-800">Privacy Policy</Link>, and confirm you are 18 or older.
+      </p>
     </form>
   );
 }

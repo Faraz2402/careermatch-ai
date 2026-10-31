@@ -79,6 +79,7 @@ export default async function PricingPage() {
         <PaymentMethods banks={methods.banks} wallets={methods.wallets} live={methods.live} />
         <p className="mt-6 text-center text-xs text-slate-500">Prices in Indian Rupees, inclusive of applicable taxes. Payments processed by Razorpay.</p>
       </main>
+      <footer className="relative border-t border-slate-200 py-8"><nav className="flex justify-center gap-5 text-xs text-slate-500" aria-label="Legal"><Link href="/privacy" className="hover:text-slate-800">Privacy Policy</Link><Link href="/terms" className="hover:text-slate-800">Terms of Service</Link></nav></footer>
     </div>
   );
 }
