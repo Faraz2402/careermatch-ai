@@ -16,6 +16,7 @@ const FiltersSchema = z.object({
   salaryMin: z.number().int().nonnegative().optional(),
   postedWithinDays: z.number().int().positive().optional(),
   seniority: z.array(z.string()).max(6).optional(),
+  levels: z.array(z.string()).max(6).optional(),
   jobType: z.array(z.string()).max(5).optional(),
   sources: z.array(z.string()).max(12).optional(),
   onlySalary: z.boolean().optional(),

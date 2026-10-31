@@ -7,7 +7,7 @@ import { getBaseResume, getProfile } from "../profile";
 import { defaultPreferences, emptyResume, type JobPreferences, type ResumeData } from "../resume/schema";
 import { embedTexts, embeddingsEnabled } from "./embeddings";
 import { cityMatches, jobAvailableIn, storedGeo } from "../geo/detect";
-import { fetchForCountry, jobId, refreshSources } from "./ingest";
+import { fetchForCountry, jobId, MAX_LISTING_AGE_DAYS, refreshSources } from "./ingest";
 import { buildMatchContext, familiesOf, scoreJob, type Feedback, type MatchContext, type MatchResult } from "./rank";
 import { activeSources, sourceMeta } from "./registry";
 import { salaryInsight } from "./salary";
@@ -52,6 +52,10 @@ export type SearchFilters = {
   refresh?: boolean;
   /** Only jobs first seen after this date (alerts) */
   newSince?: Date;
+  /** Experience levels (internship, entry, associate, mid_senior, director, executive) */
+  levels?: string[];
+  /** Only the total is needed (filter menus) - skip fetching from sources */
+  countOnly?: boolean;
 };
 
 export type JobCard = {
@@ -183,9 +187,15 @@ export async function searchJobs(userId: string, f: SearchFilters) {
 
   // Country-aware sources (e.g. Adzuna India) are queried for this search too,
   // but never block results for more than a few seconds.
-  if (country && !f.newSince) await Promise.race([fetchForCountry(country, titleTerms.length ? titleTerms : skillTerms, f.client), new Promise((r) => setTimeout(r, 8000))]).catch(() => undefined);
+  // Listings are never older than 30 days; "Date posted" narrows that further.
+  const maxAge = Math.max(1, Math.min(f.postedWithinDays ?? MAX_LISTING_AGE_DAYS, MAX_LISTING_AGE_DAYS));
+  const cutoff = new Date(Date.now() - maxAge * 86_400_000);
+  if (country && !f.newSince && !f.countOnly)
+    await Promise.race([fetchForCountry(country, titleTerms.length ? titleTerms : skillTerms, f.client, maxAge, titleTerms.length > 0), new Promise((r) => setTimeout(r, 8000))]).catch(() => undefined);
 
-  if (f.refresh) {
+  if (f.countOnly) {
+    // Live counts for the filter menus never trigger fetches.
+  } else if (f.refresh) {
     await refreshSources({ force: true, onlyIds: active, extraKeywords: keywords });
   } else if (active.length && (await db.job.count({ where: { source: { in: active }, lastSeenAt: { gte: since } } })) === 0) {
     await refreshSources({ onlyIds: active }); // cold start: wait for the first fetch
@@ -200,7 +210,8 @@ export async function searchJobs(userId: string, f: SearchFilters) {
       { OR: [{ source: { in: active }, importedById: null, lastSeenAt: { gte: since } }, ...(includeImports ? [{ importedById: userId }] : [])] },
       ...(f.workMode?.length ? [{ workMode: { in: f.workMode } }] : []),
       ...(f.company ? [{ company: { contains: f.company } }] : []),
-      ...(f.postedWithinDays ? [{ postedAt: { gte: new Date(Date.now() - f.postedWithinDays * 86_400_000) } }] : []),
+      // Undated listings (e.g. pasted jobs) only appear in the default 30-day view.
+      { OR: [{ postedAt: { gte: cutoff } }, ...(maxAge >= MAX_LISTING_AGE_DAYS ? [{ postedAt: null }] : [])] },
       ...(f.salaryMin ? [{ salaryYearlyUsd: { gte: f.salaryMin } }] : []),
       ...(f.onlySalary ? [{ salaryYearlyUsd: { not: null } }] : []),
       ...(f.newSince ? [{ firstSeenAt: { gt: f.newSince } }] : []),
@@ -237,6 +248,7 @@ export async function searchJobs(userId: string, f: SearchFilters) {
 
   let cards = candidates.map((j) => toCard(j, scoreJob(j, ctx), stateMap.get(jobId(j))));
   if (f.seniority?.length) cards = cards.filter((c) => f.seniority!.includes(c.match.seniority));
+  if (f.levels?.length) cards = cards.filter((c) => f.levels!.includes(c.match.level));
   cards.sort((a, b) =>
     f.sort === "date"
       ? (b.postedAt ?? "").localeCompare(a.postedAt ?? "")

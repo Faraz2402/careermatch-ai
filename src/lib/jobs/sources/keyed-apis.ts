@@ -47,19 +47,31 @@ export const adzuna: SourceDefinition = {
   async fetchJobs(query, signal) {
     const country = (query.country ?? (process.env.ADZUNA_COUNTRIES || process.env.ADZUNA_COUNTRY || "in").split(",")[0]).trim().toLowerCase();
     if (!ADZUNA_CURRENCY[country]) return [];
+    // Newest first, never older than the requested window (default 30 days):
+    // relevance order mostly returns months-old postings.
     const params = new URLSearchParams({
       app_id: process.env.ADZUNA_APP_ID!,
       app_key: process.env.ADZUNA_APP_KEY!,
       results_per_page: "50",
       what: query.keywords.join(" "),
+      sort_by: "date",
+      max_days_old: String(Math.min(query.maxDaysOld ?? 30, 30)),
       "content-type": "application/json",
     });
     if (query.location) params.set("where", query.location);
-    const data = await fetchJson<{ results: AdzunaResult[] }>(
-      `https://api.adzuna.com/v1/api/jobs/${country}/search/1?${params}`,
-      signal,
-    );
-    return data.results.map((j) => {
+    // Title searches match the job title only; description matches are mostly
+    // unrelated roles that merely mention the word.
+    if (query.titleOnly) {
+      params.delete("what");
+      params.set("title_only", query.keywords.join(" "));
+    }
+    const results: AdzunaResult[] = [];
+    for (let page = 1; page <= 2; page++) {
+      const data = await fetchJson<{ results: AdzunaResult[] }>(`https://api.adzuna.com/v1/api/jobs/${country}/search/${page}?${params}`, signal);
+      results.push(...data.results);
+      if (data.results.length < 50) break; // no further pages
+    }
+    return results.map((j) => {
       // Adzuna marks some salaries as model estimates - we only show real ones.
       const real = j.salary_is_predicted !== "1";
       return {

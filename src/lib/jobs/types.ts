@@ -25,6 +25,10 @@ export type SourceQuery = {
   country?: string;
   /** The end user who triggered the search (some APIs, e.g. Careerjet, require it). */
   client?: { ip: string; userAgent: string };
+  /** Only listings posted within this many days (sources that support it). */
+  maxDaysOld?: number;
+  /** Keywords must appear in the job title (sources that support it). */
+  titleOnly?: boolean;
 };
 
 /** Operator configuration resolved per run (DB overrides, then env). */

@@ -85,7 +85,7 @@ export const careerjet: SourceDefinition = {
       keywords: query.keywords.join(" "),
       page_size: "100",
       fragment_size: "600",
-      sort: "relevance",
+      sort: "date", // newest first; the search caps age at 30 days
       // Local development has no forwarded client IP.
       user_ip: /^(local|::1|::ffff:127\.0\.0\.1)$/.test(query.client.ip) ? "127.0.0.1" : query.client.ip,
       user_agent: query.client.userAgent,

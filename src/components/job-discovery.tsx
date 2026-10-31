@@ -2,11 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { EXPERIENCE_LEVELS } from "@/lib/jobs/rank";
 import type { JobCard as Job } from "@/lib/jobs/service";
 import type { SourceStatus } from "@/lib/jobs/types";
 import { cx } from "@/lib/format";
 import { Alert, api } from "./client";
 import { JobCard, JobCardSkeleton } from "./job-card";
+import { FilterMenu } from "./filter-menu";
 import { JobPreview } from "./job-preview";
 import { LocationPicker } from "./location-picker";
 import { describeFilters } from "./saved-searches";
@@ -26,6 +28,7 @@ type Filters = {
   salaryMin: string;
   posted: string;
   seniority: string[];
+  levels: string[];
   jobType: string[];
   sources: string[];
   onlySalary: boolean;
@@ -33,7 +36,14 @@ type Filters = {
   sort: string;
 };
 
-const EMPTY: Filters = { q: "", skills: "", company: "", country: "", city: "", includeRemote: true, workMode: [], salaryMin: "", posted: "", seniority: [], jobType: [], sources: [], onlySalary: false, view: "all", sort: "match" };
+const EMPTY: Filters = { q: "", skills: "", company: "", country: "", city: "", includeRemote: true, workMode: [], salaryMin: "", posted: "", seniority: [], levels: [], jobType: [], sources: [], onlySalary: false, view: "all", sort: "match" };
+
+const DATE_OPTIONS = [
+  { id: "", label: "Past month" },
+  { id: "7", label: "Past week" },
+  { id: "3", label: "Past 3 days" },
+  { id: "1", label: "Past 24 hours" },
+];
 
 const VIEWS = [
   { id: "all", label: "All matches" },
@@ -86,6 +96,12 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
   const [preview, setPreview] = useState<string | null>(null);
   const reqId = useRef(0);
 
+  // Result count for a pending filter-menu selection (no source fetches).
+  const countFor = useCallback(
+    async (patch: Partial<Filters>) => (await api<Result>(`/api/jobs/search?${toQuery({ ...filters, ...patch }, 1)}&countOnly=1`)).total,
+    [filters],
+  );
+
   const load = useCallback(async (f: Filters, p: number, refresh = false) => {
     const id = ++reqId.current;
     setLoading(true);
@@ -120,7 +136,7 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
     });
 
   const failing = data?.sources.filter((s) => s.error) ?? [];
-  const activeCount = [filters.workMode, filters.seniority, filters.jobType, filters.sources].reduce((a, v) => a + v.length, 0) + (filters.salaryMin ? 1 : 0) + (filters.posted ? 1 : 0) + (filters.onlySalary ? 1 : 0) + (filters.company ? 1 : 0);
+  const activeCount = [filters.workMode, filters.seniority, filters.jobType, filters.sources].reduce((a, v) => a + v.length, 0) + (filters.salaryMin ? 1 : 0) + (filters.onlySalary ? 1 : 0) + (filters.company ? 1 : 0);
 
   return (
     <div>
@@ -154,6 +170,28 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
         </button>
         <button className="btn-primary">Search</button>
 
+        <div className="flex flex-wrap items-center gap-2 md:col-span-5">
+          <FilterMenu
+            label="Date posted"
+            mode="single"
+            options={DATE_OPTIONS}
+            value={[filters.posted]}
+            defaultValue={[""]}
+            onApply={([posted]) => apply({ posted })}
+            countFor={([posted]) => countFor({ posted })}
+          />
+          <FilterMenu
+            label="Experience level"
+            mode="multi"
+            options={[...EXPERIENCE_LEVELS]}
+            value={filters.levels}
+            defaultValue={[]}
+            onApply={(levels) => apply({ levels })}
+            countFor={(levels) => countFor({ levels })}
+          />
+          <span className="text-xs text-slate-500">Listings are never older than 30 days.</span>
+        </div>
+
         {showFilters && (
           <div className="grid gap-5 border-t border-slate-100 pt-4 md:col-span-5 md:grid-cols-3">
             <div>
@@ -161,21 +199,8 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
               <Chips options={[{ id: "remote", label: "Remote" }, { id: "hybrid", label: "Hybrid" }, { id: "onsite", label: "On-site" }]} value={draft.workMode} onChange={(workMode) => apply({ workMode })} />
             </div>
             <div>
-              <p className="label">Seniority</p>
-              <Chips options={["intern", "junior", "mid", "senior", "lead", "executive"].map((s) => ({ id: s, label: s[0].toUpperCase() + s.slice(1) }))} value={draft.seniority} onChange={(seniority) => apply({ seniority })} />
-            </div>
-            <div>
               <p className="label">Job type</p>
               <Chips options={["full-time", "part-time", "contract", "intern"].map((s) => ({ id: s, label: s }))} value={draft.jobType} onChange={(jobType) => apply({ jobType })} />
-            </div>
-            <div>
-              <label className="label" htmlFor="posted">Date posted</label>
-              <select id="posted" className="input" value={draft.posted} onChange={(e) => apply({ posted: e.target.value })}>
-                <option value="">Any time</option>
-                <option value="1">Past 24 hours</option>
-                <option value="7">Past week</option>
-                <option value="30">Past month</option>
-              </select>
             </div>
             <div>
               <label className="label" htmlFor="salary">Minimum salary (yearly)</label>
@@ -287,6 +312,7 @@ function SaveSearchDialog({ filters, onClose }: { filters: Filters; onClose: () 
     ...(filters.salaryMin && { salaryMin: Number(filters.salaryMin) }),
     ...(filters.posted && { postedWithinDays: Number(filters.posted) }),
     ...(filters.seniority.length && { seniority: filters.seniority }),
+    ...(filters.levels.length && { levels: filters.levels }),
     ...(filters.jobType.length && { jobType: filters.jobType }),
     ...(filters.sources.length && { sources: filters.sources }),
     ...(filters.onlySalary && { onlySalary: true }),

@@ -25,6 +25,8 @@ export async function GET(req: Request) {
     salaryMin: num(p.get("salaryMin")),
     postedWithinDays: num(p.get("posted")),
     seniority: list(p.get("seniority")),
+    levels: list(p.get("levels")),
+    countOnly: p.get("countOnly") === "1",
     jobType: list(p.get("jobType")),
     sources: list(p.get("sources")),
     onlySalary: p.get("onlySalary") === "1",

@@ -22,6 +22,27 @@ export function detectSeniority(title: string): Seniority {
 
 const LEVELS: Seniority[] = ["intern", "junior", "mid", "senior", "lead", "executive"];
 
+/** Experience levels as job boards present them (filter + badge). */
+export const EXPERIENCE_LEVELS = [
+  { id: "internship", label: "Internship" },
+  { id: "entry", label: "Entry level" },
+  { id: "associate", label: "Associate" },
+  { id: "mid_senior", label: "Mid-Senior level" },
+  { id: "director", label: "Director" },
+  { id: "executive", label: "Executive" },
+] as const;
+export type ExperienceLevel = (typeof EXPERIENCE_LEVELS)[number]["id"];
+
+export function experienceLevel(title: string): ExperienceLevel {
+  const t = title.toLowerCase();
+  if (/\b(intern|internship|trainee|apprentice)\b/.test(t)) return "internship";
+  if (/\b(chief|c[etfoi]o|vp|svp|evp|vice president|president|managing director|partner)\b/.test(t)) return "executive";
+  if (/\b(director|head of|head,)\b/.test(t)) return "director";
+  if (/\bassociate\b/.test(t) && !/\b(senior|sr\.?|lead|principal|manager)\b/.test(t)) return "associate";
+  if (/\b(junior|jr\.?|entry[- ]level|graduate|fresher|freshers|new grad)\b/.test(t)) return "entry";
+  return "mid_senior";
+}
+
 export function yearsOfExperience(r: ResumeData): number {
   const years = r.experience.flatMap((e) => [e.startDate, e.endDate]).map((d) =>
     /present/i.test(d) ? new Date().getFullYear() : Number(d.match(/(19|20)\d{2}/)?.[0]),
@@ -140,6 +161,7 @@ export type MatchResult = {
   concerns: string[];
   breakdown: { label: string; points: number; max: number }[];
   seniority: Seniority;
+  level: ExperienceLevel;
   stale: boolean;
   semantic: "embeddings" | "lexical";
 };
@@ -282,7 +304,7 @@ export function scoreJob(job: ScorableJob, resumeOrCtx: ResumeData | MatchContex
   ];
   if (fb !== 0) breakdown.push({ label: "Your feedback", points: fb, max: 5 });
   const score = Math.max(0, Math.min(100, breakdown.reduce((a, b) => a + b.points, 0)));
-  return { score, matched, missing, reasons, concerns, breakdown, seniority, stale, semantic };
+  return { score, matched, missing, reasons, concerns, breakdown, seniority, level: experienceLevel(job.title), stale, semantic };
 }
 
 function safeVector(s: string): number[] | null {
