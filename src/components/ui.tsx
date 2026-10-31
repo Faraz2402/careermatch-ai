@@ -3,9 +3,9 @@ import { cx } from "@/lib/format";
 
 export function Logo({ className }: { className?: string }) {
   return (
-    <Link href="/" className={cx("flex items-center gap-2 font-display text-lg font-extrabold tracking-tight text-slate-900", className)}>
-      <span className="grid size-8 place-items-center rounded-lg bg-gradient-to-br from-brand-500 to-violet-600 text-sm text-white shadow-sm">CM</span>
-      CareerMatch<span className="text-brand-600">AI</span>
+    <Link href="/" className={cx("flex items-center gap-2.5 text-slate-900", className)} aria-label="CareerMatch AI home">
+      <span className="grid size-8 place-items-center rounded-[10px] border border-slate-300 bg-gradient-to-br from-slate-100 to-surface font-sans text-[11px] font-semibold tracking-tight">CM</span>
+      <span className="font-display text-xl">CareerMatch</span>
     </Link>
   );
 }

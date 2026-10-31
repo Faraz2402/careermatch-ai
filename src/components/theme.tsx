@@ -10,8 +10,7 @@ function apply(mode: Mode) {
   if (mode === "system") delete el.dataset.theme;
   else el.dataset.theme = mode;
   try {
-    if (mode === "system") localStorage.removeItem(KEY);
-    else localStorage.setItem(KEY, mode);
+    localStorage.setItem(KEY, mode);
   } catch {
     /* storage unavailable - theme still applies for this page */
   }

@@ -2,29 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const MAGNETIC = ".btn-fluid, [data-magnet]";
+const MAGNETIC = ".btn-fluid, .btn-primary, .btn-secondary, [data-magnet]";
 
 /**
- * Homepage interactions: pointer-tracked glows on fluid buttons and bento
- * tiles, scroll reveals, and (on mouse devices without reduced motion) a dot
- * cursor that becomes a magnetic ring over buttons and cards.
+ * Marketing-page interactions: scroll reveals and (on mouse devices without
+ * reduced motion) a dot cursor that becomes a magnetic ring over buttons and
+ * cards. Button glows follow the pointer via PointerGlow.
  */
 export function LandingFx() {
   const [cursor, setCursor] = useState(false);
   const dot = useRef<HTMLDivElement>(null);
   const ring = useRef<HTMLDivElement>(null);
 
-  // Glow tracking + reveals: everywhere.
+  // Scroll reveals.
   useEffect(() => {
-    const track = (e: PointerEvent) => {
-      const el = (e.target as Element | null)?.closest<HTMLElement>(".btn-fluid, .bento");
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      el.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      el.style.setProperty("--my", `${e.clientY - r.top}px`);
-    };
-    document.addEventListener("pointermove", track, { passive: true });
-
     const io = new IntersectionObserver(
       (entries) => {
         for (const en of entries) {
@@ -40,17 +31,14 @@ export function LandingFx() {
     const fine = window.matchMedia("(pointer: fine)").matches;
     const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     setCursor(fine && !calm);
-    return () => {
-      document.removeEventListener("pointermove", track);
-      io.disconnect();
-    };
+    return () => io.disconnect();
   }, []);
 
   // Custom cursor.
   useEffect(() => {
     if (!cursor) return;
-    const root = document.querySelector(".lux");
-    root?.classList.add("lux-cursor-on");
+    const root = document.documentElement;
+    root.classList.add("lux-cursor-on");
     const p = { x: -100, y: -100 }, r = { x: -100, y: -100 };
     let target: HTMLElement | null = null;
     let frame = 0;
@@ -65,7 +53,7 @@ export function LandingFx() {
         ring.current?.classList.toggle("is-active", !!target);
       }
       // Magnetic pull: the target leans a little toward the pointer.
-      if (target && target.matches(".btn-fluid")) {
+      if (target && !target.matches("[data-magnet]")) {
         const b = target.getBoundingClientRect();
         target.style.translate = `${(p.x - (b.left + b.width / 2)) * 0.18}px ${(p.y - (b.top + b.height / 2)) * 0.28}px`;
       }
@@ -82,7 +70,7 @@ export function LandingFx() {
     const tick = () => {
       // The ring settles on the target's centre (with a little pointer pull), or trails the dot.
       let tx = p.x, ty = p.y;
-      if (target && target.matches(".btn-fluid")) {
+      if (target && !target.matches("[data-magnet]")) {
         const b = target.getBoundingClientRect();
         tx = b.left + b.width / 2 + (p.x - (b.left + b.width / 2)) * 0.35;
         ty = b.top + b.height / 2 + (p.y - (b.top + b.height / 2)) * 0.35;
@@ -104,7 +92,7 @@ export function LandingFx() {
       document.removeEventListener("pointerdown", down);
       document.removeEventListener("pointerup", up);
       document.documentElement.removeEventListener("pointerleave", leave);
-      root?.classList.remove("lux-cursor-on");
+      root.classList.remove("lux-cursor-on");
       if (target) target.style.translate = "";
     };
   }, [cursor]);

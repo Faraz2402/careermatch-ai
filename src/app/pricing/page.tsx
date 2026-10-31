@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PaymentMethods } from "@/components/payment-methods";
 import { UpgradeButton } from "@/components/upgrade-button";
+import { LandingFx } from "@/components/landing-fx";
 import { Logo } from "@/components/ui";
 import { getCurrentUser } from "@/lib/auth";
 import { paymentMethods } from "@/lib/billing";
@@ -27,13 +28,15 @@ export default async function PricingPage() {
   const yearlySaving = Math.round(100 - (prices.yearly / (prices.monthly * 12)) * 100);
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,var(--color-brand-100),transparent_60%)]">
-      <header className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
+    <div className="relative min-h-screen overflow-hidden">
+      <LandingFx />
+      <div aria-hidden className="lux-aurora pointer-events-none absolute -top-72 left-1/2 h-[640px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.2),rgba(8,145,178,0.07)_55%,transparent)] blur-2xl" />
+      <header className="relative mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
         <Logo />
         <Link href={user ? "/dashboard" : "/login"} className="btn-ghost">{user ? "Dashboard" : "Sign in"}</Link>
       </header>
-      <main className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-        <h1 className="text-center font-display text-4xl font-extrabold tracking-tight">Simple pricing</h1>
+      <main className="relative mx-auto max-w-5xl px-4 py-12 sm:px-6">
+        <h1 className="text-center font-display text-5xl sm:text-6xl">Simple, <em>honest</em> pricing.</h1>
         <p className="mt-3 text-center text-slate-600">Start free. Buy a Pro pass when you&apos;re applying at full speed — no auto-debit, no subscription to cancel.</p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
