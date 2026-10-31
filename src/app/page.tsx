@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DemoButton } from "@/components/client";
 import { JsonLd, organization, softwareApplication } from "@/components/json-ld";
 import { LandingFx } from "@/components/landing-fx";
+import { LandingNav } from "@/components/landing-nav";
 import type { Metadata } from "next";
 import { getCurrentUser } from "@/lib/auth";
 import { appUrl } from "@/lib/site-url";
@@ -77,11 +78,7 @@ export default async function Landing() {
             <Image src="/brand/mark.png" alt="" width={32} height={32} priority unoptimized className="size-8" />
             <span className="lux-serif text-xl">CareerMatch</span>
           </Link>
-          <nav className="hidden items-center gap-8 text-[15px] text-[#d4d4d8] md:flex" aria-label="Sections">
-            <a href="#product" className="transition hover:text-white">Product</a>
-            <a href="#method" className="transition hover:text-white">Method</a>
-            <Link href="/pricing" className="transition hover:text-white">Pricing</Link>
-          </nav>
+          <LandingNav className="hidden md:block" />
           <div className="flex items-center gap-2">
             {user ? (
               <Link href="/dashboard" className="btn-fluid !px-5 !py-2.5">Dashboard <span className="arrow">→</span></Link>
@@ -93,6 +90,7 @@ export default async function Landing() {
             )}
           </div>
         </div>
+        <LandingNav className="flex justify-center px-4 pb-3 md:hidden" />
       </header>
 
       <main id="main" className="relative z-10">
