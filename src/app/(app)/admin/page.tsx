@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AdminSources } from "@/components/admin-sources";
 import { PageHeader } from "@/components/ui";
 import { AI_MODEL, AI_PROVIDER, aiEnabled } from "@/lib/ai";
+import { tavilyEnabled } from "@/lib/tavily";
 import { requireAdmin } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { relativeDate } from "@/lib/format";
@@ -26,6 +27,7 @@ export default async function AdminPage() {
     [AI_PROVIDER === "gemini" ? `Gemini (${AI_MODEL})` : "Claude (AI)", aiEnabled()],
     ["Voyage embeddings", !!process.env.VOYAGE_API_KEY],
     ["Email (Resend)", mailConfigured()],
+    ["Web search (Tavily)", tavilyEnabled()],
     ["Razorpay payments", billingConfigured()],
     ["Google sign-in", !!process.env.GOOGLE_CLIENT_ID],
     ["Redis rate limits", !!process.env.UPSTASH_REDIS_REST_URL],
