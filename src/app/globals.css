@@ -155,3 +155,242 @@ body {
 @utility chip {
     @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
 }
+
+/* ---------------------------------------------------------------------------
+   Marketing site ("lux"): always-dark obsidian, independent of the app theme.
+   Colours are literal on purpose so the app's light/dark tokens don't leak in.
+--------------------------------------------------------------------------- */
+.lux {
+  --lux-bg: #050505;
+  --lux-raise: #0b0b0c;
+  --lux-line: #27272a;
+  --lux-muted: #71717a;
+  --lux-soft: #a1a1aa;
+  --lux-ease: cubic-bezier(0.25, 1, 0.5, 1);
+  color-scheme: dark;
+  background: var(--lux-bg);
+  color: #fff;
+  font-family: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.011em;
+}
+.lux ::selection {
+  background: rgb(139 92 246 / 0.45);
+  color: #fff;
+}
+.lux-serif {
+  font-family: var(--font-playfair), ui-serif, Georgia, serif;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+/* Fine film grain + vignette for depth */
+.lux-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.lux-glass {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.045), rgb(255 255 255 / 0.015));
+  border: 1px solid rgb(255 255 255 / 0.08);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 30px 80px -30px rgb(0 0 0 / 0.8);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+/* --- The fluid button ------------------------------------------------------
+   Idle: dark capsule, hairline border, internal blur. Hover: stretches and a
+   liquid violet->cyan glow pools under the glass, following the pointer
+   (--mx/--my are set by LandingFx). Active: micro-press. */
+.btn-fluid {
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 0.85rem 1.6rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #fff;
+  background: rgb(255 255 255 / 0.04);
+  border: 1px solid rgb(255 255 255 / 0.14);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08);
+  backdrop-filter: blur(12px);
+  transition: all 500ms var(--lux-ease, cubic-bezier(0.25, 1, 0.5, 1));
+  cursor: pointer;
+}
+.btn-fluid::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  background:
+    radial-gradient(140px circle at var(--mx) var(--my), rgb(255 255 255 / 0.35), transparent 60%),
+    radial-gradient(260px circle at var(--mx) var(--my), rgb(139 92 246 / 0.85), transparent 65%),
+    linear-gradient(115deg, #6d28d9, #4f46e5 45%, #0891b2);
+  transform: scale(0.6);
+  transition: opacity 500ms var(--lux-ease, ease), transform 700ms var(--lux-ease, ease);
+}
+.btn-fluid:hover {
+  padding-inline: 1.95rem;
+  border-color: rgb(255 255 255 / 0.32);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 12px 40px -8px rgb(124 58 237 / 0.55), 0 0 0 1px rgb(139 92 246 / 0.25);
+}
+.btn-fluid:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+.btn-fluid:active {
+  transform: scale(0.95);
+  transition-duration: 120ms;
+}
+.btn-fluid:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 3px;
+}
+.btn-fluid:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* Solid variant for the main call to action */
+.btn-fluid.is-solid {
+  color: #050505;
+  background: #fff;
+  border-color: #fff;
+}
+.btn-fluid.is-solid:hover {
+  color: #fff;
+}
+.btn-fluid .arrow {
+  transition: transform 500ms var(--lux-ease, ease);
+}
+.btn-fluid:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* --- Bento tiles: border lights up around the pointer ----------------------- */
+.bento {
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  border-radius: 1.5rem;
+  background: linear-gradient(180deg, #0e0e10, #09090a);
+  border: 1px solid var(--lux-line);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04), inset 0 -40px 80px -40px rgb(0 0 0 / 0.6);
+  transition: border-color 500ms var(--lux-ease), transform 500ms var(--lux-ease), box-shadow 500ms var(--lux-ease);
+  overflow: hidden;
+}
+.bento::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(320px circle at var(--mx) var(--my), rgb(167 139 250 / 0.9), rgb(34 211 238 / 0.35) 40%, transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 500ms var(--lux-ease);
+}
+.bento::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgb(139 92 246 / 0.07), transparent 60%);
+  opacity: 0;
+  transition: opacity 500ms var(--lux-ease);
+}
+.bento:hover {
+  border-color: #3f3f46;
+  transform: translateY(-2px);
+}
+.bento:hover::after,
+.bento:hover::before {
+  opacity: 1;
+}
+
+/* --- Reveals: .reveal-now plays on load (above the fold, no JS needed);
+   .reveal waits until scrolled into view (hidden only when JS can reveal it). */
+@keyframes lux-fade-up {
+  from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@media (scripting: enabled) {
+  .reveal:not(.is-in) { opacity: 0; }
+}
+.reveal.is-in,
+.reveal-now {
+  animation: lux-fade-up 900ms var(--lux-ease, ease) both;
+  animation-delay: var(--delay, 0ms);
+}
+@keyframes lux-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2%, -3%, 0) scale(1.06); }
+}
+.lux-aurora { animation: lux-drift 16s ease-in-out infinite; }
+@keyframes lux-sheen {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+.lux-sheen {
+  background: linear-gradient(110deg, #fff 35%, #c4b5fd 45%, #67e8f9 52%, #fff 62%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: lux-sheen 9s linear infinite;
+}
+
+/* --- Custom cursor: a dot that becomes a magnetic ring over targets -------- */
+.lux-cursor-on,
+.lux-cursor-on a,
+.lux-cursor-on button { cursor: none; }
+.lux-cursor {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  border-radius: 9999px;
+  transform: translate3d(-100px, -100px, 0);
+  will-change: transform;
+}
+.lux-cursor.dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: #fff;
+  mix-blend-mode: difference;
+}
+.lux-cursor.ring {
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1px solid rgb(255 255 255 / 0.5);
+  opacity: 0;
+  transition: width 400ms var(--lux-ease, ease), height 400ms var(--lux-ease, ease), margin 400ms var(--lux-ease, ease), opacity 300ms ease, border-color 400ms ease, background 400ms ease;
+}
+.lux-cursor.ring.is-active {
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  opacity: 1;
+  border-color: rgb(196 181 253 / 0.8);
+  background: rgb(139 92 246 / 0.06);
+}
+.lux-cursor.ring.is-down {
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+}
