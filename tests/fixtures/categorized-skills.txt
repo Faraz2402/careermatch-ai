@@ -1,0 +1,23 @@
+Riya Sharma
+Procurement Analyst
+Pune, India | riya.sharma@example.com
+
+Experience
+Procurement Analyst | Sample Corp
+Jan 2022 – Present
+• Built spend dashboards in Power BI covering 500 suppliers.
+
+Skills
+Spend Analytics & BI: Power BI (DAX, data modeling, drill-through), KPI dashboards, Tableau (basic)
+ERP & Platforms: SAP MM (PO, vendor master, MRP), Oracle NetSuite (P2P), SAP Ariba (contract data)
+Tools: Excel (advanced), Power Query, SQL
+
+Education
+Post Graduate Diploma in Data Science	Jan 2018 – Dec 2018
+Example Academy of Higher Education, Bengaluru, India
+Bachelor of Business Administration	Sep 2006 – May 2009
+Sample University, Pune, India
+
+Certification
+Six Sigma White Belt	Feb 2026
+Council for Six Sigma Certification (C.S.S.C)

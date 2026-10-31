@@ -153,3 +153,16 @@ export function groupSkills(skills: string[]): { category: string; skills: strin
   }
   return [...groups.entries()].map(([category, s]) => ({ category, skills: [...s] }));
 }
+
+const QUALIFIERS = /^(basic|advanced|intermediate|expert|beginner|proficient|working knowledge|familiar)$/i;
+
+/**
+ * Terms to match for one resume skill as the user wrote it:
+ * "Power BI (DAX, data modeling, drill-through)" -> Power BI, DAX, data modeling, drill-through
+ * "Excel (advanced)" -> Excel
+ */
+export function skillTerms(skill: string): string[] {
+  const base = skill.replace(/\s*[([].*?[)\]]\s*/g, " ").replace(/\s+/g, " ").trim();
+  const inner = [...skill.matchAll(/[([]([^)\]]+)[)\]]/g)].flatMap((m) => m[1].split(/[,;/]/)).map((s) => s.trim());
+  return [...new Set([base, ...inner])].filter((s) => s.length > 1 && !QUALIFIERS.test(s));
+}

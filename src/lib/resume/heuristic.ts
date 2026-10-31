@@ -89,41 +89,9 @@ export function parseResumeHeuristically(text: string): ResumeData {
 
   r.experience = parseExperience((sections.experience ?? []).filter(Boolean), linkedIn);
 
-  // Education
-  const edu = (sections.education ?? []).filter(Boolean);
-  for (let i = 0; i < edu.length; i++) {
-    const line = edu[i];
-    if (/universit|college|school|institute|academy/i.test(line)) {
-      const range = line.match(RANGE) ?? edu[i + 1]?.match(RANGE);
-      const year = line.match(/(?:19|20)\d{2}/g);
-      const degreeLine = [edu[i - 1], edu[i + 1]].find((l) => l && /(b\.?s|b\.?a|m\.?s|m\.?a|mba|ph\.?d|bachelor|master|associate|diploma|degree)/i.test(l)) ?? "";
-      r.education.push({
-        school: line.replace(RANGE, "").replace(/[|,–—-]\s*$/, "").trim(),
-        degree: degreeLine.replace(RANGE, "").trim(),
-        field: "",
-        startDate: range?.[1] ?? "",
-        endDate: range ? cap(range[2]) : year?.at(-1) ?? "",
-        details: "",
-      });
-    }
-  }
-
-  // Skills: explicit list first, then vocabulary found anywhere.
-  const listed = (sections.skills ?? [])
-    .flatMap((l) => l.replace(/^[^:]{1,30}:/, "").split(/[,;|•·]/))
-    .map((s) => stripBullet(s).trim())
-    .filter((s) => s.length > 1 && s.length < 40);
-  const detected = extractSkills(text).map((s) => s.name);
-  r.skills = groupSkills([...new Set([...listed, ...detected])]);
-
-  r.certifications = (sections.certifications ?? [])
-    .filter(Boolean)
-    .map((l) => {
-      const clean = stripBullet(l);
-      const date = clean.match(/(?:19|20)\d{2}/)?.[0] ?? "";
-      const [name, issuer = ""] = clean.replace(date, "").split(/\s[-–—|,]\s|,\s/);
-      return { name: name.trim(), issuer: issuer.trim(), date };
-    });
+  r.education = parseEducation((sections.education ?? []).filter(Boolean));
+  r.skills = parseSkills((sections.skills ?? []).filter(Boolean), text);
+  r.certifications = parseCertifications((sections.certifications ?? []).filter(Boolean));
 
   const proj = (sections.projects ?? []).filter(Boolean);
   let p: ResumeData["projects"][number] | null = null;
@@ -250,6 +218,120 @@ function pickTitleCompany(headers: string[], linkedIn: boolean): { title: string
   }
   // No title keyword: LinkedIn prints company first, most resumes title first.
   return linkedIn ? { title: parts[1], company: parts[0] } : { title: parts[0], company: parts[1] };
+}
+
+// --- Education -----------------------------------------------------------------
+
+const SCHOOL_RE = /universit|college|school|institute|academy|polytechnic|iit\b|iim\b|nit\b/i;
+const DEGREE_RE = /\b(b\.?\s?(?:s|a|sc|com|tech|e|ba)|m\.?\s?(?:s|a|sc|com|tech|e)|mba|bba|bca|mca|ph\.?\s?d|bachelor|master|associate degree|diploma|degree|certificate|post\s?graduate|pgd[a-z]*|hsc|ssc|high school)\b/i;
+const SINGLE_DATE = new RegExp(`(${DATE})`, "i");
+
+function datesOf(line: string): { start: string; end: string } | null {
+  const range = line.match(RANGE);
+  if (range) return { start: range[1], end: cap(range[2]) };
+  const single = line.match(SINGLE_DATE);
+  return single ? { start: "", end: single[1] } : null;
+}
+
+const withoutDates = (l: string) => l.replace(RANGE, "").replace(SINGLE_DATE, "").replace(/[\s|,–—-]+$/, "").trim();
+
+/**
+ * Pair each school line with its own degree line - whichever side it sits on -
+ * and take dates from that pair only (never from the neighbouring entry).
+ * Handles "Degree ⇥ dates / School, City" and "School / Degree, dates".
+ */
+function parseEducation(lines: string[]): ResumeData["education"] {
+  const used = new Set<number>();
+  const out: ResumeData["education"] = [];
+  const isSchool = (l: string) => SCHOOL_RE.test(l) && !DEGREE_RE.test(withoutDates(l).split(",")[0]);
+  lines.forEach((line, i) => {
+    if (!isSchool(line) || used.has(i)) return;
+    used.add(i);
+    // Prefer the degree line directly above (if unclaimed), else directly below.
+    const pick = [i - 1, i + 1].find((j) => j >= 0 && j < lines.length && !used.has(j) && !isSchool(lines[j]) && (DEGREE_RE.test(lines[j]) || datesOf(lines[j])));
+    if (pick !== undefined) used.add(pick);
+    const degreeLine = pick !== undefined ? lines[pick] : "";
+    const dates = datesOf(line) ?? (degreeLine ? datesOf(degreeLine) : null);
+
+    // "Manipal Academy of Higher Education, Bengaluru, India" -> school + place.
+    const [school, ...place] = withoutDates(line).split(/\s*,\s*/);
+    // "Post Graduate Diploma in Data Science" -> degree + field.
+    const degreeText = withoutDates(degreeLine);
+    const m = degreeText.match(/^(.+?)\s+in\s+(.+)$/i);
+    out.push({
+      school: school.trim(),
+      degree: (m ? m[1] : degreeText).trim(),
+      field: (m ? m[2] : "").trim(),
+      startDate: dates?.start ?? "",
+      endDate: dates?.end ?? "",
+      details: place.join(", "),
+    });
+  });
+  return out;
+}
+
+// --- Skills ----------------------------------------------------------------------
+
+/** Split on commas/semicolons that are NOT inside parentheses. */
+export function splitTopLevel(s: string): string[] {
+  const out: string[] = [];
+  let depth = 0;
+  let cur = "";
+  for (const ch of s) {
+    if (ch === "(" || ch === "[") depth++;
+    if ((ch === ")" || ch === "]") && depth > 0) depth--;
+    if (depth === 0 && /[,;|•·]/.test(ch)) {
+      out.push(cur);
+      cur = "";
+    } else cur += ch;
+  }
+  out.push(cur);
+  // One-letter skills ("C", "R") are real; only drop empty fragments.
+  return out.map((x) => x.trim()).filter((x) => /[A-Za-z0-9]/.test(x));
+}
+
+/**
+ * Keep the resume's own categories ("Spend Analytics & BI: Power BI (DAX, …)")
+ * and its wording. Only when there's no skills section do we fall back to
+ * skills detected in the text.
+ */
+function parseSkills(lines: string[], fullText: string): ResumeData["skills"] {
+  const groups: ResumeData["skills"] = [];
+  const loose: string[] = [];
+  for (const raw of lines) {
+    const line = stripBullet(raw);
+    const m = line.match(/^([^:]{2,50}):\s*(.+)$/);
+    if (m) {
+      const skills = splitTopLevel(m[2]).filter((s) => s.length < 80);
+      if (skills.length) groups.push({ category: m[1].trim(), skills });
+    } else {
+      loose.push(...splitTopLevel(line).filter((s) => s.length < 60));
+    }
+  }
+  if (loose.length) groups.push(...groupSkills(loose));
+  if (groups.length) return groups;
+  return groupSkills(extractSkills(fullText).map((s) => s.name));
+}
+
+// --- Certifications ------------------------------------------------------------
+
+/** "Name ⇥ date" lines, each optionally followed by an issuer line. */
+function parseCertifications(lines: string[]): ResumeData["certifications"] {
+  const out: ResumeData["certifications"] = [];
+  for (const raw of lines) {
+    const line = stripBullet(raw);
+    const date = line.match(SINGLE_DATE)?.[1] ?? line.match(/(?:19|20)\d{2}/)?.[0] ?? "";
+    const last = out[out.length - 1];
+    // A dateless line right after a cert without an issuer is that cert's issuer.
+    if (!date && last && !last.issuer) {
+      last.issuer = line;
+      continue;
+    }
+    const rest = withoutDates(line.replace(date, ""));
+    const [name, issuer = ""] = rest.split(/\s+[|–—]\s+|\s+-\s+(?=[A-Z])/);
+    out.push({ name: name.trim(), issuer: issuer.trim(), date });
+  }
+  return out.filter((c) => c.name);
 }
 
 const cap = (s: string) => (/present|current|now/i.test(s) ? "Present" : s);

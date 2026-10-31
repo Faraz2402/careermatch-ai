@@ -5,7 +5,7 @@
 //   Salary 5 · Recency 5  (= 100)  plus up to ±5 from the user's own feedback.
 
 import { allSkills, type JobPreferences, type ResumeData } from "../resume/schema";
-import { canonicalSkill, extractSkills, textMentionsSkill } from "../skills";
+import { canonicalSkill, extractSkills, skillTerms, textMentionsSkill } from "../skills";
 import type { NormalizedJob } from "./types";
 
 export type Seniority = "intern" | "junior" | "mid" | "senior" | "lead" | "executive";
@@ -149,7 +149,8 @@ export function buildMatchContext(resume: ResumeData, prefs: JobPreferences, opt
     profileTerms: terms(profileText),
     profileEmbedding: opts.profileEmbedding ?? null,
     feedback: opts.feedback ?? { liked: [], disliked: [] },
-    userSkills: [...new Set(allSkills(resume).map(canonicalSkill))],
+    // "Power BI (DAX, data modeling)" matches on Power BI, DAX and data modeling.
+    userSkills: [...new Set(allSkills(resume).flatMap(skillTerms).map(canonicalSkill))],
   };
 }
 
