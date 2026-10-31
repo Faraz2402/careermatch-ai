@@ -16,7 +16,7 @@ const ORDER: Kind[] = ["match_analysis", "missing_skills", "ats_resume", "cover_
 const SHORT: Record<Kind, string> = { match_analysis: "Match", missing_skills: "Gaps", ats_resume: "ATS resume", cover_letter: "Cover letter", talking_points: "Talking points" };
 const EXPORTABLE: Kind[] = ["ats_resume", "cover_letter"];
 
-export function GeneratorPanel({ jobId, labels, initial, aiEnabled, bases }: { jobId: string; labels: Record<Kind, string>; initial: Partial<Record<Kind, Gen>>; aiEnabled: boolean; bases: BaseResume[] }) {
+export function GeneratorPanel({ jobId, labels, initial, aiEnabled, bases, exportNote }: { jobId: string; labels: Record<Kind, string>; initial: Partial<Record<Kind, Gen>>; aiEnabled: boolean; bases: BaseResume[]; exportNote?: string }) {
   const toast = useToast();
   const [kind, setKind] = useState<Kind>("match_analysis");
   const [gens, setGens] = useState(initial);
@@ -133,6 +133,11 @@ export function GeneratorPanel({ jobId, labels, initial, aiEnabled, bases }: { j
                   <a className="btn-primary px-3 py-1 text-xs" href={`/api/generations/${current.id}/export?format=docx&template=${template}`}>⬇ Word</a>
                 </div>
                 <p className="text-[11px] text-slate-500">Single-column, standard headings, real text — safe for applicant tracking systems.</p>
+                {kind === "ats_resume" && exportNote && (
+                  <p className="text-[11px] text-amber-700">
+                    {exportNote} <a href="/pricing" className="font-semibold underline">Go Pro for unlimited exports</a>
+                  </p>
+                )}
               </div>
             )}
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
