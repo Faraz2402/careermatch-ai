@@ -21,7 +21,7 @@ Everything optional degrades gracefully. Without each key:
 
 | Missing | What happens instead |
 | --- | --- |
-| Claude key | Rule-based parser and template drafts, both labelled in the UI |
+| Claude or Gemini key | Rule-based parser and template drafts, both labelled in the UI |
 | Voyage key | Lexical similarity plus role-family matching |
 | Resend key | Emails go to the dev outbox at `/dev/outbox` |
 | Razorpay keys | Pricing page says payments aren't set up |

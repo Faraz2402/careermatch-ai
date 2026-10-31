@@ -103,7 +103,7 @@ export async function generate<K extends Kind>(
   return {
     content: template(kind, resume, prefs, job),
     engine: "template",
-    warning: "AI is not configured (set ANTHROPIC_API_KEY). This is a rule-based draft built only from your profile and the posting.",
+    warning: "AI is not configured (set GEMINI_API_KEY or ANTHROPIC_API_KEY). This is a rule-based draft built only from your profile and the posting.",
   };
 }
 

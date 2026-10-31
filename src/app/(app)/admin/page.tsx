@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AdminSources } from "@/components/admin-sources";
 import { PageHeader } from "@/components/ui";
+import { AI_MODEL, AI_PROVIDER, aiEnabled } from "@/lib/ai";
 import { requireAdmin } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { relativeDate } from "@/lib/format";
@@ -22,7 +23,7 @@ export default async function AdminPage() {
     db.sourceRun.findMany({ where: { ok: false }, orderBy: { startedAt: "desc" }, take: 8 }),
   ]);
   const integrations = [
-    ["Claude (AI)", !!(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN)],
+    [AI_PROVIDER === "gemini" ? `Gemini (${AI_MODEL})` : "Claude (AI)", aiEnabled()],
     ["Voyage embeddings", !!process.env.VOYAGE_API_KEY],
     ["Email (Resend)", mailConfigured()],
     ["Razorpay payments", billingConfigured()],

@@ -1,14 +1,19 @@
 import "server-only";
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
-import type { z } from "zod";
+import { z } from "zod";
 
-export const AI_MODEL = "claude-opus-5-5";
+const anthropicEnabled = () => Boolean(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN);
+const geminiEnabled = () => Boolean(process.env.GEMINI_API_KEY);
+
+/** Claude when its key is set, otherwise Google Gemini (AI Studio key). */
+export const AI_PROVIDER: "anthropic" | "gemini" | null = anthropicEnabled() ? "anthropic" : geminiEnabled() ? "gemini" : null;
+export const AI_MODEL = AI_PROVIDER === "gemini" ? (process.env.GEMINI_MODEL || "gemini-3.5-flash") : "claude-opus-5-5";
 
 let client: Anthropic | null = null;
 
 export function aiEnabled() {
-  return Boolean(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN);
+  return AI_PROVIDER !== null;
 }
 
 function getClient() {
@@ -30,6 +35,7 @@ export async function generateStructured<S extends z.ZodType>(opts: {
   effort?: "low" | "medium" | "high";
   maxTokens?: number;
 }): Promise<z.infer<S>> {
+  if (AI_PROVIDER === "gemini") return geminiStructured(opts);
   const res = await getClient()
     .beta.messages.parse({
       model: AI_MODEL,
@@ -72,6 +78,10 @@ export async function* streamText(opts: {
   effort?: "low" | "medium" | "high";
   maxTokens?: number;
 }): AsyncGenerator<string> {
+  if (AI_PROVIDER === "gemini") {
+    yield* geminiStream(opts);
+    return;
+  }
   const stream = getClient().beta.messages.stream({
     model: AI_MODEL,
     max_tokens: opts.maxTokens ?? 8000,
@@ -96,6 +106,79 @@ export async function* streamText(opts: {
     if (err instanceof Anthropic.APIConnectionError) throw new AIError("Could not reach the AI service.");
     if (err instanceof Anthropic.APIError) throw new AIError(`AI request failed (${err.status ?? "error"}).`);
     throw err;
+  }
+}
+
+// --- Google Gemini (REST, no SDK) -----------------------------------------
+
+const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models";
+
+type GeminiPart = { text?: string; thought?: boolean };
+type GeminiResponse = { candidates?: { content?: { parts?: GeminiPart[] }; finishReason?: string }[]; promptFeedback?: { blockReason?: string } };
+
+function geminiBody(opts: { system: string; messages: { role: "user" | "assistant"; content: string }[]; effort?: "low" | "medium" | "high"; maxTokens?: number }, extra: Record<string, unknown> = {}) {
+  return JSON.stringify({
+    systemInstruction: { parts: [{ text: opts.system }] },
+    contents: opts.messages.map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.content }] })),
+    generationConfig: { maxOutputTokens: opts.maxTokens ?? 16000, thinkingConfig: { thinkingLevel: opts.effort ?? "medium" }, ...extra },
+  });
+}
+
+async function geminiFetch(method: string, body: string) {
+  const res = await fetch(`${GEMINI_URL}/${AI_MODEL}:${method}`, {
+    method: "POST",
+    headers: { "x-goog-api-key": process.env.GEMINI_API_KEY!, "Content-Type": "application/json" },
+    body,
+    signal: AbortSignal.timeout(120_000),
+  }).catch(() => {
+    throw new AIError("Could not reach the AI service.");
+  });
+  if (res.status === 429) throw new AIError("The AI service is busy. Please try again in a minute.");
+  if (res.status === 401 || res.status === 403) throw new AIError("The AI API key is invalid or missing.");
+  if (!res.ok) throw new AIError(`AI request failed (${res.status}).`);
+  return res;
+}
+
+function checkFinish(r: GeminiResponse) {
+  if (r.promptFeedback?.blockReason) throw new AIError("The AI declined this request.");
+  const reason = r.candidates?.[0]?.finishReason;
+  if (reason === "SAFETY" || reason === "PROHIBITED_CONTENT") throw new AIError("The AI declined this request.");
+  if (reason === "MAX_TOKENS") throw new AIError("The AI response was too long and got cut off.");
+}
+
+const answerText = (r: GeminiResponse) => (r.candidates?.[0]?.content?.parts ?? []).filter((p) => !p.thought && p.text).map((p) => p.text).join("");
+
+async function geminiStructured<S extends z.ZodType>(opts: { system: string; prompt: string; schema: S; effort?: "low" | "medium" | "high"; maxTokens?: number }): Promise<z.infer<S>> {
+  const schema = z.toJSONSchema(opts.schema, { target: "draft-2020-12" }) as Record<string, unknown>;
+  delete schema.$schema;
+  const res = await geminiFetch("generateContent", geminiBody({ ...opts, messages: [{ role: "user", content: opts.prompt }] }, { responseMimeType: "application/json", responseJsonSchema: schema }));
+  const r = (await res.json()) as GeminiResponse;
+  checkFinish(r);
+  try {
+    return opts.schema.parse(JSON.parse(answerText(r))) as z.infer<S>;
+  } catch {
+    throw new AIError("The AI returned an unexpected format.");
+  }
+}
+
+async function* geminiStream(opts: { system: string; messages: { role: "user" | "assistant"; content: string }[]; effort?: "low" | "medium" | "high"; maxTokens?: number }): AsyncGenerator<string> {
+  const res = await geminiFetch("streamGenerateContent?alt=sse", geminiBody({ ...opts, maxTokens: opts.maxTokens ?? 8000 }));
+  const reader = res.body!.pipeThrough(new TextDecoderStream()).getReader();
+  let buf = "";
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += value;
+    let i;
+    while ((i = buf.indexOf("\n")) >= 0) {
+      const line = buf.slice(0, i).trim();
+      buf = buf.slice(i + 1);
+      if (!line.startsWith("data:")) continue;
+      const r = JSON.parse(line.slice(5)) as GeminiResponse;
+      const text = answerText(r);
+      if (text) yield text;
+      checkFinish(r);
+    }
   }
 }
 
