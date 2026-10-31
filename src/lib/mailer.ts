@@ -9,7 +9,7 @@ export { appUrl };
 export type Email = { to: string; subject: string; html: string; text?: string };
 
 export function mailConfigured() {
-  return Boolean(process.env.RESEND_API_KEY && process.env.EMAIL_FROM);
+  return Boolean(process.env.RESEND_API_KEY?.trim() && process.env.EMAIL_FROM?.trim());
 }
 
 /**
@@ -24,8 +24,8 @@ export async function sendEmail(email: Email): Promise<{ delivered: boolean }> {
   }
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
-    headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: process.env.EMAIL_FROM, to: [email.to], subject: email.subject, html: email.html, text: email.text }),
+    headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY!.trim()}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ from: process.env.EMAIL_FROM!.trim(), to: [email.to], subject: email.subject, html: email.html, text: email.text }),
   });
   if (!res.ok) {
     log.error("mail.failed", { status: res.status, to: email.to });

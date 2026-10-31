@@ -34,9 +34,13 @@ export function proPrices(): Record<Period, number> {
   };
 }
 
-export const billingConfigured = () => Boolean(process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET);
+// Trimmed: values pasted into hosting dashboards/CLIs can carry a stray newline.
+const keyId = () => process.env.RAZORPAY_KEY_ID?.trim() ?? "";
+const keySecret = () => process.env.RAZORPAY_KEY_SECRET?.trim() ?? "";
 
-const auth = () => `Basic ${Buffer.from(`${process.env.RAZORPAY_KEY_ID}:${process.env.RAZORPAY_KEY_SECRET}`).toString("base64")}`;
+export const billingConfigured = () => Boolean(keyId() && keySecret());
+
+const auth = () => `Basic ${Buffer.from(`${keyId()}:${keySecret()}`).toString("base64")}`;
 
 async function razorpay<T>(path: string, init: RequestInit = {}): Promise<T> {
   const res = await fetch(`${API}${path}`, {
@@ -60,14 +64,14 @@ function safeEqualHex(a: string, b: string) {
 }
 
 /** Checkout signature: HMAC_SHA256(order_id + "|" + payment_id, key_secret). */
-export function verifyCheckoutSignature(orderId: string, paymentId: string, signature: string, secret = process.env.RAZORPAY_KEY_SECRET ?? "") {
+export function verifyCheckoutSignature(orderId: string, paymentId: string, signature: string, secret = keySecret()) {
   if (!secret) return false;
   const expected = createHmac("sha256", secret).update(`${orderId}|${paymentId}`).digest("hex");
   return safeEqualHex(expected, signature);
 }
 
 /** Webhook signature: HMAC_SHA256(raw body, webhook secret). */
-export function verifyWebhookSignature(rawBody: string, signature: string, secret = process.env.RAZORPAY_WEBHOOK_SECRET ?? "") {
+export function verifyWebhookSignature(rawBody: string, signature: string, secret = process.env.RAZORPAY_WEBHOOK_SECRET?.trim() ?? "") {
   if (!secret) return false;
   const expected = createHmac("sha256", secret).update(rawBody).digest("hex");
   return safeEqualHex(expected, signature);
@@ -86,7 +90,7 @@ export async function createOrder(user: { id: string }, period: Period) {
     }),
   });
   await db.payment.create({ data: { userId: user.id, orderId: order.id, amount: order.amount, currency: order.currency, period } });
-  return { orderId: order.id, amount: order.amount, currency: order.currency, keyId: process.env.RAZORPAY_KEY_ID! };
+  return { orderId: order.id, amount: order.amount, currency: order.currency, keyId: keyId() };
 }
 
 /** Adds the paid period to Pro (stacking on any time still remaining). */
@@ -158,10 +162,10 @@ let methodsCache: { at: number; value: MethodsView } | null = null;
 export async function paymentMethods(): Promise<MethodsView> {
   if (methodsCache && Date.now() - methodsCache.at < 24 * 3600_000) return methodsCache.value;
   const fallback: MethodsView = { live: false, banks: MAJOR_BANKS, wallets: MAJOR_WALLETS };
-  if (!process.env.RAZORPAY_KEY_ID) return fallback;
+  if (!keyId()) return fallback;
   try {
     const res = await fetch(`${API}/methods`, {
-      headers: { Authorization: `Basic ${Buffer.from(`${process.env.RAZORPAY_KEY_ID}:`).toString("base64")}` },
+      headers: { Authorization: `Basic ${Buffer.from(`${keyId()}:`).toString("base64")}` },
       signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
