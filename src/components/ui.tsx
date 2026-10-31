@@ -1,10 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cx } from "@/lib/format";
 
 export function Logo({ className }: { className?: string }) {
   return (
     <Link href="/" className={cx("flex items-center gap-2.5 text-slate-900", className)} aria-label="CareerMatch AI home">
-      <span className="grid size-8 place-items-center rounded-[10px] border border-slate-300 bg-gradient-to-br from-slate-100 to-surface font-sans text-[11px] font-semibold tracking-tight">CM</span>
+      <Image src="/brand/mark.png" alt="" width={32} height={32} priority className="size-8" />
       <span className="font-display text-xl">CareerMatch</span>
     </Link>
   );

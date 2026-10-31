@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { DemoButton } from "@/components/client";
 import { LandingFx } from "@/components/landing-fx";
@@ -58,7 +59,7 @@ export default async function Landing() {
       <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-[#050505]/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-8">
           <Link href="/" className="flex items-center gap-2.5" aria-label="CareerMatch AI home">
-            <span className="grid size-8 place-items-center rounded-[10px] border border-white/15 bg-gradient-to-br from-white/15 to-white/[0.02] text-[11px] font-semibold tracking-tight">CM</span>
+            <Image src="/brand/mark.png" alt="" width={32} height={32} priority className="size-8" />
             <span className="lux-serif text-xl">CareerMatch</span>
           </Link>
           <nav className="hidden items-center gap-8 text-sm text-[#a1a1aa] md:flex" aria-label="Sections">
@@ -297,6 +298,7 @@ export default async function Landing() {
       <footer className="relative z-10 border-t border-[#27272a]">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 text-xs text-[#71717a] sm:px-8 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-2.5">
+            <Image src="/brand/mark.png" alt="" width={20} height={20} className="size-5" />
             <span className="lux-serif text-base text-white">CareerMatch</span>
             <span>© {new Date().getFullYear()}</span>
           </div>
