@@ -119,10 +119,15 @@ export const usajobs: SourceDefinition = {
   attribution: "U.S. federal government listings from the official USAJOBS API.",
   cacheTtlMs: 60 * 60 * 1000,
   requestsPerMinute: 20,
+  // US federal jobs only: runs when a user searches the United States, never in the hourly refresh.
+  countries: ["US"],
+  onDemandOnly: true,
   missingConfig: () =>
     process.env.USAJOBS_API_KEY && process.env.USAJOBS_USER_AGENT ? null : "Set USAJOBS_API_KEY and USAJOBS_USER_AGENT.",
   async fetchJobs(query, signal) {
-    const params = new URLSearchParams({ ResultsPerPage: "50", Keyword: query.keywords.join(" ") });
+    if (query.country && query.country.toUpperCase() !== "US") return [];
+    const params = new URLSearchParams({ ResultsPerPage: "50", Keyword: query.keywords.join(" "), SortField: "OpenDate", SortDirection: "Desc" });
+    if (query.maxDaysOld) params.set("DatePosted", String(Math.min(query.maxDaysOld, 60)));
     if (query.location) params.set("LocationName", query.location);
     const data = await fetchJson<{ SearchResult: { SearchResultItems: UsaJobsItem[] } }>(
       `https://data.usajobs.gov/api/search?${params}`,
