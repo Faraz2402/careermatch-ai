@@ -1,3 +1,4 @@
+import { DigestSettings } from "@/components/digest-settings";
 import { SettingsPanel } from "@/components/settings-panel";
 import { PageHeader } from "@/components/ui";
 import { requireUser } from "@/lib/auth";
@@ -14,6 +15,13 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
   return (
     <div className="mx-auto max-w-3xl">
       <PageHeader title="Settings" subtitle="Account, security, plan and your data." />
+      {!user.isDemo && (
+        <DigestSettings
+          isPro={plan === "pro"}
+          initialOn={!(await db.user.findUniqueOrThrow({ where: { id: user.id }, select: { digestOptOut: true } })).digestOptOut}
+          email={user.email}
+        />
+      )}
       <SettingsPanel
         flash={sp.verified === "1" ? "verified" : sp.verified === "0" ? "verify_failed" : sp.billing === "success" ? "billing" : null}
         account={{

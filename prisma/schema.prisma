@@ -25,6 +25,9 @@ model User {
   plan         String   @default("free") // free | pro
   /// Pro is prepaid: it stays active until this date (then reverts to free)
   planRenewsAt DateTime?
+  /// Daily 7 AM "best new matches" email (Pro): opt-out flag and last send time
+  digestOptOut     Boolean   @default(false)
+  digestLastSentAt DateTime?
   /// Unused (was the Stripe customer id). Kept so the switch to Razorpay
   /// needs no destructive migration.
   legacyBillingRef String? @unique @map("stripeCustomerId")
