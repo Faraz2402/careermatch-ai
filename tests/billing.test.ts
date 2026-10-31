@@ -1,6 +1,6 @@
 import { createHmac } from "node:crypto";
 import { describe, expect, it } from "vitest";
-import { MAJOR_BANKS, proPrices, verifyCheckoutSignature, verifyWebhookSignature } from "@/lib/billing";
+import { createOrder, MAJOR_BANKS, proPrices, RazorpayError, verifyCheckoutSignature, verifyWebhookSignature } from "@/lib/billing";
 import { planOf } from "@/lib/plans";
 
 const hmac = (secret: string, data: string) => createHmac("sha256", secret).update(data).digest("hex");
@@ -38,5 +38,17 @@ describe("prepaid Pro", () => {
 
   it("lists major Indian banks for net banking", () => {
     for (const b of ["State Bank of India", "HDFC Bank", "ICICI Bank", "Axis Bank", "Kotak Mahindra Bank", "Punjab National Bank"]) expect(MAJOR_BANKS).toContain(b);
+  });
+});
+
+describe("orders", () => {
+  it("refuses amounts below Razorpay's 100-paise minimum before calling Razorpay", async () => {
+    const prev = process.env.PRO_MONTHLY_INR;
+    process.env.PRO_MONTHLY_INR = "0.5";
+    try {
+      await expect(createOrder({ id: "u1" }, "monthly")).rejects.toBeInstanceOf(RazorpayError);
+    } finally {
+      process.env.PRO_MONTHLY_INR = prev;
+    }
   });
 });

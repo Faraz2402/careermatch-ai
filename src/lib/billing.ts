@@ -16,6 +16,14 @@ import { db } from "./db";
 import { log } from "./log";
 
 const API = "https://api.razorpay.com/v1";
+const MIN_AMOUNT_PAISE = 100; // Razorpay's minimum order (₹1)
+
+/** A failed Razorpay API call; `status` is Razorpay's HTTP status (401 = bad keys). */
+export class RazorpayError extends Error {
+  constructor(message: string, readonly status: number) {
+    super(message);
+  }
+}
 
 export type Period = "monthly" | "yearly";
 
@@ -39,7 +47,7 @@ async function razorpay<T>(path: string, init: RequestInit = {}): Promise<T> {
   const body = await res.json().catch(() => ({}));
   if (!res.ok) {
     const msg = (body as { error?: { description?: string } }).error?.description ?? `HTTP ${res.status}`;
-    throw new Error(`Razorpay: ${msg}`);
+    throw new RazorpayError(`Razorpay: ${msg}`, res.status);
   }
   return body as T;
 }
@@ -66,7 +74,8 @@ export function verifyWebhookSignature(rawBody: string, signature: string, secre
 }
 
 export async function createOrder(user: { id: string }, period: Period) {
-  const amount = proPrices()[period] * 100; // paise
+  const amount = Math.round(proPrices()[period] * 100); // paise
+  if (!Number.isInteger(amount) || amount < MIN_AMOUNT_PAISE) throw new RazorpayError(`Order amount must be at least ${MIN_AMOUNT_PAISE} paise (got ${amount}).`, 400);
   const order = await razorpay<{ id: string; amount: number; currency: string }>("/orders", {
     method: "POST",
     body: JSON.stringify({

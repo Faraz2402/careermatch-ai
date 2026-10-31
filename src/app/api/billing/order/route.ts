@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { apiUser, jsonError, readBody } from "@/lib/api";
-import { billingConfigured, createOrder } from "@/lib/billing";
+import { billingConfigured, createOrder, RazorpayError } from "@/lib/billing";
 import { log } from "@/lib/log";
 import { rateLimit } from "@/lib/rate-limit";
 
@@ -21,6 +21,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ...order, name: user.name ?? "", email: user.email });
   } catch (e) {
     log.error("billing.order_failed", { message: String(e) });
-    return jsonError("Couldn't start the payment. Please try again.", 502);
+    if (e instanceof RazorpayError && e.status === 401) return jsonError("Payments are temporarily unavailable: the payment provider rejected our credentials.", 401);
+    return jsonError("Couldn't start the payment. Please try again.", 500);
   }
 }
