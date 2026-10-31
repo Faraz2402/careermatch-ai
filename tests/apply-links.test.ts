@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { applyPlatform } from "@/lib/apply-links";
 import { formatMoney, formatSalary } from "@/lib/format";
-import { titleOverlap } from "@/lib/jobs/enrich";
+import { requisitionId, titleOverlap } from "@/lib/jobs/enrich";
 import { buildMatchContext, profileHasSkill, scoreJob } from "@/lib/jobs/rank";
 import { defaultPreferences, emptyResume } from "@/lib/resume/schema";
 
@@ -17,6 +17,12 @@ describe("apply links", () => {
   it("only accepts an original posting whose title matches the listing", () => {
     expect(titleOverlap("Senior Business Systems Analyst – Finance Systems Operations", "Sr. Business Systems Analyst, Finance Systems Operations")).toBeGreaterThanOrEqual(0.6);
     expect(titleOverlap("Senior Business Systems Analyst", "Software Engineer II")).toBeLessThan(0.6);
+  });
+
+  it("reads requisition IDs that pinpoint the employer's posting", () => {
+    expect(requisitionId("India T&M Special Bonus: Req ID: 394315 NTT DATA strives")).toBe("394315");
+    expect(requisitionId("Job ID R-102938 | Pune")).toBe("R-102938");
+    expect(requisitionId("We are hiring in Pune for 5 roles")).toBeNull();
   });
 });
 

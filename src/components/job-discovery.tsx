@@ -94,7 +94,25 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
   const [importOpen, setImportOpen] = useState(false);
   const [saveOpen, setSaveOpen] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
+  const [reading, setReading] = useState<Set<string>>(new Set());
   const reqId = useRef(0);
+
+  // Cards whose skills were only keyword-spotted get the AI read of their
+  // requirements in one batch call, then their matches are patched in place.
+  const readSkills = useCallback(async (jobs: Job[], id: number) => {
+    const ids = jobs.filter((j) => j.match.skillsFrom === "keywords" && j.source !== "demo").map((j) => j.id).slice(0, 25);
+    if (!ids.length) return;
+    setReading(new Set(ids));
+    try {
+      const r = await api<{ jobs: { id: string; match: Job["match"] }[] }>("/api/jobs/requirements", { method: "POST", json: { ids } });
+      const byId = new Map(r.jobs.map((j) => [j.id, j.match]));
+      if (id === reqId.current) setData((d) => (d ? { ...d, jobs: d.jobs.map((j) => (byId.has(j.id) ? { ...j, match: byId.get(j.id)! } : j)) } : d));
+    } catch {
+      /* cards keep their keyword-based skills */
+    } finally {
+      if (id === reqId.current) setReading(new Set());
+    }
+  }, []);
 
   // Result count for a pending filter-menu selection (no source fetches).
   const countFor = useCallback(
@@ -108,13 +126,16 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
     setError("");
     try {
       const r = await api<Result>(`/api/jobs/search?${toQuery(f, p, refresh)}`);
-      if (id === reqId.current) setData(r);
+      if (id === reqId.current) {
+        setData(r);
+        void readSkills(r.jobs, id);
+      }
     } catch (e) {
       if (id === reqId.current) setError((e as Error).message);
     } finally {
       if (id === reqId.current) setLoading(false);
     }
-  }, []);
+  }, [readSkills]);
 
   useEffect(() => {
     load(filters, page);
@@ -265,12 +286,12 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
             {preview ? (
               <>
                 <div className="space-y-4">
-                  {data?.jobs.map((j) => <JobCard key={j.id} job={j} selected={j.id === preview} onPreview={setPreview} onChange={(p) => patchJob(j.id, p)} />)}
+                  {data?.jobs.map((j) => <JobCard key={j.id} job={j} selected={j.id === preview} reading={reading.has(j.id)} onPreview={setPreview} onChange={(p) => patchJob(j.id, p)} />)}
                 </div>
                 <JobPreview id={preview} onClose={() => setPreview(null)} />
               </>
             ) : (
-              data?.jobs.map((j) => <JobCard key={j.id} job={j} onPreview={setPreview} onChange={(p) => patchJob(j.id, p)} />)
+              data?.jobs.map((j) => <JobCard key={j.id} job={j} reading={reading.has(j.id)} onPreview={setPreview} onChange={(p) => patchJob(j.id, p)} />)
             )}
           </div>
         )}

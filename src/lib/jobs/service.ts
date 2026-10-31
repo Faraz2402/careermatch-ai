@@ -6,7 +6,7 @@ import { log } from "../log";
 import { getBaseResume, getProfile } from "../profile";
 import { defaultPreferences, emptyResume, type JobPreferences, type ResumeData } from "../resume/schema";
 import { embedTexts, embeddingsEnabled } from "./embeddings";
-import { readEnrichment, type JobEnrichment, type JobRequirements } from "./enrich";
+import { readEnrichment, type JobEnrichment, type JobRequirements, type PostedOn } from "./enrich";
 import { cityMatches, jobAvailableIn, storedGeo } from "../geo/detect";
 import { fetchForCountry, jobId, MAX_LISTING_AGE_DAYS, refreshSources } from "./ingest";
 import { buildMatchContext, familiesOf, scoreJob, type Feedback, type MatchContext, type MatchResult } from "./rank";
@@ -27,6 +27,8 @@ export function jobRowToNormalized(j: Job): NormalizedJob &
     verifiedLink: boolean;
     requirements: JobRequirements | null;
     enrichment: JobEnrichment | null;
+    postedOn: PostedOn[];
+    analysed: boolean;
   } {
   const e = readEnrichment(j);
   return {
@@ -39,6 +41,9 @@ export function jobRowToNormalized(j: Job): NormalizedJob &
     description: e?.fullDescription ?? j.description,
     requirements: e?.requirements ?? null,
     enrichment: e,
+    postedOn: e?.postedOn ?? [],
+    // The full analysis (links, salary) has run, not just the batch skill read.
+    analysed: !!(j.enrichedAt && e && !e.searchLimited),
   };
 }
 
@@ -98,6 +103,9 @@ export type JobCard = {
   sourceUrl: string;
   /** `url` is the original posting, verified on the employer site. */
   verifiedLink: boolean;
+  /** The same job on LinkedIn, Naukri etc. */
+  postedOn: PostedOn[];
+  analysed: boolean;
   match: MatchResult;
   saved: boolean;
   hidden: boolean;
@@ -172,6 +180,8 @@ export function toCard(j: ReturnType<typeof jobRowToNormalized>, match: MatchRes
     url: j.url,
     sourceUrl: j.sourceUrl,
     verifiedLink: j.verifiedLink,
+    postedOn: j.postedOn,
+    analysed: j.analysed,
     match,
     saved: state?.saved ?? false,
     hidden: state?.hidden ?? false,

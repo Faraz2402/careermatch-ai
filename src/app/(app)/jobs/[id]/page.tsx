@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ApplyButton } from "@/components/apply-links";
+import { ApplyButton, JobLinks } from "@/components/apply-links";
 import { GeneratorPanel, type BaseResume, type Gen } from "@/components/generator-panel";
 import { JobEnricher } from "@/components/job-enricher";
 import { JobTracker } from "@/components/job-tracker";
@@ -102,6 +102,12 @@ export default async function JobPage({ params }: Props) {
               <span className="text-xs text-slate-500">{job.source === "demo" ? "Sample listing — there is no real application." : "No link provided."}</span>
             )}
           </div>
+          {(job.postedOn.length > 0 || job.verifiedLink) && (
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <span className="text-xs font-medium text-slate-500">Also posted on:</span>
+              <JobLinks job={{ ...job, sourceName: meta.name }} hideApply />
+            </div>
+          )}
           {e && !job.verifiedLink && (
             <div className="mt-3 rounded-lg bg-amber-50 p-3 text-xs text-amber-900">
               {e.notes.find((n) => /employer's own site|allowance/.test(n)) ?? "We couldn't confirm the original posting."}{" "}

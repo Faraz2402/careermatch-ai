@@ -5,15 +5,31 @@ import { useState } from "react";
 import type { JobCard as Job } from "@/lib/jobs/service";
 import { formatSalary, relativeDate, STATUS_LABELS } from "@/lib/format";
 import { api } from "./client";
+import { JobLinks } from "./apply-links";
 import { useToast } from "./toast";
-import { applyPlatform } from "@/lib/apply-links";
 import { ScoreExplainer, SourceBadge } from "./ui";
 
 const MODE_ICON: Record<string, string> = { remote: "🌍 Remote", hybrid: "🏢 Hybrid", onsite: "📍 On-site", unknown: "Arrangement not stated" };
 
-export function JobCard({ job, onChange, onPreview, selected }: { job: Job; onChange: (patch: Partial<Job>) => void; onPreview?: (id: string) => void; selected?: boolean }) {
+export function JobCard({ job, onChange, onPreview, selected, reading }: { job: Job; onChange: (patch: Partial<Job>) => void; onPreview?: (id: string) => void; selected?: boolean; reading?: boolean }) {
   const toast = useToast();
   const [busy, setBusy] = useState(false);
+  const [finding, setFinding] = useState(false);
+
+  // Runs the full analysis for this one job (uses a search), then refreshes the card.
+  async function findLinks() {
+    setFinding(true);
+    try {
+      await api(`/api/jobs/${encodeURIComponent(job.id)}/enrich`, { method: "POST" });
+      const { job: fresh } = await api<{ job: Job }>(`/api/jobs/${encodeURIComponent(job.id)}`);
+      onChange({ url: fresh.url, verifiedLink: fresh.verifiedLink, postedOn: fresh.postedOn, analysed: fresh.analysed, sourceUrl: fresh.sourceUrl, match: fresh.match });
+      if (!fresh.verifiedLink && fresh.postedOn.length === 0) toast("No employer or job-board posting found for this job.", "info");
+    } catch (e) {
+      toast((e as Error).message, "error");
+    } finally {
+      setFinding(false);
+    }
+  }
   const salary = formatSalary(job);
 
   async function update(patch: { saved?: boolean; hidden?: boolean; status?: string }) {
@@ -69,18 +85,27 @@ export function JobCard({ job, onChange, onPreview, selected }: { job: Job; onCh
           </div>
         </div>
         <div>
-          <p className="text-xs font-semibold text-amber-700">Missing or weaker</p>
+          <p className="text-xs font-semibold text-rose-700">Missing or weaker</p>
           <div className="mt-1.5 flex flex-wrap gap-1">
-            {job.match.missing.length ? job.match.missing.slice(0, 5).map((s) => <span key={s} className="chip bg-amber-50 text-amber-800">{s}</span>) : <span className="text-xs text-slate-500">No gaps detected</span>}
+            {job.match.missing.length ? (
+              job.match.missing.slice(0, 6).map((s) => <span key={s} className="chip bg-rose-50 text-rose-800">✗ {s}</span>)
+            ) : (
+              <span className="text-xs text-slate-500">
+                {reading ? "Reading the requirements…" : job.match.skillsFrom === "keywords" ? "The listing is too short to tell. Open it for the full analysis." : "No gaps detected"}
+              </span>
+            )}
           </div>
         </div>
       </div>
 
-      {job.url && (
-        <div className="flex justify-end">
-          <a href={job.url} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-brand-600 hover:underline">
-            {job.verifiedLink ? `Apply on ${applyPlatform(job.url) ?? "employer site"}` : `View listing on ${applyPlatform(job.url) ?? "source"}`} ↗
-          </a>
+      {job.source !== "demo" && (
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <JobLinks job={job} compact />
+          {!job.analysed && (
+            <button type="button" className="text-xs font-semibold text-brand-600 hover:underline disabled:opacity-60" disabled={finding} onClick={findLinks}>
+              {finding ? "Searching employer site, LinkedIn, Naukri…" : "Find apply links ↗"}
+            </button>
+          )}
         </div>
       )}
 
