@@ -93,11 +93,18 @@ export async function createOrder(user: { id: string }, period: Period) {
   return { orderId: order.id, amount: order.amount, currency: order.currency, keyId: keyId() };
 }
 
-/** Adds the paid period to Pro (stacking on any time still remaining). */
-const extend = (from: Date, period: Period) => {
+/**
+ * Adds the paid period to Pro (stacking on any time still remaining). Clamps
+ * to the month's last day: 31 Jan + 1 month is 28/29 Feb, not 3 Mar.
+ */
+export const extend = (from: Date, period: Period) => {
   const d = new Date(from);
-  if (period === "yearly") d.setFullYear(d.getFullYear() + 1);
-  else d.setMonth(d.getMonth() + 1);
+  const day = d.getUTCDate();
+  d.setUTCDate(1);
+  if (period === "yearly") d.setUTCFullYear(d.getUTCFullYear() + 1);
+  else d.setUTCMonth(d.getUTCMonth() + 1);
+  const lastDay = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 0)).getUTCDate();
+  d.setUTCDate(Math.min(day, lastDay));
   return d;
 };
 
