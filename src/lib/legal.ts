@@ -7,10 +7,9 @@ export const LEGAL = {
   effectiveDate: "31 October 2026",
   version: "1.0",
   operator: process.env.LEGAL_OPERATOR?.trim() || "CareerMatch AI",
-  address: process.env.LEGAL_ADDRESS?.trim() || "",
-  email: process.env.LEGAL_EMAIL?.trim() || "",
-  grievanceOfficer: process.env.GRIEVANCE_OFFICER_NAME?.trim() || "",
-  grievanceEmail: process.env.GRIEVANCE_EMAIL?.trim() || process.env.LEGAL_EMAIL?.trim() || "",
+  email: process.env.LEGAL_EMAIL?.trim() || "faraz2402@yahoo.com",
+  grievanceOfficer: process.env.GRIEVANCE_OFFICER_NAME?.trim() || "Faraz Ahmad",
+  grievanceEmail: process.env.GRIEVANCE_EMAIL?.trim() || process.env.LEGAL_EMAIL?.trim() || "faraz2402@yahoo.com",
   jurisdiction: process.env.LEGAL_JURISDICTION?.trim() || "",
 };
 

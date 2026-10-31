@@ -84,8 +84,6 @@ export function ContactBlock() {
       <dd className="font-medium text-slate-900">{LEGAL.grievanceOfficer || missing}</dd>
       <dt className="text-slate-500">Email</dt>
       <dd className="font-medium text-slate-900">{LEGAL.grievanceEmail ? <a href={`mailto:${LEGAL.grievanceEmail}`} className="text-brand-700 underline underline-offset-2">{LEGAL.grievanceEmail}</a> : missing}</dd>
-      <dt className="text-slate-500">Postal address</dt>
-      <dd className="font-medium text-slate-900">{LEGAL.address || missing}</dd>
     </dl>
   );
 }
