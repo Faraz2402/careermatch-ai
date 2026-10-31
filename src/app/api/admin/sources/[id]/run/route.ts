@@ -3,7 +3,7 @@ import { apiAdmin, jsonError } from "@/lib/api";
 import { refreshSources } from "@/lib/jobs/ingest";
 import { ALL_SOURCES } from "@/lib/jobs/registry";
 
-export const maxDuration = 120;
+export const maxDuration = 60; // Vercel Hobby limit
 
 /** Run one source now (still subject to its rate limit). */
 export async function POST(_req: Request, { params }: { params: Promise<{ id: string }> }) {

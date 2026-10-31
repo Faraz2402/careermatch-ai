@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { apiUser, jsonError } from "@/lib/api";
 import { searchJobs, type SearchFilters } from "@/lib/jobs/service";
-import { rateLimit } from "@/lib/rate-limit";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 const list = (v: string | null) => (v ? v.split(",").map((s) => s.trim()).filter(Boolean) : undefined);
 const num = (v: string | null) => (v && !Number.isNaN(Number(v)) ? Number(v) : undefined);
@@ -32,6 +32,7 @@ export async function GET(req: Request) {
     sort: p.get("sort") === "date" ? "date" : "match",
     page: num(p.get("page")),
     refresh: p.get("refresh") === "1" && (await rateLimit(`refresh:${user.id}`, 3, 10 * 60_000)).ok,
+    client: { ip: clientIp(req), userAgent: req.headers.get("user-agent") ?? "Mozilla/5.0" },
   };
   try {
     return NextResponse.json(await searchJobs(user.id, filters));

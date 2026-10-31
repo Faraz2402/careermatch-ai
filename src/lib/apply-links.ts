@@ -17,6 +17,8 @@ const PLATFORMS: [RegExp, string][] = [
   [/naukri\.com/i, "Naukri"],
   [/indeed\./i, "Indeed"],
   [/adzuna\./i, "Adzuna"],
+  [/careerjet\.|jobviewtrack\.com/i, "Careerjet"],
+  [/jooble\.org/i, "Jooble"],
   [/remotive\.com/i, "Remotive"],
   [/arbeitnow\.com/i, "Arbeitnow"],
   [/usajobs\.gov/i, "USAJOBS"],

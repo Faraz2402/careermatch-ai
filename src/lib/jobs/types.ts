@@ -19,7 +19,13 @@ export type NormalizedJob = {
 };
 
 /** `country` is an ISO code; only sources that declare `countries` use it. */
-export type SourceQuery = { keywords: string[]; location?: string; country?: string };
+export type SourceQuery = {
+  keywords: string[];
+  location?: string;
+  country?: string;
+  /** The end user who triggered the search (some APIs, e.g. Careerjet, require it). */
+  client?: { ip: string; userAgent: string };
+};
 
 /** Operator configuration resolved per run (DB overrides, then env). */
 export type SourceContext = { boards: string[] };
@@ -46,6 +52,10 @@ export type SourceDefinition = {
   queryIndependent?: boolean;
   /** Max outbound requests per minute across all users. */
   requestsPerMinute: number;
+  /** Only call when a user searches (never from background ingestion). */
+  onDemandOnly?: boolean;
+  /** Hard lifetime request cap for the API key (e.g. Jooble free plan: 500). */
+  lifetimeQuota?: number;
   /** Returns a reason when the source can't run (missing key, no boards). */
   missingConfig: (ctx: SourceContext) => string | null;
   fetchJobs: (query: SourceQuery, signal: AbortSignal, ctx: SourceContext) => Promise<NormalizedJob[]>;

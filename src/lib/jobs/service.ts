@@ -1,4 +1,5 @@
 import "server-only";
+import { after } from "next/server";
 import type { Job, Prisma } from "@prisma/client";
 import { db, parseJson } from "../db";
 import { log } from "../log";
@@ -35,6 +36,8 @@ export type SearchFilters = {
   city?: string;
   /** With a country: also show remote roles open to it (default true) */
   includeRemote?: boolean;
+  /** The searching user (some APIs require their IP and user agent). */
+  client?: { ip: string; userAgent: string };
   workMode?: string[];
   salaryMin?: number;
   postedWithinDays?: number;
@@ -180,14 +183,15 @@ export async function searchJobs(userId: string, f: SearchFilters) {
 
   // Country-aware sources (e.g. Adzuna India) are queried for this search too,
   // but never block results for more than a few seconds.
-  if (country && !f.newSince) await Promise.race([fetchForCountry(country, titleTerms.length ? titleTerms : skillTerms), new Promise((r) => setTimeout(r, 8000))]).catch(() => undefined);
+  if (country && !f.newSince) await Promise.race([fetchForCountry(country, titleTerms.length ? titleTerms : skillTerms, f.client), new Promise((r) => setTimeout(r, 8000))]).catch(() => undefined);
 
   if (f.refresh) {
     await refreshSources({ force: true, onlyIds: active, extraKeywords: keywords });
   } else if (active.length && (await db.job.count({ where: { source: { in: active }, lastSeenAt: { gte: since } } })) === 0) {
     await refreshSources({ onlyIds: active }); // cold start: wait for the first fetch
   } else {
-    void refreshSources().catch(() => undefined); // keep fresh in the background (TTL-aware)
+    // Keep sources fresh after responding (TTL-aware); survives serverless shutdown.
+    after(() => refreshSources().catch(() => undefined));
   }
 
   const includeImports = !f.sources?.length || f.sources.includes("user_link");

@@ -10,7 +10,7 @@ import { consumeAiAction } from "@/lib/plans";
 import { rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
-export const maxDuration = 300;
+export const maxDuration = 60; // Vercel Hobby limit
 
 const Body = z.object({ jobId: z.string().min(1), kind: z.enum(KINDS), resumeVersionId: z.string().nullish() });
 

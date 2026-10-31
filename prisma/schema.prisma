@@ -213,6 +213,8 @@ model SourceSetting {
   enabled Boolean?
   /// comma-separated board tokens for employer feeds
   boards  String?
+  /// Lifetime API requests made (for sources with a hard per-key quota, e.g. Jooble)
+  requestsUsed Int @default(0)
   updatedAt DateTime @updatedAt
 }
 

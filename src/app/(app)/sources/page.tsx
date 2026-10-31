@@ -48,6 +48,8 @@ export default async function SourcesPage() {
               {live && (
                 <p className="mt-2 text-xs text-slate-500">
                   {s.listings} live listings · updated {s.lastSuccessAt ? relativeDate(s.lastSuccessAt).toLowerCase() : "not yet"}
+                  {s.onDemandOnly && " · fetched when you search"}
+                  {s.quota && ` · ${s.quota.cap - s.quota.used} free requests left`}
                   {s.successRate != null && ` · ${s.successRate}% successful (7d)`}
                 </p>
               )}

@@ -6,14 +6,16 @@ import "server-only";
 
 import { db } from "../db";
 import { arbeitnow } from "./sources/arbeitnow";
+import { careerjet } from "./sources/careerjet";
 import { demo } from "./sources/demo";
 import { ashby, greenhouse, lever } from "./sources/employer-boards";
+import { jooble } from "./sources/jooble";
 import { adzuna, usajobs } from "./sources/keyed-apis";
 import { remotive } from "./sources/remotive";
 import type { SourceContext, SourceDefinition } from "./types";
 import { csvEnv } from "./util";
 
-export const ALL_SOURCES: SourceDefinition[] = [demo, remotive, arbeitnow, greenhouse, lever, ashby, adzuna, usajobs];
+export const ALL_SOURCES: SourceDefinition[] = [demo, remotive, arbeitnow, greenhouse, lever, ashby, adzuna, careerjet, jooble, usajobs];
 
 /** Listings the user imported from a URL or pasted in. */
 export const USER_LINK_SOURCE = {
@@ -22,13 +24,13 @@ export const USER_LINK_SOURCE = {
   attribution: "Added by you from a job link or pasted description.",
 } as const;
 
-const DEFAULT_ENABLED = "demo,remotive,arbeitnow,greenhouse,lever,ashby,adzuna,usajobs";
+const DEFAULT_ENABLED = "demo,remotive,arbeitnow,greenhouse,lever,ashby,adzuna,careerjet,jooble,usajobs";
 
 function envEnabled(): Set<string> {
   return new Set(csvEnv("JOB_SOURCES_ENABLED").length ? csvEnv("JOB_SOURCES_ENABLED") : DEFAULT_ENABLED.split(","));
 }
 
-type Resolved = { def: SourceDefinition; enabled: boolean; ctx: SourceContext; reason: string | null; overridden: boolean };
+type Resolved = { def: SourceDefinition; enabled: boolean; ctx: SourceContext; reason: string | null; overridden: boolean; requestsUsed: number };
 
 let memo: { at: number; value: Resolved[] } | null = null;
 
@@ -42,7 +44,7 @@ export async function resolveSources(fresh = false): Promise<Resolved[]> {
     const ctx = { boards };
     const enabled = s?.enabled ?? env.has(def.id);
     const missing = def.missingConfig(ctx);
-    return { def, enabled, ctx, overridden: s?.enabled != null, reason: !enabled ? "Disabled by the operator." : missing };
+    return { def, enabled, ctx, overridden: s?.enabled != null, requestsUsed: s?.requestsUsed ?? 0, reason: !enabled ? "Disabled by the operator." : missing };
   });
   memo = { at: Date.now(), value };
   return value;
@@ -81,6 +83,8 @@ export type SourceHealth = {
   lastSuccessAt: string | null;
   successRate: number | null; // last 7 days
   listings: number;
+  onDemandOnly: boolean;
+  quota: { used: number; cap: number } | null;
 };
 
 export async function sourceHealth(): Promise<SourceHealth[]> {
@@ -90,7 +94,7 @@ export async function sourceHealth(): Promise<SourceHealth[]> {
     db.sourceRun.findMany({ where: { startedAt: { gte: since } }, orderBy: { startedAt: "desc" } }),
     db.job.groupBy({ by: ["source"], _count: true, where: { lastSeenAt: { gte: since } } }),
   ]);
-  return resolved.map(({ def, enabled, ctx, reason, overridden }) => {
+  return resolved.map(({ def, enabled, ctx, reason, overridden, requestsUsed }) => {
     const mine = runs.filter((r) => r.source === def.id);
     const last = mine[0];
     const lastOk = mine.find((r) => r.ok);
@@ -113,6 +117,8 @@ export async function sourceHealth(): Promise<SourceHealth[]> {
       lastSuccessAt: lastOk?.startedAt.toISOString() ?? null,
       successRate: mine.length ? Math.round((100 * mine.filter((r) => r.ok).length) / mine.length) : null,
       listings: counts.find((c) => c.source === def.id)?._count ?? 0,
+      onDemandOnly: !!def.onDemandOnly,
+      quota: def.lifetimeQuota ? { used: requestsUsed, cap: def.lifetimeQuota } : null,
     };
   });
 }

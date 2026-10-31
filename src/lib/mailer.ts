@@ -2,7 +2,9 @@ import "server-only";
 import { db } from "./db";
 import { log } from "./log";
 
-export const appUrl = () => (process.env.APP_URL ?? "http://localhost:3000").replace(/\/$/, "");
+import { appUrl } from "./site-url";
+
+export { appUrl };
 
 export type Email = { to: string; subject: string; html: string; text?: string };
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { appUrl } from "@/lib/site-url";
 import { THEME_SCRIPT } from "@/lib/theme-script";
 import { ToastProvider } from "@/components/toast";
 import "./globals.css";
@@ -10,7 +11,7 @@ const jakarta = Plus_Jakarta_Sans({ variable: "--font-jakarta", subsets: ["latin
 export const metadata: Metadata = {
   title: { default: "CareerMatch AI", template: "%s · CareerMatch AI" },
   description: "Turn your resume into a smarter job search: a shareable profile, ranked job matches from compliant sources, and tailored application materials.",
-  metadataBase: new URL(process.env.APP_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(appUrl()),
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

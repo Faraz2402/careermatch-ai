@@ -118,7 +118,8 @@ export function refreshSources(opts: { force?: boolean; onlyIds?: string[]; extr
   if (running) return running;
   running = (async () => {
     await backfillGeo().catch((e) => log.warn("geo.backfill_failed", { message: String(e) }));
-    const sources = (await activeSources()).filter((s) => !opts.onlyIds || opts.onlyIds.includes(s.def.id));
+    // On-demand sources (Careerjet, Jooble) only run when a user searches.
+    const sources = (await activeSources()).filter((s) => !s.def.onDemandOnly && (!opts.onlyIds || opts.onlyIds.includes(s.def.id)));
     const roles = await popularRoles();
     const keywordSets = [...new Set([...(opts.extraKeywords ?? []), ...roles])].slice(0, 6).map((k) => [k]);
     const ran = await Promise.all(
@@ -141,23 +142,38 @@ export function refreshSources(opts: { force?: boolean; onlyIds?: string[]; extr
 
 const onDemandSeen = new Map<string, number>();
 
+/** Count one request against a lifetime-capped key; false once the cap is hit. */
+async function takeQuota(sourceId: string, cap: number) {
+  const s = await db.sourceSetting.upsert({ where: { id: sourceId }, create: { id: sourceId }, update: {} });
+  if (s.requestsUsed >= cap) {
+    log.warn("source.quota_exhausted", { source: sourceId, used: s.requestsUsed, cap });
+    return false;
+  }
+  await db.sourceSetting.update({ where: { id: sourceId }, data: { requestsUsed: { increment: 1 } } });
+  return true;
+}
+
 /**
  * When a user searches a specific country, also ask country-aware sources
  * (e.g. Adzuna India) for that query. Each source/country/query combination
  * is fetched at most once per 30 minutes and still obeys the source limit.
  */
-export async function fetchForCountry(country: string, keywords: string[]) {
+export async function fetchForCountry(country: string, keywords: string[], client?: { ip: string; userAgent: string }) {
   const sources = (await activeSources()).filter((s) => s.def.countries?.includes(country));
   const kw = keywords.length ? keywords.slice(0, 3) : (await popularRoles(1)).slice(0, 1);
+  if (kw.length === 0) return;
   await Promise.all(
     sources.map(async ({ def, ctx }) => {
       const key = `${def.id}|${country}|${kw.join("+").toLowerCase()}`;
-      if (Date.now() - (onDemandSeen.get(key) ?? 0) < 30 * 60_000) return;
+      // Quota-limited keys (Jooble) reuse results for their whole cache window.
+      const window = def.lifetimeQuota ? def.cacheTtlMs : 30 * 60_000;
+      if (Date.now() - (onDemandSeen.get(key) ?? 0) < window) return;
+      if (def.lifetimeQuota && !(await takeQuota(def.id, def.lifetimeQuota))) return;
       onDemandSeen.set(key, Date.now());
       if (!(await rateLimit(`source:${def.id}`, def.requestsPerMinute, 60_000)).ok) return;
       const started = Date.now();
       try {
-        const jobs = await def.fetchJobs({ keywords: kw, country }, AbortSignal.timeout(20_000), ctx);
+        const jobs = await def.fetchJobs({ keywords: kw, country, client }, AbortSignal.timeout(20_000), ctx);
         await persistJobs(jobs);
         await db.sourceRun.create({ data: { source: def.id, durationMs: Date.now() - started, ok: true, count: jobs.length } });
       } catch (err) {
