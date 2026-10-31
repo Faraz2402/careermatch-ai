@@ -1,0 +1,10 @@
+# Never upload local secrets, databases or build output to Vercel.
+.env
+.env.*
+!.env.example
+prisma/*.db*
+node_modules
+.next
+.vercel
+tests
+*.tsbuildinfo
