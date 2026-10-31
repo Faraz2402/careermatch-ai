@@ -60,7 +60,7 @@ export function ProfileBuilder({ initial, appUrl, views }: { initial: State; app
           </div>
           <div className="inline-flex rounded-lg bg-slate-100 p-1">
             {(["edit", "preview"] as const).map((t) => (
-              <button key={t} onClick={() => setTab(t)} className={`rounded-md px-4 py-1.5 text-sm font-medium capitalize ${tab === t ? "bg-white shadow-sm" : "text-slate-600"}`}>{t}</button>
+              <button key={t} onClick={() => setTab(t)} className={`rounded-md px-4 py-1.5 text-sm font-medium capitalize ${tab === t ? "bg-surface shadow-sm" : "text-slate-600"}`}>{t}</button>
             ))}
           </div>
         </div>
@@ -86,7 +86,7 @@ export function ProfileBuilder({ initial, appUrl, views }: { initial: State; app
               disabled={busy}
               className={`relative h-6 w-11 rounded-full transition ${s.isPublic ? "bg-brand-600" : "bg-slate-300"}`}
             >
-              <span className={`absolute top-0.5 size-5 rounded-full bg-white shadow transition ${s.isPublic ? "left-5.5" : "left-0.5"}`} />
+              <span className={`absolute top-0.5 size-5 rounded-full bg-surface shadow transition ${s.isPublic ? "left-5.5" : "left-0.5"}`} />
             </button>
           </label>
           <div>

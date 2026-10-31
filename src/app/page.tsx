@@ -15,8 +15,8 @@ const FEATURES = [
 export default async function Landing() {
   const user = await getCurrentUser();
   return (
-    <div className="bg-white">
-      <header className="sticky top-0 z-30 border-b border-slate-100 bg-white/80 backdrop-blur">
+    <div className="bg-surface">
+      <header className="sticky top-0 z-30 border-b border-slate-100 bg-surface/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
           <Logo />
           <nav className="flex items-center gap-2">
@@ -116,7 +116,7 @@ export default async function Landing() {
             <h3 className="font-display text-2xl font-extrabold">Ready for a smarter search?</h3>
             <p className="mt-2 text-white/80">It takes about two minutes to go from resume to ranked matches.</p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Link href={user ? "/onboarding" : "/signup"} className="btn bg-white px-6 py-3 text-brand-700 hover:bg-brand-50">Upload Resume</Link>
+              <Link href={user ? "/onboarding" : "/signup"} className="btn bg-surface px-6 py-3 text-brand-700 hover:bg-brand-50">Upload Resume</Link>
               {!user && <DemoButton className="btn border border-white/40 px-6 py-3 text-white hover:bg-white/10">Try Demo</DemoButton>}
             </div>
           </div>

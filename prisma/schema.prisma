@@ -21,8 +21,11 @@ model User {
   emailVerifiedAt DateTime?
   googleId     String?  @unique
   plan         String   @default("free") // free | pro
-  stripeCustomerId String? @unique
+  /// Pro is prepaid: it stays active until this date (then reverts to free)
   planRenewsAt DateTime?
+  /// Unused (was the Stripe customer id). Kept so the switch to Razorpay
+  /// needs no destructive migration.
+  legacyBillingRef String? @unique @map("stripeCustomerId")
   createdAt    DateTime @default(now())
 
   sessions    Session[]
@@ -34,6 +37,7 @@ model User {
   resumeVersions ResumeVersion[]
   savedSearches  SavedSearch[]
   usage          UsageEvent[]
+  payments       Payment[]
 }
 
 model Session {
@@ -236,4 +240,24 @@ model OutboxEmail {
   subject   String
   html      String
   createdAt DateTime @default(now())
+}
+
+/// A Razorpay order for a prepaid Pro pass (UPI, cards, net banking, wallets).
+model Payment {
+  id        String    @id @default(cuid())
+  userId    String
+  orderId   String    @unique
+  paymentId String?   @unique
+  /// Amount in paise (INR x 100)
+  amount    Int
+  currency  String    @default("INR")
+  period    String // monthly | yearly
+  status    String    @default("created") // created | paid
+  /// upi | card | netbanking | wallet | emi ... as reported by Razorpay
+  method    String?
+  createdAt DateTime  @default(now())
+  paidAt    DateTime?
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
 }

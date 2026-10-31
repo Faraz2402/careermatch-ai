@@ -25,7 +25,7 @@ export default async function AdminPage() {
     ["Claude (AI)", !!(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN)],
     ["Voyage embeddings", !!process.env.VOYAGE_API_KEY],
     ["Email (Resend)", mailConfigured()],
-    ["Stripe billing", billingConfigured()],
+    ["Razorpay payments", billingConfigured()],
     ["Google sign-in", !!process.env.GOOGLE_CLIENT_ID],
     ["Redis rate limits", !!process.env.UPSTASH_REDIS_REST_URL],
     ["Encryption key", !!process.env.DATA_ENCRYPTION_KEY],

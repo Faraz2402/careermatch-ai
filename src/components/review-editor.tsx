@@ -157,7 +157,7 @@ function AtsReview({ original, generated, initial, saving, error, onSave, onCanc
       ))}
 
       {error && <Alert>{error}</Alert>}
-      <div className="sticky bottom-0 flex justify-end gap-2 border-t border-slate-100 bg-white pt-3">
+      <div className="sticky bottom-0 flex justify-end gap-2 border-t border-slate-100 bg-surface pt-3">
         <button className="btn-ghost" onClick={onCancel}>Cancel</button>
         <button className="btn-primary" disabled={saving} onClick={() => onSave(build())}>{saving ? "Saving…" : "Save reviewed version"}</button>
       </div>

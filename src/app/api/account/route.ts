@@ -4,7 +4,6 @@ import { apiUser, jsonError, readBody } from "@/lib/api";
 import { destroySession, verifyPassword } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { log } from "@/lib/log";
-import { cancelStripeCustomer } from "@/lib/billing";
 
 const Body = z.object({ password: z.string().optional(), confirm: z.literal("DELETE") });
 
@@ -19,7 +18,6 @@ export async function DELETE(req: Request) {
   if (!row.googleId && !row.isDemo && !(data.password && (await verifyPassword(data.password, row.passwordHash))))
     return jsonError("Incorrect password.", 401);
 
-  if (row.stripeCustomerId) await cancelStripeCustomer(row.stripeCustomerId).catch((e) => log.error("billing.cancel_failed", { message: String(e) }));
   await db.job.deleteMany({ where: { importedById: user.id } });
   await db.outboxEmail.deleteMany({ where: { to: row.email } });
   await db.user.delete({ where: { id: user.id } });

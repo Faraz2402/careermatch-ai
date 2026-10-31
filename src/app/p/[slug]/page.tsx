@@ -25,7 +25,7 @@ export default async function PublicProfile({ params }: { params: Promise<{ slug
   // Count visits from anyone but the owner.
   if (!p.isOwner && p.isPublic) await db.profile.update({ where: { id: p.id }, data: { views: { increment: 1 } } });
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-surface">
       {p.isOwner && (
         <div className="flex items-center justify-center gap-3 bg-[#0f172a] px-4 py-2 text-xs text-white">
           {p.isPublic ? `This is your public profile · ${p.views} views` : "Only you can see this — your profile is private."}

@@ -16,6 +16,8 @@
   --color-brand-900: #312e81;
 
   --color-ink: #0f172a;
+  /* Card/page surfaces. Unlike white, this flips in dark mode. */
+  --color-surface: #ffffff;
 }
 
 :root {
@@ -26,7 +28,7 @@
    the user picks Dark, or picks System and the OS is dark. */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --color-white: #0b1220;
+  --color-surface: #0b1220;
   --color-slate-50: #0f172a;
   --color-slate-100: #1a2436;
   --color-slate-200: #263247;
@@ -71,7 +73,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --color-white: #0b1220;
+    --color-surface: #0b1220;
     --color-slate-50: #0f172a;
     --color-slate-100: #1a2436;
     --color-slate-200: #263247;
@@ -136,16 +138,16 @@ body {
     @apply btn bg-brand-600 text-white shadow-sm hover:bg-brand-500;
 }
 @utility btn-secondary {
-    @apply btn border border-slate-300 bg-white text-slate-800 hover:bg-slate-50;
+    @apply btn border border-slate-300 bg-surface text-slate-800 hover:bg-slate-50;
 }
 @utility btn-ghost {
     @apply btn text-slate-600 hover:bg-slate-100 hover:text-slate-900;
 }
 @utility card {
-    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+    @apply rounded-2xl border border-slate-200 bg-surface shadow-sm;
 }
 @utility input {
-    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none;
+    @apply w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none;
 }
 @utility label {
     @apply mb-1 block text-sm font-medium text-slate-700;

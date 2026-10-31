@@ -6,14 +6,14 @@ export const THEME_STYLES = {
     hero: "bg-gradient-to-br from-[#4338ca] via-[#4f46e5] to-[#6d28d9] text-white",
     sub: "text-white/80",
     avatar: "bg-white/15 ring-white/30",
-    cta: "bg-white text-[#4338ca] hover:bg-indigo-50",
+    cta: "bg-surface text-[#4338ca] hover:bg-indigo-50",
     chip: "bg-brand-50 text-brand-700",
     dot: "bg-brand-500 ring-brand-100",
     line: "border-brand-100",
   },
   minimal: {
     label: "Minimal",
-    hero: "border-b border-slate-200 bg-white text-slate-900",
+    hero: "border-b border-slate-200 bg-surface text-slate-900",
     sub: "text-slate-600",
     avatar: "bg-[#0f172a] text-white ring-slate-200",
     cta: "bg-[#0f172a] text-white hover:bg-[#334155]",
@@ -26,7 +26,7 @@ export const THEME_STYLES = {
     hero: "bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600 text-white",
     sub: "text-orange-50",
     avatar: "bg-white/20 ring-white/40",
-    cta: "bg-white text-[#e11d48] hover:bg-[#fff1f2]",
+    cta: "bg-surface text-[#e11d48] hover:bg-[#fff1f2]",
     chip: "bg-rose-50 text-rose-700",
     dot: "bg-rose-500 ring-rose-100",
     line: "border-rose-100",
@@ -49,7 +49,7 @@ export function ProfileView({ data: r, visibility: v, preview, theme = "aurora",
   const t = THEME_STYLES[theme] ?? THEME_STYLES.aurora;
   const contactHref = v.showEmail && r.email ? `mailto:${r.email}` : r.links.map((l) => safeUrl(l.url)).find(Boolean) ?? null;
   return (
-    <div className="bg-white">
+    <div className="bg-surface">
       <section className={`relative overflow-hidden px-6 py-14 sm:px-10 ${t.hero}`}>
         {theme !== "minimal" && <div className="pointer-events-none absolute -top-24 -right-24 size-72 rounded-full bg-white/10 blur-2xl" />}
         <div className="relative mx-auto flex max-w-4xl flex-col items-start gap-6 sm:flex-row sm:items-center">

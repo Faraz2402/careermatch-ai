@@ -73,7 +73,7 @@ function Chips({ options, value, onChange }: { options: { id: string; label: str
         const on = value.includes(o.id);
         return (
           <button key={o.id} type="button" aria-pressed={on} onClick={() => onChange(on ? value.filter((x) => x !== o.id) : [...value, o.id])}
-            className={cx("rounded-full border px-2.5 py-0.5 text-xs", on ? "border-brand-500 bg-brand-50 text-brand-700" : "border-slate-200 bg-white text-slate-600 hover:border-slate-300")}>
+            className={cx("rounded-full border px-2.5 py-0.5 text-xs", on ? "border-brand-500 bg-brand-50 text-brand-700" : "border-slate-200 bg-surface text-slate-600 hover:border-slate-300")}>
             {o.label}
           </button>
         );
@@ -229,12 +229,12 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
         <div className="inline-flex rounded-lg bg-slate-100 p-1">
           {VIEWS.map((v) => (
-            <button key={v.id} onClick={() => apply({ view: v.id })} className={cx("rounded-md px-3 py-1 text-sm font-medium", filters.view === v.id ? "bg-white shadow-sm" : "text-slate-600")}>{v.label}</button>
+            <button key={v.id} onClick={() => apply({ view: v.id })} className={cx("rounded-md px-3 py-1 text-sm font-medium", filters.view === v.id ? "bg-surface shadow-sm" : "text-slate-600")}>{v.label}</button>
           ))}
         </div>
         <div className="flex items-center gap-3 text-sm text-slate-600">
           {data && !loading && <span>{data.total} {data.total === 1 ? "job" : "jobs"}</span>}
-          <select aria-label="Sort" className="rounded-md border border-slate-200 bg-white px-2 py-1 text-sm" value={filters.sort} onChange={(e) => apply({ sort: e.target.value })}>
+          <select aria-label="Sort" className="rounded-md border border-slate-200 bg-surface px-2 py-1 text-sm" value={filters.sort} onChange={(e) => apply({ sort: e.target.value })}>
             <option value="match">Best match</option>
             <option value="date">Most recent</option>
           </select>
@@ -383,7 +383,7 @@ function ImportDialog({ onClose }: { onClose: () => void }) {
         </div>
         <div className="inline-flex rounded-lg bg-slate-100 p-1">
           {(["url", "paste"] as const).map((m) => (
-            <button type="button" key={m} onClick={() => setMode(m)} className={cx("rounded-md px-3 py-1 text-sm font-medium", mode === m ? "bg-white shadow-sm" : "text-slate-600")}>
+            <button type="button" key={m} onClick={() => setMode(m)} className={cx("rounded-md px-3 py-1 text-sm font-medium", mode === m ? "bg-surface shadow-sm" : "text-slate-600")}>
               {m === "url" ? "Job link" : "Paste description"}
             </button>
           ))}

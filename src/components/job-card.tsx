@@ -91,7 +91,7 @@ export function JobCard({ job, onChange, onPreview, selected }: { job: Job; onCh
         <div className="flex items-center gap-1.5">
           <select
             aria-label="Application status"
-            className="rounded-md border border-slate-200 bg-white px-2 py-1 text-xs"
+            className="rounded-md border border-slate-200 bg-surface px-2 py-1 text-xs"
             value={job.status}
             disabled={busy}
             onChange={(e) => update({ status: e.target.value })}

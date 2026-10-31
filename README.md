@@ -24,7 +24,7 @@ Everything optional degrades gracefully. Without each key:
 | Claude key | Rule-based parser and template drafts, both labelled in the UI |
 | Voyage key | Lexical similarity plus role-family matching |
 | Resend key | Emails go to the dev outbox at `/dev/outbox` |
-| Stripe keys | Billing UI says it isn't configured |
+| Razorpay keys | Pricing page says payments aren't set up |
 | Google keys | The Google sign-in button is hidden |
 | Redis | Rate limits are kept in memory |
 
@@ -35,14 +35,14 @@ Everything optional degrades gracefully. Without each key:
 - Prisma, using SQLite in dev. Switch the provider to `postgresql` for production; JSON is stored as TEXT so the schema stays portable.
 - Anthropic TypeScript SDK (`claude-opus-5-5`)
 - `unpdf` + `mammoth` to read uploads; `pdf-lib` + `docx` to export
-- Stripe, Vitest
+- Razorpay (UPI, cards, net banking, wallets), Vitest
 
 ## Features by page
 
 | Route | What it does |
 | --- | --- |
 | `/` | Landing page with **Upload Resume** and **Try Demo** |
-| `/pricing` | Free and Pro plans, with Stripe Checkout |
+| `/pricing` | Free plan and prepaid Pro passes (1 or 12 months) in INR via Razorpay Checkout: UPI apps, Visa/Mastercard/RuPay/Amex/Diners cards, net banking (live bank list), wallets |
 | `/signup`, `/login`, `/forgot-password`, `/reset-password` | Email + password or **Google** sign-in. Verification and reset links are sent by email. |
 | `/onboarding` | PDF/DOCX upload with drag-and-drop, or pasted text. Imports **LinkedIn "Save to PDF"** exports. Shows progress, then an editable review of the parsed data. |
 | `/dashboard` | Health, ATS and completeness scores; usage this month; next actions (including overdue follow-ups); recent documents; pipeline. Matches stream in after the rest of the page. |
@@ -55,7 +55,7 @@ Everything optional degrades gracefully. Without each key:
 | `/alerts` | Saved searches with daily/weekly digests and a **Send now** button |
 | `/profile`, `/p/[slug]` | Profile builder and public page: 3 themes, view counter, **Resume PDF** download, social preview image, per-section privacy |
 | `/tools` | **Save to CareerMatch** bookmarklet. The import is always confirmed with a click on `/import`. |
-| `/settings` | Email verification, password, plan and usage, Stripe billing portal, **download all my data**, **delete account** |
+| `/settings` | Email verification, password, plan and usage, Pro expiry and payment history, **download all my data**, **delete account** |
 | `/admin` | Admins only (`ADMIN_EMAILS`): source enable/disable, board tokens, run now, health and failures, integration status |
 | `/sources` | Sourcing policy plus live per-source health |
 
@@ -125,14 +125,14 @@ Access rules:
 - **Encryption at rest:** profile data, raw resume text, resume versions and generated documents use AES-256-GCM (`DATA_ENCRYPTION_KEY`, required in production).
 - **Public profiles:** hidden fields are removed on the server before anything renders. Private profiles return 404 to everyone except the owner.
 - **Rate limits:** on auth, parsing, search, refresh, import, generation, digests and export. They use Redis when `UPSTASH_*` is set.
-- **Data rights:** a full JSON export, and account deletion that cascades and cancels any Stripe subscription.
+- **Data rights:** a full JSON export, and account deletion that cascades. Pro is prepaid, so there is nothing recurring to cancel.
 - **Retention:**
   - Demo accounts: 24 hours
   - Stale listings: 30 days
   - Source logs: 14 days
   - Outbox: 7 days
 - **Errors:** structured JSON logs. Errors can also be forwarded to `ERROR_WEBHOOK_URL`, a lightweight stand-in for Sentry.
-- **Headers:** security headers are set in middleware. The Stripe webhook is signature-verified.
+- **Headers:** security headers are set in middleware. Razorpay checkout callbacks and webhooks are HMAC-SHA256 verified, and each payment is re-checked with Razorpay (order, amount, capture) before Pro is granted.
 
 ## Testing
 
@@ -156,8 +156,8 @@ The end-to-end test runs the full user journey:
 - Set the optional keys you need (see `.env.example`).
 - Switch Prisma to Postgres and run `prisma migrate`.
 - Configure Upstash Redis if you run more than one instance.
-- Register the Stripe webhook at `/api/billing/webhook` for these events:
-  - `checkout.session.completed`
-  - `customer.subscription.*`
+- Add a Razorpay webhook at `$APP_URL/api/billing/webhook` with a secret (`RAZORPAY_WEBHOOK_SECRET`) for these events:
+  - `payment.captured`
+  - `order.paid`
 - Register Google's redirect URI: `$APP_URL/api/auth/google/callback`.
 - FX rates for salary insights are static approximations (`src/lib/jobs/salary.ts`) and are labelled "approx." in the UI.

@@ -2,12 +2,15 @@ import "server-only";
 import { db } from "./db";
 
 export const PLANS = {
-  free: { name: "Free", aiActionsPerMonth: 15, savedSearches: 2, resumeVersions: 2, price: "$0" },
-  pro: { name: "Pro", aiActionsPerMonth: 400, savedSearches: 20, resumeVersions: 20, price: "$12/mo" },
+  free: { name: "Free", aiActionsPerMonth: 15, savedSearches: 2, resumeVersions: 2 },
+  pro: { name: "Pro", aiActionsPerMonth: 400, savedSearches: 20, resumeVersions: 20 },
 } as const;
 
 export type PlanId = keyof typeof PLANS;
-export const planOf = (u: { plan: string }): PlanId => (u.plan === "pro" ? "pro" : "free");
+
+/** Pro is prepaid: it counts only until the paid period ends. */
+export const planOf = (u: { plan: string; planRenewsAt?: Date | string | null }): PlanId =>
+  u.plan === "pro" && (!u.planRenewsAt || new Date(u.planRenewsAt) > new Date()) ? "pro" : "free";
 
 const monthStart = () => {
   const d = new Date();
@@ -19,7 +22,7 @@ export async function usageThisMonth(userId: string) {
 }
 
 /** Checks the monthly AI quota and records one action when allowed. */
-export async function consumeAiAction(user: { id: string; plan: string }, kind: string) {
+export async function consumeAiAction(user: { id: string; plan: string; planRenewsAt?: Date | null }, kind: string) {
   const plan = PLANS[planOf(user)];
   const used = await usageThisMonth(user.id);
   if (used >= plan.aiActionsPerMonth)
@@ -28,6 +31,4 @@ export async function consumeAiAction(user: { id: string; plan: string }, kind: 
   return { ok: true as const, remaining: plan.aiActionsPerMonth - used - 1 };
 }
 
-export function billingConfigured() {
-  return Boolean(process.env.STRIPE_SECRET_KEY && process.env.STRIPE_PRICE_ID);
-}
+export { billingConfigured, proPrices } from "./billing";

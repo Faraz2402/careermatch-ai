@@ -14,16 +14,19 @@ type Account = {
   google: boolean;
   plan: "free" | "pro";
   planName: string;
-  hasBillingAccount: boolean;
+  /** ISO date Pro is paid until (null on Free) */
+  proUntil: string | null;
+  payments: { id: string; paidAt: string; amount: number; period: string; method: string | null; paymentId: string | null }[];
   used: number;
   limit: number;
-  billingConfigured: boolean;
 };
+
+const METHOD_LABEL: Record<string, string> = { upi: "UPI", card: "Card", netbanking: "Net banking", wallet: "Wallet", emi: "EMI", paylater: "Pay later" };
 
 const FLASH = {
   verified: { kind: "success" as const, text: "Email confirmed — alerts and reminders are on." },
   verify_failed: { kind: "error" as const, text: "That confirmation link is invalid or expired. Send a new one below." },
-  billing: { kind: "success" as const, text: "Thanks! Your plan will update as soon as Stripe confirms the payment." },
+  billing: { kind: "success" as const, text: "Payment received — thank you! Pro is active." },
 };
 
 export function SettingsPanel({ account: a, flash }: { account: Account; flash: keyof typeof FLASH | null }) {
@@ -77,16 +80,33 @@ export function SettingsPanel({ account: a, flash }: { account: Account; flash: 
           </div>
           <p className="mt-1 text-xs text-slate-500">Generated documents, cover letters and mock interviews count once each. Template drafts (no AI) are free.</p>
         </div>
+        {a.proUntil && (
+          <p className="text-sm">
+            Pro is paid until <b>{new Date(a.proUntil).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}</b>. It won&apos;t renew automatically — extend any time.
+          </p>
+        )}
         <div className="flex flex-wrap gap-2">
-          {a.plan === "free" ? (
-            <Link href="/pricing" className="btn-primary">Upgrade to Pro</Link>
-          ) : a.hasBillingAccount && a.billingConfigured ? (
-            <button className="btn-secondary" disabled={busy === "portal"} onClick={() => go("portal", async () => {
-              const r = await api<{ url: string }>("/api/billing/portal", { method: "POST" });
-              window.location.href = r.url;
-            })}>Manage billing</button>
-          ) : null}
+          <Link href="/pricing" className="btn-primary">{a.plan === "free" ? "Upgrade to Pro" : "Extend Pro"}</Link>
         </div>
+        {a.payments.length > 0 && (
+          <div className="overflow-x-auto">
+            <p className="mb-2 text-sm font-semibold">Payment history</p>
+            <table className="w-full min-w-[440px] text-sm">
+              <thead><tr className="text-left text-xs text-slate-500"><th className="pb-1 font-medium">Date</th><th className="pb-1 font-medium">Pass</th><th className="pb-1 font-medium">Paid with</th><th className="pb-1 font-medium">Amount</th><th className="pb-1 font-medium">Reference</th></tr></thead>
+              <tbody>
+                {a.payments.map((p) => (
+                  <tr key={p.id} className="border-t border-slate-100">
+                    <td className="py-1.5">{new Date(p.paidAt).toLocaleDateString("en-IN")}</td>
+                    <td className="py-1.5">{p.period === "yearly" ? "12 months" : "1 month"}</td>
+                    <td className="py-1.5">{p.method ? METHOD_LABEL[p.method] ?? p.method : "—"}</td>
+                    <td className="py-1.5">₹{(p.amount / 100).toLocaleString("en-IN")}</td>
+                    <td className="py-1.5 font-mono text-xs text-slate-500">{p.paymentId}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </section>
 
       {!a.isDemo && (
@@ -117,7 +137,7 @@ export function SettingsPanel({ account: a, flash }: { account: Account; flash: 
 
       <section className="card space-y-3 border-rose-200 p-6">
         <h2 className="font-display text-lg font-bold text-rose-700">Delete account</h2>
-        <p className="text-sm text-slate-600">Permanently deletes your profile, resumes, generated documents, saved searches and tracked applications. Any subscription is cancelled. This can&apos;t be undone.</p>
+        <p className="text-sm text-slate-600">Permanently deletes your profile, resumes, generated documents, saved searches and tracked applications. This can&apos;t be undone.</p>
         <form className="grid gap-3 sm:grid-cols-3" onSubmit={(e) => {
           e.preventDefault();
           go("delete", async () => {

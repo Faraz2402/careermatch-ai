@@ -70,7 +70,7 @@ export function FilterMenu({ label, options, mode, value, defaultValue, onApply,
         onClick={() => setOpen((v) => !v)}
         className={cx(
           "inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium whitespace-nowrap transition",
-          active ? "border-emerald-700 bg-emerald-700 text-white" : "border-slate-300 bg-white text-slate-700 hover:border-slate-400",
+          active ? "border-emerald-700 bg-emerald-700 text-white" : "border-slate-300 bg-surface text-slate-700 hover:border-slate-400",
         )}
       >
         {summary ?? label} <span aria-hidden>▾</span>

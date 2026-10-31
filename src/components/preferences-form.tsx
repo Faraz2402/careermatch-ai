@@ -23,7 +23,7 @@ function Toggle<T extends string>({ options, value, onChange }: { options: reado
             type="button"
             aria-pressed={on}
             onClick={() => onChange(on ? value.filter((v) => v !== o) : [...value, o])}
-            className={cx("rounded-full border px-3 py-1 text-sm capitalize", on ? "border-brand-500 bg-brand-50 text-brand-700" : "border-slate-300 bg-white text-slate-600 hover:border-slate-400")}
+            className={cx("rounded-full border px-3 py-1 text-sm capitalize", on ? "border-brand-500 bg-brand-50 text-brand-700" : "border-slate-300 bg-surface text-slate-600 hover:border-slate-400")}
           >
             {o}
           </button>

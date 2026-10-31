@@ -37,7 +37,7 @@ export function ThemeToggle() {
               setMode(m);
               apply(m);
             }}
-            className={`rounded-md px-2 py-0.5 text-xs ${mode === m ? "bg-white shadow-sm" : "text-slate-500"}`}
+            className={`rounded-md px-2 py-0.5 text-xs ${mode === m ? "bg-surface shadow-sm" : "text-slate-500"}`}
           >
             {m === "light" ? "☀" : m === "dark" ? "☾" : "Auto"}
           </button>

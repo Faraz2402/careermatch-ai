@@ -8,7 +8,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   const unverified = !user.isDemo && !user.emailVerifiedAt && !user.googleId;
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
+      <header className="sticky top-0 z-30 border-b border-slate-200 bg-surface/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3 sm:px-6">
           <Logo />
           <NavLinks />

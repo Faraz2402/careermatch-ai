@@ -1,7 +1,8 @@
 import { SettingsPanel } from "@/components/settings-panel";
 import { PageHeader } from "@/components/ui";
 import { requireUser } from "@/lib/auth";
-import { billingConfigured, PLANS, planOf, usageThisMonth } from "@/lib/plans";
+import { db } from "@/lib/db";
+import { PLANS, planOf, usageThisMonth } from "@/lib/plans";
 
 export const metadata = { title: "Settings" };
 
@@ -22,10 +23,17 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
           google: !!user.googleId,
           plan,
           planName: PLANS[plan].name,
-          hasBillingAccount: !!user.stripeCustomerId,
+          proUntil: plan === "pro" && user.planRenewsAt ? user.planRenewsAt.toISOString() : null,
+          payments: (await db.payment.findMany({ where: { userId: user.id, status: "paid" }, orderBy: { paidAt: "desc" }, take: 24 })).map((p) => ({
+            id: p.id,
+            paidAt: (p.paidAt ?? p.createdAt).toISOString(),
+            amount: p.amount,
+            period: p.period,
+            method: p.method,
+            paymentId: p.paymentId,
+          })),
           used: await usageThisMonth(user.id),
           limit: PLANS[plan].aiActionsPerMonth,
-          billingConfigured: billingConfigured(),
         }}
       />
     </div>

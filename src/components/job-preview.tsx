@@ -34,7 +34,7 @@ export function JobPreview({ id, onClose }: { id: string; onClose: () => void })
 
   return (
     <aside className="card hidden max-h-[calc(100vh-7rem)] overflow-y-auto lg:sticky lg:top-20 lg:block lg:self-start" aria-label="Job preview">
-      <div className="sticky top-0 flex items-center justify-between border-b border-slate-100 bg-white/95 px-5 py-3 backdrop-blur">
+      <div className="sticky top-0 flex items-center justify-between border-b border-slate-100 bg-surface/95 px-5 py-3 backdrop-blur">
         <span className="text-xs font-semibold tracking-wide text-slate-500 uppercase">Preview</span>
         <div className="flex gap-1">
           <Link href={`/jobs/${encodeURIComponent(id)}`} className="btn-primary px-3 py-1 text-xs">Open & tailor →</Link>

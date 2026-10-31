@@ -26,7 +26,7 @@ export default async function OutboxPage() {
             <summary className="cursor-pointer p-4 text-sm">
               <b>{e.subject}</b> <span className="text-slate-500">→ {e.to} · {relativeDate(e.createdAt).toLowerCase()}</span>
             </summary>
-            <iframe title={e.subject} sandbox="" srcDoc={e.html} className="h-[480px] w-full border-t border-slate-100 bg-white" />
+            <iframe title={e.subject} sandbox="" srcDoc={e.html} className="h-[480px] w-full border-t border-slate-100 bg-surface" />
           </details>
         ))}
       </div>

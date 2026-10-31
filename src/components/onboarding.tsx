@@ -88,7 +88,7 @@ export function OnboardingFlow({ aiEnabled }: { aiEnabled: boolean }) {
 
       <div className="mt-6 inline-flex rounded-lg bg-slate-100 p-1">
         {(["upload", "paste"] as const).map((m) => (
-          <button key={m} onClick={() => setMode(m)} className={cx("rounded-md px-4 py-1.5 text-sm font-medium", mode === m ? "bg-white shadow-sm" : "text-slate-600")}>
+          <button key={m} onClick={() => setMode(m)} className={cx("rounded-md px-4 py-1.5 text-sm font-medium", mode === m ? "bg-surface shadow-sm" : "text-slate-600")}>
             {m === "upload" ? "Upload file" : "Paste text"}
           </button>
         ))}
@@ -130,7 +130,7 @@ export function OnboardingFlow({ aiEnabled }: { aiEnabled: boolean }) {
             }}
             className={cx(
               "flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed px-6 py-16 text-center transition",
-              drag ? "border-brand-500 bg-brand-50" : "border-slate-300 bg-white hover:border-brand-400",
+              drag ? "border-brand-500 bg-brand-50" : "border-slate-300 bg-surface hover:border-brand-400",
             )}
           >
             <div className="text-4xl">📄</div>
@@ -150,7 +150,7 @@ export function OnboardingFlow({ aiEnabled }: { aiEnabled: boolean }) {
 
       {error && <div className="mt-4"><Alert>{error}</Alert></div>}
 
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4 text-sm">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-surface p-4 text-sm">
         <span className="text-slate-600">Just testing? Use a fictional sample resume.</span>
         <button className="btn-secondary" disabled={busy} onClick={() => run({ json: { demo: true } })}>Use demo resume</button>
       </div>

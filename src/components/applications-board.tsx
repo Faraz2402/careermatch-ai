@@ -82,7 +82,7 @@ export function ApplicationsBoard({ initial }: { initial: BoardCard[] }) {
               className={cx("flex min-h-64 flex-col rounded-2xl border border-t-4 border-slate-200 bg-slate-100/60 p-3 transition", COLUMN_STYLE[col], over === col && "bg-brand-50 ring-2 ring-brand-300")}
             >
               <h2 className="mb-3 flex items-center justify-between px-1 text-sm font-semibold text-slate-700">
-                {STATUS_LABELS[col]} <span className="chip bg-white text-slate-500">{list.length}</span>
+                {STATUS_LABELS[col]} <span className="chip bg-surface text-slate-500">{list.length}</span>
               </h2>
               <div className="space-y-2">
                 {list.map((c) => {
@@ -110,7 +110,7 @@ export function ApplicationsBoard({ initial }: { initial: BoardCard[] }) {
                         )}
                         <p>📄 {c.resumeName}</p>
                       </div>
-                      <select aria-label={`Move ${c.title}`} className="mt-2 w-full rounded-md border border-slate-200 bg-white px-1.5 py-1 text-xs" value={c.status} onChange={(e) => move(c.jobId, e.target.value)}>
+                      <select aria-label={`Move ${c.title}`} className="mt-2 w-full rounded-md border border-slate-200 bg-surface px-1.5 py-1 text-xs" value={c.status} onChange={(e) => move(c.jobId, e.target.value)}>
                         {COLUMNS.map((s) => <option key={s} value={s}>Move to: {STATUS_LABELS[s]}</option>)}
                       </select>
                     </article>

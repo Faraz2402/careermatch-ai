@@ -183,7 +183,7 @@ function Output({ kind, content }: { kind: Kind; content: unknown }) {
           {c.missing.length === 0 && <p>No significant gaps found.</p>}
           {c.missing.map((m) => (
             <div key={m.skill}>
-              <p className="font-semibold">{m.skill} <span className="chip ml-1 bg-white text-slate-600 ring-1 ring-slate-200">{m.importance}</span></p>
+              <p className="font-semibold">{m.skill} <span className="chip ml-1 bg-surface text-slate-600 ring-1 ring-slate-200">{m.importance}</span></p>
               <p className="text-slate-600">{m.howToClose}</p>
             </div>
           ))}

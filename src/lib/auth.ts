@@ -56,7 +56,7 @@ export async function getCurrentUser() {
   const session = await db.session.findUnique({
     where: { tokenHash: sha256(token) },
     include: {
-      user: { select: { id: true, email: true, name: true, isDemo: true, role: true, plan: true, emailVerifiedAt: true, googleId: true, stripeCustomerId: true, createdAt: true } },
+      user: { select: { id: true, email: true, name: true, isDemo: true, role: true, plan: true, planRenewsAt: true, emailVerifiedAt: true, googleId: true, createdAt: true } },
     },
   });
   if (!session || session.expiresAt < new Date()) return null;
