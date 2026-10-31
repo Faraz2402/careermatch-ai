@@ -18,11 +18,21 @@ import { matchesKeywords } from "./util";
 export { jobId };
 
 export const STRONG_MATCH = 60;
+
+/**
+ * Expired jobs stay visible (marked) until the next daily refresh, which runs
+ * at 01:00 UTC; after that they drop out of the feed.
+ */
+export function expiryCutoff(now = new Date()) {
+  const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 1));
+  if (d > now) d.setUTCDate(d.getUTCDate() - 1);
+  return d;
+}
 export const REMOTE_ANYWHERE = "REMOTE";
 const LIVE_WINDOW_DAYS = 7; // listings not re-seen by their source within this window are dropped
 
 export function jobRowToNormalized(j: Job): NormalizedJob &
-  Pick<Job, "embedding" | "salaryYearlyUsd" | "country" | "countries" | "city" | "remoteScope"> & {
+  Pick<Job, "embedding" | "salaryYearlyUsd" | "country" | "countries" | "city" | "remoteScope" | "expiredAt"> & {
     sourceUrl: string;
     verifiedLink: boolean;
     requirements: JobRequirements | null;
@@ -103,6 +113,8 @@ export type JobCard = {
   sourceUrl: string;
   /** `url` is the original posting, verified on the employer site. */
   verifiedLink: boolean;
+  /** Marked "no longer accepting applications" (ISO date), or null. */
+  expiredAt: string | null;
   /** The same job on LinkedIn, Naukri etc. */
   postedOn: PostedOn[];
   analysed: boolean;
@@ -181,6 +193,7 @@ export function toCard(j: ReturnType<typeof jobRowToNormalized>, match: MatchRes
     sourceUrl: j.sourceUrl,
     verifiedLink: j.verifiedLink,
     postedOn: j.postedOn,
+    expiredAt: j.expiredAt?.toISOString() ?? null,
     analysed: j.analysed,
     match,
     saved: state?.saved ?? false,
@@ -247,6 +260,8 @@ export async function searchJobs(userId: string, f: SearchFilters) {
       ...(f.salaryMin ? [{ salaryYearlyUsd: { gte: f.salaryMin } }] : []),
       ...(f.onlySalary ? [{ salaryYearlyUsd: { not: null } }] : []),
       ...(f.newSince ? [{ firstSeenAt: { gt: f.newSince } }] : []),
+      // Expired jobs leave the feed at the next daily refresh (kept in saved/applied views).
+      ...(f.view === "saved" || f.view === "applied" ? [] : [{ OR: [{ expiredAt: null }, { expiredAt: { gt: expiryCutoff() } }] }]),
       ...(f.country === REMOTE_ANYWHERE ? [{ workMode: "remote" }] : []),
       // Coarse DB pre-filter; exact eligibility is checked below.
       ...(country ? [{ OR: [{ countries: { contains: country } }, ...(includeRemote ? [{ workMode: "remote" }, { remoteScope: { not: null } }] : [])] }] : []),

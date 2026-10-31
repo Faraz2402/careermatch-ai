@@ -63,6 +63,16 @@ export async function safeFetch(start: URL, init: RequestInit & { signal: AbortS
   throw new ImportError("Too many redirects.");
 }
 
+/**
+ * Does a robots.txt path rule match? Rules match from the start of the path;
+ * `*` matches any characters and a trailing `$` anchors the end (RFC 9309).
+ */
+export function robotsRuleMatches(rule: string, path: string) {
+  const anchored = rule.endsWith("$");
+  const body = (anchored ? rule.slice(0, -1) : rule).split("*").map((s) => s.replace(/[.+?^${}()|[\]\\]/g, "\\$&")).join(".*");
+  return new RegExp(`^${body}${anchored ? "$" : ""}`).test(path);
+}
+
 /** Minimal robots.txt check for our user agent (and *). */
 export async function robotsAllows(url: URL, signal: AbortSignal): Promise<boolean> {
   try {
@@ -81,7 +91,7 @@ export async function robotsAllows(url: URL, signal: AbortSignal): Promise<boole
       else if (applies && key === "allow" && value) allow.push(value);
     }
     const path = url.pathname + url.search;
-    const longest = (rules: string[]) => Math.max(-1, ...rules.filter((r) => path.startsWith(r.replace(/\*.*$/, ""))).map((r) => r.length));
+    const longest = (rules: string[]) => Math.max(-1, ...rules.filter((r) => robotsRuleMatches(r, path)).map((r) => r.length));
     return longest(allow) >= longest(disallow);
   } catch (e) {
     if (e instanceof ImportError) throw e;

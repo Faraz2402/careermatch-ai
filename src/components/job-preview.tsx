@@ -6,6 +6,7 @@ import type { JobCard } from "@/lib/jobs/service";
 import { formatSalary, relativeDate } from "@/lib/format";
 import { Alert, api } from "./client";
 import { JobLinks } from "./apply-links";
+import { ExpiredBadge } from "./listing-status";
 import { ScoreRing, SourceBadge } from "./ui";
 
 type Detail = { job: JobCard; description: string };
@@ -58,6 +59,7 @@ export function JobPreview({ id, onClose }: { id: string; onClose: () => void })
               <p className="mt-1 text-sm text-slate-600">
                 {data.job.location || "Location not stated"} · {formatSalary(data.job) ?? "Salary not listed"} · Posted {relativeDate(data.job.postedAt).toLowerCase()}
               </p>
+              {data.job.expiredAt && <ExpiredBadge className="mt-1" />}
             </div>
             <ScoreRing value={data.job.match.score} size={60} />
           </div>

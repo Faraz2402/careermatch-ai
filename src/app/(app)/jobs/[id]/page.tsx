@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ApplyButton, JobLinks } from "@/components/apply-links";
 import { GeneratorPanel, type BaseResume, type Gen } from "@/components/generator-panel";
 import { JobEnricher } from "@/components/job-enricher";
+import { ExpiredBadge, ListingStatus } from "@/components/listing-status";
 import { JobTracker } from "@/components/job-tracker";
 import { ScoreRing, SourceBadge } from "@/components/ui";
 import { aiEnabled } from "@/lib/ai";
@@ -59,7 +60,8 @@ export default async function JobPage({ params }: Props) {
   ]);
   const match = scoreJob(job, ctx);
   const meta = sourceMeta(job.source);
-  const pending = aiEnabled() && (!e || needsEnrichment(row));
+  // No analysis for expired listings: it would spend searches (and a free user's quota) on a dead job.
+  const pending = aiEnabled() && !row.expiredAt && (!e || needsEnrichment(row));
   const aggregator = job.sourceUrl && !job.verifiedLink ? applyPlatform(job.sourceUrl) : null;
 
   const latest: Partial<Record<Kind, Gen>> = {};
@@ -88,6 +90,7 @@ export default async function JobPage({ params }: Props) {
                 <span className={salary ? "font-semibold text-emerald-700" : ""}>{salary ?? "Salary not listed"}</span>
                 <span>Posted {relativeDate(job.postedAt).toLowerCase()}</span>
               </div>
+              {job.expiredAt && <ExpiredBadge className="mt-3" />}
             </div>
             <ScoreRing value={match.score} size={76} label="Match score" />
           </div>
@@ -100,7 +103,10 @@ export default async function JobPage({ params }: Props) {
               </p>
             </div>
             {job.url ? (
-              <ApplyButton job={job} />
+              <div className="flex flex-wrap items-center gap-2">
+                {job.source !== "demo" && <ListingStatus jobId={id} expiredAt={job.expiredAt?.toISOString() ?? null} />}
+                <ApplyButton job={job} />
+              </div>
             ) : (
               <span className="text-xs text-slate-500">{job.source === "demo" ? "Sample listing — there is no real application." : "No link provided."}</span>
             )}

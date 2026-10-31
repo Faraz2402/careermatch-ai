@@ -4,7 +4,7 @@ import "server-only";
 
 import { log } from "./log";
 
-export type SearchHit = { title: string; url: string; snippet: string };
+export type SearchHit = { title: string; url: string; snippet: string; published?: string | null };
 
 export class SearchQuotaError extends Error {}
 
@@ -12,7 +12,7 @@ export const tavilyEnabled = () => Boolean(process.env.TAVILY_API_KEY?.trim());
 
 export async function tavilySearch(
   query: string,
-  opts: { includeDomains?: string[]; excludeDomains?: string[]; maxResults?: number; country?: string } = {},
+  opts: { includeDomains?: string[]; excludeDomains?: string[]; maxResults?: number; country?: string; publishedDates?: boolean } = {},
 ): Promise<SearchHit[]> {
   const res = await fetch("https://api.tavily.com/search", {
     method: "POST",
@@ -24,6 +24,7 @@ export async function tavilySearch(
       ...(opts.includeDomains?.length && { include_domains: opts.includeDomains }),
       ...(opts.excludeDomains?.length && { exclude_domains: opts.excludeDomains }),
       ...(opts.country && { country: opts.country }),
+      ...(opts.publishedDates && { include_published_date: true }),
     }),
     signal: AbortSignal.timeout(30_000),
   });
@@ -34,6 +35,6 @@ export async function tavilySearch(
     if (res.status === 401) throw new Error("The Tavily API key is invalid.");
     throw new Error(`Search failed (${res.status}).`);
   }
-  const data = (await res.json()) as { results?: { title?: string; url?: string; content?: string }[] };
-  return (data.results ?? []).filter((r) => r.url).map((r) => ({ title: r.title ?? "", url: r.url!, snippet: r.content ?? "" }));
+  const data = (await res.json()) as { results?: { title?: string; url?: string; content?: string; published_date?: string | null }[] };
+  return (data.results ?? []).filter((r) => r.url).map((r) => ({ title: r.title ?? "", url: r.url!, snippet: r.content ?? "", published: r.published_date ?? null }));
 }

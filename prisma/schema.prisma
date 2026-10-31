@@ -132,6 +132,11 @@ model Job {
   /// description, AI-extracted requirements and market salary
   enrichment     String?
   enrichedAt     DateTime?
+  /// Marked "no longer accepting applications" (by a user report or detected
+  /// on the original posting). Hidden from the feed after the next daily refresh.
+  expiredAt      DateTime?
+  /// "auto" or the reporting user's id
+  expiredBy      String?
 
   states      UserJob[]
   generations Generation[]

@@ -36,7 +36,11 @@ export async function persistJobs(jobs: NormalizedJob[], opts: { importedById?: 
           lastSeenAt: now,
           importedById: opts.importedById ?? null,
         };
-        return db.job.upsert({ where: { id: jobId(j) }, create: { id: jobId(j), ...data }, update: data });
+        // Keep the first posting date we recorded (or a corrected one): aggregators
+        // re-index old jobs with fresh dates, which would make them look new.
+        const update: Partial<typeof data> = { ...data };
+        delete update.postedAt;
+        return db.job.upsert({ where: { id: jobId(j) }, create: { id: jobId(j), ...data }, update });
       }),
     );
   }

@@ -125,14 +125,14 @@ const jsonIn = (text: string) => {
 
 const num = (v: unknown) => (typeof v === "number" && v > 0 ? v : typeof v === "string" && Number(v) > 0 ? Number(v) : null);
 
-type Verified = { url: string; description: string; salary?: Pick<Job, "salaryMin" | "salaryMax" | "salaryCurrency" | "salaryPeriod"> };
+type Verified = { url: string; description: string; postedAt?: Date | null; salary?: Pick<Job, "salaryMin" | "salaryMax" | "salaryCurrency" | "salaryPeriod"> };
 
 /** Fetch a candidate page and confirm it's this job; returns the full description. */
 async function verifyPosting(url: string, job: Pick<Job, "title" | "company">): Promise<Verified | null> {
   try {
     const p = await importJobFromUrl(url);
     if (titleOverlap(job.title, p.title) < 0.6) return null;
-    return { url: p.url, description: p.description, salary: p.salaryMin != null ? p : undefined };
+    return { url: p.url, description: p.description, postedAt: p.postedAt, salary: p.salaryMin != null ? p : undefined };
   } catch (e) {
     if (!(e instanceof ImportError)) log.warn("enrich.verify_failed", { url, error: String(e) });
   }
@@ -367,29 +367,42 @@ const companyKey = (company: string) =>
  * terms forbid automated reading), so a result must name the same title and
  * company in its search title or snippet.
  */
-async function findPostedOn(job: Job): Promise<PostedOn[]> {
-  if (!tavilyEnabled()) return [];
+const CLOSED = /no longer accepting applications|job (?:is )?no longer available|this job has expired|job posting has expired|position has been filled/i;
+
+type BoardFindings = { postedOn: PostedOn[]; earliest: Date | null; closedOn: string | null };
+
+async function findPostedOn(job: Job): Promise<BoardFindings> {
+  const none: BoardFindings = { postedOn: [], earliest: null, closedOn: null };
+  if (!tavilyEnabled()) return none;
   try {
     const hits = await tavilySearch(`"${job.title}" ${job.company} ${job.city ?? ""} job`, {
       includeDomains: ["linkedin.com", "naukri.com", "indeed.com", "in.indeed.com", "foundit.in", "glassdoor.co.in", "glassdoor.com", "instahyre.com", "iimjobs.com"],
       maxResults: 10,
       country: job.country === "IN" ? "india" : undefined,
+      publishedDates: true,
     });
     const key = companyKey(job.company);
     const seen = new Set<string>();
-    const out: PostedOn[] = [];
+    const out: BoardFindings = { postedOn: [], earliest: null, closedOn: null };
     for (const h of hits) {
       const site = BOARD_JOB_PAGES.find(([, re]) => re.test(h.url))?.[0];
       if (!site || seen.has(site)) continue;
       if (titleOverlap(job.title, h.title) < 0.6) continue;
       if (key && !`${h.title} ${h.snippet} ${h.url}`.toLowerCase().includes(key)) continue;
       seen.add(site);
-      out.push({ site, url: h.url, title: h.title });
+      // A board that says the job is closed: note it, but don't send people there.
+      if (CLOSED.test(`${h.title} ${h.snippet}`)) {
+        out.closedOn ??= site;
+        continue;
+      }
+      out.postedOn.push({ site, url: h.url, title: h.title });
+      const d = h.published ? new Date(h.published) : null;
+      if (d && !isNaN(+d) && (!out.earliest || d < out.earliest)) out.earliest = d;
     }
     return out;
   } catch (e) {
     log.warn("enrich.posted_on_failed", { job: job.id, error: String(e) });
-    return [];
+    return none;
   }
 }
 
@@ -445,7 +458,8 @@ export async function enrichJob(job: Job, force = false): Promise<JobEnrichment>
   // Read the listing first: its brand name ("NTT DATA", not "NTT America, Inc.") searches far better.
   const fromListing = cached?.requirements ?? (await extractRequirements(job, job.description));
   const searchAs = { ...job, company: fromListing?.employer?.trim() || searchCompany(job.company) };
-  const [{ applyUrl, careersUrl, verified, market, searchLimited }, postedOn] = await Promise.all([findOriginal(searchAs, notes), findPostedOn(searchAs)]);
+  const [{ applyUrl, careersUrl, verified, market, searchLimited }, boards] = await Promise.all([findOriginal(searchAs, notes), findPostedOn(searchAs)]);
+  const postedOn = boards.postedOn;
   const fullDescription = verified?.description && verified.description.length > job.description.length ? verified.description : null;
   const requirements = fullDescription ? ((await extractRequirements(job, fullDescription)) ?? fromListing) : fromListing;
 
@@ -463,6 +477,13 @@ export async function enrichJob(job: Job, force = false): Promise<JobEnrichment>
   };
   // A salary on the verified posting fills in the listing's missing pay.
   const salary = job.salaryMin == null && verified?.salary ? { ...verified.salary, salaryYearlyUsd: normalizeSalaryYearlyUsd(verified.salary) } : {};
-  await db.job.update({ where: { id: job.id }, data: { enrichment: JSON.stringify(enrichment), enrichedAt: new Date(), ...salary } });
+  // Aggregators re-date old jobs when they re-index them; trust the earliest
+  // date from the employer's posting or a board copy.
+  const dates = [job.postedAt, verified?.postedAt, boards.earliest].filter((d): d is Date => !!d && !isNaN(+d) && +d <= Date.now());
+  const earliest = dates.length ? new Date(Math.min(...dates.map(Number))) : null;
+  const postedAt = earliest && (!job.postedAt || earliest < job.postedAt) ? { postedAt: earliest } : {};
+  if (boards.closedOn) notes.push(`${boards.closedOn} shows this job as no longer accepting applications.`);
+  const expired = boards.closedOn && !job.expiredAt ? { expiredAt: new Date(), expiredBy: "auto" } : {};
+  await db.job.update({ where: { id: job.id }, data: { enrichment: JSON.stringify(enrichment), enrichedAt: new Date(), ...salary, ...postedAt, ...expired } });
   return enrichment;
 }

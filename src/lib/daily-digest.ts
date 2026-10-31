@@ -43,7 +43,7 @@ export async function pickDigestJobs(user: Pick<User, "id" | "digestLastSentAt">
   const fresh = new Set(
     (await db.job.findMany({ where: { id: { in: res.jobs.map((j) => j.id) }, firstSeenAt: { gt: since } }, select: { id: true } })).map((j) => j.id),
   );
-  const jobs = res.jobs.filter((j) => fresh.has(j.id) && j.match.score >= DIGEST_MIN_SCORE && !j.hidden && j.source !== "demo").slice(0, DIGEST_MAX_JOBS);
+  const jobs = res.jobs.filter((j) => fresh.has(j.id) && !j.expiredAt && j.match.score >= DIGEST_MIN_SCORE && !j.hidden && j.source !== "demo").slice(0, DIGEST_MAX_JOBS);
   return { jobs, reason: jobs.length ? "" : "no new matches" };
 }
 

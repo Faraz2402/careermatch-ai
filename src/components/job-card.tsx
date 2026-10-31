@@ -6,6 +6,7 @@ import type { JobCard as Job } from "@/lib/jobs/service";
 import { formatSalary, relativeDate, STATUS_LABELS } from "@/lib/format";
 import { api } from "./client";
 import { JobLinks } from "./apply-links";
+import { ExpiredBadge, ListingStatus } from "./listing-status";
 import { useToast } from "./toast";
 import { ScoreExplainer, SourceBadge } from "./ui";
 
@@ -73,6 +74,7 @@ export function JobCard({ job, onChange, onPreview, selected, reading }: { job: 
             <span className={salary ? "font-semibold text-emerald-700" : "text-slate-400"}>{salary ?? "Salary not listed"}</span>
             <span title={job.postedAt ?? undefined}>Posted {relativeDate(job.postedAt).toLowerCase()}</span>
           </div>
+          {job.expiredAt && <ExpiredBadge className="mt-2" />}
         </div>
         <ScoreExplainer match={job.match} />
       </div>
@@ -111,7 +113,8 @@ export function JobCard({ job, onChange, onPreview, selected, reading }: { job: 
 
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-3">
         <SourceBadge kind={job.sourceKind} name={job.sourceName} stale={job.match.stale} />
-        <div className="flex items-center gap-1.5">
+        <div className="flex flex-wrap items-center gap-1.5">
+          {job.source !== "demo" && <ListingStatus jobId={job.id} expiredAt={job.expiredAt} onChange={(expiredAt) => onChange({ expiredAt })} />}
           <select
             aria-label="Application status"
             className="rounded-md border border-slate-200 bg-surface px-2 py-1 text-xs"
