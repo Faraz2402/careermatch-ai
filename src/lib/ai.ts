@@ -2,6 +2,7 @@ import "server-only";
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { z } from "zod";
+import { log } from "./log";
 
 const anthropicEnabled = () => Boolean(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN);
 const geminiEnabled = () => Boolean(process.env.GEMINI_API_KEY);
@@ -127,12 +128,14 @@ function geminiBody(opts: { system: string; messages: { role: "user" | "assistan
 async function geminiFetch(method: string, body: string) {
   const res = await fetch(`${GEMINI_URL}/${AI_MODEL}:${method}`, {
     method: "POST",
-    headers: { "x-goog-api-key": process.env.GEMINI_API_KEY!, "Content-Type": "application/json" },
+    headers: { "x-goog-api-key": process.env.GEMINI_API_KEY!.trim(), "Content-Type": "application/json" },
     body,
     signal: AbortSignal.timeout(120_000),
-  }).catch(() => {
-    throw new AIError("Could not reach the AI service.");
+  }).catch((err: Error & { cause?: Error }) => {
+    log.error("ai.gemini.unreachable", { model: AI_MODEL, error: `${err.name}: ${err.message}`, cause: err.cause?.message });
+    throw new AIError(err.name === "TimeoutError" ? "The AI service took too long to respond." : "Could not reach the AI service.");
   });
+  if (!res.ok) log.error("ai.gemini.failed", { model: AI_MODEL, status: res.status, body: (await res.clone().text()).slice(0, 300) });
   if (res.status === 429) throw new AIError("The AI service is busy. Please try again in a minute.");
   if (res.status === 401 || res.status === 403) throw new AIError("The AI API key is invalid or missing.");
   if (!res.ok) throw new AIError(`AI request failed (${res.status}).`);
