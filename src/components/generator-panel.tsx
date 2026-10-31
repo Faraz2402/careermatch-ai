@@ -73,7 +73,7 @@ export function GeneratorPanel({ jobId, labels, initial, aiEnabled, bases }: { j
           <Link href={`/jobs/${encodeURIComponent(jobId)}/interview`} className="btn-secondary px-2.5 py-1 text-xs">🎤 Mock interview</Link>
         </div>
         <p className="mt-1 text-xs text-slate-500">
-          {aiEnabled ? "Generated with Claude from your resume only — it won't invent experience." : "AI isn't configured, so drafts are rule-based templates built from your resume."}
+          {aiEnabled ? "Generated with AI from your resume only — it won't invent experience." : "AI isn't configured, so drafts are rule-based templates built from your resume."}
         </p>
         <label className="mt-3 flex items-center gap-2 text-xs text-slate-600">
           Base resume
@@ -108,7 +108,7 @@ export function GeneratorPanel({ jobId, labels, initial, aiEnabled, bases }: { j
           ) : (
             <div className="space-y-2" aria-live="polite">
               {Array.from({ length: 6 }, (_, i) => <div key={i} className="h-3 animate-pulse rounded bg-slate-100" style={{ width: `${90 - i * 8}%` }} />)}
-              <p className="pt-2 text-xs text-slate-500">{aiEnabled ? "Claude is tailoring this to the posting…" : "Building draft…"}</p>
+              <p className="pt-2 text-xs text-slate-500">{aiEnabled ? "AI is tailoring this to the posting…" : "Building draft…"}</p>
             </div>
           )
         ) : current && reviewing ? (

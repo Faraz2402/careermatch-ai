@@ -6,6 +6,7 @@ import { log } from "../log";
 import { getBaseResume, getProfile } from "../profile";
 import { defaultPreferences, emptyResume, type JobPreferences, type ResumeData } from "../resume/schema";
 import { embedTexts, embeddingsEnabled } from "./embeddings";
+import { readEnrichment, type JobEnrichment, type JobRequirements } from "./enrich";
 import { cityMatches, jobAvailableIn, storedGeo } from "../geo/detect";
 import { fetchForCountry, jobId, MAX_LISTING_AGE_DAYS, refreshSources } from "./ingest";
 import { buildMatchContext, familiesOf, scoreJob, type Feedback, type MatchContext, type MatchResult } from "./rank";
@@ -20,10 +21,25 @@ export const STRONG_MATCH = 60;
 export const REMOTE_ANYWHERE = "REMOTE";
 const LIVE_WINDOW_DAYS = 7; // listings not re-seen by their source within this window are dropped
 
-export function jobRowToNormalized(
-  j: Job,
-): NormalizedJob & Pick<Job, "embedding" | "salaryYearlyUsd" | "country" | "countries" | "city" | "remoteScope"> {
-  return { ...j, workMode: j.workMode as NormalizedJob["workMode"] };
+export function jobRowToNormalized(j: Job): NormalizedJob &
+  Pick<Job, "embedding" | "salaryYearlyUsd" | "country" | "countries" | "city" | "remoteScope"> & {
+    sourceUrl: string;
+    verifiedLink: boolean;
+    requirements: JobRequirements | null;
+    enrichment: JobEnrichment | null;
+  } {
+  const e = readEnrichment(j);
+  return {
+    ...j,
+    workMode: j.workMode as NormalizedJob["workMode"],
+    // The employer's own posting (once found) replaces the aggregator's link and snippet.
+    url: e?.applyUrl ?? j.url,
+    sourceUrl: j.url,
+    verifiedLink: !!e?.applyUrl,
+    description: e?.fullDescription ?? j.description,
+    requirements: e?.requirements ?? null,
+    enrichment: e,
+  };
 }
 
 export type SearchFilters = {
@@ -78,6 +94,10 @@ export type JobCard = {
   sourceKind: string;
   attribution: string;
   url: string;
+  /** The aggregator listing (e.g. Adzuna) when `url` is the employer posting. */
+  sourceUrl: string;
+  /** `url` is the original posting, verified on the employer site. */
+  verifiedLink: boolean;
   match: MatchResult;
   saved: boolean;
   hidden: boolean;
@@ -150,6 +170,8 @@ export function toCard(j: ReturnType<typeof jobRowToNormalized>, match: MatchRes
     sourceKind: meta.kind,
     attribution: meta.attribution,
     url: j.url,
+    sourceUrl: j.sourceUrl,
+    verifiedLink: j.verifiedLink,
     match,
     saved: state?.saved ?? false,
     hidden: state?.hidden ?? false,

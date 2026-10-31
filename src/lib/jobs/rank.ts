@@ -6,6 +6,7 @@
 
 import { allSkills, type JobPreferences, type ResumeData } from "../resume/schema";
 import { canonicalSkill, extractSkills, skillTerms, textMentionsSkill } from "../skills";
+import type { JobRequirements } from "./enrich";
 import type { NormalizedJob } from "./types";
 
 export type Seniority = "intern" | "junior" | "mid" | "senior" | "lead" | "executive";
@@ -139,6 +140,9 @@ export type MatchContext = {
   profileEmbedding: number[] | null;
   feedback: Feedback;
   userSkills: string[];
+  /** Everything on the profile, for matching skills phrased differently. */
+  profileText: string;
+  profileFound: Set<string>;
 };
 
 export function buildMatchContext(resume: ResumeData, prefs: JobPreferences, opts: { feedback?: Feedback; profileEmbedding?: number[] | null } = {}): MatchContext {
@@ -151,6 +155,8 @@ export function buildMatchContext(resume: ResumeData, prefs: JobPreferences, opt
     feedback: opts.feedback ?? { liked: [], disliked: [] },
     // "Power BI (DAX, data modeling)" matches on Power BI, DAX and data modeling.
     userSkills: [...new Set(allSkills(resume).flatMap(skillTerms).map(canonicalSkill))],
+    profileText,
+    profileFound: new Set(extractSkills(profileText).map((s) => s.name)),
   };
 }
 
@@ -160,7 +166,9 @@ export type MatchResult = {
   missing: string[];
   reasons: string[];
   concerns: string[];
-  breakdown: { label: string; points: number; max: number }[];
+  breakdown: { label: string; points: number; max: number; detail: string }[];
+  /** Skills came from the AI-read requirements rather than keyword spotting. */
+  skillsFrom: "requirements" | "keywords";
   seniority: Seniority;
   level: ExperienceLevel;
   stale: boolean;
@@ -181,7 +189,22 @@ function titleJaccard(a: string, b: string) {
   return inter / (A.size + B.size - inter);
 }
 
-type ScorableJob = NormalizedJob & { embedding?: string | null; salaryYearlyUsd?: number | null };
+type ScorableJob = NormalizedJob & { embedding?: string | null; salaryYearlyUsd?: number | null; requirements?: JobRequirements | null };
+
+const lowerWords = (s: string) => ` ${s.toLowerCase().replace(/[^a-z0-9+#]+/g, " ").trim()} `;
+
+/** Does the profile show this job skill? Tries each part ("Procure-to-Pay (P2P)" -> Procure-to-Pay, P2P). */
+export function profileHasSkill(skill: string, ctx: Pick<MatchContext, "userSkills" | "profileText" | "profileFound">) {
+  return skillTerms(skill).some((term) => {
+    const t = lowerWords(term);
+    if (t.trim().length < 2) return false;
+    const inUserSkills = ctx.userSkills.some((u) => {
+      const w = lowerWords(u);
+      return w.includes(t) || (w.trim().length > 2 && t.includes(w));
+    });
+    return inUserSkills || textMentionsSkill(ctx.profileText, term, ctx.profileFound);
+  });
+}
 
 // Per-listing analysis is user-independent, so it's cached across searches.
 type Analysis = { found: Set<string>; terms: Map<string, number>; text: string };
@@ -205,16 +228,42 @@ export function scoreJob(job: ScorableJob, resumeOrCtx: ResumeData | MatchContex
   const concerns: string[] = [];
   const { text, found, terms: jobTerms } = analyze(job);
 
-  // 1. Skills (40)
-  const jobSkills = new Set(found);
-  for (const s of ctx.userSkills) if (!jobSkills.has(s) && textMentionsSkill(text, s, found)) jobSkills.add(s);
-  const userSet = new Set(ctx.userSkills.map((s) => s.toLowerCase()));
-  const matched = [...jobSkills].filter((s) => userSet.has(s.toLowerCase()));
-  const missing = [...jobSkills].filter((s) => !userSet.has(s.toLowerCase()));
-  const skillRatio = jobSkills.size ? matched.length / jobSkills.size : 0.4;
-  const skillPts = Math.round(40 * Math.min(1, skillRatio * 1.15));
-  if (matched.length) reasons.push(`You have ${matched.length} of ${jobSkills.size} skills this posting mentions.`);
-  if (missing.length) concerns.push(`Not on your profile: ${missing.slice(0, 5).join(", ")}${missing.length > 5 ? "…" : ""}.`);
+  // 1. Skills (40). Prefer the AI-read requirements; fall back to spotting
+  // known skills in the text. Required skills count fully, nice-to-haves half.
+  const req = job.requirements;
+  const skillsFrom: MatchResult["skillsFrom"] = req && req.skills.length ? "requirements" : "keywords";
+  const weighted = new Map<string, number>();
+  if (req && skillsFrom === "requirements") {
+    for (const s of req.skills) weighted.set(s, 1);
+    for (const s of req.niceToHave) if (![...weighted.keys()].some((k) => k.toLowerCase() === s.toLowerCase())) weighted.set(s, 0.5);
+  } else {
+    for (const s of found) weighted.set(s, 1);
+    for (const s of ctx.userSkills) if (!weighted.has(s) && textMentionsSkill(text, s, found)) weighted.set(s, 1);
+  }
+  const matched: string[] = [];
+  const missing: string[] = [];
+  let have = 0, total = 0;
+  for (const [s, w] of weighted) {
+    total += w;
+    if (profileHasSkill(s, ctx)) {
+      matched.push(s);
+      have += w;
+    } else missing.push(s);
+  }
+  // Smoothed ratio: 1 of 1 skills is weak evidence, 9 of 10 is strong.
+  const skillRatio = total ? (have + 0.4) / (total + 1) : 0.4;
+  const skillPts = Math.round(40 * Math.min(1, skillRatio * 1.1));
+  const skillDetail = weighted.size
+    ? `You have ${matched.length} of ${weighted.size} skills ${skillsFrom === "requirements" ? "the posting asks for" : "spotted in the posting"}.`
+    : "The posting doesn't name specific skills.";
+  if (matched.length) reasons.push(skillDetail);
+  if (missing.length) concerns.push(`Not on your profile: ${missing.slice(0, 6).join(", ")}${missing.length > 6 ? "…" : ""}.`);
+  if (weighted.size < 3 && skillsFrom === "keywords") concerns.push("The listing is only a short snippet, so few skills could be checked.");
+  if (req?.minYears) {
+    const yrs = yearsOfExperience(resume);
+    if (yrs && yrs < req.minYears) concerns.push(`Asks for ${req.minYears}+ years of experience; your profile shows about ${yrs}.`);
+    else if (yrs) reasons.push(`Meets the ${req.minYears}+ years of experience asked for.`);
+  }
 
   // 2. Title / role (20) - includes role-family equivalence
   const targets = [...prefs.roles, resume.headline, ...resume.experience.slice(0, 2).map((e) => e.title)].filter(Boolean);
@@ -223,6 +272,7 @@ export function scoreJob(job: ScorableJob, resumeOrCtx: ResumeData | MatchContex
   if (viaFamily) reasons.push(`Same kind of role as you're targeting (${viaFamily}), even though the title differs.`);
   else if (sim >= 0.6) reasons.push(prefs.roles.length ? "Title matches a role you're targeting." : "Title is close to your recent roles.");
   else if (sim < 0.25) concerns.push("Job title is different from the roles you're targeting.");
+  else concerns.push(`Title only partly matches your target roles (${targets.slice(0, 2).join(", ")}).`);
 
   // 3. Relevance (10): embeddings when available, else lexical similarity
   let relevance: number;
@@ -243,6 +293,7 @@ export function scoreJob(job: ScorableJob, resumeOrCtx: ResumeData | MatchContex
   }
   const relPts = Math.round(10 * relevance);
   if (relevance >= 0.7) reasons.push("The description closely resembles your experience.");
+  else if (relevance < 0.4) concerns.push("The description has little in common with your experience.");
 
   // 4. Seniority (10)
   const seniority = detectSeniority(job.title);
@@ -294,18 +345,29 @@ export function scoreJob(job: ScorableJob, resumeOrCtx: ResumeData | MatchContex
   if (fb > 0) reasons.push("Similar to jobs you've saved or applied to.");
   if (fb < 0) concerns.push("Similar to jobs you've hidden.");
 
+  const days = ageDays == null ? null : Math.round(ageDays);
   const breakdown = [
-    { label: "Skills", points: skillPts, max: 40 },
-    { label: "Role / title", points: titlePts, max: 20 },
-    { label: semantic === "embeddings" ? "Relevance (AI)" : "Relevance", points: relPts, max: 10 },
-    { label: "Seniority", points: senPts, max: 10 },
-    { label: "Location & arrangement", points: locPts, max: 10 },
-    { label: "Salary", points: salPts, max: 5 },
-    { label: "Recency", points: recPts, max: 5 },
+    { label: "Skills", points: skillPts, max: 40, detail: skillDetail },
+    {
+      label: "Role / title",
+      points: titlePts,
+      max: 20,
+      detail: viaFamily ? `Same role family (${viaFamily}) as your targets.` : `Compared with your targets: ${targets.slice(0, 2).join(", ") || "none set"}.`,
+    },
+    { label: semantic === "embeddings" ? "Relevance (AI)" : "Relevance", points: relPts, max: 10, detail: `How much the description overlaps your experience (${Math.round(relevance * 100)}%).` },
+    { label: "Seniority", points: senPts, max: 10, detail: `Job reads as ${seniority}; you're ${wanted}.` },
+    {
+      label: "Location & arrangement",
+      points: locPts,
+      max: 10,
+      detail: `${job.location || "Location not stated"} · ${job.workMode === "unknown" ? "arrangement not stated" : job.workMode}${locOk ? "" : " (outside your locations)"}.`,
+    },
+    { label: "Salary", points: salPts, max: 5, detail: yearly == null ? "No salary posted, so this is neutral." : salPts === 5 ? "Posted pay fits your range." : "Posted pay is below your minimum." },
+    { label: "Recency", points: recPts, max: 5, detail: days == null ? "No posting date given." : days === 0 ? "Posted today." : `Posted ${days} day${days === 1 ? "" : "s"} ago.` },
   ];
-  if (fb !== 0) breakdown.push({ label: "Your feedback", points: fb, max: 5 });
+  if (fb !== 0) breakdown.push({ label: "Your feedback", points: fb, max: 5, detail: fb > 0 ? "Similar to jobs you saved or applied to." : "Similar to jobs you hid." });
   const score = Math.max(0, Math.min(100, breakdown.reduce((a, b) => a + b.points, 0)));
-  return { score, matched, missing, reasons, concerns, breakdown, seniority, level: experienceLevel(job.title), stale, semantic };
+  return { score, matched, missing, reasons, concerns, breakdown, seniority, level: experienceLevel(job.title), stale, semantic, skillsFrom };
 }
 
 function safeVector(s: string): number[] | null {

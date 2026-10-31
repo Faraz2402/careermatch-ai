@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import type { JobCard } from "@/lib/jobs/service";
 import { formatSalary, relativeDate } from "@/lib/format";
 import { Alert, api } from "./client";
-import { ApplyButton, FindOnLinks } from "./apply-links";
+import { ApplyButton } from "./apply-links";
 import { ScoreRing, SourceBadge } from "./ui";
 
 type Detail = { job: JobCard; description: string };
@@ -62,8 +62,7 @@ export function JobPreview({ id, onClose }: { id: string; onClose: () => void })
             <ScoreRing value={data.job.match.score} size={60} />
           </div>
           <SourceBadge kind={data.job.sourceKind} name={data.job.sourceName} stale={data.job.match.stale} />
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <FindOnLinks job={data.job} />
+          <div className="flex justify-end">
             <ApplyButton job={data.job} className="px-3 py-1 text-xs" />
           </div>
           <div className="grid gap-3 text-sm sm:grid-cols-2">

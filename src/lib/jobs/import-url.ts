@@ -64,7 +64,7 @@ export async function safeFetch(start: URL, init: RequestInit & { signal: AbortS
 }
 
 /** Minimal robots.txt check for our user agent (and *). */
-async function robotsAllows(url: URL, signal: AbortSignal): Promise<boolean> {
+export async function robotsAllows(url: URL, signal: AbortSignal): Promise<boolean> {
   try {
     const res = await safeFetch(new URL("/robots.txt", url.origin), { signal, headers: { "User-Agent": USER_AGENT } });
     if (!res.ok) return true; // no robots.txt => allowed
@@ -125,6 +125,45 @@ function locationText(loc: JsonLdPosting["jobLocation"]): string {
   return [a.addressLocality, a.addressRegion, country].filter(Boolean).join(", ");
 }
 
+/** Inner HTML of the element whose opening tag contains position `at`. */
+function innerHtmlAt(html: string, at: number): string {
+  const open = html.lastIndexOf("<", at);
+  const tag = html.slice(open + 1).match(/^([a-z0-9]+)/i)?.[1];
+  const start = html.indexOf(">", at) + 1;
+  if (!tag || start <= 0) return "";
+  if (html[start - 2] === "/") return "";
+  const re = new RegExp(`<(/?)${tag}(?![a-z0-9])[^>]*>`, "gi");
+  re.lastIndex = start;
+  let depth = 1;
+  for (let m; (m = re.exec(html)); ) {
+    depth += m[1] ? -1 : 1;
+    if (depth === 0) return html.slice(start, m.index);
+  }
+  return html.slice(start);
+}
+
+/** schema.org JobPosting as HTML microdata (SuccessFactors and others). */
+function microdataPosting(html: string): JsonLdPosting | null {
+  if (!/itemtype=["']https?:\/\/schema\.org\/JobPosting["']/i.test(html)) return null;
+  const prop = (name: string) => {
+    const m = new RegExp(`itemprop=["']${name}["']`, "i").exec(html);
+    if (!m) return "";
+    const tagStart = html.lastIndexOf("<", m.index);
+    const tagText = html.slice(tagStart, html.indexOf(">", m.index) + 1);
+    const content = tagText.match(/content=["']([^"']*)["']/i)?.[1];
+    return content ?? innerHtmlAt(html, m.index);
+  };
+  const title = htmlToText(prop("title"));
+  if (!title) return null;
+  return {
+    title,
+    description: prop("description"),
+    datePosted: htmlToText(prop("datePosted")) || undefined,
+    hiringOrganization: htmlToText(prop("hiringOrganization")) || undefined,
+    jobLocation: { address: { addressLocality: htmlToText(prop("addressLocality")), addressRegion: htmlToText(prop("addressRegion")), addressCountry: htmlToText(prop("addressCountry")) } },
+  };
+}
+
 const idFor = (url: string) => createHash("sha1").update(url).digest("hex").slice(0, 16);
 
 export async function importJobFromUrl(raw: string): Promise<NormalizedJob> {
@@ -179,6 +218,7 @@ export async function importJobFromUrl(raw: string): Promise<NormalizedJob> {
     }
     if (posting) break;
   }
+  posting ??= microdataPosting(html);
   if (!posting?.title)
     throw new ImportError("No structured job data (schema.org JobPosting) was found on that page. Paste the job description instead.");
 

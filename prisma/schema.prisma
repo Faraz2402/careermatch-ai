@@ -123,6 +123,10 @@ model Job {
   embedding      String?
   /// The user that imported this job via URL (null for feed listings)
   importedById   String?
+  /// JSON (src/lib/jobs/enrich.ts): verified original posting, full
+  /// description, AI-extracted requirements and market salary
+  enrichment     String?
+  enrichedAt     DateTime?
 
   states      UserJob[]
   generations Generation[]

@@ -54,7 +54,7 @@ export function MockInterview({ jobId, aiEnabled, versions }: { jobId: string; a
       <div className="card mt-6 space-y-4 p-6">
         <p className="text-sm text-slate-700">
           You&apos;ll get 5 questions tailored to this job. After each answer you get quick feedback — a strength and one thing to improve.
-          {aiEnabled ? " The interviewer is powered by Claude." : " AI isn't configured, so you'll get a curated question bank with rule-based feedback."}
+          {aiEnabled ? " The interviewer is powered by AI." : " AI isn't configured, so you'll get a curated question bank with rule-based feedback."}
         </p>
         <label className="flex items-center gap-2 text-sm">Answer as
           <select className="input w-auto" value={versionId ?? ""} onChange={(e) => setVersionId(e.target.value || null)}>

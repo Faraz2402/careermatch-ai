@@ -7,7 +7,6 @@ import { formatSalary, relativeDate, STATUS_LABELS } from "@/lib/format";
 import { api } from "./client";
 import { useToast } from "./toast";
 import { applyPlatform } from "@/lib/apply-links";
-import { FindOnLinks } from "./apply-links";
 import { ScoreExplainer, SourceBadge } from "./ui";
 
 const MODE_ICON: Record<string, string> = { remote: "🌍 Remote", hybrid: "🏢 Hybrid", onsite: "📍 On-site", unknown: "Arrangement not stated" };
@@ -77,14 +76,13 @@ export function JobCard({ job, onChange, onPreview, selected }: { job: Job; onCh
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <FindOnLinks job={job} compact />
-        {job.url && (
+      {job.url && (
+        <div className="flex justify-end">
           <a href={job.url} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-brand-600 hover:underline">
-            Apply on {applyPlatform(job.url) ?? "source"} ↗
+            {job.verifiedLink ? `Apply on ${applyPlatform(job.url) ?? "employer site"}` : `View listing on ${applyPlatform(job.url) ?? "source"}`} ↗
           </a>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-3">
         <SourceBadge kind={job.sourceKind} name={job.sourceName} stale={job.match.stale} />

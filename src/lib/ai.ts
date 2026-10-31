@@ -23,6 +23,8 @@ function getClient() {
 }
 
 export class AIError extends Error {}
+/** The provider's quota (e.g. a free tier's daily allowance) is used up. */
+export class AIQuotaError extends AIError {}
 
 /**
  * One structured-output call. Returns data validated against `schema`.
@@ -115,7 +117,10 @@ export async function* streamText(opts: {
 const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models";
 
 type GeminiPart = { text?: string; thought?: boolean };
-type GeminiResponse = { candidates?: { content?: { parts?: GeminiPart[] }; finishReason?: string }[]; promptFeedback?: { blockReason?: string } };
+type GeminiResponse = {
+  candidates?: { content?: { parts?: GeminiPart[] }; finishReason?: string; groundingMetadata?: { groundingChunks?: { web?: { uri?: string; title?: string } }[] } }[];
+  promptFeedback?: { blockReason?: string };
+};
 
 function geminiBody(opts: { system: string; messages: { role: "user" | "assistant"; content: string }[]; effort?: "low" | "medium" | "high"; maxTokens?: number }, extra: Record<string, unknown> = {}) {
   return JSON.stringify({
@@ -125,21 +130,48 @@ function geminiBody(opts: { system: string; messages: { role: "user" | "assistan
   });
 }
 
-async function geminiFetch(method: string, body: string) {
-  const res = await fetch(`${GEMINI_URL}/${AI_MODEL}:${method}`, {
+async function geminiFetch(method: string, body: string, model = AI_MODEL, timeoutMs = 120_000) {
+  const res = await fetch(`${GEMINI_URL}/${model}:${method}`, {
     method: "POST",
     headers: { "x-goog-api-key": process.env.GEMINI_API_KEY!.trim(), "Content-Type": "application/json" },
     body,
-    signal: AbortSignal.timeout(120_000),
+    signal: AbortSignal.timeout(timeoutMs),
   }).catch((err: Error & { cause?: Error }) => {
-    log.error("ai.gemini.unreachable", { model: AI_MODEL, error: `${err.name}: ${err.message}`, cause: err.cause?.message });
+    log.error("ai.gemini.unreachable", { model, error: `${err.name}: ${err.message}`, cause: err.cause?.message });
     throw new AIError(err.name === "TimeoutError" ? "The AI service took too long to respond." : "Could not reach the AI service.");
   });
-  if (!res.ok) log.error("ai.gemini.failed", { model: AI_MODEL, status: res.status, body: (await res.clone().text()).slice(0, 300) });
-  if (res.status === 429) throw new AIError("The AI service is busy. Please try again in a minute.");
+  if (!res.ok) log.error("ai.gemini.failed", { model, status: res.status, body: (await res.clone().text()).slice(0, 300) });
+  if (res.status === 429) {
+    exhausted.set(model, Date.now() + 30 * 60_000);
+    throw new AIQuotaError("The AI service is busy or its daily limit is used up. Please try again later.");
+  }
   if (res.status === 401 || res.status === 403) throw new AIError("The AI API key is invalid or missing.");
   if (!res.ok) throw new AIError(`AI request failed (${res.status}).`);
   return res;
+}
+
+// Free-tier quotas are per model, so when one model is used up (429) or
+// overloaded (503) the request moves on to the next. GEMINI_FALLBACK_MODELS
+// overrides the list (comma-separated).
+const exhausted = new Map<string, number>();
+const fallbackModels = () => [
+  ...new Set([AI_MODEL, ...(process.env.GEMINI_FALLBACK_MODELS ?? "gemini-3.5-flash-lite,gemini-flash-lite-latest,gemini-3.6-flash").split(",").map((m) => m.trim()).filter(Boolean)]),
+];
+
+async function geminiWithFallback(method: string, body: string) {
+  const models = fallbackModels();
+  const ready = models.filter((m) => (exhausted.get(m) ?? 0) < Date.now());
+  let last: unknown;
+  for (const model of ready.length ? ready : models) {
+    try {
+      return await geminiFetch(method, body, model);
+    } catch (e) {
+      last = e;
+      if (e instanceof AIError && /invalid or missing/.test(e.message)) throw e;
+      log.warn("ai.gemini.fallback", { from: model, error: String(e) });
+    }
+  }
+  throw last;
 }
 
 function checkFinish(r: GeminiResponse) {
@@ -151,10 +183,33 @@ function checkFinish(r: GeminiResponse) {
 
 const answerText = (r: GeminiResponse) => (r.candidates?.[0]?.content?.parts ?? []).filter((p) => !p.thought && p.text).map((p) => p.text).join("");
 
+/** Google Search grounding needs a Gemini key even when Claude is the main provider. */
+export const webSearchEnabled = () => geminiEnabled();
+const SEARCH_MODEL = () => process.env.GEMINI_SEARCH_MODEL || "gemini-2.5-flash";
+
+/**
+ * Ask Gemini with Google Search grounding. Returns the answer text and the
+ * web pages it was grounded on (Google redirect links; resolve before use).
+ */
+export async function webSearch(prompt: string): Promise<{ text: string; sources: { title: string; uri: string }[] }> {
+  const body = JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }], tools: [{ google_search: {} }] });
+  // Grounded calls occasionally stall; one quick retry beats one long wait.
+  const res = await geminiFetch("generateContent", body, SEARCH_MODEL(), 60_000).catch((e: unknown) => {
+    if (e instanceof AIError && /too long/.test(e.message)) return geminiFetch("generateContent", body, SEARCH_MODEL(), 60_000);
+    throw e;
+  });
+  const r = (await res.json()) as GeminiResponse;
+  checkFinish(r);
+  const sources = (r.candidates?.[0]?.groundingMetadata?.groundingChunks ?? [])
+    .map((c) => ({ title: c.web?.title ?? "", uri: c.web?.uri ?? "" }))
+    .filter((c) => c.uri);
+  return { text: answerText(r), sources };
+}
+
 async function geminiStructured<S extends z.ZodType>(opts: { system: string; prompt: string; schema: S; effort?: "low" | "medium" | "high"; maxTokens?: number }): Promise<z.infer<S>> {
   const schema = z.toJSONSchema(opts.schema, { target: "draft-2020-12" }) as Record<string, unknown>;
   delete schema.$schema;
-  const res = await geminiFetch("generateContent", geminiBody({ ...opts, messages: [{ role: "user", content: opts.prompt }] }, { responseMimeType: "application/json", responseJsonSchema: schema }));
+  const res = await geminiWithFallback("generateContent", geminiBody({ ...opts, messages: [{ role: "user", content: opts.prompt }] }, { responseMimeType: "application/json", responseJsonSchema: schema }));
   const r = (await res.json()) as GeminiResponse;
   checkFinish(r);
   try {
@@ -165,7 +220,7 @@ async function geminiStructured<S extends z.ZodType>(opts: { system: string; pro
 }
 
 async function* geminiStream(opts: { system: string; messages: { role: "user" | "assistant"; content: string }[]; effort?: "low" | "medium" | "high"; maxTokens?: number }): AsyncGenerator<string> {
-  const res = await geminiFetch("streamGenerateContent?alt=sse", geminiBody({ ...opts, maxTokens: opts.maxTokens ?? 8000 }));
+  const res = await geminiWithFallback("streamGenerateContent?alt=sse", geminiBody({ ...opts, maxTokens: opts.maxTokens ?? 8000 }));
   const reader = res.body!.pipeThrough(new TextDecoderStream()).getReader();
   let buf = "";
   for (;;) {

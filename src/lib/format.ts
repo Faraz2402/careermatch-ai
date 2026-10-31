@@ -1,6 +1,20 @@
+const lakh = (n: number) => String(Math.round(n / 10_000) / 10);
+
+/** One amount: "₹18 LPA", "₹1.5L/mo", "$120k/yr", "€4,000/mo". */
+export function formatMoney(n: number, currency: string, period: "year" | "month") {
+  if (currency === "INR") return period === "year" ? `₹${lakh(n)} LPA` : n >= 100_000 ? `₹${lakh(n)}L/mo` : `₹${n.toLocaleString("en-IN")}/mo`;
+  const symbol = currency === "USD" ? "$" : currency === "EUR" ? "€" : currency === "GBP" ? "£" : "";
+  const amount = period === "year" && n >= 1000 ? `${Math.round(n / 1000)}k` : n.toLocaleString("en-US");
+  return `${symbol}${amount}/${period === "year" ? "yr" : "mo"}${symbol ? "" : ` ${currency}`}`;
+}
+
 export function formatSalary(j: { salaryMin: number | null; salaryMax: number | null; salaryCurrency: string | null; salaryPeriod: string | null }) {
   if (j.salaryMin == null && j.salaryMax == null) return null;
   const cur = j.salaryCurrency ?? "";
+  if (cur === "INR" && j.salaryPeriod === "year") {
+    const lo = lakh(j.salaryMin ?? j.salaryMax!), hi = lakh(j.salaryMax ?? j.salaryMin!);
+    return `₹${lo === hi ? lo : `${lo}–${hi}`} LPA`;
+  }
   const symbol = cur === "USD" ? "$" : cur === "EUR" ? "€" : cur === "GBP" ? "£" : "";
   const fmt = (n: number) =>
     j.salaryPeriod === "year" && n >= 1000 ? `${symbol}${Math.round(n / 1000)}k` : `${symbol}${n.toLocaleString("en-US")}`;

@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { applyPlatform, externalSearchLinks } from "@/lib/apply-links";
+import { applyPlatform } from "@/lib/apply-links";
+import { formatMoney, formatSalary } from "@/lib/format";
+import { titleOverlap } from "@/lib/jobs/enrich";
+import { buildMatchContext, profileHasSkill, scoreJob } from "@/lib/jobs/rank";
+import { defaultPreferences, emptyResume } from "@/lib/resume/schema";
 
 describe("apply links", () => {
   it("names the platform behind an apply URL", () => {
@@ -10,16 +14,50 @@ describe("apply links", () => {
     expect(applyPlatform("")).toBeNull();
   });
 
-  it("builds LinkedIn, Naukri, Workday and careers searches for Indian roles", () => {
-    const links = externalSearchLinks({ title: "Procurement Analyst", company: "Acme", city: "Hyderabad", country: "IN" });
-    expect(links.map((l) => l.label)).toEqual(["LinkedIn", "Naukri", "Workday", "Company careers"]);
-    expect(links[0].href).toBe("https://www.linkedin.com/jobs/search/?keywords=Procurement%20Analyst%20Acme&location=Hyderabad");
-    expect(links[1].href).toBe("https://www.naukri.com/procurement-analyst-jobs-in-hyderabad?k=Procurement%20Analyst&l=Hyderabad");
-    expect(decodeURIComponent(links[2].href)).toContain('site:myworkdayjobs.com "Acme"');
+  it("only accepts an original posting whose title matches the listing", () => {
+    expect(titleOverlap("Senior Business Systems Analyst – Finance Systems Operations", "Sr. Business Systems Analyst, Finance Systems Operations")).toBeGreaterThanOrEqual(0.6);
+    expect(titleOverlap("Senior Business Systems Analyst", "Software Engineer II")).toBeLessThan(0.6);
+  });
+});
+
+describe("job skills vs profile", () => {
+  const resume = {
+    ...emptyResume(),
+    headline: "Procurement Analyst",
+    skills: [{ category: "Procurement", skills: ["P2P cycle", "SAP MM", "Power BI (DAX, data modeling)"] }],
+    experience: [{ title: "Procurement Analyst", company: "Acme", location: "", startDate: "2019", endDate: "Present", highlights: ["Ran supplier onboarding and vendor master data cleanup"] }],
+  };
+  const ctx = buildMatchContext(resume, defaultPreferences());
+
+  it("matches skills phrased differently, using the whole profile", () => {
+    expect(profileHasSkill("Procure-to-Pay (P2P)", ctx)).toBe(true);
+    expect(profileHasSkill("DAX", ctx)).toBe(true);
+    expect(profileHasSkill("Vendor master data", ctx)).toBe(true);
+    expect(profileHasSkill("SAP S/4HANA Finance", ctx)).toBe(false);
   });
 
-  it("skips Naukri outside India and all links for demo listings", () => {
-    expect(externalSearchLinks({ title: "Analyst", company: "Acme", country: "DE" }).map((l) => l.label)).not.toContain("Naukri");
-    expect(externalSearchLinks({ title: "Analyst", company: "Acme (sample)", source: "demo" })).toEqual([]);
+  it("lists every required skill as matched or missing, and 1 of 1 isn't a perfect score", () => {
+    const job = {
+      source: "adzuna", externalId: "1", title: "Procurement Analyst", company: "X", location: "Pune", workMode: "onsite" as const, employmentType: "",
+      salaryMin: null, salaryMax: null, salaryCurrency: null, salaryPeriod: null, description: "P2P support role.", url: "", postedAt: new Date(),
+    };
+    const one = scoreJob(job, ctx);
+    expect(one.breakdown[0].points).toBeLessThan(40);
+
+    const withReqs = scoreJob({ ...job, requirements: { skills: ["Procure-to-Pay (P2P)", "SAP MM", "SOX controls"], niceToHave: ["Coupa"], minYears: 3, education: "", responsibilities: [] } }, ctx);
+    expect(withReqs.skillsFrom).toBe("requirements");
+    expect(withReqs.matched).toEqual(["Procure-to-Pay (P2P)", "SAP MM"]);
+    expect(withReqs.missing).toEqual(["SOX controls", "Coupa"]);
+    expect(withReqs.concerns.join(" ")).toContain("SOX controls");
+    expect(withReqs.breakdown.every((b) => b.detail.length > 0)).toBe(true);
+  });
+});
+
+describe("money formatting", () => {
+  it("shows Indian salaries in lakhs per annum", () => {
+    expect(formatMoney(1_800_000, "INR", "year")).toBe("₹18 LPA");
+    expect(formatMoney(65_000, "INR", "month")).toBe("₹65,000/mo");
+    expect(formatSalary({ salaryMin: 1_200_000, salaryMax: 1_850_000, salaryCurrency: "INR", salaryPeriod: "year" })).toBe("₹12–18.5 LPA");
+    expect(formatMoney(120_000, "USD", "year")).toBe("$120k/yr");
   });
 });
