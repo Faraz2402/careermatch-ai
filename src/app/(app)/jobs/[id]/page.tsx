@@ -19,7 +19,7 @@ import { scoreJob } from "@/lib/jobs/rank";
 import { sourceMeta } from "@/lib/jobs/registry";
 import { formatUsdK } from "@/lib/jobs/salary";
 import { jobRowToNormalized, loadMatchContext, salaryInsightFor } from "@/lib/jobs/service";
-import { PLANS, planOf, resumeExportsUsed } from "@/lib/plans";
+import { exportNote } from "@/lib/plans";
 import { getProfile } from "@/lib/profile";
 import { emptyResume, type ResumeData } from "@/lib/resume/schema";
 
@@ -47,17 +47,16 @@ export default async function JobPage({ params }: Props) {
 
   const job = jobRowToNormalized(row);
   const e = job.enrichment;
-  const [ctx, profile, versions, state, gens, insight, exportsUsed] = await Promise.all([
+  const [ctx, profile, versions, state, gens, insight, resumeNote, letterNote] = await Promise.all([
     loadMatchContext(user.id),
     getProfile(user.id),
     db.resumeVersion.findMany({ where: { userId: user.id }, orderBy: { updatedAt: "desc" } }),
     db.userJob.findUnique({ where: { userId_jobId: { userId: user.id, jobId: id } } }),
     db.generation.findMany({ where: { userId: user.id, jobId: id }, orderBy: { createdAt: "desc" } }),
     e?.market ? null : salaryInsightFor(job).then((i) => (i && i.family !== "all roles" ? i : null)),
-    resumeExportsUsed(user.id),
+    exportNote(user, "resume"),
+    exportNote(user, "cover_letter"),
   ]);
-  const exportLimit = PLANS[planOf(user)].resumeExports;
-  const exportNote = exportLimit === null ? undefined : exportsUsed >= exportLimit ? "You've used your free résumé export (re-downloading it is still free)." : `Free plan: you can export ${exportLimit} tailored résumé to PDF/Word.`;
   const match = scoreJob(job, ctx);
   const meta = sourceMeta(job.source);
   const pending = aiEnabled() && (!e || needsEnrichment(row));
@@ -255,7 +254,7 @@ export default async function JobPage({ params }: Props) {
             resumeVersionId: state?.resumeVersionId ?? null,
           }}
         />
-        <GeneratorPanel jobId={id} labels={KIND_LABELS} initial={latest} aiEnabled={aiEnabled()} bases={bases} exportNote={exportNote} />
+        <GeneratorPanel jobId={id} labels={KIND_LABELS} initial={latest} aiEnabled={aiEnabled()} bases={bases} exportNotes={{ ats_resume: resumeNote, cover_letter: letterNote }} />
       </aside>
     </div>
   );

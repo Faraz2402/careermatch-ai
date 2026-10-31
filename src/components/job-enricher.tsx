@@ -37,7 +37,15 @@ export function JobEnricher({ jobId, pending }: { jobId: string; pending: boolea
   return (
     <div role="status" className="card flex items-start gap-3 border-brand-200 bg-brand-50/60 p-4 text-sm">
       {error ? (
-        <p className="text-rose-700">{error}</p>
+        <p className={/Free plan/.test(error) ? "text-slate-700" : "text-rose-700"}>
+          {error}
+          {/Free plan/.test(error) && (
+            <>
+              {" "}
+              <a href="/pricing" className="font-semibold text-brand-700 underline underline-offset-2">See Pro</a>
+            </>
+          )}
+        </p>
       ) : (
         <>
           <span className="mt-0.5 size-4 shrink-0 animate-spin rounded-full border-2 border-brand-500 border-t-transparent" aria-hidden />

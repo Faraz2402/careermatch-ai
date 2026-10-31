@@ -3,6 +3,7 @@ import { apiUser, jsonError } from "@/lib/api";
 import { aiEnabled } from "@/lib/ai";
 import { db } from "@/lib/db";
 import { enrichJob, needsEnrichment } from "@/lib/jobs/enrich";
+import { claimJobAnalysis } from "@/lib/plans";
 import { rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
@@ -18,6 +19,8 @@ export async function POST(_req: Request, { params }: { params: Promise<{ id: st
   if (!aiEnabled()) return jsonError("AI is not configured.", 503);
   if (!needsEnrichment(job)) return NextResponse.json({ ok: true, cached: true });
   if (!(await rateLimit(`enrich:${user.id}`, 40, 60 * 60_000)).ok) return jsonError("You've opened a lot of jobs - please wait a few minutes.", 429);
+  const allowed = await claimJobAnalysis(user, id);
+  if (!allowed.ok) return jsonError(allowed.message, 402, { upgrade: true });
 
   // Another tab may be enriching the same job; claim it first.
   const claimed = await db.job.updateMany({ where: { id, enrichedAt: job.enrichedAt }, data: { enrichedAt: new Date() } });

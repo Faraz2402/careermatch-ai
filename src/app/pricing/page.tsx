@@ -13,26 +13,28 @@ export const metadata = { title: "Pricing", description: "CareerMatch AI Free an
 const { free, pro } = PLANS;
 
 /** [feature, what it does for you, Pro, Free] - only features the product really has. */
+const n = (v: number | null, unit = "") => (v === null ? "Unlimited" : `${v}${unit}`);
 const FEATURES: [string, string, string, string][] = [
   ["AI actions", "Tailored résumés, cover letters, match analyses, gap reports and interview practice.", `${pro.aiActionsPerMonth} / month`, `${free.aiActionsPerMonth} / month`],
-  ["Résumé export to PDF & Word", "ATS-safe templates (Classic, Modern, Compact), ready to upload.", "Unlimited", `${free.resumeExports} résumé`],
-  ["Cover-letter export", "Download every cover letter as PDF or Word.", "Unlimited", "Unlimited"],
+  ["Job analyses", "The employer's own apply link, the full job description and market salary in ₹ for a job.", "Unlimited*", n(free.jobAnalysesPerMonth, " / month")],
+  ["Résumé export to PDF & Word", "ATS-safe templates (Classic, Modern, Compact), ready to upload.", "Unlimited", n(free.resumeExports, " résumé")],
+  ["Cover-letter export", "Download cover letters as PDF or Word.", "Unlimited", n(free.coverLetterExports, " cover letter")],
+  ["Daily 7 AM job email", "Your best new matches every morning, with scores and skills.", "Included", "—"],
   ["Résumé versions", "A version per role, so every application is on target.", `${pro.resumeVersions}`, `${free.resumeVersions}`],
   ["Saved searches & email alerts", "Get new matches in your inbox, daily or weekly.", `${pro.savedSearches}`, `${free.savedSearches}`],
   ["Job match score", "Every listing scored against your résumé, with the reasons shown.", "Unlimited", "Unlimited"],
   ["Skills check", "Every skill a job asks for, marked green (you have it) or red (missing).", "Unlimited", "Unlimited"],
-  ["Original apply links", "The employer's own posting, plus LinkedIn and Naukri when listed.", "Included", "Included"],
-  ["Market salary in ₹", "Public pay figures for the same title and city, with sources.", "Included", "Included"],
   ["Jobs feed", "Fresh roles from official job APIs and employer career sites.", "Unlimited", "Unlimited"],
   ["Application tracker", "Track every application, note and follow-up in one board.", "Unlimited", "Unlimited"],
   ["Public profile page", "Your own shareable page with privacy controls.", "Included", "Included"],
 ];
 
 const FAQ: [string, React.ReactNode][] = [
-  ["Is there a free plan?", <>Yes. Free is free forever, with {free.aiActionsPerMonth} AI actions a month and one tailored résumé export. No card needed.</>],
+  ["Is there a free plan?", <>Yes, free forever with no card: {free.aiActionsPerMonth} AI actions and {free.jobAnalysesPerMonth} job analyses a month, one résumé and one cover-letter export, plus the full jobs feed, match scores, skills check and tracker.</>],
   ["Is Pro a subscription?", "No. Pro is a prepaid pass for 1 or 12 months. Nothing renews automatically and nothing is debited without you. Buy again whenever you like to extend."],
-  ["What counts as an AI action?", "Each AI-generated item: a tailored résumé, cover letter, match analysis, missing-skills report, talking points or mock interview. Reading job requirements, scores and apply links don't count."],
-  ["What does \"1 résumé export\" mean on Free?", "You can download one tailored résumé as PDF or Word, in any template, as often as you like. To export résumés for other jobs, upgrade to Pro."],
+  ["What counts as an AI action?", "Each AI-generated item: a tailored résumé, cover letter, match analysis, missing-skills report, talking points or mock interview. Scores, the skills check and exports don't count."],
+  ["What is a job analysis?", <>Opening a job for the first time finds the employer&rsquo;s own posting, reads the full description and looks up market salary. Re-opening a job you&rsquo;ve analysed is free, and jobs someone else already analysed cost nothing. *Pro is unlimited within fair use.</>],
+  ["What does \"1 export\" mean on Free?", "You can download one tailored résumé and one cover letter as PDF or Word, in any template, as often as you like. To export documents for other jobs, upgrade to Pro."],
   ["Which payment methods work?", "UPI (Google Pay, PhonePe, Paytm, BHIM and any UPI app), debit and credit cards (Visa, Mastercard, RuPay, Amex), net banking and wallets, through Razorpay."],
   ["Can I get a refund?", <>Yes. If Pro doesn&rsquo;t work as described, ask within 7 days of paying. See the refund terms in our <Link href="/terms#payments" className="font-medium text-brand-700 underline underline-offset-2">Terms of Service</Link>.</>],
   ["Can I switch from 1 month to 12 months later?", "Yes. Buying another pass adds its time to the end of your current one, so you never lose days."],
@@ -59,7 +61,7 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
       <main className="relative mx-auto max-w-5xl px-4 pt-10 pb-16 sm:px-6">
         {limit === "export" && (
           <div className="mx-auto mb-8 max-w-2xl rounded-2xl border border-amber-200 bg-amber-50 p-4 text-center text-sm text-amber-900">
-            You&rsquo;ve used the Free plan&rsquo;s résumé export. Re-downloading that résumé is still free; upgrade to Pro to export résumés for other jobs.
+            You&rsquo;ve used the Free plan&rsquo;s export for this document type. Re-downloading the one you exported is still free; upgrade to Pro to export documents for other jobs.
           </div>
         )}
 
@@ -67,7 +69,7 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
           <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl">
             Land more interviews with <em className="text-brand-700">CareerMatch Pro</em>
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-700">Sharper résumés for every role, more AI, unlimited exports and alerts.</p>
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-700">Unlimited exports and job analyses, 80× the AI, and your best matches in your inbox every morning.</p>
           <p className="mt-2 text-base font-semibold text-slate-900">All for about {inr(perDay)} a day on the 12-month pass.</p>
         </section>
 
@@ -76,7 +78,7 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 px-5 py-4">
             <div>
               <p className="font-semibold text-slate-900">Free plan · ₹0</p>
-              <p className="text-sm text-slate-600">{free.aiActionsPerMonth} AI actions a month, 1 résumé export and every core feature. No card needed.</p>
+              <p className="text-sm text-slate-600">{free.aiActionsPerMonth} AI actions and {free.jobAnalysesPerMonth} job analyses a month, 1 résumé and 1 cover-letter export. No card needed.</p>
             </div>
             {user ? (
               <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">{isPro ? "Included in Pro" : "Your current plan"}</span>
