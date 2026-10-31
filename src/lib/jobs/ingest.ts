@@ -125,7 +125,7 @@ export function refreshSources(opts: { force?: boolean; onlyIds?: string[]; extr
   if (running) return running;
   running = (async () => {
     await backfillGeo().catch((e) => log.warn("geo.backfill_failed", { message: String(e) }));
-    // On-demand sources (Careerjet, Jooble) only run when a user searches.
+    // On-demand sources (Jooble) only run when a user searches.
     const sources = (await activeSources()).filter((s) => !s.def.onDemandOnly && (!opts.onlyIds || opts.onlyIds.includes(s.def.id)));
     const roles = await popularRoles();
     const keywordSets = [...new Set([...(opts.extraKeywords ?? []), ...roles])].slice(0, 6).map((k) => [k]);

@@ -288,7 +288,7 @@ async function viaTavily(job: Job, out: Found, direct: boolean, tryCandidates: T
 }
 
 async function findOriginal(job: Job, notes: string[]): Promise<Found> {
-  const direct = !["adzuna", "careerjet", "jooble"].includes(job.source);
+  const direct = !["adzuna", "jooble"].includes(job.source);
   const out: Found = { applyUrl: direct && job.url ? job.url : null, careersUrl: null, verified: null, market: await knownMarket(job), searchLimited: false };
   if (!webSearchEnabled() && !tavilyEnabled()) {
     notes.push("Set GEMINI_API_KEY or TAVILY_API_KEY to find original postings and market salaries.");

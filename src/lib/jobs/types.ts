@@ -23,7 +23,7 @@ export type SourceQuery = {
   keywords: string[];
   location?: string;
   country?: string;
-  /** The end user who triggered the search (some APIs, e.g. Careerjet, require it). */
+  /** The end user who triggered the search (for APIs that require it). */
   client?: { ip: string; userAgent: string };
   /** Only listings posted within this many days (sources that support it). */
   maxDaysOld?: number;

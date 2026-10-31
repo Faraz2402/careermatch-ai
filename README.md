@@ -106,9 +106,7 @@ Sources are pluggable `SourceDefinition`s in `src/lib/jobs/sources`:
 - Remotive and Arbeitnow
 - Greenhouse, Lever and Ashby employer boards
 - Adzuna
-- Careerjet (v4 partner API) and Jooble (REST API). Both run only when a user searches:
-  - Careerjet requires the searcher's IP and user agent on every request.
-  - Jooble's free key covers one country and allows 500 requests in total, so the app counts every request and stops at `JOOBLE_MAX_REQUESTS` (default 450). The count is shown in `/admin` and `/sources`.
+- Jooble (REST API), which runs only when a user searches. Its free key allows 500 requests in total, so the app counts every request and stops at `JOOBLE_MAX_REQUESTS` (default 450). The count is shown in `/admin` and `/sources`.
 - Clearly labelled demo data, which is off in production
 
 Access rules:

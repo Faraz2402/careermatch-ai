@@ -237,7 +237,7 @@ export default async function JobPage({ params }: Props) {
           <p className="mt-1 text-xs text-slate-500">
             {e?.fullDescription
               ? `Full description from the original posting on ${e.descriptionFrom}.`
-              : job.source === "adzuna" || job.source === "careerjet" || job.source === "jooble"
+              : job.source === "adzuna" || job.source === "jooble"
                 ? `${meta.name} only provides a short preview of the description.${job.verifiedLink ? "" : " Open the listing for the full text."}`
                 : `From ${meta.name}.`}
           </p>

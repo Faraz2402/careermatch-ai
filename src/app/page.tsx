@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: { url: "/", title: "CareerMatch AI: your next role, found, not searched for", description: "Upload your résumé and get jobs ranked for you across India and worldwide: match scores with reasons, skill gaps, employer apply links, salaries in ₹, and AI-tailored résumés and cover letters. Free to start." },
 };
 
-const SOURCES = ["Adzuna", "Careerjet", "Jooble", "Greenhouse", "Lever", "Ashby", "Remotive"];
+const SOURCES = ["Adzuna", "Jooble", "Greenhouse", "Lever", "Ashby", "Remotive"];
 
 const STEPS = [
   { n: "01", title: "Drop in your résumé", body: "PDF, DOCX or plain text. AI turns it into a clean, editable profile in seconds." },
