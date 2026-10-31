@@ -5,7 +5,6 @@ import { AI_MODEL, AI_PROVIDER, aiEnabled } from "@/lib/ai";
 import { tavilyEnabled } from "@/lib/tavily";
 import { requireAdmin } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { relativeDate } from "@/lib/format";
 import { sourceHealth } from "@/lib/jobs/registry";
 import { mailConfigured } from "@/lib/mailer";
 import { billingConfigured } from "@/lib/plans";
@@ -15,13 +14,12 @@ export const metadata = { title: "Admin" };
 export default async function AdminPage() {
   await requireAdmin();
   const monthStart = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
-  const [sources, users, pro, jobs, gens, failures] = await Promise.all([
+  const [sources, users, pro, jobs, gens] = await Promise.all([
     sourceHealth(),
     db.user.count({ where: { isDemo: false } }),
     db.user.count({ where: { plan: "pro" } }),
     db.job.count({ where: { lastSeenAt: { gte: new Date(Date.now() - 7 * 86_400_000) } } }),
     db.usageEvent.count({ where: { createdAt: { gte: monthStart } } }),
-    db.sourceRun.findMany({ where: { ok: false }, orderBy: { startedAt: "desc" }, take: 8 }),
   ]);
   const integrations = [
     [AI_PROVIDER === "gemini" ? `Gemini (${AI_MODEL})` : "Claude (AI)", aiEnabled()],
@@ -57,14 +55,6 @@ export default async function AdminPage() {
 
       <AdminSources initial={sources} />
 
-      <section className="card p-5">
-        <h2 className="mb-3 font-display text-lg font-bold">Recent source failures</h2>
-        {failures.length === 0 ? <p className="text-sm text-slate-500">No failures recorded. 🎉</p> : (
-          <ul className="divide-y divide-slate-100 text-sm">
-            {failures.map((f) => <li key={f.id} className="flex justify-between gap-4 py-2"><span><b>{f.source}</b> — {f.error}</span><span className="shrink-0 text-xs text-slate-500">{relativeDate(f.startedAt).toLowerCase()}</span></li>)}
-          </ul>
-        )}
-      </section>
     </div>
   );
 }

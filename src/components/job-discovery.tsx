@@ -156,7 +156,6 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
       return { ...d, jobs: leaves ? d.jobs.filter((j) => j.id !== id) : d.jobs.map((j) => (j.id === id ? { ...j, ...patch } : j)) };
     });
 
-  const failing = data?.sources.filter((s) => s.error) ?? [];
   const activeCount = [filters.workMode, filters.seniority, filters.jobType, filters.sources].reduce((a, v) => a + v.length, 0) + (filters.salaryMin ? 1 : 0) + (filters.onlySalary ? 1 : 0) + (filters.company ? 1 : 0);
 
   return (
@@ -262,13 +261,6 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
         </div>
       </div>
 
-      {failing.length > 0 && (
-        <div className="mt-4">
-          <Alert kind="warning">
-            {failing.map((s) => `${s.name}: ${s.error}`).join(" · ")}
-          </Alert>
-        </div>
-      )}
 
       <div className="mt-4 space-y-4">
         {error ? (

@@ -14,7 +14,8 @@ const KIND_LABEL: Record<string, string> = {
 
 export default async function SourcesPage() {
   await requireUser();
-  const sources = await sourceHealth();
+  // Only sources that are switched on and configured; setup and errors live in Admin/logs.
+  const sources = (await sourceHealth()).filter((s) => s.enabled && s.configured && s.kind !== "demo");
   return (
     <div className="mx-auto max-w-4xl">
       <PageHeader title="Job sources" subtitle="Where listings come from, how each source is accessed, and how healthy it is." />
@@ -30,8 +31,6 @@ export default async function SourcesPage() {
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         {sources.map((s) => {
-          const live = s.enabled && s.configured;
-          const failing = live && s.lastRun && !s.lastRun.ok;
           return (
             <div key={s.id} className="card p-5">
               <div className="flex items-start justify-between gap-3">
@@ -39,13 +38,10 @@ export default async function SourcesPage() {
                   <h2 className="font-display font-bold">{s.name}</h2>
                   <p className="text-xs text-slate-500">{KIND_LABEL[s.kind] ?? s.kind}</p>
                 </div>
-                <span className={`chip ${failing ? "bg-amber-50 text-amber-800 ring-1 ring-amber-200" : live ? "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200" : "bg-slate-100 text-slate-600"}`}>
-                  {failing ? "Degraded" : live ? "Active" : "Inactive"}
-                </span>
+                <span className="chip bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200">Active</span>
               </div>
               <p className="mt-3 text-sm text-slate-600">{s.attribution}</p>
-              {!live && s.reason && <p className="mt-2 text-xs text-amber-700">{s.reason}</p>}
-              {live && (
+              {(
                 <p className="mt-2 text-xs text-slate-500">
                   {s.listings} live listings · updated {s.lastSuccessAt ? relativeDate(s.lastSuccessAt).toLowerCase() : "not yet"}
                   {s.onDemandOnly && " · fetched when you search"}
@@ -53,7 +49,6 @@ export default async function SourcesPage() {
                   {s.successRate != null && ` · ${s.successRate}% successful (7d)`}
                 </p>
               )}
-              {failing && <p className="mt-1 text-xs text-amber-700">Last attempt failed: {s.lastRun!.error}</p>}
               <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500">
                 {s.cacheMinutes > 0 && <span>Refresh: every {s.cacheMinutes >= 60 ? `${s.cacheMinutes / 60}h` : `${s.cacheMinutes}m`}</span>}
                 {s.kind !== "demo" && <span>Limit: {s.requestsPerMinute} req/min</span>}

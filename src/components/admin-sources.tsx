@@ -54,7 +54,6 @@ export function AdminSources({ initial }: { initial: SourceHealth[] }) {
                     {s.quota && <p className={s.quota.used >= s.quota.cap ? "text-rose-600" : ""}>Key quota: {s.quota.used} / {s.quota.cap} requests used (lifetime)</p>}
                     <p>{s.successRate != null ? `${s.successRate}% successful` : "no runs yet"}</p>
                     {s.lastRun && <p>last run {relativeDate(s.lastRun.at).toLowerCase()} · {s.lastRun.durationMs}ms{s.lastRun.ok ? ` · ${s.lastRun.count} jobs` : ""}</p>}
-                    {s.lastRun && !s.lastRun.ok && <p className="text-rose-600">{s.lastRun.error}</p>}
                   </td>
                   <td className="px-4 py-3">
                     {s.usesBoards ? (
