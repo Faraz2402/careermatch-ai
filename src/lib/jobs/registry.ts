@@ -10,12 +10,12 @@ import { careerjet } from "./sources/careerjet";
 import { demo } from "./sources/demo";
 import { ashby, greenhouse, lever } from "./sources/employer-boards";
 import { jooble } from "./sources/jooble";
-import { adzuna, usajobs } from "./sources/keyed-apis";
+import { adzuna } from "./sources/keyed-apis";
 import { remotive } from "./sources/remotive";
 import type { SourceContext, SourceDefinition } from "./types";
 import { csvEnv } from "./util";
 
-export const ALL_SOURCES: SourceDefinition[] = [demo, remotive, arbeitnow, greenhouse, lever, ashby, adzuna, careerjet, jooble, usajobs];
+export const ALL_SOURCES: SourceDefinition[] = [demo, remotive, arbeitnow, greenhouse, lever, ashby, adzuna, careerjet, jooble];
 
 /** Listings the user imported from a URL or pasted in. */
 export const USER_LINK_SOURCE = {
@@ -24,7 +24,7 @@ export const USER_LINK_SOURCE = {
   attribution: "Added by you from a job link or pasted description.",
 } as const;
 
-const DEFAULT_ENABLED = "demo,remotive,arbeitnow,greenhouse,lever,ashby,adzuna,careerjet,jooble,usajobs";
+const DEFAULT_ENABLED = "demo,remotive,arbeitnow,greenhouse,lever,ashby,adzuna,careerjet,jooble";
 
 function envEnabled(): Set<string> {
   return new Set(csvEnv("JOB_SOURCES_ENABLED").length ? csvEnv("JOB_SOURCES_ENABLED") : DEFAULT_ENABLED.split(","));

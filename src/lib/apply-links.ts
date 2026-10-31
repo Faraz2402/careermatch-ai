@@ -19,7 +19,6 @@ const PLATFORMS: [RegExp, string][] = [
   [/jooble\.org/i, "Jooble"],
   [/remotive\.com/i, "Remotive"],
   [/arbeitnow\.com/i, "Arbeitnow"],
-  [/usajobs\.gov/i, "USAJOBS"],
 ];
 
 /** "Workday", "Greenhouse", … or the site's domain for employer career pages. */

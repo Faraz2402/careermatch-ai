@@ -100,7 +100,7 @@ const SECTIONS: LegalSection[] = [
         <p>To find and explain jobs, we use information that is not about you:</p>
         <ul className={ul}>
           <li>
-            <b>Job listings</b> come only from official APIs and public employer feeds: Adzuna, Careerjet, Jooble, Remotive, Arbeitnow and USAJOBS, plus employers&rsquo;
+            <b>Job listings</b> come only from official APIs and public employer feeds: Adzuna, Careerjet, Jooble, Remotive and Arbeitnow, plus employers&rsquo;
             boards on Greenhouse, Lever and Ashby. Each listing shows its source and when it was last seen. We do not scrape sites that need a login, bypass CAPTCHAs, or ignore
             robots.txt.
           </li>
