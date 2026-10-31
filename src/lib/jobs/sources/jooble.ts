@@ -20,8 +20,13 @@ type JoobleJob = {
   updated?: string;
 };
 
-const joobleCountry = () => (process.env.JOOBLE_COUNTRY || "in").trim().toLowerCase();
-const endpoint = (cc: string, key: string) => `https://${cc === "us" ? "" : `${cc}.`}jooble.org/api/${encodeURIComponent(key)}`;
+// JOOBLE_COUNTRY lists the countries to search ("in" or "in,us"). A key issued
+// on the global site (JOOBLE_HOST=jooble.org) filters by location, so one key
+// can serve several countries; a country-site key only covers its own country.
+const joobleCountries = () =>
+  (process.env.JOOBLE_COUNTRY || "in").split(",").map((c) => c.trim().toLowerCase()).filter(Boolean);
+const joobleHost = (cc: string) => process.env.JOOBLE_HOST?.trim() || (cc === "us" ? "jooble.org" : `${cc}.jooble.org`);
+const endpoint = (cc: string, key: string) => `https://${joobleHost(cc)}/api/${encodeURIComponent(key)}`;
 
 export function mapJoobleJob(j: JoobleJob, countryCode: string): NormalizedJob {
   const name = countryByCode(countryCode)?.name ?? "";
@@ -58,12 +63,12 @@ export const jooble: SourceDefinition = {
   onDemandOnly: true,
   lifetimeQuota: Number(process.env.JOOBLE_MAX_REQUESTS) || 450,
   get countries() {
-    return [joobleCountry().toUpperCase()];
+    return joobleCountries().map((c) => c.toUpperCase());
   },
   missingConfig: () => (process.env.JOOBLE_API_KEY ? null : "Set JOOBLE_API_KEY (free key from in.jooble.org/api/about) and JOOBLE_COUNTRY."),
   async fetchJobs(query, signal) {
-    const cc = joobleCountry();
-    if (query.country && query.country.toLowerCase() !== cc) return []; // key only covers one country
+    const cc = query.country?.toLowerCase() ?? joobleCountries()[0];
+    if (!joobleCountries().includes(cc)) return []; // not a country this key is set up for
     const name = countryByCode(cc)?.name ?? "";
     const data = await fetchJson<{ totalCount: number; jobs: JoobleJob[] }>(endpoint(cc, process.env.JOOBLE_API_KEY!), signal, {
       method: "POST",
