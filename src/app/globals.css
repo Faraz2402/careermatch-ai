@@ -409,6 +409,17 @@ body {
   from { background-position: 200% 0; }
   to { background-position: -200% 0; }
 }
+/* Source strip: a single line that glides left; the track holds the list twice. */
+@keyframes lux-marquee {
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.lux-marquee-track { animation: lux-marquee 40s linear infinite; }
+.lux-marquee:hover .lux-marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .lux-marquee { overflow-x: auto; }
+  .lux-marquee-track { animation: none !important; }
+  .lux-marquee-track > [aria-hidden] { display: none; }
+}
 .lux-sheen {
   background: linear-gradient(110deg, #fff 35%, #c4b5fd 45%, #67e8f9 52%, #fff 62%);
   background-size: 250% 100%;

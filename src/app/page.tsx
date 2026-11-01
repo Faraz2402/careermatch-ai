@@ -15,7 +15,18 @@ export const metadata: Metadata = {
   openGraph: { url: "/", title: "CareerMatch AI: your next role, found, not searched for", description: "Upload your résumé and get jobs ranked for you across India and worldwide: match scores with reasons, skill gaps, employer apply links, salaries in ₹, and AI-tailored résumés and cover letters. Free to start." },
 };
 
-const SOURCES = ["Adzuna", "Jooble", "Greenhouse", "Lever", "Ashby", "SmartRecruiters", "Workable", "SuccessFactors", "Oracle", "Remotive"];
+// Employer career-site platforms first, then job boards.
+const SOURCES: { name: string; employer: boolean }[] = [
+  ...["Greenhouse", "Lever", "Ashby", "SmartRecruiters", "Workable", "SuccessFactors", "Oracle"].map((name) => ({ name, employer: true })),
+  ...["Adzuna", "Jooble", "Remotive"].map((name) => ({ name, employer: false })),
+];
+
+const SourceDot = ({ employer }: { employer: boolean }) => (
+  <span
+    aria-hidden
+    className={`size-1.5 shrink-0 rounded-full ${employer ? "bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.9)]" : "bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.9)]"}`}
+  />
+);
 
 const STEPS = [
   { n: "01", title: "Drop in your résumé", body: "PDF, DOCX or plain text. AI turns it into a clean, editable profile in seconds." },
@@ -164,11 +175,27 @@ export default async function Landing() {
 
         {/* Sources strip */}
         <section className="border-y border-[#27272a]" aria-label="Job sources">
-          <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-7 sm:px-8 md:flex-row md:items-center md:gap-10">
-            <p className="shrink-0 text-sm text-[#a1a1aa]">Listings from official APIs and employer feeds</p>
-            <ul className="flex flex-wrap gap-x-8 gap-y-2 text-base text-[#d4d4d8]">
-              {SOURCES.map((s) => <li key={s} className="lux-serif text-lg text-white/90">{s}</li>)}
-            </ul>
+          <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-7 sm:px-8 md:flex-row md:items-center md:gap-10">
+            <div className="shrink-0 space-y-2">
+              <p className="text-sm text-[#d4d4d8]">Listings from official APIs and employer feeds</p>
+              <p className="flex gap-4 text-xs text-[#a1a1aa]">
+                <span className="inline-flex items-center gap-1.5"><SourceDot employer /> Employer career sites</span>
+                <span className="inline-flex items-center gap-1.5"><SourceDot employer={false} /> Job boards</span>
+              </p>
+            </div>
+            {/* One line at every width: the list glides sideways (paused on hover); the copy after it makes the loop seamless. */}
+            <div className="lux-marquee min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_7%,#000_93%,transparent)]">
+              <ul className="lux-marquee-track flex w-max">
+                {[...SOURCES, ...SOURCES].map((s, i) => (
+                  <li key={i} aria-hidden={i >= SOURCES.length || undefined} className="pr-3">
+                    <span className="flex items-center gap-2.5 whitespace-nowrap rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.07] to-white/[0.015] px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] transition-colors duration-300 hover:border-white/25">
+                      <SourceDot employer={s.employer} />
+                      <span className="lux-serif text-[17px] leading-none text-white/90">{s.name}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
