@@ -241,9 +241,10 @@ export async function searchJobs(userId: string, f: SearchFilters) {
   if (f.countOnly) {
     // Live counts for the filter menus never trigger fetches.
   } else if (f.refresh) {
-    await refreshSources({ force: true, onlyIds: active, extraKeywords: keywords });
+    // The user is waiting: refresh what fits in a shorter budget; the rest follows on later searches.
+    await refreshSources({ force: true, onlyIds: active, extraKeywords: keywords, budgetMs: 25_000 });
   } else if (active.length && (await db.job.count({ where: { source: { in: active }, lastSeenAt: { gte: since } } })) === 0) {
-    await refreshSources({ onlyIds: active }); // cold start: wait for the first fetch
+    await refreshSources({ onlyIds: active, budgetMs: 25_000 }); // cold start: wait for the first fetch
   } else {
     // Keep sources fresh after responding (TTL-aware); survives serverless shutdown.
     after(() => refreshSources().catch(() => undefined));

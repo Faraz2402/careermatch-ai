@@ -118,29 +118,56 @@ async function runSource(src: SourceDefinition, ctx: { boards: string[] }, keywo
   }
 }
 
+/** Default time budget for one refresh: serverless requests stop at 60s. */
+export const REFRESH_BUDGET_MS = 40_000;
+/** Sources fetched at the same time (they compete for the same database). */
+const REFRESH_CONCURRENCY = 3;
+/** Assumed run time for a source that has never run. */
+const FIRST_RUN_ESTIMATE_MS = 20_000;
+
 /**
- * Refresh every active source whose cache window has expired (or all, with
- * force). Concurrent callers share one run.
+ * Refresh active sources whose cache window has expired (or all, with force),
+ * least recently refreshed first, a few at a time. A source only starts if its
+ * last run time still fits in the budget; the rest are left for the next call,
+ * so each call stays inside a serverless time limit and every source still
+ * gets its turn. Concurrent callers share one run.
  */
-export function refreshSources(opts: { force?: boolean; onlyIds?: string[]; extraKeywords?: string[] } = {}): Promise<IngestReport> {
+export function refreshSources(opts: { force?: boolean; onlyIds?: string[]; extraKeywords?: string[]; budgetMs?: number } = {}): Promise<IngestReport> {
   if (running) return running;
   running = (async () => {
+    const deadline = Date.now() + (opts.budgetMs ?? REFRESH_BUDGET_MS);
     await backfillGeo().catch((e) => log.warn("geo.backfill_failed", { message: String(e) }));
     // On-demand sources (Jooble) only run when a user searches.
     const sources = (await activeSources()).filter((s) => !s.def.onDemandOnly && (!opts.onlyIds || opts.onlyIds.includes(s.def.id)));
     const roles = await popularRoles();
     const keywordSets = [...new Set([...(opts.extraKeywords ?? []), ...roles])].slice(0, 6).map((k) => [k]);
-    const ran = await Promise.all(
-      sources.map(async ({ def, ctx }) => {
-        if (!opts.force) {
-          const last = await db.sourceRun.findFirst({ where: { source: def.id, ok: true }, orderBy: { startedAt: "desc" } });
-          const ttl = def.cacheTtlMs || 60 * 60_000;
-          if (last && Date.now() - last.startedAt.getTime() < ttl) return { id: def.id, ok: true, count: 0, skipped: "fresh" };
+    const ran: IngestReport["ran"] = [];
+    const due = (
+      await Promise.all(
+        sources.map(async (s) => {
+          const last = await db.sourceRun.findFirst({ where: { source: s.def.id, ok: true }, orderBy: { startedAt: "desc" } });
+          const ttl = s.def.cacheTtlMs || 60 * 60_000;
+          if (!opts.force && last && Date.now() - last.startedAt.getTime() < ttl) {
+            ran.push({ id: s.def.id, ok: true, count: 0, skipped: "fresh" });
+            return null;
+          }
+          return { ...s, lastAt: last?.startedAt.getTime() ?? 0, estimate: last?.durationMs ?? FIRST_RUN_ESTIMATE_MS };
+        }),
+      )
+    )
+      .filter((s) => s !== null)
+      .sort((a, b) => a.lastAt - b.lastAt);
+    let next = 0;
+    await Promise.all(
+      Array.from({ length: REFRESH_CONCURRENCY }, async () => {
+        while (next < due.length) {
+          const { def, ctx, estimate } = due[next++];
+          if (Date.now() + estimate > deadline) ran.push({ id: def.id, ok: true, count: 0, skipped: "deferred" });
+          else ran.push(await runSource(def, ctx, keywordSets));
         }
-        return runSource(def, ctx, keywordSets);
       }),
     );
-    log.info("ingest.done", { ran: ran.map((r) => `${r.id}:${"skipped" in r && r.skipped ? "fresh" : r.ok ? r.count : "err"}`).join(",") });
+    log.info("ingest.done", { ran: ran.map((r) => `${r.id}:${r.skipped ?? (r.ok ? r.count : "err")}`).join(",") });
     return { ran };
   })().finally(() => {
     running = null;

@@ -3,6 +3,9 @@ import { apiUser, jsonError } from "@/lib/api";
 import { searchJobs, type SearchFilters } from "@/lib/jobs/service";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
 
+// Vercel Hobby limit; also covers the background source refresh that runs after the response.
+export const maxDuration = 60;
+
 const list = (v: string | null) => (v ? v.split(",").map((s) => s.trim()).filter(Boolean) : undefined);
 const num = (v: string | null) => (v && !Number.isNaN(Number(v)) ? Number(v) : undefined);
 

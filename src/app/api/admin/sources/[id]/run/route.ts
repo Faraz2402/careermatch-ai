@@ -11,7 +11,7 @@ export async function POST(_req: Request, { params }: { params: Promise<{ id: st
   if (error) return error;
   const { id } = await params;
   if (!ALL_SOURCES.some((s) => s.id === id)) return jsonError("Unknown source.", 404);
-  const report = await refreshSources({ force: true, onlyIds: [id] });
+  const report = await refreshSources({ force: true, onlyIds: [id], budgetMs: 55_000 }); // one source: use the whole request
   const r = report.ran.find((x) => x.id === id);
   if (!r) return jsonError("Source is disabled or not configured.", 400);
   return NextResponse.json(r);
