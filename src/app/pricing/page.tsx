@@ -10,6 +10,7 @@ import { paymentMethods } from "@/lib/billing";
 import { LEGAL } from "@/lib/legal";
 import { billingConfigured, PLANS, planOf, proPrices } from "@/lib/plans";
 import { FREE_TEMPLATE_IDS, TEMPLATES } from "@/lib/templates/catalog";
+import { LEGAL_LINKS } from "@/lib/legal";
 
 export const metadata: Metadata = {
   title: "Pricing: Free & Pro Plans in ₹",
@@ -46,7 +47,7 @@ const FAQ: [string, React.ReactNode][] = [
   ["What is a job analysis?", <>Opening a job for the first time finds the employer&rsquo;s own posting, reads the full description and looks up market salary. Re-opening a job you&rsquo;ve analysed is free, and jobs someone else already analysed cost nothing. *Pro is unlimited within fair use.</>],
   ["What does \"1 export\" mean on Free?", "You can download one tailored résumé and one cover letter as PDF or Word, in any template, as often as you like. To export documents for other jobs, upgrade to Pro."],
   ["Which payment methods work?", "UPI (Google Pay, PhonePe, Paytm, BHIM and any UPI app), debit and credit cards (Visa, Mastercard, RuPay, Amex), net banking and wallets, through Razorpay."],
-  ["Can I get a refund?", <>Yes. If Pro doesn&rsquo;t work as described, ask within 7 days of paying. See the refund terms in our <Link href="/terms#payments" className="font-medium text-brand-700 underline underline-offset-2">Terms of Service</Link>.</>],
+  ["Can I get a refund?", <>Yes. Ask within 7 days of paying for a full refund (if you&rsquo;ve used no more than 5 AI actions), and duplicate payments are always refunded. See our <Link href="/refund-policy" className="font-medium text-brand-700 underline underline-offset-2">Refund Policy</Link> and <Link href="/cancellation-policy" className="font-medium text-brand-700 underline underline-offset-2">Cancellation Policy</Link>.</>],
   ["Can I switch from 1 month to 12 months later?", "Yes. Buying another pass adds its time to the end of your current one, so you never lose days."],
   ["Are prices inclusive of tax?", "Yes. Prices are in Indian Rupees and include any applicable taxes."],
 ];
@@ -55,7 +56,7 @@ const FAQ: [string, React.ReactNode][] = [
 const FAQ_TEXT: Record<string, string> = {
   "Is there a free plan?": `Yes, free forever with no card: ${free.aiActionsPerMonth} AI actions and ${free.jobAnalysesPerMonth} job analyses a month, one résumé and one cover-letter export, plus the full jobs feed, match scores, skills check and tracker.`,
   "What is a job analysis?": "Opening a job for the first time finds the employer's own posting, reads the full description and looks up market salary. Re-opening a job you've analysed is free, and jobs someone else already analysed cost nothing. Pro is unlimited within fair use.",
-  "Can I get a refund?": "Yes. If Pro doesn't work as described, ask within 7 days of paying. See the refund terms in our Terms of Service.",
+  "Can I get a refund?": "Yes. Ask within 7 days of paying for a full refund (if you've used no more than 5 AI actions), and duplicate payments are always refunded. See our Refund Policy and Cancellation Policy.",
 };
 
 const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
@@ -171,9 +172,8 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
         <p className="mt-10 text-center text-sm text-slate-600">Prices in Indian Rupees, inclusive of applicable taxes. Payments processed by Razorpay.</p>
       </main>
       <footer className="relative border-t border-slate-200 py-8">
-        <nav className="flex justify-center gap-5 text-sm text-slate-600" aria-label="Legal">
-          <Link href="/privacy" className="hover:text-slate-900">Privacy Policy</Link>
-          <Link href="/terms" className="hover:text-slate-900">Terms of Service</Link>
+        <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-slate-600" aria-label="Legal">
+          {LEGAL_LINKS.map((l) => <Link key={l.href} href={l.href} className="hover:text-slate-900">{l.label}</Link>)}
         </nav>
       </footer>
     </div>

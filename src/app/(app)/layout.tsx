@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LEGAL_LINKS } from "@/lib/legal";
 import { NavLinks, UserMenu } from "@/components/nav";
 import { Logo } from "@/components/ui";
 import { requireUser } from "@/lib/auth";
@@ -31,7 +32,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         </div>
       )}
       <main id="main" className="mx-auto max-w-7xl px-4 py-8 sm:px-6">{children}</main>
-      <footer className="border-t border-slate-200 py-6"><nav className="flex justify-center gap-5 text-xs text-slate-500" aria-label="Legal"><Link href="/privacy" className="hover:text-slate-800">Privacy Policy</Link><Link href="/terms" className="hover:text-slate-800">Terms of Service</Link></nav></footer>
+      <footer className="border-t border-slate-200 py-6"><nav className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-slate-500" aria-label="Legal">{LEGAL_LINKS.map((l) => <Link key={l.href} href={l.href} className="hover:text-slate-800">{l.label}</Link>)}</nav></footer>
     </div>
   );
 }

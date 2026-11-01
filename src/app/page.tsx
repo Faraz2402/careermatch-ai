@@ -7,6 +7,7 @@ import { LandingFx } from "@/components/landing-fx";
 import { LandingNav } from "@/components/landing-nav";
 import type { Metadata } from "next";
 import { getCurrentUser } from "@/lib/auth";
+import { LEGAL_LINKS } from "@/lib/legal";
 import { appUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
@@ -353,8 +354,7 @@ export default async function Landing() {
           <p className="text-[#a1a1aa]">Jobs from authorised sources, always shown with attribution.</p>
           <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer">
             <Link href="/pricing" className="transition hover:text-white">Pricing</Link>
-            <Link href="/privacy" className="transition hover:text-white">Privacy</Link>
-            <Link href="/terms" className="transition hover:text-white">Terms</Link>
+            {LEGAL_LINKS.map((l) => <Link key={l.href} href={l.href} className="transition hover:text-white">{l.short}</Link>)}
             <Link href="/login" className="transition hover:text-white">Sign in</Link>
             <Link href="/signup" className="transition hover:text-white">Get started</Link>
           </nav>

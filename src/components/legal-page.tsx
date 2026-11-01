@@ -1,20 +1,19 @@
 import Link from "next/link";
 import { Logo } from "@/components/ui";
-import { LAWS, LEGAL } from "@/lib/legal";
+import { LAWS, LEGAL, LEGAL_LINKS } from "@/lib/legal";
 
 export type LegalSection = { id: string; title: string; body: React.ReactNode };
 
 /** Shared layout for the Privacy Policy and Terms: contents rail + numbered sections + references. */
-export function LegalPage({ title, intro, sections, references }: { title: string; intro: React.ReactNode; sections: LegalSection[]; references: (keyof typeof LAWS)[] }) {
+export function LegalPage({ title, intro, sections, references, effective = LEGAL.effectiveDate, version = LEGAL.version }: { title: string; intro: React.ReactNode; sections: LegalSection[]; references: (keyof typeof LAWS)[]; effective?: string; version?: string }) {
   const all = [...sections, { id: "references", title: "References", body: null }];
   return (
     <div className="relative min-h-screen">
       <header className="sticky top-0 z-30 border-b border-slate-200 bg-slate-50/75 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
           <Logo />
-          <nav className="flex items-center gap-5 text-sm text-slate-600" aria-label="Legal">
-            <Link href="/privacy" className="hover:text-slate-900">Privacy</Link>
-            <Link href="/terms" className="hover:text-slate-900">Terms</Link>
+          <nav className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1 text-sm text-slate-600" aria-label="Legal">
+            {LEGAL_LINKS.map((l) => <Link key={l.href} href={l.href} className="hover:text-slate-900">{l.short}</Link>)}
           </nav>
         </div>
       </header>
@@ -35,7 +34,7 @@ export function LegalPage({ title, intro, sections, references }: { title: strin
           <p className="text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase">Legal</p>
           <h1 className="mt-3 font-display text-5xl sm:text-6xl">{title}</h1>
           <p className="mt-4 text-sm text-slate-500">
-            Effective {LEGAL.effectiveDate} · Version {LEGAL.version}
+            Effective {effective} · Version {version}
           </p>
           <div className="mt-8 space-y-4 text-[15px] leading-relaxed text-slate-700">{intro}</div>
 
@@ -66,8 +65,8 @@ export function LegalPage({ title, intro, sections, references }: { title: strin
       </main>
 
       <footer className="border-t border-slate-200 py-8 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} {LEGAL.operator} · <Link href="/privacy" className="hover:text-slate-800">Privacy Policy</Link> ·{" "}
-        <Link href="/terms" className="hover:text-slate-800">Terms of Service</Link>
+        © {new Date().getFullYear()} {LEGAL.operator}
+        {LEGAL_LINKS.map((l) => <span key={l.href}> · <Link href={l.href} className="hover:text-slate-800">{l.label}</Link></span>)}
       </footer>
     </div>
   );

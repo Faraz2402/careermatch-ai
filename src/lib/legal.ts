@@ -24,4 +24,16 @@ export const LAWS = {
   cpa: { name: "Consumer Protection Act, 2019", url: "https://consumeraffairs.gov.in/public/upload/files/CP%20Act%202019_1732700731.pdf" },
   ecomRules: { name: "Consumer Protection (E-Commerce) Rules, 2020", url: "https://consumeraffairs.gov.in/pages/consumer-protection-acts" },
   contractAct: { name: "Indian Contract Act, 1872", url: "https://indiacode.gov.in/act/0e782442-f035-4d53-aace-81b1552a8cf2/details" },
+  rbiTat: { name: "RBI: Harmonisation of Turn Around Time and customer compensation for failed transactions (DPSS.CO.PD No.629, 20 September 2019)", url: "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11693" },
+  rbiPa: { name: "RBI: Guidelines on Regulation of Payment Aggregators and Payment Gateways (17 March 2020, as updated)", url: "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11822" },
+  edaakhil: { name: "e-Daakhil: online consumer complaint filing (Department of Consumer Affairs)", url: "https://edaakhil.nic.in/" },
+  nch: { name: "National Consumer Helpline (1915)", url: "https://consumerhelpline.gov.in/" },
 } as const;
+
+/** Every legal page, for footers and the legal header. */
+export const LEGAL_LINKS = [
+  { href: "/privacy", label: "Privacy Policy", short: "Privacy" },
+  { href: "/terms", label: "Terms of Service", short: "Terms" },
+  { href: "/refund-policy", label: "Refund Policy", short: "Refunds" },
+  { href: "/cancellation-policy", label: "Cancellation Policy", short: "Cancellation" },
+] as const;

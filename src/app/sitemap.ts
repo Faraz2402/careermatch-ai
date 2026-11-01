@@ -13,6 +13,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/signup`, changeFrequency: "yearly", priority: 0.6 },
     { url: `${base}/privacy`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terms`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${base}/refund-policy`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${base}/cancellation-policy`, changeFrequency: "yearly", priority: 0.3 },
   ];
   const profiles = await db.profile
     .findMany({ where: { isPublic: true, user: { isDemo: false } }, select: { slug: true, updatedAt: true }, orderBy: { updatedAt: "desc" }, take: 5000 })

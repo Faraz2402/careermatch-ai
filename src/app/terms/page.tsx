@@ -6,7 +6,7 @@ import { proPrices } from "@/lib/plans";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "The terms for using CareerMatch AI, under Indian law: accounts, acceptable use, AI content, paid passes and refunds, liability and grievances.",
+  description: "The terms for using CareerMatch AI, under Indian law: accounts, acceptable use, AI content, paid passes, liability and grievances.",
   alternates: { canonical: "/terms" },
 };
 
@@ -138,7 +138,7 @@ function sections(): LegalSection[] {
     },
     {
       id: "payments",
-      title: "Plans, payments and refunds",
+      title: "Plans and payments",
       body: (
         <>
           <p>
@@ -148,10 +148,10 @@ function sections(): LegalSection[] {
           </p>
           <ul className={ul}>
             <li>Payments are processed by Razorpay (UPI, cards, net banking and wallets). We never see or store your card number, CVV, UPI PIN or banking password.</li>
-            <li>Passes do <b>not</b> renew automatically and nothing is debited without your action. Buying again extends your current pass.</li>
+            <li>Buying again extends your current pass.</li>
             <li>
-              <b>Refunds:</b> if the Pro pass does not work as described, ask for a refund within <b>7 days</b> of payment. A full refund is due if you have used no more than 5 AI
-              actions. Payments made twice by mistake are always refunded. Approved refunds go back to the original payment method within 7 working days of approval.
+              Refunds are covered by our separate <Link href="/refund-policy" className="font-medium text-brand-700 underline underline-offset-2">Refund Policy</Link>, and cancelling
+              by our <Link href="/cancellation-policy" className="font-medium text-brand-700 underline underline-offset-2">Cancellation Policy</Link>. Both form part of these Terms.
             </li>
             <li>We may change prices or plan limits in future; changes never affect a pass you have already bought.</li>
           </ul>
@@ -199,7 +199,8 @@ function sections(): LegalSection[] {
       body: (
         <p>
           You may stop using CareerMatch and delete your account at any time. We may suspend or end an account that breaks these Terms or the law, or puts others at risk.
-          We will tell you why unless the law or safety prevents it. If we end your account without cause, we will refund the unused part of any Pro pass.
+          We will tell you why unless the law or safety prevents it. What happens to a Pro pass in these cases is set out in our{" "}
+          <Link href="/cancellation-policy" className="font-medium text-brand-700 underline underline-offset-2">Cancellation Policy</Link>.
         </p>
       ),
     },
@@ -271,7 +272,7 @@ export default function TermsPage() {
   return (
     <LegalPage
       title="Terms of Service"
-      intro={<p>These Terms explain the rules for using CareerMatch AI: what we provide, what we expect from you, how paid passes and refunds work, and how disputes are resolved under Indian law.</p>}
+      intro={<p>These Terms explain the rules for using CareerMatch AI: what we provide, what we expect from you, how paid passes work, and how disputes are resolved under Indian law. Refunds and cancellations have their own pages: our <Link href="/refund-policy" className="font-medium text-brand-700 underline underline-offset-2">Refund Policy</Link> and <Link href="/cancellation-policy" className="font-medium text-brand-700 underline underline-offset-2">Cancellation Policy</Link>.</p>}
       sections={sections()}
       references={["contractAct", "itAct", "intermediaryRules", "cpa", "ecomRules", "dpdpAct"]}
     />
