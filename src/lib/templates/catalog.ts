@@ -36,14 +36,37 @@ export type TemplateDef = {
     accent: string;
     align: "left" | "center";
     density: "airy" | "standard" | "compact";
-    /** Section heading treatment (all are plain text, so ATS-safe). */
-    heading?: "rule" | "pill" | "bar" | "caps";
-    /** Name block: plain, initials badge, or name left / contact right. */
-    header?: "plain" | "monogram" | "split";
+    /** Section heading treatment (all are plain text, so ATS-safe). "border" runs an accent line down the whole section. */
+    heading?: "rule" | "pill" | "bar" | "caps" | "border" | "editorial";
+    /** Name block: plain, initials badge, name left / contact right, or a round photo. */
+    header?: "plain" | "monogram" | "split" | "photo";
     /** Sidebar layouts only: tinted or solid accent panel. */
     sidebar?: "light" | "dark";
+    /** Sidebar layouts only: which side the panel sits on. */
+    sidebarSide?: "left" | "right";
   };
+  /** Default section order for this design (the user can still reorder). */
+  order?: SectionOrderKey[];
 };
+
+type SectionOrderKey = "summary" | "skills" | "experience" | "projects" | "education" | "certifications" | "personal" | "languages";
+
+/** Look-and-feel categories for browsing, like a design marketplace. */
+export const STYLES = ["Simple", "Modern", "Creative", "Compact", "First Job", "Photo"] as const;
+export type StyleTag = (typeof STYLES)[number];
+
+/** Derived from the design itself, so every template (old and new) is tagged consistently. */
+export function styleTags(t: TemplateDef): StyleTag[] {
+  const s = t.style;
+  const tags: StyleTag[] = [];
+  if (s.header === "photo" || (t.layout === "form" && t.photo !== "omit")) tags.push("Photo");
+  if (s.density === "compact") tags.push("Compact");
+  if ((t.levels.length === 1 && t.levels[0] === "Entry") || t.roles.includes("Students & Freshers")) tags.push("First Job");
+  if (t.mode === "visual" && (s.sidebar === "dark" || t.layout === "banner" || s.heading === "pill")) tags.push("Creative");
+  if (s.header === "split" || s.header === "monogram" || s.header === "photo" || ["bar", "pill", "border"].includes(s.heading ?? "") || t.layout === "sidebar") tags.push("Modern");
+  if (!tags.includes("Modern") && !tags.includes("Creative")) tags.push("Simple");
+  return [...new Set(tags)];
+}
 
 /** Job families used to organise the library (Canva-style categories). */
 export const ROLES = [
@@ -152,8 +175,48 @@ function roleTemplates(): TemplateDef[] {
   });
 }
 
+const FIRST_JOB_ORDER: SectionOrderKey[] = ["summary", "education", "projects", "skills", "experience", "certifications", "languages", "personal"];
+const ENTRY: TemplateDef["levels"] = ["Entry"];
+
+/** Style collection: original designs across the six look-and-feel categories. */
+function styleTemplates(): TemplateDef[] {
+  const m = MARKET;
+  return [
+    // Photo
+    T({ ...m.Global, id: "style-portrait-header", name: "Portrait Header", tier: "free", photo: "optional", notes: "Round photo beside your name, single column underneath. For markets and employers where a photo is welcome; leave it out for ATS portals.", style: { font: "sans", accent: "#2563eb", align: "left", density: "standard", header: "photo", heading: "rule" } }),
+    T({ ...m.Germany, id: "style-portrait-sidebar", name: "Portrait Sidebar", photo: "optional", layout: "sidebar", notes: "Photo at the top of a solid sidebar with contact details and skills; experience in the wide column.", style: { font: "sans", accent: "#1e3a8a", align: "left", density: "standard", header: "photo", sidebar: "dark" } }),
+    T({ ...m.UAE, id: "style-gulf-portrait", name: "Gulf Portrait CV", tier: "free", photo: "optional", notes: "Photo header with nationality, visa status and notice period fields, as Gulf employers often ask.", style: { font: "sans", accent: "#047857", align: "left", density: "standard", header: "photo", heading: "bar" } }),
+    T({ ...m.India, id: "style-portrait-right", name: "Portrait Right Rail", photo: "optional", layout: "sidebar", notes: "Photo and skills in a tinted right-hand rail; your experience leads on the left.", style: { font: "sans", accent: "#7c3aed", align: "left", density: "standard", header: "photo", sidebar: "light", sidebarSide: "right" } }),
+    T({ ...m.Germany, id: "style-lebenslauf-foto", name: "Lebenslauf mit Foto", lang: "de", dates: "MM/YYYY", layout: "tabular", photo: "optional", personal: ["nationality", "languages", "drivingLicence"], notes: "German tabular CV with the optional application photo in the header (Bewerbungsfoto). A photo is customary but never required.", style: { font: "sans", accent: "#374151", align: "left", density: "standard", header: "photo", heading: "editorial" } }),
+    T({ ...m.Global, id: "style-creative-portrait", name: "Creative Portrait", layout: "banner", photo: "optional", notes: "Colour header band with your photo; pill headings for a confident, visual look.", style: { font: "sans", accent: "#db2777", align: "left", density: "airy", header: "photo", heading: "pill" } }),
+    // Simple
+    T({ ...m.US, id: "style-clear-line", name: "Clear Line", tier: "free", notes: "Editorial heading rules and generous spacing. Plain, fast to scan, parser-safe.", style: { font: "sans", accent: "#111827", align: "left", density: "standard", heading: "editorial" } }),
+    T({ ...m.UK, id: "style-serif-classic", name: "Serif Classic", notes: "Centred serif name and spaced capitals; a traditional, understated CV.", style: { font: "serif", accent: "#1f2937", align: "center", density: "standard", heading: "caps" } }),
+    T({ ...m.Global, id: "style-quiet-grey", name: "Quiet Grey", notes: "Soft grey accents and fine rules for a calm, neutral page.", style: { font: "sans", accent: "#4b5563", align: "left", density: "airy", heading: "rule" } }),
+    T({ ...m.Canada, id: "style-plain-ledger", name: "Plain Ledger", layout: "tabular", notes: "Dates in a left column, details on the right, heavy editorial rules between sections.", style: { font: "serif", accent: "#0f172a", align: "left", density: "standard", heading: "editorial" } }),
+    // Modern
+    T({ ...m.India, id: "style-accent-border", name: "Accent Border", tier: "free", notes: "A coloured line runs down each section, keeping a single, parser-safe column.", style: { font: "sans", accent: "#0369a1", align: "left", density: "standard", heading: "border" } }),
+    T({ ...m.US, id: "style-right-rail", name: "Right Rail", layout: "sidebar", notes: "Experience first on the left; skills and contact in a tinted right-hand rail.", style: { font: "sans", accent: "#0f766e", align: "left", density: "standard", sidebar: "light", sidebarSide: "right" } }),
+    T({ ...m.Australia, id: "style-bold-rule", name: "Bold Rule", notes: "Split header with your contact details on the right and heavy rules above each section.", style: { font: "sans", accent: "#1d4ed8", align: "left", density: "standard", header: "split", heading: "editorial" } }),
+    T({ ...m.Singapore, id: "style-indigo-split", name: "Indigo Split", notes: "Name left, contact right, with accent bars marking each section.", style: { font: "sans", accent: "#4338ca", align: "left", density: "standard", header: "split", heading: "bar" } }),
+    // Creative
+    T({ ...m.Global, id: "style-coral-spark", name: "Coral Spark", tier: "free", layout: "banner", notes: "Warm coral header band with pill headings. For creative, marketing and hospitality roles shared directly.", style: { font: "sans", accent: "#e8553f", align: "left", density: "airy", heading: "pill" } }),
+    T({ ...m.Global, id: "style-night-sidebar", name: "Night Sidebar", layout: "sidebar", notes: "Deep violet sidebar on the right with initials; bold and modern.", style: { font: "sans", accent: "#4c1d95", align: "left", density: "standard", sidebar: "dark", sidebarSide: "right" } }),
+    T({ ...m.UK, id: "style-teal-studio", name: "Teal Studio", tier: "free", layout: "sidebar", notes: "Tinted teal sidebar with section border lines in the main column.", style: { font: "sans", accent: "#0d9488", align: "left", density: "standard", sidebar: "light", heading: "border" } }),
+    T({ ...m.India, id: "style-sunrise-banner", name: "Sunrise Banner", layout: "banner", notes: "Amber header band and spaced capitals; bright but professional.", style: { font: "serif", accent: "#b45309", align: "left", density: "airy", heading: "caps" } }),
+    // Compact
+    T({ ...m.US, id: "style-one-page", name: "One-Page Dense", tier: "free", pages: "1", notes: "Tight spacing and editorial rules to fit a full career on one page.", style: { font: "sans", accent: "#1e293b", align: "left", density: "compact", heading: "editorial" } }),
+    T({ ...m.Global, id: "style-compact-columns", name: "Compact Columns", layout: "sidebar", pages: "1", notes: "Narrow tinted sidebar and compact type; lots of content, still readable.", style: { font: "sans", accent: "#2563eb", align: "left", density: "compact", sidebar: "light" } }),
+    T({ ...m.Germany, id: "style-brief-ledger", name: "Brief Ledger", layout: "tabular", pages: "1", notes: "Compact tabular layout with section border lines, in English for international roles.", style: { font: "sans", accent: "#334155", align: "left", density: "compact", heading: "border" } }),
+    // First Job
+    T({ ...m.India, id: "style-first-job", name: "First Job Starter", tier: "free", levels: ENTRY, pages: "1", order: FIRST_JOB_ORDER, notes: "Education and projects come before experience, so internships and coursework lead.", style: { font: "sans", accent: "#2563eb", align: "left", density: "standard", heading: "bar" } }),
+    T({ ...m.US, id: "style-internship", name: "Internship Résumé", tier: "free", levels: ENTRY, pages: "1", order: FIRST_JOB_ORDER, notes: "One-page student résumé with education first and pill headings.", style: { font: "sans", accent: "#7c3aed", align: "left", density: "compact", heading: "pill" } }),
+    T({ ...m.Global, id: "style-graduate-portrait", name: "Graduate Portrait", levels: ENTRY, pages: "1", photo: "optional", order: FIRST_JOB_ORDER, notes: "A friendly photo header for graduates, with education and projects first.", style: { font: "sans", accent: "#0891b2", align: "left", density: "standard", header: "photo", heading: "caps" } }),
+  ];
+}
+
 // Columns, header bands and forms (tables) can confuse ATS parsers, so those layouts are always "Visual".
-const T = (s: Seed): TemplateDef => ({ ...base, ...s, mode: s.layout === "sidebar" || s.layout === "banner" || s.layout === "form" ? "visual" : (s.mode ?? base.mode), style: { ...base.style, ...s.style } });
+const T = (s: Seed): TemplateDef => ({ ...base, ...s, mode: s.layout === "sidebar" || s.layout === "banner" || s.layout === "form" || s.style?.header === "photo" ? "visual" : (s.mode ?? base.mode), style: { ...base.style, ...s.style } });
 
 export const TEMPLATES: TemplateDef[] = [
   // --- Global ---------------------------------------------------------------
@@ -217,6 +280,7 @@ export const TEMPLATES: TemplateDef[] = [
   T({ id: "br-curriculo", name: "Brazilian Currículo", market: "Brazil", region: "Latin America", lang: "pt", photo: "optional", personal: ["languages"], notes: "Portuguese, concise; photo and personal data vary by sector — never required here.", style: { font: "sans", accent: "#15803d", align: "left", density: "standard" } }),
   T({ id: "latam-cv", name: "Latin American CV", market: "Argentina · Chile · Colombia", region: "Latin America", lang: "es", photo: "optional", personal: ["languages"], notes: "Spanish; country-specific personal-data settings; photo optional, not mandatory.", style: { font: "sans", accent: "#0369a1", align: "left", density: "standard" } }),
   ...roleTemplates(),
+  ...styleTemplates(),
 ];
 
 export const FREE_TEMPLATE_IDS = TEMPLATES.filter((t) => t.tier === "free").map((t) => t.id);

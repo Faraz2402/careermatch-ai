@@ -2,8 +2,8 @@ import "server-only";
 // PDF (pdf-lib, selectable text) and DOCX (docx, editable text) renderers for
 // every template layout. Both read the same DocModel as the live preview.
 
-import { AlignmentType, BorderStyle, Document, HeadingLevel, Packer, Paragraph, ShadingType, Table, TableCell, TableRow, TabStopType, TextRun, WidthType } from "docx";
-import { PDFDocument, rgb, StandardFonts, type PDFFont, type PDFPage, type RGB } from "pdf-lib";
+import { AlignmentType, BorderStyle, Document, HeadingLevel, ImageRun, Packer, Paragraph, ShadingType, Table, TableCell, TableRow, TabStopType, TextRun, WidthType } from "docx";
+import { appendBezierCurve, clip, closePath, endPath, moveTo, PDFDocument, popGraphicsState, pushGraphicsState, rgb, StandardFonts, type PDFFont, type PDFImage, type PDFPage, type RGB } from "pdf-lib";
 import type { CoverLetter } from "../tailor/types";
 import type { TemplateDef } from "./catalog";
 import { labelsFor, letterBlocks, NON_LATIN, type DocModel, type DocSection, type Entry } from "./model";
@@ -39,6 +39,7 @@ export const pdfDrops = (s: string) => s.length > 0 && pdfSafe(s).replace(/\s/g,
 class Pdf {
   page!: PDFPage;
   y = 0;
+  photo?: PDFImage;
   constructor(public doc: PDFDocument, public t: TemplateDef, public font: PDFFont, public bold: PDFFont, public x: number, public w: number) {}
   get W() { return PAPER[this.t.paper][0]; }
   get H() { return PAPER[this.t.paper][1]; }
@@ -88,6 +89,36 @@ const muted = rgb(0.38, 0.4, 0.45);
 const white = rgb(1, 1, 1);
 const initialsOf = (name: string) => pdfSafe(name).split(" ").filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
 
+/** JPEG bytes from the data URL a photo design carries. Copied out of Node's shared buffer pool:
+    pdf-lib reads from the start of the underlying ArrayBuffer and would otherwise miss the JPEG header. */
+const photoBytes = (dataUrl?: string) => (dataUrl?.startsWith("data:image/jpeg;base64,") ? new Uint8Array(Buffer.from(dataUrl.slice(23), "base64")) : null);
+
+/** Round photo (clipped to a circle) or, without one, an initials badge. */
+function photoCircle(p: Pdf, cx: number, cy: number, r: number, accent: RGB, name: string) {
+  if (p.photo) {
+    const k = 0.5523 * r;
+    p.page.pushOperators(
+      pushGraphicsState(),
+      moveTo(cx + r, cy),
+      appendBezierCurve(cx + r, cy + k, cx + k, cy + r, cx, cy + r),
+      appendBezierCurve(cx - k, cy + r, cx - r, cy + k, cx - r, cy),
+      appendBezierCurve(cx - r, cy - k, cx - k, cy - r, cx, cy - r),
+      appendBezierCurve(cx + k, cy - r, cx + r, cy - k, cx + r, cy),
+      closePath(),
+      clip(),
+      endPath(),
+    );
+    p.page.drawImage(p.photo, { x: cx - r, y: cy - r, width: r * 2, height: r * 2 });
+    p.page.pushOperators(popGraphicsState());
+    p.page.drawEllipse({ x: cx, y: cy, xScale: r, yScale: r, borderColor: accent, borderWidth: 1.5 });
+    return;
+  }
+  p.page.drawEllipse({ x: cx, y: cy, xScale: r, yScale: r, color: accent });
+  const ini = initialsOf(name);
+  const size = r * 0.7;
+  p.page.drawText(ini, { x: cx - p.bold.widthOfTextAtSize(ini, size) / 2, y: cy - size / 3, size, font: p.bold, color: white });
+}
+
 function heading(p: Pdf, text: string, accent: RGB) {
   const variant = p.t.style.heading ?? "rule";
   const label = pdfSafe(text.toUpperCase());
@@ -103,8 +134,12 @@ function heading(p: Pdf, text: string, accent: RGB) {
     p.page.drawRectangle({ x: p.x, y: p.y - size - 1, width: 3, height: size + 3, color: accent });
     p.page.drawText(label, { x: p.x + 9, y: p.y - size, size, font: p.bold, color: accent });
     p.y -= size * 1.5;
+  } else if (variant === "editorial") {
+    p.page.drawRectangle({ x: p.x, y: p.y - 3, width: p.w, height: 2.4, color: accent });
+    p.y -= 8;
+    p.text(label, { f: p.bold, size, color: ink });
   } else {
-    p.text(label, { f: p.bold, size: variant === "caps" ? p.size : size, color: accent });
+    p.text(label, { f: p.bold, size: variant === "caps" || variant === "border" ? p.size : size, color: accent });
     if (variant === "rule") p.page.drawLine({ start: { x: p.x, y: p.y + 2 }, end: { x: p.x + p.w, y: p.y + 2 }, thickness: 0.6, color: accent });
   }
   p.y -= p.gap / 2;
@@ -146,12 +181,28 @@ function entry(p: Pdf, e: Entry, tabular: boolean) {
 }
 
 function section(p: Pdf, s: DocSection, accent: RGB, tabular: boolean) {
+  const border = p.t.style.heading === "border";
+  const x0 = p.x, w0 = p.w;
+  if (border) {
+    p.x = x0 + 12;
+    p.w = w0 - 12;
+  }
+  p.y -= p.gap;
+  const startPage = p.page, startY = p.y;
+  p.y += p.gap;
   heading(p, s.heading, accent);
   if (s.text) p.text(s.text);
   if (s.items) bullets(p, s.items);
   if (s.groups) for (const g of s.groups) p.text(`${g.label}: ${g.items.join(", ")}`);
   if (s.pairs) for (const [k, v] of s.pairs) p.text(`${k}: ${v}`);
   for (const e of s.entries ?? []) entry(p, e, tabular);
+  if (border) {
+    // Accent line down the section (on the page where it ends, from the top if it spilled over).
+    const top = p.page === startPage ? startY : p.H - p.M;
+    p.page.drawRectangle({ x: x0, y: p.y + 2, width: 2.4, height: Math.max(0, top - p.y - 2), color: accent });
+    p.x = x0;
+    p.w = w0;
+  }
 }
 
 async function pdfBase(t: TemplateDef) {
@@ -168,6 +219,7 @@ function pdfHeader(p: Pdf, d: { name: string; headline: string; contact: string[
   if (banner) {
     const h = 86;
     p.page.drawRectangle({ x: 0, y: p.H - h, width: p.W, height: h, color: accent });
+    if (p.t.style.header === "photo") photoCircle(p, p.W - p.M - 32, p.H - h / 2, 32, white, d.name);
     p.page.drawText(pdfSafe(d.name), { x: p.M, y: p.H - 44, size: 22, font: p.bold, color: rgb(1, 1, 1) });
     if (d.headline) p.page.drawText(pdfSafe(d.headline), { x: p.M, y: p.H - 62, size: 11, font: p.font, color: rgb(1, 1, 1) });
     p.y = p.H - h - 14;
@@ -175,6 +227,22 @@ function pdfHeader(p: Pdf, d: { name: string; headline: string; contact: string[
     return;
   }
   const variant = p.t.style.header ?? "plain";
+  if (variant === "photo") {
+    const r = 34;
+    const top = p.y;
+    photoCircle(p, p.x + r, top - r, r, accent, d.name);
+    const x0 = p.x, w0 = p.w;
+    p.x = x0 + r * 2 + 16;
+    p.w = w0 - r * 2 - 16;
+    p.y = top - 6;
+    p.text(d.name, { f: p.bold, size: 20, color: ink, lead: 23 });
+    if (d.headline) p.text(d.headline, { f: p.bold, size: p.size + 0.6, color: accent });
+    if (d.contact.length) p.text(d.contact.join("  |  "), { size: p.size - 0.6, color: muted });
+    p.x = x0;
+    p.w = w0;
+    p.y = Math.min(p.y, top - r * 2 - 6) - p.gap / 2;
+    return;
+  }
   if (variant === "monogram") {
     const r = 24;
     const top = p.y;
@@ -261,6 +329,8 @@ export async function renderResumePdf(d: DocModel): Promise<Uint8Array> {
   doc.setAuthor(d.name);
   doc.setCreator("CareerMatch AI");
   const accent = hexRgb(t.style.accent);
+  const jpg = photoBytes(d.photo);
+  if (jpg) p.photo = await doc.embedJpg(jpg);
   p.newPage();
 
   if (t.layout === "form") {
@@ -271,12 +341,19 @@ export async function renderResumePdf(d: DocModel): Promise<Uint8Array> {
     // Left panel on page 1: contact, skills, languages, personal details.
     const SW = 168;
     const dark = t.style.sidebar === "dark";
+    const right = t.style.sidebarSide === "right";
+    const sx = right ? p.W - SW : 0;
     const sideInk = dark ? white : ink;
-    p.page.drawRectangle({ x: 0, y: 0, width: SW, height: p.H, color: dark ? accent : tint(t.style.accent, 0.88) });
-    const side = new Pdf(doc, t, p.font, p.bold, 22, SW - 40);
+    p.page.drawRectangle({ x: sx, y: 0, width: SW, height: p.H, color: dark ? accent : tint(t.style.accent, 0.88) });
+    const side = new Pdf(doc, t, p.font, p.bold, sx + 22, SW - 40);
+    side.photo = p.photo;
     side.page = p.page;
     side.y = p.H - p.M;
     side.onNewPage = undefined;
+    if (t.style.header === "photo") {
+      photoCircle(side, sx + SW / 2, side.y - 42, 42, dark ? white : accent, d.name);
+      side.y -= 96;
+    }
     side.text(d.name, { f: p.bold, size: 16, color: dark ? white : accent, lead: 20 });
     if (d.headline) side.text(d.headline, { size: p.size, color: dark ? white : muted });
     side.y -= 10;
@@ -288,8 +365,8 @@ export async function renderResumePdf(d: DocModel): Promise<Uint8Array> {
       for (const g of s.groups ?? []) side.text(`${g.label}: ${g.items.join(", ")}`, { size: p.size - 1, color: sideInk });
       for (const [k, v] of s.pairs ?? []) side.text(`${k}: ${v}`, { size: p.size - 1, color: sideInk });
     }
-    p.x = SW + 24;
-    p.w = p.W - p.x - p.M;
+    p.x = right ? p.M : SW + 24;
+    p.w = right ? p.W - SW - 24 - p.M : p.W - p.x - p.M;
     for (const s of d.sections.filter((x) => !["skills", "languages", "personal"].includes(x.key))) section(p, s, accent, false);
     return doc.save();
   }
@@ -360,7 +437,14 @@ function docxSections(d: DocModel, k: ReturnType<typeof docxKit>, tabular: boole
       : new Paragraph({
           heading: HeadingLevel.HEADING_2,
           spacing: { before: k.after * 1.4, after: k.after / 2 },
-          border: variant === "rule" ? { bottom: { style: BorderStyle.SINGLE, size: 6, color: k.accent, space: 1 } } : variant === "bar" ? { left: { style: BorderStyle.SINGLE, size: 24, color: k.accent, space: 6 } } : undefined,
+          border:
+            variant === "rule"
+              ? { bottom: { style: BorderStyle.SINGLE, size: 6, color: k.accent, space: 1 } }
+              : variant === "bar" || variant === "border"
+                ? { left: { style: BorderStyle.SINGLE, size: 24, color: k.accent, space: 6 } }
+                : variant === "editorial"
+                  ? { top: { style: BorderStyle.SINGLE, size: 18, color: k.accent, space: 4 } }
+                  : undefined,
           children: [k.run(text.toUpperCase(), { bold: true, size: k.size + 0.6, color: k.accent })],
         });
   for (const s of d.sections) {
@@ -384,8 +468,22 @@ function docxSections(d: DocModel, k: ReturnType<typeof docxKit>, tabular: boole
   return out;
 }
 
-function docxHeader(d: Pick<DocModel, "name" | "headline" | "contact" | "template">, k: ReturnType<typeof docxKit>, banner: boolean): Paragraph[] {
+const photoRun = (d: Pick<DocModel, "photo">, px: number) => {
+  const data = photoBytes(d.photo);
+  return data ? new ImageRun({ type: "jpg", data, transformation: { width: px, height: px } }) : null;
+};
+
+function docxHeader(d: Pick<DocModel, "name" | "headline" | "contact" | "template" | "photo">, k: ReturnType<typeof docxKit>, banner: boolean): Paragraph[] {
   const variant = d.template.style.header ?? "plain";
+  const photo = variant === "photo" ? photoRun(d, 96) : null;
+  if (photo && !banner)
+    return [
+      new Paragraph({ spacing: { after: 80 }, children: [photo] }),
+      new Paragraph({ heading: HeadingLevel.TITLE, children: [k.run(d.name, { bold: true, size: 21 })] }),
+      ...(d.headline ? [new Paragraph({ children: [k.run(d.headline, { bold: true, size: k.size + 1, color: k.accent })] })] : []),
+      new Paragraph({ spacing: { after: k.after }, children: [k.run(d.contact.join("  |  "), { size: k.size - 0.6, color: "555B66" })] }),
+    ];
+  if (variant === "photo" && !banner) return docxHeader({ ...d, template: { ...d.template, style: { ...d.template.style, header: "monogram" } } }, k, banner);
   if (!banner && variant === "monogram")
     return [
       new Paragraph({ heading: HeadingLevel.TITLE, children: [new TextRun({ text: ` ${initialsOf(d.name)} `, bold: true, size: 40, color: "FFFFFF", font: k.font, shading: { type: ShadingType.CLEAR, fill: k.accent, color: "auto" } }), k.run(`  ${d.name}`, { bold: true, size: 21 })] }),
@@ -400,6 +498,7 @@ function docxHeader(d: Pick<DocModel, "name" | "headline" | "contact" | "templat
     ];
   if (banner)
     return [
+      ...(photo ? [new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { after: 60 }, children: [photo] })] : []),
       new Paragraph({ shading: { type: ShadingType.CLEAR, fill: k.accent, color: "auto" }, spacing: { after: 0 }, children: [k.run(` ${d.name}`, { bold: true, size: 22, color: "FFFFFF" })] }),
       new Paragraph({ shading: { type: ShadingType.CLEAR, fill: k.accent, color: "auto" }, spacing: { after: k.after }, children: [k.run(` ${d.headline}`, { size: 11, color: "FFFFFF" })] }),
       new Paragraph({ spacing: { after: k.after }, children: [k.run(d.contact.join("  |  "), { color: "555B66", size: k.size - 0.6 })] }),
@@ -441,7 +540,9 @@ function docxBody(d: DocModel, k: ReturnType<typeof docxKit>): (Paragraph | Tabl
     const sideKeys = ["skills", "languages", "personal"];
     const dark = t.style.sidebar === "dark";
     const sc = dark ? "FFFFFF" : undefined;
+    const sidePhoto = t.style.header === "photo" ? photoRun(d, 110) : null;
     const side: Paragraph[] = [
+      ...(sidePhoto ? [new Paragraph({ spacing: { after: 120 }, children: [sidePhoto] })] : []),
       new Paragraph({ children: [k.run(d.name, { bold: true, size: 16, color: dark ? "FFFFFF" : k.accent })] }),
       ...(d.headline ? [new Paragraph({ spacing: { after: k.after }, children: [k.run(d.headline, { color: dark ? "FFFFFF" : "555B66" })] })] : []),
       ...d.contact.map((c) => new Paragraph({ children: [k.run(c, { size: k.size - 1, color: sc })] })),
@@ -453,7 +554,7 @@ function docxBody(d: DocModel, k: ReturnType<typeof docxKit>): (Paragraph | Tabl
       ]),
     ];
     const main = docxSections({ ...d, sections: d.sections.filter((s) => !sideKeys.includes(s.key)) }, k, false);
-    return [new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, bottom: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, left: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, right: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, insideHorizontal: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, insideVertical: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" } }, rows: [new TableRow({ children: [cell(side, { width: 32, fill: dark ? k.accent : "F4F1FB" }), cell(main, { width: 68 })] })] })];
+    return [new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, bottom: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, left: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, right: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, insideHorizontal: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, insideVertical: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" } }, rows: [new TableRow({ children: t.style.sidebarSide === "right" ? [cell(main, { width: 68 }), cell(side, { width: 32, fill: dark ? k.accent : "F4F1FB" })] : [cell(side, { width: 32, fill: dark ? k.accent : "F4F1FB" }), cell(main, { width: 68 })] })] })];
   }
   return [...docxHeader(d, k, t.layout === "banner"), ...docxSections(d, k, t.layout === "tabular")];
 }

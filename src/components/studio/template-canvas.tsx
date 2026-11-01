@@ -24,8 +24,26 @@ function Heading({ text, accent, size, variant = "rule" }: { text: string; accen
   if (variant === "pill")
     return <div style={{ ...caps, display: "inline-block", background: accent, color: "#fff", borderRadius: 4, padding: "2px 10px", fontSize: size }}>{text}</div>;
   if (variant === "bar") return <div style={{ ...caps, color: accent, borderLeft: `4px solid ${accent}`, paddingLeft: 8, lineHeight: 1.2 }}>{text}</div>;
-  if (variant === "caps") return <div style={{ ...caps, color: accent, letterSpacing: "0.16em", fontSize: size }}>{text}</div>;
+  if (variant === "caps" || variant === "border") return <div style={{ ...caps, color: accent, letterSpacing: "0.16em", fontSize: size }}>{text}</div>;
+  if (variant === "editorial") return <div style={{ ...caps, color: INK, borderTop: `3px solid ${accent}`, paddingTop: 6, letterSpacing: "0.08em" }}>{text}</div>;
   return <div style={{ ...caps, color: accent, borderBottom: `1px solid ${accent}`, paddingBottom: 3 }}>{text}</div>;
+}
+
+/** Round photo, or a neutral silhouette placeholder when the person hasn't added one. */
+function PhotoCircle({ src, size, accent, ring = "#fff" }: { src?: string; size: number; accent: string; ring?: string }) {
+  return (
+    <div style={{ width: size, height: size, borderRadius: "50%", overflow: "hidden", flexShrink: 0, border: `3px solid ${ring}`, boxShadow: `0 0 0 2px ${accent}`, background: `color-mix(in srgb, ${accent} 14%, white)` }}>
+      {src ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+      ) : (
+        <svg viewBox="0 0 100 100" width="100%" height="100%" aria-label="Photo placeholder">
+          <circle cx="50" cy="40" r="18" fill={accent} opacity="0.35" />
+          <path d="M18 92c4-20 18-30 32-30s28 10 32 30" fill={accent} opacity="0.35" />
+        </svg>
+      )}
+    </div>
+  );
 }
 
 const initials = (name: string) => name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase()).join("");
@@ -66,7 +84,7 @@ function EntryView({ e, tabular, size }: { e: Entry; tabular: boolean; size: num
 
 function SectionView({ s, accent, size, gap, tabular, heading }: { s: DocSection; accent: string; size: number; gap: number; tabular: boolean; heading?: HeadingStyle }) {
   return (
-    <section style={{ marginTop: gap }}>
+    <section style={{ marginTop: gap, ...(heading === "border" && { borderLeft: `3px solid ${accent}`, paddingLeft: 14 }) }}>
       <div><Heading text={s.heading} accent={accent} size={size} variant={heading} /></div>
       {s.text && <p style={{ margin: 0 }}>{s.text}</p>}
       {s.items && <ul style={{ margin: 0, paddingLeft: 17 }}>{s.items.map((i, k) => <li key={k}>{i}</li>)}</ul>}
@@ -77,7 +95,18 @@ function SectionView({ s, accent, size, gap, tabular, heading }: { s: DocSection
   );
 }
 
-function Header({ d, accent, size, center, banner, pad, variant = "plain" }: { d: Pick<DocModel, "name" | "headline" | "contact">; accent: string; size: number; center: boolean; banner: boolean; pad: number; variant?: "plain" | "monogram" | "split" }) {
+function Header({ d, accent, size, center, banner, pad, variant = "plain" }: { d: Pick<DocModel, "name" | "headline" | "contact" | "photo">; accent: string; size: number; center: boolean; banner: boolean; pad: number; variant?: "plain" | "monogram" | "split" | "photo" }) {
+  if (variant === "photo" && !banner)
+    return (
+      <header style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 10 }}>
+        <PhotoCircle src={d.photo} size={96} accent={accent} />
+        <div>
+          <div style={{ fontSize: 29, fontWeight: 700, lineHeight: 1.15, color: INK }}>{d.name}</div>
+          {d.headline && <div style={{ fontSize: size + 1.5, color: accent, marginTop: 3, fontWeight: 600 }}>{d.headline}</div>}
+          {d.contact.length > 0 && <div style={{ fontSize: size - 1, color: MUTED, marginTop: 5 }}>{d.contact.join("  |  ")}</div>}
+        </div>
+      </header>
+    );
   if (variant === "monogram" && !banner)
     return (
       <header style={{ display: "flex", alignItems: "center", gap: 18, marginBottom: 8 }}>
@@ -101,10 +130,13 @@ function Header({ d, accent, size, center, banner, pad, variant = "plain" }: { d
     );
   if (banner)
     return (
-      <div style={{ background: accent, color: "#fff", margin: `-${pad}px -${pad}px 14px`, padding: `${pad * 0.55}px ${pad}px` }}>
-        <div style={{ fontSize: 30, fontWeight: 700, lineHeight: 1.15 }}>{d.name}</div>
-        {d.headline && <div style={{ fontSize: size + 2, opacity: 0.92 }}>{d.headline}</div>}
-        {d.contact.length > 0 && <div style={{ fontSize: size - 1, opacity: 0.85, marginTop: 6 }}>{d.contact.join("  |  ")}</div>}
+      <div style={{ background: accent, color: "#fff", margin: `-${pad}px -${pad}px 14px`, padding: `${pad * 0.55}px ${pad}px`, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
+        <div>
+          <div style={{ fontSize: 30, fontWeight: 700, lineHeight: 1.15 }}>{d.name}</div>
+          {d.headline && <div style={{ fontSize: size + 2, opacity: 0.92 }}>{d.headline}</div>}
+          {d.contact.length > 0 && <div style={{ fontSize: size - 1, opacity: 0.85, marginTop: 6 }}>{d.contact.join("  |  ")}</div>}
+        </div>
+        {variant === "photo" && <PhotoCircle src={d.photo} size={92} accent="#ffffff" ring={accent} />}
       </div>
     );
   return (
@@ -181,10 +213,12 @@ export function TemplateCanvas({ doc, letter, view = "resume", scale = 1, guides
   else if (t.layout === "sidebar") {
     const sideKeys = ["skills", "languages", "personal"];
     const dark = t.style.sidebar === "dark";
+    const right = t.style.sidebarSide === "right";
     body = (
-      <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", margin: -dn.pad, minHeight: page.h }}>
-        <aside style={{ background: dark ? accent : `color-mix(in srgb, ${accent} 12%, white)`, color: dark ? "#fff" : INK, padding: `${dn.pad}px 22px` }}>
-          {dark && <div style={{ width: 58, height: 58, borderRadius: "50%", background: "rgba(255,255,255,0.16)", border: "2px solid rgba(255,255,255,0.5)", display: "grid", placeItems: "center", fontSize: 21, fontWeight: 700, marginBottom: 12 }}>{initials(doc.name)}</div>}
+      <div style={{ display: "grid", gridTemplateColumns: right ? "1fr 240px" : "240px 1fr", margin: -dn.pad, minHeight: page.h }}>
+        <aside style={{ order: right ? 2 : 0, background: dark ? accent : `color-mix(in srgb, ${accent} 12%, white)`, color: dark ? "#fff" : INK, padding: `${dn.pad}px 22px` }}>
+          {t.style.header === "photo" && <div style={{ marginBottom: 14 }}><PhotoCircle src={doc.photo} size={110} accent={dark ? "#ffffff" : accent} ring={dark ? accent : "#fff"} /></div>}
+          {dark && t.style.header !== "photo" && <div style={{ width: 58, height: 58, borderRadius: "50%", background: "rgba(255,255,255,0.16)", border: "2px solid rgba(255,255,255,0.5)", display: "grid", placeItems: "center", fontSize: 21, fontWeight: 700, marginBottom: 12 }}>{initials(doc.name)}</div>}
           <div style={{ fontSize: 24, fontWeight: 700, color: dark ? "#fff" : accent, lineHeight: 1.15 }}>{doc.name}</div>
           {doc.headline && <div style={{ color: dark ? "rgba(255,255,255,0.85)" : MUTED, marginTop: 4 }}>{doc.headline}</div>}
           <div style={{ marginTop: 14, fontSize: dn.size - 1.5, display: "grid", gap: 3, wordBreak: "break-word" }}>{doc.contact.map((c) => <div key={c}>{c}</div>)}</div>
@@ -197,7 +231,7 @@ export function TemplateCanvas({ doc, letter, view = "resume", scale = 1, guides
             </div>
           ))}
         </aside>
-        <main style={{ padding: `${dn.pad - dn.gap}px ${dn.pad * 0.6}px ${dn.pad}px` }}>
+        <main style={{ order: right ? 1 : 0, padding: `${dn.pad - dn.gap}px ${dn.pad * 0.6}px ${dn.pad}px` }}>
           {doc.sections.filter((s) => !sideKeys.includes(s.key)).map((s) => <SectionView key={s.key} s={s} accent={accent} size={dn.size} gap={dn.gap} tabular={false} heading={t.style.heading} />)}
         </main>
       </div>

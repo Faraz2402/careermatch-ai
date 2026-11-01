@@ -39,7 +39,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   if ((doc === "resume" || doc === "pack") && !(await claimExport(user, "resume", `studio:${d.id}`))) return Response.redirect(new URL("/pricing?limit=export", req.url), 303);
   if ((doc === "letter" || doc === "pack") && !(await claimExport(user, "cover_letter", `studio:${d.id}`))) return Response.redirect(new URL("/pricing?limit=export", req.url), 303);
 
-  const model = buildDoc(s.resume, template, s.personal, { pdf: format === "pdf", order: s.design?.order });
+  const model = buildDoc(s.resume, template, s.personal, { pdf: format === "pdf", order: s.design?.order, photo: s.photo });
   let body: Uint8Array | Buffer;
   if (doc === "resume") body = format === "pdf" ? await renderResumePdf(model) : await renderResumeDocx(model);
   else if (doc === "letter") body = format === "pdf" ? await renderLetterPdf(s.letter!, model) : await renderLetterDocx(s.letter!, model);

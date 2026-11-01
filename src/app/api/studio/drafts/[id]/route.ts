@@ -29,6 +29,8 @@ const Patch = z.object({
   acceptAll: z.boolean().optional(),
   resume: ResumeDataSchema.optional(),
   personal: z.record(z.string(), z.string().max(200)).optional(),
+  // A small square JPEG made in the browser (about 40 KB); null removes it.
+  photo: z.string().regex(/^data:image\/jpeg;base64,[A-Za-z0-9+/=]+$/).max(200_000).nullable().optional(),
   letter: Letter.nullable().optional(),
   restore: z.union([z.literal("base"), z.number().int().nonnegative()]).optional(),
   design: z
@@ -79,6 +81,7 @@ export async function PATCH(req: Request, { params }: Ctx) {
     s = { ...s, ...withResume(s, structuredClone(target), { visual }) };
   }
   if (data.personal) s.personal = data.personal;
+  if (data.photo !== undefined) s.photo = data.photo ?? undefined;
   if (data.design) s.design = { ...s.design, ...data.design };
   if (data.letter !== undefined) s.letter = data.letter;
   // A template change can move the parsing score (visual layouts).

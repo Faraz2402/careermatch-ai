@@ -11,7 +11,8 @@ export type Personal = Partial<Record<PersonalField, string>>;
 export type Entry = { title: string; sub: string; dates: string; location: string; bullets: string[]; text: string };
 export type SectionKey = "summary" | "skills" | "experience" | "projects" | "education" | "certifications" | "personal" | "languages";
 export type DocSection = { key: SectionKey; heading: string; text?: string; items?: string[]; groups?: { label: string; items: string[] }[]; entries?: Entry[]; pairs?: [string, string][] };
-export type DocModel = { name: string; headline: string; contact: string[]; sections: DocSection[]; template: TemplateDef; lang: Lang };
+/** `photo` is an optional square JPEG data URL, used only by photo-header designs. */
+export type DocModel = { name: string; headline: string; contact: string[]; sections: DocSection[]; template: TemplateDef; lang: Lang; photo?: string };
 
 type Labels = Record<SectionKey | "present" | "profile" | "photo" | "dear" | "nationality" | "visaStatus" | "noticePeriod" | "dateOfBirth" | "maritalStatus" | "drivingLicence" | "references", string>;
 
@@ -74,7 +75,7 @@ export function styledTemplate(t: TemplateDef, d: Design = {}): TemplateDef {
 }
 
 /** Build the document a template renders. `pdf` switches non-Latin headings to English. */
-export function buildDoc(resume: ResumeData, template: TemplateDef, personal: Personal = {}, opts: { pdf?: boolean; order?: SectionKey[] } = {}): DocModel {
+export function buildDoc(resume: ResumeData, template: TemplateDef, personal: Personal = {}, opts: { pdf?: boolean; order?: SectionKey[]; photo?: string } = {}): DocModel {
   const labels = labelsFor(template.lang, opts);
   const sections: DocSection[] = [];
   const add = (s: DocSection | null) => s && sections.push(s);
@@ -107,9 +108,11 @@ export function buildDoc(resume: ResumeData, template: TemplateDef, personal: Pe
           ? [personalSection, summary, experience, education, skills, certifications, languages, projects]
           : [summary, skills, experience, projects, education, certifications, languages, personalSection];
   order.forEach(add);
-  // A user-chosen section order (forms keep their fixed structure).
-  if (opts.order?.length && template.layout !== "form") sections.sort((a, b) => (opts.order!.indexOf(a.key) + 1 || 99) - (opts.order!.indexOf(b.key) + 1 || 99));
-  return { name: resume.name || "Your Name", headline: resume.headline, contact: contactLine(resume), sections, template, lang: template.lang };
+  // A user-chosen section order, else the design's own (forms keep their fixed structure).
+  const chosen = opts.order?.length ? opts.order : template.order;
+  if (chosen?.length && template.layout !== "form") sections.sort((a, b) => (chosen.indexOf(a.key) + 1 || 99) - (chosen.indexOf(b.key) + 1 || 99));
+  const photo = template.style.header === "photo" && opts.photo?.startsWith("data:image/jpeg;base64,") ? opts.photo : undefined;
+  return { name: resume.name || "Your Name", headline: resume.headline, contact: contactLine(resume), sections, template, lang: template.lang, photo };
 }
 
 /** The cover letter as plain blocks, in the same header style as the résumé. */

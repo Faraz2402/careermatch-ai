@@ -52,7 +52,7 @@ export function StudioEditor({ initial, canUsePro, onBack, backLabel = "Back to 
   const redo = useRef<ResumeData[]>([]);
   const s = draft.state;
   const template = styledTemplate(templateById(draft.templateId), s.design);
-  const doc = useMemo(() => buildDoc(s.resume, template, s.personal, { order: s.design?.order }), [s.resume, template, s.personal, s.design?.order]);
+  const doc = useMemo(() => buildDoc(s.resume, template, s.personal, { order: s.design?.order, photo: s.photo }), [s.resume, template, s.personal, s.design?.order, s.photo]);
 
   const patch = useCallback(
     async (body: Record<string, unknown>, label?: string) => {
@@ -462,10 +462,66 @@ function ScorePanel({ before, after }: { before: AlignmentScore | null; after: A
 
 const SECTION_NAMES: Record<SectionKey, string> = { summary: "Summary", skills: "Skills", experience: "Experience", projects: "Projects", education: "Education", certifications: "Certifications", personal: "Personal details", languages: "Languages" };
 
+/** Crops to a centred square and downsizes in the browser, so only a small JPEG is ever uploaded. */
+async function squareJpeg(file: File, size = 480): Promise<string> {
+  const bitmap = await createImageBitmap(file);
+  const side = Math.min(bitmap.width, bitmap.height);
+  const canvas = document.createElement("canvas");
+  canvas.width = canvas.height = size;
+  canvas.getContext("2d")!.drawImage(bitmap, (bitmap.width - side) / 2, (bitmap.height - side) / 2, side, side, 0, 0, size, size);
+  bitmap.close();
+  return canvas.toDataURL("image/jpeg", 0.86);
+}
+
+function PhotoPicker({ photo, patch }: { photo?: string; patch: (b: Record<string, unknown>, l?: string) => Promise<unknown> }) {
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState("");
+  return (
+    <div className="rounded-xl border border-slate-200 p-3">
+      <span className="label">Photo</span>
+      <div className="flex items-center gap-3">
+        <div className="grid size-16 shrink-0 place-items-center overflow-hidden rounded-full bg-slate-100 text-slate-400">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          {photo ? <img src={photo} alt="Your photo" className="size-full object-cover" /> : <span className="text-[10px]">No photo</span>}
+        </div>
+        <div className="space-y-1.5">
+          <label className="btn-secondary cursor-pointer px-3 py-1 text-xs">
+            {busy ? "Saving…" : photo ? "Replace photo" : "Add photo"}
+            <input
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              className="sr-only"
+              disabled={busy}
+              onChange={async (e) => {
+                const file = e.target.files?.[0];
+                e.target.value = "";
+                if (!file) return;
+                if (file.size > 15 * 1024 * 1024) return setErr("Choose an image under 15 MB.");
+                setBusy(true);
+                setErr("");
+                try {
+                  await patch({ photo: await squareJpeg(file) }, "Photo added");
+                } catch {
+                  setErr("That image couldn't be read. Try a JPEG or PNG.");
+                } finally {
+                  setBusy(false);
+                }
+              }}
+            />
+          </label>
+          {photo && <button className="block text-xs text-rose-600 hover:underline" onClick={() => patch({ photo: null }, "Photo removed")}>Remove photo</button>}
+        </div>
+      </div>
+      <p className="mt-2 text-slate-500">Optional. Stored only with this application, encrypted. Leave it out for ATS portals and markets that discourage photos (US, UK, Canada). Without a photo your initials are shown.</p>
+      {err && <p className="mt-1 text-rose-600">{err}</p>}
+    </div>
+  );
+}
+
 function DesignPanel({ s, templateId, patch }: { s: StoredState; templateId: string; patch: (b: Record<string, unknown>, l?: string) => Promise<unknown> }) {
   const t = templateById(templateId);
   const design = s.design ?? {};
-  const doc = buildDoc(s.resume, t, s.personal, { order: design.order });
+  const doc = buildDoc(s.resume, t, s.personal, { order: design.order, photo: s.photo });
   const order = doc.sections.map((x) => x.key);
   const move = (i: number, dir: -1 | 1) => {
     const next = [...order];
@@ -484,6 +540,7 @@ function DesignPanel({ s, templateId, patch }: { s: StoredState; templateId: str
         <span className="label">Accent colour</span>
         <div className="flex flex-wrap gap-2">{ACCENTS.map((c) => <button key={c} onClick={() => patch({ design: { accent: c } })} aria-label={`Accent ${c}`} className={cx("size-7 rounded-full ring-offset-2", (design.accent ?? t.style.accent) === c && "ring-2 ring-violet-500")} style={{ background: c }} />)}</div>
       </div>
+      {t.style.header === "photo" && <PhotoPicker photo={s.photo} patch={patch} />}
       {t.layout !== "form" && (
         <div>
           <span className="label">Section order</span>

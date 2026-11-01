@@ -28,7 +28,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { cx } from "@/lib/format";
 import type { ResumeData } from "@/lib/resume/schema";
-import { MARKETS, ROLES, TEMPLATES, type Role, type TemplateDef } from "@/lib/templates/catalog";
+import { MARKETS, ROLES, STYLES, styleTags, TEMPLATES, type Role, type StyleTag, type TemplateDef } from "@/lib/templates/catalog";
 import { buildDoc, SAMPLE_PERSONAL, SAMPLE_RESUME, type DocModel, type Personal } from "@/lib/templates/model";
 import { pageSize, TemplateCanvas } from "./template-canvas";
 
@@ -145,6 +145,7 @@ function PreviewModal({ t, doc, locked, onClose, onPick }: { t: TemplateDef; doc
 export function TemplateGallery({ resume, personal, selected, onPick, canUsePro, compact }: { resume?: ResumeData; personal?: Personal; selected?: string; onPick?: (t: TemplateDef) => void; canUsePro: boolean; compact?: boolean }) {
   const [q, setQ] = useState("");
   const [role, setRole] = useState<Role | "">("");
+  const [style, setStyle] = useState<StyleTag | "">("");
   const [market, setMarket] = useState("");
   const [mode, setMode] = useState<"" | "ats" | "visual">("");
   const [tier, setTier] = useState<"" | "free" | "pro">("");
@@ -157,12 +158,13 @@ export function TemplateGallery({ resume, personal, selected, onPick, canUsePro,
         (t) =>
           (!q || `${t.name} ${t.market} ${t.notes} ${t.industries.join(" ")} ${t.roles.join(" ")}`.toLowerCase().includes(q.toLowerCase())) &&
           (!role || t.roles.includes(role)) &&
+          (!style || styleTags(t).includes(style)) &&
           (!market || t.market === market) &&
           (!mode || t.mode === mode) &&
           (!tier || t.tier === tier) &&
           (!level || t.levels.includes(level as (typeof LEVELS)[number])),
       ).sort((a, b) => Number(b.tier === "free") - Number(a.tier === "free")),
-    [q, role, market, mode, tier, level],
+    [q, role, style, market, mode, tier, level],
   );
   const data = resume && resume.name ? resume : SAMPLE_RESUME;
   const pdata = resume && resume.name ? personal ?? {} : SAMPLE_PERSONAL;
@@ -189,6 +191,21 @@ export function TemplateGallery({ resume, personal, selected, onPick, canUsePro,
             </button>
           );
         })}
+      </div>
+
+      {/* Look-and-feel styles */}
+      <div className={cx("flex flex-wrap items-center gap-1.5", compact ? "mb-2" : "mb-4")} role="group" aria-label="Style">
+        <span className="mr-1 text-xs font-semibold text-slate-500">Style</span>
+        {(["", ...STYLES] as const).map((v) => (
+          <button
+            key={v || "all"}
+            aria-pressed={style === v}
+            onClick={() => setStyle(v)}
+            className={cx("rounded-full px-3 py-1 text-xs font-semibold transition", style === v ? "bg-[#10152b] text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200")}
+          >
+            {v || "All"}
+          </button>
+        ))}
       </div>
 
       <div className={cx("flex flex-wrap gap-2", compact ? "mb-3" : "mb-4")}>

@@ -9,7 +9,8 @@ import { DEFAULT_TEMPLATE_ID, templateById } from "../templates/catalog";
 import type { Design, Personal } from "../templates/model";
 import type { TailorState } from "./types";
 
-export type StoredState = TailorState & { personal: Personal; design?: Design };
+/** `photo`: optional square JPEG data URL for photo designs, sealed with the rest of the draft. */
+export type StoredState = TailorState & { personal: Personal; design?: Design; photo?: string };
 export type DraftView = { id: string; name: string; jobId: string | null; templateId: string; country: string; updatedAt: string; state: StoredState };
 export type DraftSummary = { id: string; name: string; jobId: string | null; templateId: string; updatedAt: string; title: string; company: string; before: number | null; after: number | null };
 
