@@ -16,13 +16,15 @@ type Msg = { role: "user" | "assistant"; content: string };
 
 type ProviderId = "anthropic" | "gemini" | "groq" | "cerebras" | "nvidia" | "openrouter" | "mistral";
 
-type OpenAiCompat = { baseUrl: string; keyEnv: string; modelsEnv: string; defaults: string[]; label: string; headers?: Record<string, string>; reasoning?: boolean };
+/** `maxOut`: output-token cap (Groq's free plan counts it against 8K tokens a minute). */
+type OpenAiCompat = { baseUrl: string; keyEnv: string; modelsEnv: string; defaults: string[]; label: string; headers?: Record<string, string>; reasoning?: boolean; maxOut?: number };
 
 /** OpenAI-compatible free tiers. Models can be overridden with the *_MODELS env vars (comma-separated). */
 const COMPAT: Record<Exclude<ProviderId, "anthropic" | "gemini">, OpenAiCompat> = {
-  groq: { label: "Groq", baseUrl: "https://api.groq.com/openai/v1", keyEnv: "GROQ_API_KEY", modelsEnv: "GROQ_MODELS", defaults: ["openai/gpt-oss-120b", "qwen/qwen3-32b", "llama-3.3-70b-versatile", "openai/gpt-oss-20b"], reasoning: true },
+  // Models checked against each provider's live list on 1 November 2026.
+  groq: { label: "Groq", baseUrl: "https://api.groq.com/openai/v1", keyEnv: "GROQ_API_KEY", modelsEnv: "GROQ_MODELS", defaults: ["openai/gpt-oss-120b", "qwen/qwen3.8-27b", "openai/gpt-oss-20b"], reasoning: true, maxOut: 3000 },
   cerebras: { label: "Cerebras", baseUrl: "https://api.cerebras.ai/v1", keyEnv: "CEREBRAS_API_KEY", modelsEnv: "CEREBRAS_MODELS", defaults: ["gpt-oss-120b", "qwen-3-235b-a22b-instruct-2507", "llama-3.3-70b"] },
-  nvidia: { label: "NVIDIA NIM", baseUrl: "https://integrate.api.nvidia.com/v1", keyEnv: "NVIDIA_API_KEY", modelsEnv: "NVIDIA_MODELS", defaults: ["openai/gpt-oss-120b", "meta/llama-3.3-70b-instruct"] },
+  nvidia: { label: "NVIDIA NIM", baseUrl: "https://integrate.api.nvidia.com/v1", keyEnv: "NVIDIA_API_KEY", modelsEnv: "NVIDIA_MODELS", defaults: ["minimaxai/minimax-m3.1-flash", "mistralai/mistral-large-4-1t-a52b"] },
   openrouter: { label: "OpenRouter", baseUrl: "https://openrouter.ai/api/v1", keyEnv: "OPENROUTER_API_KEY", modelsEnv: "OPENROUTER_MODELS", defaults: ["openrouter/free"], headers: { "HTTP-Referer": "https://careermatch-ai-ten.vercel.app", "X-Title": "CareerMatch AI" } },
   mistral: { label: "Mistral", baseUrl: "https://api.mistral.ai/v1", keyEnv: "MISTRAL_API_KEY", modelsEnv: "MISTRAL_MODELS", defaults: ["mistral-small-latest", "mistral-medium-latest"] },
 };
@@ -86,6 +88,8 @@ function skipFor(status: number, body: string, retryAfter: string | null): Skip 
   }
   if (status === 401 || status === 403) return new Skip(`key rejected (${status})`, "provider", 60 * MIN);
   if (status === 402) return new Skip("no free credit left (402)", "provider", 180 * MIN);
+  // Too big for this model's per-minute token allowance: the next model may take it.
+  if (status === 413 || /request too large|too many tokens|context.?length|maximum context/i.test(body)) return new Skip(`request too large (${status})`, "model", MIN / 2);
   if (status === 404 || (status === 400 && /model/i.test(body) && /not|invalid|unknown|decommission/i.test(body))) return new Skip(`model unavailable (${status})`, "model", 24 * 60 * MIN);
   if (status >= 500 || status === 408) return new Skip(`provider error (${status})`, "model", 2 * MIN);
   return null;
@@ -120,6 +124,7 @@ async function runChain<T>(what: string, attempt: Attempt<T>): Promise<{ value: 
       }
     }
   }
+  if (last instanceof Skip && /timed out|unreachable|provider error/.test(last.reason)) throw new AIError("The free AI models are busy right now. Please try again in a few minutes.");
   if (!anyTried || last instanceof Skip) throw new AIQuotaError("All free AI models have used up their limits for now. Please try again later.");
   throw last instanceof AIError ? last : new AIError("The AI service failed. Please try again.");
 }
@@ -325,9 +330,10 @@ async function compatFetch(p: Exclude<ProviderId, "anthropic" | "gemini">, body:
     method: "POST",
     headers: { Authorization: `Bearer ${key(c.keyEnv)}`, "Content-Type": "application/json", ...c.headers },
     body: JSON.stringify(body),
-    signal: AbortSignal.timeout(Math.max(5_000, deadline - Date.now())),
+    // At most 30s per model, so one slow free endpoint can't use up the whole request.
+    signal: AbortSignal.timeout(Math.max(5_000, Math.min(30_000, deadline - Date.now()))),
   }).catch((err: Error) => {
-    throw new Skip(err.name === "TimeoutError" ? "timed out" : "unreachable", "model", 2 * MIN);
+    throw new Skip(err.name === "TimeoutError" ? "timed out" : "unreachable", "model", err.name === "TimeoutError" ? 10 * MIN : 2 * MIN);
   });
   if (!res.ok) {
     const text = await res.text();
@@ -351,7 +357,7 @@ async function compatStructured<S extends z.ZodType>(p: Exclude<ProviderId, "ant
     { role: "system", content: `${opts.system}\n\nReply with one JSON object only, no prose and no code fences.` },
     { role: "user", content: opts.prompt },
   ];
-  const base = { model, messages, temperature: 0.3, max_tokens: opts.maxTokens ?? 8000, ...compatExtras(p, model, opts.effort) };
+  const base = { model, messages, temperature: 0.3, max_tokens: Math.min(opts.maxTokens ?? 8000, COMPAT[p].maxOut ?? 8000), ...compatExtras(p, model, opts.effort) };
   let res: Response;
   try {
     res = await compatFetch(p, { ...base, response_format: { type: "json_schema", json_schema: { name: "result", schema, strict: false } } }, deadline);
@@ -368,7 +374,7 @@ async function compatStructured<S extends z.ZodType>(p: Exclude<ProviderId, "ant
 }
 
 async function* compatStream(p: Exclude<ProviderId, "anthropic" | "gemini">, opts: { system: string; messages: Msg[]; effort?: Effort; maxTokens?: number }, model: string, deadline: number): AsyncGenerator<string> {
-  const res = await compatFetch(p, { model, stream: true, temperature: 0.5, max_tokens: opts.maxTokens ?? 4000, messages: [{ role: "system", content: opts.system }, ...opts.messages], ...compatExtras(p, model, opts.effort) }, deadline);
+  const res = await compatFetch(p, { model, stream: true, temperature: 0.5, max_tokens: Math.min(opts.maxTokens ?? 4000, COMPAT[p].maxOut ?? 4000), messages: [{ role: "system", content: opts.system }, ...opts.messages], ...compatExtras(p, model, opts.effort) }, deadline);
   for await (const data of sse(res)) {
     if (data === "[DONE]") break;
     const r = JSON.parse(data) as { choices?: { delta?: { content?: string | null } }[] };
