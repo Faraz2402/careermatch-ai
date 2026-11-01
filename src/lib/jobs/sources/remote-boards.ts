@@ -315,12 +315,13 @@ export const realworkfromanywhere: SourceDefinition = {
 
 // --- Findwork (https://findwork.dev/developers/; free API key) --------------
 
-type FindworkJob = { id: string; role: string; company_name?: string; employment_type?: string | null; location?: string | null; url: string; text?: string; date_posted: string };
+type FindworkJob = { id: string; role: string | null; company_name?: string | null; employment_type?: string | null; location?: string | null; url: string | null; text?: string | null; date_posted: string };
 
-/** Pages of 100 per run (the key allows 10 requests a minute); stops at the 30-day window. */
-const FINDWORK_PAGES = 8;
+/** Pages of 100 per run, well inside the key's limit of 10 requests; stops at the 30-day window. */
+const FINDWORK_PAGES = 5;
 
-export function mapFindwork(j: FindworkJob): NormalizedJob {
+export function mapFindwork(j: FindworkJob): NormalizedJob | null {
+  if (!j.id || !j.role || !j.url) return null; // a few listings come without a title or link
   return job({
     source: "findwork",
     externalId: j.id,
@@ -349,10 +350,16 @@ export const findwork: SourceDefinition = {
   async fetchJobs(_query, signal) {
     const out: NormalizedJob[] = [];
     for (let page = 1; page <= FINDWORK_PAGES; page++) {
-      const data = await fetchJson<{ results: FindworkJob[]; next: string | null }>(`https://findwork.dev/api/jobs/?remote=true&sort_by=date&page=${page}`, signal, {
-        headers: { Authorization: `Token ${process.env.FINDWORK_API_KEY!.trim()}` },
-      });
-      const jobs = data.results.map(mapFindwork);
+      let data: { results: FindworkJob[]; next: string | null };
+      try {
+        data = await fetchJson(`https://findwork.dev/api/jobs/?remote=true&sort_by=date&page=${page}`, signal, {
+          headers: { Authorization: `Token ${process.env.FINDWORK_API_KEY!.trim()}` },
+        });
+      } catch (e) {
+        if (out.length && /rate limited/i.test((e as Error).message)) break; // keep the pages we already have
+        throw e;
+      }
+      const jobs = data.results.map(mapFindwork).filter((j): j is NormalizedJob => j !== null);
       out.push(...jobs.filter(recent));
       if (!data.next || jobs.some((j) => !recent(j))) break; // newest first: past the window, stop
     }

@@ -50,6 +50,7 @@ describe("remote boards", () => {
   it("Findwork maps a remote job and stops paging past 30 days", async () => {
     const fresh = { id: "np2259M", role: "Senior TA Operations Specialist", company_name: "Anduril Industries", employment_type: "Contract", location: null, url: "https://findwork.dev/np2259M/x", text: "<p>Defense</p>", date_posted: new Date().toISOString() };
     expect(mapFindwork(fresh)).toMatchObject({ source: "findwork", location: "Remote", employmentType: "contract", description: "Defense", url: fresh.url });
+    expect(mapFindwork({ ...fresh, role: null, company_name: null, text: null })).toBeNull();
     vi.stubEnv("FINDWORK_API_KEY", "fw-key");
     const old = { ...fresh, id: "old", date_posted: "2020-01-01T00:00:00Z" };
     const fetchMock = vi.fn(async () => new Response(JSON.stringify({ results: [fresh, old], next: "https://findwork.dev/api/jobs/?page=2" })));
