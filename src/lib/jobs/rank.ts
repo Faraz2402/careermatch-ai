@@ -4,6 +4,7 @@
 //   Skills 40 · Role/title 20 · Relevance 10 · Seniority 10 · Location 10 ·
 //   Salary 5 · Recency 5  (= 100)  plus up to ±5 from the user's own feedback.
 
+import { convertCurrency } from "../geo/currency";
 import { allSkills, type JobPreferences, type ResumeData } from "../resume/schema";
 import { canonicalSkill, extractSkills, skillTerms, textMentionsSkill } from "../skills";
 import type { JobRequirements } from "./enrich";
@@ -297,7 +298,9 @@ export function scoreJob(job: ScorableJob, resumeOrCtx: ResumeData | MatchContex
 
   // 4. Seniority (10)
   const seniority = detectSeniority(job.title);
-  const wanted = prefs.seniority === "any" ? inferSeniority(resume) : prefs.seniority;
+  // Any of the chosen levels counts; none chosen = match the résumé's level.
+  const levels: Seniority[] = prefs.seniorities?.length ? prefs.seniorities : prefs.seniority && prefs.seniority !== "any" ? [prefs.seniority] : [inferSeniority(resume)];
+  const wanted = levels.reduce((best, l) => (Math.abs(LEVELS.indexOf(seniority) - LEVELS.indexOf(l)) < Math.abs(LEVELS.indexOf(seniority) - LEVELS.indexOf(best)) ? l : best), levels[0]);
   const gap = Math.abs(LEVELS.indexOf(seniority) - LEVELS.indexOf(wanted));
   const senPts = gap === 0 ? 10 : gap === 1 ? 6 : 0;
   if (gap === 0) reasons.push(`Seniority (${seniority}) fits your level.`);
@@ -319,13 +322,15 @@ export function scoreJob(job: ScorableJob, resumeOrCtx: ResumeData | MatchContex
   // 6. Salary (5) - compared in yearly USD
   let salPts = 2;
   const yearly = job.salaryYearlyUsd ?? null;
+  // The minimum is saved in the user's currency; compare in USD.
+  const minUsd = prefs.salaryMin == null ? null : convertCurrency(prefs.salaryMin, prefs.salaryCurrency ?? "USD", "USD");
   if (yearly != null) {
-    if (prefs.salaryMin != null && yearly < prefs.salaryMin) {
+    if (minUsd != null && yearly < minUsd) {
       salPts = 0;
       concerns.push("Posted salary is below your minimum.");
     } else {
       salPts = 5;
-      if (prefs.salaryMin != null) reasons.push("Posted salary meets your range.");
+      if (minUsd != null) reasons.push("Posted salary meets your range.");
     }
   }
 

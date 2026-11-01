@@ -1,9 +1,10 @@
 // Salary normalisation and market insights. FX rates are static
 // approximations - the UI labels converted figures as "approx."
 
+import { FX_TO_USD } from "../geo/currency";
 import type { NormalizedJob } from "./types";
 
-export const FX_TO_USD: Record<string, number> = { USD: 1, EUR: 1.08, GBP: 1.27, CAD: 0.73, AUD: 0.66, INR: 0.012, CHF: 1.13, SEK: 0.095, PLN: 0.25 };
+export { FX_TO_USD };
 const PERIOD_FACTOR: Record<string, number> = { year: 1, month: 12, hour: 2080 };
 
 type SalaryFields = Pick<NormalizedJob, "salaryMin" | "salaryMax" | "salaryCurrency" | "salaryPeriod">;

@@ -13,7 +13,7 @@ export default async function PreferencesPage({ searchParams }: { searchParams: 
   // Seed sensible defaults from the resume the first time.
   const initial = prefs.roles.length
     ? prefs
-    : { ...prefs, roles: [resume.headline || resume.experience[0]?.title].filter(Boolean) as string[], locations: resume.location ? [resume.location] : [], seniority: resume.experience.length ? inferSeniority(resume) : prefs.seniority };
+    : { ...prefs, roles: [resume.headline || resume.experience[0]?.title].filter(Boolean) as string[], locations: resume.location ? [resume.location] : [], seniorities: resume.experience.length ? [inferSeniority(resume)] : prefs.seniorities };
   return (
     <div className="mx-auto max-w-3xl">
       <PageHeader title="Job preferences" subtitle="These shape which listings we fetch and how we rank them." />

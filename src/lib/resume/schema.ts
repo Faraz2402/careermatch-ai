@@ -100,13 +100,20 @@ export const defaultVisibility = (): Visibility => ({
   showLinks: true,
 });
 
+export const SENIORITY_LEVELS = ["intern", "junior", "mid", "senior", "lead", "executive"] as const;
+
 export const PreferencesSchema = z.object({
   roles: z.array(z.string()),
-  seniority: z.enum(["any", "intern", "junior", "mid", "senior", "lead", "executive"]),
+  /** Kept for older saved preferences; `seniorities` is what the form edits. "any" = match my experience. */
+  seniority: z.enum(["any", ...SENIORITY_LEVELS]),
+  /** Levels the user wants; empty = match my experience. */
+  seniorities: z.array(z.enum(SENIORITY_LEVELS)).default([]),
   locations: z.array(z.string()),
   workModes: z.array(z.enum(["remote", "hybrid", "onsite"])),
+  /** Yearly amounts in `salaryCurrency` (older preferences are USD). */
   salaryMin: z.number().int().nonnegative().nullable(),
   salaryMax: z.number().int().nonnegative().nullable(),
+  salaryCurrency: z.string().regex(/^[A-Z]{3}$/).default("USD"),
   employmentTypes: z.array(z.enum(["full-time", "part-time", "contract", "internship", "temporary"])),
   industries: z.array(z.string()),
   workAuthorization: z.string(),
@@ -117,10 +124,12 @@ export type JobPreferences = z.infer<typeof PreferencesSchema>;
 export const defaultPreferences = (): JobPreferences => ({
   roles: [],
   seniority: "any",
+  seniorities: [],
   locations: [],
   workModes: ["remote", "hybrid", "onsite"],
   salaryMin: null,
   salaryMax: null,
+  salaryCurrency: "USD",
   employmentTypes: ["full-time"],
   industries: [],
   workAuthorization: "",
