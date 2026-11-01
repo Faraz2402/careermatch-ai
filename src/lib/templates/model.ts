@@ -5,6 +5,7 @@
 import type { ResumeData } from "../resume/schema";
 import type { CoverLetter } from "../tailor/types";
 import type { Lang, PersonalField, TemplateDef } from "./catalog";
+import { showsPhoto } from "./catalog";
 
 export type Personal = Partial<Record<PersonalField, string>>;
 
@@ -111,7 +112,9 @@ export function buildDoc(resume: ResumeData, template: TemplateDef, personal: Pe
   // A user-chosen section order, else the design's own (forms keep their fixed structure).
   const chosen = opts.order?.length ? opts.order : template.order;
   if (chosen?.length && template.layout !== "form") sections.sort((a, b) => (chosen.indexOf(a.key) + 1 || 99) - (chosen.indexOf(b.key) + 1 || 99));
-  const photo = template.style.header === "photo" && opts.photo?.startsWith("data:image/jpeg;base64,") ? opts.photo : undefined;
+  // The user's own photo (a JPEG data URL), or a library sample image for previews only.
+  const usable = opts.photo?.startsWith("data:image/jpeg;base64,") || opts.photo?.startsWith("/people/samples/");
+  const photo = showsPhoto(template) && usable ? opts.photo : undefined;
   return { name: resume.name || "Your Name", headline: resume.headline, contact: contactLine(resume), sections, template, lang: template.lang, photo };
 }
 

@@ -28,7 +28,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { cx } from "@/lib/format";
 import type { ResumeData } from "@/lib/resume/schema";
-import { MARKETS, ROLES, STYLES, styleTags, TEMPLATES, type Role, type StyleTag, type TemplateDef } from "@/lib/templates/catalog";
+import { listedIn, MARKETS, ROLES, STYLES, styleTags, TEMPLATES, type Role, type StyleTag, type TemplateDef } from "@/lib/templates/catalog";
 import { buildDoc, SAMPLE_PERSONAL, SAMPLE_RESUME, type DocModel, type Personal } from "@/lib/templates/model";
 import { pageSize, TemplateCanvas } from "./template-canvas";
 
@@ -131,7 +131,7 @@ function PreviewModal({ t, doc, locked, onClose, onPick }: { t: TemplateDef; doc
         <button className="grid size-9 place-items-center rounded-full bg-white/10 hover:bg-white/20" onClick={onClose} aria-label="Close preview"><X className="size-5" /></button>
       </div>
       <div className="min-h-0 flex-1 overflow-auto p-6" onClick={onClose}>
-        <p className="mx-auto mb-4 max-w-3xl text-center text-sm text-white/80" onClick={(e) => e.stopPropagation()}>{t.notes}</p>
+        <p className="mx-auto mb-4 max-w-3xl text-center text-sm text-white/80" onClick={(e) => e.stopPropagation()}>{t.notes}{t.samplePhoto ? " The photo is a sample: after choosing this design, add your own in the Design panel." : ""}</p>
         <div className="mx-auto w-fit shadow-2xl" onClick={(e) => e.stopPropagation()}>
           {width > 0 && <TemplateCanvas doc={doc} scale={width / page.w} />}
         </div>
@@ -159,7 +159,7 @@ export function TemplateGallery({ resume, personal, selected, onPick, canUsePro,
           (!q || `${t.name} ${t.market} ${t.notes} ${t.industries.join(" ")} ${t.roles.join(" ")}`.toLowerCase().includes(q.toLowerCase())) &&
           (!role || t.roles.includes(role)) &&
           (!style || styleTags(t).includes(style)) &&
-          (!market || t.market === market) &&
+          (!market || listedIn(t, market)) &&
           (!mode || t.mode === mode) &&
           (!tier || t.tier === tier) &&
           (!level || t.levels.includes(level as (typeof LEVELS)[number])),
@@ -168,7 +168,8 @@ export function TemplateGallery({ resume, personal, selected, onPick, canUsePro,
   );
   const data = resume && resume.name ? resume : SAMPLE_RESUME;
   const pdata = resume && resume.name ? personal ?? {} : SAMPLE_PERSONAL;
-  const docFor = (t: TemplateDef) => buildDoc(data, t, pdata);
+  // Photo designs preview with a sample headshot; the user adds their own after choosing one.
+  const docFor = (t: TemplateDef) => buildDoc(data, t, pdata, { photo: t.samplePhoto });
   const select = "input w-auto py-1.5 text-xs";
   const counts = { free: list.filter((t) => t.tier === "free").length, pro: list.filter((t) => t.tier === "pro").length };
 
@@ -237,6 +238,7 @@ export function TemplateGallery({ resume, personal, selected, onPick, canUsePro,
                 <button type="button" onClick={() => setPreview(t)} className="relative block bg-gradient-to-br from-slate-100 to-slate-200/70 p-4 text-left focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none" aria-label={`Preview ${t.name}`}>
                   <Thumb doc={doc} />
                   <span className="absolute top-3 left-3 flex gap-1"><TierBadge tier={t.tier} /><ModeBadge mode={t.mode} /></span>
+                  {t.samplePhoto && <span className="absolute right-3 bottom-3 rounded-full bg-[#10152b]/80 px-2 py-0.5 text-[10px] font-semibold text-white">Sample photo · add yours</span>}
                   <span className="pointer-events-none absolute inset-0 grid place-items-center bg-[#10152b]/0 opacity-0 transition group-hover:bg-[#10152b]/25 group-hover:opacity-100">
                     <span className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-[#10152b] shadow-lg"><Eye className="size-4" aria-hidden /> Preview</span>
                   </span>

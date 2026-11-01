@@ -3,7 +3,7 @@ import "server-only";
 // every template layout. Both read the same DocModel as the live preview.
 
 import { AlignmentType, BorderStyle, Document, HeadingLevel, ImageRun, Packer, Paragraph, ShadingType, Table, TableCell, TableRow, TabStopType, TextRun, WidthType } from "docx";
-import { appendBezierCurve, clip, closePath, endPath, moveTo, PDFDocument, popGraphicsState, pushGraphicsState, rgb, StandardFonts, type PDFFont, type PDFImage, type PDFPage, type RGB } from "pdf-lib";
+import { appendBezierCurve, clip, closePath, endPath, lineTo, moveTo, PDFDocument, popGraphicsState, pushGraphicsState, rgb, StandardFonts, type PDFFont, type PDFImage, type PDFPage, type RGB } from "pdf-lib";
 import type { CoverLetter } from "../tailor/types";
 import type { TemplateDef } from "./catalog";
 import { labelsFor, letterBlocks, NON_LATIN, type DocModel, type DocSection, type Entry } from "./model";
@@ -308,8 +308,17 @@ function pdfForm(p: Pdf, d: DocModel, accent: RGB) {
   for (const [k, v] of d.sections.find((s) => s.key === "personal")?.pairs ?? []) row(k, v);
   if (photo) {
     const h = 120;
-    p.page.drawRectangle({ x: p.x + p.w - 88, y: top - h, width: 88, height: h, borderColor: muted, borderWidth: 0.5 });
-    p.page.drawText(labels.photo, { x: p.x + p.w - 60, y: top - h / 2, size: 8, font: p.font, color: muted });
+    if (p.photo) {
+      // Square photo scaled to the box height and clipped to the 88 x 120 box.
+      const bx = p.x + p.w - 88, by = top - h;
+      p.page.pushOperators(pushGraphicsState(), moveTo(bx, by), lineTo(bx + 88, by), lineTo(bx + 88, by + h), lineTo(bx, by + h), closePath(), clip(), endPath());
+      p.page.drawImage(p.photo, { x: bx + (88 - h) / 2, y: by, width: h, height: h });
+      p.page.pushOperators(popGraphicsState());
+      p.page.drawRectangle({ x: bx, y: by, width: 88, height: h, borderColor: ink, borderWidth: 0.5 });
+    } else {
+      p.page.drawRectangle({ x: p.x + p.w - 88, y: top - h, width: 88, height: h, borderColor: muted, borderWidth: 0.5 });
+      p.page.drawText(labels.photo, { x: p.x + p.w - 60, y: top - h / 2, size: 8, font: p.font, color: muted });
+    }
     if (p.y > top - h - 6) p.y = top - h - 6;
   }
   p.y -= p.gap;
@@ -530,7 +539,7 @@ function docxBody(d: DocModel, k: ReturnType<typeof docxKit>): (Paragraph | Tabl
     );
     return [
       new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: k.after }, children: [k.run(title, { bold: true, size: 18 })] }),
-      ...(t.photo !== "omit" ? [new Paragraph({ alignment: AlignmentType.RIGHT, children: [k.run(`[ ${labels.photo} ]`, { color: "888888" })] })] : []),
+      ...(t.photo !== "omit" ? [new Paragraph({ alignment: AlignmentType.RIGHT, children: [photoRun(d, 113) ?? k.run(`[ ${labels.photo} ]`, { color: "888888" })] })] : []),
       new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows }),
       new Paragraph(""),
       new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: history }),

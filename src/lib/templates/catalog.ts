@@ -31,6 +31,10 @@ export type TemplateDef = {
   notes: string;
   /** Job families this design is tuned for; empty = suits any role. */
   roles: Role[];
+  /** Other markets this design is also listed under (e.g. photo designs in photo-friendly countries). */
+  alsoIn?: string[];
+  /** Fictional sample headshot shown in library previews of photo designs (never in the user's own document). */
+  samplePhoto?: string;
   style: {
     font: "sans" | "serif";
     accent: string;
@@ -282,6 +286,36 @@ export const TEMPLATES: TemplateDef[] = [
   ...roleTemplates(),
   ...styleTemplates(),
 ];
+
+/**
+ * Markets where a CV photo is customary or commonly accepted. Photo designs are listed under these
+ * (not under the US, UK, Canada, Ireland, Australia or New Zealand, where photos are discouraged).
+ */
+const PHOTO_MARKETS = ["Germany", "Austria", "Switzerland", "France", "Belgium", "Netherlands", "Spain", "Italy", "Portugal", "Poland", "Turkey", "European Union", "UAE", "Saudi Arabia", "Qatar · Kuwait · Bahrain · Oman", "India", "Malaysia", "Hong Kong", "China", "Japan", "South Korea", "Brazil", "Argentina · Chile · Colombia", "Mexico"];
+/** Fields where a photo is often expected or welcome. */
+const PHOTO_ROLES: Role[] = ["Hospitality & Retail", "Sales & Marketing", "Design & Creative"];
+
+const PHOTO_PLACEMENT: Record<string, Pick<TemplateDef, "alsoIn" | "roles">> = {
+  "style-portrait-header": { alsoIn: PHOTO_MARKETS, roles: PHOTO_ROLES },
+  "style-creative-portrait": { alsoIn: PHOTO_MARKETS, roles: ["Design & Creative", "Sales & Marketing", "Hospitality & Retail"] },
+  "style-portrait-sidebar": { alsoIn: PHOTO_MARKETS, roles: PHOTO_ROLES },
+  "style-portrait-right": { alsoIn: PHOTO_MARKETS, roles: PHOTO_ROLES },
+  "style-graduate-portrait": { alsoIn: PHOTO_MARKETS, roles: ["Students & Freshers"] },
+  "style-gulf-portrait": { alsoIn: ["Saudi Arabia", "Qatar · Kuwait · Bahrain · Oman"], roles: ["Hospitality & Retail", "Sales & Marketing", "Healthcare & Nursing"] },
+  "style-lebenslauf-foto": { alsoIn: ["Austria", "Switzerland"], roles: [] },
+};
+const SAMPLE_PHOTO_IDS = ["style-portrait-header", "style-portrait-sidebar", "style-gulf-portrait", "style-portrait-right", "style-lebenslauf-foto", "style-creative-portrait", "style-graduate-portrait", "in-biodata", "jp-rirekisho", "kr-iryeokseo"];
+for (const t of TEMPLATES) {
+  const place = PHOTO_PLACEMENT[t.id];
+  if (place) Object.assign(t, { alsoIn: place.alsoIn?.filter((m) => m !== t.market), roles: place.roles });
+  if (SAMPLE_PHOTO_IDS.includes(t.id)) t.samplePhoto = `/people/samples/${t.id}.jpg`;
+}
+
+/** True when the template is listed under this market (its own, or one it's also suited to). */
+export const listedIn = (t: TemplateDef, market: string) => t.market === market || !!t.alsoIn?.includes(market);
+
+/** Designs that show a photo: photo headers, and forms where a photo is customary. */
+export const showsPhoto = (t: TemplateDef) => t.style.header === "photo" || (t.layout === "form" && t.photo !== "omit");
 
 export const FREE_TEMPLATE_IDS = TEMPLATES.filter((t) => t.tier === "free").map((t) => t.id);
 export const DEFAULT_TEMPLATE_ID = "in-corporate-ats";

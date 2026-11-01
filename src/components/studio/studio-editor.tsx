@@ -7,7 +7,7 @@ import { cx } from "@/lib/format";
 import type { ResumeData } from "@/lib/resume/schema";
 import type { DraftView, StoredState } from "@/lib/tailor/drafts";
 import { GROUP_LABELS, STATUS_LABELS, type AlignmentScore, type KeywordMatch, type ReqGroup } from "@/lib/tailor/types";
-import { templateById, type PersonalField } from "@/lib/templates/catalog";
+import { templateById, type PersonalField, showsPhoto } from "@/lib/templates/catalog";
 import { ACCENTS, buildDoc, styledTemplate, type SectionKey } from "@/lib/templates/model";
 import { Alert, api } from "../client";
 import { useToast } from "../toast";
@@ -540,7 +540,7 @@ function DesignPanel({ s, templateId, patch }: { s: StoredState; templateId: str
         <span className="label">Accent colour</span>
         <div className="flex flex-wrap gap-2">{ACCENTS.map((c) => <button key={c} onClick={() => patch({ design: { accent: c } })} aria-label={`Accent ${c}`} className={cx("size-7 rounded-full ring-offset-2", (design.accent ?? t.style.accent) === c && "ring-2 ring-violet-500")} style={{ background: c }} />)}</div>
       </div>
-      {t.style.header === "photo" && <PhotoPicker photo={s.photo} patch={patch} />}
+      {showsPhoto(t) && <PhotoPicker photo={s.photo} patch={patch} />}
       {t.layout !== "form" && (
         <div>
           <span className="label">Section order</span>

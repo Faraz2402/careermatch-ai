@@ -1,7 +1,8 @@
+import { existsSync } from "node:fs";
 import { PDFDocument } from "pdf-lib";
 import sharp from "sharp";
 import { describe, expect, it } from "vitest";
-import { STYLES, styleTags, TEMPLATES, templateById } from "@/lib/templates/catalog";
+import { listedIn, showsPhoto, STYLES, styleTags, TEMPLATES, templateById } from "@/lib/templates/catalog";
 import { buildDoc, SAMPLE_PERSONAL, SAMPLE_RESUME } from "@/lib/templates/model";
 import { renderResumeDocx, renderResumePdf } from "@/lib/templates/render";
 
@@ -32,7 +33,28 @@ describe("template styles", () => {
     expect(keys.indexOf("education")).toBeLessThan(keys.indexOf("experience"));
   });
 
-  for (const id of TEMPLATES.filter((t) => t.style.header === "photo").map((t) => t.id))
+  it("lists photo designs only where CV photos are customary, each with its own sample photo", () => {
+    const photoDesigns = TEMPLATES.filter((t) => t.style.header === "photo");
+    for (const market of ["United States", "United Kingdom", "Canada", "Ireland", "Australia", "New Zealand"])
+      expect(photoDesigns.filter((t) => listedIn(t, market)).map((t) => t.id), market).toEqual([]);
+    for (const market of ["Germany", "UAE", "India", "Japan", "Brazil"]) expect(photoDesigns.some((t) => listedIn(t, market)), market).toBe(true);
+    const samples = TEMPLATES.filter((t) => t.samplePhoto).map((t) => t.samplePhoto!);
+    expect(new Set(samples).size).toBe(samples.length);
+    for (const t of TEMPLATES.filter(showsPhoto)) {
+      expect(t.samplePhoto, t.id).toBeTruthy();
+      expect(existsSync(`public${t.samplePhoto}`), t.samplePhoto).toBe(true);
+    }
+  });
+
+  it("never puts a library sample photo into an export", async () => {
+    const t = templateById("style-portrait-header");
+    const doc = buildDoc(SAMPLE_RESUME, t, {}, { pdf: true, photo: t.samplePhoto });
+    expect(doc.photo).toBe(t.samplePhoto);
+    const pdf = await renderResumePdf(doc);
+    expect(Buffer.from(pdf).toString("latin1")).not.toContain("/DCTDecode");
+  });
+
+  for (const id of TEMPLATES.filter(showsPhoto).map((t) => t.id))
     it(`${id} exports with and without a photo`, async () => {
       const t = templateById(id);
       const photo = await photoUrl();

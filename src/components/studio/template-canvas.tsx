@@ -159,7 +159,13 @@ function FormView({ d, accent, size }: { d: DocModel; accent: string; size: numb
       <div style={{ textAlign: "center", fontSize: 24, fontWeight: 700, color: accent, marginBottom: 12 }}>{title}</div>
       <div style={{ display: "flex", gap: 10 }}>
         <table style={{ borderCollapse: "collapse", flex: 1 }}><tbody>{rows.map(([k, v]) => <tr key={k}><td style={cellL}>{k}</td><td style={cellR}>{v}</td></tr>)}</tbody></table>
-        {d.template.photo !== "omit" && <div style={{ width: 113, height: 151, border: `1px dashed ${MUTED}`, display: "grid", placeItems: "center", color: MUTED, fontSize: 11 }}>{labels.photo}</div>}
+        {d.template.photo !== "omit" &&
+          (d.photo ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={d.photo} alt="" style={{ width: 113, height: 151, objectFit: "cover", border: `1px solid ${INK}`, display: "block" }} />
+          ) : (
+            <div style={{ width: 113, height: 151, border: `1px dashed ${MUTED}`, display: "grid", placeItems: "center", color: MUTED, fontSize: 11 }}>{labels.photo}</div>
+          ))}
       </div>
       {d.sections.filter((s) => s.key !== "personal").map((s) => (
         <table key={s.key} style={{ borderCollapse: "collapse", width: "100%", marginTop: 12 }}>
