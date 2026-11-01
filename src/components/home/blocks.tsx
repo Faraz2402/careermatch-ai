@@ -5,12 +5,12 @@ import { cx } from "@/lib/format";
 import { ResumeArt } from "@/components/art/resume-art";
 
 /** Licensed Unsplash photographs, stored in /public/people. */
-export type PhotoName = "hero-work" | "portrait-priya" | "portrait-arjun" | "portrait-emma" | "portrait-marcus" | "portrait-daniel" | "portrait-sara" | "grad" | "student" | "laptop-cafe" | "desk-pro" | "team" | "office-collab" | "dev-night";
+export type PhotoName = "hero-work" | "portrait-priya" | "portrait-arjun" | "portrait-emma" | "portrait-marcus" | "portrait-daniel" | "portrait-sara" | "portrait-lena" | "grad" | "student" | "laptop-cafe" | "desk-pro" | "team" | "dev-night";
 
 export function Photo({ name, alt, className, sizes, priority, position = "center" }: { name: PhotoName; alt: string; className?: string; sizes: string; priority?: boolean; position?: string }) {
   return (
     <div className={cx("overflow-hidden bg-slate-200", className)}>
-      <Image src={`/people/${name}.jpg`} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" style={{ objectPosition: position }} />
+      <Image src={`/people/${name}.jpg`} alt={alt} fill sizes={sizes} priority={priority} quality={90} className="object-cover" style={{ objectPosition: position }} />
     </div>
   );
 }
@@ -46,10 +46,10 @@ export function HeroCollage({ className }: { className?: string }) {
       </svg>
 
       {/* arch photo */}
-      <Photo name="hero-work" alt="A professional working on her laptop in a bright office" priority sizes="(min-width: 1024px) 28rem, 70vw" position="55% 40%" className="absolute top-[3%] left-[14%] h-[86%] w-[60%] rounded-t-[999px] rounded-b-[2rem] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]" />
+      <Photo name="hero-work" alt="A professional working on her laptop in a bright office" priority sizes="(min-width: 1024px) 44rem, 100vw" position="40% 35%" className="absolute top-[3%] left-[14%] h-[86%] w-[60%] rounded-t-[999px] rounded-b-[2rem] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]" />
       {/* round photos */}
-      <Photo name="portrait-arjun" alt="A smiling young professional" sizes="(min-width: 1024px) 14rem, 36vw" position="50% 30%" className="absolute top-[34%] right-[0%] size-[34%] rounded-full border-[6px] border-[#10152b]" />
-      <Photo name="portrait-priya" alt="A confident businesswoman in a black blazer" sizes="(min-width: 1024px) 10rem, 24vw" position="50% 25%" className="absolute bottom-[6%] left-[3%] size-[24%] rounded-full border-[6px] border-[#10152b]" />
+      <Photo name="portrait-arjun" alt="A smiling young professional" sizes="(min-width: 1024px) 26rem, 60vw" position="50% 30%" className="absolute top-[34%] right-[0%] size-[34%] rounded-full border-[6px] border-[#10152b]" />
+      <Photo name="portrait-priya" alt="A confident businesswoman in a black blazer" sizes="(min-width: 1024px) 20rem, 44vw" position="50% 25%" className="absolute bottom-[6%] left-[3%] size-[24%] rounded-full border-[6px] border-[#10152b]" />
 
       {/* floating product cards (illustrative) */}
       <div className={cx(card, "float-a absolute top-[8%] right-[3%] flex items-center gap-2.5 px-3.5 py-2.5 sm:right-[-3%]")}>
@@ -85,7 +85,7 @@ export function ProductTiles({ href }: { href: string }) {
             <div className="h-2 w-2/3 rounded-full bg-slate-200" /><div className="mt-2 h-2 w-1/2 rounded-full bg-slate-100" />
           </div>
           <div className={cx(card, "float-a absolute top-[12%] right-[8%] left-[18%] p-5 text-center")}>
-            <Photo name="portrait-priya" alt="Portrait of a professional" sizes="96px" position="50% 25%" className="relative mx-auto size-20 rounded-full" />
+            <Photo name="portrait-emma" alt="Portrait of a smiling professional" sizes="200px" position="50% 22%" className="relative mx-auto size-20 rounded-full" />
             <p className="mt-3 text-lg font-extrabold">Priya M.</p>
             <p className="text-xs text-slate-500">Senior Product Analyst</p>
             <div className="mt-3 flex flex-wrap justify-center gap-1.5">
@@ -125,7 +125,7 @@ export function ProductTiles({ href }: { href: string }) {
             </div>
           </div>
           <div className={cx(card, "float-a absolute right-[12%] bottom-[9%] flex items-center gap-2 px-3 py-2")}>
-            <Photo name="portrait-emma" alt="Portrait of a recruiter" sizes="40px" position="50% 25%" className="relative size-8 rounded-full" />
+            <Photo name="portrait-marcus" alt="Portrait of a professional in a suit" sizes="96px" position="50% 25%" className="relative size-8 rounded-full" />
             <span className="text-xs font-bold">Original posting verified</span>
           </div>
         </div>
@@ -144,7 +144,7 @@ export function ProductTiles({ href }: { href: string }) {
           <div aria-hidden className="absolute -right-10 -bottom-14 size-56 rounded-full bg-[#ff8f7a]" />
           <div aria-hidden className="absolute top-8 -left-8 size-28 rounded-full bg-[#ffd0b5]" />
           <div className={cx(card, "float-a absolute top-[11%] right-[10%] left-[14%] p-5 text-center")}>
-            <Photo name="portrait-daniel" alt="Portrait of a hiring manager" sizes="96px" position="50% 22%" className="relative mx-auto size-16 rounded-full" />
+            <Photo name="portrait-daniel" alt="Portrait of a hiring manager" sizes="200px" position="50% 22%" className="relative mx-auto size-16 rounded-full" />
             <p className="mt-2 text-lg font-extrabold">Interview stage</p>
             <p className="flex items-center justify-center gap-1 text-xs text-slate-500"><Calendar className="size-3" aria-hidden />Follow-up reminder set</p>
             <div className="mt-3 space-y-2 text-left">
@@ -176,7 +176,7 @@ export function ProductTiles({ href }: { href: string }) {
 export function StudioCollage({ className }: { className?: string }) {
   return (
     <div className={cx("relative mx-auto w-full max-w-[40rem] pb-10", className)}>
-      <Photo name="laptop-cafe" alt="A woman smiling with a laptop on her knees in a bright lounge" sizes="(min-width: 1024px) 36rem, 90vw" position="50% 40%" className="relative aspect-[4/3.6] w-[78%] rounded-[1.6rem]" />
+      <Photo name="laptop-cafe" alt="A woman smiling with a laptop on her knees in a bright lounge" sizes="(min-width: 1024px) 56rem, 100vw" position="50% 40%" className="relative aspect-[4/3.6] w-[78%] rounded-[1.6rem]" />
       <div className="float-a absolute -right-1 bottom-0 w-[56%] sm:right-0">
         <ResumeArt accent="#4263ff" score={92} />
       </div>

@@ -39,8 +39,8 @@ const STEPS = [
 
 const PERSONAS: { photo: PhotoName; alt: string; pos: string; who: string; line: string }[] = [
   { photo: "grad", alt: "A smiling graduate in a cap and gown", pos: "50% 30%", who: "Graduating students", line: "Turn a degree and a few projects into a résumé that recruiters and ATS filters both read." },
-  { photo: "hero-work", alt: "A professional typing on her laptop", pos: "55% 35%", who: "Early-career professionals", line: "Show real impact from your first roles and find the step up that fits." },
-  { photo: "portrait-daniel", alt: "A senior professional at his desk", pos: "50% 30%", who: "Experienced professionals", line: "Tailor a senior résumé to each role without diluting years of experience." },
+  { photo: "desk-pro", alt: "A young professional at her desk", pos: "50% 25%", who: "Early-career professionals", line: "Show real impact from your first roles and find the step up that fits." },
+  { photo: "dev-night", alt: "An experienced professional thinking at his laptop", pos: "50% 30%", who: "Experienced professionals", line: "Tailor a senior résumé to each role without diluting years of experience." },
   { photo: "student", alt: "A man with glasses and arms crossed in front of a chalkboard", pos: "50% 25%", who: "Career switchers", line: "Reframe what you have already done for a new field, honestly." },
 ];
 
@@ -213,7 +213,7 @@ export default async function Landing() {
           <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {PERSONAS.map((p, i) => (
               <article key={p.who} className="reveal group relative aspect-[3/4] overflow-hidden rounded-[1.4rem] bg-[#10152b]" style={delay(i * 90)}>
-                <Photo name={p.photo} alt={p.alt} position={p.pos} sizes="(min-width: 1280px) 22vw, (min-width: 640px) 45vw, 92vw" className="absolute inset-0 transition-transform duration-700 group-hover:scale-105" />
+                <Photo name={p.photo} alt={p.alt} position={p.pos} sizes="(min-width: 1280px) 36vw, (min-width: 640px) 70vw, 100vw" className="absolute inset-0 transition-transform duration-700 group-hover:scale-105" />
                 <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#10152b] via-[#10152b]/55 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <h3 className="font-serif text-3xl leading-tight">{p.who}</h3>
@@ -243,7 +243,7 @@ export default async function Landing() {
         {/* Principles */}
         <section className="shell grid items-center gap-14 py-20 lg:grid-cols-[1fr_1.1fr] lg:gap-24 lg:py-28">
           <div className="reveal relative">
-            <Photo name="team" alt="Colleagues talking around a table in a bright office" sizes="(min-width: 1024px) 40vw, 92vw" position="50% 40%" className="relative aspect-[4/3.4] rounded-[1.6rem]" />
+            <Photo name="team" alt="Colleagues talking around a table in a bright office" sizes="(min-width: 1024px) 60vw, 100vw" position="50% 40%" className="relative aspect-[4/3.4] rounded-[1.6rem]" />
             <div aria-hidden className="absolute -right-4 -bottom-4 -z-10 size-40 rounded-full bg-[#ffc857]" />
             <div aria-hidden className="absolute -top-4 -left-4 -z-10 size-24 rounded-full bg-[#8457ff]" />
           </div>
@@ -267,7 +267,7 @@ export default async function Landing() {
         <section className="relative overflow-hidden bg-[#10152b] text-white">
           <div aria-hidden className="absolute -top-32 left-1/2 size-[40rem] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(132,87,255,0.35),transparent)]" />
           <div className="shell relative grid items-center gap-10 py-20 lg:grid-cols-[1fr_2fr_1fr] lg:py-28">
-            <Photo name="grad" alt="A graduate smiling in a cap and gown" sizes="(min-width: 1024px) 20vw, 60vw" position="50% 25%" className="relative mx-auto hidden aspect-[3/4] w-full max-w-[17rem] rounded-t-[999px] rounded-b-[1.4rem] lg:block" />
+            <Photo name="portrait-lena" alt="A smiling professional in a striped cardigan" sizes="(min-width: 1024px) 32vw, 90vw" position="50% 20%" className="relative mx-auto hidden aspect-[3/4] w-full max-w-[17rem] rounded-t-[999px] rounded-b-[1.4rem] lg:block" />
             <div className="reveal text-center">
               <h2 className="font-serif text-[clamp(2.91rem,5.72vw,5.6rem)] leading-[1.02] font-normal tracking-[-0.015em]">Two minutes from now, you&rsquo;ll have <em className="text-[#a3b8ff] italic">a shortlist.</em></h2>
               <p className="mx-auto mt-6 max-w-xl text-lg text-[#d5daee]">Upload your résumé and see your ranked matches, gaps and apply links before your coffee cools.</p>
@@ -276,7 +276,7 @@ export default async function Landing() {
                 {!user && <DemoButton className="text-base font-bold text-white underline decoration-white/60 decoration-2 underline-offset-[6px] hover:decoration-white">Try the demo</DemoButton>}
               </div>
             </div>
-            <Photo name="portrait-sara" alt="A professional laughing" sizes="(min-width: 1024px) 20vw, 60vw" position="50% 25%" className="relative mx-auto hidden aspect-[3/4] w-full max-w-[17rem] rounded-t-[999px] rounded-b-[1.4rem] lg:block" />
+            <Photo name="portrait-sara" alt="A professional laughing" sizes="(min-width: 1024px) 32vw, 90vw" position="50% 25%" className="relative mx-auto hidden aspect-[3/4] w-full max-w-[17rem] rounded-t-[999px] rounded-b-[1.4rem] lg:block" />
           </div>
         </section>
       </main>
