@@ -31,7 +31,10 @@ function Heading({ children, accent }: { children: string; accent: string }) {
   );
 }
 
-export function ResumeArt({ accent = "#4263ff", score = 92, className, label = "Sample résumé" }: { accent?: string; score?: number; className?: string; label?: string }) {
+type SamplePerson = { name: string; role: string; city: string };
+const initialsOf = (name: string) => name.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+
+export function ResumeArt({ accent = "#4263ff", score = 92, className, label = "Sample résumé", person = { name: "Nisha Kulkarni", role: "Senior Product Analyst", city: "Bengaluru" } }: { accent?: string; score?: number; className?: string; label?: string; person?: SamplePerson }) {
   const rest = +(C * (1 - score / 100)).toFixed(1);
   return (
     <figure className={cx("relative w-full overflow-hidden rounded-[1.1rem] border border-[#e3e8f5] bg-white p-5 text-left shadow-[0_30px_60px_-28px_rgba(16,21,43,0.35)]", className)} aria-label={label}>
@@ -39,10 +42,10 @@ export function ResumeArt({ accent = "#4263ff", score = 92, className, label = "
       <div aria-hidden className="rs-scan pointer-events-none absolute inset-x-0 top-0 z-10 h-10 bg-gradient-to-b from-transparent via-[#4263ff]/20 to-transparent" style={{ "--h": "330px" } as React.CSSProperties} />
 
       <div className="flex items-center gap-3">
-        <div className="grid size-11 shrink-0 place-items-center rounded-full text-sm font-bold text-white" style={{ background: `linear-gradient(135deg, ${accent}, #8457ff)` }}>PS</div>
+        <div className="grid size-11 shrink-0 place-items-center rounded-full text-sm font-bold text-white" style={{ background: `linear-gradient(135deg, ${accent}, #8457ff)` }}>{initialsOf(person.name)}</div>
         <div className="min-w-0 flex-1">
-          <p className="text-[15px] leading-tight font-bold text-[#10152b]">Priya Sharma</p>
-          <p className="text-[11px] text-[#5b6170]">Senior Product Analyst · Bengaluru</p>
+          <p className="text-[15px] leading-tight font-bold text-[#10152b]">{person.name}</p>
+          <p className="text-[11px] text-[#5b6170]">{person.role} · {person.city}</p>
         </div>
         {/* ATS ring */}
         <div className="relative size-[54px] shrink-0">
@@ -90,13 +93,13 @@ export function ResumeArt({ accent = "#4263ff", score = 92, className, label = "
 }
 
 /** A sample cover letter that writes itself and signs off. Same 9s loop as the résumé. */
-export function CoverLetterArt({ accent = "#8457ff", className }: { accent?: string; className?: string }) {
+export function CoverLetterArt({ accent = "#8457ff", className, person = { name: "Rohan Kapoor", city: "Mumbai", email: "rohan@example.com" } }: { accent?: string; className?: string; person?: { name: string; city: string; email: string } }) {
   return (
     <figure className={cx("relative w-full overflow-hidden bg-white p-5 text-left", className)} aria-label="Sample cover letter">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-[15px] leading-tight font-bold text-[#10152b]">Priya Sharma</p>
-          <p className="text-[11px] text-[#5b6170]">Bengaluru · priya@example.com</p>
+          <p className="text-[15px] leading-tight font-bold text-[#10152b]">{person.name}</p>
+          <p className="text-[11px] text-[#5b6170]">{person.city} · {person.email}</p>
         </div>
         <span className="rounded-full px-2.5 py-1 text-[10px] font-bold text-white" style={{ background: accent }}>Confident tone</span>
       </div>

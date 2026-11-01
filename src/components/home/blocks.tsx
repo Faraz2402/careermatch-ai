@@ -5,7 +5,7 @@ import { cx } from "@/lib/format";
 import { AtsReportArt, CoverLetterArt, ResumeArt } from "@/components/art/resume-art";
 
 /** Licensed Unsplash photographs, stored in /public/people. */
-export type PhotoName = "hero-main" | "hero-face-a" | "hero-face-b" | "portrait-emma" | "portrait-marcus" | "portrait-daniel" | "portrait-sara" | "portrait-lena" | "grad" | "student" | "laptop-cafe" | "desk-pro" | "team" | "dev-night";
+export type PhotoName = "hero-main" | "hero-face-a" | "hero-face-b" | "portrait-emma" | "portrait-marcus" | "portrait-daniel" | "portrait-sara" | "portrait-lena" | "persona-grad" | "persona-early" | "persona-senior" | "persona-switch" | "laptop-cafe" | "team";
 
 export function Photo({ name, alt, className, sizes, priority, position = "center", zoom }: { name: PhotoName; alt: string; className?: string; sizes: string; priority?: boolean; position?: string; zoom?: number }) {
   return (
@@ -88,7 +88,7 @@ export function ProductTiles({ href }: { href: string }) {
           </div>
           <div className={cx(card, "float-a absolute top-[12%] right-[8%] left-[18%] p-5 text-center")}>
             <Photo name="portrait-emma" alt="Portrait of a smiling professional" sizes="200px" position="50% 22%" className="relative mx-auto size-20 rounded-full" />
-            <p className="mt-3 text-lg font-extrabold">Priya M.</p>
+            <p className="mt-3 text-lg font-extrabold">Hannah Reid</p>
             <p className="text-xs text-[#5b6170]">Senior Product Analyst</p>
             <div className="mt-3 flex flex-wrap justify-center gap-1.5">
               <span className="rounded-full bg-[#dff7ee] px-2.5 py-1 text-[11px] font-bold text-[#0b7a5a]">ATS 92</span>
@@ -180,7 +180,7 @@ export function StudioCollage({ className }: { className?: string }) {
     <div className={cx("relative mx-auto w-full max-w-[40rem] pb-10", className)}>
       <Photo name="laptop-cafe" alt="A woman smiling with a laptop on her knees in a bright lounge" sizes="(min-width: 1024px) 56rem, 100vw" position="50% 40%" className="relative aspect-[4/3.6] w-[78%] rounded-[1.6rem]" />
       <div className="glow-border float-a absolute -right-1 bottom-0 w-[56%] sm:right-0">
-        <ResumeArt accent="#4263ff" score={92} className="!rounded-[calc(1.25rem-1.5px)] !border-0" />
+        <ResumeArt accent="#4263ff" score={92} person={{ name: "Aarav Mehta", role: "Senior Product Analyst", city: "Pune" }} className="!rounded-[calc(1.25rem-1.5px)] !border-0" />
       </div>
       <div aria-hidden className="absolute top-[-4%] right-[8%] size-24 rounded-full bg-[#ffc857]" />
       <div aria-hidden className="absolute bottom-[10%] left-[-3%] size-14 rounded-full bg-[#ff8f7a]" />
@@ -217,11 +217,11 @@ export function DocShowcase() {
   return (
     <div className="relative mx-auto grid max-w-6xl items-start gap-8 md:grid-cols-3 md:gap-6">
       <div className="reveal md:mt-16 md:-rotate-2">
-        <div className="glow-border float-a"><ResumeArt accent="#4263ff" score={92} className="!rounded-[calc(1.25rem-1.5px)] !border-0" /></div>
+        <div className="glow-border float-a"><ResumeArt accent="#4263ff" score={92} person={{ name: "Kavya Iyer", role: "Senior Data Analyst", city: "Chennai" }} className="!rounded-[calc(1.25rem-1.5px)] !border-0" /></div>
         <p className="mt-4 text-center text-sm font-semibold text-slate-600">Tailored résumé</p>
       </div>
       <div className="reveal" style={{ "--delay": "120ms" } as React.CSSProperties}>
-        <div className="glow-border is-warm float-b"><CoverLetterArt /></div>
+        <div className="glow-border is-warm float-b"><CoverLetterArt person={{ name: "Daniel Okafor", city: "London", email: "daniel@example.com" }} /></div>
         <p className="mt-4 text-center text-sm font-semibold text-slate-600">Matching cover letter</p>
       </div>
       <div className="reveal md:mt-24 md:rotate-2" style={{ "--delay": "240ms" } as React.CSSProperties}>

@@ -53,6 +53,9 @@ const FEATURES = [
 
 const TONES = ["#4263ff", "#8457ff", "#19c6e8", "#20c997", "#ff716b", "#e0a100"];
 
+// A different sample person on each preview, matched to the template's market.
+const STRIP_NAMES = ["Ananya Rao", "Grace Thompson", "Lukas Weber", "Ethan Brooks", "Omar Haddad", "Mei Tanaka"];
+
 const STRIP = ["in-corporate-ats", "global-sidebar", "de-lebenslauf", "us-corporate", "global-executive", "jp-rirekisho"].map((id) => TEMPLATES.find((t) => t.id === id)!);
 
 export function FeatureShowcase() {
@@ -127,7 +130,7 @@ export function FeatureShowcase() {
             <div className="mt-5 grid grid-cols-3 gap-3">
               {STRIP.map((t, i) => (
                 <div key={t.id} className="group relative rounded-xl bg-slate-50 p-1.5 transition duration-300 hover:-translate-y-2 hover:rotate-[-1.5deg] hover:bg-brand-50" style={{ transitionDelay: `${i * 20}ms` }}>
-                  <TemplateCanvas doc={buildDoc(SAMPLE_RESUME, t, SAMPLE_PERSONAL)} scale={0.14} crop guides={false} className="mx-auto rounded shadow-lg" />
+                  <TemplateCanvas doc={buildDoc({ ...SAMPLE_RESUME, name: STRIP_NAMES[i] }, t, SAMPLE_PERSONAL)} scale={0.14} crop guides={false} className="mx-auto rounded shadow-lg" />
                   <span className="absolute top-2 left-2"><TierBadge tier={t.tier} /></span>
                   <p className="mt-1 truncate text-center text-[11px] text-slate-600">{t.market}</p>
                 </div>

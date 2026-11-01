@@ -38,10 +38,10 @@ const STEPS = [
 ];
 
 const PERSONAS: { photo: PhotoName; alt: string; pos: string; who: string; line: string }[] = [
-  { photo: "grad", alt: "A smiling graduate in a cap and gown", pos: "50% 30%", who: "Graduating students", line: "Turn a degree and a few projects into a résumé that recruiters and ATS filters both read." },
-  { photo: "desk-pro", alt: "A young professional at her desk", pos: "50% 25%", who: "Early-career professionals", line: "Show real impact from your first roles and find the step up that fits." },
-  { photo: "dev-night", alt: "An experienced professional thinking at his laptop", pos: "50% 30%", who: "Experienced professionals", line: "Tailor a senior résumé to each role without diluting years of experience." },
-  { photo: "student", alt: "A man with glasses and arms crossed in front of a chalkboard", pos: "50% 25%", who: "Career switchers", line: "Reframe what you have already done for a new field, honestly." },
+  { photo: "persona-grad", alt: "A laughing graduate in a cap and gown holding her diploma", pos: "50% 28%", who: "Graduating students", line: "Turn a degree and a few projects into a résumé that recruiters and ATS filters both read." },
+  { photo: "persona-early", alt: "A smiling young professional working on his laptop", pos: "68% 30%", who: "Early-career professionals", line: "Show real impact from your first roles and find the step up that fits." },
+  { photo: "persona-senior", alt: "A smiling professional in a blue suit at his desk", pos: "50% 28%", who: "Experienced professionals", line: "Tailor a senior résumé to each role without diluting years of experience." },
+  { photo: "persona-switch", alt: "A smiling woman with curly hair and glasses in a bright office", pos: "76% 35%", who: "Career switchers", line: "Reframe what you have already done for a new field, honestly." },
 ];
 
 const PRINCIPLES = [
