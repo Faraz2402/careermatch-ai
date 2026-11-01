@@ -1,6 +1,6 @@
 import "server-only";
 import { z } from "zod";
-import { AIError, aiEnabled, AI_MODEL, generateStructured, TRUTHFULNESS_RULES } from "./ai";
+import { AIError, aiEnabled, generateStructuredMeta, TRUTHFULNESS_RULES } from "./ai";
 import { scoreJob } from "./jobs/rank";
 import type { NormalizedJob } from "./jobs/types";
 import { allSkills, type JobPreferences, type ResumeData } from "./resume/schema";
@@ -88,13 +88,13 @@ export async function generate<K extends Kind>(
 ): Promise<{ content: GenerationOutput[K]; engine: string; warning?: string }> {
   if (aiEnabled()) {
     try {
-      const content = await generateStructured({
+      const { data: content, model } = await generateStructuredMeta({
         schema: SCHEMAS[kind],
         effort: kind === "ats_resume" || kind === "cover_letter" ? "high" : "medium",
         system: `You are an expert career coach and resume writer helping a candidate apply for a specific job.\n\n${TRUTHFULNESS_RULES}`,
         prompt: `Task: ${TASKS[kind]}\n\n<candidate_profile>\n${profileForPrompt(resume, prefs)}\n</candidate_profile>\n\n<job>\nTitle: ${job.title}\nCompany: ${job.company}\nLocation: ${job.location} (${job.workMode})\n\n${job.description.slice(0, 30_000)}\n</job>`,
       });
-      return { content: content as GenerationOutput[K], engine: AI_MODEL };
+      return { content: content as GenerationOutput[K], engine: model };
     } catch (err) {
       const msg = err instanceof AIError ? err.message : "AI generation failed.";
       return { content: template(kind, resume, prefs, job), engine: "template", warning: `${msg} Showing a template-based draft instead.` };

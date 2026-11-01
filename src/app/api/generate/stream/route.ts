@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { aiEnabled, AI_MODEL, AIError, ndjsonResponse, streamText, TRUTHFULNESS_RULES } from "@/lib/ai";
+import { aiEnabled, AIError, ndjsonResponse, streamText, TRUTHFULNESS_RULES } from "@/lib/ai";
 import { apiUser, jsonError, readBody } from "@/lib/api";
 import { db } from "@/lib/db";
 import { generate } from "@/lib/generate";
@@ -39,8 +39,10 @@ export async function POST(req: Request) {
 
     if (aiEnabled()) {
       let text = "";
+      let model = "ai";
       try {
         for await (const delta of streamText({
+          onModel: (m) => (model = m),
           effort: "high",
           system: `You are an expert career coach writing a tailored cover letter.\n\n${TRUTHFULNESS_RULES}\n\nOutput format: first line "Subject: <subject>", then a blank line, then the letter as plain-text paragraphs separated by blank lines. 250-350 words, warm and confident, no clichés or placeholders. Sign with the candidate's name.`,
           messages: [{ role: "user", content: `<candidate_profile>\n${JSON.stringify(resume)}\n</candidate_profile>\n\n<job>\nTitle: ${job.title}\nCompany: ${job.company}\nLocation: ${job.location}\n\n${job.description.slice(0, 30_000)}\n</job>` }],
@@ -49,7 +51,7 @@ export async function POST(req: Request) {
           send({ type: "text", text: delta });
         }
         const m = text.match(/^\s*Subject:\s*(.+)\n+/i);
-        await finish({ subject: m?.[1].trim() ?? `Application for ${job.title}`, body: (m ? text.slice(m[0].length) : text).trim() }, AI_MODEL);
+        await finish({ subject: m?.[1].trim() ?? `Application for ${job.title}`, body: (m ? text.slice(m[0].length) : text).trim() }, model);
         return;
       } catch (err) {
         send({ type: "reset" });

@@ -4,7 +4,7 @@ import "server-only";
 // when available; every step has an honest rule-based path that never
 // pretends to be AI.
 
-import { AIError, aiEnabled, AI_MODEL, generateStructured } from "../ai";
+import { AIError, aiEnabled, generateStructuredMeta } from "../ai";
 import type { ResumeData } from "../resume/schema";
 import { matchAll } from "./evidence";
 import type { GuardContext } from "./guard";
@@ -23,13 +23,13 @@ export async function analyseJob(source: Source, useAi: boolean): Promise<Step<T
   const job = { title: source.title, company: source.company, description: source.description };
   if (useAi && aiEnabled()) {
     try {
-      const ai = await generateStructured({
+      const { data: ai, model } = await generateStructuredMeta({
         schema: AiAnalysisSchema,
         effort: "low",
         system: ANALYSIS_PROMPT,
         prompt: `<job_title>${source.title}</job_title>\n<company>${source.company}</company>\n<posting>\n${source.description.slice(0, 20_000)}\n</posting>`,
       });
-      return { value: mergeAiAnalysis(job, ai, `${ANALYSIS_VERSION}+${AI_MODEL}`), engine: AI_MODEL };
+      return { value: mergeAiAnalysis(job, ai, `${ANALYSIS_VERSION}+${model}`), engine: model };
     } catch (err) {
       return { value: analyseWithRules(job), engine: "rules", warning: aiFailed(err, "The job analysis") };
     }
@@ -87,14 +87,14 @@ export async function proposeChanges(s: TailorState, useAi: boolean): Promise<Ta
   let actions = ruleBasedActions(s.baseResume, s.matches);
   if (useAi && aiEnabled()) {
     try {
-      const ai = await generateStructured({ schema: AiRewriteSchema, effort: "medium", system: REWRITE_SYSTEM, prompt: rewritePrompt(s.baseResume, s.analysis, s.matches, confirmed) });
+      const { data: ai, model } = await generateStructuredMeta({ schema: AiRewriteSchema, effort: "medium", system: REWRITE_SYSTEM, prompt: rewritePrompt(s.baseResume, s.analysis, s.matches, confirmed) });
       const fromAi = changesFromAi(s.baseResume, ai, ctx);
       // Keep rule-based edits for bullets the AI left alone.
       const covered = new Set(fromAi.changes.map((c) => `${c.section}:${c.ref?.exp}.${c.ref?.bullet}`));
       changes = [...fromAi.changes, ...changes.filter((c) => !covered.has(`${c.section}:${c.ref?.exp}.${c.ref?.bullet}`))].map((c, i) => ({ ...c, id: `c${i}` }));
       warnings.push(...fromAi.dropped);
       if (ai.actions.length) actions = ai.actions;
-      engine = AI_MODEL;
+      engine = model;
     } catch (err) {
       warnings.push(aiFailed(err, "The rewrite"));
     }
@@ -115,7 +115,7 @@ export async function writeLetter(s: TailorState, tone: Tone, length: Length, us
   const base = ruleBasedLetter(s.resume, s.analysis, s.matches, tone, length);
   if (useAi && aiEnabled()) {
     try {
-      const ai = await generateStructured({ schema: AiLetterSchema, effort: "medium", system: LETTER_SYSTEM, prompt: letterPrompt(s.resume, s.analysis, s.matches, s.source.description, tone, length) });
+      const { data: ai } = await generateStructuredMeta({ schema: AiLetterSchema, effort: "medium", system: LETTER_SYSTEM, prompt: letterPrompt(s.resume, s.analysis, s.matches, s.source.description, tone, length) });
       const { letter, dropped } = guardLetter(ai, { ...guardCtx(s), resumeText: resumeText(s.resume) }, tone, length, s.resume.name);
       if (letter.paragraphs.length >= 2) return { ...s, letter, warnings: dropped };
       return { ...s, letter: base, warnings: [...dropped, "The AI letter didn't pass the accuracy checks, so a rule-based letter is shown."] };

@@ -149,8 +149,8 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <ul className={ul}>
-          <li>To read résumés and job postings and to write documents, we send the relevant text to an AI provider: Google (Gemini API), and Anthropic (Claude) if enabled. If AI search ranking is enabled, Voyage AI turns text into number vectors.</li>
-          <li>These providers process the text to return a result under their API terms. We do not use your data to train any model.</li>
+          <li>To read résumés and job postings and to write documents, we send the relevant text to one AI provider per request. We use several so the service keeps working when one reaches its daily limit: Google (Gemini API), Groq, Cerebras, NVIDIA, OpenRouter and Mistral, and Anthropic (Claude) if enabled — only those we have switched on, tried in that order. If AI search ranking is enabled, Voyage AI turns text into number vectors.</li>
+          <li>These providers process the text to return a result under their API terms. We use their free tiers: Google&rsquo;s and Mistral&rsquo;s free-tier terms allow them to use submitted content to improve their products, and models reached through OpenRouter follow each model host&rsquo;s policy. Groq, Cerebras and NVIDIA state they don&rsquo;t train on API content. We never use your data to train any model ourselves.</li>
           <li>Match scores are produced by our own rules from your profile and the listing. Every point is explained on screen. They are guidance for you only; no decision about you is made automatically, and we do not share scores with employers.</li>
           <li>AI output can be wrong. Review everything before you use it. Generated documents only rephrase facts from your own profile.</li>
         </ul>
@@ -173,6 +173,11 @@ const SECTIONS: LegalSection[] = [
             ["Neon", "Database", "Everything stored in your account", "Singapore (AWS ap-southeast-1)"],
             ["Google LLC", "Gemini AI and Google Search; Google sign-in if you use it", "Résumé and job text sent for AI; sign-in profile", "USA and global"],
             ["Anthropic PBC (if enabled)", "Claude AI", "Résumé and job text sent for AI", "USA"],
+            ["Groq, Inc. (if enabled)", "AI models when others are at their limit", "Résumé and job text sent for AI", "USA"],
+            ["Cerebras Systems (if enabled)", "AI models when others are at their limit", "Résumé and job text sent for AI", "USA"],
+            ["NVIDIA Corporation (if enabled)", "AI models (NIM API) when others are at their limit", "Résumé and job text sent for AI", "USA"],
+            ["OpenRouter, Inc. (if enabled)", "Routes requests to free AI models hosted by other companies", "Résumé and job text sent for AI", "USA and model hosts' locations"],
+            ["Mistral AI (if enabled)", "AI models when others are at their limit", "Résumé and job text sent for AI", "France (EU)"],
             ["Voyage AI (if enabled)", "Text embeddings for ranking", "Profile summary and job text", "USA"],
             ["Tavily", "Web search for original postings and salaries", "Job title, company, location (no personal data)", "USA"],
             ["Resend", "Sends our emails", "Your email address and the email content", "USA"],

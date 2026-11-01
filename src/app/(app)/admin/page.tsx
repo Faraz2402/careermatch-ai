@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { AdminSources } from "@/components/admin-sources";
 import { PageHeader } from "@/components/ui";
-import { AI_MODEL, AI_PROVIDER, aiEnabled } from "@/lib/ai";
+import { aiEnabled, providerOrder, providerStatus } from "@/lib/ai";
 import { tavilyEnabled } from "@/lib/tavily";
 import { requireAdmin } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -21,8 +21,9 @@ export default async function AdminPage() {
     db.job.count({ where: { lastSeenAt: { gte: new Date(Date.now() - 7 * 86_400_000) } } }),
     db.usageEvent.count({ where: { createdAt: { gte: monthStart } } }),
   ]);
+  const providers = providerStatus();
   const integrations = [
-    [AI_PROVIDER === "gemini" ? `Gemini (${AI_MODEL})` : "Claude (AI)", aiEnabled()],
+    [`AI (${providerOrder().length} provider${providerOrder().length === 1 ? "" : "s"})`, aiEnabled()],
     ["Voyage embeddings", !!process.env.VOYAGE_API_KEY],
     ["Email (Resend)", mailConfigured()],
     ["Web search (Tavily)", tavilyEnabled()],
@@ -51,6 +52,23 @@ export default async function AdminPage() {
           ))}
         </div>
         <p className="mt-2 text-xs text-slate-500">Secrets are configured through environment variables and never stored in the database.</p>
+      </section>
+
+      <section className="card p-5">
+        <h2 className="font-display text-lg font-bold">AI providers</h2>
+        <p className="mt-1 text-xs text-slate-500">Tried in this order. When a model hits its free limit it&apos;s paused until it resets and the next one answers. Order: <code>AI_PROVIDER_ORDER</code>; models: <code>GROQ_MODELS</code>, <code>CEREBRAS_MODELS</code>… (this server instance&apos;s view).</p>
+        <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+          {providers.map((p) => (
+            <li key={p.id} className={`rounded-xl border p-3 text-xs ${p.configured ? "border-slate-200" : "border-dashed border-slate-200 opacity-60"}`}>
+              <p className="font-semibold">{p.configured ? "●" : "○"} {p.label} {!p.configured && <span className="font-normal text-slate-500">— no API key</span>}</p>
+              {p.configured && (
+                <ul className="mt-1 space-y-0.5">
+                  {p.models.map((m) => <li key={m.model} className="flex justify-between gap-2"><code className="truncate">{m.model}</code><span className={m.pausedUntil ? "text-amber-600" : "text-emerald-600"}>{m.pausedUntil ? `paused until ${new Date(m.pausedUntil).toLocaleTimeString()}` : "ready"}</span></li>)}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <AdminSources initial={sources} />
