@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd, softwareApplication } from "@/components/json-ld";
 import { LandingFx } from "@/components/landing-fx";
-import { PaymentMethods } from "@/components/payment-methods";
 import { PlanPicker } from "@/components/plan-picker";
 import { Logo } from "@/components/ui";
 import { getCurrentUser } from "@/lib/auth";
-import { paymentMethods } from "@/lib/billing";
 import { LEGAL } from "@/lib/legal";
 import { billingConfigured, PLANS, planOf, proPrices } from "@/lib/plans";
 import { FREE_TEMPLATE_IDS, TEMPLATES } from "@/lib/templates/catalog";
@@ -62,7 +60,7 @@ const FAQ_TEXT: Record<string, string> = {
 const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 export default async function PricingPage({ searchParams }: { searchParams: Promise<{ limit?: string }> }) {
-  const [user, methods, { limit }] = await Promise.all([getCurrentUser(), paymentMethods(), searchParams]);
+  const [user, { limit }] = await Promise.all([getCurrentUser(), searchParams]);
   const prices = proPrices();
   const isPro = user ? planOf(user) === "pro" : false;
   const perDay = Math.ceil(prices.yearly / 365);
@@ -139,16 +137,6 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
               ))}
             </ul>
           </div>
-        </section>
-
-        <section className="mt-16" aria-labelledby="pay">
-          <h2 id="pay" className="text-center font-display text-4xl sm:text-5xl">
-            Pay <span className="bg-gradient-to-r from-violet-500 via-fuchsia-500 to-amber-400 bg-clip-text text-transparent italic">your way</span>
-          </h2>
-          <p className="mx-auto mt-3 mb-6 max-w-2xl text-center text-base text-slate-700">
-            UPI, debit and credit cards, net banking and wallets, through Razorpay&rsquo;s secure, RBI-compliant checkout. Your card details never touch our servers.
-          </p>
-          <PaymentMethods banks={methods.banks} wallets={methods.wallets} live={methods.live} />
         </section>
 
         <section className="mx-auto mt-16 max-w-3xl" aria-labelledby="faq">
