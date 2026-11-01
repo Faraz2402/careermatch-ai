@@ -766,3 +766,109 @@ html {
 /* Warm paper background for editorial sections. */
 .bg-cream { background-color: #f7f3ec; }
 :root[data-theme="dark"] .bg-cream { background-color: var(--color-slate-50); }
+
+/* ---------------------------------------------------------------------------
+   Homepage: always dark. A scoped, deeper palette (crisp navy family) that
+   overrides the theme tokens for everything inside .force-dark.
+--------------------------------------------------------------------------- */
+.force-dark {
+  color-scheme: dark;
+  --color-slate-50: #070b16;
+  --color-slate-100: #111a3d;
+  --color-slate-200: #1d2850;
+  --color-slate-300: #2a3766;
+  --color-slate-400: #4a5689;
+  --color-slate-500: #8b95ba;
+  --color-slate-600: #b3bbd9;
+  --color-slate-700: #d3d9ef;
+  --color-slate-800: #e6eaf7;
+  --color-slate-900: #f5f7ff;
+  --color-surface: #0a1020;
+  --color-ink: #f5f7ff;
+  --color-brand-50: #141b45;
+  --color-brand-100: #1c2559;
+  --color-brand-200: #2d3b8c;
+  --color-brand-300: #4263ff;
+  --color-brand-700: #a3b8ff;
+  --color-brand-800: #c9d6ff;
+  --card-shine: rgb(255 255 255 / 0.05);
+  background-color: #070b16;
+  color: var(--color-ink);
+}
+.force-dark .bg-cream { background-color: #0c1330; }
+
+/* Minimal background motion: a drifting hairline grid, a few sparks, one slow light sweep. */
+.bg-grid {
+  position: absolute;
+  inset: -64px;
+  background-image: linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 35%, #000 35%, transparent 80%);
+  animation: grid-drift 36s linear infinite;
+  pointer-events: none;
+}
+@keyframes grid-drift { to { transform: translate3d(64px, 64px, 0); } }
+.spark {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background: #a3b8ff;
+  box-shadow: 0 0 8px 2px rgb(132 87 255 / 0.7);
+  opacity: 0;
+  animation: spark-drift var(--dur, 16s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  pointer-events: none;
+}
+@keyframes spark-drift {
+  0% { opacity: 0; transform: translate3d(0, 0, 0); }
+  15% { opacity: 0.9; }
+  85% { opacity: 0.6; }
+  100% { opacity: 0; transform: translate3d(var(--dx, 40px), var(--dy, -120px), 0); }
+}
+.beam {
+  position: absolute;
+  left: 0;
+  width: 38%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(163 184 255 / 0.7), rgb(25 198 232 / 0.6), transparent);
+  opacity: 0;
+  animation: beam-sweep 11s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes beam-sweep {
+  0%, 55% { opacity: 0; transform: translateX(-40%); }
+  62% { opacity: 1; }
+  90% { opacity: 0.8; }
+  100% { opacity: 0; transform: translateX(300%); }
+}
+
+/* Animated glowing border for document cards. */
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.glow-border {
+  border-radius: 1.25rem;
+  padding: 1.5px;
+  background: conic-gradient(from var(--glow-angle), #4263ff, #8457ff, #19c6e8, #20c997, #ffc857, #4263ff);
+  box-shadow: 0 0 36px -8px rgb(132 87 255 / 0.6), 0 30px 60px -30px rgb(0 0 0 / 0.85);
+  animation: glow-spin 6s linear infinite;
+}
+.glow-border > * { border-radius: calc(1.25rem - 1.5px); }
+.glow-border.is-cyan { background: conic-gradient(from var(--glow-angle), #19c6e8, #4263ff, #20c997, #19c6e8); box-shadow: 0 0 36px -8px rgb(25 198 232 / 0.55), 0 30px 60px -30px rgb(0 0 0 / 0.85); }
+.glow-border.is-warm { background: conic-gradient(from var(--glow-angle), #ffc857, #ff716b, #8457ff, #ffc857); box-shadow: 0 0 36px -8px rgb(255 113 107 / 0.5), 0 30px 60px -30px rgb(0 0 0 / 0.85); }
+@keyframes glow-spin { to { --glow-angle: 360deg; } }
+
+/* Cover letter signature draws itself on the same 9s loop as the résumé. */
+.sig-draw { stroke-dasharray: 260; stroke-dashoffset: 260; animation: sig-draw 9s ease-in-out infinite; }
+@keyframes sig-draw { 0%, 45% { stroke-dashoffset: 260; } 70%, 92% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+.rs-fill { transform-origin: left center; animation: rs-fill 9s cubic-bezier(0.22, 1, 0.36, 1) infinite; animation-delay: calc(0.6s + var(--i, 0) * 180ms); }
+@keyframes rs-fill { 0%, 6% { transform: scaleX(0); } 30%, 92% { transform: scaleX(1); } 100% { transform: scaleX(1); opacity: 0.4; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-grid, .spark, .beam, .glow-border, .sig-draw, .rs-fill { animation: none !important; }
+  .spark, .beam { display: none; }
+  .sig-draw { stroke-dashoffset: 0; }
+}

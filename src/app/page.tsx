@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { DemoButton } from "@/components/client";
 import { FeatureShowcase } from "@/components/feature-showcase";
-import { HeroCollage, Photo, ProductTiles, StudioCollage, type PhotoName } from "@/components/home/blocks";
+import { BgFx, DocShowcase, HeroCollage, Photo, ProductTiles, StudioCollage, type PhotoName } from "@/components/home/blocks";
 import { JsonLd, organization, softwareApplication } from "@/components/json-ld";
 import { LandingFx } from "@/components/landing-fx";
 import { LandingNav } from "@/components/landing-nav";
-import { ThemeToggle } from "@/components/theme";
+import { CountUp } from "@/components/count-up";
 import type { Metadata } from "next";
 import { getCurrentUser } from "@/lib/auth";
 import { LEGAL_LINKS } from "@/lib/legal";
@@ -64,7 +64,7 @@ export default async function Landing() {
   const start = user ? "/onboarding" : "/signup";
 
   return (
-    <div className="relative min-h-screen overflow-x-clip bg-cream">
+    <div className="force-dark relative min-h-screen overflow-x-clip">
       <LandingFx />
       <JsonLd
         data={{
@@ -74,7 +74,7 @@ export default async function Landing() {
       />
 
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-slate-200 bg-surface/95 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#070b16]/85 backdrop-blur-md">
         <div className="shell flex items-center justify-between gap-3 py-3">
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-2.5" aria-label="CareerMatch AI home">
@@ -84,7 +84,6 @@ export default async function Landing() {
             <LandingNav className="hidden md:block" />
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
-            <ThemeToggle />
             {user ? (
               <Link href="/dashboard" className="btn-primary !px-5">Dashboard</Link>
             ) : (
@@ -95,14 +94,16 @@ export default async function Landing() {
             )}
           </div>
         </div>
-        <LandingNav className="flex justify-center border-t border-slate-100 pb-1 md:hidden" />
+        <LandingNav className="flex justify-center border-t border-white/[0.06] pb-1 md:hidden" />
       </header>
 
       <main id="main">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-[#10152b] text-white">
-          <div aria-hidden className="absolute -top-40 right-[-10%] size-[44rem] rounded-full bg-[radial-gradient(closest-side,rgba(132,87,255,0.4),transparent)]" />
-          <div aria-hidden className="absolute -bottom-52 left-[-8%] size-[38rem] rounded-full bg-[radial-gradient(closest-side,rgba(25,198,232,0.22),transparent)]" />
+        <section className="relative overflow-hidden bg-[#070b16] text-white">
+          <BgFx />
+          <div aria-hidden className="pointer-events-none absolute -top-[22rem] right-[-14rem] size-[52rem] rounded-full border border-white/[0.06]" />
+          <div aria-hidden className="pointer-events-none absolute -top-[14rem] right-[-6rem] size-[36rem] rounded-full border border-[#8457ff]/20" />
+          <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#4263ff]/50 to-transparent" />
           <div className="shell relative grid items-center gap-14 py-16 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:py-24">
             <div>
               <h1 className="reveal-now font-serif text-[clamp(3.47rem,7.26vw,7.62rem)] leading-[0.95] font-normal tracking-[-0.02em]">
@@ -130,7 +131,7 @@ export default async function Landing() {
         </section>
 
         {/* Statement + sources */}
-        <section className="relative overflow-hidden bg-[#10152b] text-white" aria-label="Job sources">
+        <section className="relative overflow-hidden bg-[#0b1122] text-white" aria-label="Job sources">
           <svg aria-hidden className="absolute inset-0 size-full opacity-25" preserveAspectRatio="none" viewBox="0 0 100 40" fill="none" stroke="#4263ff" strokeWidth=".12">
             <path d="M60 0 L100 40" /><path d="M72 0 L100 28" /><path d="M48 0 L100 52" />
           </svg>
@@ -156,7 +157,8 @@ export default async function Landing() {
         </section>
 
         {/* Everything you need */}
-        <section id="product" className="shell scroll-mt-20 py-20 lg:py-28">
+        <section id="product" className="relative scroll-mt-20 bg-[#0c1330]">
+          <div className="shell relative py-20 lg:py-28">
           <h2 className="reveal max-w-4xl font-serif text-[clamp(2.91rem,5.72vw,5.6rem)] leading-[1.02] font-normal tracking-[-0.015em] text-slate-900">
             Everything you need to <em className="text-brand-600 italic">land the role</em>
           </h2>
@@ -167,10 +169,25 @@ export default async function Landing() {
             <ProductTiles href={start} />
           </div>
           <p className="mt-8 text-xs text-slate-500">Cards above are illustrations with sample data. Portraits are licensed stock photographs, not customers.</p>
+          </div>
+        </section>
+
+        {/* Glowing documents */}
+        <section className="relative overflow-hidden bg-[#080d1c]">
+          <BgFx beam={false} />
+          <div className="shell relative py-20 lg:py-28">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-sm font-bold tracking-[0.14em] text-[#a3b8ff] uppercase">Written for every job</p>
+              <h2 className="reveal mt-4 font-serif text-[clamp(2.7rem,5.3vw,5.15rem)] leading-[1.02] font-normal tracking-[-0.015em] text-white">Résumés and cover letters that <em className="text-[#a3b8ff] italic">write themselves.</em></h2>
+              <p className="reveal mt-5 text-lg text-[#b3bbd9]" style={delay(100)}>Paste a job and watch your résumé, cover letter and ATS report update together, every line traced to your own experience.</p>
+            </div>
+            <div className="mt-16"><DocShowcase /></div>
+            <p className="mt-10 text-center text-xs text-[#8b95ba]">Animated samples for illustration.</p>
+          </div>
         </section>
 
         {/* Studio split */}
-        <section className="border-y border-slate-200 bg-surface">
+        <section className="border-y border-white/[0.06] bg-[#0a1020]">
           <div className="shell grid items-center gap-14 py-20 lg:grid-cols-2 lg:gap-24 lg:py-28">
             <div className="reveal"><StudioCollage /></div>
             <div className="reveal" style={delay(100)}>
@@ -193,11 +210,11 @@ export default async function Landing() {
         <section className="shell py-20 lg:py-24" aria-label="At a glance">
           <dl className="grid gap-10 sm:grid-cols-3">
             {[
-              ["18", "official job sources", "Employer career sites, job boards and remote boards."],
-              [String(TEMPLATES.length), "résumé templates", "ATS-first and visual, free and Pro, clearly marked."],
+              [<CountUp key="s" to={18} />, "official job sources", "Employer career sites, job boards and remote boards."],
+              [<CountUp key="t" to={TEMPLATES.length} />, "résumé templates", "ATS-first and visual, free and Pro, by role and country."],
               ["40+", "countries covered", "Indian corporate, Lebenslauf, Europass, Gulf and more."],
             ].map(([n, l, d], i) => (
-              <div key={l} className="reveal border-t border-slate-300 pt-6" style={delay(i * 90)}>
+              <div key={String(l)} className="reveal border-t border-slate-300 pt-6" style={delay(i * 90)}>
                 <dt className="font-serif text-[clamp(3.81rem,6.6vw,6.27rem)] leading-none font-normal tracking-[-0.015em] text-slate-900">{n}</dt>
                 <dd className="mt-3"><span className="block text-lg font-bold text-slate-900">{l}</span><span className="mt-1 block text-[15px] text-slate-600">{d}</span></dd>
               </div>
@@ -225,7 +242,7 @@ export default async function Landing() {
         </section>
 
         {/* Method */}
-        <section id="method" className="scroll-mt-20 border-y border-slate-200 bg-surface">
+        <section id="method" className="scroll-mt-20 border-y border-white/[0.06] bg-[#0a1020]">
           <div className="shell py-20 lg:py-28">
             <h2 className="reveal max-w-4xl font-serif text-[clamp(2.69rem,5.28vw,5.15rem)] leading-[1.03] font-normal tracking-[-0.015em] text-slate-900">From résumé to offer-ready, in four moves.</h2>
             <ol className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -264,8 +281,8 @@ export default async function Landing() {
         </section>
 
         {/* Final CTA */}
-        <section className="relative overflow-hidden bg-[#10152b] text-white">
-          <div aria-hidden className="absolute -top-32 left-1/2 size-[40rem] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(132,87,255,0.35),transparent)]" />
+        <section className="relative overflow-hidden bg-[#070b16] text-white">
+          <BgFx />
           <div className="shell relative grid items-center gap-10 py-20 lg:grid-cols-[1fr_2fr_1fr] lg:py-28">
             <Photo name="portrait-lena" alt="A smiling professional in a striped cardigan" sizes="(min-width: 1024px) 32vw, 90vw" position="50% 20%" className="relative mx-auto hidden aspect-[3/4] w-full max-w-[17rem] rounded-t-[999px] rounded-b-[1.4rem] lg:block" />
             <div className="reveal text-center">
@@ -281,7 +298,7 @@ export default async function Landing() {
         </section>
       </main>
 
-      <footer className="bg-[#0b1020] text-[#d5daee]">
+      <footer className="border-t border-white/[0.06] bg-[#05070f] text-[#d5daee]">
         <div className="shell grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2.5">

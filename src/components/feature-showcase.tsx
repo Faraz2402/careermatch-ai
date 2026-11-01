@@ -151,7 +151,7 @@ export function FeatureShowcase() {
           ))}
         </ul>
 
-        <div className="card mt-12 flex flex-col items-center gap-4 bg-gradient-to-r from-brand-50 via-surface to-[#e9e4ff] p-8 text-center sm:flex-row sm:justify-between sm:text-left">
+        <div className="card mt-12 flex flex-col items-center gap-4 bg-gradient-to-r from-brand-50 via-surface to-[#1a1450] p-8 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
             <p className="font-display text-3xl text-slate-900">Your first tailored résumé and cover letter are free.</p>
             <p className="mt-1 text-slate-600">Try it on a real job. If it lands you an interview, Pro does it for every job you apply to.</p>
