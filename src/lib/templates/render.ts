@@ -85,11 +85,28 @@ class Pdf {
 const ink = rgb(0.1, 0.1, 0.12);
 const muted = rgb(0.38, 0.4, 0.45);
 
+const white = rgb(1, 1, 1);
+const initialsOf = (name: string) => pdfSafe(name).split(" ").filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
+
 function heading(p: Pdf, text: string, accent: RGB) {
+  const variant = p.t.style.heading ?? "rule";
+  const label = pdfSafe(text.toUpperCase());
+  const size = p.size + 0.6;
   p.y -= p.gap;
   p.ensure(p.size * 3.2);
-  p.text(text.toUpperCase(), { f: p.bold, size: p.size + 0.6, color: accent });
-  p.page.drawLine({ start: { x: p.x, y: p.y + 2 }, end: { x: p.x + p.w, y: p.y + 2 }, thickness: 0.6, color: accent });
+  if (variant === "pill") {
+    const w = p.bold.widthOfTextAtSize(label, size - 0.6) + 14;
+    p.page.drawRectangle({ x: p.x, y: p.y - size - 3, width: w, height: size + 6, color: accent });
+    p.page.drawText(label, { x: p.x + 7, y: p.y - size + 0.5, size: size - 0.6, font: p.bold, color: white });
+    p.y -= size + 9;
+  } else if (variant === "bar") {
+    p.page.drawRectangle({ x: p.x, y: p.y - size - 1, width: 3, height: size + 3, color: accent });
+    p.page.drawText(label, { x: p.x + 9, y: p.y - size, size, font: p.bold, color: accent });
+    p.y -= size * 1.5;
+  } else {
+    p.text(label, { f: p.bold, size: variant === "caps" ? p.size : size, color: accent });
+    if (variant === "rule") p.page.drawLine({ start: { x: p.x, y: p.y + 2 }, end: { x: p.x + p.w, y: p.y + 2 }, thickness: 0.6, color: accent });
+  }
   p.y -= p.gap / 2;
 }
 
@@ -157,6 +174,41 @@ function pdfHeader(p: Pdf, d: { name: string; headline: string; contact: string[
     p.text(d.contact.join("  |  "), { size: p.size - 0.6, color: muted });
     return;
   }
+  const variant = p.t.style.header ?? "plain";
+  if (variant === "monogram") {
+    const r = 24;
+    const top = p.y;
+    p.page.drawEllipse({ x: p.x + r, y: top - r, xScale: r, yScale: r, color: accent });
+    const ini = initialsOf(d.name);
+    p.page.drawText(ini, { x: p.x + r - p.bold.widthOfTextAtSize(ini, 17) / 2, y: top - r - 6, size: 17, font: p.bold, color: white });
+    const x0 = p.x, w0 = p.w;
+    p.x = x0 + r * 2 + 14;
+    p.w = w0 - r * 2 - 14;
+    p.text(d.name, { f: p.bold, size: 20, color: ink, lead: 23 });
+    if (d.headline) p.text(d.headline, { f: p.bold, size: p.size + 0.6, color: accent });
+    if (d.contact.length) p.text(d.contact.join("  |  "), { size: p.size - 0.6, color: muted });
+    p.x = x0;
+    p.w = w0;
+    p.y = Math.min(p.y, top - r * 2 - 4) - p.gap / 2;
+    return;
+  }
+  if (variant === "split") {
+    const top = p.y;
+    const colW = p.w * 0.42;
+    let ry = top;
+    for (const c of d.contact) {
+      const t = pdfSafe(c);
+      const size = p.size - 0.8;
+      p.page.drawText(t, { x: p.x + p.w - p.font.widthOfTextAtSize(t, size), y: ry - size, size, font: p.font, color: muted });
+      ry -= size * 1.3;
+    }
+    p.text(d.name, { f: p.bold, size: 22, color: ink, lead: 25, width: p.w - colW });
+    if (d.headline) p.text(d.headline, { f: p.bold, size: p.size + 1, color: accent, width: p.w - colW });
+    p.y = Math.min(p.y, ry) - 4;
+    p.page.drawRectangle({ x: p.x, y: p.y, width: p.w, height: 2, color: accent });
+    p.y -= p.gap;
+    return;
+  }
   p.text(d.name, { f: p.bold, size: 21, center, color: p.t.style.accent === "#111827" ? ink : accent, lead: 25 });
   if (d.headline) p.text(d.headline, { size: p.size + 1, center, color: muted });
   if (d.contact.length) p.text(d.contact.join("  |  "), { size: p.size - 0.6, center, color: muted });
@@ -218,21 +270,23 @@ export async function renderResumePdf(d: DocModel): Promise<Uint8Array> {
   if (t.layout === "sidebar") {
     // Left panel on page 1: contact, skills, languages, personal details.
     const SW = 168;
-    p.page.drawRectangle({ x: 0, y: 0, width: SW, height: p.H, color: tint(t.style.accent, 0.88) });
+    const dark = t.style.sidebar === "dark";
+    const sideInk = dark ? white : ink;
+    p.page.drawRectangle({ x: 0, y: 0, width: SW, height: p.H, color: dark ? accent : tint(t.style.accent, 0.88) });
     const side = new Pdf(doc, t, p.font, p.bold, 22, SW - 40);
     side.page = p.page;
     side.y = p.H - p.M;
     side.onNewPage = undefined;
-    side.text(d.name, { f: p.bold, size: 16, color: accent, lead: 20 });
-    if (d.headline) side.text(d.headline, { size: p.size, color: muted });
+    side.text(d.name, { f: p.bold, size: 16, color: dark ? white : accent, lead: 20 });
+    if (d.headline) side.text(d.headline, { size: p.size, color: dark ? white : muted });
     side.y -= 10;
-    for (const c of d.contact) side.text(c, { size: p.size - 1.2, color: ink });
+    for (const c of d.contact) side.text(c, { size: p.size - 1.2, color: sideInk });
     for (const s of d.sections.filter((x) => x.key === "skills" || x.key === "languages" || x.key === "personal")) {
       side.y -= 10;
-      side.text(s.heading.toUpperCase(), { f: p.bold, size: p.size - 0.4, color: accent });
-      if (s.text) side.text(s.text, { size: p.size - 1 });
-      for (const g of s.groups ?? []) side.text(`${g.label}: ${g.items.join(", ")}`, { size: p.size - 1 });
-      for (const [k, v] of s.pairs ?? []) side.text(`${k}: ${v}`, { size: p.size - 1 });
+      side.text(s.heading.toUpperCase(), { f: p.bold, size: p.size - 0.4, color: dark ? white : accent });
+      if (s.text) side.text(s.text, { size: p.size - 1, color: sideInk });
+      for (const g of s.groups ?? []) side.text(`${g.label}: ${g.items.join(", ")}`, { size: p.size - 1, color: sideInk });
+      for (const [k, v] of s.pairs ?? []) side.text(`${k}: ${v}`, { size: p.size - 1, color: sideInk });
     }
     p.x = SW + 24;
     p.w = p.W - p.x - p.M;
@@ -299,8 +353,16 @@ function docxKit(t: TemplateDef) {
 
 function docxSections(d: DocModel, k: ReturnType<typeof docxKit>, tabular: boolean): Paragraph[] {
   const out: Paragraph[] = [];
+  const variant = d.template.style.heading ?? "rule";
   const head = (text: string) =>
-    new Paragraph({ heading: HeadingLevel.HEADING_2, spacing: { before: k.after * 1.4, after: k.after / 2 }, border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: k.accent, space: 1 } }, children: [k.run(text.toUpperCase(), { bold: true, size: k.size + 0.6, color: k.accent })] });
+    variant === "pill"
+      ? new Paragraph({ heading: HeadingLevel.HEADING_2, spacing: { before: k.after * 1.4, after: k.after / 2 }, children: [new TextRun({ text: ` ${text.toUpperCase()} `, bold: true, size: Math.round(k.size * 2), color: "FFFFFF", font: k.font, shading: { type: ShadingType.CLEAR, fill: k.accent, color: "auto" } })] })
+      : new Paragraph({
+          heading: HeadingLevel.HEADING_2,
+          spacing: { before: k.after * 1.4, after: k.after / 2 },
+          border: variant === "rule" ? { bottom: { style: BorderStyle.SINGLE, size: 6, color: k.accent, space: 1 } } : variant === "bar" ? { left: { style: BorderStyle.SINGLE, size: 24, color: k.accent, space: 6 } } : undefined,
+          children: [k.run(text.toUpperCase(), { bold: true, size: k.size + 0.6, color: k.accent })],
+        });
   for (const s of d.sections) {
     out.push(head(s.heading));
     if (s.text) out.push(new Paragraph({ spacing: { after: k.after / 2 }, children: [k.run(s.text)] }));
@@ -322,7 +384,20 @@ function docxSections(d: DocModel, k: ReturnType<typeof docxKit>, tabular: boole
   return out;
 }
 
-function docxHeader(d: Pick<DocModel, "name" | "headline" | "contact">, k: ReturnType<typeof docxKit>, banner: boolean): Paragraph[] {
+function docxHeader(d: Pick<DocModel, "name" | "headline" | "contact" | "template">, k: ReturnType<typeof docxKit>, banner: boolean): Paragraph[] {
+  const variant = d.template.style.header ?? "plain";
+  if (!banner && variant === "monogram")
+    return [
+      new Paragraph({ heading: HeadingLevel.TITLE, children: [new TextRun({ text: ` ${initialsOf(d.name)} `, bold: true, size: 40, color: "FFFFFF", font: k.font, shading: { type: ShadingType.CLEAR, fill: k.accent, color: "auto" } }), k.run(`  ${d.name}`, { bold: true, size: 21 })] }),
+      ...(d.headline ? [new Paragraph({ children: [k.run(d.headline, { bold: true, size: k.size + 1, color: k.accent })] })] : []),
+      new Paragraph({ spacing: { after: k.after }, children: [k.run(d.contact.join("  |  "), { size: k.size - 0.6, color: "555B66" })] }),
+    ];
+  if (!banner && variant === "split")
+    return [
+      new Paragraph({ heading: HeadingLevel.TITLE, tabStops: [{ type: TabStopType.RIGHT, position: 9300 }], children: [k.run(d.name, { bold: true, size: 22 }), k.run(`\t${d.contact[0] ?? ""}`, { size: k.size - 0.8, color: "555B66" })] }),
+      new Paragraph({ tabStops: [{ type: TabStopType.RIGHT, position: 9300 }], children: [k.run(d.headline, { bold: true, size: k.size + 1, color: k.accent }), k.run(`\t${d.contact.slice(1).join("  |  ")}`, { size: k.size - 0.8, color: "555B66" })] }),
+      new Paragraph({ spacing: { after: k.after }, border: { bottom: { style: BorderStyle.SINGLE, size: 18, color: k.accent, space: 4 } }, children: [] }),
+    ];
   if (banner)
     return [
       new Paragraph({ shading: { type: ShadingType.CLEAR, fill: k.accent, color: "auto" }, spacing: { after: 0 }, children: [k.run(` ${d.name}`, { bold: true, size: 22, color: "FFFFFF" })] }),
@@ -364,19 +439,21 @@ function docxBody(d: DocModel, k: ReturnType<typeof docxKit>): (Paragraph | Tabl
   }
   if (t.layout === "sidebar") {
     const sideKeys = ["skills", "languages", "personal"];
+    const dark = t.style.sidebar === "dark";
+    const sc = dark ? "FFFFFF" : undefined;
     const side: Paragraph[] = [
-      new Paragraph({ children: [k.run(d.name, { bold: true, size: 16, color: k.accent })] }),
-      ...(d.headline ? [new Paragraph({ spacing: { after: k.after }, children: [k.run(d.headline, { color: "555B66" })] })] : []),
-      ...d.contact.map((c) => new Paragraph({ children: [k.run(c, { size: k.size - 1 })] })),
+      new Paragraph({ children: [k.run(d.name, { bold: true, size: 16, color: dark ? "FFFFFF" : k.accent })] }),
+      ...(d.headline ? [new Paragraph({ spacing: { after: k.after }, children: [k.run(d.headline, { color: dark ? "FFFFFF" : "555B66" })] })] : []),
+      ...d.contact.map((c) => new Paragraph({ children: [k.run(c, { size: k.size - 1, color: sc })] })),
       ...d.sections.filter((s) => sideKeys.includes(s.key)).flatMap((s) => [
-        new Paragraph({ spacing: { before: k.after * 1.2 }, children: [k.run(s.heading.toUpperCase(), { bold: true, color: k.accent })] }),
-        ...(s.text ? [new Paragraph({ children: [k.run(s.text, { size: k.size - 1 })] })] : []),
-        ...(s.groups ?? []).map((g) => new Paragraph({ children: [k.run(`${g.label}: `, { bold: true, size: k.size - 1 }), k.run(g.items.join(", "), { size: k.size - 1 })] })),
-        ...(s.pairs ?? []).map(([a, b]) => new Paragraph({ children: [k.run(`${a}: ${b}`, { size: k.size - 1 })] })),
+        new Paragraph({ spacing: { before: k.after * 1.2 }, children: [k.run(s.heading.toUpperCase(), { bold: true, color: dark ? "FFFFFF" : k.accent })] }),
+        ...(s.text ? [new Paragraph({ children: [k.run(s.text, { size: k.size - 1, color: sc })] })] : []),
+        ...(s.groups ?? []).map((g) => new Paragraph({ children: [k.run(`${g.label}: `, { bold: true, size: k.size - 1, color: sc }), k.run(g.items.join(", "), { size: k.size - 1, color: sc })] })),
+        ...(s.pairs ?? []).map(([a, b]) => new Paragraph({ children: [k.run(`${a}: ${b}`, { size: k.size - 1, color: sc })] })),
       ]),
     ];
     const main = docxSections({ ...d, sections: d.sections.filter((s) => !sideKeys.includes(s.key)) }, k, false);
-    return [new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, bottom: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, left: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, right: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, insideHorizontal: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, insideVertical: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" } }, rows: [new TableRow({ children: [cell(side, { width: 32, fill: "F4F1FB" }), cell(main, { width: 68 })] })] })];
+    return [new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, bottom: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, left: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, right: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, insideHorizontal: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, insideVertical: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" } }, rows: [new TableRow({ children: [cell(side, { width: 32, fill: dark ? k.accent : "F4F1FB" }), cell(main, { width: 68 })] })] })];
   }
   return [...docxHeader(d, k, t.layout === "banner"), ...docxSections(d, k, t.layout === "tabular")];
 }

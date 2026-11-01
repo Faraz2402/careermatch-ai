@@ -264,7 +264,7 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
         {error ? (
           <EmptyState title="Couldn't load jobs" body={error} action={<button className="btn-primary" onClick={() => load(filters, page)}>Try again</button>} />
         ) : loading && !data ? (
-          Array.from({ length: 4 }, (_, i) => <JobCardSkeleton key={i} />)
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,27rem),1fr))] gap-4">{Array.from({ length: 8 }, (_, i) => <JobCardSkeleton key={i} />)}</div>
         ) : data && data.jobs.length === 0 ? (
           <EmptyState
             title={filters.view === "all" ? "No matching jobs" : `No ${VIEWS.find((v) => v.id === filters.view)?.label.toLowerCase()} jobs`}
@@ -272,7 +272,7 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
             action={filters.view === "all" ? <button className="btn-secondary" onClick={() => setImportOpen(true)}>Add a job link</button> : undefined}
           />
         ) : (
-          <div className={cx("grid gap-4", preview ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]" : "lg:grid-cols-2", loading && "opacity-60 transition")}>
+          <div className={cx("grid gap-4", preview ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]" : "grid-cols-[repeat(auto-fill,minmax(min(100%,27rem),1fr))]", loading && "opacity-60 transition")}>
             {preview ? (
               <>
                 <div className="space-y-4">

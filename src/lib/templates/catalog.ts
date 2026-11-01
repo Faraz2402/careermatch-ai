@@ -29,8 +29,42 @@ export type TemplateDef = {
   industries: string[];
   /** Short convention notes shown in the library. */
   notes: string;
-  style: { font: "sans" | "serif"; accent: string; align: "left" | "center"; density: "airy" | "standard" | "compact" };
+  /** Job families this design is tuned for; empty = suits any role. */
+  roles: Role[];
+  style: {
+    font: "sans" | "serif";
+    accent: string;
+    align: "left" | "center";
+    density: "airy" | "standard" | "compact";
+    /** Section heading treatment (all are plain text, so ATS-safe). */
+    heading?: "rule" | "pill" | "bar" | "caps";
+    /** Name block: plain, initials badge, or name left / contact right. */
+    header?: "plain" | "monogram" | "split";
+    /** Sidebar layouts only: tinted or solid accent panel. */
+    sidebar?: "light" | "dark";
+  };
 };
+
+/** Job families used to organise the library (Canva-style categories). */
+export const ROLES = [
+  "Software & IT",
+  "Data & Analytics",
+  "Finance & Accounting",
+  "Banking & Insurance",
+  "Sales & Marketing",
+  "Design & Creative",
+  "Healthcare & Nursing",
+  "Engineering & Manufacturing",
+  "HR & Recruitment",
+  "Operations & Supply Chain",
+  "Consulting & Strategy",
+  "Teaching & Education",
+  "Legal",
+  "Hospitality & Retail",
+  "Students & Freshers",
+  "Executive & Leadership",
+] as const;
+export type Role = (typeof ROLES)[number];
 
 const ALL_LEVELS: TemplateDef["levels"] = ["Entry", "Mid", "Senior", "Executive"];
 const ANY = ["Any industry"];
@@ -49,8 +83,74 @@ const base: Omit<TemplateDef, "id" | "name" | "market" | "region" | "notes"> = {
   pages: "1–2",
   levels: ALL_LEVELS,
   industries: ANY,
+  roles: [],
   style: { font: "sans", accent: "#1f2937", align: "left", density: "standard" },
 };
+
+type MarketInfo = Pick<TemplateDef, "market" | "region" | "paper" | "personal" | "photo">;
+const MARKET: Record<string, MarketInfo> = {
+  India: { market: "India", region: "Asia", paper: "A4", personal: ["noticePeriod", "languages"], photo: "omit" },
+  Global: { market: "Global", region: "Global", paper: "A4", personal: [], photo: "omit" },
+  US: { market: "United States", region: "North America", paper: "Letter", personal: [], photo: "omit" },
+  UK: { market: "United Kingdom", region: "Europe", paper: "A4", personal: [], photo: "omit" },
+  UAE: { market: "UAE", region: "Middle East", paper: "A4", personal: ["nationality", "visaStatus", "noticePeriod"], photo: "optional" },
+  Canada: { market: "Canada", region: "North America", paper: "Letter", personal: [], photo: "omit" },
+  Australia: { market: "Australia", region: "Oceania", paper: "A4", personal: ["references"], photo: "omit" },
+  Singapore: { market: "Singapore", region: "Asia", paper: "A4", personal: ["visaStatus", "noticePeriod"], photo: "omit" },
+  Germany: { market: "Germany", region: "Europe", paper: "A4", personal: ["languages"], photo: "optional" },
+};
+
+type RoleSet = {
+  role: Role;
+  slug: string;
+  /** Short job name used in template names. */
+  job: string;
+  /** What this field's résumés lead with (shown in the library). */
+  focus: string;
+  accents: [string, string, string];
+  markets: [string, string, string];
+  industries: string[];
+  levels?: TemplateDef["levels"];
+  serif?: boolean;
+};
+
+const ROLE_SETS: RoleSet[] = [
+  { role: "Software & IT", slug: "swe", job: "Software Engineer", focus: "Tech stack and shipped projects up front; GitHub and portfolio links in the header.", accents: ["#2563eb", "#0f172a", "#7c3aed"], markets: ["India", "US", "Germany"], industries: ["Technology", "SaaS", "IT services"] },
+  { role: "Data & Analytics", slug: "data", job: "Data Analyst", focus: "Tools (SQL, Python, BI) grouped first, with quantified insights in every role.", accents: ["#0e7490", "#4338ca", "#0f766e"], markets: ["India", "UK", "Singapore"], industries: ["Analytics", "Technology", "Consulting"] },
+  { role: "Finance & Accounting", slug: "fin", job: "Finance & Accounting", focus: "Qualifications (CA, CPA, ACCA, CFA) beside your name; numbers-led achievements.", accents: ["#1e3a8a", "#065f46", "#7f1d1d"], markets: ["India", "UAE", "UK"], industries: ["Finance", "Accounting", "Audit"], serif: true },
+  { role: "Banking & Insurance", slug: "bank", job: "Banking Professional", focus: "Regulatory knowledge, products and portfolio size; conservative, trust-first layout.", accents: ["#0c4a6e", "#14532d", "#1f2937"], markets: ["India", "Singapore", "UAE"], industries: ["Banking", "Insurance", "Financial services"], serif: true },
+  { role: "Sales & Marketing", slug: "sales", job: "Sales & Marketing", focus: "Targets, revenue and campaign results in the first lines of every role.", accents: ["#dc2626", "#ea580c", "#be185d"], markets: ["India", "US", "Australia"], industries: ["Sales", "Marketing", "FMCG", "E-commerce"] },
+  { role: "Design & Creative", slug: "design", job: "Designer", focus: "Portfolio link prominent; tools and craft skills alongside selected projects.", accents: ["#7c3aed", "#db2777", "#0d9488"], markets: ["Global", "UK", "India"], industries: ["Design", "Media", "Advertising"] },
+  { role: "Healthcare & Nursing", slug: "health", job: "Healthcare Professional", focus: "Registration, licences and clinical specialities first; calm, readable layout.", accents: ["#0f766e", "#0369a1", "#15803d"], markets: ["UK", "Australia", "UAE"], industries: ["Healthcare", "Hospitals", "Pharma"] },
+  { role: "Engineering & Manufacturing", slug: "eng", job: "Engineer", focus: "Plants, equipment, standards (ISO, Six Sigma) and safety records clearly listed.", accents: ["#b45309", "#334155", "#1d4ed8"], markets: ["India", "Germany", "Canada"], industries: ["Manufacturing", "Automotive", "Energy", "Construction"] },
+  { role: "HR & Recruitment", slug: "hr", job: "HR Professional", focus: "Hiring volumes, HR systems and policy work; people-centred, warm design.", accents: ["#9333ea", "#0891b2", "#c2410c"], markets: ["India", "UK", "Singapore"], industries: ["Human resources", "Recruitment", "Staffing"] },
+  { role: "Operations & Supply Chain", slug: "ops", job: "Operations & Supply Chain", focus: "Cost, cycle-time and SLA improvements; ERP tools (SAP, Oracle) called out.", accents: ["#4338ca", "#047857", "#b45309"], markets: ["India", "UAE", "US"], industries: ["Logistics", "Procurement", "Manufacturing", "Retail"] },
+  { role: "Consulting & Strategy", slug: "consult", job: "Consultant", focus: "Client impact and engagements in crisp, one-line results; restrained styling.", accents: ["#111827", "#1e40af", "#0f766e"], markets: ["Global", "UK", "India"], industries: ["Consulting", "Strategy", "Professional services"], serif: true },
+  { role: "Teaching & Education", slug: "teach", job: "Teacher", focus: "Qualifications, subjects, boards (CBSE, IB, IGCSE) and student outcomes.", accents: ["#15803d", "#b45309", "#2563eb"], markets: ["India", "UAE", "UK"], industries: ["Education", "Schools", "EdTech"] },
+  { role: "Legal", slug: "legal", job: "Legal Professional", focus: "Bar admission, practice areas and notable matters; formal serif styling.", accents: ["#1f2937", "#7f1d1d", "#1e3a8a"], markets: ["India", "UK", "US"], industries: ["Law firms", "In-house legal", "Compliance"], serif: true },
+  { role: "Hospitality & Retail", slug: "hosp", job: "Hospitality & Retail", focus: "Guest and customer scores, team sizes and languages spoken.", accents: ["#c2410c", "#0f766e", "#a21caf"], markets: ["UAE", "Australia", "India"], industries: ["Hotels", "Retail", "Food & beverage", "Travel"] },
+  { role: "Students & Freshers", slug: "fresher", job: "Fresher / Graduate", focus: "Education, projects, internships and skills first; fits one page.", accents: ["#2563eb", "#7c3aed", "#0d9488"], markets: ["India", "Global", "US"], industries: ["Any industry"], levels: ["Entry"] },
+  { role: "Executive & Leadership", slug: "exec", job: "Executive", focus: "Board-level summary, P&L and transformation results; generous whitespace.", accents: ["#111827", "#78350f", "#1e3a8a"], markets: ["Global", "India", "UAE"], industries: ["Any industry"], levels: ["Senior", "Executive"], serif: true },
+];
+
+/** Three designs per job family: a free ATS-first one, a visual one and a modern ATS one. */
+function roleTemplates(): TemplateDef[] {
+  return ROLE_SETS.flatMap((r, i) => {
+    const [a1, a2, a3] = r.accents;
+    const m = r.markets.map((k) => MARKET[k]);
+    const common = { roles: [r.role], industries: r.industries, levels: r.levels ?? ALL_LEVELS, pages: r.levels?.length === 1 && r.levels[0] === "Entry" ? "1" : "1–2" };
+    const font = r.serif ? ("serif" as const) : ("sans" as const);
+    const sidebarDesign = i % 2 === 0;
+    const visual: Partial<TemplateDef> = sidebarDesign
+      ? { layout: "sidebar", style: { font: "sans", accent: a2, align: "left", density: "standard", sidebar: i % 4 === 0 ? "dark" : "light" } }
+      : { layout: "banner", style: { font, accent: a2, align: "left", density: "airy", heading: "caps" } };
+    return [
+      T({ ...m[0], ...common, id: `${r.slug}-ats`, name: `${r.job} ATS Résumé`, tier: "free", notes: `${r.focus} Single column, parser-safe.`, style: { font, accent: a1, align: "left", density: "standard", heading: "bar" } }),
+      T({ ...m[1], ...common, id: `${r.slug}-visual`, name: `${r.job} ${sidebarDesign ? "Sidebar" : "Spotlight"} (Visual)`, mode: "visual", notes: `${r.focus} Designed for sharing directly with recruiters; use the ATS-first export for job portals.`, ...visual }),
+      T({ ...m[2], ...common, id: `${r.slug}-modern`, name: `${r.job} Modern`, notes: `${r.focus} Modern header and section styling that stays ATS-friendly.`, layout: i % 3 === 2 ? "tabular" : "ats", style: { font: i % 2 ? "sans" : font, accent: a3, align: "left", density: i % 2 ? "compact" : "standard", heading: i % 2 ? "pill" : "caps", header: i % 2 ? "split" : "monogram" } }),
+    ];
+  });
+}
 
 // Columns, header bands and forms (tables) can confuse ATS parsers, so those layouts are always "Visual".
 const T = (s: Seed): TemplateDef => ({ ...base, ...s, mode: s.layout === "sidebar" || s.layout === "banner" || s.layout === "form" ? "visual" : (s.mode ?? base.mode), style: { ...base.style, ...s.style } });
@@ -116,6 +216,7 @@ export const TEMPLATES: TemplateDef[] = [
   // --- Latin America --------------------------------------------------------
   T({ id: "br-curriculo", name: "Brazilian Currículo", market: "Brazil", region: "Latin America", lang: "pt", photo: "optional", personal: ["languages"], notes: "Portuguese, concise; photo and personal data vary by sector — never required here.", style: { font: "sans", accent: "#15803d", align: "left", density: "standard" } }),
   T({ id: "latam-cv", name: "Latin American CV", market: "Argentina · Chile · Colombia", region: "Latin America", lang: "es", photo: "optional", personal: ["languages"], notes: "Spanish; country-specific personal-data settings; photo optional, not mandatory.", style: { font: "sans", accent: "#0369a1", align: "left", density: "standard" } }),
+  ...roleTemplates(),
 ];
 
 export const FREE_TEMPLATE_IDS = TEMPLATES.filter((t) => t.tier === "free").map((t) => t.id);
