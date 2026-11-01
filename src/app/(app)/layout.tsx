@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LEGAL_LINKS } from "@/lib/legal";
+import { GlobalSearch } from "@/components/global-search";
 import { NavLinks, UserMenu } from "@/components/nav";
 import { ThemeToggle } from "@/components/theme";
 import { Logo } from "@/components/ui";
@@ -21,6 +22,9 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             <ThemeToggle />
             <UserMenu label={user.isDemo ? "Demo account" : user.name ?? user.email} isAdmin={user.isAdmin} plan={user.plan} />
           </div>
+        </div>
+        <div className="shell flex justify-center pb-3">
+          <GlobalSearch />
         </div>
       </header>
       {user.isDemo && (

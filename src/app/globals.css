@@ -872,3 +872,36 @@ html {
   .spark, .beam { display: none; }
   .sig-draw { stroke-dashoffset: 0; }
 }
+
+/* ---------------------------------------------------------------------------
+   Interview Q&A: code highlighting (Prism tokens) and page motion
+--------------------------------------------------------------------------- */
+.iq-code .token.comment, .iq-code .token.prolog, .iq-code .token.cdata { color: #6b7699; font-style: italic; }
+.iq-code .token.keyword, .iq-code .token.boolean, .iq-code .token.important { color: #c4a5ff; }
+.iq-code .token.string, .iq-code .token.char, .iq-code .token.attr-value { color: #7ee2b8; }
+.iq-code .token.number, .iq-code .token.constant { color: #ffc857; }
+.iq-code .token.function, .iq-code .token.class-name { color: #7fc8ff; }
+.iq-code .token.operator, .iq-code .token.punctuation { color: #aab3d1; }
+.iq-code .token.tag, .iq-code .token.property, .iq-code .token.selector { color: #ff9a7a; }
+.iq-code .token.attr-name, .iq-code .token.builtin { color: #19c6e8; }
+
+.iq-shimmer {
+  background: linear-gradient(100deg, #a3b8ff 0%, #c4a5ff 30%, #19c6e8 55%, #ffc857 75%, #a3b8ff 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: iq-shimmer 8s linear infinite;
+}
+@keyframes iq-shimmer { to { background-position: -220% 0; } }
+.iq-bob { animation: iq-bob var(--dur, 7s) ease-in-out infinite; animation-delay: var(--delay, 0s); }
+@keyframes iq-bob { 0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); } 50% { transform: translateY(-12px) rotate(var(--rot, 0deg)); } }
+.iq-card-in { animation: iq-card-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: calc(var(--i, 0) * 35ms); }
+@keyframes iq-card-in { from { opacity: 0; transform: translateY(14px) scale(0.985); } to { opacity: 1; transform: none; } }
+.iq-typing span { display: inline-block; width: 6px; height: 6px; margin: 0 2px; border-radius: 9999px; background: currentColor; animation: iq-dot 1.2s infinite ease-in-out; }
+.iq-typing span:nth-child(2) { animation-delay: 0.15s; }
+.iq-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes iq-dot { 0%, 80%, 100% { opacity: 0.25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) {
+  .iq-shimmer, .iq-bob, .iq-card-in, .iq-typing span { animation: none !important; }
+}

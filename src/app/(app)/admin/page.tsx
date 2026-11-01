@@ -1,3 +1,4 @@
+import { AdminInterviewQa } from "@/components/admin-interview-qa";
 import Link from "next/link";
 import { AdminSources } from "@/components/admin-sources";
 import { PageHeader } from "@/components/ui";
@@ -72,6 +73,7 @@ export default async function AdminPage() {
       </section>
 
       <AdminSources initial={sources} />
+      <AdminInterviewQa />
 
     </div>
   );

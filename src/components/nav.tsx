@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { BriefcaseBusiness, ChevronDown, CreditCard, Files, KanbanSquare, LayoutDashboard, LogOut, MousePointerClick, PenLine, Radar, Bell, Settings, ShieldCheck, SlidersHorizontal, UserRound, type LucideIcon } from "lucide-react";
+import { BriefcaseBusiness, ChevronDown, MessagesSquare, CreditCard, Files, KanbanSquare, LayoutDashboard, LogOut, MousePointerClick, PenLine, Radar, Bell, Settings, ShieldCheck, SlidersHorizontal, UserRound, type LucideIcon } from "lucide-react";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { cx } from "@/lib/format";
 import { api } from "./client";
@@ -14,6 +14,7 @@ const LINKS: { href: string; label: string; icon: LucideIcon }[] = [
   { href: "/applications", label: "Applications", icon: KanbanSquare },
   { href: "/profile", label: "Profile", icon: UserRound },
   { href: "/resumes", label: "Resumes", icon: Files },
+  { href: "/interview-qa", label: "Interview Q&A", icon: MessagesSquare },
   { href: "/preferences", label: "Job preferences", icon: SlidersHorizontal },
 ];
 

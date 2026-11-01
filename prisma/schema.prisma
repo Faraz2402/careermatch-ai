@@ -315,3 +315,36 @@ model Payment {
 
   @@index([userId, createdAt])
 }
+
+/// Interview questions from openly licensed collections (with attribution) and
+/// questions users report they were asked (published after review).
+model InterviewQuestion {
+  id              String    @id // `${source}:${sourceId}`
+  source          String // source key, or "user"
+  sourceUrl       String
+  license         String
+  attribution     String
+  company         String?
+  department      String
+  roles           String // JSON string[]; empty = any role in the department
+  experienceLevel String?
+  questionType    String // Coding | System Design | Conceptual | Behavioral | SQL | Case
+  roundType       String?
+  question        String
+  answer          String? // Markdown
+  answerOrigin    String? // source | ai | user
+  tools           String // JSON string[]
+  skills          String // JSON string[]
+  /// Only for user reports: when the user was asked this.
+  dateAsked       DateTime?
+  /// Last change to the source file (collections) or the report date (users).
+  sourceUpdatedAt DateTime?
+  hash            String // content hash, to skip unchanged rows on refresh
+  firstSeenAt     DateTime  @default(now())
+  lastSeenAt      DateTime  @default(now())
+  status          String    @default("published") // published | pending | rejected
+  submittedById   String?
+
+  @@index([status, department])
+  @@index([source, lastSeenAt])
+}
