@@ -21,7 +21,7 @@ type SourceKind = "employer" | "board" | "remote";
 const SOURCES: { name: string; kind: SourceKind }[] = [
   ...["Greenhouse", "Lever", "Ashby", "SmartRecruiters", "Workable", "SuccessFactors", "Oracle"].map((name) => ({ name, kind: "employer" as const })),
   ...["Adzuna", "Jooble"].map((name) => ({ name, kind: "board" as const })),
-  ...["We Work Remotely", "Remote OK", "Himalayas", "Jobicy", "Remotive", "Working Nomads", "Real Work From Anywhere"].map((name) => ({ name, kind: "remote" as const })),
+  ...["We Work Remotely", "Remote OK", "Himalayas", "Jobicy", "Remotive", "Working Nomads", "Findwork", "Real Work From Anywhere"].map((name) => ({ name, kind: "remote" as const })),
 ];
 
 const DOT: Record<SourceKind, string> = {

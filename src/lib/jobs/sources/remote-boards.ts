@@ -313,4 +313,51 @@ export const realworkfromanywhere: SourceDefinition = {
   },
 };
 
-export const REMOTE_BOARDS = [remoteok, weworkremotely, jobicy, himalayas, workingnomads, realworkfromanywhere];
+// --- Findwork (https://findwork.dev/developers/; free API key) --------------
+
+type FindworkJob = { id: string; role: string; company_name?: string; employment_type?: string | null; location?: string | null; url: string; text?: string; date_posted: string };
+
+/** Pages of 100 per run (the key allows 10 requests a minute); stops at the 30-day window. */
+const FINDWORK_PAGES = 8;
+
+export function mapFindwork(j: FindworkJob): NormalizedJob {
+  return job({
+    source: "findwork",
+    externalId: j.id,
+    title: htmlToText(j.role),
+    company: j.company_name?.trim() || "Company not listed",
+    // Findwork gives no "who can apply" for most remote roles; those stay plain "Remote".
+    location: j.location ? remoteLocation(j.location) : "Remote",
+    employmentType: (j.employment_type ?? "").toLowerCase(),
+    description: htmlToText(j.text ?? ""),
+    url: j.url,
+    postedAt: toDate(j.date_posted),
+  });
+}
+
+export const findwork: SourceDefinition = {
+  id: "findwork",
+  name: "Findwork",
+  kind: "aggregator",
+  homepage: "https://findwork.dev",
+  termsUrl: "https://findwork.dev/developers/",
+  attribution: "Remote listings from Findwork (API; each listing links back to Findwork).",
+  cacheTtlMs: 3 * 60 * 60 * 1000,
+  requestsPerMinute: 2,
+  missingConfig: () => (process.env.FINDWORK_API_KEY?.trim() ? null : "Set FINDWORK_API_KEY (free at findwork.dev/developers)."),
+  queryIndependent: true,
+  async fetchJobs(_query, signal) {
+    const out: NormalizedJob[] = [];
+    for (let page = 1; page <= FINDWORK_PAGES; page++) {
+      const data = await fetchJson<{ results: FindworkJob[]; next: string | null }>(`https://findwork.dev/api/jobs/?remote=true&sort_by=date&page=${page}`, signal, {
+        headers: { Authorization: `Token ${process.env.FINDWORK_API_KEY!.trim()}` },
+      });
+      const jobs = data.results.map(mapFindwork);
+      out.push(...jobs.filter(recent));
+      if (!data.next || jobs.some((j) => !recent(j))) break; // newest first: past the window, stop
+    }
+    return out;
+  },
+};
+
+export const REMOTE_BOARDS = [remoteok, weworkremotely, jobicy, himalayas, workingnomads, realworkfromanywhere, findwork];

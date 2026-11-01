@@ -25,7 +25,7 @@ export const USER_LINK_SOURCE = {
   attribution: "Added by you from a job link or pasted description.",
 } as const;
 
-const DEFAULT_ENABLED = "demo,remotive,arbeitnow,remoteok,weworkremotely,jobicy,himalayas,workingnomads,realworkfromanywhere,greenhouse,lever,ashby,smartrecruiters,workable,successfactors,oracle,adzuna,jooble";
+const DEFAULT_ENABLED = "demo,remotive,arbeitnow,remoteok,weworkremotely,jobicy,himalayas,workingnomads,realworkfromanywhere,findwork,greenhouse,lever,ashby,smartrecruiters,workable,successfactors,oracle,adzuna,jooble";
 
 function envEnabled(): Set<string> {
   return new Set(csvEnv("JOB_SOURCES_ENABLED").length ? csvEnv("JOB_SOURCES_ENABLED") : DEFAULT_ENABLED.split(","));

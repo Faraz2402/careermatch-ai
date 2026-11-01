@@ -1,6 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { detectLocation, remoteWorldwide } from "@/lib/geo/detect";
-import { mapHimalayas, mapJobicy, mapRemoteOk, mapWorkingNomads, parseRealWorkFromAnywhere, parseWeWorkRemotely, remoteLocation } from "@/lib/jobs/sources/remote-boards";
+import { findwork, mapFindwork, mapHimalayas, mapJobicy, mapRemoteOk, mapWorkingNomads, parseRealWorkFromAnywhere, parseWeWorkRemotely, remoteLocation } from "@/lib/jobs/sources/remote-boards";
 
 const now = Math.floor(Date.now() / 1000);
 
@@ -45,6 +45,21 @@ describe("remote boards", () => {
     const base = { url: "https://www.workingnomads.com/job/go/1981017/", title: "Magento Developer", company_name: "Lemon.io", pub_date: "2026-10-29T09:50:51-04:00" };
     expect(mapWorkingNomads({ ...base, location: "CET (+/- 3 hours)" }).location).toBe("Remote");
     expect(mapWorkingNomads({ ...base, location: "Global" })).toMatchObject({ location: "Remote - Worldwide", externalId: "1981017" });
+  });
+
+  it("Findwork maps a remote job and stops paging past 30 days", async () => {
+    const fresh = { id: "np2259M", role: "Senior TA Operations Specialist", company_name: "Anduril Industries", employment_type: "Contract", location: null, url: "https://findwork.dev/np2259M/x", text: "<p>Defense</p>", date_posted: new Date().toISOString() };
+    expect(mapFindwork(fresh)).toMatchObject({ source: "findwork", location: "Remote", employmentType: "contract", description: "Defense", url: fresh.url });
+    vi.stubEnv("FINDWORK_API_KEY", "fw-key");
+    const old = { ...fresh, id: "old", date_posted: "2020-01-01T00:00:00Z" };
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify({ results: [fresh, old], next: "https://findwork.dev/api/jobs/?page=2" })));
+    vi.stubGlobal("fetch", fetchMock);
+    const jobs = await findwork.fetchJobs({ keywords: [] }, AbortSignal.timeout(5000), { boards: [] });
+    expect(jobs.map((j) => j.externalId)).toEqual(["np2259M"]);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect((fetchMock.mock.calls[0] as unknown as [string, RequestInit])[1].headers).toMatchObject({ Authorization: "Token fw-key" });
+    vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
   });
 
   it("Real Work From Anywhere splits 'Title at Company'", () => {
