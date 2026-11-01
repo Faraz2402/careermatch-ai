@@ -162,7 +162,7 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
     <div>
       <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="font-display text-2xl font-extrabold sm:text-3xl">Discover jobs</h1>
+          <h1 className="font-serif text-4xl font-normal sm:text-5xl">Discover jobs</h1>
           <p className="text-sm text-slate-600">Ranked against your profile and preferences. Every listing shows where it came from.</p>
         </div>
         <div className="flex gap-2">

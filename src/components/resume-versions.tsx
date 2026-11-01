@@ -65,7 +65,7 @@ export function ResumeVersions({ initial, limit, hasProfile }: { initial: Versio
 
   if (editing)
     return (
-      <div className="mx-auto max-w-3xl">
+      <div className="w-full">
         <label className="mb-4 block"><span className="label">Version name</span><input className="input" value={editing.name} onChange={(e) => setEditing({ ...editing, name: e.target.value })} /></label>
         <ResumeEditor value={editing.data} onChange={(data) => setEditing({ ...editing, data })} />
         <div className="sticky bottom-0 mt-6 flex justify-end gap-2 border-t border-slate-200 bg-slate-50/95 py-4 backdrop-blur">

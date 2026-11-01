@@ -1,5 +1,7 @@
+import { Bookmark, FileText, KanbanSquare, Sparkles, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
+import { CountUp } from "@/components/count-up";
 import { EmptyState, PageHeader, ScoreRing } from "@/components/ui";
 import { requireUser } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -35,11 +37,15 @@ function ScoreCard({ title, report, hint }: { title: string; report: ScoreReport
   );
 }
 
-function Stat({ label, value, sub, href }: { label: string; value: React.ReactNode; sub: string; href: string }) {
+function Stat({ label, value, sub, href, icon: Icon, tone }: { label: string; value: React.ReactNode; sub: string; href: string; icon: LucideIcon; tone: string }) {
   return (
-    <Link href={href} className="card p-5 transition hover:shadow-md">
-      <p className="text-xs font-semibold tracking-wide text-slate-500 uppercase">{label}</p>
-      <p className="mt-2 font-display text-3xl font-extrabold">{value}</p>
+    <Link href={href} className="card card-hover relative overflow-hidden p-5">
+      <span aria-hidden className="absolute -top-8 -right-8 size-28 rounded-full opacity-[0.14]" style={{ background: `radial-gradient(closest-side, ${tone}, transparent)` }} />
+      <div className="flex items-center justify-between">
+        <p className="text-xs font-bold tracking-wide text-slate-500 uppercase">{label}</p>
+        <span className="grid size-9 place-items-center rounded-xl text-white" style={{ background: `linear-gradient(135deg, ${tone}, ${tone}bb)` }}><Icon className="size-[18px]" aria-hidden /></span>
+      </div>
+      <p className="mt-3 font-display text-4xl font-extrabold text-slate-900">{typeof value === "number" ? <CountUp to={value} /> : value}</p>
       <p className="mt-1 text-xs text-slate-500">{sub}</p>
     </Link>
   );
@@ -139,10 +145,10 @@ export default async function Dashboard() {
       />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Stat label="Saved jobs" value={savedCount} sub="Shortlisted roles" href="/jobs" />
-        <Stat label="Applications tracked" value={tracked.length} sub={followUps.length ? `⏰ ${followUps.length} follow-up overdue` : tracked[0] ? `Latest: ${STATUS_LABELS[tracked[0].status]}` : "Track status from any job"} href="/applications" />
-        <Stat label="Documents generated" value={recentGens.length} sub="Resumes, letters & analyses" href="/jobs" />
-        <Stat label="AI actions" value={<>{used}<span className="text-base font-semibold text-slate-400"> / {plan.aiActionsPerMonth}</span></>} sub={`${plan.name} plan · this month`} href="/settings" />
+        <Stat label="Saved jobs" value={savedCount} sub="Shortlisted roles" href="/jobs" icon={Bookmark} tone="#4263ff" />
+        <Stat label="Applications tracked" value={tracked.length} sub={followUps.length ? `${followUps.length} follow-up overdue` : tracked[0] ? `Latest: ${STATUS_LABELS[tracked[0].status]}` : "Track status from any job"} href="/applications" icon={KanbanSquare} tone="#8457ff" />
+        <Stat label="Documents generated" value={recentGens.length} sub="Resumes, letters & analyses" href="/jobs" icon={FileText} tone="#20c997" />
+        <Stat label="AI actions" value={<><CountUp to={used} /><span className="text-base font-semibold text-slate-400"> / {plan.aiActionsPerMonth}</span></>} sub={`${plan.name} plan · this month`} href="/settings" icon={Sparkles} tone="#19c6e8" />
       </div>
 
       <div className="grid gap-4 lg:grid-cols-3">
@@ -159,7 +165,7 @@ export default async function Dashboard() {
         <section className="card p-5">
           <h2 className="mb-4 font-display text-lg font-bold">Recommended next actions</h2>
           {actions.length === 0 ? (
-            <p className="text-sm text-slate-600">🎉 Your profile is in great shape. Start tailoring applications for your top matches.</p>
+            <p className="text-sm text-slate-600">Your profile is in great shape. Start tailoring applications for your top matches.</p>
           ) : (
             <ol className="space-y-2">
               {actions.map((a, i) => (

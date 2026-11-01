@@ -1,5 +1,6 @@
 "use client";
 
+import { Bookmark, Building2, EyeOff, Globe2, MapPin } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import type { JobCard as Job } from "@/lib/jobs/service";
@@ -10,7 +11,15 @@ import { ExpiredBadge, ListingStatus } from "./listing-status";
 import { useToast } from "./toast";
 import { ScoreExplainer, SourceBadge } from "./ui";
 
-const MODE_ICON: Record<string, string> = { remote: "🌍 Remote", hybrid: "🏢 Hybrid", onsite: "📍 On-site", unknown: "Arrangement not stated" };
+const MODE: Record<string, { label: string; icon: typeof Globe2 }> = {
+  remote: { label: "Remote", icon: Globe2 },
+  hybrid: { label: "Hybrid", icon: Building2 },
+  onsite: { label: "On-site", icon: MapPin },
+};
+
+// Company "logo": initial on a colour picked from the name, so the same employer always looks the same.
+const TONES = ["#4263ff", "#8457ff", "#19c6e8", "#20c997", "#ff716b", "#e0a100"];
+const toneFor = (name: string) => TONES[[...name].reduce((a, c) => a + c.charCodeAt(0), 0) % TONES.length];
 
 export function JobCard({ job, onChange, onPreview, selected, reading }: { job: Job; onChange: (patch: Partial<Job>) => void; onPreview?: (id: string) => void; selected?: boolean; reading?: boolean }) {
   const toast = useToast();
@@ -50,8 +59,9 @@ export function JobCard({ job, onChange, onPreview, selected, reading }: { job: 
   }
 
   return (
-    <article className={`card flex flex-col gap-4 p-5 transition hover:shadow-md ${selected ? "ring-2 ring-brand-400" : ""}`}>
+    <article className={`card card-hover flex flex-col gap-4 p-5 ${selected ? "ring-2 ring-brand-400" : ""}`}>
       <div className="flex items-start gap-4">
+        <span aria-hidden className="grid size-12 shrink-0 place-items-center rounded-2xl text-lg font-extrabold text-white shadow-sm" style={{ background: `linear-gradient(135deg, ${toneFor(job.company)}, ${toneFor(job.company)}aa)` }}>{job.company.trim().slice(0, 1).toUpperCase() || "?"}</span>
         <div className="min-w-0 flex-1">
           <Link
             href={`/jobs/${encodeURIComponent(job.id)}`}
@@ -69,7 +79,7 @@ export function JobCard({ job, onChange, onPreview, selected, reading }: { job: 
           <p className="mt-0.5 text-sm font-medium text-slate-700">{job.company}</p>
           <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-600">
             <span>{job.location || "Location not stated"}</span>
-            <span>{MODE_ICON[job.workMode] ?? job.workMode}</span>
+            {MODE[job.workMode] ? (() => { const M = MODE[job.workMode]; return <span className="inline-flex items-center gap-1"><M.icon className="size-3.5" aria-hidden />{M.label}</span>; })() : <span>Arrangement not stated</span>}
             {job.employmentType && <span className="capitalize">{job.employmentType}</span>}
             <span className={salary ? "font-semibold text-emerald-700" : "text-slate-400"}>{salary ?? "Salary not listed"}</span>
             <span title={job.postedAt ?? undefined}>Posted {relativeDate(job.postedAt).toLowerCase()}</span>
@@ -125,10 +135,10 @@ export function JobCard({ job, onChange, onPreview, selected, reading }: { job: 
             {Object.entries(STATUS_LABELS).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
           </select>
           <button className="btn-ghost px-2 py-1 text-xs" disabled={busy} onClick={() => update({ saved: !job.saved })} aria-pressed={job.saved}>
-            {job.saved ? "★ Saved" : "☆ Save"}
+            <Bookmark className={`size-3.5 ${job.saved ? "fill-current" : ""}`} aria-hidden />{job.saved ? "Saved" : "Save"}
           </button>
           <button className="btn-ghost px-2 py-1 text-xs" disabled={busy} onClick={() => update({ hidden: !job.hidden })}>
-            {job.hidden ? "Unhide" : "Hide"}
+            <EyeOff className="size-3.5" aria-hidden />{job.hidden ? "Unhide" : "Hide"}
           </button>
           <Link href={`/jobs/${encodeURIComponent(job.id)}`} className="btn-primary px-3 py-1 text-xs">Tailor</Link>
         </div>

@@ -14,7 +14,7 @@ export default async function AlertsPage() {
   const rows = await db.savedSearch.findMany({ where: { userId: user.id }, orderBy: { createdAt: "desc" } });
   const verified = !!user.emailVerifiedAt || hasSocialLogin(user);
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="w-full">
       <PageHeader title="Saved searches & alerts" subtitle="Get a digest of new strong matches by email, daily or weekly." />
       {!verified && !user.isDemo && (
         <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">

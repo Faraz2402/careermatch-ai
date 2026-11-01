@@ -13,8 +13,9 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
   const sp = await searchParams;
   const plan = planOf(user);
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="w-full">
       <PageHeader title="Settings" subtitle="Account, security, plan and your data." />
+      <div className="grid items-start gap-6 xl:grid-cols-2">
       {!user.isDemo && (
         <DigestSettings
           isPro={plan === "pro"}
@@ -45,6 +46,7 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
           limit: PLANS[plan].aiActionsPerMonth,
         }}
       />
+      </div>
     </div>
   );
 }

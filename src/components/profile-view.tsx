@@ -55,7 +55,7 @@ export function ProfileView({ data: r, visibility: v, preview, theme = "aurora",
         <div className="relative mx-auto flex max-w-4xl flex-col items-start gap-6 sm:flex-row sm:items-center">
           <div className={`grid size-24 shrink-0 place-items-center rounded-2xl font-display text-3xl font-extrabold ring-1 ${t.avatar}`}>{initials(r.name)}</div>
           <div className="flex-1">
-            <h1 className="font-display text-3xl font-extrabold sm:text-4xl">{r.name || "Your name"}</h1>
+            <h1 className="font-serif text-5xl font-normal sm:text-6xl">{r.name || "Your name"}</h1>
             <p className={`mt-1 text-lg ${t.sub}`}>{r.headline}</p>
             <div className={`mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm ${t.sub}`}>
               {v.showLocation && r.location && <span>📍 {r.location}</span>}

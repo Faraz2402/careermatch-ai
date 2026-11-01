@@ -18,7 +18,7 @@ export function ImportConfirm({ url }: { url: string }) {
   return (
     <div className="mx-auto max-w-lg">
       <div className="card space-y-4 p-6">
-        <h1 className="font-display text-xl font-extrabold">Import this job?</h1>
+        <h1 className="font-serif text-3xl font-normal">Import this job?</h1>
         {host ? (
           <>
             <p className="text-sm text-slate-600">CareerMatch will read the public job posting at:</p>

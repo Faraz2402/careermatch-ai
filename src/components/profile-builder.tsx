@@ -55,7 +55,7 @@ export function ProfileBuilder({ initial, appUrl, views }: { initial: State; app
       <div>
         <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h1 className="font-display text-2xl font-extrabold">Profile builder</h1>
+            <h1 className="font-serif text-4xl font-normal">Profile builder</h1>
             <p className="text-sm text-slate-600">Edit your details and choose what appears on your public page.</p>
           </div>
           <div className="inline-flex rounded-lg bg-slate-100 p-1">

@@ -82,7 +82,7 @@ export default async function JobPage({ params }: Props) {
         <header className="card p-6">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <h1 className="font-display text-2xl font-extrabold">{job.title}</h1>
+              <h1 className="font-serif text-4xl font-normal">{job.title}</h1>
               <p className="mt-1 font-medium text-slate-700">{job.company}</p>
               <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600">
                 <span>{job.location || "Location not stated"}</span>

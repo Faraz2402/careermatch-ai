@@ -68,7 +68,7 @@ export function StudioHome({ drafts: initial, jobs, bases, uploads: initialUploa
         <div aria-hidden className="absolute -top-20 -right-16 size-72 rounded-full bg-white/10 blur-2xl" />
         <div aria-hidden className="absolute -bottom-24 left-1/3 size-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
         <p className="relative inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold"><Sparkles className="size-3.5" aria-hidden /> Make Resume & Cover Letter</p>
-        <h1 className="relative mt-4 max-w-2xl font-display text-3xl leading-tight font-bold sm:text-5xl">What are we applying for today?</h1>
+        <h1 className="relative mt-4 max-w-2xl font-serif text-5xl leading-tight font-normal sm:text-6xl">What are we applying for today?</h1>
         <p className="relative mt-3 max-w-2xl text-white/85">Paste a job or pick a saved one. We find the keywords you&apos;re missing, rewrite every bullet for the role — truthfully — write the matching cover letter, and show how your estimated ATS alignment moves.</p>
 
         <form onSubmit={start} className="relative mt-6 rounded-2xl bg-white p-4 text-zinc-900 shadow-2xl sm:p-5">

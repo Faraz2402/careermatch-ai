@@ -14,9 +14,9 @@ export default async function InterviewPage({ params }: { params: Promise<{ id: 
   if (!job || (job.importedById && job.importedById !== user.id)) notFound();
   const versions = await db.resumeVersion.findMany({ where: { userId: user.id }, select: { id: true, name: true } });
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="w-full">
       <Link href={`/jobs/${encodeURIComponent(id)}`} className="text-sm font-medium text-brand-600 hover:underline">← Back to job</Link>
-      <h1 className="mt-3 font-display text-2xl font-extrabold">Mock interview</h1>
+      <h1 className="mt-3 font-serif text-4xl font-normal">Mock interview</h1>
       <p className="text-sm text-slate-600">{job.title} · {job.company}</p>
       <MockInterview jobId={id} aiEnabled={aiEnabled()} versions={[{ id: null, name: "Primary profile" }, ...versions]} />
     </div>

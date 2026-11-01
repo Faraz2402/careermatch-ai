@@ -1,8 +1,10 @@
+import { ArrowRight, BadgeCheck, Lock, ScanSearch, UserRoundX } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { DemoButton } from "@/components/client";
-import { JsonLd, organization, softwareApplication } from "@/components/json-ld";
 import { FeatureShowcase } from "@/components/feature-showcase";
+import { HeroCollage, Photo, ProductTiles, StudioCollage, type PhotoName } from "@/components/home/blocks";
+import { JsonLd, organization, softwareApplication } from "@/components/json-ld";
 import { LandingFx } from "@/components/landing-fx";
 import { LandingNav } from "@/components/landing-nav";
 import { ThemeToggle } from "@/components/theme";
@@ -10,12 +12,13 @@ import type { Metadata } from "next";
 import { getCurrentUser } from "@/lib/auth";
 import { LEGAL_LINKS } from "@/lib/legal";
 import { appUrl } from "@/lib/site-url";
+import { TEMPLATES } from "@/lib/templates/catalog";
 
 export const metadata: Metadata = {
   title: { absolute: "CareerMatch AI: AI Résumé Builder & Job Matching for India" },
   description: "Upload your résumé and get jobs ranked for you across India and worldwide: match scores with reasons, skill gaps, employer apply links, salaries in ₹, and AI-tailored résumés and cover letters. Free to start.",
   alternates: { canonical: "/" },
-  openGraph: { url: "/", title: "CareerMatch AI: your next role, found, not searched for", description: "Upload your résumé and get jobs ranked for you across India and worldwide: match scores with reasons, skill gaps, employer apply links, salaries in ₹, and AI-tailored résumés and cover letters. Free to start." },
+  openGraph: { url: "/", title: "CareerMatch AI: your career, powered by AI", description: "Upload your résumé and get jobs ranked for you across India and worldwide: match scores with reasons, skill gaps, employer apply links, salaries in ₹, and AI-tailored résumés and cover letters. Free to start." },
 };
 
 type SourceKind = "employer" | "board" | "remote";
@@ -27,46 +30,33 @@ const SOURCES: { name: string; kind: SourceKind }[] = [
   ...["We Work Remotely", "Remote OK", "Himalayas", "Jobicy", "Remotive", "Working Nomads", "Findwork", "Real Work From Anywhere"].map((name) => ({ name, kind: "remote" as const })),
 ];
 
-const DOT: Record<SourceKind, string> = {
-  employer: "bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.9)]",
-  board: "bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.9)]",
-  remote: "bg-emerald-300 shadow-[0_0_10px_rgba(110,231,183,0.9)]",
-};
-
-const SourceDot = ({ kind }: { kind: SourceKind }) => <span aria-hidden className={`size-1.5 shrink-0 rounded-full ${DOT[kind]}`} />;
-
 const STEPS = [
-  { n: "01", title: "Drop in your résumé", body: "PDF, DOCX or plain text. AI turns it into a clean, editable profile in seconds." },
-  { n: "02", title: "Tell us what you want", body: "Roles, cities, salary floor, work style. Every country, every major Indian city." },
-  { n: "03", title: "Read the shortlist", body: "Fresh roles ranked against you, each with its score, its gaps and its real apply link." },
-  { n: "04", title: "Apply like an insider", body: "A tailored ATS résumé, cover letter and talking points for every role you choose." },
+  { n: "1", title: "Drop in your résumé", body: "PDF, DOCX or plain text. AI turns it into a clean, editable profile in seconds." },
+  { n: "2", title: "Tell us what you want", body: "Roles, cities, salary floor, work style. Every country, every major Indian city." },
+  { n: "3", title: "Read the shortlist", body: "Fresh roles ranked against you, each with its score, its gaps and its real apply link." },
+  { n: "4", title: "Apply like an insider", body: "A tailored ATS résumé, cover letter and talking points for every role you choose." },
 ];
 
-function Ring({ value }: { value: number }) {
-  const c = 2 * Math.PI * 26;
-  return (
-    <svg width="68" height="68" viewBox="0 0 64 64" role="img" aria-label={`Match score ${value}`} className="shrink-0">
-      <defs>
-        <linearGradient id="lux-ring" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#a78bfa" />
-          <stop offset="100%" stopColor="#22d3ee" />
-        </linearGradient>
-      </defs>
-      <circle cx="32" cy="32" r="26" fill="none" stroke="var(--lux-line)" strokeWidth="4" />
-      <circle cx="32" cy="32" r="26" fill="none" stroke="url(#lux-ring)" strokeWidth="4" strokeLinecap="round" strokeDasharray={`${(c * value) / 100} ${c}`} transform="rotate(-90 32 32)" />
-      <text x="32" y="37" textAnchor="middle" fill="currentColor" fontSize="15" fontWeight="600">{value}</text>
-    </svg>
-  );
-}
+const PERSONAS: { photo: PhotoName; alt: string; pos: string; who: string; line: string }[] = [
+  { photo: "grad", alt: "A smiling graduate in a cap and gown", pos: "50% 30%", who: "Graduating students", line: "Turn a degree and a few projects into a résumé that recruiters and ATS filters both read." },
+  { photo: "hero-work", alt: "A professional typing on her laptop", pos: "55% 35%", who: "Early-career professionals", line: "Show real impact from your first roles and find the step up that fits." },
+  { photo: "portrait-daniel", alt: "A senior professional at his desk", pos: "50% 30%", who: "Experienced professionals", line: "Tailor a senior résumé to each role without diluting years of experience." },
+  { photo: "student", alt: "A man with glasses and arms crossed in front of a chalkboard", pos: "50% 25%", who: "Career switchers", line: "Reframe what you have already done for a new field, honestly." },
+];
 
-const Chip = ({ ok, children }: { ok?: boolean; children: React.ReactNode }) => (
-  <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium ${ok ? "border-emerald-400/20 bg-emerald-400/[0.07] text-emerald-300" : "border-rose-400/20 bg-rose-400/[0.07] text-rose-300"}`}>
-    {ok ? "✓" : "✗"} {children}
-  </span>
-);
+const PRINCIPLES = [
+  [Lock, "No scraping behind logins", "Listings come from official APIs and public employer feeds, each shown with its source and when it was last seen."],
+  [UserRoundX, "No invented experience", "Every suggestion is grounded in your own résumé, and you approve each change before it is saved."],
+  [ScanSearch, "No selling your data", "Your résumé stays yours. Public profile sections stay off until you switch them on."],
+] as const;
 
-const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-xs font-medium tracking-[0.18em] text-[#a1a1aa] uppercase">{children}</p>
+const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as React.CSSProperties;
+
+const ArrowLink = ({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) => (
+  <Link href={href} className={`group inline-flex items-center gap-2 text-base font-bold underline decoration-2 underline-offset-[6px] ${className}`}>
+    {children}
+    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
+  </Link>
 );
 
 export default async function Landing() {
@@ -74,7 +64,7 @@ export default async function Landing() {
   const start = user ? "/onboarding" : "/signup";
 
   return (
-    <div className="lux relative min-h-screen overflow-x-clip">
+    <div className="relative min-h-screen overflow-x-clip bg-cream">
       <LandingFx />
       <JsonLd
         data={{
@@ -83,230 +73,167 @@ export default async function Landing() {
         }}
       />
 
-      {/* Ambient light */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[900px] overflow-hidden">
-        <div className="lux-aurora absolute -top-64 left-1/2 h-[720px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.16),rgba(8,145,178,0.05)_55%,transparent)] blur-xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,var(--lux-bg)_85%)]" />
-      </div>
-
-      {/* Nav */}
-      <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-[color-mix(in_srgb,var(--lux-bg)_70%,transparent)] backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 sm:gap-4 py-3.5 sm:px-8">
-          <Link href="/" className="flex items-center gap-2 sm:gap-2.5" aria-label="CareerMatch AI home">
-            <Image src="/brand/mark.png" alt="" width={32} height={32} priority unoptimized className="size-7 sm:size-8" />
-            <span className="lux-serif text-lg sm:text-xl">CareerMatch</span>
-          </Link>
-          <LandingNav className="hidden md:block" />
-          <div className="flex items-center gap-2">
-            <ThemeToggle className="sm:mr-1" />
+      {/* Header */}
+      <header className="sticky top-0 z-40 border-b border-slate-200 bg-surface/95 backdrop-blur-md">
+        <div className="shell flex items-center justify-between gap-3 py-3">
+          <div className="flex items-center gap-8">
+            <Link href="/" className="flex items-center gap-2.5" aria-label="CareerMatch AI home">
+              <Image src="/brand/mark.png" alt="" width={32} height={32} priority unoptimized className="size-8" />
+              <span className="font-display text-xl text-slate-900">CareerMatch</span>
+            </Link>
+            <LandingNav className="hidden md:block" />
+          </div>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <ThemeToggle />
             {user ? (
-              <Link href="/dashboard" className="btn-fluid !px-4 !py-2.5 sm:!px-5">Dashboard <span className="arrow hidden sm:inline">→</span></Link>
+              <Link href="/dashboard" className="btn-primary !px-5">Dashboard</Link>
             ) : (
               <>
-                <Link href="/login" className="hidden px-3 py-2 text-[15px] text-[#d4d4d8] transition hover:text-white sm:block">Sign in</Link>
-                <Link href="/signup" className="btn-fluid !px-4 !py-2.5 sm:!px-5">Get started <span className="arrow hidden sm:inline">→</span></Link>
+                <Link href="/login" className="hidden rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-800 transition hover:border-brand-500 hover:text-brand-700 sm:block">Sign in</Link>
+                <Link href="/signup" className="btn-primary !px-5">Get started</Link>
               </>
             )}
           </div>
         </div>
-        <LandingNav className="flex justify-center px-4 pb-3 md:hidden" />
+        <LandingNav className="flex justify-center border-t border-slate-100 pb-1 md:hidden" />
       </header>
 
-      <main id="main" className="relative z-10">
+      <main id="main">
         {/* Hero */}
-        <section className="mx-auto grid max-w-7xl gap-14 px-4 pt-20 pb-24 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:pt-28 lg:pb-32">
-          <div className="lg:col-span-7">
-            <div className="reveal-now inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm text-[#d4d4d8] backdrop-blur">
-              <span className="size-1.5 rounded-full bg-gradient-to-r from-violet-400 to-cyan-400 shadow-[0_0_12px_rgba(167,139,250,0.9)]" />
-              Career intelligence for India and the world
+        <section className="relative overflow-hidden bg-[#10152b] text-white">
+          <div aria-hidden className="absolute -top-40 right-[-10%] size-[44rem] rounded-full bg-[radial-gradient(closest-side,rgba(132,87,255,0.4),transparent)]" />
+          <div aria-hidden className="absolute -bottom-52 left-[-8%] size-[38rem] rounded-full bg-[radial-gradient(closest-side,rgba(25,198,232,0.22),transparent)]" />
+          <div className="shell relative grid items-center gap-14 py-16 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:py-24">
+            <div>
+              <h1 className="reveal-now font-serif text-[clamp(3.47rem,7.26vw,7.62rem)] leading-[0.95] font-normal tracking-[-0.02em]">
+                Your Career.
+                <br />
+                <em className="text-[#a3b8ff] italic">Powered by AI.</em>
+              </h1>
+              <p className="reveal-now mt-8 max-w-[34rem] text-lg leading-relaxed text-[#d5daee] sm:text-xl" style={delay(120)}>
+                Create standout resumes, write tailored cover letters, and discover global job opportunities with one intelligent career platform.
+              </p>
+              <div className="reveal-now mt-10 flex flex-wrap items-center gap-x-8 gap-y-4" style={delay(220)}>
+                <Link href={start} className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-[#10152b] shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">Build My Resume <ArrowRight className="size-4" aria-hidden /></Link>
+                {user ? (
+                  <ArrowLink href="/jobs" className="text-white decoration-white/60 hover:decoration-white">Explore Jobs</ArrowLink>
+                ) : (
+                  <DemoButton className="group inline-flex items-center gap-2 text-base font-bold text-white underline decoration-white/60 decoration-2 underline-offset-[6px] hover:decoration-white">Explore Jobs <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden /></DemoButton>
+                )}
+              </div>
+              <p className="reveal-now mt-6 text-sm text-[#aab3d1]" style={delay(300)}>Free to start. No card. The demo uses a fictional résumé and labelled sample listings.</p>
             </div>
-            <h1 className="reveal-now lux-serif mt-7 text-[2.9rem] leading-[1.02] sm:text-7xl lg:text-[5.6rem]" style={{ "--delay": "80ms" } as React.CSSProperties}>
-              Your next role,
-              <br />
-              <em className="lux-sheen not-italic sm:italic">found</em>, not searched for.
-            </h1>
-            <p className="reveal-now mt-7 max-w-xl text-base leading-relaxed text-[#d4d4d8] sm:text-lg" style={{ "--delay": "160ms" } as React.CSSProperties}>
-              CareerMatch reads your résumé, scores every fresh opening against it, finds the employer&rsquo;s own posting, and drafts the
-              application. Honest about the gaps. Done in minutes.
-            </p>
-            <div className="reveal-now mt-10 flex flex-wrap items-center gap-3" style={{ "--delay": "240ms" } as React.CSSProperties}>
-              <Link href={start} className="btn-fluid is-solid">Upload your résumé <span className="arrow">→</span></Link>
-              {user ? (
-                <Link href="/jobs" className="btn-fluid">Browse your matches</Link>
-              ) : (
-                <DemoButton className="btn-fluid">Explore the live demo</DemoButton>
-              )}
-            </div>
-            <p className="reveal-now mt-5 text-sm text-[#a1a1aa]" style={{ "--delay": "300ms" } as React.CSSProperties}>
-              Free to start. No card. The demo uses a fictional résumé and labelled sample listings.
-            </p>
-          </div>
-
-          {/* Product glass card */}
-          <div className="reveal-now relative lg:col-span-5 lg:pt-10" style={{ "--delay": "200ms" } as React.CSSProperties}>
-            <div aria-hidden className="absolute -inset-6 rounded-[2.5rem] bg-[radial-gradient(closest-side,rgba(139,92,246,0.10),transparent)] blur-xl" />
-            <div className="lux-glass relative rounded-[1.75rem] p-6 sm:p-7" data-magnet>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <Eyebrow>Example match</Eyebrow>
-                  <p className="mt-2 text-lg font-semibold tracking-tight">Senior Procurement Analyst</p>
-                  <p className="mt-1 text-base text-[#d4d4d8]">Bengaluru · Hybrid · posted today</p>
-                </div>
-                <Ring value={86} />
-              </div>
-              <div className="mt-6 flex flex-wrap gap-1.5">
-                <Chip ok>SAP Ariba</Chip>
-                <Chip ok>P2P</Chip>
-                <Chip ok>Spend analysis</Chip>
-                <Chip ok>Power BI</Chip>
-                <Chip>Coupa</Chip>
-                <Chip>SOX controls</Chip>
-              </div>
-              <div className="mt-6 grid grid-cols-3 divide-x divide-white/[0.07] rounded-2xl border border-white/[0.07] bg-black/30 text-center">
-                {[["Low", "₹14 LPA"], ["Typical", "₹19 LPA"], ["High", "₹26 LPA"]].map(([k, v]) => (
-                  <div key={k} className="px-2 py-3">
-                    <p className="text-xs tracking-wider text-[#a1a1aa] uppercase">{k}</p>
-                    <p className="mt-1 text-base font-semibold">{v}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.07] pt-5">
-                <span className="text-sm text-[#a1a1aa]">Original posting, verified</span>
-                <span className="rounded-full bg-white px-3.5 py-1.5 text-sm font-medium text-black">Apply on careers.company.com ↗</span>
-              </div>
-            </div>
-            <div className="lux-glass absolute -bottom-6 -left-4 hidden rounded-2xl px-4 py-3 text-sm sm:block">
-              <span className="text-[#a1a1aa]">Also posted on</span> <span className="ml-1 font-medium">LinkedIn · Naukri</span>
+            <div className="reveal-now" style={delay(150)}>
+              <HeroCollage />
             </div>
           </div>
         </section>
 
-        {/* Sources strip */}
-        <section className="border-y border-[#27272a]" aria-label="Job sources">
-          <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-7 sm:px-8 md:flex-row md:items-center md:gap-10">
-            <div className="shrink-0 space-y-2">
-              <p className="text-sm text-[#d4d4d8]">Listings from official APIs and employer feeds</p>
-              <p className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#a1a1aa]">
-                <span className="inline-flex items-center gap-1.5"><SourceDot kind="employer" /> Employer career sites</span>
-                <span className="inline-flex items-center gap-1.5"><SourceDot kind="board" /> Job boards</span>
-                <span className="inline-flex items-center gap-1.5"><SourceDot kind="remote" /> Remote boards</span>
-              </p>
+        {/* Statement + sources */}
+        <section className="relative overflow-hidden bg-[#10152b] text-white" aria-label="Job sources">
+          <svg aria-hidden className="absolute inset-0 size-full opacity-25" preserveAspectRatio="none" viewBox="0 0 100 40" fill="none" stroke="#4263ff" strokeWidth=".12">
+            <path d="M60 0 L100 40" /><path d="M72 0 L100 28" /><path d="M48 0 L100 52" />
+          </svg>
+          <div className="shell relative py-16 lg:py-24">
+            <p className="reveal max-w-5xl font-serif text-[clamp(2.24rem,4.62vw,4.48rem)] leading-[1.08] font-normal tracking-[-0.02em]">
+              Honest matching, built on your real experience. And trust in your job search gets restored.
+            </p>
+          </div>
+          <div className="relative border-t border-white/10">
+            <div className="shell flex flex-col gap-4 py-6 md:flex-row md:items-center md:gap-10">
+              <p className="shrink-0 text-sm font-semibold text-[#d5daee]">Listings from official APIs and employer feeds</p>
+              <div className="lux-marquee min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_7%,#000_93%,transparent)]">
+                <ul className="lux-marquee-track flex w-max">
+                  {[...SOURCES, ...SOURCES].map((s, i) => (
+                    <li key={i} aria-hidden={i >= SOURCES.length || undefined} className="pr-8">
+                      <span className="font-serif text-2xl whitespace-nowrap text-white/90">{s.name}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            {/* One line at every width: the list glides sideways (paused on hover); the copy after it makes the loop seamless. */}
-            <div className="lux-marquee min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_7%,#000_93%,transparent)]">
-              <ul className="lux-marquee-track flex w-max">
-                {[...SOURCES, ...SOURCES].map((s, i) => (
-                  <li key={i} aria-hidden={i >= SOURCES.length || undefined} className="pr-3">
-                    <span className="flex items-center gap-2.5 whitespace-nowrap rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.07] to-white/[0.015] px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] transition-colors duration-300 hover:border-white/25">
-                      <SourceDot kind={s.kind} />
-                      <span className="lux-serif text-[17px] leading-none text-white/90">{s.name}</span>
-                    </span>
+          </div>
+        </section>
+
+        {/* Everything you need */}
+        <section id="product" className="shell scroll-mt-20 py-20 lg:py-28">
+          <h2 className="reveal max-w-4xl font-serif text-[clamp(2.91rem,5.72vw,5.6rem)] leading-[1.02] font-normal tracking-[-0.015em] text-slate-900">
+            Everything you need to <em className="text-brand-600 italic">land the role</em>
+          </h2>
+          <p className="reveal mt-6 max-w-2xl text-lg text-slate-600" style={delay(100)}>
+            Every listing is read, scored and traced back to its source before it reaches you, so your time goes on applications that can land.
+          </p>
+          <div className="mt-14">
+            <ProductTiles href={start} />
+          </div>
+          <p className="mt-8 text-xs text-slate-500">Cards above are illustrations with sample data. Portraits are licensed stock photographs, not customers.</p>
+        </section>
+
+        {/* Studio split */}
+        <section className="border-y border-slate-200 bg-surface">
+          <div className="shell grid items-center gap-14 py-20 lg:grid-cols-2 lg:gap-24 lg:py-28">
+            <div className="reveal"><StudioCollage /></div>
+            <div className="reveal" style={delay(100)}>
+              <p className="text-sm font-bold tracking-[0.14em] text-brand-700 uppercase">AI résumé studio</p>
+              <h2 className="mt-4 font-serif text-[clamp(2.46rem,4.4vw,4.26rem)] leading-[1.05] font-normal tracking-[-0.015em] text-slate-900">A résumé tailored to every job, never invented.</h2>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">Upload once. For each role, see which requirements you meet, quote your own evidence, and approve every rewrite before it touches your résumé.</p>
+              <ul className="mt-7 space-y-3.5">
+                {["ATS score and keyword gap, each marked exact, equivalent, partial or missing", "Bullet rewrites with reasons: accept, edit or reject. Invented numbers are blocked", "A matching cover letter in three tones, with Word and PDF export"].map((t) => (
+                  <li key={t} className="flex gap-3 text-base text-slate-700">
+                    <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-[#dff7ee] text-[#0b7a5a]"><BadgeCheck className="size-3.5" aria-hidden /></span>{t}
                   </li>
                 ))}
               </ul>
+              <div className="mt-9"><ArrowLink href={start} className="text-slate-900 decoration-brand-500">Open the studio</ArrowLink></div>
             </div>
           </div>
         </section>
 
-        {/* Bento */}
-        <section id="product" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-28 sm:px-8 lg:py-36">
-          <div className="grid gap-6 lg:grid-cols-12">
-            <div className="lg:col-span-5">
-              <Eyebrow>The product</Eyebrow>
-              <h2 className="reveal lux-serif mt-4 text-4xl leading-[1.05] sm:text-6xl">
-                Less scrolling.
-                <br />
-                <span className="text-[#a1a1aa] italic">More signal.</span>
-              </h2>
-            </div>
-            <p className="reveal self-end text-[#d4d4d8] lg:col-span-5 lg:col-start-8" style={{ "--delay": "120ms" } as React.CSSProperties}>
-              Every listing is read, scored and traced back to its source before it reaches you, so the time you spend goes on applications that can land.
-            </p>
-          </div>
-
-          <div className="mt-16 grid auto-rows-[minmax(220px,auto)] gap-4 md:grid-cols-6">
-            {/* Explainable score */}
-            <article className="bento reveal p-7 md:col-span-4 md:row-span-2" data-magnet>
-              <Eyebrow>Explainable matching</Eyebrow>
-              <h3 className="lux-serif mt-3 text-3xl sm:text-4xl">Every score shows its working.</h3>
-              <p className="mt-3 max-w-md text-base text-[#d4d4d8]">Skills, role, seniority, location, pay and freshness, each weighed, explained and colour-coded. No black-box numbers.</p>
-              <div className="mt-8 space-y-3.5">
-                {[["Skills", 34, 40, "from-emerald-400 to-teal-300"], ["Role & title", 17, 20, "from-emerald-400 to-teal-300"], ["Seniority", 10, 10, "from-emerald-400 to-teal-300"], ["Location", 6, 10, "from-amber-400 to-orange-300"], ["Recency", 5, 5, "from-emerald-400 to-teal-300"]].map(([label, pts, max, g]) => (
-                  <div key={String(label)} className="grid grid-cols-[110px_1fr_44px] items-center gap-4 text-base">
-                    <span className="text-[#d4d4d8]">{label}</span>
-                    <span className="h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
-                      <span className={`block h-full rounded-full bg-gradient-to-r ${g}`} style={{ width: `${(Number(pts) / Number(max)) * 100}%` }} />
-                    </span>
-                    <span className="text-right tabular-nums text-white/90">{pts}/{max}</span>
-                  </div>
-                ))}
+        {/* Facts */}
+        <section className="shell py-20 lg:py-24" aria-label="At a glance">
+          <dl className="grid gap-10 sm:grid-cols-3">
+            {[
+              ["18", "official job sources", "Employer career sites, job boards and remote boards."],
+              [String(TEMPLATES.length), "résumé templates", "ATS-first and visual, free and Pro, clearly marked."],
+              ["40+", "countries covered", "Indian corporate, Lebenslauf, Europass, Gulf and more."],
+            ].map(([n, l, d], i) => (
+              <div key={l} className="reveal border-t border-slate-300 pt-6" style={delay(i * 90)}>
+                <dt className="font-serif text-[clamp(3.81rem,6.6vw,6.27rem)] leading-none font-normal tracking-[-0.015em] text-slate-900">{n}</dt>
+                <dd className="mt-3"><span className="block text-lg font-bold text-slate-900">{l}</span><span className="mt-1 block text-[15px] text-slate-600">{d}</span></dd>
               </div>
-            </article>
-
-            {/* Source links */}
-            <article className="bento reveal p-7 md:col-span-2" data-magnet style={{ "--delay": "80ms" } as React.CSSProperties}>
-              <Eyebrow>Straight to the source</Eyebrow>
-              <h3 className="lux-serif mt-3 text-2xl">Skip the middlemen.</h3>
-              <p className="mt-2 text-base text-[#d4d4d8]">We find the employer&rsquo;s own posting, verify it, and link you there, plus LinkedIn and Naukri when it&rsquo;s live.</p>
-              <div className="mt-5 flex flex-wrap gap-1.5 text-xs">
-                <span className="rounded-full bg-white px-2.5 py-1 font-medium text-black">Workday ↗</span>
-                <span className="rounded-full border border-white/15 px-2.5 py-1">LinkedIn ↗</span>
-                <span className="rounded-full border border-white/15 px-2.5 py-1">Naukri ↗</span>
-              </div>
-            </article>
-
-            {/* ATS */}
-            <article className="bento reveal p-7 md:col-span-2" data-magnet style={{ "--delay": "140ms" } as React.CSSProperties}>
-              <Eyebrow>ATS résumé</Eyebrow>
-              <h3 className="lux-serif mt-3 text-2xl">Tailored. Never invented.</h3>
-              <p className="mt-2 text-base text-[#d4d4d8]">Rewrites mirror each posting&rsquo;s language using only what you&rsquo;ve done. You approve every line, word by word.</p>
-            </article>
-
-            {/* Salary */}
-            <article className="bento reveal p-7 md:col-span-2" data-magnet>
-              <Eyebrow>Market pay</Eyebrow>
-              <h3 className="lux-serif mt-3 text-2xl">Know your worth, in ₹.</h3>
-              <p className="mt-2 text-base text-[#d4d4d8]">Public salary figures for the same title and city, with a link to every source.</p>
-              <p className="lux-serif mt-5 text-4xl">₹19<span className="text-xl text-[#a1a1aa]"> LPA typical</span></p>
-            </article>
-
-            {/* Profile */}
-            <article className="bento reveal p-7 md:col-span-2" data-magnet style={{ "--delay": "80ms" } as React.CSSProperties}>
-              <Eyebrow>Public profile</Eyebrow>
-              <h3 className="lux-serif mt-3 text-2xl">A page worth sharing.</h3>
-              <p className="mt-2 text-base text-[#d4d4d8]">Your own URL, privacy controls for every section, and one link for recruiters.</p>
-            </article>
-
-            {/* Interview */}
-            <article className="bento reveal p-7 md:col-span-2" data-magnet style={{ "--delay": "140ms" } as React.CSSProperties}>
-              <Eyebrow>Mock interview</Eyebrow>
-              <h3 className="lux-serif mt-3 text-2xl">Rehearse before it counts.</h3>
-              <p className="mt-2 text-base text-[#d4d4d8]">Five questions built from the role, with feedback after every answer and a closing summary.</p>
-            </article>
-          </div>
+            ))}
+          </dl>
         </section>
 
         <FeatureShowcase />
 
+        {/* Personas */}
+        <section className="shell py-20 lg:py-28">
+          <h2 className="reveal max-w-4xl font-serif text-[clamp(2.69rem,5.28vw,5.15rem)] leading-[1.03] font-normal tracking-[-0.015em] text-slate-900">Whether it&rsquo;s your first résumé or your fifth career move.</h2>
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            {PERSONAS.map((p, i) => (
+              <article key={p.who} className="reveal group relative aspect-[3/4] overflow-hidden rounded-[1.4rem] bg-[#10152b]" style={delay(i * 90)}>
+                <Photo name={p.photo} alt={p.alt} position={p.pos} sizes="(min-width: 1280px) 22vw, (min-width: 640px) 45vw, 92vw" className="absolute inset-0 transition-transform duration-700 group-hover:scale-105" />
+                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#10152b] via-[#10152b]/55 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                  <h3 className="font-serif text-3xl leading-tight">{p.who}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-[#e6e9f6]">{p.line}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         {/* Method */}
-        <section id="method" className="scroll-mt-24 border-t border-[#27272a]">
-          <div className="mx-auto max-w-7xl px-4 py-28 sm:px-8 lg:py-36">
-            <div className="grid gap-6 lg:grid-cols-12">
-              <div className="lg:col-span-6">
-                <Eyebrow>The method</Eyebrow>
-                <h2 className="reveal lux-serif mt-4 text-4xl leading-[1.05] sm:text-6xl">From résumé to offer-ready, in four moves.</h2>
-              </div>
-            </div>
-            <ol className="mt-16 grid border-t border-[#27272a] sm:grid-cols-2 lg:grid-cols-4">
+        <section id="method" className="scroll-mt-20 border-y border-slate-200 bg-surface">
+          <div className="shell py-20 lg:py-28">
+            <h2 className="reveal max-w-4xl font-serif text-[clamp(2.69rem,5.28vw,5.15rem)] leading-[1.03] font-normal tracking-[-0.015em] text-slate-900">From résumé to offer-ready, in four moves.</h2>
+            <ol className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {STEPS.map((s, i) => (
-                <li
-                  key={s.n}
-                  className="reveal border-b border-[#27272a] py-8 sm:px-6 sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:[&:not(:last-child)]:border-r lg:first:pl-0"
-                  style={{ "--delay": `${i * 90}ms` } as React.CSSProperties}
-                >
-                  <span className="lux-serif bg-gradient-to-br from-white to-white/30 bg-clip-text text-5xl text-transparent italic">{s.n}</span>
-                  <h3 className="mt-6 text-lg font-semibold tracking-tight">{s.title}</h3>
-                  <p className="mt-2 text-base leading-relaxed text-[#d4d4d8]">{s.body}</p>
+                <li key={s.n} className="reveal border-t-2 border-slate-900 pt-5" style={delay(i * 90)}>
+                  <span className="font-serif text-7xl leading-none text-brand-600">{s.n}</span>
+                  <h3 className="mt-5 text-xl font-extrabold text-slate-900">{s.title}</h3>
+                  <p className="mt-2 text-base leading-relaxed text-slate-600">{s.body}</p>
                 </li>
               ))}
             </ol>
@@ -314,52 +241,75 @@ export default async function Landing() {
         </section>
 
         {/* Principles */}
-        <section className="border-t border-[#27272a]">
-          <div className="mx-auto max-w-5xl px-4 py-28 text-center sm:px-8 lg:py-36">
-            <Eyebrow>Our principles</Eyebrow>
-            <p className="reveal lux-serif mt-8 text-3xl leading-[1.2] sm:text-5xl">
-              We don&rsquo;t scrape behind logins.
-              <br className="hidden sm:block" /> We don&rsquo;t invent your experience.
-              <br className="hidden sm:block" /> <span className="text-[#a1a1aa] italic">We don&rsquo;t sell your data.</span>
-            </p>
-            <p className="reveal mx-auto mt-8 max-w-xl text-base text-[#d4d4d8]" style={{ "--delay": "120ms" } as React.CSSProperties}>
-              Every listing shows where it came from and when it was last seen. Every suggestion is grounded in your own résumé.
-            </p>
+        <section className="shell grid items-center gap-14 py-20 lg:grid-cols-[1fr_1.1fr] lg:gap-24 lg:py-28">
+          <div className="reveal relative">
+            <Photo name="team" alt="Colleagues talking around a table in a bright office" sizes="(min-width: 1024px) 40vw, 92vw" position="50% 40%" className="relative aspect-[4/3.4] rounded-[1.6rem]" />
+            <div aria-hidden className="absolute -right-4 -bottom-4 -z-10 size-40 rounded-full bg-[#ffc857]" />
+            <div aria-hidden className="absolute -top-4 -left-4 -z-10 size-24 rounded-full bg-[#8457ff]" />
+          </div>
+          <div>
+            <h2 className="reveal font-serif text-[clamp(2.69rem,4.84vw,4.7rem)] leading-[1.03] font-normal tracking-[-0.015em] text-slate-900">Honest by design.</h2>
+            <ul className="mt-9 space-y-7">
+              {PRINCIPLES.map(([Icon, t, d], i) => (
+                <li key={t} className="reveal flex gap-5 border-t border-slate-300 pt-6" style={delay(i * 90)}>
+                  <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#10152b] text-white"><Icon className="size-5" aria-hidden /></span>
+                  <div>
+                    <h3 className="text-xl font-extrabold text-slate-900">{t}</h3>
+                    <p className="mt-1.5 text-base leading-relaxed text-slate-600">{d}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
         {/* Final CTA */}
-        <section className="px-4 pb-28 sm:px-8">
-          <div className="reveal lux-glass relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-6 py-20 text-center sm:px-12 sm:py-28">
-            <div aria-hidden className="lux-aurora pointer-events-none absolute -bottom-40 left-1/2 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.18),rgba(8,145,178,0.06)_60%,transparent)] blur-xl" />
-            <h2 className="lux-serif relative text-4xl leading-[1.05] sm:text-6xl lg:text-7xl">
-              Two minutes from now,
-              <br />
-              <em className="lux-sheen">you&rsquo;ll have a shortlist.</em>
-            </h2>
-            <p className="relative mx-auto mt-6 max-w-lg text-[#d4d4d8]">Upload your résumé and see your ranked matches, gaps and apply links before your coffee cools.</p>
-            <div className="relative mt-10 flex flex-wrap justify-center gap-3">
-              <Link href={start} className="btn-fluid is-solid">Start free <span className="arrow">→</span></Link>
-              {!user && <DemoButton className="btn-fluid">Try the demo</DemoButton>}
+        <section className="relative overflow-hidden bg-[#10152b] text-white">
+          <div aria-hidden className="absolute -top-32 left-1/2 size-[40rem] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(132,87,255,0.35),transparent)]" />
+          <div className="shell relative grid items-center gap-10 py-20 lg:grid-cols-[1fr_2fr_1fr] lg:py-28">
+            <Photo name="grad" alt="A graduate smiling in a cap and gown" sizes="(min-width: 1024px) 20vw, 60vw" position="50% 25%" className="relative mx-auto hidden aspect-[3/4] w-full max-w-[17rem] rounded-t-[999px] rounded-b-[1.4rem] lg:block" />
+            <div className="reveal text-center">
+              <h2 className="font-serif text-[clamp(2.91rem,5.72vw,5.6rem)] leading-[1.02] font-normal tracking-[-0.015em]">Two minutes from now, you&rsquo;ll have <em className="text-[#a3b8ff] italic">a shortlist.</em></h2>
+              <p className="mx-auto mt-6 max-w-xl text-lg text-[#d5daee]">Upload your résumé and see your ranked matches, gaps and apply links before your coffee cools.</p>
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+                <Link href={start} className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-[#10152b] shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">Build My Resume <ArrowRight className="size-4" aria-hidden /></Link>
+                {!user && <DemoButton className="text-base font-bold text-white underline decoration-white/60 decoration-2 underline-offset-[6px] hover:decoration-white">Try the demo</DemoButton>}
+              </div>
             </div>
+            <Photo name="portrait-sara" alt="A professional laughing" sizes="(min-width: 1024px) 20vw, 60vw" position="50% 25%" className="relative mx-auto hidden aspect-[3/4] w-full max-w-[17rem] rounded-t-[999px] rounded-b-[1.4rem] lg:block" />
           </div>
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-[#27272a]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-[#d4d4d8] sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:whitespace-nowrap">
-          <div className="flex items-center gap-2.5">
-            <Image src="/brand/mark.png" alt="" width={20} height={20} unoptimized className="size-5" />
-            <span className="font-medium text-white">CareerMatch AI</span>
-            <span className="text-[#a1a1aa]">© {new Date().getFullYear()}</span>
+      <footer className="bg-[#0b1020] text-[#d5daee]">
+        <div className="shell grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <div className="flex items-center gap-2.5">
+              <Image src="/brand/mark.png" alt="" width={28} height={28} unoptimized className="size-7" />
+              <span className="font-display text-xl text-white">CareerMatch</span>
+            </div>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-[#aab3d1]">An AI career platform for India and the world. Jobs from authorised sources, always shown with attribution.</p>
           </div>
-          <p className="text-[#a1a1aa]">Jobs from authorised sources, always shown with attribution.</p>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer">
-            <Link href="/pricing" className="transition hover:text-white">Pricing</Link>
-            {LEGAL_LINKS.map((l) => <Link key={l.href} href={l.href} className="transition hover:text-white">{l.short}</Link>)}
-            <Link href="/login" className="transition hover:text-white">Sign in</Link>
-            <Link href="/signup" className="transition hover:text-white">Get started</Link>
+          <nav aria-label="Product">
+            <p className="text-sm font-bold text-white">Product</p>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              <li><Link href="/pricing" className="transition hover:text-white">Pricing</Link></li>
+              <li><Link href="/signup" className="transition hover:text-white">Get started</Link></li>
+              <li><Link href="/login" className="transition hover:text-white">Sign in</Link></li>
+            </ul>
           </nav>
+          <nav aria-label="Legal">
+            <p className="text-sm font-bold text-white">Legal</p>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              {LEGAL_LINKS.map((l) => <li key={l.href}><Link href={l.href} className="transition hover:text-white">{l.short}</Link></li>)}
+            </ul>
+          </nav>
+        </div>
+        <div className="border-t border-white/10">
+          <div className="shell flex flex-col gap-2 py-5 text-xs text-[#8691b5] sm:flex-row sm:justify-between">
+            <span>© {new Date().getFullYear()} CareerMatch AI</span>
+            <span>Photographs from Unsplash, used under the Unsplash licence.</span>
+          </div>
         </div>
       </footer>
     </div>

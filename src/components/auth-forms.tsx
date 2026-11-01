@@ -94,7 +94,7 @@ export function LoginForm({ providers }: { providers: Provider[] }) {
         });
       }}
     >
-      <h1 className="font-display text-2xl font-extrabold">Welcome back</h1>
+      <h1 className="font-serif text-4xl font-normal">Welcome back</h1>
       {params.get("reset") && <Alert kind="success">Password updated. Sign in with your new password.</Alert>}
       {oauthError(params.get("error"), params.get("provider")) && <Alert>{oauthError(params.get("error"), params.get("provider"))}</Alert>}
       {error && <Alert>{error}</Alert>}
@@ -131,7 +131,7 @@ export function SignupForm({ providers }: { providers: Provider[] }) {
         submit("/api/auth/signup", formData(e));
       }}
     >
-      <h1 className="font-display text-2xl font-extrabold">Create your account</h1>
+      <h1 className="font-serif text-4xl font-normal">Create your account</h1>
       <p className="text-sm text-slate-600">Free to start. Your data stays private until you publish your profile.</p>
       {error && <Alert>{error}</Alert>}
       <SocialButtons providers={providers} />
@@ -166,7 +166,7 @@ export function ForgotForm() {
   if (sent)
     return (
       <div className="space-y-4">
-        <h1 className="font-display text-2xl font-extrabold">Check your email</h1>
+        <h1 className="font-serif text-4xl font-normal">Check your email</h1>
         <p className="text-sm text-slate-600">If an account exists for that address, we&apos;ve sent a link to reset your password. It expires in 30 minutes.</p>
         {sent.devResetUrl && (
           <Alert kind="info">
@@ -184,7 +184,7 @@ export function ForgotForm() {
         submit("/api/auth/forgot", formData(e), (r) => setSent(r as { devResetUrl?: string }));
       }}
     >
-      <h1 className="font-display text-2xl font-extrabold">Reset your password</h1>
+      <h1 className="font-serif text-4xl font-normal">Reset your password</h1>
       <p className="text-sm text-slate-600">Enter your email and we&apos;ll send you a reset link.</p>
       {error && <Alert>{error}</Alert>}
       <div>
@@ -209,7 +209,7 @@ export function ResetForm() {
         submit("/api/auth/reset", { token, password: formData(e).password });
       }}
     >
-      <h1 className="font-display text-2xl font-extrabold">Choose a new password</h1>
+      <h1 className="font-serif text-4xl font-normal">Choose a new password</h1>
       {error && <Alert>{error}</Alert>}
       <div>
         <label className="label" htmlFor="password">New password</label>

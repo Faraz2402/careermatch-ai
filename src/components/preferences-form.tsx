@@ -181,7 +181,7 @@ export function PreferencesForm({ initial, onboarding }: { initial: JobPreferenc
   const customIndustries = p.industries.filter((i) => !INDUSTRIES.includes(i));
 
   return (
-    <form onSubmit={save} className="card space-y-6 p-6">
+    <form onSubmit={save} className="card grid gap-6 p-6 lg:grid-cols-2 lg:gap-x-14 2xl:p-8">
       <div>
         <label className="label" htmlFor="roles">Desired roles</label>
         <input id="roles" className="input" value={roles} onChange={(e) => setRoles(e.target.value)} placeholder="Frontend Engineer, Full-Stack Engineer" />
@@ -271,8 +271,8 @@ export function PreferencesForm({ initial, onboarding }: { initial: JobPreferenc
           I will need visa sponsorship
         </label>
       </div>
-      {msg && <Alert kind={msg.kind}>{msg.text}</Alert>}
-      <div className="flex justify-end">
+      {msg && <div className="lg:col-span-2"><Alert kind={msg.kind}>{msg.text}</Alert></div>}
+      <div className="flex justify-end lg:col-span-2">
         <button className="btn-primary" disabled={busy}>{busy ? "Saving…" : onboarding ? "Save & see my matches" : "Save preferences"}</button>
       </div>
     </form>

@@ -82,7 +82,7 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
         }}
       />
       <div aria-hidden className="lux-aurora pointer-events-none absolute -top-72 left-1/2 h-[640px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.13),rgba(8,145,178,0.04)_55%,transparent)] blur-xl" />
-      <header className="relative mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
+      <header className="relative shell flex  items-center justify-between py-4">
         <Logo />
         <div className="flex items-center gap-3">
           <ThemeToggle />
@@ -90,7 +90,7 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
         </div>
       </header>
 
-      <main className="relative mx-auto max-w-5xl px-4 pt-10 pb-16 sm:px-6">
+      <main className="relative shell  pt-10 pb-16">
         {limit === "export" && (
           <div className="mx-auto mb-8 max-w-2xl rounded-2xl border border-amber-200 bg-amber-50 p-4 text-center text-sm text-amber-900">
             You&rsquo;ve used the Free plan&rsquo;s export for this document type. Re-downloading the one you exported is still free; upgrade to Pro to export documents for other jobs.
@@ -98,7 +98,7 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
         )}
 
         <section className="text-center">
-          <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl">
+          <h1 className="font-serif text-6xl font-normal leading-[1.02] sm:text-7xl">
             Land more interviews with <em className="text-brand-700">CareerMatch Pro</em>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-700">Unlimited exports and job analyses, 80× the AI, and your best matches in your inbox every morning.</p>

@@ -17,7 +17,7 @@ export default async function SourcesPage() {
   // Only sources that are switched on and configured; setup and errors live in Admin/logs.
   const sources = (await sourceHealth()).filter((s) => s.enabled && s.configured && s.kind !== "demo");
   return (
-    <div className="mx-auto max-w-4xl">
+    <div className="w-full">
       <PageHeader title="Job sources" subtitle="Where listings come from, how each source is accessed, and how healthy it is." />
       <div className="card mb-6 p-5 text-sm text-slate-700">
         <p className="font-semibold">Our sourcing policy</p>

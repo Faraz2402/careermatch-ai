@@ -17,7 +17,7 @@ export default async function OutboxPage() {
     take: 30,
   });
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="w-full">
       <PageHeader title="Dev outbox" subtitle="Emails that would have been sent. Configure RESEND_API_KEY + EMAIL_FROM to deliver for real." />
       {emails.length === 0 && <p className="text-sm text-slate-500">No emails yet.</p>}
       <div className="space-y-4">

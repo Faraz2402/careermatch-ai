@@ -11,7 +11,7 @@ export function LegalPage({ title, intro, sections, references, effective = LEGA
   return (
     <div className="relative min-h-screen">
       <header className="sticky top-0 z-30 border-b border-slate-200 bg-slate-50/75 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+        <div className="shell flex  items-center justify-between py-3">
           <Logo />
           <nav className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1 text-sm text-slate-600" aria-label="Legal">
             {LEGAL_LINKS.map((l) => <Link key={l.href} href={l.href} className="hover:text-slate-900">{l.short}</Link>)}
@@ -20,7 +20,7 @@ export function LegalPage({ title, intro, sections, references, effective = LEGA
         </div>
       </header>
 
-      <main id="main" className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[230px_1fr] lg:py-20">
+      <main id="main" className="shell grid  gap-10 py-14 lg:grid-cols-[230px_1fr] lg:py-20">
         <aside className="hidden lg:block">
           <nav className="sticky top-24 space-y-1 text-sm" aria-label="Contents">
             <p className="mb-3 text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase">Contents</p>
@@ -34,7 +34,7 @@ export function LegalPage({ title, intro, sections, references, effective = LEGA
 
         <article className="min-w-0 max-w-3xl">
           <p className="text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase">Legal</p>
-          <h1 className="mt-3 font-display text-5xl sm:text-6xl">{title}</h1>
+          <h1 className="mt-3 font-serif text-6xl font-normal sm:text-7xl">{title}</h1>
           <p className="mt-4 text-sm text-slate-500">
             Effective {effective} · Version {version}
           </p>

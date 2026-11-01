@@ -1,28 +1,43 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-display: var(--font-bricolage), var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
 
-  --color-brand-50: #f5f3ff;
-  --color-brand-100: #ede9fe;
-  --color-brand-200: #ddd6fe;
-  --color-brand-300: #c4b5fd;
-  --color-brand-400: #a78bfa;
-  --color-brand-500: #8b5cf6;
-  --color-brand-600: #7c3aed;
-  --color-brand-700: #6d28d9;
-  --color-brand-800: #5b21b6;
-  --color-brand-900: #4c1d95;
+  /* Electric blue brand scale, with named accents from the design palette. */
+  --color-brand-50: #f0f5ff;
+  --color-brand-100: #e3ebff;
+  --color-brand-200: #c9d6ff;
+  --color-brand-300: #a3b8ff;
+  --color-brand-400: #7a93ff;
+  --color-brand-500: #4263ff;
+  --color-brand-600: #3550f0;
+  --color-brand-700: #2f3fd0;
+  --color-brand-800: #2a33a8;
+  --color-brand-900: #232b7a;
 
-  --color-ink: #0a0a0b;
+  --color-ai: #8457ff;
+  --color-ai-soft: #e9e4ff;
+  --color-indigo-deep: #4735b5;
+  --color-cyan-brand: #19c6e8;
+  --color-sky-brand: #55b8ff;
+  --color-coral: #ff716b;
+  --color-mint: #20c997;
+  --color-sun: #ffc857;
+  --color-navy: #10152b;
+  --color-lavender: #f6f4ff;
+  --color-mist: #f0f5ff;
+
+  --color-ink: #10152b;
   /* Card/page surfaces. Unlike white, this flips in dark mode. */
   --color-surface: #ffffff;
 }
 
 :root {
   color-scheme: light;
-  --btn-solid-bg: #0a0a0b;
+  --color-slate-50: #f8faff;
+  --btn-solid-bg: #10152b;
   --btn-solid-fg: #ffffff;
   --card-shine: rgb(255 255 255 / 0);
 }
@@ -32,26 +47,26 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
   --btn-solid-bg: #ffffff;
-  --btn-solid-fg: #050505;
+  --btn-solid-fg: #0a0f22;
   --card-shine: rgb(255 255 255 / 0.045);
-  --color-surface: #0c0c0e;
-  --color-slate-50: #050505;
-  --color-slate-100: #141416;
-  --color-slate-200: #27272a;
-  --color-slate-300: #3f3f46;
-  --color-slate-400: #52525b;
-  --color-slate-500: #71717a;
-  --color-slate-600: #a1a1aa;
-  --color-slate-700: #d4d4d8;
-  --color-slate-800: #e4e4e7;
-  --color-slate-900: #fafafa;
-  --color-ink: #f4f4f5;
-  --color-brand-50: #170f2b;
-  --color-brand-100: #21153d;
-  --color-brand-200: #3b2566;
-  --color-brand-300: #6d28d9;
-  --color-brand-700: #c4b5fd;
-  --color-brand-800: #ddd6fe;
+  --color-surface: #10172f;
+  --color-slate-50: #0a0f22;
+  --color-slate-100: #171f3f;
+  --color-slate-200: #27315a;
+  --color-slate-300: #3a4678;
+  --color-slate-400: #5b678f;
+  --color-slate-500: #8691b5;
+  --color-slate-600: #aab3d1;
+  --color-slate-700: #d5daee;
+  --color-slate-800: #e6e9f6;
+  --color-slate-900: #f6f8ff;
+  --color-ink: #f0f3ff;
+  --color-brand-50: #141b45;
+  --color-brand-100: #1c2559;
+  --color-brand-200: #2d3b8c;
+  --color-brand-300: #4263ff;
+  --color-brand-700: #a3b8ff;
+  --color-brand-800: #c9d6ff;
   --color-emerald-50: #06281c;
   --color-emerald-100: #0a3a28;
   --color-emerald-200: #115e3f;
@@ -72,34 +87,34 @@
   --color-sky-200: #0c4a6e;
   --color-sky-700: #7dd3fc;
   --color-sky-800: #bae6fd;
-  --color-indigo-50: #170f2b;
-  --color-indigo-200: #3b2566;
-  --color-indigo-700: #c4b5fd;
+  --color-indigo-50: #141b45;
+  --color-indigo-200: #2d3b8c;
+  --color-indigo-700: #a3b8ff;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
     --btn-solid-bg: #ffffff;
-    --btn-solid-fg: #050505;
+    --btn-solid-fg: #0a0f22;
     --card-shine: rgb(255 255 255 / 0.045);
-    --color-surface: #0c0c0e;
-    --color-slate-50: #050505;
-    --color-slate-100: #141416;
-    --color-slate-200: #27272a;
-    --color-slate-300: #3f3f46;
-    --color-slate-400: #52525b;
-    --color-slate-500: #71717a;
-    --color-slate-600: #a1a1aa;
-    --color-slate-700: #d4d4d8;
-    --color-slate-800: #e4e4e7;
-    --color-slate-900: #fafafa;
-    --color-ink: #f4f4f5;
-    --color-brand-50: #170f2b;
-    --color-brand-100: #21153d;
-    --color-brand-200: #3b2566;
-    --color-brand-300: #6d28d9;
-    --color-brand-700: #c4b5fd;
-    --color-brand-800: #ddd6fe;
+    --color-surface: #10172f;
+    --color-slate-50: #0a0f22;
+    --color-slate-100: #171f3f;
+    --color-slate-200: #27315a;
+    --color-slate-300: #3a4678;
+    --color-slate-400: #5b678f;
+    --color-slate-500: #8691b5;
+    --color-slate-600: #aab3d1;
+    --color-slate-700: #d5daee;
+    --color-slate-800: #e6e9f6;
+    --color-slate-900: #f6f8ff;
+    --color-ink: #f0f3ff;
+    --color-brand-50: #141b45;
+    --color-brand-100: #1c2559;
+    --color-brand-200: #2d3b8c;
+    --color-brand-300: #4263ff;
+    --color-brand-700: #a3b8ff;
+    --color-brand-800: #c9d6ff;
     --color-emerald-50: #06281c;
     --color-emerald-100: #0a3a28;
     --color-emerald-200: #115e3f;
@@ -120,15 +135,29 @@
     --color-sky-200: #0c4a6e;
     --color-sky-700: #7dd3fc;
     --color-sky-800: #bae6fd;
-    --color-indigo-50: #170f2b;
-    --color-indigo-200: #3b2566;
-    --color-indigo-700: #c4b5fd;
+    --color-indigo-50: #141b45;
+    --color-indigo-200: #2d3b8c;
+    --color-indigo-700: #a3b8ff;
   }
 }
 
 body {
-  background: var(--color-slate-50);
+  background:
+    radial-gradient(900px 520px at 92% -8%, rgb(132 87 255 / 0.1), transparent 60%),
+    radial-gradient(800px 480px at -6% 2%, rgb(25 198 232 / 0.09), transparent 58%),
+    var(--color-slate-50);
+  background-repeat: no-repeat;
   color: var(--color-ink);
+}
+:root[data-theme="dark"] body {
+  background:
+    radial-gradient(900px 520px at 92% -8%, rgb(132 87 255 / 0.18), transparent 60%),
+    radial-gradient(800px 480px at -6% 2%, rgb(25 198 232 / 0.12), transparent 58%),
+    var(--color-slate-50);
+  background-repeat: no-repeat;
+}
+h1, h2, h3 {
+  letter-spacing: -0.025em;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -140,10 +169,10 @@ body {
   }
 }
 
-/* Headings: the serif reads best light, so it overrides font-bold/-extrabold. */
+/* Headings: one bold sans family across the product. */
 .font-display {
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 /* Buttons are fluid capsules: a liquid violet->cyan glow pools under the
@@ -160,9 +189,9 @@ body {
 }
 @utility btn-primary {
   @apply btn;
-  background: var(--btn-solid-bg);
-  color: var(--btn-solid-fg);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.15), 0 1px 2px rgb(0 0 0 / 0.25);
+  background: linear-gradient(135deg, #4263ff 0%, #6a5bff 55%, #8457ff 100%);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 8px 22px -8px rgb(66 99 255 / 0.65);
   &::before {
     content: "";
     position: absolute;
@@ -171,14 +200,15 @@ body {
     border-radius: inherit;
     opacity: 0;
     background:
-      radial-gradient(140px circle at var(--mx, 50%) var(--my, 50%), rgb(255 255 255 / 0.32), transparent 60%),
-      linear-gradient(115deg, #6d28d9, #4f46e5 45%, #0891b2);
+      radial-gradient(140px circle at var(--mx, 50%) var(--my, 50%), rgb(255 255 255 / 0.35), transparent 60%),
+      linear-gradient(115deg, #8457ff, #4263ff 50%, #19c6e8);
     transform: scale(0.6);
     transition: opacity 500ms cubic-bezier(0.25, 1, 0.5, 1), transform 700ms cubic-bezier(0.25, 1, 0.5, 1);
   }
   &:hover:not(:disabled) {
     color: #fff;
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 10px 30px -10px rgb(124 58 237 / 0.6);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.3), 0 14px 34px -10px rgb(66 99 255 / 0.8);
+    transform: translateY(-1px);
   }
   &:hover:not(:disabled)::before {
     opacity: 1;
@@ -195,7 +225,7 @@ body {
     z-index: -1;
     border-radius: inherit;
     opacity: 0;
-    background: radial-gradient(180px circle at var(--mx, 50%) var(--my, 50%), rgb(139 92 246 / 0.22), transparent 65%);
+    background: radial-gradient(180px circle at var(--mx, 50%) var(--my, 50%), rgb(66 99 255 / 0.16), transparent 65%);
     transition: opacity 500ms cubic-bezier(0.25, 1, 0.5, 1);
   }
   &:hover:not(:disabled) {
@@ -209,8 +239,24 @@ body {
     @apply btn text-slate-600 hover:bg-slate-100 hover:text-slate-900;
 }
 @utility card {
-    @apply rounded-2xl border border-slate-200 bg-surface shadow-sm;
-    box-shadow: inset 0 1px 0 var(--card-shine), 0 1px 2px rgb(0 0 0 / 0.04);
+    @apply border border-slate-200 bg-surface;
+    border-radius: 1.125rem;
+    box-shadow: inset 0 1px 0 var(--card-shine), 0 1px 2px rgb(16 21 43 / 0.04), 0 10px 30px -18px rgb(16 21 43 / 0.14);
+}
+/* Add to a card that is clickable or worth highlighting. */
+@utility card-hover {
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 300ms ease, border-color 300ms ease;
+    &:hover {
+        transform: translateY(-3px);
+        border-color: var(--color-brand-300);
+        box-shadow: 0 2px 4px rgb(16 21 43 / 0.05), 0 22px 44px -20px rgb(66 99 255 / 0.4);
+    }
+}
+@utility gradient-text {
+    background: linear-gradient(100deg, #4263ff 0%, #8457ff 55%, #19c6e8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 @utility input {
     @apply w-full rounded-xl border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none;
@@ -236,7 +282,7 @@ body {
   color-scheme: dark;
   background: var(--lux-bg);
   color: #fff;
-  font-family: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   letter-spacing: -0.011em;
 }
 .lux ::selection {
@@ -244,7 +290,7 @@ body {
   color: #fff;
 }
 .lux-serif {
-  font-family: var(--font-playfair), ui-serif, Georgia, serif;
+  font-family: var(--font-instrument), ui-serif, Georgia, serif;
   letter-spacing: -0.02em;
   font-weight: 500;
 }
@@ -642,3 +688,78 @@ body {
   box-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 24px 60px -40px rgb(76 29 149 / 0.25);
 }
 :root[data-theme="light"] .lux .bento:hover { border-color: #d4d4d8; }
+
+/* ---------------------------------------------------------------------------
+   Page shell: use the screen (96% of it, up to 4K), keep text blocks readable
+   with their own max-widths.
+--------------------------------------------------------------------------- */
+@utility shell {
+  width: min(96%, 3200px);
+  margin-inline: auto;
+}
+
+/* Fluid root size: 16px up to Full HD, growing to 22px on QHD/4K so type and spacing scale together. */
+html {
+  font-size: clamp(16px, 0.5vw + 6.4px, 22px);
+}
+
+/* ---------------------------------------------------------------------------
+   Animated résumé + floating cards (marketing pages). transform/opacity only.
+--------------------------------------------------------------------------- */
+/* Floating UI cards around the hero scene. */
+.float-a { animation: float-a 6s ease-in-out infinite; }
+.float-b { animation: float-b 7.5s ease-in-out infinite; }
+.float-c { animation: float-a 8.5s ease-in-out infinite -3s; }
+@keyframes float-a { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes float-b { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(8px) rotate(1deg); } }
+
+/* Animated résumé: lines write themselves in, keywords pop, the ATS ring fills. 9s loop. */
+@property --ats {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+.rs-line { transform-origin: left center; animation: rs-write 9s cubic-bezier(0.22, 1, 0.36, 1) infinite; animation-delay: calc(var(--i, 0) * 140ms); }
+.rs-pop { animation: rs-pop 9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; animation-delay: calc(1.6s + var(--i, 0) * 260ms); }
+.rs-ring { animation: rs-ring 9s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+.rs-score { animation: rs-score 9s cubic-bezier(0.22, 1, 0.36, 1) infinite; counter-reset: ats var(--ats); }
+.rs-score::after { content: counter(ats); }
+.rs-scan { animation: rs-scan 9s ease-in-out infinite; }
+@keyframes rs-write { 0% { transform: scaleX(0); opacity: 0.3; } 10%, 90% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+@keyframes rs-pop { 0%, 3% { transform: scale(0); opacity: 0; } 10%, 90% { transform: scale(1); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+@keyframes rs-ring { 0%, 12% { stroke-dashoffset: var(--full); } 40%, 90% { stroke-dashoffset: var(--rest); } 100% { stroke-dashoffset: var(--rest); opacity: 0; } }
+@keyframes rs-score { 0%, 12% { --ats: 0; } 40%, 100% { --ats: var(--to, 92); } }
+@keyframes rs-scan { 0%, 8% { transform: translateY(0); opacity: 0; } 14% { opacity: 0.9; } 40% { transform: translateY(var(--h, 300px)); opacity: 0.9; } 46%, 100% { transform: translateY(var(--h, 300px)); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .float-a, .float-b, .float-c, .rs-line, .rs-pop, .rs-ring, .rs-score, .rs-scan { animation: none !important; }
+  .rs-ring { stroke-dashoffset: var(--rest) !important; }
+  .rs-score { --ats: var(--to, 92); }
+}
+
+/* Illustration backdrops */
+.scene-bg { background: linear-gradient(135deg, #e9e4ff 0%, #dbe6ff 55%, #d2f2fb 100%); }
+:root[data-theme="dark"] .scene-bg { background: linear-gradient(135deg, #1e2766 0%, #17265a 55%, #12354d 100%); }
+.scene-dots {
+  background-image: radial-gradient(rgb(66 99 255 / 0.22) 1.2px, transparent 1.4px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, #000, transparent 70%);
+}
+/* Dark navy band for promotional sections. */
+.band-navy {
+  background:
+    radial-gradient(700px 360px at 15% 0%, rgb(132 87 255 / 0.45), transparent 60%),
+    radial-gradient(700px 360px at 90% 100%, rgb(25 198 232 / 0.3), transparent 60%),
+    linear-gradient(160deg, #10152b, #1a2160 70%, #232b7a);
+  color: #fff;
+}
+
+/* Page transitions and menus */
+.page-in { animation: page-in 380ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes page-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.menu-in { transform-origin: top right; animation: menu-in 180ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes menu-in { from { opacity: 0; transform: translateY(-6px) scale(0.97); } to { opacity: 1; transform: none; } }
+
+/* Warm paper background for editorial sections. */
+.bg-cream { background-color: #f7f3ec; }
+:root[data-theme="dark"] .bg-cream { background-color: var(--color-slate-50); }

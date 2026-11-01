@@ -8,7 +8,7 @@ export const metadata = { title: "Save-to-CareerMatch button" };
 export default async function ToolsPage() {
   await requireUser();
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="w-full">
       <PageHeader title="Save jobs from any site" subtitle="One click sends the job you're looking at to CareerMatch for matching and tailoring." />
       <div className="card space-y-5 p-6 text-sm text-slate-700">
         <ol className="list-decimal space-y-2 pl-5">

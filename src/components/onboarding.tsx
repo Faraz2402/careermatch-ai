@@ -63,9 +63,9 @@ export function OnboardingFlow({ aiEnabled }: { aiEnabled: boolean }) {
 
   if (parsed)
     return (
-      <div className="mx-auto max-w-3xl">
+      <div className="w-full">
         <Steps current={1} />
-        <h1 className="font-display text-2xl font-extrabold">Review your profile</h1>
+        <h1 className="font-serif text-4xl font-normal">Review your profile</h1>
         <p className="mt-1 mb-5 text-sm text-slate-600">
           We extracted the details below{parsed.parsedBy !== "heuristic" ? " with AI" : ""}. Correct anything that&apos;s off — this becomes your profile and powers job matching.
         </p>
@@ -80,9 +80,9 @@ export function OnboardingFlow({ aiEnabled }: { aiEnabled: boolean }) {
     );
 
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="w-full">
       <Steps current={0} />
-      <h1 className="font-display text-2xl font-extrabold">Add your resume</h1>
+      <h1 className="font-serif text-4xl font-normal">Add your resume</h1>
       <p className="mt-1 text-sm text-slate-600">Upload a PDF or DOCX, or paste the text. You&apos;ll review everything before it&apos;s saved.</p>
       <p className="mt-2 rounded-lg bg-sky-50 px-3 py-2 text-xs text-sky-800 ring-1 ring-sky-200">💡 <b>Coming from LinkedIn?</b> Open your LinkedIn profile → <i>More</i> → <i>Save to PDF</i>, then upload that file here. We read LinkedIn&apos;s export layout — no scraping or LinkedIn login needed.</p>
 
