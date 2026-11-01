@@ -9,6 +9,7 @@ import { getCurrentUser } from "@/lib/auth";
 import { paymentMethods } from "@/lib/billing";
 import { LEGAL } from "@/lib/legal";
 import { billingConfigured, PLANS, planOf, proPrices } from "@/lib/plans";
+import { FREE_TEMPLATE_IDS, TEMPLATES } from "@/lib/templates/catalog";
 
 export const metadata: Metadata = {
   title: "Pricing: Free & Pro Plans in ₹",
@@ -24,7 +25,9 @@ const n = (v: number | null, unit = "") => (v === null ? "Unlimited" : `${v}${un
 const FEATURES: [string, string, string, string][] = [
   ["AI actions", "Tailored résumés, cover letters, match analyses, gap reports and interview practice.", `${pro.aiActionsPerMonth} / month`, `${free.aiActionsPerMonth} / month`],
   ["Job analyses", "The employer's own apply link, the full job description and market salary in ₹ for a job.", "Unlimited*", n(free.jobAnalysesPerMonth, " / month")],
-  ["Résumé export to PDF & Word", "ATS-safe templates (Classic, Modern, Compact), ready to upload.", "Unlimited", n(free.resumeExports, " résumé")],
+  ["Make Resume & Cover Letter Studio", "Keyword gap with evidence, every bullet rewritten for the job (you approve each one), the matching cover letter and your before → after ATS estimate.", "Every job", n(free.tailorDrafts, " job")],
+  ["Résumé templates", `Original templates for India and 40+ markets: ATS-first and visual designs, country date formats and conventions.`, `All ${TEMPLATES.length}`, `${FREE_TEMPLATE_IDS.length} free`],
+  ["Résumé export to PDF & Word", "Selectable-text PDF and editable Word, plus a plain ATS-first version for job portals.", "Unlimited", n(free.resumeExports, " résumé")],
   ["Cover-letter export", "Download cover letters as PDF or Word.", "Unlimited", n(free.coverLetterExports, " cover letter")],
   ["Daily 7 AM job email", "Your best new matches every morning, with scores and skills.", "Included", "—"],
   ["Résumé versions", "A version per role, so every application is on target.", `${pro.resumeVersions}`, `${free.resumeVersions}`],

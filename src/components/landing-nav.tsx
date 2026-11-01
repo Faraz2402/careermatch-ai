@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 
 const LINKS = [
   { href: "#product", label: "Product" },
+  { href: "#features", label: "Features" },
   { href: "#method", label: "Method" },
   { href: "/pricing", label: "Pricing" },
 ];

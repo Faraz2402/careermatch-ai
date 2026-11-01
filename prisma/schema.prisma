@@ -43,6 +43,8 @@ model User {
   savedSearches  SavedSearch[]
   usage          UsageEvent[]
   payments       Payment[]
+  uploads        ResumeUpload[]
+  tailorDrafts   TailorDraft[]
 }
 
 model Session {
@@ -138,8 +140,9 @@ model Job {
   /// "auto" or the reporting user's id
   expiredBy      String?
 
-  states      UserJob[]
-  generations Generation[]
+  states       UserJob[]
+  generations  Generation[]
+  tailorDrafts TailorDraft[]
 
   @@index([source, lastSeenAt])
   @@index([country, city])
@@ -183,6 +186,43 @@ model Generation {
   job       Job?     @relation(fields: [jobId], references: [id], onDelete: SetNull)
 
   @@index([userId, createdAt])
+}
+
+/// Every résumé file a user uploads, kept exactly as uploaded (never overwritten).
+model ResumeUpload {
+  id          String   @id @default(cuid())
+  userId      String
+  fileName    String
+  mimeType    String
+  size        Int
+  /// Original file bytes, base64 (encrypted at rest)
+  data        String
+  /// Text extracted from the file (encrypted at rest)
+  text        String
+  /// "text" (read directly) | "ocr" (scanned PDF read by AI; lower confidence)
+  extractedBy String   @default("text")
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+}
+
+/// One tailored application (résumé + cover letter) for a job or a pasted job description.
+model TailorDraft {
+  id         String   @id @default(cuid())
+  userId     String
+  jobId      String?
+  name       String
+  country    String   @default("IN")
+  templateId String   @default("in-corporate-ats")
+  /// JSON TailorState: job text, analysis, selections, proposals, accepted résumé, letter, scores, history (encrypted at rest)
+  state      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job        Job?     @relation(fields: [jobId], references: [id], onDelete: SetNull)
+
+  @@index([userId, updatedAt])
 }
 
 model ResumeVersion {

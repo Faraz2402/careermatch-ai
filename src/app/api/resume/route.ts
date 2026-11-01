@@ -4,6 +4,7 @@ import { DEMO_RESUME_TEXT } from "@/lib/demo-resume";
 import { rateLimit } from "@/lib/rate-limit";
 import { extractResumeText, normalize } from "@/lib/resume/extract";
 import { parseResume } from "@/lib/resume/parse";
+import { saveUpload } from "@/lib/resume/uploads";
 
 export const runtime = "nodejs";
 
@@ -19,6 +20,7 @@ export async function POST(req: Request) {
 
   let text = "";
   let format = "text";
+  let upload: { file: File; result: Awaited<ReturnType<typeof extractResumeText>> } | null = null;
   const type = req.headers.get("content-type") ?? "";
   try {
     if (type.includes("multipart/form-data")) {
@@ -28,6 +30,7 @@ export async function POST(req: Request) {
       const res = await extractResumeText(file);
       text = res.text;
       format = res.format;
+      upload = { file, result: res };
     } else {
       const body = (await req.json().catch(() => ({}))) as { text?: string; demo?: boolean };
       text = body.demo ? DEMO_RESUME_TEXT : normalize(String(body.text ?? ""));
@@ -44,6 +47,10 @@ export async function POST(req: Request) {
     );
   if (text.length > 100_000) return jsonError("That resume is too long (over 100k characters).");
 
+  // Keep the original file exactly as uploaded (the immutable source of the master résumé).
+  const uploadId = upload ? await saveUpload(user.id, upload.file.name, upload.result) : null;
+  const ocr = upload?.result.ocr ?? false;
   const outcome = await parseResume(text);
-  return NextResponse.json({ ...outcome, text, format });
+  const warning = [ocr && "This PDF is a scanned image, so its text was read by AI. Check every section carefully before saving.", outcome.warning].filter(Boolean).join(" ");
+  return NextResponse.json({ ...outcome, text, format, uploadId, ocr, ...(warning && { warning }) });
 }

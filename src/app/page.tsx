@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { DemoButton } from "@/components/client";
 import { JsonLd, organization, softwareApplication } from "@/components/json-ld";
+import { FeatureShowcase } from "@/components/feature-showcase";
 import { LandingFx } from "@/components/landing-fx";
 import { LandingNav } from "@/components/landing-nav";
 import type { Metadata } from "next";
@@ -281,6 +282,8 @@ export default async function Landing() {
             </article>
           </div>
         </section>
+
+        <FeatureShowcase />
 
         {/* Method */}
         <section id="method" className="scroll-mt-24 border-t border-[#27272a]">

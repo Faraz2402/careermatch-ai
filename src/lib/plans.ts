@@ -16,6 +16,9 @@ export const PLANS = {
     /** Original posting + full description + market salary (uses web search). */
     jobAnalysesPerMonth: 3,
     dailyEmail: false,
+    /** Studio: tailored applications (résumé + cover letter for one job). */
+    tailorDrafts: 1,
+    premiumTemplates: false,
   },
   pro: {
     name: "Pro",
@@ -26,6 +29,8 @@ export const PLANS = {
     coverLetterExports: null,
     jobAnalysesPerMonth: null,
     dailyEmail: true,
+    tailorDrafts: null,
+    premiumTemplates: true,
   },
 } as const;
 

@@ -12,7 +12,8 @@ import { useToast } from "./toast";
 export type Gen = { id: string; content: unknown; finalContent: unknown | null; engine: string; createdAt: string; warning?: string; resumeVersionId: string | null };
 export type BaseResume = { id: string | null; name: string; data: ResumeData };
 
-const ORDER: Kind[] = ["match_analysis", "missing_skills", "ats_resume", "cover_letter", "talking_points"];
+// Tailored résumés and cover letters now live in the Studio ("Tailor résumé & cover letter" on this page).
+const ORDER: Kind[] = ["match_analysis", "missing_skills", "talking_points"];
 const SHORT: Record<Kind, string> = { match_analysis: "Match", missing_skills: "Gaps", ats_resume: "ATS resume", cover_letter: "Cover letter", talking_points: "Talking points" };
 const EXPORTABLE: Kind[] = ["ats_resume", "cover_letter"];
 
@@ -75,6 +76,7 @@ export function GeneratorPanel({ jobId, labels, initial, aiEnabled, bases, expor
         <p className="mt-1 text-xs text-slate-500">
           {aiEnabled ? "Generated with AI from your resume only — it won't invent experience." : "AI isn't configured, so drafts are rule-based templates built from your resume."}
         </p>
+        <p className="mt-2 rounded-lg bg-violet-500/10 p-2 text-xs text-slate-600">For a tailored résumé and cover letter, use <b>Tailor résumé &amp; cover letter</b> at the top of this page.</p>
         <label className="mt-3 flex items-center gap-2 text-xs text-slate-600">
           Base resume
           <select className="input py-1 text-xs" value={baseId ?? ""} onChange={(e) => setBaseId(e.target.value || null)}>

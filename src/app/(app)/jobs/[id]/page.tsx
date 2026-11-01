@@ -20,7 +20,8 @@ import { scoreJob } from "@/lib/jobs/rank";
 import { sourceMeta } from "@/lib/jobs/registry";
 import { formatUsdK } from "@/lib/jobs/salary";
 import { jobRowToNormalized, loadMatchContext, salaryInsightFor } from "@/lib/jobs/service";
-import { exportNote } from "@/lib/plans";
+import { exportNote, PLANS, planOf } from "@/lib/plans";
+import { TailorLauncher } from "@/components/studio/tailor-launcher";
 import { getProfile } from "@/lib/profile";
 import { emptyResume, type ResumeData } from "@/lib/resume/schema";
 
@@ -91,6 +92,7 @@ export default async function JobPage({ params }: Props) {
                 <span>Posted {relativeDate(job.postedAt).toLowerCase()}</span>
               </div>
               {job.expiredAt && <ExpiredBadge className="mt-3" />}
+              <div className="mt-4"><TailorLauncher jobId={id} canUsePro={PLANS[planOf(user)].premiumTemplates} /></div>
             </div>
             <ScoreRing value={match.score} size={76} label="Match score" />
           </div>

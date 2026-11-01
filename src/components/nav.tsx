@@ -10,6 +10,7 @@ import { ThemeToggle } from "./theme";
 const LINKS = [
   { href: "/dashboard", label: "Dashboard" },
   { href: "/jobs", label: "Jobs" },
+  { href: "/studio", label: "Make Resume & Cover Letter" },
   { href: "/applications", label: "Applications" },
   { href: "/profile", label: "Profile" },
   { href: "/resumes", label: "Resumes" },
