@@ -3,6 +3,7 @@ import Link from "next/link";
 import { JsonLd, softwareApplication } from "@/components/json-ld";
 import { LandingFx } from "@/components/landing-fx";
 import { PlanPicker } from "@/components/plan-picker";
+import { ThemeToggle } from "@/components/theme";
 import { Logo } from "@/components/ui";
 import { getCurrentUser } from "@/lib/auth";
 import { LEGAL } from "@/lib/legal";
@@ -83,7 +84,10 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
       <div aria-hidden className="lux-aurora pointer-events-none absolute -top-72 left-1/2 h-[640px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.13),rgba(8,145,178,0.04)_55%,transparent)] blur-xl" />
       <header className="relative mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
         <Logo />
-        <Link href={user ? "/dashboard" : "/login"} className="btn-ghost">{user ? "Dashboard" : "Sign in"}</Link>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Link href={user ? "/dashboard" : "/login"} className="btn-ghost">{user ? "Dashboard" : "Sign in"}</Link>
+        </div>
       </header>
 
       <main className="relative mx-auto max-w-5xl px-4 pt-10 pb-16 sm:px-6">

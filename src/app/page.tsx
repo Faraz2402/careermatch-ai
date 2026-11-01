@@ -5,6 +5,7 @@ import { JsonLd, organization, softwareApplication } from "@/components/json-ld"
 import { FeatureShowcase } from "@/components/feature-showcase";
 import { LandingFx } from "@/components/landing-fx";
 import { LandingNav } from "@/components/landing-nav";
+import { ThemeToggle } from "@/components/theme";
 import type { Metadata } from "next";
 import { getCurrentUser } from "@/lib/auth";
 import { LEGAL_LINKS } from "@/lib/legal";
@@ -51,9 +52,9 @@ function Ring({ value }: { value: number }) {
           <stop offset="100%" stopColor="#22d3ee" />
         </linearGradient>
       </defs>
-      <circle cx="32" cy="32" r="26" fill="none" stroke="#27272a" strokeWidth="4" />
+      <circle cx="32" cy="32" r="26" fill="none" stroke="var(--lux-line)" strokeWidth="4" />
       <circle cx="32" cy="32" r="26" fill="none" stroke="url(#lux-ring)" strokeWidth="4" strokeLinecap="round" strokeDasharray={`${(c * value) / 100} ${c}`} transform="rotate(-90 32 32)" />
-      <text x="32" y="37" textAnchor="middle" fill="#fff" fontSize="15" fontWeight="600">{value}</text>
+      <text x="32" y="37" textAnchor="middle" fill="currentColor" fontSize="15" fontWeight="600">{value}</text>
     </svg>
   );
 }
@@ -85,24 +86,25 @@ export default async function Landing() {
       {/* Ambient light */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[900px] overflow-hidden">
         <div className="lux-aurora absolute -top-64 left-1/2 h-[720px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.16),rgba(8,145,178,0.05)_55%,transparent)] blur-xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,#050505_85%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,var(--lux-bg)_85%)]" />
       </div>
 
       {/* Nav */}
-      <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-[#050505]/70 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-8">
-          <Link href="/" className="flex items-center gap-2.5" aria-label="CareerMatch AI home">
-            <Image src="/brand/mark.png" alt="" width={32} height={32} priority unoptimized className="size-8" />
-            <span className="lux-serif text-xl">CareerMatch</span>
+      <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-[color-mix(in_srgb,var(--lux-bg)_70%,transparent)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 sm:gap-4 py-3.5 sm:px-8">
+          <Link href="/" className="flex items-center gap-2 sm:gap-2.5" aria-label="CareerMatch AI home">
+            <Image src="/brand/mark.png" alt="" width={32} height={32} priority unoptimized className="size-7 sm:size-8" />
+            <span className="lux-serif text-lg sm:text-xl">CareerMatch</span>
           </Link>
           <LandingNav className="hidden md:block" />
           <div className="flex items-center gap-2">
+            <ThemeToggle className="sm:mr-1" />
             {user ? (
-              <Link href="/dashboard" className="btn-fluid !px-5 !py-2.5">Dashboard <span className="arrow">→</span></Link>
+              <Link href="/dashboard" className="btn-fluid !px-4 !py-2.5 sm:!px-5">Dashboard <span className="arrow hidden sm:inline">→</span></Link>
             ) : (
               <>
                 <Link href="/login" className="hidden px-3 py-2 text-[15px] text-[#d4d4d8] transition hover:text-white sm:block">Sign in</Link>
-                <Link href="/signup" className="btn-fluid !px-5 !py-2.5">Get started <span className="arrow">→</span></Link>
+                <Link href="/signup" className="btn-fluid !px-4 !py-2.5 sm:!px-5">Get started <span className="arrow hidden sm:inline">→</span></Link>
               </>
             )}
           </div>

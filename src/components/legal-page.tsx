@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ThemeToggle } from "@/components/theme";
 import { Logo } from "@/components/ui";
 import { LAWS, LEGAL, LEGAL_LINKS } from "@/lib/legal";
 
@@ -14,6 +15,7 @@ export function LegalPage({ title, intro, sections, references, effective = LEGA
           <Logo />
           <nav className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1 text-sm text-slate-600" aria-label="Legal">
             {LEGAL_LINKS.map((l) => <Link key={l.href} href={l.href} className="hover:text-slate-900">{l.short}</Link>)}
+            <ThemeToggle />
           </nav>
         </div>
       </header>

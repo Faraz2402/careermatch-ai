@@ -471,3 +471,174 @@ body {
   height: 44px;
   margin: -22px 0 0 -22px;
 }
+
+/* ---------------------------------------------------------------------------
+   Theme switch: pill with a glowing, rotating rim and a sliding knob.
+   Literal colours so it looks the same on the app and the marketing pages.
+--------------------------------------------------------------------------- */
+@property --pill-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.theme-pill {
+  --pill-angle: 0deg;
+  position: relative;
+  flex: none;
+  display: inline-flex;
+  padding: 1.5px;
+  border-radius: 9999px;
+  cursor: pointer;
+  background: conic-gradient(from var(--pill-angle), #f59e0b, #f472b6, #8b5cf6, #22d3ee, #f59e0b);
+  box-shadow: 0 0 10px -1px rgb(245 158 11 / 0.55), 0 0 18px -4px rgb(244 114 182 / 0.45);
+  animation: pill-spin 4s linear infinite;
+  transition: box-shadow 0.4s ease, transform 0.2s ease;
+}
+:root[data-theme="dark"] .theme-pill {
+  background: conic-gradient(from var(--pill-angle), #8b5cf6, #22d3ee, #6366f1, #c084fc, #8b5cf6);
+  box-shadow: 0 0 12px -1px rgb(139 92 246 / 0.7), 0 0 22px -4px rgb(34 211 238 / 0.5);
+}
+.theme-pill:hover {
+  transform: scale(1.05);
+}
+.theme-pill:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 3px;
+}
+.theme-pill-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 3.5rem;
+  height: 1.75rem;
+  padding: 0 0.4rem;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #fff7ed, #fde68a);
+  transition: background 0.4s ease;
+}
+:root[data-theme="dark"] .theme-pill .theme-pill-track {
+  background: linear-gradient(180deg, #1e1b4b, #0b0b14);
+}
+.theme-pill-icon {
+  display: grid;
+  color: #b45309;
+  opacity: 0.55;
+}
+:root[data-theme="dark"] .theme-pill .theme-pill-icon {
+  color: #a5b4fc;
+}
+.theme-pill-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  display: grid;
+  place-items: center;
+  width: calc(1.75rem - 6px);
+  height: calc(1.75rem - 6px);
+  border-radius: 9999px;
+  color: #b45309;
+  background: radial-gradient(circle at 35% 30%, #fff, #fef3c7 60%, #fcd34d);
+  box-shadow: 0 0 10px rgb(251 191 36 / 0.9), 0 1px 3px rgb(0 0 0 / 0.25);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+}
+:root[data-theme="dark"] .theme-pill .theme-pill-knob {
+  transform: translateX(1.75rem) rotate(-360deg);
+  color: #e0e7ff;
+  background: radial-gradient(circle at 35% 30%, #a5b4fc, #6366f1 60%, #4338ca);
+  box-shadow: 0 0 12px rgb(129 140 248 / 0.95), 0 1px 3px rgb(0 0 0 / 0.4);
+}
+/* The knob shows the active mode; driven by the root attribute so it is right before hydration. */
+.theme-pill-knob .moon,
+:root[data-theme="dark"] .theme-pill-knob .sun { display: none; }
+:root[data-theme="dark"] .theme-pill-knob .moon { display: grid; }
+@keyframes pill-spin {
+  to {
+    --pill-angle: 360deg;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-pill {
+    animation: none;
+  }
+  .theme-pill-knob {
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Marketing site, light mode. The dark design above stays the source of truth;
+   this remaps its literal white-on-black utilities when the switch is on light.
+--------------------------------------------------------------------------- */
+:root[data-theme="light"] .lux {
+  --lux-bg: #fafaf9;
+  --lux-raise: #ffffff;
+  --lux-line: #e4e4e7;
+  --lux-muted: #71717a;
+  --lux-soft: #52525b;
+  color-scheme: light;
+  color: #0a0a0a;
+}
+:root[data-theme="light"] .lux ::selection { color: #0a0a0a; }
+:root[data-theme="light"] .lux .text-white,
+:root[data-theme="light"] .lux .hover\:text-white:hover { color: #0a0a0a; }
+:root[data-theme="light"] .lux .text-white\/90 { color: rgb(10 10 10 / 0.9); }
+:root[data-theme="light"] .lux .text-white\/80 { color: rgb(10 10 10 / 0.8); }
+:root[data-theme="light"] .lux .text-white\/70 { color: rgb(10 10 10 / 0.72); }
+:root[data-theme="light"] .lux .text-white\/60,
+:root[data-theme="light"] .lux .text-white\/55 { color: rgb(10 10 10 / 0.64); }
+:root[data-theme="light"] .lux .text-white\/50,
+:root[data-theme="light"] .lux .text-white\/45 { color: rgb(10 10 10 / 0.56); }
+:root[data-theme="light"] .lux .text-\[\#d4d4d8\] { color: #3f3f46; }
+:root[data-theme="light"] .lux .text-\[\#a1a1aa\] { color: #71717a; }
+:root[data-theme="light"] .lux .text-violet-100 { color: #6d28d9; }
+:root[data-theme="light"] .lux .text-amber-300 { color: #b45309; }
+:root[data-theme="light"] .lux .text-emerald-200,
+:root[data-theme="light"] .lux .text-emerald-300 { color: #047857; }
+:root[data-theme="light"] .lux .text-rose-200,
+:root[data-theme="light"] .lux .text-rose-300 { color: #be123c; }
+:root[data-theme="light"] .lux .border-\[\#27272a\] { border-color: #e4e4e7; }
+:root[data-theme="light"] .lux .border-white\/\[0\.06\],
+:root[data-theme="light"] .lux .border-white\/\[0\.07\],
+:root[data-theme="light"] .lux .border-white\/\[0\.08\],
+:root[data-theme="light"] .lux .border-white\/\[0\.09\] { border-color: rgb(0 0 0 / 0.08); }
+:root[data-theme="light"] .lux .border-white\/10 { border-color: rgb(0 0 0 / 0.1); }
+:root[data-theme="light"] .lux .border-white\/15,
+:root[data-theme="light"] .lux .border-white\/20 { border-color: rgb(0 0 0 / 0.14); }
+:root[data-theme="light"] .lux .hover\:border-white\/25:hover { border-color: rgb(0 0 0 / 0.22); }
+:root[data-theme="light"] .lux .divide-white\/\[0\.07\] > * { border-color: rgb(0 0 0 / 0.08); }
+:root[data-theme="light"] .lux .bg-white\/\[0\.03\] { background-color: rgb(255 255 255 / 0.7); }
+:root[data-theme="light"] .lux .bg-white\/5,
+:root[data-theme="light"] .lux .bg-white\/\[0\.06\] { background-color: rgb(0 0 0 / 0.04); }
+:root[data-theme="light"] .lux .bg-white\/10,
+:root[data-theme="light"] .lux .hover\:bg-white\/10:hover { background-color: rgb(0 0 0 / 0.06); }
+:root[data-theme="light"] .lux .bg-black\/30,
+:root[data-theme="light"] .lux .bg-black\/40 { background-color: rgb(0 0 0 / 0.04); }
+:root[data-theme="light"] .lux .bg-white.text-black { background-color: #0a0a0a; color: #fff; }
+:root[data-theme="light"] .lux .from-white\/\[0\.07\] { --tw-gradient-from: #ffffff; }
+:root[data-theme="light"] .lux .to-white\/\[0\.015\] { --tw-gradient-to: #f4f4f5; }
+:root[data-theme="light"] .lux .shadow-\[inset_0_1px_0_rgba\(255\,255\,255\,0\.07\)\] { box-shadow: 0 1px 2px rgb(0 0 0 / 0.06); }
+:root[data-theme="light"] .lux .from-white { --tw-gradient-from: #0a0a0a; }
+:root[data-theme="light"] .lux .to-white\/30 { --tw-gradient-to: rgb(10 10 10 / 0.35); }
+:root[data-theme="light"] .lux-grain { opacity: 0.02; }
+:root[data-theme="light"] .lux-glass {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.92), rgb(255 255 255 / 0.75));
+  border-color: rgb(0 0 0 / 0.08);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.9) inset, 0 30px 70px -35px rgb(76 29 149 / 0.35);
+}
+:root[data-theme="light"] .lux .btn-fluid {
+  color: #0a0a0a;
+  background: rgb(255 255 255 / 0.7);
+  border-color: rgb(0 0 0 / 0.12);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+}
+:root[data-theme="light"] .lux .btn-fluid:hover { color: #fff; border-color: transparent; }
+:root[data-theme="light"] .lux .btn-fluid.is-solid { color: #fff; background: #0a0a0a; border-color: #0a0a0a; }
+:root[data-theme="light"] .lux-sheen {
+  background-image: linear-gradient(110deg, #0a0a0a 35%, #7c3aed 45%, #0891b2 52%, #0a0a0a 62%);
+}
+:root[data-theme="light"] .lux .bento {
+  background: linear-gradient(180deg, #ffffff, #f8f8fa);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 24px 60px -40px rgb(76 29 149 / 0.25);
+}
+:root[data-theme="light"] .lux .bento:hover { border-color: #d4d4d8; }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LEGAL_LINKS } from "@/lib/legal";
 import { NavLinks, UserMenu } from "@/components/nav";
+import { ThemeToggle } from "@/components/theme";
 import { Logo } from "@/components/ui";
 import { requireUser } from "@/lib/auth";
 import { hasSocialLogin } from "@/lib/oauth";
@@ -13,10 +14,11 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-30 border-b border-slate-200 bg-slate-50/75 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3 sm:px-6">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 sm:px-6">
           <Logo />
           <NavLinks />
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center gap-3">
+            <ThemeToggle />
             <UserMenu label={user.isDemo ? "Demo account" : user.name ?? user.email} isAdmin={user.isAdmin} plan={user.plan} />
           </div>
         </div>

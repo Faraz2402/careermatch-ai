@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProfileView } from "@/components/profile-view";
+import { ThemeToggle } from "@/components/theme";
 import { db } from "@/lib/db";
 import { loadPublicProfile } from "@/lib/public-profile";
 
@@ -26,6 +27,7 @@ export default async function PublicProfile({ params }: { params: Promise<{ slug
   if (!p.isOwner && p.isPublic) await db.profile.update({ where: { id: p.id }, data: { views: { increment: 1 } } });
   return (
     <div className="min-h-screen bg-surface">
+      <ThemeToggle className="fixed! top-3 right-3 z-40" />
       {p.isOwner && (
         <div className="flex items-center justify-center gap-3 bg-[#0f172a] px-4 py-2 text-xs text-white">
           {p.isPublic ? `This is your public profile · ${p.views} views` : "Only you can see this — your profile is private."}
