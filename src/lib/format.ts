@@ -31,7 +31,9 @@ export function relativeDate(iso: string | Date | null) {
   const days = Math.floor((Date.now() - d.getTime()) / 86_400_000);
   if (days <= 0) return "Today";
   if (days === 1) return "Yesterday";
-  if (days < 30) return `${days} days ago`;
+  // Days up to 30, so nothing in the "Past month" filter reads as a month or older.
+  if (days <= 30) return `${days} days ago`;
+  if (days < 60) return "Over a month ago";
   if (days < 365) return `${Math.floor(days / 30)} mo ago`;
   return `${Math.floor(days / 365)} yr ago`;
 }

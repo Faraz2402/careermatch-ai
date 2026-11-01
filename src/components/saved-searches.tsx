@@ -13,8 +13,9 @@ export function describeFilters(f: Record<string, unknown>) {
   const parts: string[] = [];
   if (f.q) parts.push(`“${f.q}”`);
   if (f.skills) parts.push(`skills: ${f.skills}`);
-  if (f.city) parts.push(`in ${f.city}`);
-  else if (f.country) parts.push(f.country === "REMOTE" ? "remote anywhere" : `in ${f.country}`);
+  if (f.country === "REMOTE") parts.push(f.city === "WORLDWIDE" ? "remote, worldwide" : f.city ? `remote, open to ${f.city}` : "remote");
+  else if (f.city) parts.push(`in ${f.city}`);
+  else if (f.country) parts.push(`in ${f.country}`);
   else if (f.location) parts.push(`in ${f.location}`);
   if (Array.isArray(f.workMode) && f.workMode.length) parts.push(f.workMode.join("/"));
   if (Array.isArray(f.seniority) && f.seniority.length) parts.push(f.seniority.join("/"));

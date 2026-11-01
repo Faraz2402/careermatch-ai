@@ -7,7 +7,7 @@ import { getBaseResume, getProfile } from "../profile";
 import { defaultPreferences, emptyResume, type JobPreferences, type ResumeData } from "../resume/schema";
 import { embedTexts, embeddingsEnabled } from "./embeddings";
 import { readEnrichment, type JobEnrichment, type JobRequirements, type PostedOn } from "./enrich";
-import { cityMatches, jobAvailableIn, storedGeo } from "../geo/detect";
+import { REMOTE_WORLDWIDE, cityMatches, jobAvailableIn, remoteWorldwide, storedGeo } from "../geo/detect";
 import { fetchForCountry, jobId, MAX_LISTING_AGE_DAYS, refreshSources } from "./ingest";
 import { buildMatchContext, familiesOf, scoreJob, type Feedback, type MatchContext, type MatchResult } from "./rank";
 import { activeSources, sourceMeta } from "./registry";
@@ -284,7 +284,11 @@ export async function searchJobs(userId: string, f: SearchFilters) {
     if (titleTerms.length && !titleTerms.some((t) => `${j.title} ${j.company}`.toLowerCase().includes(t.toLowerCase()))) return false;
     if (skillTerms.length && !matchesKeywords(j, skillTerms)) return false;
     if (country && !jobAvailableIn(storedGeo(j), country, includeRemote)) return false;
-    if (f.city && !cityMatches(j.city, j.location, f.city)) return false;
+    if (f.country === REMOTE_ANYWHERE && f.city) {
+      // With Remote, the second choice is who can take the role: worldwide, or someone in a given country.
+      const g = storedGeo(j);
+      if (f.city === REMOTE_WORLDWIDE ? !remoteWorldwide(g) : !jobAvailableIn(g, f.city.toUpperCase(), true)) return false;
+    } else if (f.city && !cityMatches(j.city, j.location, f.city)) return false;
     if (f.location && j.workMode !== "remote" && !j.location.toLowerCase().includes(f.location.toLowerCase())) return false;
     if (f.jobType?.length && !f.jobType.some((t) => j.employmentType.toLowerCase().includes(t))) return false;
     // De-duplicate the same role cross-posted on several sources.

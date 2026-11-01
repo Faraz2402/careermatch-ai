@@ -8,7 +8,7 @@
 
 import { countryByCode } from "../../geo/detect";
 import type { NormalizedJob, SourceDefinition } from "../types";
-import { USER_AGENT, csvEnv, decodeEntities, detectWorkMode, fetchJson, htmlToText, robotsTxtAllows, toDate } from "../util";
+import { USER_AGENT, csvEnv, decodeEntities, detectWorkMode, fetchJson, htmlToText, robotsTxtAllows, rssItems, rssTag as tag, toDate } from "../util";
 import { forEachBoard, titleCase } from "./employer-boards";
 
 /** ISO codes (upper case) to collect from employer platforms. */
@@ -215,12 +215,6 @@ export const workable: SourceDefinition = {
 
 // --- SAP SuccessFactors (career-site RSS) ----------------------------------
 
-const cdata = (s: string) => s.replace(/^\s*<!\[CDATA\[([\s\S]*?)\]\]>\s*$/, "$1");
-const tag = (xml: string, name: string) => {
-  const m = xml.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`));
-  return m ? cdata(m[1]).trim() : "";
-};
-
 /**
  * Parse a SuccessFactors RSS feed. Titles end with the location in brackets,
  * which sites format differently: "(Pune, IN)", "(Hyderabad, TG, IN, 500032)",
@@ -228,7 +222,7 @@ const tag = (xml: string, name: string) => {
  */
 export function parseSuccessFactorsRss(xml: string, host: string, company: string, countries: string[]): NormalizedJob[] {
   const jobs: NormalizedJob[] = [];
-  for (const [, item] of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
+  for (const item of rssItems(xml)) {
     const rawTitle = htmlToText(tag(item, "title"));
     const m = rawTitle.match(/^(.*)\s+\(([^()]*)\)\s*$/);
     const title = (m ? m[1] : rawTitle).trim();

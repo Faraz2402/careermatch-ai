@@ -15,18 +15,22 @@ export const metadata: Metadata = {
   openGraph: { url: "/", title: "CareerMatch AI: your next role, found, not searched for", description: "Upload your résumé and get jobs ranked for you across India and worldwide: match scores with reasons, skill gaps, employer apply links, salaries in ₹, and AI-tailored résumés and cover letters. Free to start." },
 };
 
-// Employer career-site platforms first, then job boards.
-const SOURCES: { name: string; employer: boolean }[] = [
-  ...["Greenhouse", "Lever", "Ashby", "SmartRecruiters", "Workable", "SuccessFactors", "Oracle"].map((name) => ({ name, employer: true })),
-  ...["Adzuna", "Jooble", "Remotive"].map((name) => ({ name, employer: false })),
+type SourceKind = "employer" | "board" | "remote";
+
+// Employer career-site platforms first, then job boards, then remote-job boards.
+const SOURCES: { name: string; kind: SourceKind }[] = [
+  ...["Greenhouse", "Lever", "Ashby", "SmartRecruiters", "Workable", "SuccessFactors", "Oracle"].map((name) => ({ name, kind: "employer" as const })),
+  ...["Adzuna", "Jooble"].map((name) => ({ name, kind: "board" as const })),
+  ...["We Work Remotely", "Remote OK", "Himalayas", "Jobicy", "Remotive", "Working Nomads", "Real Work From Anywhere"].map((name) => ({ name, kind: "remote" as const })),
 ];
 
-const SourceDot = ({ employer }: { employer: boolean }) => (
-  <span
-    aria-hidden
-    className={`size-1.5 shrink-0 rounded-full ${employer ? "bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.9)]" : "bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.9)]"}`}
-  />
-);
+const DOT: Record<SourceKind, string> = {
+  employer: "bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.9)]",
+  board: "bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.9)]",
+  remote: "bg-emerald-300 shadow-[0_0_10px_rgba(110,231,183,0.9)]",
+};
+
+const SourceDot = ({ kind }: { kind: SourceKind }) => <span aria-hidden className={`size-1.5 shrink-0 rounded-full ${DOT[kind]}`} />;
 
 const STEPS = [
   { n: "01", title: "Drop in your résumé", body: "PDF, DOCX or plain text. AI turns it into a clean, editable profile in seconds." },
@@ -178,9 +182,10 @@ export default async function Landing() {
           <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-7 sm:px-8 md:flex-row md:items-center md:gap-10">
             <div className="shrink-0 space-y-2">
               <p className="text-sm text-[#d4d4d8]">Listings from official APIs and employer feeds</p>
-              <p className="flex gap-4 text-xs text-[#a1a1aa]">
-                <span className="inline-flex items-center gap-1.5"><SourceDot employer /> Employer career sites</span>
-                <span className="inline-flex items-center gap-1.5"><SourceDot employer={false} /> Job boards</span>
+              <p className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#a1a1aa]">
+                <span className="inline-flex items-center gap-1.5"><SourceDot kind="employer" /> Employer career sites</span>
+                <span className="inline-flex items-center gap-1.5"><SourceDot kind="board" /> Job boards</span>
+                <span className="inline-flex items-center gap-1.5"><SourceDot kind="remote" /> Remote boards</span>
               </p>
             </div>
             {/* One line at every width: the list glides sideways (paused on hover); the copy after it makes the loop seamless. */}
@@ -189,7 +194,7 @@ export default async function Landing() {
                 {[...SOURCES, ...SOURCES].map((s, i) => (
                   <li key={i} aria-hidden={i >= SOURCES.length || undefined} className="pr-3">
                     <span className="flex items-center gap-2.5 whitespace-nowrap rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.07] to-white/[0.015] px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] transition-colors duration-300 hover:border-white/25">
-                      <SourceDot employer={s.employer} />
+                      <SourceDot kind={s.kind} />
                       <span className="lux-serif text-[17px] leading-none text-white/90">{s.name}</span>
                     </span>
                   </li>

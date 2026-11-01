@@ -413,7 +413,7 @@ body {
 @keyframes lux-marquee {
   to { transform: translate3d(-50%, 0, 0); }
 }
-.lux-marquee-track { animation: lux-marquee 40s linear infinite; }
+.lux-marquee-track { animation: lux-marquee 60s linear infinite; }
 .lux-marquee:hover .lux-marquee-track { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
   .lux-marquee { overflow-x: auto; }

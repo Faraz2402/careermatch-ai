@@ -130,6 +130,33 @@ export function jobAvailableIn(job: { countries: string[]; remote: boolean; regi
   return job.regions === "any" || (Array.isArray(job.regions) && job.regions.includes(country.region));
 }
 
+/** With the Remote filter, the second dropdown's value for roles open to anyone, anywhere. */
+export const REMOTE_WORLDWIDE = "WORLDWIDE";
+
+/** Is this remote role open worldwide (no country or region limits)? */
+export function remoteWorldwide(job: { countries: string[]; regions: Region[] | "any" | null }) {
+  return job.countries.length === 0 && job.regions === "any";
+}
+
+/**
+ * Remote-job counts for the Remote dropdown: worldwide roles, and per country
+ * the roles someone there can take (same rule as jobAvailableIn).
+ */
+export function remoteCounts(jobs: { countries: string[]; regions: Region[] | "any" | null }[], countryList: { code: string; region: Region }[]) {
+  const direct = new Map<string, number>();
+  const byRegion = new Map<Region, number>();
+  let worldwide = 0;
+  for (const j of jobs) {
+    if (j.countries.length) for (const c of new Set(j.countries)) direct.set(c, (direct.get(c) ?? 0) + 1);
+    else if (j.regions === "any") worldwide++;
+    else if (Array.isArray(j.regions)) for (const r of new Set(j.regions)) byRegion.set(r, (byRegion.get(r) ?? 0) + 1);
+  }
+  return {
+    worldwide,
+    countries: countryList.map((c) => ({ code: c.code, jobs: (direct.get(c.code) ?? 0) + worldwide + (byRegion.get(c.region) ?? 0) })),
+  };
+}
+
 export function cityMatches(jobCity: string | null, jobLocation: string, wanted: string) {
   if (jobCity && jobCity.toLowerCase() === wanted.toLowerCase()) return true;
   return [wanted, ...(CITY_ALIASES[wanted] ?? [])].some((n) => wordRe(n).test(jobLocation));

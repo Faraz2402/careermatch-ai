@@ -39,6 +39,15 @@ export function robotsTxtAllows(robotsTxt: string, path: string) {
   return longest(allow) >= longest(disallow);
 }
 
+/** The <item> blocks of an RSS feed. */
+export const rssItems = (xml: string) => [...xml.matchAll(/<item\b[^>]*>([\s\S]*?)<\/item>/g)].map((m) => m[1]);
+
+/** One tag's text inside an RSS item, unwrapping CDATA ("" when absent). */
+export function rssTag(item: string, name: string) {
+  const m = item.match(new RegExp(`<${name}(?:\\s[^>]*)?>([\\s\\S]*?)</${name}>`));
+  return m ? m[1].replace(/^\s*<!\[CDATA\[([\s\S]*?)\]\]>\s*$/, "$1").trim() : "";
+}
+
 /** HTML -> readable plain text (keeps paragraph and list breaks). */
 export function htmlToText(html: string) {
   const decoded = /&lt;\w/.test(html) ? decodeEntities(html) : html; // Greenhouse double-encodes

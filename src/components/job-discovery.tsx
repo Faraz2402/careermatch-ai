@@ -208,9 +208,7 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
             defaultValue={[]}
             onApply={(levels) => apply({ levels })}
             countFor={(levels) => countFor({ levels })}
-          />
-          <span className="text-xs text-slate-500">Listings are never older than 30 days.</span>
-        </div>
+          />        </div>
 
         {showFilters && (
           <div className="grid gap-5 border-t border-slate-100 pt-4 md:col-span-5 md:grid-cols-3">
