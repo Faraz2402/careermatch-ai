@@ -105,6 +105,7 @@ Sources are pluggable `SourceDefinition`s in `src/lib/jobs/sources`:
 
 - Remotive and Arbeitnow
 - Greenhouse, Lever and Ashby employer boards
+- SmartRecruiters (Posting API), Workable (careers-page widget API), SAP SuccessFactors (career-site RSS) and Oracle Recruiting Cloud, Taleo's successor (candidate-experience REST API). SuccessFactors and Oracle hosts are read only where robots.txt allows it; all four keep to `EMPLOYER_BOARD_COUNTRIES` (default India). iCIMS is not supported: it has no public job feed.
 - Adzuna
 - Jooble (REST API), which runs only when a user searches. Its free key allows 500 requests in total, so the app counts every request and stops at `JOOBLE_MAX_REQUESTS` (default 450). The count is shown in `/admin` and `/sources`.
 - Clearly labelled demo data, which is off in production

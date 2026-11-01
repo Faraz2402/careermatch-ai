@@ -101,7 +101,7 @@ const SECTIONS: LegalSection[] = [
         <ul className={ul}>
           <li>
             <b>Job listings</b> come only from official APIs and public employer feeds: Adzuna, Jooble, Remotive and Arbeitnow, plus employers&rsquo;
-            boards on Greenhouse, Lever and Ashby. Each listing shows its source and when it was last seen. We do not scrape sites that need a login, bypass CAPTCHAs, or ignore
+            career sites on Greenhouse, Lever, Ashby, SmartRecruiters, Workable, SAP SuccessFactors and Oracle Recruiting Cloud. Each listing shows its source and when it was last seen. We do not scrape sites that need a login, bypass CAPTCHAs, or ignore
             robots.txt.
           </li>
           <li>

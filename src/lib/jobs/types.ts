@@ -16,6 +16,8 @@ export type NormalizedJob = {
   description: string; // plain text
   url: string;
   postedAt: Date | null;
+  /** The feed only gave a short summary: store it for new rows, but never overwrite a fuller saved description. */
+  summaryOnly?: boolean;
 };
 
 /** `country` is an ISO code; only sources that declare `countries` use it. */

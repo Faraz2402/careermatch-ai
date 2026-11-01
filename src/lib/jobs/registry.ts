@@ -7,6 +7,7 @@ import "server-only";
 import { db } from "../db";
 import { arbeitnow } from "./sources/arbeitnow";
 import { demo } from "./sources/demo";
+import { oracle, smartrecruiters, successfactors, workable } from "./sources/ats-boards";
 import { ashby, greenhouse, lever } from "./sources/employer-boards";
 import { jooble } from "./sources/jooble";
 import { adzuna } from "./sources/keyed-apis";
@@ -14,7 +15,7 @@ import { remotive } from "./sources/remotive";
 import type { SourceContext, SourceDefinition } from "./types";
 import { csvEnv } from "./util";
 
-export const ALL_SOURCES: SourceDefinition[] = [demo, remotive, arbeitnow, greenhouse, lever, ashby, adzuna, jooble];
+export const ALL_SOURCES: SourceDefinition[] = [demo, remotive, arbeitnow, greenhouse, lever, ashby, smartrecruiters, workable, successfactors, oracle, adzuna, jooble];
 
 /** Listings the user imported from a URL or pasted in. */
 export const USER_LINK_SOURCE = {
@@ -23,7 +24,7 @@ export const USER_LINK_SOURCE = {
   attribution: "Added by you from a job link or pasted description.",
 } as const;
 
-const DEFAULT_ENABLED = "demo,remotive,arbeitnow,greenhouse,lever,ashby,adzuna,jooble";
+const DEFAULT_ENABLED = "demo,remotive,arbeitnow,greenhouse,lever,ashby,smartrecruiters,workable,successfactors,oracle,adzuna,jooble";
 
 function envEnabled(): Set<string> {
   return new Set(csvEnv("JOB_SOURCES_ENABLED").length ? csvEnv("JOB_SOURCES_ENABLED") : DEFAULT_ENABLED.split(","));

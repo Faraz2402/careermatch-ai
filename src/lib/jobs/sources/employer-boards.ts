@@ -5,7 +5,7 @@
 import type { NormalizedJob, SourceDefinition } from "../types";
 import { detectWorkMode, fetchJson, htmlToText, toDate } from "../util";
 
-async function forEachBoard(boards: string[], fn: (board: string) => Promise<NormalizedJob[]>) {
+export async function forEachBoard(boards: string[], fn: (board: string) => Promise<NormalizedJob[]>) {
   const results = await Promise.allSettled(boards.map(fn));
   const ok = results.flatMap((r) => (r.status === "fulfilled" ? r.value : []));
   if (ok.length === 0 && results.every((r) => r.status === "rejected"))
@@ -13,7 +13,7 @@ async function forEachBoard(boards: string[], fn: (board: string) => Promise<Nor
   return ok;
 }
 
-const titleCase = (s: string) => s.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+export const titleCase = (s: string) => s.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
 type GreenhouseJob = {
   id: number;

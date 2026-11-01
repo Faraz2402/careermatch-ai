@@ -11,6 +11,34 @@ export function decodeEntities(s: string) {
     .replace(/&([a-z#0-9]+);/gi, (m, n) => ENTITIES[n.toLowerCase()] ?? m);
 }
 
+/**
+ * Does a robots.txt path rule match? Rules match from the start of the path;
+ * `*` matches any characters and a trailing `$` anchors the end (RFC 9309).
+ */
+export function robotsRuleMatches(rule: string, path: string) {
+  const anchored = rule.endsWith("$");
+  const body = (anchored ? rule.slice(0, -1) : rule).split("*").map((s) => s.replace(/[.+?^${}()|[\]\\]/g, "\\$&")).join(".*");
+  return new RegExp(`^${body}${anchored ? "$" : ""}`).test(path);
+}
+
+/** Is `path` (pathname + search) allowed for our user agent (and *) by this robots.txt? */
+export function robotsTxtAllows(robotsTxt: string, path: string) {
+  const lines = robotsTxt.split(/\r?\n/).map((l) => l.replace(/#.*/, "").trim());
+  let applies = false;
+  const disallow: string[] = [];
+  const allow: string[] = [];
+  for (const line of lines) {
+    const [k, ...rest] = line.split(":");
+    const key = k?.toLowerCase().trim();
+    const value = rest.join(":").trim();
+    if (key === "user-agent") applies = value === "*" || /careermatch/i.test(value);
+    else if (applies && key === "disallow" && value) disallow.push(value);
+    else if (applies && key === "allow" && value) allow.push(value);
+  }
+  const longest = (rules: string[]) => Math.max(-1, ...rules.filter((r) => robotsRuleMatches(r, path)).map((r) => r.length));
+  return longest(allow) >= longest(disallow);
+}
+
 /** HTML -> readable plain text (keeps paragraph and list breaks). */
 export function htmlToText(html: string) {
   const decoded = /&lt;\w/.test(html) ? decodeEntities(html) : html; // Greenhouse double-encodes

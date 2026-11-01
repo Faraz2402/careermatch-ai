@@ -7,7 +7,7 @@ const PLATFORMS: [RegExp, string][] = [
   [/ashbyhq\.com/i, "Ashby"],
   [/smartrecruiters\.com/i, "SmartRecruiters"],
   [/icims\.com/i, "iCIMS"],
-  [/taleo\.net/i, "Taleo"],
+  [/taleo\.net|oraclecloud\.com\/hcmUI|\/hcmUI\/CandidateExperience\//i, "Oracle"],
   [/successfactors\.|sapsf\./i, "SuccessFactors"],
   [/workable\.com/i, "Workable"],
   [/bamboohr\.com/i, "BambooHR"],

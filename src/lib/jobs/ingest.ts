@@ -27,7 +27,7 @@ export async function persistJobs(jobs: NormalizedJob[], opts: { importedById?: 
   for (let i = 0; i < jobs.length; i += 100) {
     const chunk = jobs.slice(i, i + 100);
     await db.$transaction(
-      chunk.map((j) => {
+      chunk.map(({ summaryOnly, ...j }) => {
         const data = {
           ...j,
           salaryYearlyUsd: normalizeSalaryYearlyUsd(j),
@@ -40,6 +40,7 @@ export async function persistJobs(jobs: NormalizedJob[], opts: { importedById?: 
         // re-index old jobs with fresh dates, which would make them look new.
         const update: Partial<typeof data> = { ...data };
         delete update.postedAt;
+        if (summaryOnly) delete update.description;
         return db.job.upsert({ where: { id: jobId(j) }, create: { id: jobId(j), ...data }, update });
       }),
     );

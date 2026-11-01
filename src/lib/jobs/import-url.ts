@@ -8,7 +8,7 @@ import { createHash } from "node:crypto";
 import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
 import type { NormalizedJob } from "./types";
-import { USER_AGENT, detectWorkMode, fetchJson, htmlToText, toDate, decodeEntities } from "./util";
+import { USER_AGENT, detectWorkMode, fetchJson, htmlToText, robotsTxtAllows, toDate, decodeEntities } from "./util";
 
 export class ImportError extends Error {}
 
@@ -63,36 +63,12 @@ export async function safeFetch(start: URL, init: RequestInit & { signal: AbortS
   throw new ImportError("Too many redirects.");
 }
 
-/**
- * Does a robots.txt path rule match? Rules match from the start of the path;
- * `*` matches any characters and a trailing `$` anchors the end (RFC 9309).
- */
-export function robotsRuleMatches(rule: string, path: string) {
-  const anchored = rule.endsWith("$");
-  const body = (anchored ? rule.slice(0, -1) : rule).split("*").map((s) => s.replace(/[.+?^${}()|[\]\\]/g, "\\$&")).join(".*");
-  return new RegExp(`^${body}${anchored ? "$" : ""}`).test(path);
-}
-
 /** Minimal robots.txt check for our user agent (and *). */
 export async function robotsAllows(url: URL, signal: AbortSignal): Promise<boolean> {
   try {
     const res = await safeFetch(new URL("/robots.txt", url.origin), { signal, headers: { "User-Agent": USER_AGENT } });
     if (!res.ok) return true; // no robots.txt => allowed
-    const lines = (await res.text()).split(/\r?\n/).map((l) => l.replace(/#.*/, "").trim());
-    let applies = false;
-    const disallow: string[] = [];
-    const allow: string[] = [];
-    for (const line of lines) {
-      const [k, ...rest] = line.split(":");
-      const key = k?.toLowerCase().trim();
-      const value = rest.join(":").trim();
-      if (key === "user-agent") applies = value === "*" || /careermatch/i.test(value);
-      else if (applies && key === "disallow" && value) disallow.push(value);
-      else if (applies && key === "allow" && value) allow.push(value);
-    }
-    const path = url.pathname + url.search;
-    const longest = (rules: string[]) => Math.max(-1, ...rules.filter((r) => robotsRuleMatches(r, path)).map((r) => r.length));
-    return longest(allow) >= longest(disallow);
+    return robotsTxtAllows(await res.text(), url.pathname + url.search);
   } catch (e) {
     if (e instanceof ImportError) throw e;
     return true;

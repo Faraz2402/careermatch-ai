@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { robotsRuleMatches } from "@/lib/jobs/import-url";
+import { robotsRuleMatches } from "@/lib/jobs/util";
 import { expiryCutoff } from "@/lib/jobs/service";
 
 describe("robots.txt rules", () => {
