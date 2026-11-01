@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 
 // Cheap edge check for a session cookie; the real session validation happens
 // server-side in requireUser()/apiUser().
-const PROTECTED = ["/dashboard", "/onboarding", "/profile", "/preferences", "/jobs", "/sources", "/applications", "/alerts", "/resumes", "/settings", "/admin", "/import", "/tools", "/dev"];
+const PROTECTED = ["/dashboard", "/interview-qa", "/onboarding", "/profile", "/preferences", "/jobs", "/sources", "/applications", "/alerts", "/resumes", "/settings", "/admin", "/import", "/tools", "/dev"];
 const AUTH_PAGES = ["/login", "/signup"];
 
 export function middleware(req: NextRequest) {

@@ -1,4 +1,4 @@
-import { ArrowRight, BadgeCheck, Calendar, MapPin, Star, ThumbsUp } from "lucide-react";
+import { ArrowRight, BadgeCheck, BrainCircuit, Calendar, Check, Download, Filter, Globe2, LibraryBig, MapPin, MessageCircle, MousePointer2, Star, ThumbsUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { cx } from "@/lib/format";
@@ -228,6 +228,116 @@ export function DocShowcase() {
         <div className="glow-border is-cyan float-c"><AtsReportArt /></div>
         <p className="mt-4 text-center text-sm font-semibold text-slate-600">ATS alignment report</p>
       </div>
+    </div>
+  );
+}
+
+// --- Interview practice: question bank + skill assessment ---------------------------------------
+
+const FLOAT_QS: { tag: string; tone: string; q: string; cls: string; dur: string; rot: string }[] = [
+  { tag: "SQL", tone: "#19c6e8", q: "Find the second-highest salary in each department.", cls: "top-[2%] left-[0%] w-[58%]", dur: "7s", rot: "-4deg" },
+  { tag: "Behavioural · STAR", tone: "#ff716b", q: "Tell me about a time you disagreed with your manager.", cls: "top-[0%] right-[0%] w-[46%] hidden sm:block", dur: "8.5s", rot: "5deg" },
+  { tag: "System Design", tone: "#8457ff", q: "How would you design a URL shortener?", cls: "bottom-[2%] left-[4%] w-[48%] hidden sm:block", dur: "9s", rot: "3deg" },
+];
+
+const MOCK_OPTIONS = ["Restart every pod in the namespace", "Check the pod's events and previous container logs", "Increase the node pool size", "Delete and recreate the Deployment"];
+
+/** Animated art: floating question cards, a mock MCQ with an option being picked, and a filling score ring. */
+export function PracticeArt({ className }: { className?: string }) {
+  const r = 30, c = 2 * Math.PI * r;
+  return (
+    <div className={cx("relative mx-auto aspect-[1/1.02] w-full max-w-[36rem]", className)} aria-hidden>
+      <div className="absolute top-[30%] right-[6%] size-[38%] rounded-full bg-[#4263ff]/25 blur-3xl" />
+      <div className="absolute bottom-[8%] left-[10%] size-[30%] rounded-full bg-[#8457ff]/25 blur-3xl" />
+      {FLOAT_QS.map((f) => (
+        <div key={f.tag} className={cx(card, "iq-bob absolute p-3.5", f.cls)} style={{ "--dur": f.dur, "--rot": f.rot } as React.CSSProperties}>
+          <span className="rounded-full px-2 py-0.5 text-[10px] font-bold text-white" style={{ background: f.tone }}>{f.tag}</span>
+          <p className="mt-2 text-[13px] leading-snug font-bold">{f.q}</p>
+          <div className="mt-2 flex gap-1"><span className="h-1 w-1/2 rounded-full bg-[#e3e8f5]" /><span className="h-1 w-1/4 rounded-full bg-[#eef1f8]" /></div>
+        </div>
+      ))}
+
+      {/* mock MCQ */}
+      <div className="glow-border float-a absolute top-[24%] left-[10%] w-[80%] sm:left-[14%] sm:w-[72%]">
+        <div className="bg-white p-4 text-[#10152b]">
+          <div className="flex items-center justify-between text-[11px] font-bold">
+            <span className="flex items-center gap-1.5 text-[#4263ff]"><BrainCircuit className="size-3.5" /> Kubernetes · Intermediate</span>
+            <span className="text-[#5b6170]">4 / 5</span>
+          </div>
+          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#eef1f8]"><div className="hx-progress h-full w-full rounded-full bg-gradient-to-r from-[#4263ff] via-[#8457ff] to-[#19c6e8]" /></div>
+          <p className="mt-3 text-[14px] leading-snug font-extrabold">A pod is stuck in CrashLoopBackOff after a deploy. What should you check first?</p>
+          <div className="mt-3 grid gap-1.5">
+            {MOCK_OPTIONS.map((o, i) => {
+              const pick = i === 1;
+              return (
+                <div key={o} className={cx("relative flex items-center gap-2 rounded-xl border-2 border-[#e2e8f5] px-2.5 py-1.5 text-[12px] font-semibold", pick && "hx-pick")}>
+                  <span className={cx("grid size-5 shrink-0 place-items-center rounded-md bg-[#eef1f8] text-[10px] font-extrabold text-[#5b6170]", pick && "relative overflow-hidden")}>
+                    {i + 1}
+                    {pick && <span className="hx-check absolute inset-0 grid place-items-center bg-[#4263ff] text-white"><Check className="size-3" /></span>}
+                  </span>
+                  {o}
+                  {pick && <MousePointer2 className="hx-cursor absolute right-6 bottom-[-6px] size-5 fill-white text-[#10152b] drop-shadow" />}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* score ring */}
+      <div className={cx(card, "float-b absolute right-[0%] bottom-[6%] flex items-center gap-3 p-3 sm:right-[2%]")}>
+        <svg width="72" height="72" viewBox="0 0 72 72" className="-rotate-90">
+          <circle cx="36" cy="36" r={r} fill="none" stroke="#e7ecfb" strokeWidth="7" />
+          <circle cx="36" cy="36" r={r} fill="none" stroke="#20c997" strokeWidth="7" strokeLinecap="round" className="hx-ring" style={{ strokeDasharray: c, "--full": c, "--rest": c * 0.2 } as React.CSSProperties} />
+          <text x="50%" y="50%" textAnchor="middle" dominantBaseline="central" fontSize="15" fontWeight="800" fill="#10152b" className="rotate-90 origin-center">4/5</text>
+        </svg>
+        <span className="text-xs leading-tight"><b className="block text-[13px]">Instant score</b><span className="text-[#5b6170]">With an explanation<br />for every answer</span></span>
+      </div>
+    </div>
+  );
+}
+
+/** Copy blocks for the two practice features. `count` is the live number of published questions, if known. */
+export function PracticeFeatures({ count }: { count: string | null }) {
+  const blocks = [
+    {
+      icon: LibraryBig,
+      tone: "#4263ff",
+      title: "Interview Q&A",
+      body: `${count ? `${count} real interview questions` : "Real interview questions"} from openly licensed collections, each credited to its source.`,
+      points: [[Filter, "Filter by department, role, tool, skill and company"], [MessageCircle, "Behavioural answers in STAR format, plus an AI interview coach"], [Download, "Download any set as Word or PDF"]] as const,
+      href: "/interview-qa",
+      cta: "Browse the question bank",
+    },
+    {
+      icon: BrainCircuit,
+      tone: "#8457ff",
+      title: "Skill Assessment",
+      body: "AI-generated multiple-choice tests for any skill, from Kubernetes to financial modelling to situational judgement.",
+      points: [[Globe2, "Written and localized in many languages"], [Check, "Instant scoring with an explanation for every answer"], [Download, "Download the test and answers as Word or PDF"]] as const,
+      href: "/interview-qa?tab=assessment",
+      cta: "Start a skill assessment",
+    },
+  ];
+  return (
+    <div className="space-y-6">
+      {blocks.map((b, i) => (
+        <article key={b.title} className="reveal rounded-[1.4rem] border border-white/10 bg-white/[0.04] p-6 transition hover:border-white/20 hover:bg-white/[0.06]" style={{ "--delay": `${i * 110}ms` } as React.CSSProperties}>
+          <div className="flex items-center gap-3">
+            <span className="grid size-11 place-items-center rounded-2xl text-white" style={{ background: b.tone, boxShadow: `0 0 28px -6px ${b.tone}` }}><b.icon className="size-5" aria-hidden /></span>
+            <h3 className="font-serif text-3xl leading-tight text-white">{b.title}</h3>
+          </div>
+          <p className="mt-3 text-[15px] leading-relaxed text-[#c9d0ea]">{b.body}</p>
+          <ul className="mt-4 space-y-2">
+            {b.points.map(([Icon, t]) => (
+              <li key={t} className="flex gap-2.5 text-sm text-[#d5daee]"><Icon className="mt-0.5 size-4 shrink-0 text-[#a3b8ff]" aria-hidden />{t}</li>
+            ))}
+          </ul>
+          <Link href={b.href} className="group mt-5 inline-flex items-center gap-2 text-sm font-bold text-white underline decoration-white/50 decoration-2 underline-offset-[6px] hover:decoration-white">
+            {b.cta} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
+          </Link>
+        </article>
+      ))}
     </div>
   );
 }

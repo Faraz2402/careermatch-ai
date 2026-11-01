@@ -3,13 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { DemoButton } from "@/components/client";
 import { FeatureShowcase } from "@/components/feature-showcase";
-import { BgFx, DocShowcase, HeroCollage, Photo, ProductTiles, StudioCollage, type PhotoName } from "@/components/home/blocks";
+import { BgFx, DocShowcase, HeroCollage, Photo, PracticeArt, PracticeFeatures, ProductTiles, StudioCollage, type PhotoName } from "@/components/home/blocks";
 import { JsonLd, organization, softwareApplication } from "@/components/json-ld";
 import { LandingFx } from "@/components/landing-fx";
 import { LandingNav } from "@/components/landing-nav";
 import { CountUp } from "@/components/count-up";
 import type { Metadata } from "next";
 import { getCurrentUser } from "@/lib/auth";
+import { db } from "@/lib/db";
 import { LEGAL_LINKS } from "@/lib/legal";
 import { appUrl } from "@/lib/site-url";
 import { TEMPLATES } from "@/lib/templates/catalog";
@@ -59,8 +60,18 @@ const ArrowLink = ({ href, children, className = "" }: { href: string; children:
   </Link>
 );
 
+/** Live size of the question bank, rounded down (e.g. "1,100+"); null when unknown or small. */
+async function questionCount() {
+  try {
+    const n = await db.interviewQuestion.count({ where: { status: "published" } });
+    return n >= 100 ? `${(Math.floor(n / 100) * 100).toLocaleString("en-US")}+` : null;
+  } catch {
+    return null;
+  }
+}
+
 export default async function Landing() {
-  const user = await getCurrentUser();
+  const [user, qCount] = await Promise.all([getCurrentUser(), questionCount()]);
   const start = user ? "/onboarding" : "/signup";
 
   return (
@@ -202,6 +213,24 @@ export default async function Landing() {
                 ))}
               </ul>
               <div className="mt-9"><ArrowLink href={start} className="text-slate-900 decoration-brand-500">Open the studio</ArrowLink></div>
+            </div>
+          </div>
+        </section>
+
+        {/* Interview practice */}
+        <section id="practice" className="relative scroll-mt-20 overflow-hidden bg-[#070b16] text-white">
+          <BgFx beam={false} />
+          <div aria-hidden className="pointer-events-none absolute -bottom-[18rem] -left-[10rem] size-[40rem] rounded-full border border-[#8457ff]/20" />
+          <div className="shell relative grid items-center gap-14 py-20 lg:grid-cols-[1fr_1.05fr] lg:gap-16 lg:py-28">
+            <div>
+              <p className="text-sm font-bold tracking-[0.14em] text-[#a3b8ff] uppercase">Interview practice</p>
+              <h2 className="reveal mt-4 font-serif text-[clamp(2.46rem,4.6vw,4.48rem)] leading-[1.04] font-normal tracking-[-0.015em]">Walk in having <em className="text-[#a3b8ff] italic">already practised.</em></h2>
+              <p className="reveal mt-5 max-w-xl text-lg text-[#b3bbd9]" style={delay(100)}>Study real questions for your role, then test yourself on any skill and see exactly where you stand.</p>
+              <div className="mt-9"><PracticeFeatures count={qCount} /></div>
+            </div>
+            <div className="reveal" style={delay(150)}>
+              <PracticeArt />
+              <p className="mt-6 text-center text-xs text-[#8b95ba]">Animated sample for illustration.</p>
             </div>
           </div>
         </section>
