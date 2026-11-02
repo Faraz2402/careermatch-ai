@@ -1,0 +1,130 @@
+{
+  "id": "hr-generalist-us-senior",
+  "category": "human-resources",
+  "role": "hr-generalist",
+  "country": "us",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Renee Washington",
+    "title": "Senior HR Generalist, SHRM-SCP",
+    "phone": "(206) 555-0181",
+    "email": "renee.washington@example.com",
+    "linkedin": "linkedin.com/in/renee-washington",
+    "location": "Seattle, WA",
+    "summary": "SHRM-SCP certified HR generalist with 13 years in healthcare, biotech and aerospace manufacturing. Serves as the lead HR partner for 1,100 employees across two Washington plants, and cut first-year turnover from 31% to 19% with a redesigned onboarding and stay-interview program.",
+    "experience": [
+      {
+        "title": "Senior HR Generalist",
+        "company": "Cascade Aerostructures",
+        "location": "Everett, WA",
+        "start": "2022-02",
+        "end": "present",
+        "bullets": [
+          "Lead HR partner for 1,100 production and engineering employees across two plants, with two HR generalists reporting to me.",
+          "Redesigned onboarding and added 30- and 90-day stay interviews, cutting first-year turnover from 31% to 19%.",
+          "Investigate and close about 45 employee relations cases a year, with no agency charges sustained since 2022.",
+          "Administer FMLA, ADA accommodations and Washington Paid Family and Medical Leave in partnership with our leave vendor.",
+          "Led the Workday HCM rollout for the plants, training 140 supervisors on time-off and performance workflows."
+        ]
+      },
+      {
+        "title": "HR Generalist II",
+        "company": "Puget BioLabs",
+        "location": "Bothell, WA",
+        "start": "2018-05",
+        "end": "2022-01",
+        "bullets": [
+          "Supported a research and manufacturing workforce that grew from 380 to 720 employees in three years.",
+          "Built a compensation review process with salary bands for 60 job codes, closing pay gaps flagged in an equity audit.",
+          "Ran the annual open enrollment for medical, dental and 401(k), raising benefits survey satisfaction by 22 points.",
+          "Wrote the remote and hybrid work policy adopted in 2020 and updated the employee handbook."
+        ]
+      },
+      {
+        "title": "HR Generalist",
+        "company": "Eastside Community Health",
+        "location": "Bellevue, WA",
+        "start": "2015-03",
+        "end": "2018-04",
+        "bullets": [
+          "Handled HR for 12 outpatient clinics and about 450 clinical and admin staff.",
+          "Tracked clinical licensure renewals and set up reminders that brought lapsed licenses to zero.",
+          "Coordinated union grievance meetings and kept files ready for arbitration."
+        ]
+      },
+      {
+        "title": "HR Coordinator",
+        "company": "Eastside Community Health",
+        "location": "Bellevue, WA",
+        "start": "2013-06",
+        "end": "2015-02",
+        "bullets": [
+          "Processed new hires, terminations and status changes in the HRIS for 450 employees.",
+          "Scheduled about 300 interviews a year for clinical managers.",
+          "Ran I-9 audits and corrected 70 incomplete forms before an internal compliance review."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.A. in Psychology",
+        "school": "University of Washington",
+        "location": "Seattle, WA",
+        "start": "2009-09",
+        "end": "2013-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "SHRM Senior Certified Professional (SHRM-SCP)",
+        "provider": "Society for Human Resource Management",
+        "year": 2020
+      },
+      {
+        "name": "Workday HCM Fundamentals",
+        "provider": "Workday",
+        "year": 2022
+      },
+      {
+        "name": "Investigating Workplace Complaints",
+        "provider": "Association of Workplace Investigators",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "First-year turnover 31% to 19%",
+        "detail": "Onboarding and stay-interview program at Cascade Aerostructures."
+      },
+      {
+        "title": "Workday rollout",
+        "detail": "Trained 140 supervisors and went live on schedule in 2023."
+      }
+    ],
+    "skills": [
+      "Employee relations",
+      "Workplace investigations",
+      "FMLA and ADA",
+      "Washington PFML",
+      "Workday HCM",
+      "Compensation",
+      "Benefits administration",
+      "Onboarding",
+      "Policy writing",
+      "Labor relations",
+      "HR analytics",
+      "Coaching managers"
+    ],
+    "interests": [
+      "Kayaking",
+      "Mentoring with a local girls' STEM program"
+    ]
+  }
+}

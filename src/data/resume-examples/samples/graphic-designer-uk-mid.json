@@ -1,0 +1,116 @@
+{
+  "id": "graphic-designer-uk-mid",
+  "category": "design",
+  "role": "graphic-designer",
+  "country": "uk",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Rhys Okafor",
+    "title": "Graphic Designer (Mid-weight)",
+    "phone": "07700 900562",
+    "email": "rhys.okafor@example.com",
+    "linkedin": "linkedin.com/in/rhys-okafor",
+    "location": "Manchester",
+    "summary": "Mid-weight graphic designer with nine years in print, brand and campaign work for arts, retail and broadcast clients in Manchester. Owns brand guidelines end to end, mentors two juniors, and the rebrand I led for a regional theatre lifted season ticket sales by 14%.",
+    "experience": [
+      {
+        "title": "Junior Designer",
+        "company": "Ancoats Print & Paper",
+        "location": "Manchester",
+        "start": "2017-08",
+        "end": "2019-10",
+        "bullets": [
+          "Prepared artwork for litho and digital print, checking colour profiles and finishes on about 40 jobs a month.",
+          "Designed menus, flyers and posters for independent bars and restaurants in the Northern Quarter.",
+          "Cut press reprints by building a pre-flight checklist that the studio still uses."
+        ]
+      },
+      {
+        "title": "Graphic Designer",
+        "company": "Northern Quarter Brand Studio",
+        "location": "Manchester",
+        "start": "2019-11",
+        "end": "2022-12",
+        "bullets": [
+          "Delivered identity systems for 11 clients, from logo and colour palette to signage and stationery.",
+          "Led the rebrand of a 400-seat regional theatre, after which season ticket sales rose 14% in the first year.",
+          "Presented concepts directly to clients and turned feedback rounds around within two working days.",
+          "Moved the studio's asset library to Adobe CC Libraries, saving each designer roughly two hours a week hunting for files."
+        ]
+      },
+      {
+        "title": "Mid-weight Graphic Designer",
+        "company": "Salford Quays Media Group",
+        "location": "Salford",
+        "start": "2023-01",
+        "end": "present",
+        "bullets": [
+          "Design on-air graphics, social cut-downs and print ads for factual TV programmes and their marketing campaigns.",
+          "Wrote and maintain the 60-page brand guidelines for the group's three channels, used by in-house and agency teams.",
+          "Mentor two junior designers, running fortnightly crits and reviewing every file before it goes out.",
+          "Created a Figma template system for social assets that cut production time per campaign from five days to three."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA (Hons) Graphic Design, 2:1",
+        "school": "Manchester Metropolitan University (Manchester School of Art)",
+        "location": "Manchester",
+        "start": "2014-09",
+        "end": "2017-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Motion Graphics for Designers",
+        "provider": "D&AD Masterclass",
+        "year": 2021
+      },
+      {
+        "name": "Inclusive Design",
+        "provider": "OpenLearn",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Igbo",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Shortlisted, regional design awards",
+        "detail": "Theatre rebrand shortlisted in the identity category in 2021."
+      },
+      {
+        "title": "Portfolio reviewer",
+        "detail": "Volunteer reviewer at Manchester School of Art degree show portfolio days."
+      }
+    ],
+    "skills": [
+      "Brand identity",
+      "Brand guidelines",
+      "Adobe InDesign",
+      "Adobe Illustrator",
+      "Adobe Photoshop",
+      "After Effects",
+      "Figma",
+      "Print production",
+      "Art direction",
+      "Typography",
+      "Mentoring"
+    ],
+    "interests": [
+      "Screen printing",
+      "Manchester gig photography",
+      "Five-a-side football"
+    ]
+  }
+}

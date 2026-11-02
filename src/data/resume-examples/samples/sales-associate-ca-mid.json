@@ -1,0 +1,80 @@
+{
+  "id": "sales-associate-ca-mid",
+  "category": "sales-retail",
+  "role": "sales-associate",
+  "country": "ca",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Daniel Kwan",
+    "title": "Senior Sales Associate",
+    "phone": "(604) 555-0152",
+    "email": "daniel.kwan@example.com",
+    "linkedin": "linkedin.com/in/daniel-kwan",
+    "location": "Vancouver, BC",
+    "summary": "Senior sales associate with nine years in specialty running, kitchenware and outdoor retail in Vancouver. Known for technical product knowledge and patient selling; currently the top performer for high-value outerwear and tents, with $640,000 in personal sales last year.",
+    "experience": [
+      {
+        "title": "Senior Sales Associate",
+        "company": "Coastline Outdoor Gear",
+        "location": "Vancouver, BC",
+        "start": "2022-01",
+        "end": "present",
+        "bullets": [
+          "Sold $640,000 in 2025, leading the store in technical outerwear, tents and avalanche safety equipment.",
+          "Lead in-store clinics on layering and backcountry gear every month, with 30 to 50 attendees and a sales spike the following weekend.",
+          "Trained eight seasonal hires on product specs, the POS system and returns policy before the November rush.",
+          "Handled warranty claims with three suppliers, cutting average turnaround from five weeks to two and a half.",
+          "Serve customers in English and Cantonese, which brought in a steady group of repeat families from Richmond and Burnaby."
+        ]
+      },
+      {
+        "title": "Sales Associate",
+        "company": "False Creek Kitchen Supply",
+        "location": "Vancouver, BC",
+        "start": "2018-10",
+        "end": "2021-12",
+        "bullets": [
+          "Advised home cooks and restaurant staff on knives, cookware and small appliances, averaging $1,900 in daily sales.",
+          "Ran knife-sharpening Saturdays that sharpened 120 blades a month and introduced new customers to premium lines.",
+          "Set up curbside pickup and phone orders in spring 2020, keeping roughly 70% of usual revenue during closures."
+        ]
+      },
+      {
+        "title": "Sales Associate",
+        "company": "Kits Beach Run Co.",
+        "location": "Vancouver, BC",
+        "start": "2017-02",
+        "end": "2018-09",
+        "bullets": [
+          "Fitted runners after watching their stride on the in-store treadmill, recommending shoes, socks and insoles.",
+          "Recruited 90 members for a free weekly run club that became the store's main source of new customers.",
+          "Counted cycle inventory twice weekly and kept shrink below 1% of sales."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diploma, Marketing Management",
+        "school": "British Columbia Institute of Technology (BCIT)",
+        "location": "Burnaby, BC",
+        "start": "2014-09",
+        "end": "2016-05"
+      }
+    ],
+    "courses": [
+      { "name": "Avalanche Skills Training 1 (AST 1)", "provider": "Avalanche Canada-recognized course provider", "year": 2022 },
+      { "name": "Standard First Aid with CPR C", "provider": "Canadian Red Cross", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Cantonese", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Top seller, outerwear and camping", "detail": "Highest category sales in the store for two winter seasons in a row." },
+      { "title": "Warranty fix", "detail": "Supplier claim turnaround halved after rewriting the claims checklist." }
+    ],
+    "skills": ["Technical product knowledge", "Consultative selling", "Product clinics", "Seasonal staff training", "Warranty and returns", "POS systems", "Inventory counts", "Curbside and phone orders", "Bilingual English/Cantonese"],
+    "interests": ["Splitboarding", "Trail running", "Dim sum with family on Sundays"]
+  }
+}

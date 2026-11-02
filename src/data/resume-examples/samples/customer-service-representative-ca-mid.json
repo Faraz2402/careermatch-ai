@@ -1,0 +1,114 @@
+{
+  "id": "customer-service-representative-ca-mid",
+  "category": "office-administration",
+  "role": "customer-service-representative",
+  "country": "ca",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Sophie Lavoie",
+    "title": "Senior Customer Service Representative (Bilingual)",
+    "phone": "(613) 555-0174",
+    "email": "sophie.lavoie@example.com",
+    "linkedin": "linkedin.com/in/sophie-lavoie",
+    "location": "Ottawa, ON",
+    "summary": "Bilingual (French/English) customer service representative with eight years in telecom, home insurance and energy. Serves customers in both official languages, mentors new hires and helped reduce billing complaints by 22% by rewriting confusing bill explanations.",
+    "experience": [
+      {
+        "title": "Bilingual Customer Service Agent",
+        "company": "Rideau Valley Telecom",
+        "location": "Ottawa, ON",
+        "start": "2018-04",
+        "end": "2020-10",
+        "bullets": [
+          "Handled about 65 calls a day in French and English on billing, plan changes and service outages.",
+          "Met or beat retention targets in 9 of 10 quarters by matching customers with a better-fitting plan rather than offering discounts.",
+          "Translated and corrected French versions of 35 knowledge-base articles that agents had flagged as unclear."
+        ]
+      },
+      {
+        "title": "Customer Service Representative",
+        "company": "Bytown Home Insurance",
+        "location": "Ottawa, ON",
+        "start": "2020-11",
+        "end": "2023-05",
+        "bullets": [
+          "Answered policyholder questions on coverage, payments and renewals, and processed simple endorsements on the spot.",
+          "Moved to remote work during the pandemic and kept a 4.6 out of 5 satisfaction rating through the transition.",
+          "Trained six new bilingual hires on the policy admin system and call flow during their first month.",
+          "Caught a recurring renewal letter error affecting about 1,800 policies and escalated it before mailing."
+        ]
+      },
+      {
+        "title": "Senior Customer Service Representative (Bilingual)",
+        "company": "Gatineau Hills Energy Co-op",
+        "location": "Ottawa, ON",
+        "start": "2023-06",
+        "end": "present",
+        "bullets": [
+          "Resolve escalated billing, meter and payment arrangement cases for residential members in Ontario and western Québec.",
+          "Rewrote the explanations on the bill insert in plain French and English, which helped cut billing complaints by 22% over a year.",
+          "Mentor four junior representatives and run the weekly huddle on new policies and tricky calls.",
+          "Track contact reasons in Excel each month and share the top five with the billing team, leading to two system fixes."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Ontario College Diploma, Business Administration",
+        "school": "Algonquin College",
+        "location": "Ottawa, ON",
+        "start": "2016-09",
+        "end": "2018-04"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Customer Service Excellence",
+        "provider": "Algonquin College Continuing Education",
+        "year": 2021
+      },
+      {
+        "name": "Excel for Data Analysis",
+        "provider": "Coursera",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "French",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Bilingual service award",
+        "detail": "Recognized by Bytown Home Insurance for top bilingual quality scores in 2022."
+      },
+      {
+        "title": "Plain language project",
+        "detail": "Led the bill-insert rewrite with marketing and billing; adopted across the co-op."
+      }
+    ],
+    "skills": [
+      "Bilingual service (FR/EN)",
+      "Billing and payment arrangements",
+      "Escalation handling",
+      "Salesforce",
+      "Five9",
+      "Microsoft Excel",
+      "Knowledge base editing",
+      "Coaching new hires",
+      "Plain language writing"
+    ],
+    "interests": [
+      "Cross-country skiing in Gatineau Park",
+      "Book club",
+      "Baking"
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "devops-engineer-uk-entry",
+  "category": "software-engineering",
+  "role": "devops-engineer",
+  "country": "uk",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Aisha Rahman",
+    "title": "Junior DevOps Engineer",
+    "phone": "07700 900517",
+    "email": "aisha.rahman@example.com",
+    "linkedin": "linkedin.com/in/aisha-rahman",
+    "location": "Sheffield, South Yorkshire",
+    "summary": "Junior DevOps engineer who joined straight from A-levels through a Level 4 DevOps Engineer apprenticeship and passed the end-point assessment with distinction. Now looks after CI/CD and AWS infrastructure for an energy-software firm, where I automated test environments that used to take a day to build. Interested in observability and infrastructure as code.",
+    "experience": [
+      {
+        "title": "DevOps Engineer Apprentice (Level 4)",
+        "company": "Don Valley Energy Software Ltd",
+        "location": "Sheffield",
+        "start": "2023-09",
+        "end": "2025-03",
+        "bullets": [
+          "Containerised four internal Python services with Docker, so developers could run the full stack locally with one command.",
+          "Wrote GitLab CI pipelines that ran linting, tests and image scans on every merge request across six repositories.",
+          "Produced the apprenticeship portfolio around a real project, moving build agents to autoscaling runners that saved about £400 a month."
+        ]
+      },
+      {
+        "title": "Junior DevOps Engineer",
+        "company": "Don Valley Energy Software Ltd",
+        "location": "Sheffield (hybrid)",
+        "start": "2025-04",
+        "end": "present",
+        "bullets": [
+          "Built Terraform modules for on-demand test environments, cutting set-up from roughly a day of manual work to 20 minutes.",
+          "Added Prometheus alerts and Grafana dashboards for the meter-data API, which spotted a memory leak before customers noticed.",
+          "Patched and rebuilt 30 EC2 instances during a critical OpenSSH vulnerability window within the 48-hour internal deadline.",
+          "Share on-call cover with two senior engineers during working hours and document each fix in the team runbook."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Level 4 Apprenticeship: DevOps Engineer (Distinction)",
+        "school": "Steel City Tech Academy (apprenticeship training provider)",
+        "location": "Sheffield",
+        "start": "2023-09",
+        "end": "2025-03"
+      },
+      {
+        "degree": "A-levels: Computer Science (A), Mathematics (B), Physics (B)",
+        "school": "The Sheffield College",
+        "location": "Sheffield",
+        "start": "2021-09",
+        "end": "2023-06",
+        "details": "GCSEs: 9 subjects at grades 9–6, including Maths (8) and English Language (7)."
+      }
+    ],
+    "courses": [
+      { "name": "AWS Certified Cloud Practitioner", "provider": "Amazon Web Services", "year": 2024 },
+      { "name": "HashiCorp Certified: Terraform Associate", "provider": "HashiCorp", "year": 2025 },
+      { "name": "Linux Essentials", "provider": "Linux Professional Institute", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Bengali", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Apprentice of the Year, Don Valley Energy Software", "detail": "Nominated by the engineering team for the test-environment automation work." },
+      { "title": "Volunteer, local Code Club", "detail": "Help run a weekly Scratch and Python club for 15 primary school children." }
+    ],
+    "skills": ["Linux", "Bash", "Python", "Docker", "GitLab CI", "Terraform", "AWS (EC2, ECS, S3, IAM)", "Prometheus and Grafana", "Git", "Incident runbooks"],
+    "interests": ["Climbing at the Foundry", "Raspberry Pi projects", "Cricket"]
+  }
+}

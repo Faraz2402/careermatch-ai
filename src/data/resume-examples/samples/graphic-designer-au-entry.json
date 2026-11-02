@@ -1,0 +1,102 @@
+{
+  "id": "graphic-designer-au-entry",
+  "category": "design",
+  "role": "graphic-designer",
+  "country": "au",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Mia Tran",
+    "title": "Junior Graphic Designer",
+    "phone": "0491 572 549",
+    "email": "mia.tran@example.com",
+    "linkedin": "linkedin.com/in/mia-tran",
+    "location": "Perth WA",
+    "summary": "Junior graphic designer with a Diploma of Graphic Design from North Metropolitan TAFE and experience across signage, print and social media. Quick with Illustrator and InDesign, careful with print specs, and designed a vehicle wrap series now running on 12 fleet vans.",
+    "experience": [
+      {
+        "title": "Design Work Placement",
+        "company": "Fremantle Signs & Print",
+        "location": "Fremantle WA",
+        "start": "2024-08",
+        "end": "2024-11",
+        "bullets": [
+          "Prepared vector artwork for shopfront signage, banners and vehicle graphics on a 10-week placement.",
+          "Measured and mocked up signage on site photos so clients could approve sizes before production.",
+          "Fixed low-resolution client logos by redrawing 18 of them as clean vector files."
+        ]
+      },
+      {
+        "title": "Junior Graphic Designer",
+        "company": "Swan River Marketing Co.",
+        "location": "Perth WA",
+        "start": "2025-02",
+        "end": "present",
+        "bullets": [
+          "Design social media graphics, EDMs and print collateral for six small-business clients each month.",
+          "Created a vehicle wrap series for a plumbing client, now running on 12 fleet vans across the metro area.",
+          "Set up InDesign templates for monthly newsletters, cutting layout time from a day to about three hours.",
+          "Organise and export assets in the right sizes for each platform, avoiding rework requests from the social team."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diploma of Graphic Design",
+        "school": "North Metropolitan TAFE",
+        "location": "Perth WA",
+        "start": "2023-02",
+        "end": "2024-11"
+      },
+      {
+        "degree": "WACE",
+        "school": "Balga Senior High School",
+        "location": "Perth WA",
+        "end": "2022-11",
+        "details": "ATAR 78.4"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Illustrator: Advanced Vector Techniques",
+        "provider": "LinkedIn Learning",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Vietnamese",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "TAFE graduate exhibition",
+        "detail": "Selected to show a brand identity project at the 2024 end-of-year exhibition."
+      },
+      {
+        "title": "Community poster",
+        "detail": "Designed the poster for a local Lunar New Year festival, printed at A1 and A3."
+      }
+    ],
+    "skills": [
+      "Adobe Illustrator",
+      "Adobe InDesign",
+      "Adobe Photoshop",
+      "Canva",
+      "Signage and vehicle graphics",
+      "Print specifications",
+      "Social media graphics",
+      "Typography"
+    ],
+    "interests": [
+      "Film photography",
+      "Beach volleyball",
+      "Drawing comics"
+    ]
+  }
+}

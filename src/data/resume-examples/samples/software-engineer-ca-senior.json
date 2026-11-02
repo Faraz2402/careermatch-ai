@@ -1,0 +1,81 @@
+{
+  "id": "software-engineer-ca-senior",
+  "category": "software-engineering",
+  "role": "software-engineer",
+  "country": "ca",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Amélie Tremblay",
+    "title": "Staff Software Engineer",
+    "phone": "(416) 555-0186",
+    "email": "amelie.tremblay@example.com",
+    "linkedin": "linkedin.com/in/amelie-tremblay",
+    "location": "Toronto, ON",
+    "summary": "Staff engineer with 12 years building event-driven back ends in Java, Kotlin and Go, including trading-adjacent and energy-metering platforms. Sets technical direction for three teams (22 engineers) and led a Kafka re-architecture that processes 1.8 billion meter readings a month. Bilingual in English and French.",
+    "experience": [
+      {
+        "title": "Software Developer",
+        "company": "Lakeshore Ticketing Inc.",
+        "location": "Toronto, ON",
+        "start": "2014-06",
+        "end": "2017-08",
+        "bullets": [
+          "Rebuilt the seat-reservation service in Java with optimistic locking, eliminating double-sold seats during on-sales of up to 40,000 tickets in ten minutes.",
+          "Added a French-language checkout for Québec venues, opening a market that grew to 15% of ticket revenue within a year.",
+          "Wrote the team's first load-testing suite in Gatling and used it to size infrastructure for three stadium tours."
+        ]
+      },
+      {
+        "title": "Senior Software Engineer",
+        "company": "Bay Street Ledger Technologies",
+        "location": "Toronto, ON",
+        "start": "2017-09",
+        "end": "2021-05",
+        "bullets": [
+          "Owned the trade-reconciliation pipeline for 11 dealer clients, reconciling about 2 million records nightly with a break rate under 0.05%.",
+          "Migrated batch reconciliation from overnight cron jobs to Kafka Streams, so breaks surfaced within minutes instead of the next morning.",
+          "Hired and onboarded six engineers and wrote the backend interview loop the company still uses.",
+          "Worked with the compliance team to produce audit trails that satisfied two external reviews with no findings on data lineage."
+        ]
+      },
+      {
+        "title": "Staff Software Engineer",
+        "company": "Maplegrid Energy Analytics",
+        "location": "Toronto, ON (hybrid)",
+        "start": "2021-06",
+        "end": "present",
+        "bullets": [
+          "Set architecture for ingestion, billing and forecasting teams (22 engineers) and chair the weekly design review.",
+          "Led a re-architecture of meter ingestion onto Kafka and Go consumers that now handles 1.8 billion readings a month at a cloud cost $410,000 a year lower than the old design.",
+          "Defined service-level objectives for 30 services and an error-budget policy, cutting customer-reported outages from nine in 2022 to two in 2025.",
+          "Sponsor an internal staff-plus mentoring circle that has supported four promotions to senior."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Software Engineering (BSE), Co-op",
+        "school": "University of Waterloo",
+        "location": "Waterloo, ON",
+        "start": "2009-09",
+        "end": "2014-04",
+        "details": "Five co-op terms in backend and QA roles. Capstone: low-latency order book simulator."
+      }
+    ],
+    "courses": [
+      { "name": "Confluent Certified Developer for Apache Kafka", "provider": "Confluent", "year": 2020 },
+      { "name": "Designing Data-Intensive Applications reading group (facilitator)", "provider": "Internal", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "French", "level": "Native" },
+      { "name": "English", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Two granted patents on streaming reconciliation", "detail": "Co-inventor on methods for detecting out-of-order trade events, filed while at Bay Street Ledger Technologies." },
+      { "title": "Conference talk, Toronto JVM meetup", "detail": "Presented lessons from moving a billing system from batch to streams to around 200 attendees." }
+    ],
+    "skills": ["Java", "Kotlin", "Go", "Apache Kafka / Kafka Streams", "PostgreSQL", "Kubernetes", "AWS", "Distributed systems design", "SLOs and observability", "Technical leadership", "Hiring and mentoring"],
+    "interests": ["Cross-country skiing", "Francophone literature", "Teaching kids to code at a local library"]
+  }
+}

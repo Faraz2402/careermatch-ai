@@ -1,0 +1,69 @@
+{
+  "id": "it-support-specialist-us-entry",
+  "category": "information-technology",
+  "role": "it-support-specialist",
+  "country": "us",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Brianna Lopez",
+    "title": "IT Support Specialist",
+    "phone": "(210) 555-0127",
+    "email": "brianna.lopez@example.com",
+    "linkedin": "linkedin.com/in/brianna-lopez",
+    "location": "San Antonio, TX",
+    "summary": "CompTIA A+ and Network+ certified support specialist with two years of hands-on work, first at a computer repair shop and now as the sole on-site IT person for a 12-office dental group. Keeps first-contact resolution near 80% and rebuilt the group's laptop setup process from half a day to under an hour. Bilingual in English and Spanish.",
+    "experience": [
+      {
+        "title": "Repair Technician (part-time)",
+        "company": "Alamo Heights Computer Repair",
+        "location": "San Antonio, TX",
+        "start": "2023-06",
+        "end": "2024-05",
+        "bullets": [
+          "Diagnosed and repaired about 25 laptops and desktops a week, from failed drives and malware to cracked screens.",
+          "Recovered data for walk-in customers and explained repair options in English or Spanish before quoting.",
+          "Organized the parts inventory into labeled bins and a shared sheet, so finding a part took under a minute instead of five during busy weeks."
+        ]
+      },
+      {
+        "title": "IT Support Specialist",
+        "company": "Mission Trail Dental Group",
+        "location": "San Antonio, TX",
+        "start": "2024-07",
+        "end": "present",
+        "bullets": [
+          "Support 160 staff across 12 dental offices, closing around 220 tickets a month with 79% resolved on first contact.",
+          "Built a Windows Autopilot and Intune enrollment process that cut new-laptop setup from four hours to 50 minutes.",
+          "Replaced aging Wi-Fi access points in five offices, ending the daily dropouts that interrupted digital X-ray uploads.",
+          "Enforced multi-factor authentication for all Microsoft 365 accounts and trained front-desk staff to spot phishing, supporting the group's HIPAA safeguards."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "A.A.S. Information Technology",
+        "school": "San Antonio College",
+        "location": "San Antonio, TX",
+        "start": "2022-08",
+        "end": "2024-05",
+        "details": "GPA 3.5/4.0. President's Honor Roll, three semesters."
+      }
+    ],
+    "courses": [
+      { "name": "CompTIA A+", "provider": "CompTIA", "year": 2023 },
+      { "name": "CompTIA Network+", "provider": "CompTIA", "year": 2025 },
+      { "name": "Google IT Support Professional Certificate", "provider": "Coursera", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Spanish", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Employee of the Quarter, Mission Trail Dental Group", "detail": "Nominated by office managers after the Wi-Fi replacement project." },
+      { "title": "Volunteer, library tech help hours", "detail": "Help older adults set up phones, email and telehealth apps two Saturdays a month." }
+    ],
+    "skills": ["Windows 10/11", "Microsoft 365 admin", "Microsoft Intune / Autopilot", "Active Directory and Entra ID", "macOS basics", "Networking (TCP/IP, DHCP, DNS)", "Wi-Fi troubleshooting", "Ticketing (Freshservice)", "Hardware repair", "Customer service in English and Spanish"],
+    "interests": ["Building gaming PCs", "Folklórico dance", "Spurs games"]
+  }
+}

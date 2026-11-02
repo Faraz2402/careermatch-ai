@@ -1,0 +1,112 @@
+{
+  "id": "administrative-assistant-in-entry",
+  "category": "office-administration",
+  "role": "administrative-assistant",
+  "country": "in",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Ananya Sharma",
+    "title": "Administrative Assistant",
+    "phone": "+91 00000 41827",
+    "email": "ananya.sharma@example.com",
+    "linkedin": "linkedin.com/in/ananya-sharma",
+    "location": "Jaipur, Rajasthan",
+    "summary": "Commerce graduate (B.Com, CGPA 8.1) with an internship and two years as an administrative assistant at a textile export firm. Handles vendor records, travel and Tally entries carefully, and reduced the time to close monthly petty cash from three days to one.",
+    "experience": [
+      {
+        "title": "Office Administration Intern",
+        "company": "Pink City Co-working Spaces",
+        "location": "Jaipur, Rajasthan",
+        "start": "2023-12",
+        "end": "2024-04",
+        "bullets": [
+          "Managed member check-ins, meeting-room bookings and visitor passes for a centre with 120 members.",
+          "Updated the member database in Google Sheets and sent renewal reminders, helping keep renewals above 85% that quarter.",
+          "Compiled a simple supplier comparison for pantry and stationery items, saving about ₹6,000 a month."
+        ]
+      },
+      {
+        "title": "Administrative Assistant",
+        "company": "Sanganer Textile Exports Pvt. Ltd.",
+        "location": "Jaipur, Rajasthan",
+        "start": "2024-06",
+        "end": "present",
+        "bullets": [
+          "Coordinate travel, hotel bookings and visa paperwork for the export team's buyer visits, around 25 trips a year.",
+          "Maintain vendor master data and record petty cash and courier expenses in Tally Prime for the accounts team.",
+          "Introduced a daily petty cash sheet with receipts scanned the same day, cutting month-end closing from three days to one.",
+          "Prepare minutes for weekly production meetings in English and Hindi and follow up on open actions with department heads."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Com",
+        "school": "University of Rajasthan",
+        "location": "Jaipur, Rajasthan",
+        "start": "2021-07",
+        "end": "2024-05",
+        "details": "CGPA 8.1/10"
+      },
+      {
+        "degree": "Class XII (Commerce), RBSE",
+        "school": "Govt. Senior Secondary School, Malviya Nagar",
+        "location": "Jaipur, Rajasthan",
+        "end": "2021-05",
+        "details": "84%"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Tally Prime with GST",
+        "provider": "Tally Education",
+        "year": 2023
+      },
+      {
+        "name": "Business English Communication",
+        "provider": "NPTEL",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Hindi",
+        "level": "Native"
+      },
+      {
+        "name": "Marathi",
+        "level": "Basic"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "College fest organising committee",
+        "detail": "Handled registrations and budgets for 900 participants at the annual commerce fest."
+      },
+      {
+        "title": "NSS volunteer",
+        "detail": "Ran a 3-week digital literacy camp for 40 women in a nearby village."
+      }
+    ],
+    "skills": [
+      "MS Office",
+      "Tally Prime",
+      "Google Sheets",
+      "Travel and visa coordination",
+      "Vendor records",
+      "Petty cash",
+      "Minutes of meeting",
+      "Typing (English and Hindi)"
+    ],
+    "interests": [
+      "Kathak dance",
+      "Reading Hindi novels",
+      "Block printing"
+    ]
+  }
+}

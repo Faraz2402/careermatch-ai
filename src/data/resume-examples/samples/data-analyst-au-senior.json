@@ -1,0 +1,85 @@
+{
+  "id": "data-analyst-au-senior",
+  "category": "data-science",
+  "role": "data-analyst",
+  "country": "au",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Siobhan Nguyen",
+    "title": "Analytics Lead",
+    "phone": "0491 570 156",
+    "email": "siobhan.nguyen@example.com",
+    "linkedin": "linkedin.com/in/siobhan-nguyen",
+    "location": "Brisbane QLD",
+    "summary": "Analytics lead with 14 years in retail, private health insurance, water and energy retail. Head a team of five analysts and own the customer and hardship reporting a Queensland energy retailer relies on for regulator submissions. Previously built the leakage analytics program that helped a water utility cut non-revenue water by 9%.",
+    "experience": [
+      {
+        "title": "Analytics Lead",
+        "company": "Kurilpa Energy Retail",
+        "location": "Brisbane QLD",
+        "start": "2023-04",
+        "end": "present",
+        "bullets": [
+          "Manage five analysts and a $410,000 tooling budget, setting the analytics roadmap with the heads of customer, pricing and compliance.",
+          "Rebuilt hardship program reporting in Databricks and Power BI so regulator submissions now pass internal review on the first draft instead of the fourth.",
+          "Identified 3,600 customers on outdated tariffs through a plan-fit analysis; proactive switching lowered their average bill by $190 a year and reduced complaints.",
+          "Introduced a fortnightly analytics review where every new metric is signed off by its business owner, cutting rework requests by about a third."
+        ]
+      },
+      {
+        "title": "Senior Data Analyst",
+        "company": "Brigalow Water",
+        "location": "Ipswich QLD",
+        "start": "2019-11",
+        "end": "2023-03",
+        "bullets": [
+          "Led the leakage analytics program, combining district meter readings with pipe age data to rank 420 zones for repair and helping cut non-revenue water by 9%.",
+          "Forecast summer demand for 11 supply schemes using seasonal models, giving operations three weeks' extra notice of likely restrictions.",
+          "Replaced a vendor reporting contract with in-house dashboards, saving $160,000 a year."
+        ]
+      },
+      {
+        "title": "Data Analyst",
+        "company": "Coral Coast Health Fund",
+        "location": "Gold Coast QLD",
+        "start": "2015-07",
+        "end": "2019-10",
+        "bullets": [
+          "Analysed hospital and extras claims for 210,000 members to support product pricing reviews each April.",
+          "Developed a lapse-risk score that let the retention team prioritise calls, lifting save rates on targeted members from 21% to 29%.",
+          "Standardised 35 monthly reports into a single SAS workflow, halving the time to month-end sign-off."
+        ]
+      },
+      {
+        "title": "Reporting Analyst",
+        "company": "Moreton Bay Retail Group",
+        "location": "Brisbane QLD",
+        "start": "2012-02",
+        "end": "2015-06",
+        "bullets": [
+          "Produced weekly trading reports for 48 stores and presented results to the state operations meeting.",
+          "Built a stock-turn analysis that flagged slow lines across homewares, freeing $1.3 million in working capital after range cuts.",
+          "Trained 20 store managers to use self-serve sales reports, reducing ad hoc requests to the team."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "Bachelor of Mathematics (Statistics major)", "school": "Queensland University of Technology", "location": "Brisbane QLD", "start": "2008-02", "end": "2011-11" }
+    ],
+    "courses": [
+      { "name": "Databricks Certified Data Analyst Associate", "provider": "Databricks", "year": 2024 },
+      { "name": "Leading Teams", "provider": "Australian Institute of Management", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Vietnamese", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Water efficiency recognition", "detail": "Brigalow Water internal innovation award (2021) for the leakage zone ranking model." },
+      { "title": "Mentor, women in data program", "detail": "Mentored four early-career analysts through a Brisbane-based volunteer mentoring program since 2020." }
+    ],
+    "skills": ["SQL", "Databricks", "Power BI", "Python", "SAS", "Forecasting", "Customer analytics", "Regulatory reporting", "Data governance", "Stakeholder engagement", "Team leadership", "Budget management"],
+    "interests": ["Ocean swimming", "Community choir", "Mentoring"]
+  }
+}

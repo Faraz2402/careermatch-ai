@@ -1,0 +1,80 @@
+{
+  "id": "front-end-developer-au-mid",
+  "category": "software-engineering",
+  "role": "front-end-developer",
+  "country": "au",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Chloe Papadopoulos",
+    "title": "Front-End Developer (Vue / Nuxt)",
+    "phone": "0491 570 157",
+    "email": "chloe.papadopoulos@example.com",
+    "linkedin": "linkedin.com/in/chloe-papadopoulos",
+    "location": "Melbourne VIC",
+    "summary": "Front-end developer with nearly ten years in Melbourne, moving from agency builds to product work in energy retail and travel. Currently own the booking front end for a tour operator taking $38 million a year online. Known for turning slow, fragile checkouts into fast, well-tested ones.",
+    "experience": [
+      {
+        "title": "Junior Web Developer",
+        "company": "Fitzroy Creative Co.",
+        "location": "Melbourne VIC",
+        "start": "2017-02",
+        "end": "2019-04",
+        "bullets": [
+          "Developed marketing sites in Vue and Craft CMS for arts festivals, wineries and two local councils.",
+          "Set up automated visual regression checks with BackstopJS, catching layout breaks before clients saw them.",
+          "Answered client support tickets directly, which taught me to explain technical trade-offs without jargon."
+        ]
+      },
+      {
+        "title": "Front-End Developer",
+        "company": "Bayside Energy Retail",
+        "location": "Melbourne VIC",
+        "start": "2019-05",
+        "end": "2022-11",
+        "bullets": [
+          "Rebuilt the plan-comparison and sign-up journey in Nuxt, lifting online sign-ups by 23% over the following two quarters.",
+          "Implemented address autocomplete and concession-card validation that dropped incomplete applications by about 30%.",
+          "Worked with the compliance team so pricing displays met Victorian Default Offer comparison rules on every plan card.",
+          "Added unit and component tests that brought front-end coverage from near zero to 65%."
+        ]
+      },
+      {
+        "title": "Front-End Developer",
+        "company": "Docklands Travel Tech",
+        "location": "Melbourne VIC (hybrid)",
+        "start": "2022-12",
+        "end": "present",
+        "bullets": [
+          "Own the tour-booking front end that processes about $38 million in online sales a year across web and in-app webviews.",
+          "Cut mobile checkout time from 4 minutes 10 seconds to 2 minutes 30 by redesigning traveller details with the UX team.",
+          "Moved image delivery to responsive formats and a CDN, improving mobile Largest Contentful Paint from 3.6 s to 1.9 s.",
+          "Mentor a graduate developer and lead fortnightly front-end chapter sessions for nine developers."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Computer Science",
+        "school": "RMIT University",
+        "location": "Melbourne VIC",
+        "start": "2013-02",
+        "end": "2016-11"
+      }
+    ],
+    "courses": [
+      { "name": "Nuxt 3 Mastery", "provider": "Vue School", "year": 2023 },
+      { "name": "Web Performance Fundamentals", "provider": "Frontend Masters", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Greek", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Organiser, Melbourne Vue meetup", "detail": "Co-run a bi-monthly meetup of about 80 developers since 2021." },
+      { "title": "Customer impact award, Bayside Energy Retail", "detail": "Recognised for the redesigned sign-up journey and its effect on complaints." }
+    ],
+    "skills": ["Vue 3", "Nuxt", "TypeScript", "JavaScript", "Tailwind CSS", "Pinia", "Vitest", "Playwright", "Web performance", "Accessibility (WCAG 2.1)", "REST and GraphQL APIs", "Mentoring"],
+    "interests": ["AFL (Collingwood member)", "Ceramics classes", "Weekend bushwalks in the Dandenongs"]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "product-manager-ca-entry",
+  "category": "business-management",
+  "role": "product-manager",
+  "country": "ca",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Maya Lafleur",
+    "title": "Associate Product Manager",
+    "phone": "(403) 555-0135",
+    "email": "maya.lafleur@example.com",
+    "linkedin": "linkedin.com/in/maya-lafleur",
+    "location": "Calgary, AB",
+    "summary": "Associate product manager at a Calgary payments start-up, two years after finishing a BCom at the Haskayne School of Business. Learned product basics in an eight-month co-op at a rental marketplace and now own invoicing features for 4,000 small businesses. Bilingual in English and French and quick to turn customer calls into clear tickets.",
+    "experience": [
+      {
+        "title": "Associate Product Manager",
+        "company": "Crowchild Payments",
+        "location": "Calgary, AB",
+        "start": "2024-07",
+        "end": "present",
+        "bullets": [
+          "Own the invoicing feature set for about 4,000 small-business customers, working with four developers and a part-time designer.",
+          "Shipped recurring invoices after 20 customer calls; paid-plan upgrades among invoicing users rose by 8% in the following quarter.",
+          "Wrote acceptance criteria and ran sprint demos, and keep a public changelog in English and French.",
+          "Built a Looker dashboard tracking invoice payment times by industry for the sales team."
+        ]
+      },
+      {
+        "title": "Product Co-op Student",
+        "company": "Sunridge Rentals",
+        "location": "Calgary, AB",
+        "start": "2023-05",
+        "end": "2023-12",
+        "bullets": [
+          "Synthesized 300 support tickets into a ranked list of renter pain points for the product lead.",
+          "Ran usability tests with 12 renters on a new application form, leading to a shorter flow that raised completion by 10%.",
+          "Maintained the bug backlog and joined sprint planning twice a month."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "Bachelor of Commerce (BCom), Business Technology Management", "school": "University of Calgary, Haskayne School of Business", "location": "Calgary, AB", "start": "2020-09", "end": "2024-04", "details": "GPA 3.6/4.0. Co-operative education program." }
+    ],
+    "courses": [
+      { "name": "Professional Scrum Product Owner I (PSPO I)", "provider": "Scrum.org", "year": 2024 },
+      { "name": "SQL for Data Analysis", "provider": "Udacity", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "French", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Case competition finalist", "detail": "Finalist in a western Canadian business technology case competition (2023)." },
+      { "title": "Student club lead", "detail": "Co-founded the campus product management club, growing it to 120 members." }
+    ],
+    "skills": ["Product discovery", "User interviews", "Usability testing", "Backlog management", "Acceptance criteria", "Looker", "SQL", "Figma", "Jira", "Bilingual communication (EN/FR)"],
+    "interests": ["Climbing", "Podcasting", "Snowboarding"]
+  }
+}

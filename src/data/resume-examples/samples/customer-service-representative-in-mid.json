@@ -1,0 +1,123 @@
+{
+  "id": "customer-service-representative-in-mid",
+  "category": "office-administration",
+  "role": "customer-service-representative",
+  "country": "in",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Karthik Raghunathan",
+    "title": "Senior Customer Service Representative",
+    "phone": "+91 00000 73512",
+    "email": "karthik.raghunathan@example.com",
+    "linkedin": "linkedin.com/in/karthik-raghunathan",
+    "location": "Bengaluru, Karnataka",
+    "summary": "Customer service representative with nine years in telecom, health insurance and fintech support in Bengaluru. Resolves escalated payment and KYC issues for a digital lending app, trains new joiners in English, Hindi, Kannada and Tamil, and helped bring grievance resolution time down from five days to two.",
+    "experience": [
+      {
+        "title": "Customer Care Executive",
+        "company": "Silk Board Mobile Services",
+        "location": "Bengaluru, Karnataka",
+        "start": "2017-07",
+        "end": "2019-12",
+        "bullets": [
+          "Handled around 100 inbound calls a day on prepaid recharges, postpaid bills and network complaints in four languages.",
+          "Exceeded the monthly quality target in 26 of 30 months and was moved to the postpaid priority queue in my second year.",
+          "Logged network complaints with location details for the technical team, helping them spot three repeat-fault towers."
+        ]
+      },
+      {
+        "title": "Customer Service Representative",
+        "company": "Nandi Health Insurance TPA",
+        "location": "Bengaluru, Karnataka",
+        "start": "2020-01",
+        "end": "2022-08",
+        "bullets": [
+          "Guided policyholders and hospital desks through cashless claim approvals, documents and claim status, often on urgent admissions.",
+          "Cut pending pre-authorisation queries by setting up a daily follow-up list with the medical team.",
+          "Trained 22 new joiners on the claims system and IRDAI-aligned grievance process during the pandemic hiring drive.",
+          "Kept a customer satisfaction score of 88% during the second COVID-19 wave, when daily volumes doubled."
+        ]
+      },
+      {
+        "title": "Senior Customer Service Representative",
+        "company": "Cubbon Fintech Pvt. Ltd.",
+        "location": "Bengaluru, Karnataka",
+        "start": "2022-09",
+        "end": "present",
+        "bullets": [
+          "Resolve escalated cases on failed UPI payments, EMI deductions and KYC rejections for a lending app with 1.2 million users.",
+          "Worked with operations on a grievance tracker that reduced average resolution time from five days to two.",
+          "Coach a group of nine executives, reviewing calls weekly and building a Kannada and Tamil script library.",
+          "Prepare the weekly complaints summary for the grievance redressal officer, flagging RBI-reportable cases on time."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BBA",
+        "school": "Bangalore University",
+        "location": "Bengaluru, Karnataka",
+        "start": "2014-07",
+        "end": "2017-05",
+        "details": "First Class, 68%"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Customer Relationship Management",
+        "provider": "NPTEL",
+        "year": 2021
+      },
+      {
+        "name": "Freshdesk Agent Certification",
+        "provider": "Freshworks Academy",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Tamil",
+        "level": "Native"
+      },
+      {
+        "name": "Kannada",
+        "level": "Fluent"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Customer Champion award",
+        "detail": "Received at Cubbon Fintech in 2024 for the highest customer satisfaction score among senior representatives."
+      },
+      {
+        "title": "Pandemic trainer",
+        "detail": "Onboarded and trained 22 executives remotely at Nandi Health Insurance TPA."
+      }
+    ],
+    "skills": [
+      "Escalation handling",
+      "UPI and payment disputes",
+      "KYC verification",
+      "Freshdesk",
+      "Exotel",
+      "MS Excel",
+      "Grievance redressal",
+      "Call quality coaching",
+      "Multilingual support"
+    ],
+    "interests": [
+      "Carnatic music",
+      "Weekend cricket",
+      "Cycling to Nandi Hills"
+    ]
+  }
+}

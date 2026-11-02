@@ -1,0 +1,141 @@
+{
+  "id": "registered-nurse-uk-senior",
+  "category": "healthcare-nursing",
+  "role": "registered-nurse",
+  "country": "uk",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Siobhan Gallagher",
+    "title": "Ward Manager (Band 7), Acute Medical Unit",
+    "phone": "07700 900417",
+    "email": "siobhan.gallagher@example.com",
+    "linkedin": "linkedin.com/in/siobhan-gallagher",
+    "location": "Leeds, West Yorkshire",
+    "summary": "NMC-registered adult nurse with 14 years in acute and elderly medicine, the last six managing a 28-bed Acute Medical Unit with 62 staff. I lead with data and kindness: under my leadership the unit cut agency spend by £214,000 a year and reached zero category 3–4 pressure ulcers for 19 consecutive months.",
+    "experience": [
+      {
+        "title": "Staff Nurse (Band 5), Elderly Care",
+        "company": "Kirkgate Teaching Hospitals NHS Foundation Trust",
+        "location": "Leeds",
+        "start": "2011-09",
+        "end": "2014-07",
+        "bullets": [
+          "Cared for 8 frail older patients per shift on a 30-bed elderly medicine ward, many with delirium, dementia or complex discharge needs.",
+          "Became the ward's dementia champion and introduced 'This is Me' profiles, which were completed for 85% of eligible patients within six months.",
+          "Completed mentorship training and supported 11 pre-registration nursing students through their placements."
+        ]
+      },
+      {
+        "title": "Senior Staff Nurse (Band 6), Respiratory Medicine",
+        "company": "Kirkgate Teaching Hospitals NHS Foundation Trust",
+        "location": "Leeds",
+        "start": "2014-08",
+        "end": "2018-03",
+        "bullets": [
+          "Ran shifts as nurse in charge on a 24-bed respiratory ward with a 4-bed non-invasive ventilation bay.",
+          "Delivered NIV competency training to 26 nurses, enabling the ward to staff the NIV bay with its own team rather than borrowing from critical care.",
+          "Audited oxygen prescribing monthly and, with the respiratory consultants, raised compliance with prescribed target saturations from 54% to 91%.",
+          "Investigated 9 patient-safety incidents using root cause analysis and presented learning at the divisional governance meeting."
+        ]
+      },
+      {
+        "title": "Deputy Sister, Acute Medical Unit",
+        "company": "Wharfedale and Aire General Hospital",
+        "location": "Leeds",
+        "start": "2018-04",
+        "end": "2020-05",
+        "bullets": [
+          "Deputised for the ward manager across a 28-bed AMU admitting around 45 patients a day from ED and GP referrals.",
+          "Built the unit's first e-rostering templates in Allocate HealthRoster, reducing unfilled night shifts by 30% in the first quarter.",
+          "Coordinated the unit's response during the first COVID-19 wave, converting a 6-bed bay to a cohort area within 48 hours."
+        ]
+      },
+      {
+        "title": "Ward Manager (Band 7), Acute Medical Unit",
+        "company": "Wharfedale and Aire General Hospital",
+        "location": "Leeds",
+        "start": "2020-06",
+        "end": "present",
+        "bullets": [
+          "Lead a team of 62 nurses, nursing associates and healthcare assistants and manage a £2.9 million annual pay budget.",
+          "Recruited 14 internationally educated nurses and built a 10-week OSCE preparation and pastoral programme; all 14 passed and 13 remain on the unit.",
+          "Cut agency nursing spend by £214,000 a year by creating an in-house bank pool and flexible self-rostering.",
+          "Introduced twice-daily skin bundle checks and SSKIN board rounds, achieving 19 consecutive months with no hospital-acquired category 3–4 pressure ulcers.",
+          "Took the unit from 'requires improvement' to 'good' in the trust's internal ward accreditation scheme within 18 months."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "PgCert Clinical Leadership",
+        "school": "Leeds Beckett University",
+        "location": "Leeds",
+        "start": "2019-09",
+        "end": "2020-07"
+      },
+      {
+        "degree": "BSc (Hons) Adult Nursing, 2:1",
+        "school": "University of Leeds",
+        "location": "Leeds",
+        "start": "2008-09",
+        "end": "2011-08"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Immediate Life Support (ILS)",
+        "provider": "Resuscitation Council UK",
+        "year": 2025
+      },
+      {
+        "name": "Practice Assessor training (NMC SSSA standards)",
+        "provider": "Leeds Beckett University",
+        "year": 2019
+      },
+      {
+        "name": "Mary Seacole Programme",
+        "provider": "NHS Leadership Academy",
+        "year": 2017
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Irish",
+        "level": "Basic"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "NMC registered nurse (Adult)",
+        "detail": "Registered with the Nursing and Midwifery Council since 2011; revalidated in 2017, 2020, 2023 and 2026."
+      },
+      {
+        "title": "Trust Team of the Year (finalist), 2023",
+        "detail": "Shortlisted for the AMU's international recruitment and retention programme."
+      }
+    ],
+    "skills": [
+      "Ward leadership",
+      "Budget management",
+      "E-rostering",
+      "Patient flow",
+      "Root cause analysis",
+      "NEWS2 escalation",
+      "Non-invasive ventilation",
+      "Safeguarding adults",
+      "Staff wellbeing",
+      "Recruitment and retention",
+      "Clinical audit"
+    ],
+    "interests": [
+      "Fell walking",
+      "Choir",
+      "Mentoring student nurses"
+    ]
+  }
+}

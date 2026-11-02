@@ -1,0 +1,106 @@
+{
+  "id": "ux-designer-ca-entry",
+  "category": "design",
+  "role": "ux-designer",
+  "country": "ca",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Ethan Cho",
+    "title": "Junior UX Designer",
+    "phone": "(604) 555-0133",
+    "email": "ethan.cho@example.com",
+    "linkedin": "linkedin.com/in/ethan-cho",
+    "location": "Vancouver, BC",
+    "summary": "Junior UX designer with a UBC Cognitive Systems degree, a civic tech co-op term and two years designing patient-facing features for a telehealth start-up. Comfortable with research, Figma prototyping and accessibility basics; my redesigned appointment booking flow cut booking errors by 30%.",
+    "experience": [
+      {
+        "title": "UX Design Co-op",
+        "company": "Gastown Civic Tech Lab",
+        "location": "Vancouver, BC",
+        "start": "2023-05",
+        "end": "2023-12",
+        "bullets": [
+          "Interviewed 16 residents and front-desk staff about applying for a recreation fee subsidy online.",
+          "Designed and tested a shorter eligibility screener in Figma, reducing average completion time in tests from 9 minutes to 4.",
+          "Presented findings and a prototype to the partner municipality's digital team at the end of the term."
+        ]
+      },
+      {
+        "title": "Junior UX Designer",
+        "company": "Fraser Valley Telehealth",
+        "location": "Vancouver, BC",
+        "start": "2024-07",
+        "end": "present",
+        "bullets": [
+          "Design patient-facing features for a virtual clinic app used by about 45,000 British Columbians.",
+          "Reworked the appointment booking flow after five rounds of usability testing, cutting booking errors by about 30%.",
+          "Ran an accessibility review with screen reader users and fixed colour contrast and focus order issues across 20 screens.",
+          "Keep the Figma component library up to date and document each component's states for developers."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc in Cognitive Systems (Cognition and Brain)",
+        "school": "University of British Columbia",
+        "location": "Vancouver, BC",
+        "start": "2020-09",
+        "end": "2024-05",
+        "details": "Dean's Honour List, 2023"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Google UX Design Professional Certificate",
+        "provider": "Coursera",
+        "year": 2022
+      },
+      {
+        "name": "Accessibility for Web Design",
+        "provider": "LinkedIn Learning",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Korean",
+        "level": "Fluent"
+      },
+      {
+        "name": "French",
+        "level": "Basic"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "UBC design jam winner",
+        "detail": "Team prototype for a campus food bank ordering app won first place in 2023."
+      },
+      {
+        "title": "Student design club",
+        "detail": "Organized portfolio review nights for 60 students as club vice-president."
+      }
+    ],
+    "skills": [
+      "User interviews",
+      "Usability testing",
+      "Figma",
+      "Prototyping",
+      "Wireframing",
+      "WCAG 2.1 basics",
+      "Component libraries",
+      "Miro",
+      "HTML/CSS basics"
+    ],
+    "interests": [
+      "Hiking the North Shore",
+      "Film photography",
+      "Korean cooking"
+    ]
+  }
+}

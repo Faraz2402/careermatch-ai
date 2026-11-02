@@ -1,0 +1,101 @@
+{
+  "id": "operations-manager-us-entry",
+  "category": "business-management",
+  "role": "operations-manager",
+  "country": "us",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Tyler Brooks",
+    "title": "Assistant Operations Manager",
+    "phone": "(404) 555-0158",
+    "email": "tyler.brooks@example.com",
+    "linkedin": "linkedin.com/in/tyler-brooks",
+    "location": "Atlanta, GA",
+    "summary": "Supply chain graduate from Georgia State University, promoted from shift supervisor to assistant operations manager at a regional food distributor within 21 months. Runs night-shift picking and loading for 140 delivery routes and raised order accuracy from 97.1% to 99.3%.",
+    "experience": [
+      {
+        "title": "Assistant Operations Manager",
+        "company": "Peachtree Fresh Distribution",
+        "location": "Atlanta, GA",
+        "start": "2025-03",
+        "end": "present",
+        "bullets": [
+          "Run night-shift receiving, picking and loading for 140 daily delivery routes with a crew of 46 associates.",
+          "Introduced pick-to-label audits and a short pre-shift huddle, raising order accuracy from 97.1% to 99.3%.",
+          "Rebuilt the loading sequence with dispatch so trucks leave on time 94% of nights, up from 81%.",
+          "Track labor hours against volume each week and cut overtime by 18% without missing a delivery window."
+        ]
+      },
+      {
+        "title": "Operations Shift Supervisor",
+        "company": "Peachtree Fresh Distribution",
+        "location": "Atlanta, GA",
+        "start": "2023-06",
+        "end": "2025-02",
+        "bullets": [
+          "Supervised 22 order selectors in a refrigerated warehouse handling about 30,000 cases a night.",
+          "Trained 35 new hires on voice picking and forklift safety; first-90-day turnover fell from 42% to 27%.",
+          "Led the shift through an OSHA recordable-free year in 2024."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.B.A. in Managerial Sciences, Supply Chain Management concentration",
+        "school": "Georgia State University, J. Mack Robinson College of Business",
+        "location": "Atlanta, GA",
+        "start": "2019-08",
+        "end": "2023-05",
+        "details": "GPA 3.5/4.0; capstone on cross-dock layout for a local nonprofit food bank"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Lean Six Sigma Yellow Belt",
+        "provider": "ASQ",
+        "year": 2024
+      },
+      {
+        "name": "OSHA 10-Hour General Industry",
+        "provider": "OSHA Outreach Training Program",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Order accuracy 99.3%",
+        "detail": "Night-shift accuracy up from 97.1% after pick-to-label audits."
+      },
+      {
+        "title": "Promoted in 21 months",
+        "detail": "From shift supervisor to assistant operations manager."
+      },
+      {
+        "title": "APICS student chapter president",
+        "detail": "Organized four site tours and a case competition at Georgia State, 2022 to 2023."
+      }
+    ],
+    "skills": [
+      "Warehouse operations",
+      "Labor planning",
+      "Lean basics",
+      "Manhattan WMS",
+      "Voice picking",
+      "Excel",
+      "Safety compliance",
+      "Team supervision",
+      "KPI tracking"
+    ],
+    "interests": [
+      "Pickup basketball",
+      "Smoking barbecue"
+    ]
+  }
+}

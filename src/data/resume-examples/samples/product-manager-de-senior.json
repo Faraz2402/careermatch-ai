@@ -1,0 +1,87 @@
+{
+  "id": "product-manager-de-senior",
+  "category": "business-management",
+  "role": "product-manager",
+  "country": "de",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Henrik Paulsen",
+    "title": "Director of Product",
+    "phone": "+49 40 66969 528",
+    "email": "henrik.paulsen@example.com",
+    "linkedin": "linkedin.com/in/henrik-paulsen",
+    "location": "Hamburg",
+    "summary": "Director of product with 15 years in digital media, online travel, e-commerce and logistics software, holding a Diplom in Business Informatics. Lead four product teams at a Hamburg freight platform whose shipper app grew booked volume by 34% in two years. Experienced in building product organisations, setting strategy with founders and working with works councils on internal tools.",
+    "experience": [
+      {
+        "title": "Director of Product",
+        "company": "Hafenkante Logistics Tech GmbH",
+        "location": "Hamburg",
+        "start": "2022-03",
+        "end": "present",
+        "bullets": [
+          "Lead 5 product managers and 3 designers across shipper, carrier and pricing products, setting annual strategy with the founders.",
+          "Grew booked freight volume through the shipper app by 34% in two years by launching instant quotes and self-serve customs documents.",
+          "Built a product operations function with shared metrics, quarterly business reviews and a single roadmap for 60 engineers.",
+          "Managed a €1.2m annual budget for research, tooling and external design partners."
+        ]
+      },
+      {
+        "title": "Senior Product Manager",
+        "company": "Speicherstadt Commerce SE",
+        "location": "Hamburg",
+        "start": "2018-10",
+        "end": "2022-02",
+        "bullets": [
+          "Owned checkout and payments for an online fashion marketplace in five EU markets.",
+          "Introduced buy-now-pay-later and local payment methods, lifting checkout conversion by 7% in Austria and the Netherlands.",
+          "Led a team of two PMs through the PSD2 strong customer authentication changes with minimal conversion loss."
+        ]
+      },
+      {
+        "title": "Product Manager",
+        "company": "Alster Reisen GmbH",
+        "location": "Hamburg",
+        "start": "2014-07",
+        "end": "2018-09",
+        "bullets": [
+          "Managed search and filters for a package holiday booking site with around 3 million monthly visitors.",
+          "Ran more than 80 experiments on search results; the best performers raised booking rate by 12%.",
+          "Worked with the data team on a hotel ranking model that combined price, reviews and margin."
+        ]
+      },
+      {
+        "title": "Junior Product Manager",
+        "company": "Elbbrücken Media GmbH",
+        "location": "Hamburg",
+        "start": "2011-04",
+        "end": "2014-06",
+        "bullets": [
+          "Coordinated the relaunch of a regional news website and its first mobile app.",
+          "Defined the paywall test plan that converted 9,000 readers to digital subscriptions in year one.",
+          "Wrote specifications and acceptance tests for an external development agency."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "Diplom-Wirtschaftsinformatiker (Diploma in Business Informatics)", "school": "Universität Hamburg", "location": "Hamburg", "start": "2005-10", "end": "2011-03", "details": "Final grade 1.7" },
+      { "degree": "Abitur", "school": "Gymnasium Blankenese", "location": "Hamburg", "end": "2005-06" }
+    ],
+    "courses": [
+      { "name": "Professional Scrum Product Owner II (PSPO II)", "provider": "Scrum.org", "year": 2020 },
+      { "name": "Product Strategy", "provider": "Reforge", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "German", "level": "C2 (native)" },
+      { "name": "English", "level": "C2" },
+      { "name": "Danish", "level": "B2" }
+    ],
+    "achievements": [
+      { "title": "Conference talk", "detail": "Talk on pricing products in freight marketplaces at a Hamburg product conference (2024)." },
+      { "title": "Mentor", "detail": "Mentor for founders at a Hamburg start-up accelerator since 2021." }
+    ],
+    "skills": ["Product strategy", "Product operations", "Marketplace products", "Pricing", "Payments and PSD2", "Experimentation", "OKRs", "Team leadership", "Budget management", "Stakeholder management", "SQL", "Amplitude"],
+    "interests": ["Sailing on the Alster", "Handball", "Jazz"]
+  }
+}

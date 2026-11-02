@@ -1,0 +1,82 @@
+{
+  "id": "devops-engineer-ca-mid",
+  "category": "software-engineering",
+  "role": "devops-engineer",
+  "country": "ca",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Harpreet Sandhu",
+    "title": "DevOps Engineer (Azure)",
+    "phone": "(403) 555-0119",
+    "email": "harpreet.sandhu@example.com",
+    "linkedin": "linkedin.com/in/harpreet-sandhu",
+    "location": "Calgary, AB",
+    "summary": "DevOps engineer with nine years in Calgary, from pipeline-data support in the energy sector to running Azure infrastructure for a virtual-care provider. Built the AKS platform behind 400,000 telehealth visits a year while keeping patient data in Canadian regions. Strong on GitHub Actions, Terraform and cost control.",
+    "experience": [
+      {
+        "title": "Junior Systems Analyst",
+        "company": "Bow Valley Pipeline Data Ltd.",
+        "location": "Calgary, AB",
+        "start": "2017-05",
+        "end": "2019-08",
+        "bullets": [
+          "Supported Windows and Linux servers hosting SCADA data historians for 18 field operators.",
+          "Scripted nightly backups and restore tests in PowerShell, replacing a manual checklist that was often skipped.",
+          "Cut ticket backlog from 90 to 25 by building a self-service password and VPN reset page."
+        ]
+      },
+      {
+        "title": "Cloud Operations Engineer",
+        "company": "Chinook Retail Systems",
+        "location": "Calgary, AB",
+        "start": "2019-09",
+        "end": "2022-06",
+        "bullets": [
+          "Migrated 35 point-of-sale back-office services to Azure App Service, closing the on-premises server room.",
+          "Introduced Terraform and Azure DevOps pipelines, reducing environment drift incidents from monthly to rare.",
+          "Set up Azure Monitor alerting that caught a payment gateway slowdown on Boxing Day before stores escalated.",
+          "Trained the support desk on reading dashboards so they could triage before paging engineers."
+        ]
+      },
+      {
+        "title": "DevOps Engineer",
+        "company": "Foothills Telehealth Inc.",
+        "location": "Calgary, AB (hybrid)",
+        "start": "2022-07",
+        "end": "present",
+        "bullets": [
+          "Built and run the AKS platform behind roughly 400,000 virtual visits a year, hosted only in Canada Central and Canada East to meet data-residency commitments.",
+          "Moved CI/CD to GitHub Actions with reusable workflows, cutting median pipeline time from 24 to 9 minutes.",
+          "Reduced monthly Azure spend by $18,000 through reserved instances and scheduling non-production clusters off overnight.",
+          "Run quarterly disaster-recovery drills and mentor one junior engineer on Kubernetes troubleshooting."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc Computer Science",
+        "school": "University of Calgary",
+        "location": "Calgary, AB",
+        "start": "2012-09",
+        "end": "2016-04"
+      }
+    ],
+    "courses": [
+      { "name": "Microsoft Certified: DevOps Engineer Expert (AZ-400)", "provider": "Microsoft", "year": 2023 },
+      { "name": "Microsoft Certified: Azure Administrator Associate (AZ-104)", "provider": "Microsoft", "year": 2021 },
+      { "name": "Certified Kubernetes Administrator (CKA)", "provider": "The Linux Foundation / CNCF", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Punjabi", "level": "Native" },
+      { "name": "Hindi", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Volunteer, Calgary tech mentorship program", "detail": "Mentored three newcomers to Canada into cloud support roles." },
+      { "title": "Internal reliability award, Foothills Telehealth", "detail": "Recognised for keeping the platform available through a 3x demand spike during a flu season." }
+    ],
+    "skills": ["Microsoft Azure", "AKS / Kubernetes", "Terraform", "GitHub Actions", "Azure DevOps", "PowerShell", "Bash", "Helm", "Azure Monitor and Grafana", "Disaster recovery planning", "Cost optimization"],
+    "interests": ["Hiking in Kananaskis", "Bhangra dance team", "Fixing old bikes"]
+  }
+}

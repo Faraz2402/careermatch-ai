@@ -1,0 +1,131 @@
+{
+  "id": "operations-manager-ca-senior",
+  "category": "business-management",
+  "role": "operations-manager",
+  "country": "ca",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Gurpreet Sandhu",
+    "title": "Director of Operations",
+    "phone": "(604) 555-0193",
+    "email": "gurpreet.sandhu@example.com",
+    "linkedin": "linkedin.com/in/gurpreet-sandhu",
+    "location": "Vancouver, BC",
+    "summary": "Operations leader with 17 years in food processing, cold-chain warehousing and port logistics. Directs 420 staff across three Lower Mainland terminals with a $58 million operating budget, and led the automation program that raised container throughput by 22% without adding yard space.",
+    "experience": [
+      {
+        "title": "Director of Operations",
+        "company": "Fraser Gateway Logistics",
+        "location": "Delta, BC",
+        "start": "2021-02",
+        "end": "present",
+        "bullets": [
+          "Direct operations at three container and transload terminals with 420 unionized and salaried staff and a $58 million budget.",
+          "Led a $14 million yard automation and appointment-booking program that lifted throughput by 22% on the same footprint.",
+          "Negotiated two collective agreements alongside HR with no lost workdays.",
+          "Brought lost-time injury frequency down by 38% over three years through a joint health and safety committee action plan.",
+          "Report monthly to the executive team and the board on volume, cost per TEU and safety."
+        ]
+      },
+      {
+        "title": "Operations Manager",
+        "company": "Coast Mountain Cold Storage",
+        "location": "Richmond, BC",
+        "start": "2016-04",
+        "end": "2021-01",
+        "bullets": [
+          "Managed two cold-storage warehouses holding 38,000 pallet positions for seafood and berry exporters.",
+          "Redesigned dock scheduling with exporters, cutting average truck turn time from 95 to 55 minutes.",
+          "Oversaw a refrigeration upgrade that reduced electricity use by 17%, with a BC Hydro incentive covering part of the cost.",
+          "Kept CFIA and customer audits free of major non-conformances for five consecutive years."
+        ]
+      },
+      {
+        "title": "Production Manager",
+        "company": "Pacific Harvest Foods Ltd.",
+        "location": "Abbotsford, BC",
+        "start": "2012-09",
+        "end": "2016-03",
+        "bullets": [
+          "Ran a frozen fruit processing plant with 150 seasonal and full-time workers.",
+          "Introduced overall equipment effectiveness tracking on four lines and raised OEE from 61% to 74%.",
+          "Built a seasonal hiring and training plan that staffed peak berry season with fewer first-week injuries."
+        ]
+      },
+      {
+        "title": "Production Supervisor",
+        "company": "Pacific Harvest Foods Ltd.",
+        "location": "Abbotsford, BC",
+        "start": "2009-06",
+        "end": "2012-08",
+        "bullets": [
+          "Supervised packaging lines and 40 operators on afternoon shift.",
+          "Led the plant's first HACCP refresher program for frontline staff.",
+          "Cut packaging film waste by 11% with new splice procedures."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Commerce, Operations and Logistics",
+        "school": "University of British Columbia, Sauder School of Business",
+        "location": "Vancouver, BC",
+        "start": "2005-09",
+        "end": "2009-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Lean Six Sigma Black Belt",
+        "provider": "ASQ",
+        "year": 2015
+      },
+      {
+        "name": "Supply Chain Management Professional (SCMP) designation",
+        "provider": "Supply Chain Canada",
+        "year": 2018
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Punjabi",
+        "level": "Native"
+      },
+      {
+        "name": "French",
+        "level": "Basic"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Throughput +22%",
+        "detail": "Yard automation at Fraser Gateway Logistics, delivered on budget in 2023."
+      },
+      {
+        "title": "Lost-time injuries down 38%",
+        "detail": "Three-year safety plan with the joint health and safety committee."
+      }
+    ],
+    "skills": [
+      "Terminal operations",
+      "Cold-chain logistics",
+      "Budget ownership",
+      "Labour relations",
+      "Lean Six Sigma",
+      "Automation projects",
+      "Food safety (HACCP)",
+      "WorkSafeBC compliance",
+      "Executive reporting",
+      "Vendor negotiation"
+    ],
+    "interests": [
+      "Field hockey",
+      "Mentoring newcomers through a settlement agency"
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "id": "hr-generalist-in-mid",
+  "category": "human-resources",
+  "role": "hr-generalist",
+  "country": "in",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Sneha Reddy",
+    "title": "Senior HR Generalist",
+    "phone": "+91 00000 58261",
+    "email": "sneha.reddy@example.com",
+    "linkedin": "linkedin.com/in/sneha-reddy",
+    "location": "Hyderabad, Telangana",
+    "summary": "HR generalist with eight years in pharmaceutical manufacturing and IT services, and an MBA in HR. Handles employee relations, statutory compliance and engagement for 2,300 employees at a software services firm, and reduced 12-month attrition from 27% to 18%.",
+    "experience": [
+      {
+        "title": "Senior HR Generalist",
+        "company": "Deccan Code Labs Pvt Ltd",
+        "location": "Hyderabad, Telangana",
+        "start": "2023-04",
+        "end": "present",
+        "bullets": [
+          "Act as HR partner for 2,300 engineers and support staff across two delivery centres.",
+          "Brought 12-month attrition down from 27% to 18% with skip-level connects and a clearer internal job-posting policy.",
+          "Serve on the Internal Committee under the POSH Act and handled nine complaints to closure within statutory timelines.",
+          "Coordinate PF, ESIC and gratuity compliance with the payroll team and support audits."
+        ]
+      },
+      {
+        "title": "HR Generalist",
+        "company": "Kondapur Infoserve Pvt Ltd",
+        "location": "Hyderabad, Telangana",
+        "start": "2020-07",
+        "end": "2023-03",
+        "bullets": [
+          "Ran onboarding for about 60 freshers a month, including background verification and induction.",
+          "Moved leave and attendance from spreadsheets to Keka HRMS for 900 employees.",
+          "Organised quarterly town halls and a rewards programme that raised engagement survey scores by 11 points."
+        ]
+      },
+      {
+        "title": "HR Executive",
+        "company": "Shamirpet Formulations Ltd",
+        "location": "Hyderabad, Telangana",
+        "start": "2018-06",
+        "end": "2020-06",
+        "bullets": [
+          "Maintained personnel files and statutory registers for a plant with 750 workers and contract labour.",
+          "Coordinated canteen, transport and safety committee meetings with the plant head.",
+          "Tracked contractor compliance under the Contract Labour Act for 14 vendors."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA (Human Resource Management)",
+        "school": "Osmania University",
+        "location": "Hyderabad, Telangana",
+        "start": "2016-07",
+        "end": "2018-05",
+        "details": "CGPA 8.0/10"
+      },
+      {
+        "degree": "BBA",
+        "school": "St. Francis College for Women",
+        "location": "Hyderabad, Telangana",
+        "start": "2013-06",
+        "end": "2016-04"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Labour Laws and Compliance",
+        "provider": "NPTEL",
+        "year": 2021
+      },
+      {
+        "name": "People Analytics",
+        "provider": "Coursera (Wharton)",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Telugu",
+        "level": "Native"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Attrition 27% to 18%",
+        "detail": "Retention actions at Deccan Code Labs over 18 months."
+      },
+      {
+        "title": "HRMS migration",
+        "detail": "Moved 900 employees to Keka without payroll errors."
+      }
+    ],
+    "skills": [
+      "Employee relations",
+      "POSH compliance",
+      "PF and ESIC",
+      "Onboarding",
+      "Keka HRMS",
+      "Engagement programmes",
+      "Statutory registers",
+      "HR policies",
+      "Exit interviews",
+      "Excel"
+    ],
+    "interests": [
+      "Badminton",
+      "Volunteering with a girls' education NGO"
+    ]
+  }
+}

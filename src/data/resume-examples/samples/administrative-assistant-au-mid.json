@@ -1,0 +1,111 @@
+{
+  "id": "administrative-assistant-au-mid",
+  "category": "office-administration",
+  "role": "administrative-assistant",
+  "country": "au",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Kirra Donnelly",
+    "title": "Administrative Assistant to the Directors",
+    "phone": "0491 570 156",
+    "email": "kirra.donnelly@example.com",
+    "linkedin": "linkedin.com/in/kirra-donnelly",
+    "location": "Brisbane QLD",
+    "summary": "Administrative assistant with nine years in reception, project administration and director support across health, construction and financial advice. Holds a Certificate IV in Business Administration and keeps compliance files audit-ready; most recently trimmed client onboarding time from ten days to six.",
+    "experience": [
+      {
+        "title": "Receptionist",
+        "company": "Paddington Physio & Pilates",
+        "location": "Brisbane QLD",
+        "start": "2017-03",
+        "end": "2018-07",
+        "bullets": [
+          "Ran the front desk for six practitioners, booking around 300 sessions a week in Cliniko.",
+          "Processed HICAPS and Medicare claims at the counter and chased the small number of rejections the same day.",
+          "Set up SMS appointment reminders, which halved the number of empty slots caused by forgotten bookings."
+        ]
+      },
+      {
+        "title": "Administration Officer",
+        "company": "Moreton Bay Civil Contractors",
+        "location": "Brisbane QLD",
+        "start": "2018-08",
+        "end": "2021-11",
+        "bullets": [
+          "Maintained induction records, White Card copies and licence expiry dates for 85 site workers in one register.",
+          "Prepared progress claim paperwork for project managers on jobs worth up to $4 million, matching dockets to the contract schedule.",
+          "Organised accommodation and travel for crews on regional jobs, keeping spend within the per-job allowance.",
+          "Answered tender document requests and tracked submission deadlines for 30-plus tenders a year."
+        ]
+      },
+      {
+        "title": "Administrative Assistant to the Directors",
+        "company": "Kangaroo Point Wealth Advisers",
+        "location": "Brisbane QLD",
+        "start": "2021-12",
+        "end": "present",
+        "bullets": [
+          "Support two directors and four advisers, managing diaries, client meeting packs and review reminders for 650 client households.",
+          "Redesigned the new-client onboarding checklist and document requests, bringing average onboarding from ten working days to six.",
+          "Keep fee consent and client file notes in order so that the last two compliance reviews found no missing records.",
+          "Coordinate client seminars of 40 to 80 guests, from venue booking to RSVP tracking and feedback forms."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Certificate IV in Business Administration",
+        "school": "TAFE Queensland",
+        "location": "Brisbane QLD",
+        "start": "2016-02",
+        "end": "2016-11"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Excel Intermediate",
+        "provider": "TAFE Queensland short course",
+        "year": 2020
+      },
+      {
+        "name": "Provide First Aid (HLTAID011)",
+        "provider": "Australian Red Cross",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Employee of the quarter",
+        "detail": "Recognised by Moreton Bay Civil Contractors for keeping site compliance records current through a major audit."
+      },
+      {
+        "title": "Process champion",
+        "detail": "Wrote the adviser team's procedures manual, now used to train every new starter."
+      }
+    ],
+    "skills": [
+      "Diary management",
+      "Client onboarding",
+      "Compliance record keeping",
+      "Xplan",
+      "Cliniko",
+      "Microsoft 365",
+      "Event coordination",
+      "Minute taking",
+      "Accounts payable support",
+      "Typing 70 wpm"
+    ],
+    "interests": [
+      "Ocean swimming",
+      "Netball",
+      "Op-shop treasure hunting"
+    ]
+  }
+}

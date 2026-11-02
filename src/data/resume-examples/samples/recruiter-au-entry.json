@@ -1,0 +1,103 @@
+{
+  "id": "recruiter-au-entry",
+  "category": "human-resources",
+  "role": "recruiter",
+  "country": "au",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Ella Pham",
+    "title": "Associate Recruitment Consultant",
+    "phone": "0491 577 426",
+    "email": "ella.pham@example.com",
+    "linkedin": "linkedin.com/in/ella-pham",
+    "location": "Adelaide SA",
+    "summary": "Psychology graduate from the University of Adelaide with two years in agency recruitment for trades and construction. Shortlists candidates for civil and building clients, and made 46 placements in her first full year as an associate consultant.",
+    "experience": [
+      {
+        "title": "Associate Recruitment Consultant",
+        "company": "Torrens Trades Recruitment",
+        "location": "Adelaide SA",
+        "start": "2025-03",
+        "end": "present",
+        "bullets": [
+          "Recruit carpenters, plant operators and site supervisors for 20 building and civil clients across South Australia.",
+          "Made 46 permanent and labour-hire placements in my first full year, against a target of 36.",
+          "Check White Cards, high-risk work licences and references before every site start.",
+          "Run Monday morning job-board and SMS campaigns that bring in about 70 applications a week."
+        ]
+      },
+      {
+        "title": "Recruitment Administrator",
+        "company": "Torrens Trades Recruitment",
+        "location": "Adelaide SA",
+        "start": "2024-02",
+        "end": "2025-02",
+        "bullets": [
+          "Processed onboarding, superannuation and tax file declaration forms for about 30 new labour-hire workers a month.",
+          "Booked pre-employment medicals and drug and alcohol tests with clinics.",
+          "Tidied the JobAdder database, merging 3,000 duplicate profiles."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Psychological Science",
+        "school": "The University of Adelaide",
+        "location": "Adelaide SA",
+        "start": "2020-02",
+        "end": "2023-11",
+        "details": "Major in organisational psychology"
+      },
+      {
+        "degree": "South Australian Certificate of Education (SACE)",
+        "school": "Marryatville High School",
+        "location": "Adelaide SA",
+        "end": "2019-11",
+        "details": "ATAR 88.1"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Provide First Aid (HLTAID011)",
+        "provider": "St John Ambulance SA",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Vietnamese",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "128% of placement target",
+        "detail": "46 placements against a target of 36 in 2025."
+      },
+      {
+        "title": "University peer mentor",
+        "detail": "Supported 15 first-year psychology students, 2022."
+      }
+    ],
+    "skills": [
+      "Candidate sourcing",
+      "Phone screening",
+      "Reference checks",
+      "JobAdder",
+      "Labour hire",
+      "Licence verification",
+      "SEEK Talent Search",
+      "Client communication",
+      "Onboarding"
+    ],
+    "interests": [
+      "Netball",
+      "Volunteering at the Royal Adelaide Show"
+    ]
+  }
+}

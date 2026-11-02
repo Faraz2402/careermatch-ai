@@ -1,0 +1,68 @@
+{
+  "id": "software-engineer-us-entry",
+  "category": "software-engineering",
+  "role": "software-engineer",
+  "country": "us",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Jordan Whitfield",
+    "title": "Junior Software Engineer",
+    "phone": "(512) 555-0143",
+    "email": "jordan.whitfield@example.com",
+    "linkedin": "linkedin.com/in/jordan-whitfield",
+    "location": "Austin, TX",
+    "summary": "Junior software engineer a year into a full-time role building scheduling features in TypeScript and Go for a network of 40 outpatient clinics. Shipped a waitlist service that refilled 1,100 canceled appointments in its first quarter. Comfortable owning a ticket from design doc to production alert.",
+    "experience": [
+      {
+        "title": "Software Engineering Intern",
+        "company": "Barton Ridge Freight Software",
+        "location": "Austin, TX",
+        "start": "2024-06",
+        "end": "2024-08",
+        "bullets": [
+          "Built a Go microservice that parsed carrier EDI 214 status messages, replacing a nightly batch job and cutting shipment-status lag from 6 hours to under 4 minutes.",
+          "Added table-driven unit tests to a legacy rate-quote package, lifting coverage from 31% to 74% before the team refactored it.",
+          "Presented a 12-week internship demo to 60 engineers and product staff; the dispatch team adopted the status feed the following sprint."
+        ]
+      },
+      {
+        "title": "Junior Software Engineer",
+        "company": "Bluebonnet Scheduling Co.",
+        "location": "Austin, TX",
+        "start": "2025-07",
+        "end": "present",
+        "bullets": [
+          "Designed and shipped a waitlist service in Go and PostgreSQL that offers freed-up slots by SMS, refilling 1,100 canceled appointments across 40 clinics in its first quarter.",
+          "Rewrote the provider calendar view in React and TypeScript, trimming median load time on large schedules from 3.2 s to 0.9 s.",
+          "Joined the on-call rotation after four months and resolved 14 production incidents, writing two runbooks that later shortened similar pages by about 20 minutes each.",
+          "Paired weekly with a senior engineer on code reviews, then reviewed 90+ pull requests myself for the four-person scheduling squad."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.S. Computer Science",
+        "school": "The University of Texas at Austin",
+        "location": "Austin, TX",
+        "start": "2021-08",
+        "end": "2025-05",
+        "details": "GPA 3.6/4.0. Coursework: Operating Systems, Distributed Computing, Algorithms, Databases."
+      }
+    ],
+    "courses": [
+      { "name": "AWS Certified Cloud Practitioner", "provider": "Amazon Web Services", "year": 2025 },
+      { "name": "Go: Concurrency Patterns", "provider": "Coursera", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Spanish", "level": "Professional working" }
+    ],
+    "achievements": [
+      { "title": "2nd place, campus 36-hour hackathon", "detail": "Built a bus-arrival predictor from city open data with three teammates; 140 teams entered." },
+      { "title": "Teaching assistant, Data Structures", "detail": "Led two weekly lab sections of 30 students for two semesters and wrote autograder tests for four assignments." }
+    ],
+    "skills": ["Go", "TypeScript", "React", "PostgreSQL", "REST API design", "Docker", "GitHub Actions", "Unit and integration testing", "Linux", "AWS (ECS, RDS)"],
+    "interests": ["Bouldering", "Open-source transit apps", "Tex-Mex cooking"]
+  }
+}

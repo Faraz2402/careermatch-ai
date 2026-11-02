@@ -1,0 +1,85 @@
+{
+  "id": "business-analyst-au-senior",
+  "category": "business-management",
+  "role": "business-analyst",
+  "country": "au",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Daniel O'Connell",
+    "title": "Lead Business Analyst",
+    "phone": "0491 572 549",
+    "email": "daniel.oconnell@example.com",
+    "linkedin": "linkedin.com/in/daniel-oconnell",
+    "location": "Brisbane QLD",
+    "summary": "Lead business analyst with 17 years in banking, health insurance, transport and energy. Currently lead the business analysis chapter on a $52 million network asset management program at a Queensland energy distributor. Known for structured requirements, calm workshop facilitation and keeping regulatory obligations visible from discovery to go-live.",
+    "experience": [
+      {
+        "title": "Lead Business Analyst",
+        "company": "Granite Belt Energy",
+        "location": "Brisbane QLD",
+        "start": "2021-12",
+        "end": "present",
+        "bullets": [
+          "Lead a chapter of eight business analysts on a $52 million asset management program covering maintenance planning, work orders and field mobility.",
+          "Built a regulatory obligations register linked to 1,400 requirements, so every safety and reporting obligation had an owner and a test case.",
+          "Facilitated design authority sessions with operations, IT and vendors, reaching decisions on 95 design questions within the planned timeframe.",
+          "Cut average requirements sign-off time from four weeks to nine days by introducing lighter templates and fortnightly review cycles."
+        ]
+      },
+      {
+        "title": "Senior Business Analyst",
+        "company": "Southbank Transport Solutions",
+        "location": "Brisbane QLD",
+        "start": "2017-04",
+        "end": "2021-11",
+        "bullets": [
+          "Led requirements for a contactless fare payment upgrade across 300 buses and ferries, working with operators and the payments vendor.",
+          "Modelled refund and dispute processes that reduced customer complaint handling time by 25%.",
+          "Mentored four analysts and ran the team's requirements quality review."
+        ]
+      },
+      {
+        "title": "Business Analyst",
+        "company": "Toowong Health Insurance",
+        "location": "Brisbane QLD",
+        "start": "2012-07",
+        "end": "2017-03",
+        "bullets": [
+          "Specified changes to the claims system for annual private health insurance reforms, delivered each April on time.",
+          "Redesigned the hospital pre-approval process with provider relations, removing two manual hand-offs and saving 1,800 staff hours a year.",
+          "Wrote functional specifications and test cases for the member app's first release."
+        ]
+      },
+      {
+        "title": "Graduate Analyst",
+        "company": "Kangaroo Point Bank",
+        "location": "Brisbane QLD",
+        "start": "2009-02",
+        "end": "2012-06",
+        "bullets": [
+          "Rotated through lending operations, cards and IT, documenting processes for each team.",
+          "Analysed home loan application delays and helped shorten approval times by three business days.",
+          "Supported testing for a new internet banking release used by 120,000 customers."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "Bachelor of Business (Information Systems)", "school": "Griffith University", "location": "Brisbane QLD", "start": "2005-02", "end": "2008-11" }
+    ],
+    "courses": [
+      { "name": "Certified Business Analysis Professional (CBAP)", "provider": "IIBA", "year": 2015 },
+      { "name": "Prosci Certified Change Practitioner", "provider": "Prosci", "year": 2019 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Irish", "level": "Basic" }
+    ],
+    "achievements": [
+      { "title": "Program award", "detail": "Granite Belt Energy executive award (2024) for requirements quality on the asset management program." },
+      { "title": "Speaker", "detail": "Presented on regulatory traceability at a Brisbane business analysis community event (2023)." }
+    ],
+    "skills": ["Requirements management", "Regulatory traceability", "Process modelling (BPMN)", "Workshop facilitation", "Business case support", "Jira and Confluence", "Azure DevOps", "SQL", "Change management", "Vendor management", "Team leadership", "Agile and hybrid delivery"],
+    "interests": ["Rugby union coaching", "Surf lifesaving volunteer", "Gardening"]
+  }
+}

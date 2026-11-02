@@ -1,0 +1,76 @@
+{
+  "id": "devops-engineer-de-entry",
+  "category": "software-engineering",
+  "role": "devops-engineer",
+  "country": "de",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Mariam Haddad",
+    "title": "Junior DevOps Engineer",
+    "phone": "+49 89 99998 362",
+    "email": "mariam.haddad@example.com",
+    "linkedin": "linkedin.com/in/mariam-haddad",
+    "location": "München",
+    "summary": "Junior DevOps engineer in München with a B.Sc. in Wirtschaftsinformatik and nine months as a Werkstudentin on a cloud operations team. Now maintains GitLab pipelines and Kubernetes deployments for a mobility software company and wrote the automation that ended weekend manual releases. Studying for the CKA.",
+    "experience": [
+      {
+        "title": "Werkstudentin DevOps",
+        "company": "Isartal Cloud Services GmbH",
+        "location": "München",
+        "start": "2023-06",
+        "end": "2024-03",
+        "bullets": [
+          "Wrote Ansible playbooks to patch 120 Ubuntu servers in rolling batches, replacing a manual monthly maintenance evening.",
+          "Created a Grafana dashboard for backup job status that the team checked each morning instead of reading log files.",
+          "Documented the customer onboarding process in German and English for the service desk."
+        ]
+      },
+      {
+        "title": "Junior DevOps Engineer",
+        "company": "Schwabing Mobility Software GmbH",
+        "location": "München (hybrid)",
+        "start": "2024-05",
+        "end": "present",
+        "bullets": [
+          "Automated releases for the ride-pooling back end with GitLab CI and Helm, ending Saturday manual deployments for a team of 14 developers.",
+          "Set up Renovate for dependency updates across 22 repositories, reducing open critical vulnerabilities from 41 to 6 in three months.",
+          "Moved application secrets from environment files into HashiCorp Vault with per-service access policies.",
+          "Wrote a cost report for non-production clusters that led to switching them off at night, saving about €1,900 a month."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Sc. Wirtschaftsinformatik (Business Information Systems)",
+        "school": "Hochschule München University of Applied Sciences",
+        "location": "München",
+        "start": "2020-10",
+        "end": "2024-03",
+        "details": "Final grade 1.9. Bachelor thesis: cost models for Kubernetes in small and medium-sized companies."
+      },
+      {
+        "degree": "Abitur",
+        "school": "Gymnasium in München",
+        "location": "München",
+        "end": "2020-06",
+        "details": "Grade 1.8. Advanced courses (Leistungsfächer): Mathematics, Informatics."
+      }
+    ],
+    "courses": [
+      { "name": "Microsoft Certified: Azure Fundamentals (AZ-900)", "provider": "Microsoft", "year": 2023 },
+      { "name": "Linux Foundation Certified System Administrator (LFCS)", "provider": "The Linux Foundation", "year": 2025 }
+    ],
+    "languages": [
+      { "name": "German", "level": "C2" },
+      { "name": "Arabic", "level": "Native" },
+      { "name": "English", "level": "C1" }
+    ],
+    "achievements": [
+      { "title": "Hackathon prize, university cloud challenge", "detail": "Team of three built a carbon-aware job scheduler for a student cluster." },
+      { "title": "Tutor, Programming I", "detail": "Ran weekly Python exercise groups for 25 first-semester students over two semesters." }
+    ],
+    "skills": ["Linux", "Bash", "Docker", "Kubernetes", "Helm", "GitLab CI", "Ansible", "Terraform", "HashiCorp Vault", "Grafana and Prometheus", "Python"],
+    "interests": ["Bouldering", "Hiking in the Bavarian Alps", "Arabic calligraphy"]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "id": "front-end-developer-uk-senior",
+  "category": "software-engineering",
+  "role": "front-end-developer",
+  "country": "uk",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Hannah Okafor",
+    "title": "Lead Front-End Engineer",
+    "phone": "07700 900288",
+    "email": "hannah.okafor@example.com",
+    "linkedin": "linkedin.com/in/hannah-okafor",
+    "location": "Manchester",
+    "summary": "Lead front-end engineer with 15 years in Manchester agencies, transport and broadcasting, now running the web team at a housing association with 38,000 homes. Built the tenant self-service portal that moved 46% of repair requests online. Specialist in accessible design systems and progressive enhancement.",
+    "experience": [
+      {
+        "title": "Junior Web Developer",
+        "company": "Northern Quarter Digital",
+        "location": "Manchester",
+        "start": "2011-08",
+        "end": "2014-05",
+        "bullets": [
+          "Hand-coded HTML, CSS and JavaScript for 40+ campaign microsites for retail and charity clients.",
+          "Converted the agency's fixed-width templates to responsive layouts as mobile traffic passed half of all visits.",
+          "Started the studio's cross-browser testing checklist, which halved the number of bugs clients reported after launch."
+        ]
+      },
+      {
+        "title": "Front-End Developer",
+        "company": "Pennine Rail Tickets Ltd",
+        "location": "Manchester",
+        "start": "2014-06",
+        "end": "2018-10",
+        "bullets": [
+          "Rebuilt the journey planner and seat picker in Angular, supporting about 120,000 bookings a week.",
+          "Cut checkout abandonment on mobile by 14% by simplifying the railcard and fare-choice steps.",
+          "Made the booking flow usable without JavaScript as a fallback, after analytics showed 2% of sessions failing to load scripts on train Wi-Fi.",
+          "Mentored two apprentices, one of whom became a mid-level developer within two years."
+        ]
+      },
+      {
+        "title": "Senior Front-End Developer",
+        "company": "Salford Quays Broadcasting Services",
+        "location": "Salford",
+        "start": "2018-11",
+        "end": "2022-07",
+        "bullets": [
+          "Led the front end of a React-based on-demand player used for 3 million monthly streams, adding subtitles controls and audio description switching.",
+          "Introduced performance budgets in CI that kept the player's JavaScript bundle under 180 KB despite 30 new features.",
+          "Coordinated with the accessibility team on testing with disabled users, resolving 60+ issues found in moderated sessions."
+        ]
+      },
+      {
+        "title": "Lead Front-End Engineer",
+        "company": "Irwell Housing Group",
+        "location": "Manchester (hybrid)",
+        "start": "2022-08",
+        "end": "present",
+        "bullets": [
+          "Lead a team of six front-end developers building digital services for 38,000 rented homes across Greater Manchester.",
+          "Delivered a tenant self-service portal that now takes 46% of repair requests online, freeing contact-centre staff for urgent and vulnerable callers.",
+          "Built a design system based on GOV.UK Design System patterns, adopted by four services and cutting new-page build time by about 40%.",
+          "Own a £180,000 annual budget for front-end tooling, testing and contract support."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc (Hons) Multimedia Computing, 2:1",
+        "school": "Manchester Metropolitan University",
+        "location": "Manchester",
+        "start": "2008-09",
+        "end": "2011-06"
+      }
+    ],
+    "courses": [
+      { "name": "Certified Professional in Accessibility Core Competencies (CPACC)", "provider": "IAAP", "year": 2021 },
+      { "name": "Leading Technical Teams", "provider": "Open University (OpenLearn)", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Yoruba", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Speaker, Manchester front-end meetup", "detail": "Talk on progressive enhancement for low-connectivity users, attended by around 150 developers." },
+      { "title": "STEM Ambassador", "detail": "Run an annual web-design workshop for Year 9 pupils at two Salford schools." }
+    ],
+    "skills": ["JavaScript (ES2023)", "TypeScript", "React", "Angular", "Semantic HTML", "CSS architecture", "Accessibility (WCAG 2.2)", "GOV.UK Design System", "Progressive enhancement", "Performance budgets", "Playwright", "Team leadership"],
+    "interests": ["Allotment gardening", "Northern soul nights", "Parkrun"]
+  }
+}

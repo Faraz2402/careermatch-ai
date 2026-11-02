@@ -1,0 +1,123 @@
+{
+  "id": "graphic-designer-ca-senior",
+  "category": "design",
+  "role": "graphic-designer",
+  "country": "ca",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Mathieu Gagnon",
+    "title": "Art Director and Senior Graphic Designer",
+    "phone": "(514) 555-0188",
+    "email": "mathieu.gagnon@example.com",
+    "linkedin": "linkedin.com/in/mathieu-gagnon",
+    "location": "Montréal, QC",
+    "summary": "Bilingual art director and senior graphic designer with 15 years in packaging, retail and brand design in Montréal. Leads a studio of six, manages a $650,000 annual production budget and redesigned a grocery private-label range of 240 products that lifted category sales by 11%.",
+    "experience": [
+      {
+        "title": "Graphic Designer",
+        "company": "Atelier Plateau",
+        "location": "Montréal, QC",
+        "start": "2011-06",
+        "end": "2014-08",
+        "bullets": [
+          "Designed posters, programmes and catalogues for cultural clients, including several Montréal festivals, in French and English.",
+          "Managed print jobs from proof to press check with three local printers, keeping colour consistent across runs.",
+          "Built a bilingual typesetting template that halved the time needed to adapt layouts between French and English."
+        ]
+      },
+      {
+        "title": "Senior Graphic Designer",
+        "company": "Mile End Packaging Co.",
+        "location": "Montréal, QC",
+        "start": "2014-09",
+        "end": "2019-03",
+        "bullets": [
+          "Designed packaging and dielines for food and personal-care brands sold across Canada.",
+          "Checked every label for bilingual requirements under the Consumer Packaging and Labelling Act and Québec's Charter of the French Language.",
+          "Cut artwork errors returned by printers from about 8% of jobs to under 2% by introducing a two-step proof sign-off.",
+          "Trained two junior designers in prepress and colour management."
+        ]
+      },
+      {
+        "title": "Art Director",
+        "company": "Saint-Laurent Creative",
+        "location": "Montréal, QC",
+        "start": "2019-04",
+        "end": "present",
+        "bullets": [
+          "Lead a team of six designers and production artists across packaging, retail and campaign work for 12 retained clients.",
+          "Directed the redesign of a regional grocer's private-label range of 240 products, followed by an 11% rise in category sales.",
+          "Manage a $650,000 annual print and production budget and negotiate rates with photographers, illustrators and printers.",
+          "Introduced a shared design system and asset library that reduced time-to-shelf for line extensions by about three weeks.",
+          "Present creative strategy to client marketing directors and pitch for new business, winning 5 of 8 pitches since 2022."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.F.A. in Design",
+        "school": "Concordia University",
+        "location": "Montréal, QC",
+        "start": "2008-09",
+        "end": "2011-05"
+      },
+      {
+        "degree": "DEC in Graphic Design (Diplôme d'études collégiales)",
+        "school": "Dawson College",
+        "location": "Montréal, QC",
+        "start": "2005-08",
+        "end": "2008-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Packaging Sustainability Fundamentals",
+        "provider": "PAC Packaging Consortium",
+        "year": 2022
+      },
+      {
+        "name": "Leadership for Creative Directors",
+        "provider": "Coursera",
+        "year": 2020
+      }
+    ],
+    "languages": [
+      {
+        "name": "French",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Packaging design award",
+        "detail": "Private-label range recognized in a national packaging design competition in 2023."
+      },
+      {
+        "title": "Guest lecturer",
+        "detail": "Give an annual talk on packaging production to graphic design students at a Montréal CEGEP."
+      }
+    ],
+    "skills": [
+      "Art direction",
+      "Packaging design",
+      "Dielines and prepress",
+      "Bilingual labelling (FR/EN)",
+      "Adobe Creative Cloud",
+      "Esko ArtPro",
+      "Colour management",
+      "Budget management",
+      "Team leadership",
+      "Client presentations"
+    ],
+    "interests": [
+      "Cycling the Lachine Canal",
+      "Collecting vintage Québec posters",
+      "Cooking"
+    ]
+  }
+}

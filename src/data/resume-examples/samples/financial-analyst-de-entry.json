@@ -1,0 +1,118 @@
+{
+  "id": "financial-analyst-de-entry",
+  "category": "accounting-finance",
+  "role": "financial-analyst",
+  "country": "de",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Lea Nguyen",
+    "title": "Junior Financial Analyst",
+    "phone": "+49 69 90009 376",
+    "email": "lea.nguyen@example.com",
+    "linkedin": "linkedin.com/in/lea-nguyen",
+    "location": "Frankfurt am Main",
+    "summary": "Finance graduate (M.Sc., Goethe University Frankfurt) with 18 months as a working student in corporate controlling. Prepares monthly reporting for a mid-sized industrial group and built a Python tool that cut the cost-centre report run from two hours to ten minutes.",
+    "experience": [
+      {
+        "title": "Junior Financial Analyst",
+        "company": "Mainfeld Industrietechnik GmbH",
+        "location": "Frankfurt am Main",
+        "start": "2025-05",
+        "end": "present",
+        "bullets": [
+          "Prepare the monthly controlling report for three business units with combined revenue of €210 million.",
+          "Built a Python script that merges SAP cost-centre exports, cutting report preparation from two hours to ten minutes.",
+          "Support the 2026 budget by collecting plan data from 22 cost-centre owners and checking it against prior-year actuals.",
+          "Analyse raw-material price changes and show their margin impact to the head of controlling every quarter."
+        ]
+      },
+      {
+        "title": "Working Student, Group Controlling (Werkstudentin)",
+        "company": "Westend Versicherungsdienst AG",
+        "location": "Frankfurt am Main",
+        "start": "2023-10",
+        "end": "2025-03",
+        "bullets": [
+          "Maintained KPI dashboards in Power BI for the CFO office, about 20 hours a week alongside my Master's.",
+          "Reconciled actual-versus-plan figures for 40 cost centres each month.",
+          "Wrote the user guide for a new allocation template, which the team still uses for onboarding."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc. Finance",
+        "school": "Goethe-Universität Frankfurt am Main",
+        "location": "Frankfurt am Main",
+        "start": "2022-10",
+        "end": "2025-03",
+        "details": "Thesis: hedging of energy price risk in German SMEs; grade 1.6"
+      },
+      {
+        "degree": "B.Sc. Betriebswirtschaftslehre (Business Administration)",
+        "school": "Universität Mannheim",
+        "location": "Mannheim",
+        "start": "2019-09",
+        "end": "2022-08",
+        "details": "Exchange semester at the University of Amsterdam"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Python for Finance",
+        "provider": "Coursera (New York Institute of Finance)",
+        "year": 2024
+      },
+      {
+        "name": "SAP S/4HANA Controlling Basics",
+        "provider": "SAP Learning",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native"
+      },
+      {
+        "name": "Vietnamese",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      },
+      {
+        "name": "French",
+        "level": "B1"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Report run cut to ten minutes",
+        "detail": "Python tool for SAP cost-centre exports at Mainfeld Industrietechnik."
+      },
+      {
+        "title": "Case study winner",
+        "detail": "First place in a university valuation case challenge, Goethe University, 2024."
+      }
+    ],
+    "skills": [
+      "Financial modelling",
+      "Excel",
+      "Python (pandas)",
+      "Power BI",
+      "SAP CO",
+      "Budgeting",
+      "Variance analysis",
+      "HGB basics",
+      "IFRS basics"
+    ],
+    "interests": [
+      "Bouldering",
+      "Cooking",
+      "Table tennis"
+    ]
+  }
+}

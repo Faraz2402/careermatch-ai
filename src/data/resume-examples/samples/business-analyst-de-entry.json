@@ -1,0 +1,62 @@
+{
+  "id": "business-analyst-de-entry",
+  "category": "business-management",
+  "role": "business-analyst",
+  "country": "de",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Marie Schulz",
+    "title": "Junior Business Analyst",
+    "phone": "+49 69 90009 382",
+    "email": "marie.schulz@example.com",
+    "linkedin": "linkedin.com/in/marie-schulz",
+    "location": "Frankfurt am Main",
+    "summary": "Junior business analyst at a Frankfurt logistics company with a B.Sc. in Business Informatics from Goethe-Universität and ten months as a working student in a bank's payments team. Hold the IREB CPRE Foundation Level certificate and enjoy translating between operations staff and developers. Work comfortably in German and English.",
+    "experience": [
+      {
+        "title": "Junior Business Analyst",
+        "company": "Taunusblick Logistik GmbH",
+        "location": "Frankfurt am Main",
+        "start": "2024-05",
+        "end": "present",
+        "bullets": [
+          "Documented warehouse returns processes at two sites and drafted 45 requirements for a new returns module in the warehouse management system.",
+          "Analysed scanner error logs and proposed label format changes that lowered mis-scans by about 18%.",
+          "Prepare sprint review notes in German and English for a mixed team of eight in Frankfurt and Poznań."
+        ]
+      },
+      {
+        "title": "Working Student, Business Analysis (Werkstudentin)",
+        "company": "Mainufer Bank AG",
+        "location": "Frankfurt am Main",
+        "start": "2023-05",
+        "end": "2024-03",
+        "bullets": [
+          "Supported the payments team during SEPA Instant Credit Transfer preparation by maintaining the requirements backlog in Jira.",
+          "Compared current and target processes for payment returns and summarised gaps for the product owner.",
+          "Built Excel reports on test progress that the project lead used in weekly steering meetings."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "B.Sc. Business Informatics (Wirtschaftsinformatik)", "school": "Goethe-Universität Frankfurt am Main", "location": "Frankfurt am Main", "start": "2020-10", "end": "2024-03", "details": "Grade 2.0. Bachelor thesis: requirements quality in agile banking projects." },
+      { "degree": "Abitur", "school": "Lessing-Gymnasium Frankfurt", "location": "Frankfurt am Main", "end": "2020-06" }
+    ],
+    "courses": [
+      { "name": "IREB Certified Professional for Requirements Engineering (CPRE) Foundation Level", "provider": "IREB", "year": 2024 },
+      { "name": "Professional Scrum Master I (PSM I)", "provider": "Scrum.org", "year": 2025 }
+    ],
+    "languages": [
+      { "name": "German", "level": "C2 (native)" },
+      { "name": "English", "level": "C1" },
+      { "name": "Spanish", "level": "A2" }
+    ],
+    "achievements": [
+      { "title": "Case competition", "detail": "Second place in a university process improvement case challenge (2023)." },
+      { "title": "Student council", "detail": "Represented business informatics students on the faculty council for two years." }
+    ],
+    "skills": ["Requirements engineering", "Process modelling (BPMN 2.0)", "Jira", "Confluence", "Excel", "SQL (basic)", "SAP EWM (user level)", "Scrum", "Stakeholder interviews"],
+    "interests": ["Rowing on the Main", "Volunteering at a refugee language café", "Travel photography"]
+  }
+}

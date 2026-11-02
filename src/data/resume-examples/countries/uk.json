@@ -1,0 +1,85 @@
+{
+  "code": "uk",
+  "name": "United Kingdom",
+  "slug": "united-kingdom",
+  "term": {
+    "value": "CV",
+    "note": "In the UK the everyday word is CV (curriculum vitae), and it means the short document Americans call a resume. 'Resume' is rarely used. Academic CVs are a separate, longer format listing publications, teaching and funding."
+  },
+  "paper": {
+    "value": "A4",
+    "note": "UK documents use ISO A4 (210 x 297 mm). University careers services describe length in 'sides of A4', so set the page size to A4 before exporting a PDF."
+  },
+  "length": {
+    "value": "2 sides of A4 (1 is fine with little experience)",
+    "note": "Prospects and university careers services (Sheffield, Kent and others) treat two sides of A4 as the norm for graduate and most professional roles. Edge Hill says one page is fine if you have little experience, Kent asks for one or two full pages rather than one and a half, and Prospects allows three for senior roles or long careers. Academic CVs are often longer."
+  },
+  "photo": {
+    "value": "leave out",
+    "note": "Prospects and university careers services (St Andrews, Edinburgh and others) advise against a photo on a UK CV, except for acting or modelling roles. Graduate-employer research published by Prospects found photos are uncommon in the UK, and images can also trip up applicant tracking systems."
+  },
+  "include": [
+    "Name, phone number and professional email address",
+    "Town or city; a full home address is optional",
+    "A LinkedIn profile or portfolio link if relevant",
+    "Right-to-work or visa status if you are an international applicant (e.g. a Graduate visa line in the header)",
+    "A short personal profile of a few sentences tailored to the role"
+  ],
+  "leaveOut": [
+    "Photo",
+    "Date of birth or age",
+    "Marital status, gender and ethnicity",
+    "National Insurance number",
+    "Nationality, unless it bears on your right to work"
+  ],
+  "dateFormat": {
+    "value": "MMM YYYY",
+    "example": "Sep 2023",
+    "note": "UK careers guidance mainly asks for clear, consistent dates in reverse chronological order. We found no official rule on month style. Our UK samples use abbreviated month plus year (Sep 2023 – Jun 2025), a widely used and readable choice."
+  },
+  "education": {
+    "terms": [
+      { "term": "First / 2:1 / 2:2 / Third", "meaning": "Honours degree classifications: First-Class, Upper Second-Class (2:1), Lower Second-Class (2:2) and Third-Class Honours. Many graduate schemes ask for a 2:1." },
+      { "term": "A-levels", "meaning": "Subject qualifications usually taken at 18 in England, Wales and Northern Ireland, listed with grades." },
+      { "term": "GCSEs", "meaning": "Qualifications taken at about 16, graded 9–1 in England (older grades A*–G). Often summarised, e.g. '9 GCSEs including English and Maths'." },
+      { "term": "Scottish Highers", "meaning": "Scotland's main school-leaving qualifications, roughly comparable to A-levels for university entry." },
+      { "term": "BTEC", "meaning": "Vocational qualifications taken at school or college, often alongside or instead of A-levels." }
+    ],
+    "note": "Graduates usually list the degree and classification first, then A-levels, then a one-line GCSE summary. As experience grows, school results shrink or disappear. Guides differ on exactly when to drop GCSEs."
+  },
+  "spelling": "British",
+  "currency": { "code": "GBP", "symbol": "£" },
+  "fictionalPhone": {
+    "pattern": "07700 900NNN",
+    "note": "Ofcom reserves 07700 900000 to 07700 900999 for drama and similar use. These numbers are never allocated to providers for real customers, so our UK samples use only that range."
+  },
+  "disagreements": [
+    "References: the University of York says 'references available on request' is unnecessary because employers assume it, Cardiff University says the phrase is common, and academic CVs often name referees in full.",
+    "Length: most careers services say two sides of A4, but Edge Hill accepts one page for people with little experience, the University of London notes some employers ask for a one-page CV, and Prospects allows three for senior candidates.",
+    "Right to work: the University of Manchester recommends stating visa type and work rights on the CV, but most general CV guidance does not mention it. A Bath careers blog post on nationality is dated (it refers to Tier 2 visas)."
+  ],
+  "tips": [
+    "Keep to two full sides of A4 and don't leave a half-empty second page.",
+    "Lead with a short profile aimed at the specific role, then put your strongest section next.",
+    "Write out your degree classification (e.g. 2:1) since many graduate employers screen on it.",
+    "International students: add one clear line on your visa and work rights so recruiters don't have to guess.",
+    "Use British spelling throughout (organised, programme, analysed).",
+    "Read the job advert and mirror its key skills where they match your experience."
+  ],
+  "sources": [
+    { "title": "How to write a CV", "publisher": "Prospects (Jisc)", "url": "https://www.prospects.ac.uk/careers-advice/cvs-and-cover-letters/how-to-write-a-cv/", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "What do graduate employers want in a CV?", "publisher": "Prospects Luminate / HECSU", "url": "https://luminate.prospects.ac.uk/media/adc74f48-1532-4640-a30c-2eb5e6556c53/hecsu-research-what-do-graduate-employers-want-in-a-cv.pdf", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Writing a CV", "publisher": "University of Sheffield Careers Service", "url": "https://sheffield.ac.uk/careers/support/apply/cv/writing", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Writing a CV: CV checklist", "publisher": "University of Kent Careers and Employability Service", "url": "https://student.kent.ac.uk/careers/making-applications/cv?tab=cv-checklist", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "CVs and covering letters", "publisher": "Edge Hill University Careers", "url": "https://www.edgehill.ac.uk/departments/support/celt/careers/making-applications/cvs-covering-letters/", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "How to write a graduate CV", "publisher": "University of London", "url": "https://www.london.ac.uk/sites/default/files/study-guides/CV%20guide_2.pdf", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "CV", "publisher": "University of St Andrews Careers Centre", "url": "https://www.st-andrews.ac.uk/careers/how-to-apply/cv/", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "CVs", "publisher": "University of York Careers and Placements", "url": "https://www.york.ac.uk/students/work-volunteering-careers/apply-interview/cv/", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "CVs", "publisher": "Cardiff University Student Futures", "url": "https://sites.cardiff.ac.uk/studentfuturesplus/applications-and-interviews/cvs/", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Step 1: Creating your CV", "publisher": "University of Manchester Careers Service", "url": "https://www.careers.manchester.ac.uk/applicationsinterviews/cv/step1creatingyourcv/", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Do I have the right to work in the UK?", "publisher": "University of Manchester Careers Service", "url": "https://www.careers.manchester.ac.uk/applicationsinterviews/faqs/right-to-work/", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Should you disclose your nationality on your CV?", "publisher": "University of Bath Careers blog", "url": "https://blogs.bath.ac.uk/careers/2015/01/21/should-you-disclose-your-nationality-on-your-cv/", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "CVs: applying for jobs", "publisher": "University of Bradford Career and Employability Service", "url": "https://www.bradford.ac.uk/careers/applications/cv", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Numbers for drama", "publisher": "Ofcom", "url": "https://www.ofcom.org.uk/phones-telecoms-and-internet/information-for-industry/numbering/numbers-for-drama", "accessed": "2026-11-02", "how": "search-result" }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": "accountant-uk-senior",
+  "category": "accounting-finance",
+  "role": "accountant",
+  "country": "uk",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Amira Choudhury",
+    "title": "Group Financial Controller, FCCA",
+    "phone": "07700 900418",
+    "email": "amira.choudhury@example.com",
+    "linkedin": "linkedin.com/in/amira-choudhury",
+    "location": "Leeds, West Yorkshire",
+    "summary": "Fellow of ACCA with 16 years in practice, manufacturing and social housing finance. Leads a team of nine across statutory reporting, treasury and payroll for a £210m-turnover group, and steered the move from Sage 200 to Dynamics 365 Business Central on time and under budget.",
+    "experience": [
+      {
+        "title": "Group Financial Controller",
+        "company": "Kirkstall Bridge Housing Group",
+        "location": "Leeds",
+        "start": "2023-01",
+        "end": "present",
+        "bullets": [
+          "Lead a nine-person finance team covering statutory accounts, treasury, payroll and service-charge accounting for 11,000 homes.",
+          "Delivered group statutory accounts under FRS 102 and the Housing SORP two weeks earlier than the prior year, with no audit adjustments above materiality.",
+          "Negotiated a £35m revolving credit facility renewal with two lenders and kept all loan covenants in headroom through a period of rising rates.",
+          "Directed the Sage 200 to Dynamics 365 Business Central migration, finishing £40k under its £290k budget."
+        ]
+      },
+      {
+        "title": "Financial Controller",
+        "company": "Aire Valley Homes",
+        "location": "Bradford",
+        "start": "2018-07",
+        "end": "2022-12",
+        "bullets": [
+          "Produced monthly management accounts and board packs for a £68m-turnover housing association.",
+          "Redesigned the service-charge reconciliation process, recovering £410k of under-billed costs across 2,800 leasehold properties.",
+          "Introduced a rolling 18-month cash flow forecast that the board used to approve a £22m development programme.",
+          "Managed the external audit relationship and cut the auditors' points from 17 to 4 over three year-ends."
+        ]
+      },
+      {
+        "title": "Management Accountant",
+        "company": "Calder Precision Castings Ltd",
+        "location": "Huddersfield",
+        "start": "2014-03",
+        "end": "2018-06",
+        "bullets": [
+          "Built a standard costing model for 1,900 product lines, exposing six loss-making contracts that were repriced or exited.",
+          "Ran the monthly close for two manufacturing sites and reported variances to plant managers within four working days.",
+          "Led the annual stock count and valuation for £7.5m of raw materials and work in progress."
+        ]
+      },
+      {
+        "title": "Trainee Accountant",
+        "company": "Harrowgate & Pike Chartered Accountants",
+        "location": "Leeds",
+        "start": "2010-09",
+        "end": "2014-02",
+        "bullets": [
+          "Prepared year-end accounts and corporation tax computations for a portfolio of 45 owner-managed businesses.",
+          "Assisted on audits of charities and academies, testing income, grants and restricted funds.",
+          "Qualified as an ACCA member while working full time, passing all papers at first attempt."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA (Hons) Accounting and Finance, 2:1",
+        "school": "University of Leeds",
+        "location": "Leeds",
+        "start": "2007-09",
+        "end": "2010-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Treasury Fundamentals",
+        "provider": "Association of Corporate Treasurers",
+        "year": 2021
+      },
+      {
+        "name": "Housing Finance Masterclass",
+        "provider": "Chartered Institute of Housing",
+        "year": 2019
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Urdu",
+        "level": "Fluent"
+      },
+      {
+        "name": "Punjabi",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Fellow of ACCA (FCCA)",
+        "detail": "Admitted to fellowship in 2019 after five years of continuous membership."
+      },
+      {
+        "title": "£410k recovered",
+        "detail": "Service-charge recovery project at Aire Valley Homes, now used as the group's standard process."
+      }
+    ],
+    "skills": [
+      "FRS 102",
+      "Housing SORP",
+      "Statutory reporting",
+      "Treasury and covenants",
+      "Board reporting",
+      "Dynamics 365 Business Central",
+      "Sage 200",
+      "Cash flow forecasting",
+      "Team leadership",
+      "Audit management",
+      "VAT",
+      "Payroll oversight"
+    ],
+    "interests": [
+      "Fell walking",
+      "School governor",
+      "Cricket"
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "id": "administrative-assistant-de-senior",
+  "category": "office-administration",
+  "role": "administrative-assistant",
+  "country": "de",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Leyla Demir",
+    "title": "Executive Assistant to the Managing Director",
+    "phone": "+49 40 66969 284",
+    "email": "leyla.demir@example.com",
+    "linkedin": "linkedin.com/in/leyla-demir",
+    "location": "Hamburg",
+    "summary": "Executive assistant with 14 years of office and management support in logistics, real estate and maritime consulting in Hamburg. Trained as a Bürokauffrau and later qualified as a Wirtschaftsfachwirtin (IHK); now runs the managing director's office, a two-person assistant team and events for international clients in German, English and Turkish.",
+    "experience": [
+      {
+        "title": "Bürokauffrau (Office Administrator)",
+        "company": "Elbtal Logistik GmbH",
+        "location": "Hamburg",
+        "start": "2012-08",
+        "end": "2015-12",
+        "bullets": [
+          "Processed incoming freight invoices and delivery notes in SAP for a depot handling around 900 shipments a week.",
+          "Took over the scheduling of driver training and medical check-ups, so no certificate lapsed during my time there.",
+          "Answered German and Turkish customer calls about delivery status and complaints, passing tricky cases to dispatch with full notes."
+        ]
+      },
+      {
+        "title": "Team Assistant, Commercial Lettings",
+        "company": "Alsterblick Immobilien GmbH",
+        "location": "Hamburg",
+        "start": "2016-01",
+        "end": "2019-09",
+        "bullets": [
+          "Supported a team of seven letting agents with viewings, exposés and lease drafts for office space across the city.",
+          "Created a tracking sheet for lease break dates and rent indexation clauses covering 140 commercial tenancies.",
+          "Organised the company's stand at a regional real estate fair, coordinating suppliers on a €35,000 budget.",
+          "Studied part-time for the Wirtschaftsfachwirtin (IHK) qualification while working full-time."
+        ]
+      },
+      {
+        "title": "Executive Assistant to the Managing Director",
+        "company": "Speicherstadt Maritime Consulting GmbH",
+        "location": "Hamburg",
+        "start": "2019-10",
+        "end": "present",
+        "bullets": [
+          "Run the managing director's office: diary, correspondence, board preparation and travel to around 20 countries a year.",
+          "Lead two team assistants and set up shared standards for templates, filing and handovers across the 45-person firm.",
+          "Moved all contract and supplier filing to a DMS with clear access rights, making GDPR (DSGVO) requests quicker to answer.",
+          "Plan the annual client conference for 150 guests, including venue, speakers and simultaneous interpretation, within a €90,000 budget.",
+          "Prepare monthly cost-centre reports in Excel for the management team, catching mis-coded invoices worth about €18,000 in one year."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Geprüfte Wirtschaftsfachwirtin (IHK), part-time",
+        "school": "Handelskammer Hamburg",
+        "location": "Hamburg",
+        "start": "2017-09",
+        "end": "2019-06",
+        "details": "Advanced vocational qualification in business management"
+      },
+      {
+        "degree": "Ausbildung: Bürokauffrau (IHK)",
+        "school": "Elbtal Logistik GmbH and Berufliche Schule City Nord",
+        "location": "Hamburg",
+        "start": "2009-08",
+        "end": "2012-07"
+      },
+      {
+        "degree": "Abitur",
+        "school": "Gymnasium Altona",
+        "location": "Hamburg",
+        "end": "2009-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Ausbildereignung (AEVO)",
+        "provider": "Handelskammer Hamburg",
+        "year": 2020
+      },
+      {
+        "name": "Business English for Executive Assistants",
+        "provider": "Volkshochschule Hamburg",
+        "year": 2021
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native (C2)"
+      },
+      {
+        "name": "Turkish",
+        "level": "Native (C2)"
+      },
+      {
+        "name": "English",
+        "level": "Fluent (C1)"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Trainer for apprentices",
+        "detail": "Holds the AEVO trainer qualification and has guided two Kauffrau für Büromanagement apprentices to their final exam."
+      },
+      {
+        "title": "Conference rebuild",
+        "detail": "Turned a one-day client meeting into a two-day conference with 30% more attendees than the previous format."
+      }
+    ],
+    "skills": [
+      "Executive diary management",
+      "Board meeting preparation",
+      "Event management",
+      "SAP (basic)",
+      "DMS / d.velop",
+      "Microsoft 365",
+      "Cost-centre reporting",
+      "DSGVO-compliant filing",
+      "Team leadership",
+      "Business correspondence in DE/EN/TR"
+    ],
+    "interests": [
+      "Rowing on the Alster",
+      "Turkish cooking",
+      "Photography"
+    ]
+  }
+}

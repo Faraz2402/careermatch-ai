@@ -1,0 +1,175 @@
+{
+  "code": "de",
+  "name": "Germany",
+  "slug": "germany",
+  "term": {
+    "value": "CV",
+    "note": "The German document is the Lebenslauf (usually a tabellarischer Lebenslauf, a tabular CV). In English-language applications it is called a CV. It is normally sent as part of a full application pack with a cover letter (Anschreiben) and certificates (Zeugnisse)."
+  },
+  "paper": {
+    "value": "A4",
+    "note": "Germany uses DIN A4 (210 x 297 mm); the ISO A-series is based on the German DIN 476 standard. Federal Employment Agency guidance describes CV length in DIN A4 pages."
+  },
+  "length": {
+    "value": "1–2 pages",
+    "note": "The Federal Employment Agency (Bundesagentur für Arbeit) says a CV should not exceed two pages and should be split into clear sections. Make it in Germany puts it at two pages at most and ideally one. Academic CVs and senior profiles can run longer."
+  },
+  "photo": {
+    "value": "optional",
+    "note": "A photo is no longer required. The General Equal Treatment Act (AGG) bars discrimination on grounds such as ethnic origin, sex, religion and age, and a photo reveals some of these, so employers may not demand one or reject an applicant just for leaving it out. The Federal Employment Agency still says most employers expect a photo, though some ask for anonymised CVs without one."
+  },
+  "include": [
+    "Name, address, phone number and email under a 'Persönliche Daten' heading",
+    "Date and place of birth: still shown on Federal Employment Agency templates, but now optional",
+    "Nationality and residence or work permit status if you come from outside the EU",
+    "Language skills with levels, ideally using the CEFR scale (A1–C2)",
+    "Traditionally, place, date and signature at the end of a printed CV; we found no official source on this, so treat it as optional"
+  ],
+  "leaveOut": [
+    "Religion and political affiliation",
+    "Photo and details revealing gender or origin when the employer asks for an anonymised application",
+    "Marital status and children (not required; we found no official source that still asks for them)",
+    "Salary history (save salary expectations for the cover letter if the ad asks for them)",
+    "Unexplained gaps of more than about three months; give a short reason instead"
+  ],
+  "dateFormat": {
+    "value": "MM/YYYY",
+    "example": "03/2024",
+    "note": "Career services at Frankfurt, Cologne, LMU Munich and Heidelberg universities all use MM/YYYY – MM/YYYY ranges, with dates in a left column and entries on the right. For a current role, write 'seit MM/YYYY' or 'MM/YYYY – heute' (since / until today). Our German samples use 03/2024 style."
+  },
+  "education": {
+    "terms": [
+      {
+        "term": "Abitur",
+        "meaning": "The school-leaving certificate that qualifies for university entry, graded from 1.0 (best) to 4.0."
+      },
+      {
+        "term": "Ausbildung",
+        "meaning": "Vocational training, usually the dual system: part-time vocational school plus paid training at a company, ending in a recognised qualification."
+      },
+      {
+        "term": "Note (1.0–5.0)",
+        "meaning": "University grade scale where 1.0 is the best mark and 4.0 is usually the lowest pass; give your overall grade (Gesamtnote) and add 'German scale' for foreign readers."
+      },
+      {
+        "term": "Bachelor / Master / Diplom",
+        "meaning": "Current bachelor's and master's degrees; Diplom and Magister are older degrees still seen on experienced candidates' CVs."
+      },
+      {
+        "term": "Zeugnis / Arbeitszeugnis",
+        "meaning": "Certificates and employer references; copies are attached to the application rather than summarised on the CV."
+      }
+    ],
+    "note": "Lower German grades are better, the reverse of most other systems, so English-language CVs should say which scale is meant. Foreign grades are often converted with the modified Bavarian formula, but this is a convention rather than an official rule."
+  },
+  "spelling": "British",
+  "currency": {
+    "code": "EUR",
+    "symbol": "€"
+  },
+  "fictionalPhone": {
+    "pattern": "+49 30 23125 NNN and other Bundesnetzagentur drama blocks",
+    "note": "The Bundesnetzagentur publishes 'Drama Numbers': 1,000-number blocks in five local dialling areas (Berlin 030 23125 000–999 among them) plus some mobile blocks, free to use in media. Our samples use these blocks only."
+  },
+  "disagreements": [
+    "Photo: the Federal Employment Agency says a photo is not mandatory but still expected by most employers, while AGG-focused guidance stresses that employers may not require one, and the Federal Anti-Discrimination Agency's anonymised-application pilot dropped photos entirely.",
+    "Anonymised applications: the 2010–2012 federal pilot reported more interviews for older people, women and people with a migration background, but a Bundestag research paper notes the approach has not caught on widely and employer associations have been sceptical.",
+    "Length: the Federal Employment Agency treats two pages as the limit (and one page for short applications), while Make it in Germany says ideally one page, two at most.",
+    "Date of birth: Federal Employment Agency guidance still puts date and place of birth at the top, while advice pages summarising the Federal Anti-Discrimination Agency suggest leaving out age and birthplace."
+  ],
+  "tips": [
+    "Use a clean tabular layout: dates on the left in MM/YYYY, entries on the right.",
+    "If you include a photo, use a recent professional headshot, not a casual picture.",
+    "Explain any gap longer than about three months in a few words.",
+    "Write in German unless the job ad is in English or says English is accepted.",
+    "Give language levels on the CEFR scale (e.g. German B2, English C1).",
+    "Add the German-scale note to grades so readers know 1.0 is the top mark.",
+    "Europass is an accepted CV template if you are unsure about layout."
+  ],
+  "sources": [
+    {
+      "title": "Part 1 of the series on the application process in Germany: curriculum vitae",
+      "publisher": "Bundesagentur für Arbeit (ZAV)",
+      "url": "https://www.arbeitsagentur.de/vor-ort/zav/working-and-living-in-germany/iss-en/issue-01-2026/application-cv",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Den perfekten Lebenslauf erstellen",
+      "publisher": "Bundesagentur für Arbeit",
+      "url": "https://www.arbeitsagentur.de/bildung/bewerbung/lebenslauf",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "How do I find vocational training?",
+      "publisher": "Make it in Germany (Federal Government portal)",
+      "url": "https://www.make-it-in-germany.com/en/study-vocational-training/training-in-germany/find",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Bewerbungshinweise und Musterlebenslauf",
+      "publisher": "Goethe-Universität Frankfurt",
+      "url": "https://studium.uni-frankfurt.de/99409407.pdf",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Musterlebenslauf",
+      "publisher": "LMU Munich Career Service",
+      "url": "https://cms-cdn.lmu.de/media/lmu/downloads/career-service/musterlebenslauf_deutsch-3.pdf",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Musterlebenslauf",
+      "publisher": "University of Cologne WiSo Career Service",
+      "url": "https://www.bfit.uni-koeln.de/sites/wiso_career/pdf/Allgemeines_UEbergreifendes/Bewerbungshilfen/Musterlebenslauf.pdf",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Anonymisierte Bewerbungsverfahren (WD 6 - 089/23)",
+      "publisher": "Deutscher Bundestag, Wissenschaftliche Dienste",
+      "url": "https://bundestag.de/resource/blob/1022990/b028932704cdb00f2aa3c2c839668110/WD-6-089-23-pdf.pdf",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Faktenblatt: Anonyme Bewerbungen",
+      "publisher": "IG Metall",
+      "url": "https://werkzeugkoffer.igmetall.de/content/uploads/2021/09/2024_09_GR_FB_Anonyme_Bewerbungen-003.pdf",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Lebenslauf ohne Foto",
+      "publisher": "business-on.de",
+      "url": "https://www.business-on.de/lebenslauf-ohne-foto.html",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Rufnummern für Medienproduktionen („Drama Numbers“)",
+      "publisher": "Bundesnetzagentur",
+      "url": "https://bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/DramaNumbers/artikel.html",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "German grading system",
+      "publisher": "University of Göttingen",
+      "url": "https://www.uni-goettingen.de/en/480747.html",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Instructions for filling in the Europass CV",
+      "publisher": "European Union (European Environment Agency)",
+      "url": "https://www.eea.europa.eu/about-us/jobs/application-documents/instructions_for_europass_cv.pdf",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "id": "registered-nurse-us-mid",
+  "category": "healthcare-nursing",
+  "role": "registered-nurse",
+  "country": "us",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Danielle Okafor",
+    "title": "Charge Nurse, Progressive Care (RN, PCCN)",
+    "phone": "(512) 555-0147",
+    "email": "danielle.okafor@example.com",
+    "linkedin": "linkedin.com/in/danielle-okafor",
+    "location": "Austin, TX",
+    "summary": "Registered nurse with eight years in med-surg, telemetry and progressive care at Austin-area hospitals, now charging a 32-bed step-down unit. PCCN-certified and known for cutting rapid-response calls on my unit by 22% through an early-warning huddle I designed with our nurse educator.",
+    "experience": [
+      {
+        "title": "Staff Nurse (RN), Medical-Surgical",
+        "company": "Balcones Ridge Medical Center",
+        "location": "Austin, TX",
+        "start": "2018-07",
+        "end": "2020-09",
+        "bullets": [
+          "Managed a 5–6 patient assignment on a 36-bed adult med-surg floor, covering post-op orthopedic, GI bleed and diabetic patients across 12-hour day and night shifts.",
+          "Joined the unit falls committee and introduced hourly purposeful rounding scripts, helping reduce patient falls from 11 to 6 over one fiscal year.",
+          "Precepted 4 new-graduate nurses through 12-week orientations; all four completed their residency year on the unit."
+        ]
+      },
+      {
+        "title": "Registered Nurse, Cardiac Telemetry",
+        "company": "Pecan Creek Hospital",
+        "location": "Round Rock, TX",
+        "start": "2020-10",
+        "end": "2023-03",
+        "bullets": [
+          "Interpreted continuous cardiac rhythms for up to 5 telemetry patients and escalated arrhythmias using ACLS algorithms, including 9 bedside codes as first responder.",
+          "Served as a COVID-surge float nurse for 7 months, staffing ICU overflow under a team-nursing model alongside critical care RNs.",
+          "Rewrote the heparin drip titration cheat sheet with pharmacy, which cut aPTT-related dose errors flagged in Epic from 14 per quarter to 4.",
+          "Raised unit HCAHPS 'nurse communication' scores from the 61st to the 78th percentile as co-lead of a bedside shift-report rollout."
+        ]
+      },
+      {
+        "title": "Charge Nurse, Progressive Care Unit",
+        "company": "Lakeway Bluebonnet Hospital",
+        "location": "Lakeway, TX",
+        "start": "2023-04",
+        "end": "present",
+        "bullets": [
+          "Coordinate staffing, bed flow and admissions for a 32-bed step-down unit with 9–11 RNs and 4 patient care techs per shift.",
+          "Designed a 10-minute early-warning huddle using MEWS scores at 0700 and 1900, contributing to a 22% drop in rapid-response activations within a year.",
+          "Shortened ED-to-unit admission time by 41 minutes on average by pre-assigning beds during bed-management calls and standardizing handoff via SBAR.",
+          "Lead monthly skills fairs on chest tubes, insulin drips and telemetry troubleshooting for 45 unit nurses."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Science in Nursing (BSN)",
+        "school": "The University of Texas at Austin",
+        "location": "Austin, TX",
+        "start": "2014-08",
+        "end": "2018-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Progressive Care Certified Nurse (PCCN)",
+        "provider": "AACN Certification Corporation",
+        "year": 2022
+      },
+      {
+        "name": "Advanced Cardiovascular Life Support (ACLS)",
+        "provider": "American Heart Association",
+        "year": 2025
+      },
+      {
+        "name": "Basic Life Support (BLS) Provider",
+        "provider": "American Heart Association",
+        "year": 2025
+      },
+      {
+        "name": "NIH Stroke Scale Certification",
+        "provider": "American Heart Association",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Spanish",
+        "level": "Conversational (medical Spanish)"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "RN License, Texas Board of Nursing",
+        "detail": "Multistate license under the Nurse Licensure Compact; passed NCLEX-RN on first attempt, 2018."
+      },
+      {
+        "title": "DAISY Award nominee",
+        "detail": "Nominated twice by patients' families for compassionate care during end-of-life transitions on telemetry."
+      }
+    ],
+    "skills": [
+      "Cardiac telemetry interpretation",
+      "Titratable drips",
+      "Charge nurse duties",
+      "Rapid response",
+      "Epic EHR",
+      "SBAR handoff",
+      "Precepting",
+      "Wound care",
+      "Sepsis bundles",
+      "Patient education"
+    ],
+    "interests": [
+      "Trail running",
+      "Community health fairs",
+      "Sourdough baking"
+    ]
+  }
+}

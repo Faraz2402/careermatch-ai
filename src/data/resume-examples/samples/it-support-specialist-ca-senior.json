@@ -1,0 +1,95 @@
+{
+  "id": "it-support-specialist-ca-senior",
+  "category": "information-technology",
+  "role": "it-support-specialist",
+  "country": "ca",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Grace Mensah",
+    "title": "IT Support Team Lead",
+    "phone": "(613) 555-0148",
+    "email": "grace.mensah@example.com",
+    "linkedin": "linkedin.com/in/grace-mensah",
+    "location": "Ottawa, ON",
+    "summary": "IT support lead with 16 years in Ottawa, from help desk to running a bilingual service desk of six for a 450-person engineering firm. Raised customer satisfaction from 3.9 to 4.6 out of 5 and halved the ticket backlog within a year. Experienced with privacy-sensitive environments, including a medical imaging clinic and a credit union.",
+    "experience": [
+      {
+        "title": "Help Desk Technician",
+        "company": "Rideau Property Management",
+        "location": "Ottawa, ON",
+        "start": "2010-06",
+        "end": "2013-08",
+        "bullets": [
+          "Answered phone and email support for 140 staff in 20 residential buildings, closing about 300 tickets a month.",
+          "Imaged and deployed desktops for the building offices, standardizing on one Windows 7 build.",
+          "Kept the asset register accurate across all sites, which made the first hardware refresh possible to budget properly."
+        ]
+      },
+      {
+        "title": "Desktop Support Analyst",
+        "company": "Kanata Medical Imaging",
+        "location": "Ottawa, ON",
+        "start": "2013-09",
+        "end": "2017-11",
+        "bullets": [
+          "Supported radiologists and technologists on PACS viewing stations, where downtime directly delayed patient reports.",
+          "Brought average response time for clinical workstation faults down to 15 minutes by keeping pre-imaged spares on each floor.",
+          "Encrypted every laptop and enforced screen locks as part of the clinic's PHIPA privacy program.",
+          "Wrote the after-hours support guide used by the on-call technologist team."
+        ]
+      },
+      {
+        "title": "Senior IT Support Specialist",
+        "company": "Bytown Credit Union",
+        "location": "Ottawa, ON",
+        "start": "2017-12",
+        "end": "2022-04",
+        "bullets": [
+          "Acted as escalation point for 11 branches and head office, handling the hardest 15% of tickets.",
+          "Led the Windows 10 and Office 365 migration for 230 staff over a single summer with no branch closing early.",
+          "Set up remote access and laptops for 150 staff within two weeks in March 2020.",
+          "Ran quarterly phishing simulations with the security officer; click rates fell from 19% to 6%."
+        ]
+      },
+      {
+        "title": "IT Support Team Lead",
+        "company": "Gatineau Hills Engineering Ltd.",
+        "location": "Ottawa, ON (hybrid)",
+        "start": "2022-05",
+        "end": "present",
+        "bullets": [
+          "Lead a team of six support analysts serving 450 staff in English and French across three offices.",
+          "Cut the ticket backlog from 410 to 190 in twelve months through daily stand-ups, triage rules and a self-service portal.",
+          "Raised post-ticket satisfaction from 3.9 to 4.6 out of 5 while volume grew about 20%.",
+          "Manage a $220,000 annual budget for end-user hardware, licences and support contracts."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Ontario College Diploma, Computer Systems Technician",
+        "school": "Algonquin College",
+        "location": "Ottawa, ON",
+        "start": "2008-09",
+        "end": "2010-04"
+      }
+    ],
+    "courses": [
+      { "name": "ITIL 4 Managing Professional: Create, Deliver and Support", "provider": "PeopleCert", "year": 2023 },
+      { "name": "CompTIA Security+", "provider": "CompTIA", "year": 2019 },
+      { "name": "HDI Support Center Team Lead", "provider": "HDI", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "French", "level": "Professional working" },
+      { "name": "Twi", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Service excellence award, Gatineau Hills Engineering", "detail": "Recognised by the leadership team for the backlog turnaround in 2023." },
+      { "title": "Volunteer, newcomer tech skills workshops", "detail": "Teach monthly sessions on online banking safety at an Ottawa settlement agency." }
+    ],
+    "skills": ["Service desk leadership", "ITIL 4", "Microsoft 365 and Intune", "Active Directory / Entra ID", "Windows 11 and macOS", "ServiceNow", "Endpoint encryption", "Phishing awareness programs", "Vendor management", "Budgeting", "Bilingual support (English/French)"],
+    "interests": ["Skating the Rideau Canal", "Choir", "Community gardening"]
+  }
+}

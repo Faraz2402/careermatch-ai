@@ -1,0 +1,76 @@
+{
+  "id": "digital-marketing-specialist-ca-entry",
+  "category": "marketing",
+  "role": "digital-marketing-specialist",
+  "country": "ca",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Jordan Lee",
+    "title": "Digital Marketing Specialist",
+    "phone": "(416) 555-0119",
+    "email": "jordan.lee@example.com",
+    "linkedin": "linkedin.com/in/jordan-lee",
+    "location": "Toronto, ON",
+    "summary": "Digital marketing specialist with a York University degree and a Humber postgraduate certificate in digital marketing. Runs paid social, email and Shopify analytics for an online loose-leaf tea retailer, where a reworked welcome series and subscription offer doubled monthly recurring orders in a year.",
+    "experience": [
+      {
+        "title": "Digital Marketing Specialist",
+        "company": "Kensington Market Tea Co.",
+        "location": "Toronto, ON",
+        "start": "2023-10",
+        "end": "present",
+        "bullets": [
+          "Manage Meta and Pinterest ads on a $6,500 monthly budget for a Shopify tea brand shipping across Canada, keeping blended ROAS above 3.5.",
+          "Redesigned the Klaviyo welcome flow and added a subscribe-and-save offer, growing recurring monthly orders from 410 to 860.",
+          "Wrote and scheduled 20+ social posts a month, including bilingual French content for Québec customers, and tracked engagement by format.",
+          "Set up GA4 e-commerce events and a weekly Looker Studio dashboard the founder uses to plan inventory around promotions."
+        ]
+      },
+      {
+        "title": "Digital Marketing Co-op Student",
+        "company": "Danforth Bike Works",
+        "location": "Toronto, ON",
+        "start": "2023-05",
+        "end": "2023-08",
+        "bullets": [
+          "Audited local SEO for two bike shops and fixed inconsistent listings across 30 directories.",
+          "Created a spring tune-up Google Ads campaign that booked 260 service appointments in eight weeks.",
+          "Shot and edited short repair-tip videos that became the shop's most-watched Instagram content that summer."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Ontario College Graduate Certificate, Digital Marketing",
+        "school": "Humber College",
+        "location": "Toronto, ON",
+        "start": "2022-09",
+        "end": "2023-08",
+        "details": "Included a 14-week co-op placement."
+      },
+      {
+        "degree": "BA, Communication Studies",
+        "school": "York University",
+        "location": "Toronto, ON",
+        "start": "2018-09",
+        "end": "2022-04"
+      }
+    ],
+    "courses": [
+      { "name": "Google Ads Display Certification", "provider": "Google Skillshop", "year": 2023 },
+      { "name": "Shopify Foundations", "provider": "Shopify Academy", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "French", "level": "Intermediate" },
+      { "name": "Korean", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Subscription growth", "detail": "Recurring orders more than doubled within 12 months of the new welcome flow." },
+      { "title": "Program award", "detail": "Top capstone campaign in the Humber digital marketing cohort, 2023." }
+    ],
+    "skills": ["Meta Ads", "Pinterest Ads", "Google Ads", "Klaviyo", "Shopify", "GA4", "Looker Studio", "Local SEO", "Short-form video", "Copywriting", "Canva"],
+    "interests": ["Cycling the Don Valley trails", "Tea tasting", "Photography"]
+  }
+}

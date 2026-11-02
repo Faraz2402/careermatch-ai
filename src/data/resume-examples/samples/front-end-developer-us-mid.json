@@ -1,0 +1,79 @@
+{
+  "id": "front-end-developer-us-mid",
+  "category": "software-engineering",
+  "role": "front-end-developer",
+  "country": "us",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Kayla Brennan",
+    "title": "Front-End Developer",
+    "phone": "(312) 555-0172",
+    "email": "kayla.brennan@example.com",
+    "linkedin": "linkedin.com/in/kayla-brennan",
+    "location": "Chicago, IL",
+    "summary": "Front-end developer with nine years of React and TypeScript experience, the last four on employee-benefits enrollment used by 1,300 employers. Rebuilt the enrollment wizard so completion rose from 71% to 88% in one open-enrollment season. Strong advocate for accessible components and measurable performance budgets.",
+    "experience": [
+      {
+        "title": "Web Developer",
+        "company": "Prairie Lantern Media",
+        "location": "Chicago, IL",
+        "start": "2017-01",
+        "end": "2019-06",
+        "bullets": [
+          "Built responsive WordPress and jQuery sites for 25 local clients, from a brewery taproom to a county library system.",
+          "Set up a shared Sass component library that cut new-site build time from about six weeks to four.",
+          "Handled client handoff training, writing plain-language editing guides that reduced support emails by roughly a third."
+        ]
+      },
+      {
+        "title": "Front-End Developer",
+        "company": "Lakeview Grocers Online",
+        "location": "Chicago, IL",
+        "start": "2019-07",
+        "end": "2022-09",
+        "bullets": [
+          "Migrated the grocery storefront from server-rendered templates to React and Next.js, improving Largest Contentful Paint on mobile from 4.1 s to 2.0 s.",
+          "Built the substitution-preferences flow that let shoppers approve swaps in the app, lowering refund requests 18% during the 2020 demand surge.",
+          "Wrote Cypress end-to-end tests for checkout that ran on every pull request and blocked 30+ regressions in their first year.",
+          "Partnered with two product designers to define color, spacing and typography tokens shared by web and iOS."
+        ]
+      },
+      {
+        "title": "Front-End Developer II",
+        "company": "Wabash Benefits Co.",
+        "location": "Chicago, IL (remote)",
+        "start": "2022-10",
+        "end": "present",
+        "bullets": [
+          "Rebuilt the benefits enrollment wizard in React and TypeScript, raising completion from 71% to 88% for 1,300 employer groups during open enrollment.",
+          "Led an accessibility remediation to WCAG 2.1 AA across 140 screens, verified with VoiceOver, NVDA and automated axe checks in CI.",
+          "Created a Storybook design system of 48 components now used by four product teams.",
+          "Mentor two junior developers and run the front-end guild's monthly code-review clinic."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.S. Information Sciences",
+        "school": "University of Illinois Urbana-Champaign",
+        "location": "Champaign, IL",
+        "start": "2012-08",
+        "end": "2016-05"
+      }
+    ],
+    "courses": [
+      { "name": "IAAP Web Accessibility Specialist (WAS)", "provider": "International Association of Accessibility Professionals", "year": 2024 },
+      { "name": "Advanced React Patterns", "provider": "Frontend Masters", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Company hackathon winner, Wabash Benefits", "detail": "Built a plain-language plan comparison tool that the product team shipped the next quarter." },
+      { "title": "Volunteer instructor, Chicago coding nonprofit", "detail": "Taught a 10-week HTML and CSS course to 18 adult learners." }
+    ],
+    "skills": ["React", "TypeScript", "Next.js", "CSS / Sass", "Storybook", "Accessibility (WCAG 2.1 AA)", "Cypress", "Jest and Testing Library", "Web performance (Core Web Vitals)", "GraphQL", "Figma handoff"],
+    "interests": ["Lake Michigan open-water swimming", "Letterpress printing", "Improv classes"]
+  }
+}

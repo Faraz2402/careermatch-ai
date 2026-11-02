@@ -1,0 +1,113 @@
+{
+  "id": "operations-manager-au-entry",
+  "category": "business-management",
+  "role": "operations-manager",
+  "country": "au",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Jordan Pereira",
+    "title": "Operations Coordinator",
+    "phone": "0491 572 549",
+    "email": "jordan.pereira@example.com",
+    "linkedin": "linkedin.com/in/jordan-pereira",
+    "location": "Perth WA",
+    "summary": "Business graduate from Curtin University in a first operations role at a mining equipment supplier, after two years running casual shifts in retail. Coordinates daily dispatch to 30 Pilbara and Goldfields sites and cut urgent freight spend by 19% in the first year.",
+    "experience": [
+      {
+        "title": "Operations Coordinator",
+        "company": "Ironstone Equipment Supply",
+        "location": "Perth WA",
+        "start": "2024-02",
+        "end": "present",
+        "bullets": [
+          "Coordinate dispatch of parts and consumables to 30 mine sites, working with three road and air freight carriers.",
+          "Introduced a daily cut-off and consolidation rule for site orders, cutting urgent freight spend by 19% in twelve months.",
+          "Maintain stock levels for 1,800 fast-moving items in the warehouse system and run weekly cycle counts.",
+          "Prepare a weekly on-time-in-full report for the operations manager and branch customers."
+        ]
+      },
+      {
+        "title": "Casual Team Leader",
+        "company": "Swan Street Outdoor Gear",
+        "location": "Perth WA",
+        "start": "2023-05",
+        "end": "2024-01",
+        "bullets": [
+          "Opened and closed the store on weekends, leading a team of six casual staff.",
+          "Reorganised the stockroom by category so weekly deliveries were shelved in half the time.",
+          "Trained new starters on the point-of-sale system and cash handling."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Commerce (Logistics and Supply Chain Management)",
+        "school": "Curtin University",
+        "location": "Perth WA",
+        "start": "2021-02",
+        "end": "2023-11",
+        "details": "Weighted average mark 74; capstone on inventory policy for a local agricultural co-op"
+      },
+      {
+        "degree": "Western Australian Certificate of Education",
+        "school": "Applecross Senior High School",
+        "location": "Perth WA",
+        "end": "2020-11",
+        "details": "ATAR 86.4"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Provide First Aid (HLTAID011)",
+        "provider": "St John WA",
+        "year": 2024
+      },
+      {
+        "name": "Construction Induction (White Card)",
+        "provider": "Accredited training provider",
+        "year": 2024
+      },
+      {
+        "name": "Excel for Business Analysis",
+        "provider": "Coursera",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Portuguese",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Urgent freight down 19%",
+        "detail": "Order consolidation rule at Ironstone Equipment Supply."
+      },
+      {
+        "title": "Curtin Business School Dean's List",
+        "detail": "Recognised in 2022 for academic results."
+      }
+    ],
+    "skills": [
+      "Dispatch coordination",
+      "Inventory control",
+      "Freight management",
+      "Cycle counting",
+      "Excel",
+      "SAP Business One",
+      "Stakeholder communication",
+      "Reporting",
+      "First aid"
+    ],
+    "interests": [
+      "AFL",
+      "Camping in the South West"
+    ]
+  }
+}

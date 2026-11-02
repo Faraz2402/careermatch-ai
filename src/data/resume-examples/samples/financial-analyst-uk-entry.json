@@ -1,0 +1,107 @@
+{
+  "id": "financial-analyst-uk-entry",
+  "category": "accounting-finance",
+  "role": "financial-analyst",
+  "country": "uk",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Oliver Brennan",
+    "title": "Graduate Financial Analyst",
+    "phone": "07700 900263",
+    "email": "oliver.brennan@example.com",
+    "linkedin": "linkedin.com/in/oliver-brennan",
+    "location": "Manchester",
+    "summary": "Economics graduate with a First from the University of Manchester, now in a graduate finance scheme at a regional retail bank and studying for CIMA. Builds monthly cost reports for a £45m operations budget and automated a reconciliation that took the team a full day each month.",
+    "experience": [
+      {
+        "title": "Graduate Financial Analyst",
+        "company": "Irwell Mutual Bank",
+        "location": "Manchester",
+        "start": "2024-09",
+        "end": "present",
+        "bullets": [
+          "Prepare monthly cost-centre reports for a £45m operations budget and explain variances over £25k to budget holders.",
+          "Automated the monthly headcount-to-payroll reconciliation with Power Query, freeing up a full working day each month.",
+          "Supported the 2025 budget round by consolidating 34 departmental submissions and flagging £1.3m of duplicated costs.",
+          "Rotated through treasury, where I built a daily liquidity dashboard used by the ALCO secretary."
+        ]
+      },
+      {
+        "title": "Summer Analyst",
+        "company": "Deansgate Capital Advisers",
+        "location": "Manchester",
+        "start": "2023-06",
+        "end": "2023-08",
+        "bullets": [
+          "Built comparable-company tables for two mid-market sell-side mandates in the leisure sector.",
+          "Cleaned and analysed five years of management accounts for a £12m-turnover target.",
+          "Drafted sections of an information memorandum reviewed by the deal director."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc (Hons) Economics, First Class",
+        "school": "The University of Manchester",
+        "location": "Manchester",
+        "start": "2021-09",
+        "end": "2024-06",
+        "details": "Dissertation: regional house prices and bank lending, 2010 to 2022"
+      },
+      {
+        "degree": "A-levels: Mathematics (A*), Economics (A), Geography (A)",
+        "school": "Loreto Sixth Form College",
+        "location": "Manchester",
+        "start": "2019-09",
+        "end": "2021-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "CIMA Certificate in Business Accounting",
+        "provider": "CIMA",
+        "year": 2025
+      },
+      {
+        "name": "Financial Modelling Fundamentals",
+        "provider": "Corporate Finance Institute",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Spanish",
+        "level": "B1"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Investment society treasurer",
+        "detail": "Managed the University of Manchester student investment fund's £8k portfolio and reporting, 2023 to 2024."
+      },
+      {
+        "title": "£1.3m duplicated costs flagged",
+        "detail": "Found during consolidation of the 2025 budget at Irwell Mutual Bank."
+      }
+    ],
+    "skills": [
+      "Excel (Power Query)",
+      "Financial modelling",
+      "Variance analysis",
+      "Budgeting",
+      "Power BI",
+      "Python (pandas)",
+      "Company valuation",
+      "Management reporting"
+    ],
+    "interests": [
+      "Five-a-side football",
+      "Personal finance blog"
+    ]
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "id": "administrative-assistant-us-mid",
+  "category": "office-administration",
+  "role": "administrative-assistant",
+  "country": "us",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Danielle Ortiz",
+    "title": "Administrative Assistant",
+    "phone": "(512) 555-0143",
+    "email": "danielle.ortiz@example.com",
+    "linkedin": "linkedin.com/in/danielle-ortiz",
+    "location": "Austin, TX",
+    "summary": "Administrative assistant with eight years of front-office and executive support experience across dental, title and engineering firms. Keeps calendars, travel and vendor accounts running for a three-partner leadership team, and cut the office supply budget by $11,400 a year after renegotiating contracts.",
+    "experience": [
+      {
+        "title": "Front Desk Receptionist",
+        "company": "Barton Creek Family Dental",
+        "location": "Austin, TX",
+        "start": "2018-06",
+        "end": "2020-02",
+        "bullets": [
+          "Greeted and checked in roughly 60 patients a day, verifying insurance eligibility before each appointment to avoid billing surprises.",
+          "Rebuilt the recall reminder process in Dentrix, which brought the six-month hygiene no-show rate down from 18% to 11%.",
+          "Balanced the daily cash drawer and card batch with zero unexplained variances across 20 months."
+        ]
+      },
+      {
+        "title": "Administrative Assistant",
+        "company": "Lamar Ridge Title Company",
+        "location": "Austin, TX",
+        "start": "2020-03",
+        "end": "2023-01",
+        "bullets": [
+          "Prepared closing packets for about 45 residential transactions a month, cross-checking legal descriptions against the title commitment.",
+          "Set up a shared Outlook calendar for four escrow officers so closings stopped being double-booked during the 2021 refinancing rush.",
+          "Scanned and indexed 9,000 archived files into the document management system, freeing a rented storage unit costing $310 a month.",
+          "Trained two new receptionists on wire-fraud callback procedures and the phone system within their first week."
+        ]
+      },
+      {
+        "title": "Executive Administrative Assistant",
+        "company": "Pecan Street Engineering Group",
+        "location": "Austin, TX",
+        "start": "2023-02",
+        "end": "present",
+        "bullets": [
+          "Manage calendars, expense reports and travel for three managing partners, booking more than 70 trips a year within the travel policy.",
+          "Renegotiated office supply, coffee and printer lease agreements, saving $11,400 annually without changing vendors' service levels.",
+          "Coordinate quarterly board meetings end to end: agendas, minutes, catering for 25 and follow-up action tracking in Smartsheet.",
+          "Built a SharePoint onboarding checklist used for 14 new hires, so laptops, badges and accounts are ready on day one."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "A.A.S. in Business Office Technology",
+        "school": "Austin Community College",
+        "location": "Austin, TX",
+        "start": "2016-08",
+        "end": "2018-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Microsoft Office Specialist: Excel Associate",
+        "provider": "Certiport",
+        "year": 2022
+      },
+      {
+        "name": "Certified Administrative Professional (CAP)",
+        "provider": "IAAP",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Spanish",
+        "level": "Professional working proficiency"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Partner's Choice Award 2024",
+        "detail": "Recognized by the partners for organizing a 120-guest client open house on a $9,000 budget."
+      },
+      {
+        "title": "Paperless office project",
+        "detail": "Led the archive digitization that retired the firm's off-site storage unit."
+      }
+    ],
+    "skills": [
+      "Calendar management",
+      "Travel coordination",
+      "Expense reporting (Concur)",
+      "Microsoft 365",
+      "SharePoint",
+      "Smartsheet",
+      "Minute taking",
+      "Vendor management",
+      "Dentrix",
+      "Bilingual phone support"
+    ],
+    "interests": [
+      "Community theater stage crew",
+      "Trail running",
+      "Thrift-store furniture restoration"
+    ]
+  }
+}

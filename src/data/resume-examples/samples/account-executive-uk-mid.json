@@ -1,0 +1,82 @@
+{
+  "id": "account-executive-uk-mid",
+  "category": "sales-retail",
+  "role": "account-executive",
+  "country": "uk",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Aisha Patel",
+    "title": "Senior Account Executive",
+    "phone": "07700 900548",
+    "email": "aisha.patel@example.com",
+    "linkedin": "linkedin.com/in/aisha-patel",
+    "location": "Bristol",
+    "summary": "Account executive with nearly ten years in B2B software, from payroll to data platforms to cyber security. Sells to mid-market finance, legal and healthcare firms across the South West and Wales, and closed £1.9m in new business last year at 124% of target.",
+    "experience": [
+      {
+        "title": "Senior Account Executive",
+        "company": "Severn Cloud Security",
+        "location": "Bristol",
+        "start": "2022-04",
+        "end": "present",
+        "bullets": [
+          "Closed £1.9m in new annual contract value in FY2025 (124% of target) selling managed detection and response to firms with 200 to 2,000 staff.",
+          "Won the company's largest deal to date, a three-year £680,000 contract with a regional law firm, after a seven-month evaluation with their IT and risk teams.",
+          "Built a partner channel with four local IT support providers that now sources 30% of my pipeline.",
+          "Lead Cyber Essentials-led prospecting campaigns with marketing, using the scheme as an entry point for small professional services firms.",
+          "Mentor two newer AEs on forecasting discipline and multi-threading into finance and compliance stakeholders."
+        ]
+      },
+      {
+        "title": "Account Executive",
+        "company": "Clifton Data Systems",
+        "location": "Bristol",
+        "start": "2019-01",
+        "end": "2022-03",
+        "bullets": [
+          "Sold a reporting and data warehouse platform to UK accountancy practices, exceeding target in nine of 13 quarters.",
+          "Grew average contract value from £18,000 to £27,500 by packaging onboarding and training as a fixed-fee add-on.",
+          "Ran remote evaluations in 2020 with a two-week pilot template that kept win rates at 31% despite no site visits.",
+          "Presented at three ICAEW regional events, generating 70 new leads."
+        ]
+      },
+      {
+        "title": "Business Development Representative",
+        "company": "Harbourside Payroll Ltd",
+        "location": "Bristol",
+        "start": "2017-01",
+        "end": "2018-12",
+        "bullets": [
+          "Booked 25 to 30 meetings a month for field sales by calling HR and finance managers in companies with 50 to 500 employees.",
+          "Built territory lists from Companies House data, keeping the CRM free of duplicates for a team of seven.",
+          "Promoted to account executive track after finishing as top BDR for 2018."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc (Hons) Business Management, 2:1",
+        "school": "University of the West of England",
+        "location": "Bristol",
+        "start": "2013-09",
+        "end": "2016-06",
+        "details": "Placement year module in a Bristol marketing agency."
+      }
+    ],
+    "courses": [
+      { "name": "Value Selling Framework training", "provider": "Employer sales academy", "year": 2023 },
+      { "name": "Certified in Cybersecurity (CC)", "provider": "ISC2", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Gujarati", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Largest deal in company history", "detail": "£680,000 three-year contract with a regional law firm (2024)." },
+      { "title": "Top BDR 2018", "detail": "Most qualified meetings booked across the business development team." }
+    ],
+    "skills": ["Full-cycle B2B sales", "Mid-market selling", "Multi-threading", "Forecasting", "Channel partners", "Negotiation", "HubSpot Sales Hub", "Salesforce", "Gong", "LinkedIn Sales Navigator", "ISO 27001 and Cyber Essentials"],
+    "interests": ["Paddleboarding in the harbour", "Bollywood dance classes", "Bristol Rovers"]
+  }
+}

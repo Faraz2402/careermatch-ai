@@ -1,0 +1,99 @@
+{
+  "id": "digital-marketing-specialist-de-senior",
+  "category": "marketing",
+  "role": "digital-marketing-specialist",
+  "country": "de",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Tobias Nguyen",
+    "title": "Lead Digital Marketing Specialist",
+    "phone": "+49 30 23125 447",
+    "email": "tobias.nguyen@example.com",
+    "linkedin": "linkedin.com/in/tobias-nguyen",
+    "location": "Berlin",
+    "summary": "Digital marketing specialist with 16 years in Berlin, from an IHK apprenticeship to leading performance marketing for a green energy supplier. Manages €3.6m in annual media across search, social and comparison portals and rebuilt tracking under TTDSG consent rules without losing conversion visibility.",
+    "experience": [
+      {
+        "title": "Lead Digital Marketing Specialist",
+        "company": "Grünkraft Energie GmbH",
+        "location": "Berlin",
+        "start": "2023-01",
+        "end": "present",
+        "bullets": [
+          "Lead a team of four running search, social, affiliate and comparison-portal acquisition for a renewable electricity and gas supplier, with €3.6m annual media.",
+          "Brought customer acquisition cost down from €96 to €71 per contract by moving budget from portals to search and tightening portal bonus rules.",
+          "Rebuilt consent and tracking with the data protection officer under GDPR and TTDSG, using server-side tagging to restore 85% of measurable conversions.",
+          "Launched a heat-pump tariff campaign in six federal states that signed 4,800 contracts in its first winter."
+        ]
+      },
+      {
+        "title": "Senior Digital Marketing Specialist",
+        "company": "Havelblick Reisen GmbH",
+        "location": "Berlin",
+        "start": "2018-10",
+        "end": "2022-12",
+        "bullets": [
+          "Managed paid search and metasearch for a city-break and rail travel operator in German, English and Dutch markets.",
+          "Steered the business through the 2020 travel collapse by pausing 80% of spend within 48 hours and redirecting budget to flexible-booking offers.",
+          "Recovered bookings to 112% of 2019 levels by summer 2022 using value-based bidding and new last-minute landing pages.",
+          "Coached three junior colleagues and introduced a monthly test review that kept results documented in one shared log."
+        ]
+      },
+      {
+        "title": "SEA Team Lead",
+        "company": "Pixelhafen Agentur GmbH",
+        "location": "Berlin",
+        "start": "2014-04",
+        "end": "2018-09",
+        "bullets": [
+          "Led a team of six SEA managers handling 30 client accounts with combined spend of €1.4m a month.",
+          "Won four new retail clients by presenting feed optimisation audits during the pitch.",
+          "Created a reporting template in Google Data Studio that cut month-end reporting time by half across the team."
+        ]
+      },
+      {
+        "title": "Online Marketing Manager",
+        "company": "Spreeufer Möbel GmbH",
+        "location": "Berlin",
+        "start": "2010-08",
+        "end": "2014-03",
+        "bullets": [
+          "Built the online shop's first Google Shopping and newsletter programmes after completing my apprenticeship.",
+          "Grew online revenue from €1.9m to €5.3m over three years through search, newsletters and marketplace listings.",
+          "Coordinated product photography and descriptions for 2,500 furniture items with the warehouse team."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Kaufmann für Marketingkommunikation (IHK), apprenticeship in marketing communications",
+        "school": "Oberstufenzentrum Kommunikations-, Informations- und Medientechnik / IHK Berlin",
+        "location": "Berlin",
+        "start": "2007-08",
+        "end": "2010-06"
+      },
+      {
+        "degree": "Abitur",
+        "school": "Gymnasium in Berlin-Lichtenberg",
+        "location": "Berlin",
+        "end": "2007-06"
+      }
+    ],
+    "courses": [
+      { "name": "Google Ads Measurement Certification", "provider": "Google Skillshop", "year": 2024 },
+      { "name": "Datenschutz im Online-Marketing (data protection in online marketing)", "provider": "IHK Berlin", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "German", "level": "Native (C2)" },
+      { "name": "Vietnamese", "level": "Fluent (C1)" },
+      { "name": "English", "level": "Fluent (C1)" }
+    ],
+    "achievements": [
+      { "title": "Consent-proof measurement", "detail": "Server-side tagging project recovered most conversion signals lost after consent banner changes." },
+      { "title": "Crisis response", "detail": "Travel bookings back above pre-pandemic levels within two seasons." }
+    ],
+    "skills": ["SEA", "Paid social", "Affiliate and comparison portals", "Value-based bidding", "Server-side tagging", "GDPR and TTDSG consent", "GA4", "Google Tag Manager", "BigQuery", "Looker Studio", "Team leadership", "Budget planning"],
+    "interests": ["Road cycling in Brandenburg", "Vietnamese cooking", "Board games"]
+  }
+}

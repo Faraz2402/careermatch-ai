@@ -1,0 +1,113 @@
+{
+  "id": "ux-designer-in-entry",
+  "category": "design",
+  "role": "ux-designer",
+  "country": "in",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Sneha Reddy",
+    "title": "Associate UX Designer",
+    "phone": "+91 00000 58304",
+    "email": "sneha.reddy@example.com",
+    "linkedin": "linkedin.com/in/sneha-reddy",
+    "location": "Hyderabad, Telangana",
+    "summary": "Associate UX designer with a B.Tech in Computer Science from JNTU Hyderabad, a health-tech internship and two years designing a fintech savings app. Combines coding knowledge with user research in English, Telugu and Hindi; a simpler goal set-up flow I designed raised first-week savings activation by 17%.",
+    "experience": [
+      {
+        "title": "UX Design Intern",
+        "company": "Gachibowli Health Tech",
+        "location": "Hyderabad, Telangana",
+        "start": "2024-01",
+        "end": "2024-06",
+        "bullets": [
+          "Interviewed 12 clinic receptionists to understand how they book and reschedule patient appointments.",
+          "Designed low- and high-fidelity screens for a Telugu and English appointment dashboard in Figma.",
+          "Tested the prototype with six receptionists and reduced the steps to reschedule a patient from seven to four."
+        ]
+      },
+      {
+        "title": "Associate UX Designer",
+        "company": "Charminar Fintech Pvt. Ltd.",
+        "location": "Hyderabad, Telangana",
+        "start": "2024-07",
+        "end": "present",
+        "bullets": [
+          "Design features for a micro-savings app with 300,000 users, many of them first-time digital savers in tier-2 cities.",
+          "Simplified the savings goal set-up from five screens to three, which raised first-week activation by 17%.",
+          "Run weekly remote usability tests in Telugu, Hindi and English and share short video clips with the product team.",
+          "Work with front-end developers on handoff, using my React knowledge to suggest feasible interaction patterns."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech, Computer Science and Engineering",
+        "school": "Jawaharlal Nehru Technological University Hyderabad",
+        "location": "Hyderabad, Telangana",
+        "start": "2020-08",
+        "end": "2024-05",
+        "details": "CGPA 8.4/10"
+      },
+      {
+        "degree": "Class XII (MPC), TSBIE",
+        "school": "Narayana Junior College",
+        "location": "Hyderabad, Telangana",
+        "end": "2020-04",
+        "details": "91%"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Design Thinking - A Primer",
+        "provider": "NPTEL",
+        "year": 2023
+      },
+      {
+        "name": "Google UX Design Professional Certificate",
+        "provider": "Coursera",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Telugu",
+        "level": "Native"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Smart India Hackathon finalist",
+        "detail": "Designed the interface for a crop price alert app that reached the national finals in 2023."
+      },
+      {
+        "title": "Design club lead",
+        "detail": "Started the college's UI/UX club and ran Figma workshops for 80 students."
+      }
+    ],
+    "skills": [
+      "User interviews",
+      "Usability testing",
+      "Figma",
+      "Wireframing",
+      "Prototyping",
+      "Information architecture",
+      "HTML, CSS, React basics",
+      "Multilingual UX",
+      "Miro"
+    ],
+    "interests": [
+      "Sketching",
+      "Badminton",
+      "Exploring Hyderabad's old city food"
+    ]
+  }
+}

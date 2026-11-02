@@ -1,0 +1,76 @@
+{
+  "id": "data-scientist-de-mid",
+  "category": "data-science",
+  "role": "data-scientist",
+  "country": "de",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Katharina Brandt",
+    "title": "Senior Data Scientist",
+    "phone": "+49 89 99998 214",
+    "email": "katharina.brandt@example.com",
+    "linkedin": "linkedin.com/in/katharina-brandt",
+    "location": "München",
+    "summary": "Data scientist with eight years in insurance, mobility and medical technology, holding an M.Sc. in Mathematics from TUM. Now lead predictive maintenance modelling for imaging devices at a Munich medtech company, where early fault detection reduced unplanned service visits by 21%. Experienced in documenting models for regulated environments and working under GDPR.",
+    "experience": [
+      {
+        "title": "Senior Data Scientist",
+        "company": "Theresienhöhe Medizintechnik GmbH",
+        "location": "München",
+        "start": "2023-04",
+        "end": "present",
+        "bullets": [
+          "Lead predictive maintenance modelling for 4,200 installed imaging devices; anomaly alerts from sensor logs have reduced unplanned service visits by 21%.",
+          "Coordinate a cross-functional team of two data scientists, a data engineer and three service engineers, owning the workstream's quarterly goals.",
+          "Wrote model documentation and validation reports aligned with the quality management system, passing an external audit without major findings.",
+          "Saved roughly €380,000 a year in spare parts logistics by forecasting part failures per region."
+        ]
+      },
+      {
+        "title": "Data Scientist",
+        "company": "Alpenblick Mobility GmbH",
+        "location": "München",
+        "start": "2020-07",
+        "end": "2023-03",
+        "bullets": [
+          "Developed dynamic pricing models for a car-sharing fleet of 1,600 vehicles, raising utilisation by 9% without hurting customer satisfaction scores.",
+          "Built a damage detection classifier on return photos that cut manual review time by 40%.",
+          "Introduced MLflow tracking and code review for the team of five, making experiments reproducible."
+        ]
+      },
+      {
+        "title": "Junior Data Scientist",
+        "company": "Isarwerk Versicherung AG",
+        "location": "München",
+        "start": "2018-04",
+        "end": "2020-06",
+        "bullets": [
+          "Modelled claim frequency for household contents insurance using GLMs and gradient boosting together with the actuarial department.",
+          "Created a text classifier for incoming German-language claim emails, routing 70% of them automatically to the right team.",
+          "Presented model results in German to the underwriting committee every quarter."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "M.Sc. Mathematics (focus: statistics and machine learning)", "school": "Technische Universität München (TUM)", "location": "München", "start": "2015-10", "end": "2018-03", "details": "Grade 1.4" },
+      { "degree": "B.Sc. Mathematics", "school": "Ludwig-Maximilians-Universität München (LMU)", "location": "München", "start": "2012-10", "end": "2015-09" },
+      { "degree": "Abitur", "school": "Gymnasium Ottobrunn", "location": "Ottobrunn", "end": "2012-06" }
+    ],
+    "courses": [
+      { "name": "AWS Certified Machine Learning – Specialty", "provider": "Amazon Web Services", "year": 2022 },
+      { "name": "Machine Learning Engineering for Production (MLOps)", "provider": "Coursera (DeepLearning.AI)", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "German", "level": "C2 (native)" },
+      { "name": "English", "level": "C1" },
+      { "name": "Italian", "level": "B1" }
+    ],
+    "achievements": [
+      { "title": "Patent application co-inventor", "detail": "Named co-inventor on a company patent application for sensor-based fault prediction (2025)." },
+      { "title": "Meetup organiser", "detail": "Co-organise a Munich machine learning meetup with around 60 attendees per session." }
+    ],
+    "skills": ["Python", "PyTorch", "scikit-learn", "SQL", "Spark", "AWS SageMaker", "Anomaly detection", "Predictive maintenance", "Pricing models", "NLP (German text)", "MLflow", "GDPR-compliant data handling"],
+    "interests": ["Alpine hiking", "Bouldering", "Chamber music"]
+  }
+}

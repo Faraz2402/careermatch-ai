@@ -1,0 +1,141 @@
+{
+  "id": "administrative-assistant-uk-senior",
+  "category": "office-administration",
+  "role": "administrative-assistant",
+  "country": "uk",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Gemma Hollingworth",
+    "title": "Senior Administrator and Office Manager",
+    "phone": "07700 900417",
+    "email": "gemma.hollingworth@example.com",
+    "linkedin": "linkedin.com/in/gemma-hollingworth",
+    "location": "Leeds, West Yorkshire",
+    "summary": "Senior administrator with 14 years' experience, starting as a business administration apprentice and now running the office for a 60-person architecture practice. Leads a team of three, manages a £180,000 facilities budget and introduced the practice's first digital booking and visitor system.",
+    "experience": [
+      {
+        "title": "Business Administration Apprentice",
+        "company": "Kirkstall Lettings",
+        "location": "Leeds",
+        "start": "2012-09",
+        "end": "2014-08",
+        "bullets": [
+          "Logged maintenance requests from around 300 tenants and chased contractors until jobs were signed off.",
+          "Drafted tenancy renewal letters from templates and posted them on schedule, so no renewal deadline was missed in two years.",
+          "Completed a Level 3 Business Administration apprenticeship alongside the role, passing all units first time."
+        ]
+      },
+      {
+        "title": "Team Administrator",
+        "company": "Aire Valley Housing Trust",
+        "location": "Leeds",
+        "start": "2014-09",
+        "end": "2018-03",
+        "bullets": [
+          "Supported a repairs team of 12 surveyors, booking appointments and updating the housing management system for 1,100 homes.",
+          "Took and circulated minutes for monthly resident panel meetings, with actions published within two working days.",
+          "Redesigned the void-property checklist with the lettings manager, shaving four days off the average re-let time.",
+          "Processed purchase orders and matched invoices for the repairs budget, flagging duplicate supplier billing worth £6,200."
+        ]
+      },
+      {
+        "title": "Senior Administrator",
+        "company": "Briggate Chambers Solicitors",
+        "location": "Leeds",
+        "start": "2018-04",
+        "end": "2022-06",
+        "bullets": [
+          "Supervised two legal secretaries and a receptionist, setting rotas so the front desk was covered from 8am to 6pm.",
+          "Ran the move from paper files to a case management system for 2,400 live matters with no lost documents.",
+          "Coordinated diaries for six partners and arranged court bundles to deadline, often at 24 hours' notice.",
+          "Wrote the firm's GDPR-compliant retention schedule with the compliance partner and supervised the secure destruction of 140 archive boxes."
+        ]
+      },
+      {
+        "title": "Office Manager and Senior Administrative Assistant",
+        "company": "Wharfedale Architects",
+        "location": "Leeds",
+        "start": "2022-07",
+        "end": "present",
+        "bullets": [
+          "Lead a team of three administrators supporting 60 staff across two studios, handling HR paperwork, post, IT tickets and facilities.",
+          "Manage the £180,000 annual facilities budget and finished last year £14,000 under plan after retendering cleaning and waste contracts.",
+          "Introduced a desk and meeting-room booking tool and a digital visitor log, which cut room clashes to almost none.",
+          "Act as personal assistant to the managing director, organising board papers, client hospitality and quarterly all-staff days.",
+          "Act as the office's fire marshal and first aider, keeping risk assessments and the H&S folder ready for audit."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Level 3 Apprenticeship in Business Administration",
+        "school": "Leeds City College",
+        "location": "Leeds",
+        "start": "2012-09",
+        "end": "2014-08"
+      },
+      {
+        "degree": "A-levels: English Language (B), Business Studies (B), Sociology (C)",
+        "school": "Moortown Sixth Form",
+        "location": "Leeds",
+        "start": "2010-09",
+        "end": "2012-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "ILM Level 5 Certificate in Leadership and Management",
+        "provider": "Institute of Leadership",
+        "year": 2021
+      },
+      {
+        "name": "PRINCE2 Foundation",
+        "provider": "PeopleCert",
+        "year": 2023
+      },
+      {
+        "name": "Emergency First Aid at Work",
+        "provider": "St John Ambulance",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "French",
+        "level": "Intermediate (B1)"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Office relocation",
+        "detail": "Planned the practice's move to a new studio over one weekend, with all 60 desks working on Monday."
+      },
+      {
+        "title": "Apprentice mentor",
+        "detail": "Have mentored three business administration apprentices, two of whom were kept on full-time."
+      }
+    ],
+    "skills": [
+      "Office management",
+      "Diary and inbox management",
+      "Budget monitoring",
+      "Supplier tendering",
+      "Minute taking",
+      "Microsoft 365",
+      "Xero",
+      "GDPR records management",
+      "Health and safety administration",
+      "Team supervision"
+    ],
+    "interests": [
+      "Fell walking in the Dales",
+      "Choir (alto)",
+      "Volunteering at a local food bank"
+    ]
+  }
+}

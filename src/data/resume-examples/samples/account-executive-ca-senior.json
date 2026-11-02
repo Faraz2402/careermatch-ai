@@ -1,0 +1,93 @@
+{
+  "id": "account-executive-ca-senior",
+  "category": "sales-retail",
+  "role": "account-executive",
+  "country": "ca",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Graham Fitzgerald",
+    "title": "Enterprise Account Executive",
+    "phone": "(416) 555-0193",
+    "email": "graham.fitzgerald@example.com",
+    "linkedin": "linkedin.com/in/graham-fitzgerald",
+    "location": "Toronto, ON",
+    "summary": "Enterprise account executive with 17 years in B2B technology sales across office systems, telecom and healthcare software. Sells multi-year analytics contracts to hospitals and provincial health agencies, carrying a $3.5M annual quota that I have exceeded in five of the last six years.",
+    "experience": [
+      {
+        "title": "Enterprise Account Executive",
+        "company": "Northshore Analytics Inc.",
+        "location": "Toronto, ON",
+        "start": "2021-02",
+        "end": "present",
+        "bullets": [
+          "Carry a $3.5M annual quota selling population health analytics to hospitals and health agencies in Ontario and Atlantic Canada.",
+          "Closed a five-year, $7.2M agreement with a hospital network after leading a public RFP response with legal, privacy and clinical teams.",
+          "Navigated provincial procurement rules and broader public sector requirements on four competitive bids, winning three.",
+          "Built executive relationships with CIOs and chief nursing officers through quarterly business reviews, growing expansion revenue by 42%.",
+          "Coach three account executives on deal reviews, mutual action plans and public sector timelines."
+        ]
+      },
+      {
+        "title": "Senior Account Executive",
+        "company": "Don Valley Health Software",
+        "location": "Toronto, ON",
+        "start": "2016-09",
+        "end": "2021-01",
+        "bullets": [
+          "Sold scheduling and workforce software to long-term care homes and community health centres, reaching 115% of quota on average.",
+          "Opened the Québec market with a francophone partner, signing 14 sites in 18 months.",
+          "Rewrote the proposal template around staffing cost savings, lifting win rates from 24% to 33%."
+        ]
+      },
+      {
+        "title": "Account Executive",
+        "company": "Humber Bay Telecom Solutions",
+        "location": "Mississauga, ON",
+        "start": "2012-03",
+        "end": "2016-08",
+        "bullets": [
+          "Managed 140 mid-market accounts for business phone systems and network services in the Greater Toronto Area.",
+          "Converted 60 legacy phone customers to hosted VoIP in a year, raising recurring revenue on the book by $480,000.",
+          "Named top account executive for the region in 2014 and 2015."
+        ]
+      },
+      {
+        "title": "Inside Sales Representative",
+        "company": "Lakeview Office Systems",
+        "location": "Toronto, ON",
+        "start": "2009-06",
+        "end": "2012-02",
+        "bullets": [
+          "Sold copier and print management leases to small offices by phone, averaging 22 new contracts a quarter.",
+          "Renewed expiring leases ahead of term by offering upgrades, keeping renewal rates above 85%.",
+          "Kept CRM records clean so field reps could pick up accounts without re-qualifying them."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BCom (Honours)",
+        "school": "Smith School of Business, Queen's University",
+        "location": "Kingston, ON",
+        "start": "2005-09",
+        "end": "2009-04"
+      }
+    ],
+    "courses": [
+      { "name": "Strategic Account Management", "provider": "Rotman School of Management, Executive Programs", "year": 2020 },
+      { "name": "Challenger Sale workshop", "provider": "Employer sales enablement", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "French", "level": "Professional working proficiency" }
+    ],
+    "achievements": [
+      { "title": "Largest contract", "detail": "$7.2M five-year hospital network agreement, the company's biggest to date." },
+      { "title": "Quota attainment", "detail": "Above quota in five of six years at Northshore, including 131% in 2024." },
+      { "title": "Market entry", "detail": "Opened Québec for Don Valley Health Software with 14 signed sites." }
+    ],
+    "skills": ["Enterprise sales", "Public sector procurement", "RFP management", "Healthcare IT", "Executive relationships", "Contract negotiation", "Mutual action plans", "Forecasting", "Salesforce", "Clari", "Team coaching", "Bilingual selling"],
+    "interests": ["Sailing on Lake Ontario", "Coaching house-league soccer", "Canadian history podcasts"]
+  }
+}

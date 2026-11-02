@@ -1,0 +1,116 @@
+{
+  "id": "ux-designer-au-mid",
+  "category": "design",
+  "role": "ux-designer",
+  "country": "au",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Olivia Nakamura",
+    "title": "UX Designer",
+    "phone": "0491 573 087",
+    "email": "olivia.nakamura@example.com",
+    "linkedin": "linkedin.com/in/olivia-nakamura",
+    "location": "Sydney NSW",
+    "summary": "UX designer with eight years across agency, superannuation and travel technology in Sydney. Specialises in complex forms and self-service, and my redesign of a super fund's rollover journey lifted digital completions by 38% while cutting call centre contacts.",
+    "experience": [
+      {
+        "title": "Junior UX Designer",
+        "company": "Surry Hills Digital",
+        "location": "Sydney NSW",
+        "start": "2018-03",
+        "end": "2020-05",
+        "bullets": [
+          "Created wireframes and prototypes for government, retail and not-for-profit clients, working in small agency teams.",
+          "Ran remote usability sessions for a council service finder, leading to a simpler search used by residents across 12 suburbs.",
+          "Tested prototypes against the Digital Service Standard criteria on two state government projects."
+        ]
+      },
+      {
+        "title": "UX Designer",
+        "company": "Coogee Super Fund",
+        "location": "Sydney NSW",
+        "start": "2020-06",
+        "end": "2023-07",
+        "bullets": [
+          "Designed member self-service for a super fund with 210,000 members, including contribution and beneficiary updates.",
+          "Redesigned the rollover journey, raising digital completions by 38% and reducing related call centre contacts by about a fifth.",
+          "Worked with legal and compliance to make disclosures readable without losing required wording.",
+          "Introduced card sorting and tree testing to restructure the member portal's navigation of 140 pages."
+        ]
+      },
+      {
+        "title": "UX Designer",
+        "company": "Barangaroo Travel Tech",
+        "location": "Sydney NSW",
+        "start": "2023-08",
+        "end": "present",
+        "bullets": [
+          "Own the booking change and cancellation experience for a B2B travel platform used by 1,100 corporate travel managers.",
+          "Interview travel managers each quarter and turn findings into a prioritised opportunity backlog with the product manager.",
+          "Designed a self-serve refund tracker that cut 'where is my refund' tickets by 26%.",
+          "Mentor a junior designer and lead the team's monthly accessibility review against WCAG 2.2."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Design in Visual Communication",
+        "school": "University of Technology Sydney",
+        "location": "Sydney NSW",
+        "start": "2014-02",
+        "end": "2017-11"
+      }
+    ],
+    "courses": [
+      {
+        "name": "UX Certification",
+        "provider": "Nielsen Norman Group",
+        "year": 2022
+      },
+      {
+        "name": "Content Design Essentials",
+        "provider": "Interaction Design Foundation",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Japanese",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Internal innovation award",
+        "detail": "Rollover journey recognised as Coogee Super Fund's project of the year in 2022."
+      },
+      {
+        "title": "Meetup organiser",
+        "detail": "Co-organise a quarterly Sydney meetup for UX designers working in financial services."
+      }
+    ],
+    "skills": [
+      "User research",
+      "Interaction design",
+      "Form design",
+      "Card sorting and tree testing",
+      "Figma",
+      "Prototyping",
+      "WCAG 2.2",
+      "Design systems",
+      "Journey mapping",
+      "Hotjar",
+      "Stakeholder workshops"
+    ],
+    "interests": [
+      "Surfing at Maroubra",
+      "Ceramics",
+      "Japanese cooking"
+    ]
+  }
+}

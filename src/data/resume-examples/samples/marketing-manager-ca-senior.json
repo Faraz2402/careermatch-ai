@@ -1,0 +1,95 @@
+{
+  "id": "marketing-manager-ca-senior",
+  "category": "marketing",
+  "role": "marketing-manager",
+  "country": "ca",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Martin Gagnon",
+    "title": "Head of Marketing",
+    "phone": "(403) 555-0164",
+    "email": "martin.gagnon@example.com",
+    "linkedin": "linkedin.com/in/martin-gagnon",
+    "location": "Calgary, AB",
+    "summary": "Bilingual marketing leader with 16 years in Western Canadian insurance, energy services and co-operative food brands. Runs a 14-person marketing team and a $4.2M budget, and led the rebrand that moved unaided awareness in Alberta from 11% to 24%. Known for building marketing plans that finance and sales teams actually sign off on.",
+    "experience": [
+      {
+        "title": "Head of Marketing",
+        "company": "Tamarack Insurance Group",
+        "location": "Calgary, AB",
+        "start": "2021-11",
+        "end": "present",
+        "bullets": [
+          "Lead brand, digital, broker marketing and communications for a regional property and auto insurer, managing 14 staff and a $4.2M budget.",
+          "Directed a full rebrand across 38 broker offices and digital channels, doubling unaided awareness in Alberta within 20 months.",
+          "Partnered with underwriting to launch a farm insurance line in Saskatchewan, reaching $6.8M in written premium in its first year against a $5M target.",
+          "Replaced four disconnected agencies with one lead agency and an in-house studio, saving $610,000 a year while increasing creative output.",
+          "Built a French-language broker toolkit and campaign for Franco-Albertan communities, the company's first, now used by nine brokerages."
+        ]
+      },
+      {
+        "title": "Senior Marketing Manager",
+        "company": "Chinook Home Energy",
+        "location": "Calgary, AB",
+        "start": "2018-01",
+        "end": "2021-10",
+        "bullets": [
+          "Owned acquisition marketing for furnace, solar and water heater rentals, generating 21,000 qualified leads a year for a 60-person sales team.",
+          "Shifted 40% of spend from print and radio to search and connected TV, lowering cost per installed customer from $214 to $163.",
+          "Designed a referral program with a $100 bill credit that produced 2,900 installs in its second year.",
+          "Managed a team of six and set up a shared dashboard with sales operations so weekly pipeline reviews used the same lead definitions."
+        ]
+      },
+      {
+        "title": "Brand Manager",
+        "company": "Foothills Dairy Co-operative",
+        "location": "Red Deer, AB",
+        "start": "2013-09",
+        "end": "2017-12",
+        "bullets": [
+          "Managed the yogurt and specialty cheese portfolio, worth $48M in annual retail sales across the Prairie provinces.",
+          "Launched a lactose-free milk line from consumer research to shelf in 11 months, capturing 9% category share in Alberta by year two.",
+          "Negotiated promotional calendars with three national grocery banners, improving trade spend efficiency by 14%.",
+          "Commissioned packaging redesign that met new bilingual labelling requirements and cut print costs by $120,000 a year."
+        ]
+      },
+      {
+        "title": "Marketing Coordinator",
+        "company": "Bow Valley Outdoor Supply",
+        "location": "Calgary, AB",
+        "start": "2010-06",
+        "end": "2013-08",
+        "bullets": [
+          "Coordinated flyers, catalogues and in-store events for six stores, keeping a 300-item seasonal production schedule on time.",
+          "Started the retailer's first email newsletter and grew it to 34,000 subscribers.",
+          "Ran ski-swap and bike-tune events that brought 5,000 visitors a season and became an annual fixture."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BCom, Marketing",
+        "school": "Haskayne School of Business, University of Calgary",
+        "location": "Calgary, AB",
+        "start": "2006-09",
+        "end": "2010-04"
+      }
+    ],
+    "courses": [
+      { "name": "Chartered Marketer (CM) designation", "provider": "Canadian Marketing Association", "year": 2019 },
+      { "name": "Executive Leadership Program", "provider": "Haskayne School of Business", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "French", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Rebrand awareness gain", "detail": "Unaided awareness in Alberta rose from 11% to 24% after the 2022–23 rebrand." },
+      { "title": "Agency consolidation", "detail": "Saved $610,000 a year by restructuring agency roster and building an in-house studio." },
+      { "title": "Mentoring", "detail": "Volunteer mentor with a Calgary business school alumni program since 2019." }
+    ],
+    "skills": ["Marketing strategy", "Brand architecture", "Budget planning", "Team leadership", "Broker and channel marketing", "Agency management", "Market research", "Salesforce", "HubSpot", "Tableau", "Bilingual communications", "Product launches"],
+    "interests": ["Backcountry skiing", "Coaching youth hockey", "Francophone theatre"]
+  }
+}

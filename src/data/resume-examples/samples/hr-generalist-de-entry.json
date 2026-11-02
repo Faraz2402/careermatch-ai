@@ -1,0 +1,111 @@
+{
+  "id": "hr-generalist-de-entry",
+  "category": "human-resources",
+  "role": "hr-generalist",
+  "country": "de",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Sophie Krämer",
+    "title": "Junior HR Generalist",
+    "phone": "+49 221 4710 318",
+    "email": "sophie.kramer@example.com",
+    "linkedin": "linkedin.com/in/sophie-kramer",
+    "location": "Köln",
+    "summary": "Business graduate specialising in HR (B.A., TH Köln) with 18 months as a working student and a first full-time HR role at a media services company. Handles contracts, onboarding and Personio administration for 380 employees and cut onboarding paperwork time per hire by half.",
+    "experience": [
+      {
+        "title": "Junior HR Generalist",
+        "company": "Domblick Mediaservice GmbH",
+        "location": "Köln",
+        "start": "2024-11",
+        "end": "present",
+        "bullets": [
+          "Prepare employment contracts, amendments and reference letters (Arbeitszeugnisse) for 380 employees.",
+          "Moved onboarding documents into Personio workflows, halving paperwork time per new hire.",
+          "Prepare monthly payroll input for the external DATEV payroll provider and check working-time records.",
+          "Support the HR business partner in meetings with the works council and keep the minutes."
+        ]
+      },
+      {
+        "title": "Working Student, HR (Werkstudentin)",
+        "company": "Rheinufer Energie Service GmbH",
+        "location": "Köln",
+        "start": "2023-05",
+        "end": "2024-09",
+        "bullets": [
+          "Supported recruiting for 30 vacancies, about 18 hours a week alongside my studies.",
+          "Scheduled interviews and sent around 900 applicant communications in line with GDPR retention rules.",
+          "Organised two onboarding days for apprentices and dual-study students."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.A. Betriebswirtschaftslehre (Business Administration), HR major",
+        "school": "Technische Hochschule Köln",
+        "location": "Köln",
+        "start": "2020-10",
+        "end": "2024-09",
+        "details": "Thesis: hybrid work agreements and works council co-determination; grade 1.7"
+      },
+      {
+        "degree": "Abitur",
+        "school": "Gymnasium Kreuzgasse",
+        "location": "Köln",
+        "end": "2020-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Arbeitsrecht für Personaler (employment law for HR practitioners)",
+        "provider": "Haufe Akademie",
+        "year": 2025
+      },
+      {
+        "name": "Personio Admin Basics",
+        "provider": "Personio Academy",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      },
+      {
+        "name": "Spanish",
+        "level": "B2"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Onboarding paperwork halved",
+        "detail": "Personio workflows at Domblick Mediaservice."
+      },
+      {
+        "title": "Student council treasurer",
+        "detail": "Managed the faculty student council budget, 2022 to 2023."
+      }
+    ],
+    "skills": [
+      "Personio",
+      "DATEV payroll input",
+      "Employment contracts",
+      "Arbeitszeugnisse",
+      "Onboarding",
+      "Works council meetings",
+      "GDPR",
+      "Excel",
+      "Recruiting coordination"
+    ],
+    "interests": [
+      "Rowing on the Rhine",
+      "Photography"
+    ]
+  }
+}

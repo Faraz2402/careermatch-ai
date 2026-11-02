@@ -1,0 +1,69 @@
+{
+  "id": "account-executive-us-entry",
+  "category": "sales-retail",
+  "role": "account-executive",
+  "country": "us",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Ryan Kowalski",
+    "title": "Account Executive, SMB",
+    "phone": "(312) 555-0181",
+    "email": "ryan.kowalski@example.com",
+    "linkedin": "linkedin.com/in/ryan-kowalski",
+    "location": "Chicago, IL",
+    "summary": "SMB account executive promoted from SDR after 20 months, selling HR and payroll software to businesses with 20 to 200 employees. Closed $612,000 in new annual recurring revenue in my first full year as an AE, finishing at 109% of quota.",
+    "experience": [
+      {
+        "title": "Account Executive, SMB",
+        "company": "Wicker Park HR Cloud",
+        "location": "Chicago, IL",
+        "start": "2025-03",
+        "end": "present",
+        "bullets": [
+          "Closed $612,000 in new ARR over four quarters against a $560,000 quota, with an average deal size of $14,800.",
+          "Run 12 to 15 discovery and demo calls a week with owners and office managers, keeping a 30-day average sales cycle.",
+          "Built a payroll-switching checklist with the implementation team that lowered first-90-day churn among my customers to under 4%.",
+          "Partner with two SDRs on outbound sequences for Midwest restaurant groups, a segment that now makes up a quarter of my pipeline."
+        ]
+      },
+      {
+        "title": "Sales Development Representative",
+        "company": "Lakeshore Logistics Software",
+        "location": "Chicago, IL",
+        "start": "2023-06",
+        "end": "2025-02",
+        "bullets": [
+          "Booked 312 qualified meetings for three account executives through cold calls, email and LinkedIn, averaging 118% of monthly target.",
+          "Researched freight brokers and 3PLs in ZoomInfo and wrote personalized openers that doubled my reply rate to 8%.",
+          "Sourced opportunities that later closed for $1.04M in first-year contract value.",
+          "Wrote objection-handling notes that became part of onboarding for the next SDR class."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.A. in Economics",
+        "school": "University of Illinois Chicago",
+        "location": "Chicago, IL",
+        "start": "2019-08",
+        "end": "2023-05",
+        "details": "GPA 3.5/4.0. Worked 20 hours a week in campus recreation while studying."
+      }
+    ],
+    "courses": [
+      { "name": "MEDDICC fundamentals", "provider": "Company sales enablement program", "year": 2025 },
+      { "name": "Salesforce Trailhead: Sales Cloud basics", "provider": "Salesforce Trailhead", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Polish", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "President's Club (SDR)", "detail": "Top SDR by sourced pipeline in 2024." },
+      { "title": "Fast promotion", "detail": "Moved from SDR to AE in 20 months, ahead of the usual 24-month path." }
+    ],
+    "skills": ["Discovery calls", "Product demos", "Outbound prospecting", "Pipeline management", "Negotiation", "Salesforce", "Outreach", "Gong", "ZoomInfo", "LinkedIn Sales Navigator", "MEDDICC"],
+    "interests": ["Pickup basketball", "Cubs games", "Learning to cook pierogi properly"]
+  }
+}

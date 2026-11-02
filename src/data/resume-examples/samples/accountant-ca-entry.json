@@ -1,0 +1,114 @@
+{
+  "id": "accountant-ca-entry",
+  "category": "accounting-finance",
+  "role": "accountant",
+  "country": "ca",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Jasmine Tran",
+    "title": "Junior Accountant",
+    "phone": "(403) 555-0164",
+    "email": "jasmine.tran@example.com",
+    "linkedin": "linkedin.com/in/jasmine-tran",
+    "location": "Calgary, AB",
+    "summary": "BCom accounting graduate enrolled in the CPA Professional Education Program, with two years in property management accounting and a co-op term in oilfield services. Handles payables, bank reconciliations and GST for 38 residential buildings, and cleared a 900-invoice backlog in her first quarter.",
+    "experience": [
+      {
+        "title": "Junior Accountant",
+        "company": "Bowmont Property Management",
+        "location": "Calgary, AB",
+        "start": "2024-05",
+        "end": "present",
+        "bullets": [
+          "Reconcile 52 operating and trust bank accounts monthly for 38 residential buildings, closing each within five business days.",
+          "Cleared a backlog of 900 unpaid vendor invoices in Yardi within ten weeks by setting up approval routing with site managers.",
+          "Prepare quarterly GST returns and track input tax credits, flagging $14,000 in credits that had not been claimed.",
+          "Draft owner statements and budget-versus-actual reports for six condominium boards."
+        ]
+      },
+      {
+        "title": "Accounting Co-op Student",
+        "company": "Foothills Wireline Services",
+        "location": "Calgary, AB",
+        "start": "2023-05",
+        "end": "2023-08",
+        "bullets": [
+          "Matched 2,300 field tickets to purchase orders and invoices, cutting the unbilled work list by a third.",
+          "Built an Excel template for monthly prepaid insurance and lease amortization that the controller still uses.",
+          "Supported the year-end audit by pulling samples and preparing lead sheets for fixed assets."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Commerce, Accounting",
+        "school": "University of Calgary, Haskayne School of Business",
+        "location": "Calgary, AB",
+        "start": "2020-09",
+        "end": "2024-04",
+        "details": "GPA 3.6/4.0; Dean's List 2022 and 2023"
+      },
+      {
+        "degree": "CPA Professional Education Program (in progress)",
+        "school": "CPA Western School of Business",
+        "location": "Calgary, AB",
+        "start": "2024-09",
+        "end": "2026-06",
+        "details": "Core 1 and Core 2 modules completed"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Yardi Voyager Accounts Payable",
+        "provider": "Yardi Systems",
+        "year": 2024
+      },
+      {
+        "name": "Advanced Excel for Accountants",
+        "provider": "CPA Alberta",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Vietnamese",
+        "level": "Fluent"
+      },
+      {
+        "name": "French",
+        "level": "Basic"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Invoice backlog cleared",
+        "detail": "Brought 900 overdue invoices to zero within ten weeks of starting at Bowmont."
+      },
+      {
+        "title": "Case competition finalist",
+        "detail": "Top three of 20 teams at the Haskayne accounting case competition, 2023."
+      }
+    ],
+    "skills": [
+      "Bank reconciliations",
+      "Accounts payable",
+      "GST returns",
+      "Yardi Voyager",
+      "QuickBooks Online",
+      "Excel (pivot tables)",
+      "ASPE",
+      "Journal entries",
+      "Owner reporting",
+      "Audit support"
+    ],
+    "interests": [
+      "Badminton",
+      "Volunteer bookkeeper for a community food bank"
+    ]
+  }
+}

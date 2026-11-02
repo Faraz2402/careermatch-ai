@@ -1,0 +1,122 @@
+{
+  "id": "customer-service-representative-au-senior",
+  "category": "office-administration",
+  "role": "customer-service-representative",
+  "country": "au",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Bianca Russo",
+    "title": "Customer Experience Team Leader",
+    "phone": "0491 571 266",
+    "email": "bianca.russo@example.com",
+    "linkedin": "linkedin.com/in/bianca-russo",
+    "location": "Melbourne VIC",
+    "summary": "Customer service leader with 14 years in energy, private health insurance and telecommunications contact centres. Leads a team of 16 consultants, cut complaints referred to the ombudsman by 35% and is known for turning difficult customers into loyal ones.",
+    "experience": [
+      {
+        "title": "Contact Centre Consultant",
+        "company": "Southbank Energy Retail",
+        "location": "Melbourne VIC",
+        "start": "2012-03",
+        "end": "2015-06",
+        "bullets": [
+          "Took inbound calls on bills, connections and concessions for residential electricity and gas customers.",
+          "Applied state concessions and hardship program options correctly, earning a 96% accuracy score in compliance audits.",
+          "Covered the outbound welcome call queue for new customers, reaching about 120 households a week."
+        ]
+      },
+      {
+        "title": "Senior Customer Service Consultant",
+        "company": "Bayside Health Fund",
+        "location": "Melbourne VIC",
+        "start": "2015-07",
+        "end": "2020-01",
+        "bullets": [
+          "Handled escalated member queries on extras claims, waiting periods and hospital cover, including calls from distressed members before surgery.",
+          "Acted as team leader on rotation, managing schedules and breaks for 12 consultants on the floor.",
+          "Designed a cover-explainer checklist with the product team that reduced repeat calls about waiting periods by about 18%.",
+          "Assessed and paid complex extras claims up to $2,500 within delegated authority."
+        ]
+      },
+      {
+        "title": "Customer Experience Team Leader",
+        "company": "Merri Creek Telco",
+        "location": "Melbourne VIC",
+        "start": "2020-02",
+        "end": "present",
+        "bullets": [
+          "Lead a team of 16 phone and chat consultants supporting 90,000 NBN and mobile customers.",
+          "Rebuilt the complaint process in line with the Telecommunications Consumer Protections Code, lowering TIO referrals by 35% in two years.",
+          "Run weekly coaching and monthly one-on-ones; four consultants from my team have been promoted to senior roles.",
+          "Work with workforce planning on rosters, keeping service level at 80% of calls answered in 60 seconds through peak periods.",
+          "Report weekly on NPS, complaint themes and handle time to the head of customer operations."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diploma of Leadership and Management",
+        "school": "Holmesglen Institute",
+        "location": "Melbourne VIC",
+        "start": "2019-02",
+        "end": "2019-11"
+      },
+      {
+        "degree": "Victorian Certificate of Education (VCE)",
+        "school": "Brunswick Secondary College",
+        "location": "Melbourne VIC",
+        "end": "2011-11"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Complaint Handling in Telecommunications",
+        "provider": "Communications Alliance",
+        "year": 2021
+      },
+      {
+        "name": "Mental Health First Aid",
+        "provider": "Mental Health First Aid Australia",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Italian",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Leader of the Year 2023",
+        "detail": "Chosen across Merri Creek Telco's customer operations for team results and staff engagement."
+      },
+      {
+        "title": "Hardship program improvement",
+        "detail": "Helped redesign the hardship call flow at Southbank Energy Retail, later used as the team standard."
+      }
+    ],
+    "skills": [
+      "Team leadership",
+      "Complaint management",
+      "TCP Code compliance",
+      "Coaching and quality assurance",
+      "Genesys Cloud",
+      "Salesforce",
+      "Workforce planning",
+      "NPS analysis",
+      "Hardship support",
+      "Rostering"
+    ],
+    "interests": [
+      "AFL (Brunswick Zebras supporter)",
+      "Weekend markets",
+      "Pottery classes"
+    ]
+  }
+}

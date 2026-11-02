@@ -1,0 +1,68 @@
+{
+  "id": "account-executive-au-entry",
+  "category": "sales-retail",
+  "role": "account-executive",
+  "country": "au",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Mia Russo",
+    "title": "Account Executive",
+    "phone": "0491 570 159",
+    "email": "mia.russo@example.com",
+    "linkedin": "linkedin.com/in/mia-russo",
+    "location": "Sydney NSW",
+    "summary": "Account executive selling advertising packages across podcasts, newsletters and events for a Sydney media group. Moved up from a graduate sales development role in 16 months and billed $486,000 in my first year as an AE, 112% of budget.",
+    "experience": [
+      {
+        "title": "Account Executive",
+        "company": "Surry Hills Media Group",
+        "location": "Sydney NSW",
+        "start": "2024-10",
+        "end": "present",
+        "bullets": [
+          "Billed $486,000 in advertising revenue in my first 12 months against a $435,000 budget, mostly from direct clients in hospitality and fintech.",
+          "Pitch integrated packages combining podcast reads, newsletter sponsorships and live events, raising my average order value to $18,700.",
+          "Work with the creative team to deliver campaign recap reports within five business days, which helped renew 70% of my first-year clients.",
+          "Prospect 40 new brands a week through LinkedIn, industry events and agency contacts."
+        ]
+      },
+      {
+        "title": "Graduate Sales Development Representative",
+        "company": "Harbourline Software",
+        "location": "Sydney NSW",
+        "start": "2023-06",
+        "end": "2024-09",
+        "bullets": [
+          "Qualified inbound and outbound leads for a rostering software company selling to aged care and hospitality operators.",
+          "Booked 190 meetings in 15 months, with 34% progressing to a paid trial.",
+          "Mapped the NSW aged care provider market into a target list of 600 organisations for the sales team."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Business (Marketing)",
+        "school": "University of Technology Sydney",
+        "location": "Sydney NSW",
+        "start": "2020-02",
+        "end": "2022-11",
+        "details": "Credit average. ATAR 88.2. Sales and negotiation elective with a live client brief."
+      }
+    ],
+    "courses": [
+      { "name": "Sales Negotiation", "provider": "Coursera", "year": 2024 },
+      { "name": "HubSpot Inbound Sales Certification", "provider": "HubSpot Academy", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Italian", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Rookie of the Year", "detail": "Named top first-year seller at the media group's 2025 sales awards." },
+      { "title": "Gap year travel", "detail": "Worked hospitality jobs in Italy in early 2023 and kept up conversational Italian." }
+    ],
+    "skills": ["Media sales", "Prospecting", "Needs analysis", "Proposal writing", "Client presentations", "Campaign reporting", "HubSpot", "Salesforce", "LinkedIn Sales Navigator", "Negotiation"],
+    "interests": ["Ocean swims at Bondi", "Live music", "Podcast production"]
+  }
+}

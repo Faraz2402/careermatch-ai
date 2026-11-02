@@ -1,0 +1,75 @@
+{
+  "id": "business-analyst-in-mid",
+  "category": "business-management",
+  "role": "business-analyst",
+  "country": "in",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Sneha Joshi",
+    "title": "Senior Business Analyst",
+    "phone": "+91 00000 52906",
+    "email": "sneha.joshi@example.com",
+    "linkedin": "linkedin.com/in/sneha-joshi",
+    "location": "Pune, Maharashtra",
+    "summary": "Senior business analyst with almost ten years in IT services, health insurance and digital lending. Own requirements for a Pune lender's loan origination journey, where a redesigned document flow cut average disbursal time from 4 days to 36 hours. B.E. and MBA, with strong process, data and stakeholder skills.",
+    "experience": [
+      {
+        "title": "Senior Business Analyst",
+        "company": "Lonavala Lending Pvt Ltd",
+        "location": "Pune, Maharashtra",
+        "start": "2022-05",
+        "end": "present",
+        "bullets": [
+          "Own requirements for the personal loan origination journey handling about 40,000 applications a month.",
+          "Redesigned document collection with Aadhaar-based e-KYC and account aggregator consent, cutting average disbursal time from 4 days to 36 hours.",
+          "Worked with compliance to translate RBI digital lending guidelines into 120 testable requirements before the deadline.",
+          "Guide three business analysts on story slicing and review their specifications."
+        ]
+      },
+      {
+        "title": "Business Analyst",
+        "company": "Sinhagad Health Insurance Ltd",
+        "location": "Pune, Maharashtra",
+        "start": "2019-01",
+        "end": "2022-04",
+        "bullets": [
+          "Gathered requirements for cashless claim pre-authorisation with 600 network hospitals, reducing turnaround from 6 hours to 2.",
+          "Mapped the policy renewal process and proposed WhatsApp reminders that improved on-time renewals by 9%.",
+          "Led UAT with claims teams across Pune and Hyderabad for three major releases."
+        ]
+      },
+      {
+        "title": "Associate Business Analyst",
+        "company": "Mula River Software Services",
+        "location": "Pune, Maharashtra",
+        "start": "2016-11",
+        "end": "2018-12",
+        "bullets": [
+          "Wrote functional specifications for an inventory module used by a UK retail client, coordinating across time zones.",
+          "Created process flows and wireframes that reduced clarification calls with developers by about half.",
+          "Prepared weekly status reports for the client delivery manager."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "MBA, Operations Management", "school": "Symbiosis Institute of Business Management, Pune", "location": "Pune, Maharashtra", "start": "2014-06", "end": "2016-04", "details": "CGPA 7.9/10" },
+      { "degree": "B.E., Information Technology", "school": "Savitribai Phule Pune University", "location": "Pune, Maharashtra", "start": "2010-08", "end": "2014-05", "details": "CGPA 8.1/10" }
+    ],
+    "courses": [
+      { "name": "Certification of Capability in Business Analysis (CCBA)", "provider": "IIBA", "year": 2020 },
+      { "name": "Business Analytics", "provider": "NPTEL", "year": 2018 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Marathi", "level": "Native" },
+      { "name": "Hindi", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Star performer award", "detail": "Lonavala Lending quarterly star performer (Q3 2023) for the digital lending compliance work." },
+      { "title": "Volunteer trainer", "detail": "Teach basic Excel to college students through a Pune NGO's weekend programme." }
+    ],
+    "skills": ["Requirements elicitation", "BRD and FRD writing", "User stories", "Process mapping", "SQL", "Excel", "Jira", "Balsamiq wireframes", "UAT", "Lending and KYC processes", "Regulatory requirements"],
+    "interests": ["Classical dance (Kathak)", "Weekend treks", "Reading"]
+  }
+}

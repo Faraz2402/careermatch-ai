@@ -1,0 +1,103 @@
+{
+  "id": "marketing-manager-in-senior",
+  "category": "marketing",
+  "role": "marketing-manager",
+  "country": "in",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Aditya Kulkarni",
+    "title": "Head of Marketing",
+    "phone": "+91 00000 48213",
+    "email": "aditya.kulkarni@example.com",
+    "linkedin": "linkedin.com/in/aditya-kulkarni",
+    "location": "Pune, Maharashtra",
+    "summary": "Marketing head with 15 years in FMCG, consumer durables and home décor brands across India. Leads a 22-member team and a ₹38 crore annual budget at a decorative paints company, where a dealer-led tier-2 expansion lifted national market share by 2.1 points. Strong in brand building, trade marketing and regional-language campaigns.",
+    "experience": [
+      {
+        "title": "Head of Marketing",
+        "company": "Indrayani Paints Ltd",
+        "location": "Pune, Maharashtra",
+        "start": "2022-06",
+        "end": "present",
+        "bullets": [
+          "Lead brand, trade, digital and research for a decorative paints company with ₹1,450 crore revenue, managing 22 people and a ₹38 crore budget.",
+          "Designed a painter loyalty programme with UPI-linked rewards, enrolling 61,000 contractors and raising their repeat purchase rate by 27%.",
+          "Took the premium emulsion range into 140 tier-2 and tier-3 towns through dealer-shop branding and Marathi, Kannada and Telugu TV spots.",
+          "Rebalanced media from 70% television to 45%, shifting the rest to YouTube, OTT and regional influencers while holding reach and saving ₹4.6 crore.",
+          "Present the annual brand plan to the board and work with sales heads in four zones to set joint volume and visibility targets."
+        ]
+      },
+      {
+        "title": "Senior Brand Manager",
+        "company": "Nilgiri Wellness Pvt Ltd",
+        "location": "Bengaluru, Karnataka",
+        "start": "2018-09",
+        "end": "2022-05",
+        "bullets": [
+          "Managed the ayurvedic personal care portfolio of 34 SKUs with annual sales of ₹310 crore.",
+          "Launched a herbal hair oil sub-brand in South India that reached ₹42 crore in its second year.",
+          "Built the company's first quick-commerce and e-commerce pack strategy, taking online share of sales from 6% to 19%.",
+          "Mentored three assistant brand managers, two of whom now lead categories."
+        ]
+      },
+      {
+        "title": "Brand Manager",
+        "company": "Kaveri Home Appliances Ltd",
+        "location": "Mumbai, Maharashtra",
+        "start": "2014-04",
+        "end": "2018-08",
+        "bullets": [
+          "Handled mixer grinders and water purifiers, coordinating launches with R&D, sales and the creative agency.",
+          "Ran a festive-season exchange offer across 2,300 dealer outlets that delivered 1.8 lakh units in eight weeks.",
+          "Commissioned consumer research in eight cities that shaped a lower-priced purifier variant for rental households."
+        ]
+      },
+      {
+        "title": "Management Trainee – Marketing",
+        "company": "Deccan Spice Foods Pvt Ltd",
+        "location": "Pune, Maharashtra",
+        "start": "2011-06",
+        "end": "2014-03",
+        "bullets": [
+          "Rotated through sales, supply chain and brand teams before taking over the masala range in Maharashtra.",
+          "Planned village haat and mela activations in 120 locations, adding 9,000 new retail outlets.",
+          "Tracked monthly secondary sales by distributor and flagged slow movers, reducing near-expiry returns by ₹70 lakh a year."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA (Marketing)",
+        "school": "Symbiosis Institute of Business Management",
+        "location": "Pune, Maharashtra",
+        "start": "2009-06",
+        "end": "2011-04",
+        "details": "CGPA 8.1/10."
+      },
+      {
+        "degree": "B.Com",
+        "school": "Savitribai Phule Pune University (then University of Pune)",
+        "location": "Pune, Maharashtra",
+        "start": "2006-06",
+        "end": "2009-04"
+      }
+    ],
+    "courses": [
+      { "name": "Marketing Analytics", "provider": "Coursera (University of Virginia, Darden)", "year": 2020 },
+      { "name": "Leadership programme for senior managers", "provider": "IIM Ahmedabad Executive Education", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Marathi", "level": "Native" },
+      { "name": "Hindi", "level": "Fluent" },
+      { "name": "Kannada", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Market share gain", "detail": "National decorative paints share up 2.1 points in two years after the tier-2 expansion." },
+      { "title": "Sub-brand launch", "detail": "Herbal hair oil sub-brand crossed ₹42 crore annual sales in year two." }
+    ],
+    "skills": ["Brand strategy", "Trade marketing", "Media planning", "Consumer research", "P&L ownership", "Regional-language campaigns", "Loyalty programmes", "E-commerce and quick commerce", "Team leadership", "Agency management", "Nielsen retail data", "Power BI"],
+    "interests": ["Sahyadri trekking", "Hindustani classical music", "Cricket"]
+  }
+}

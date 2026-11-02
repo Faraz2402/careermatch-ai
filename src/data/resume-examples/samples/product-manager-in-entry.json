@@ -1,0 +1,65 @@
+{
+  "id": "product-manager-in-entry",
+  "category": "business-management",
+  "role": "product-manager",
+  "country": "in",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Kavya Iyer",
+    "title": "Associate Product Manager",
+    "phone": "+91 00000 38152",
+    "email": "kavya.iyer@example.com",
+    "linkedin": "linkedin.com/in/kavya-iyer",
+    "location": "Pune, Maharashtra",
+    "summary": "Associate product manager at a Pune electric two-wheeler company, with a B.Tech in Computer Science and an MBA from a Pune business school. Own the rider app's charging station finder, where a redesign raised weekly active riders by 15%. My summer internship at an edtech start-up taught me to start with user calls, not feature lists.",
+    "experience": [
+      {
+        "title": "Associate Product Manager",
+        "company": "Baner Mobility Pvt Ltd",
+        "location": "Pune, Maharashtra",
+        "start": "2025-06",
+        "end": "present",
+        "bullets": [
+          "Own the charging station finder in the rider app used by about 55,000 scooter owners in Maharashtra and Karnataka.",
+          "Redesigned station search with live availability and Marathi and Hindi labels, increasing weekly active riders by 15%.",
+          "Write PRDs and run sprint reviews with a team of five engineers and one designer.",
+          "Track app ratings and support tickets weekly, and fixed the top three crash causes with the Android lead."
+        ]
+      },
+      {
+        "title": "Product Management Intern",
+        "company": "Shivajinagar Edtech Labs",
+        "location": "Pune, Maharashtra",
+        "start": "2024-05",
+        "end": "2024-07",
+        "bullets": [
+          "Conducted 25 calls with parents and Class X students to understand why practice tests went unfinished.",
+          "Proposed shorter daily quizzes with streaks; a two-week pilot raised test completion from 31% to 44%.",
+          "Presented the final recommendation to the founders, who added it to the next quarter's roadmap."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "MBA, Marketing and Product Management", "school": "Symbiosis Institute of Business Management, Pune", "location": "Pune, Maharashtra", "start": "2023-06", "end": "2025-04", "details": "CGPA 8.2/10. Head of the product club." },
+      { "degree": "B.Tech, Computer Science and Engineering", "school": "Vishwakarma Institute of Technology", "location": "Pune, Maharashtra", "start": "2019-08", "end": "2023-05", "details": "CGPA 8.7/10" },
+      { "degree": "Class XII (CBSE), 93.4%", "school": "Kendriya Vidyalaya, Pune", "location": "Pune, Maharashtra", "end": "2019-05" }
+    ],
+    "courses": [
+      { "name": "Digital Product Management", "provider": "Coursera (University of Virginia)", "year": 2024 },
+      { "name": "Design Thinking", "provider": "NPTEL", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Tamil", "level": "Native" },
+      { "name": "Hindi", "level": "Fluent" },
+      { "name": "Marathi", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Product case competition", "detail": "Won a B-school product case competition among 60 teams (2024)." },
+      { "title": "Hackathon", "detail": "Built a bus-arrival SMS service at a college hackathon; finished in the top 5 of 40 teams." }
+    ],
+    "skills": ["Product discovery", "PRD writing", "User interviews", "Wireframing (Figma)", "SQL", "Google Analytics", "Mixpanel", "Jira", "Localisation", "A/B testing basics"],
+    "interests": ["Bharatanatyam", "Cycling", "Quizzing"]
+  }
+}

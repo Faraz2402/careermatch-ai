@@ -1,0 +1,89 @@
+{
+  "id": "it-support-specialist-de-mid",
+  "category": "information-technology",
+  "role": "it-support-specialist",
+  "country": "de",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Ivana Petrović",
+    "title": "IT Support Specialist (2nd Level)",
+    "phone": "+49 221 4710 538",
+    "email": "ivana.petrovic@example.com",
+    "linkedin": "linkedin.com/in/ivana-petrovic",
+    "location": "Köln",
+    "summary": "Fachinformatikerin für Systemintegration (IHK) with nine years of IT support in Köln, across logistics, insurance brokerage and media. Handles 2nd level support for 350 users at a media house and led its move to Microsoft Intune with GDPR-compliant device policies. Supports colleagues in German, Croatian and English.",
+    "experience": [
+      {
+        "title": "IT System Administrator (1st/2nd Level)",
+        "company": "Rheinauhafen Logistik GmbH",
+        "location": "Köln",
+        "start": "2017-07",
+        "end": "2020-03",
+        "bullets": [
+          "Kept handheld scanners, label printers and warehouse PCs running for three depots on two shifts.",
+          "Built a spare-device pool and swap procedure that brought scanner downtime per fault from hours to about 15 minutes.",
+          "Took over the company's patch day after my Ausbildung and documented it so colleagues could cover holidays."
+        ]
+      },
+      {
+        "title": "IT Support Specialist",
+        "company": "Deutzer Versicherungsmakler GmbH",
+        "location": "Köln",
+        "start": "2020-04",
+        "end": "2023-05",
+        "bullets": [
+          "Equipped 120 brokers for remote work within three weeks in spring 2020, including VPN, softphones and encrypted laptops.",
+          "Introduced a ticket system (OTRS) and SLAs, replacing support requests by phone and email with tracked tickets.",
+          "Worked with the external data protection officer on device and access rules aligned with the GDPR.",
+          "Trained staff in small groups on phishing and safe handling of customer data."
+        ]
+      },
+      {
+        "title": "IT Support Specialist (2nd Level)",
+        "company": "Ehrenfeld Medienhaus GmbH",
+        "location": "Köln (hybrid)",
+        "start": "2023-06",
+        "end": "present",
+        "bullets": [
+          "Provide 2nd level support for 350 editorial, production and sales staff on Windows and macOS.",
+          "Led the migration of 410 devices to Microsoft Intune, with compliance policies agreed with the works council (Betriebsrat).",
+          "Reduced average ticket resolution time by 28% by building request templates and automating software installs.",
+          "Coordinate with external vendors for broadcast and print hardware and mentor the department's current Auszubildender."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Fachinformatikerin für Systemintegration (IHK) – vocational qualification in systems integration",
+        "school": "IHK Köln (dual training with Rheinauhafen Logistik GmbH)",
+        "location": "Köln",
+        "start": "2014-08",
+        "end": "2017-06",
+        "details": "Final grade: gut (2)."
+      },
+      {
+        "degree": "Fachhochschulreife",
+        "school": "Berufskolleg in Köln",
+        "location": "Köln",
+        "end": "2014-06"
+      }
+    ],
+    "courses": [
+      { "name": "ITIL 4 Foundation", "provider": "PeopleCert", "year": 2021 },
+      { "name": "Microsoft 365 Certified: Endpoint Administrator Associate (MD-102)", "provider": "Microsoft", "year": 2024 },
+      { "name": "Ausbildereignungsprüfung (AEVO) – trainer aptitude certificate", "provider": "IHK Köln", "year": 2025 }
+    ],
+    "languages": [
+      { "name": "German", "level": "Native" },
+      { "name": "Croatian", "level": "Native" },
+      { "name": "English", "level": "B2" }
+    ],
+    "achievements": [
+      { "title": "Mentor for IT apprentices", "detail": "Supervise one Auszubildender each year after passing the AEVO trainer exam." },
+      { "title": "Volunteer, Köln repair café", "detail": "Repair laptops and phones for neighbours once a month." }
+    ],
+    "skills": ["Windows 11 and macOS", "Microsoft Intune", "Active Directory / Entra ID", "Microsoft 365", "Jamf (basic)", "OTRS / Znuny", "Networking basics (VLAN, DHCP, VPN)", "GDPR-aware device management", "Hardware and printer support", "User training"],
+    "interests": ["Handball", "Carnival costume making", "Balkan cooking"]
+  }
+}

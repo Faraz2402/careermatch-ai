@@ -1,0 +1,82 @@
+{
+  "id": "account-executive-de-mid",
+  "category": "sales-retail",
+  "role": "account-executive",
+  "country": "de",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Julia Kowalczyk",
+    "title": "Senior Account Executive DACH",
+    "phone": "+49 69 90009 172",
+    "email": "julia.kowalczyk@example.com",
+    "linkedin": "linkedin.com/in/julia-kowalczyk",
+    "location": "Frankfurt am Main",
+    "summary": "Account executive with nearly ten years in B2B software sales in Frankfurt, focused on payments and cloud infrastructure for the German Mittelstand. Closed €2.3m in new annual recurring revenue in 2025, and handles long, compliance-heavy sales cycles with procurement, IT and works council stakeholders.",
+    "experience": [
+      {
+        "title": "Senior Account Executive DACH",
+        "company": "Römerberg Cloud GmbH",
+        "location": "Frankfurt am Main",
+        "start": "2022-10",
+        "end": "present",
+        "bullets": [
+          "Closed €2.3m in new ARR in 2025 (118% of quota) selling sovereign cloud hosting to manufacturers and insurers with 500 to 5,000 employees.",
+          "Shortened average sales cycles from nine to seven months by preparing data processing agreements and C5/ISO 27001 evidence before the first technical workshop.",
+          "Won a three-year €1.1m contract with a Hessian insurer against two US hyperscalers by positioning German data residency and local support.",
+          "Run quarterly account plans with solution engineers and customer success for 22 existing customers, adding €640,000 in expansion revenue."
+        ]
+      },
+      {
+        "title": "Account Executive",
+        "company": "Taunus Payment Solutions GmbH",
+        "location": "Eschborn",
+        "start": "2019-04",
+        "end": "2022-09",
+        "bullets": [
+          "Sold payment terminals and online checkout to retailers and restaurant chains in Hessen and Rheinland-Pfalz.",
+          "Signed 85 new merchants with combined card volume of €210m a year.",
+          "Introduced a pilot-store approach for chains, which turned four pilots into rollouts of more than 30 locations each.",
+          "Reached at least 100% of target in 12 of 14 quarters."
+        ]
+      },
+      {
+        "title": "Inside Sales Representative",
+        "company": "Mainufer Software GmbH",
+        "location": "Frankfurt am Main",
+        "start": "2016-11",
+        "end": "2019-03",
+        "bullets": [
+          "Qualified leads and sold entry-level accounting software licences to tax advisers and small businesses by phone.",
+          "Handled Polish-speaking customers in Germany and Poland, building a small segment worth €180,000 a year.",
+          "Created a webinar series on e-invoicing that produced 450 leads in its first year."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Sc. Business Administration",
+        "school": "Frankfurt School of Finance & Management",
+        "location": "Frankfurt am Main",
+        "start": "2013-09",
+        "end": "2016-08",
+        "details": "Semester abroad at SGH Warsaw School of Economics."
+      }
+    ],
+    "courses": [
+      { "name": "MEDDPICC sales methodology", "provider": "Employer sales academy", "year": 2023 },
+      { "name": "AWS Cloud Practitioner", "provider": "Amazon Web Services", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "German", "level": "Native (C2)" },
+      { "name": "Polish", "level": "Native (C2)" },
+      { "name": "English", "level": "Fluent (C1)" }
+    ],
+    "achievements": [
+      { "title": "Competitive win", "detail": "€1.1m three-year insurer contract won against two large international cloud providers." },
+      { "title": "Club winner", "detail": "Reached the company's top-performer club in 2023 and 2025." }
+    ],
+    "skills": ["Enterprise and Mittelstand sales", "Long-cycle deal management", "Procurement negotiation", "GDPR and data processing agreements", "Cloud infrastructure", "Payments", "Account planning", "Salesforce", "Gong", "LinkedIn Sales Navigator", "MEDDPICC"],
+    "interests": ["Road cycling in the Taunus", "Polish folk music", "Volunteer tutoring in German"]
+  }
+}

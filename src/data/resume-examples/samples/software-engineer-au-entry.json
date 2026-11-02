@@ -1,0 +1,75 @@
+{
+  "id": "software-engineer-au-entry",
+  "category": "software-engineering",
+  "role": "software-engineer",
+  "country": "au",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Liam Tran",
+    "title": "Graduate Software Developer",
+    "phone": "0491 570 156",
+    "email": "liam.tran@example.com",
+    "linkedin": "linkedin.com/in/liam-tran",
+    "location": "Brisbane QLD",
+    "summary": "Graduate developer in the second year of a rotation programme, writing Python and Django services for an online learning platform used by 90 Queensland schools. Rebuilt the assignment-upload flow so it no longer fails on slow school networks. Keen on testing, accessibility and clear documentation.",
+    "experience": [
+      {
+        "title": "Summer Software Developer Intern",
+        "company": "Moreton Bay Freight Systems",
+        "location": "Brisbane QLD",
+        "start": "2023-11",
+        "end": "2024-02",
+        "bullets": [
+          "Created a Python script that matched pallet scans against delivery manifests, flagging mismatches that warehouse staff had been checking by hand for 90 minutes a shift.",
+          "Wrote pytest coverage for the depot-routing module and documented its setup, so the next intern got a working environment in one morning rather than three days.",
+          "Demoed the manifest checker to the operations manager, who rolled it out to two more depots."
+        ]
+      },
+      {
+        "title": "Graduate Software Developer",
+        "company": "Southbank Learning Platforms",
+        "location": "Brisbane QLD",
+        "start": "2025-02",
+        "end": "present",
+        "bullets": [
+          "Rebuilt assignment uploads in Django with resumable chunked transfers, dropping failed submissions from roughly 8% to under 1% across 90 schools.",
+          "Added keyboard navigation and screen-reader labels to the student dashboard after testing with NVDA, closing 37 WCAG 2.1 AA issues from an external audit.",
+          "Built a Celery task that sends teachers a daily digest of late work, now opened by about 2,300 teachers each week.",
+          "Rotated through the platform team for three months, writing Terraform for a staging environment that costs $1,200 a month less than the old one."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Information Technology (Computer Science major)",
+        "school": "Queensland University of Technology (QUT)",
+        "location": "Brisbane QLD",
+        "start": "2021-02",
+        "end": "2024-11",
+        "details": "GPA 6.2/7. Capstone: timetable clash detector for a community sports league."
+      },
+      {
+        "degree": "Queensland Certificate of Education (QCE)",
+        "school": "Wavell State High School",
+        "location": "Brisbane QLD",
+        "end": "2020-11",
+        "details": "ATAR 91.40. Digital Solutions, Mathematical Methods, Physics."
+      }
+    ],
+    "courses": [
+      { "name": "AWS Certified Cloud Practitioner", "provider": "Amazon Web Services", "year": 2025 },
+      { "name": "Web Accessibility", "provider": "Coursera", "year": 2025 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Vietnamese", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Finalist, GovHack Brisbane", "detail": "Team of four built a flood-route checker on open council data, shortlisted in the local category." },
+      { "title": "Peer mentor, QUT IT faculty", "detail": "Ran weekly study sessions for first-year programming students across two semesters." }
+    ],
+    "skills": ["Python", "Django", "Celery", "PostgreSQL", "JavaScript", "HTML and CSS", "pytest", "Git", "Terraform (basics)", "WCAG 2.1 accessibility"],
+    "interests": ["Futsal", "Retro game repair", "Volunteering at a coding club for kids"]
+  }
+}

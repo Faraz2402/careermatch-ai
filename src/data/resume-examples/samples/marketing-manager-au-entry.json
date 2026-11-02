@@ -1,0 +1,69 @@
+{
+  "id": "marketing-manager-au-entry",
+  "category": "marketing",
+  "role": "marketing-manager",
+  "country": "au",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Chloe Nguyen",
+    "title": "Marketing Manager",
+    "phone": "0491 570 156",
+    "email": "chloe.nguyen@example.com",
+    "linkedin": "linkedin.com/in/chloe-nguyen",
+    "location": "Brisbane QLD",
+    "summary": "QUT marketing graduate now running marketing for a fast-growing indoor climbing gym. Took memberships from 640 to 1,150 in 18 months on a modest budget by pairing community events with tightly targeted local ads.",
+    "experience": [
+      {
+        "title": "Marketing Manager",
+        "company": "Southbank Climbing Co.",
+        "location": "Brisbane QLD",
+        "start": "2024-07",
+        "end": "present",
+        "bullets": [
+          "Run all marketing for a 1,800 sqm climbing and bouldering gym with an $85,000 annual budget, reporting membership and revenue results to the founders each month.",
+          "Grew active memberships from 640 to 1,150 through school-holiday programs, corporate team days and a refer-a-friend offer.",
+          "Launched a beginner intro session landing page with online booking, converting 31% of first-time visitors to paid memberships.",
+          "Secured three local business partnerships (a physio clinic, café and outdoor store) that share audiences and cut paid ad reliance by a quarter.",
+          "Brief and manage a casual videographer and two freelance designers, keeping a four-week content calendar."
+        ]
+      },
+      {
+        "title": "Marketing Assistant",
+        "company": "Moreton Bay Physio Group",
+        "location": "Redcliffe QLD",
+        "start": "2023-06",
+        "end": "2024-06",
+        "bullets": [
+          "Supported marketing for five clinics, writing blog posts and Facebook content that lifted organic website sessions by 38% year on year.",
+          "Set up Google Business Profiles and review requests for each clinic, adding 210 new five-star reviews in nine months.",
+          "Compiled monthly referral-source reports from Cliniko so practice managers could see which GP relationships drove new patients."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Business (Marketing)",
+        "school": "Queensland University of Technology",
+        "location": "Brisbane QLD",
+        "start": "2020-02",
+        "end": "2022-11",
+        "details": "Distinction average. ATAR 91.4. Work-integrated learning project with a Brisbane craft distillery."
+      }
+    ],
+    "courses": [
+      { "name": "Meta Certified Digital Marketing Associate", "provider": "Meta", "year": 2024 },
+      { "name": "Google Analytics Certification", "provider": "Google Skillshop", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Vietnamese", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Membership milestone", "detail": "Passed the gym's 1,000-member target four months ahead of the founders' plan." },
+      { "title": "QUT case competition", "detail": "Runner-up in a faculty marketing case competition judged by local agency directors (2022)." }
+    ],
+    "skills": ["Marketing planning", "Community and event marketing", "Meta Ads", "Google Ads", "GA4", "Mailchimp", "Canva", "Copywriting", "Partnership marketing", "Budget tracking"],
+    "interests": ["Bouldering", "Vietnamese home cooking", "Surf Life Saving volunteer"]
+  }
+}

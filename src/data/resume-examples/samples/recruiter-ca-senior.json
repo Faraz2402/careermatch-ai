@@ -1,0 +1,126 @@
+{
+  "id": "recruiter-ca-senior",
+  "category": "human-resources",
+  "role": "recruiter",
+  "country": "ca",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Marc-Antoine Bélanger",
+    "title": "Talent Acquisition Manager, CRHA",
+    "phone": "(514) 555-0168",
+    "email": "marcantoine.belanger@example.com",
+    "linkedin": "linkedin.com/in/marc-antoine-belanger",
+    "location": "Montréal, QC",
+    "summary": "Bilingual talent acquisition leader and CRHA with 15 years in RPO, video games and aerospace. Leads a team of eight recruiters filling about 400 roles a year across Québec and Ontario, and cut cost per hire by 29% after taking agency hiring in-house.",
+    "experience": [
+      {
+        "title": "Talent Acquisition Manager",
+        "company": "Mirabel Aéro Systèmes",
+        "location": "Montréal, QC",
+        "start": "2021-01",
+        "end": "present",
+        "bullets": [
+          "Lead eight recruiters and coordinators hiring about 400 engineers, machinists and assemblers a year across three plants.",
+          "Took most agency hiring in-house and cut cost per hire by 29% in two years.",
+          "Launched a trades pipeline with two CEGEPs and a vocational school, filling 60 machinist roles from graduating classes.",
+          "Ensure job postings and processes meet Québec's Charter of the French Language requirements and pay equity obligations.",
+          "Report quarterly hiring forecasts and funnel metrics to the VP Human Resources."
+        ]
+      },
+      {
+        "title": "Senior Talent Acquisition Partner",
+        "company": "Pixel Fleuve Studios",
+        "location": "Montréal, QC",
+        "start": "2016-05",
+        "end": "2020-12",
+        "bullets": [
+          "Hired artists, programmers and producers for a 900-person game studio, including 70 international hires.",
+          "Coordinated work permits through the Québec Acceptance Certificate and LMIA processes with immigration counsel.",
+          "Built a campus program with three universities that supplied 35% of junior hires.",
+          "Introduced structured interview guides that reduced early regretted attrition."
+        ]
+      },
+      {
+        "title": "Recruitment Consultant",
+        "company": "Saint-Laurent Talent Solutions",
+        "location": "Montréal, QC",
+        "start": "2011-08",
+        "end": "2016-04",
+        "bullets": [
+          "Recruited for banking and insurance clients in an RPO model, filling about 120 roles a year.",
+          "Ran bilingual high-volume hiring days for contact centres, hiring 200 agents in a single quarter.",
+          "Mentored three new recruiters on sourcing and client intake meetings."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Baccalauréat (B.A.) in Psychology",
+        "school": "Université de Montréal",
+        "location": "Montréal, QC",
+        "start": "2007-09",
+        "end": "2010-05"
+      },
+      {
+        "degree": "DEC, Social Science (Sciences humaines)",
+        "school": "Cégep du Vieux Montréal",
+        "location": "Montréal, QC",
+        "start": "2005-08",
+        "end": "2007-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "CRHA designation",
+        "provider": "Ordre des conseillers en ressources humaines agréés",
+        "year": 2014
+      },
+      {
+        "name": "Strategic Workforce Planning",
+        "provider": "HEC Montréal (Executive Education)",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "French",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Spanish",
+        "level": "Intermediate"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Cost per hire down 29%",
+        "detail": "In-house recruiting model at Mirabel Aéro Systèmes."
+      },
+      {
+        "title": "60 machinists hired from schools",
+        "detail": "CEGEP and vocational school partnership, 2022 to 2025."
+      }
+    ],
+    "skills": [
+      "Talent acquisition strategy",
+      "Team leadership",
+      "Workforce planning",
+      "Employer branding",
+      "Campus recruiting",
+      "Immigration processes",
+      "Workday Recruiting",
+      "Recruitment analytics",
+      "Vendor management",
+      "Bilingual recruiting"
+    ],
+    "interests": [
+      "Hockey",
+      "Cycling the Route verte"
+    ]
+  }
+}

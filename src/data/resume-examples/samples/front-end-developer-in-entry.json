@@ -1,0 +1,77 @@
+{
+  "id": "front-end-developer-in-entry",
+  "category": "software-engineering",
+  "role": "front-end-developer",
+  "country": "in",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Sneha Iyer",
+    "title": "Associate Front-End Developer",
+    "phone": "+91 00000 61734",
+    "email": "sneha.iyer@example.com",
+    "linkedin": "linkedin.com/in/sneha-iyer",
+    "location": "Bengaluru, Karnataka",
+    "summary": "Associate front-end developer two years out of engineering college, building React screens for a doctor-booking app used in three Indian cities. Made the Kannada and Tamil versions of the booking flow work properly on low-cost Android phones. Looking to grow towards performance and accessibility work.",
+    "experience": [
+      {
+        "title": "Front-End Intern",
+        "company": "Indiranagar Craft Commerce Pvt. Ltd.",
+        "location": "Bengaluru, Karnataka",
+        "start": "2024-01",
+        "end": "2024-06",
+        "bullets": [
+          "Built product listing and filter pages in React for a handloom marketplace with about 1,800 artisan sellers.",
+          "Converted 120 product images to WebP and added lazy loading, bringing the home page under 1 MB.",
+          "Fixed checkout layout issues in Hindi and Kannada where longer labels overflowed buttons."
+        ]
+      },
+      {
+        "title": "Associate Front-End Developer",
+        "company": "Koramangala Health Apps Pvt. Ltd.",
+        "location": "Bengaluru, Karnataka",
+        "start": "2024-08",
+        "end": "present",
+        "bullets": [
+          "Develop doctor search and appointment booking screens in React and TypeScript for a platform taking 6,000 bookings a day across three cities.",
+          "Added Kannada and Tamil translations with proper font fallbacks, after which bookings from regional-language users rose 21%.",
+          "Cut JavaScript bundle size by 28% by splitting routes and removing an unused date library, improving load on entry-level Android phones.",
+          "Wrote React Testing Library tests for the payment step, covering UPI, card and pay-at-clinic options."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E. Information Science and Engineering",
+        "school": "RV College of Engineering",
+        "location": "Bengaluru, Karnataka",
+        "start": "2020-08",
+        "end": "2024-06",
+        "details": "CGPA 8.7/10. Final-year project: offline-first attendance app for rural schools."
+      },
+      {
+        "degree": "Class XII (CBSE), Science with Computer Science",
+        "school": "Kendriya Vidyalaya, Bengaluru",
+        "location": "Bengaluru, Karnataka",
+        "end": "2020-05",
+        "details": "92.4%."
+      }
+    ],
+    "courses": [
+      { "name": "Modern Application Development I", "provider": "NPTEL", "year": 2022 },
+      { "name": "Meta Front-End Developer Professional Certificate", "provider": "Coursera", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Tamil", "level": "Native" },
+      { "name": "Kannada", "level": "Fluent" },
+      { "name": "Hindi", "level": "Intermediate" }
+    ],
+    "achievements": [
+      { "title": "Winner, college hackathon (web track)", "detail": "Built a bus-pass renewal portal with three classmates; 70 teams took part." },
+      { "title": "Women in Engineering club lead", "detail": "Organised six HTML and CSS workshops for about 150 first-year students." }
+    ],
+    "skills": ["HTML5", "CSS3 and Flexbox/Grid", "JavaScript", "TypeScript", "React", "Redux Toolkit", "Tailwind CSS", "React Testing Library", "Internationalization", "Git"],
+    "interests": ["Carnatic vocal music", "Badminton", "Sketching UI ideas"]
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "medical-assistant-uk-entry",
+  "category": "healthcare-nursing",
+  "role": "medical-assistant",
+  "country": "uk",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Aisha Rahman",
+    "title": "Healthcare Assistant, GP Practice",
+    "phone": "07700 900283",
+    "email": "aisha.rahman@example.com",
+    "linkedin": "linkedin.com/in/aisha-rahman",
+    "location": "Manchester",
+    "summary": "Healthcare assistant at a busy GP surgery, running phlebotomy, ECG and NHS Health Check clinics after starting out as a care assistant while finishing my BTEC. I am working towards the Level 3 Senior Healthcare Support Worker apprenticeship and speak Urdu and Bengali with many of our patients.",
+    "experience": [
+      {
+        "title": "Care Assistant (part-time)",
+        "company": "Willow Bank Care Home",
+        "location": "Manchester",
+        "start": "2023-09",
+        "end": "2024-05",
+        "bullets": [
+          "Supported 12 residents per shift with personal care, mobility and meals in a 40-bed residential home, many living with dementia.",
+          "Recorded fluid charts and repositioning on the electronic care planning system and flagged changes to the senior carer.",
+          "Completed the Care Certificate within 10 weeks of starting."
+        ]
+      },
+      {
+        "title": "Healthcare Assistant",
+        "company": "Moss Lane Medical Practice",
+        "location": "Manchester",
+        "start": "2024-07",
+        "end": "present",
+        "bullets": [
+          "Run daily phlebotomy clinics of 25–30 patients for a practice of 11,500 registered patients, keeping haemolysed samples below 2%.",
+          "Carry out ECGs, blood pressure checks, height and weight and urine dipsticks, recording results in EMIS Web for GP review.",
+          "Deliver around 40 NHS Health Checks a month, giving lifestyle advice and booking follow-ups for patients with raised risk scores.",
+          "Helped the practice nurse give 1,300 flu vaccines during the 2025 autumn campaign under patient-specific directions."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BTEC Level 3 National Extended Diploma in Health and Social Care, D*D*D",
+        "school": "The Manchester College",
+        "location": "Manchester",
+        "start": "2022-09",
+        "end": "2024-06"
+      },
+      {
+        "degree": "GCSEs: 8 at grades 9–5, including English Language (7), Maths (6) and Combined Science (6-6)",
+        "school": "Levenshulme High School",
+        "location": "Manchester",
+        "start": "2017-09",
+        "end": "2022-07"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Care Certificate",
+        "provider": "Willow Bank Care Home (Skills for Care standards)",
+        "year": 2023
+      },
+      {
+        "name": "Phlebotomy training and competency assessment",
+        "provider": "Local GP training hub",
+        "year": 2024
+      },
+      {
+        "name": "Basic Life Support and anaphylaxis update",
+        "provider": "Practice in-house training",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Urdu",
+        "level": "Fluent"
+      },
+      {
+        "name": "Bengali",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Level 3 apprenticeship (in progress)",
+        "detail": "Senior Healthcare Support Worker apprenticeship, due to finish in 2027."
+      },
+      {
+        "title": "Patient feedback",
+        "detail": "Named in 14 positive Friends and Family Test comments during 2025."
+      }
+    ],
+    "skills": [
+      "Phlebotomy",
+      "ECG recording",
+      "Blood pressure monitoring",
+      "NHS Health Checks",
+      "EMIS Web",
+      "Infection control",
+      "Chaperoning",
+      "Patient communication",
+      "Safeguarding awareness",
+      "Sample labelling and tracking"
+    ],
+    "interests": [
+      "Netball",
+      "Baking",
+      "Volunteering at a food bank"
+    ]
+  }
+}

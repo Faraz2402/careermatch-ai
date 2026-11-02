@@ -1,0 +1,128 @@
+{
+  "id": "accountant-de-senior",
+  "category": "accounting-finance",
+  "role": "accountant",
+  "country": "de",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Katharina Brandt",
+    "title": "Head of Accounting",
+    "phone": "+49 69 90009 214",
+    "email": "katharina.brandt@example.com",
+    "linkedin": "linkedin.com/in/katharina-brandt",
+    "location": "Frankfurt am Main",
+    "summary": "Certified accountant (Geprüfte Bilanzbuchhalterin IHK) with 15 years in manufacturing, logistics and fintech. Leads a team of seven responsible for HGB and IFRS reporting for a payments group with €180 million in revenue, and brought the annual financial statements forward by six weeks.",
+    "experience": [
+      {
+        "title": "Head of Accounting",
+        "company": "Mainbrücke Payments GmbH",
+        "location": "Frankfurt am Main",
+        "start": "2020-01",
+        "end": "present",
+        "bullets": [
+          "Lead a seven-person accounting team covering general ledger, payables, intercompany and fixed assets for four legal entities.",
+          "Prepare HGB single-entity accounts and the IFRS group reporting package, finishing the annual statements six weeks earlier than in 2020.",
+          "Introduced automated bank-statement matching in SAP S/4HANA, raising the auto-clearing rate from 55% to 91%.",
+          "Act as main contact for the auditors and the tax adviser during annual audits and the 2023 tax field audit (Betriebsprüfung)."
+        ]
+      },
+      {
+        "title": "Senior Accountant",
+        "company": "Rhein-Main Logistik AG",
+        "location": "Frankfurt am Main",
+        "start": "2015-04",
+        "end": "2019-12",
+        "bullets": [
+          "Owned the monthly close and the HGB-to-IFRS reconciliation for a logistics group with 2,400 employees.",
+          "Restructured the intercompany clearing process across nine subsidiaries, cutting open intercompany differences from €1.2 million to under €50,000.",
+          "Prepared VAT pre-returns (Umsatzsteuer-Voranmeldungen) and the annual VAT return for German and Austrian entities.",
+          "Trained two junior accountants and an apprentice (Auszubildende) in DATEV and SAP FI."
+        ]
+      },
+      {
+        "title": "Accountant",
+        "company": "Taunus Kunststofftechnik GmbH",
+        "location": "Bad Homburg",
+        "start": "2011-08",
+        "end": "2015-03",
+        "bullets": [
+          "Kept the general ledger and accounts payable for a plastics manufacturer with €65 million turnover.",
+          "Prepared fixed asset postings and depreciation for two production sites.",
+          "Supported the year-end inventory count and the valuation of 6,000 stock items."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Geprüfte Bilanzbuchhalterin (IHK), certified accountant",
+        "school": "IHK Frankfurt am Main",
+        "location": "Frankfurt am Main",
+        "start": "2013-09",
+        "end": "2015-06",
+        "details": "Part-time qualification taken alongside full-time work"
+      },
+      {
+        "degree": "Industriekauffrau (IHK), vocational training in industrial business administration",
+        "school": "Taunus Kunststofftechnik GmbH and Berufliche Schule Bad Homburg",
+        "location": "Bad Homburg",
+        "start": "2008-08",
+        "end": "2011-07"
+      },
+      {
+        "degree": "Abitur",
+        "school": "Humboldtschule Bad Homburg",
+        "location": "Bad Homburg",
+        "end": "2008-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "IFRS 16 Leases in Practice",
+        "provider": "IDW Akademie",
+        "year": 2021
+      },
+      {
+        "name": "SAP S/4HANA Finance Overview",
+        "provider": "SAP Learning",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Year-end six weeks earlier",
+        "detail": "Annual statements at Mainbrücke Payments finished in February instead of April."
+      },
+      {
+        "title": "Intercompany differences cleared",
+        "detail": "Cut open differences from €1.2 million to under €50,000 at Rhein-Main Logistik."
+      }
+    ],
+    "skills": [
+      "HGB",
+      "IFRS",
+      "SAP S/4HANA FI",
+      "DATEV",
+      "Annual financial statements",
+      "Intercompany accounting",
+      "VAT",
+      "Team leadership",
+      "Audit coordination",
+      "Process automation"
+    ],
+    "interests": [
+      "Road cycling",
+      "Choir"
+    ]
+  }
+}

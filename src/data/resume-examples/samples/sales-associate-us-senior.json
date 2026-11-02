@@ -1,0 +1,93 @@
+{
+  "id": "sales-associate-us-senior",
+  "category": "sales-retail",
+  "role": "sales-associate",
+  "country": "us",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Teresa Morales",
+    "title": "Lead Sales Associate",
+    "phone": "(704) 555-0148",
+    "email": "teresa.morales@example.com",
+    "linkedin": "linkedin.com/in/teresa-morales",
+    "location": "Charlotte, NC",
+    "summary": "Lead sales associate with 14 years in commission retail, from footwear to appliances, bridal and fine jewelry. Consistently the top seller at a Charlotte jeweler with $1.3M in personal annual sales, a client book of 1,100 names and a 38% repeat-purchase rate.",
+    "experience": [
+      {
+        "title": "Lead Sales Associate",
+        "company": "SouthPark Fine Jewelers",
+        "location": "Charlotte, NC",
+        "start": "2022-11",
+        "end": "present",
+        "bullets": [
+          "Generated $1.3M in personal sales in 2025, 31% above the next-highest associate, with an average ticket of $4,200.",
+          "Maintain a 1,100-client book in Lightspeed, sending anniversary and birthday outreach that produces about 40 appointments a month.",
+          "Train new associates on diamond grading basics, financing applications and closing techniques; four trainees reached their quotas within 90 days.",
+          "Open and close the store as keyholder, handling safe counts, daily deposits and alarm procedures for $3M in inventory.",
+          "Partnered with two wedding planners on private engagement-ring evenings that brought in $210,000 over a year."
+        ]
+      },
+      {
+        "title": "Senior Sales Associate",
+        "company": "Carolina Bridal House",
+        "location": "Charlotte, NC",
+        "start": "2019-05",
+        "end": "2022-10",
+        "bullets": [
+          "Ran 15 to 20 bridal appointments a week and closed 62% of them against a store average of 48%.",
+          "Coordinated alterations schedules with the in-house seamstress team, cutting missed fitting dates to nearly zero.",
+          "Rebuilt the bridesmaid group-ordering process with a shared tracking sheet, adding $95,000 in annual accessory and party sales.",
+          "Kept the store open through 2020 by moving consultations to video and curbside try-ons."
+        ]
+      },
+      {
+        "title": "Sales Associate",
+        "company": "Piedmont Appliance & Mattress",
+        "location": "Matthews, NC",
+        "start": "2015-09",
+        "end": "2019-04",
+        "bullets": [
+          "Sold kitchen packages, laundry pairs and mattresses on commission, averaging $780,000 in annual sales.",
+          "Attached extended protection plans to 44% of eligible sales, the highest rate in the three-store group.",
+          "Learned delivery and installation scheduling so customers left with a confirmed date, reducing follow-up calls."
+        ]
+      },
+      {
+        "title": "Sales Associate",
+        "company": "Queen City Shoe Co.",
+        "location": "Charlotte, NC",
+        "start": "2012-06",
+        "end": "2015-08",
+        "bullets": [
+          "Fitted customers for running, work and orthopedic footwear, averaging 2.3 items per transaction.",
+          "Counted and reordered stock for the men's wall, keeping core sizes in stock above 95% of the time.",
+          "Promoted to shift lead after 18 months, covering cash office duties on weekends."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "A.A.S. in Business Administration",
+        "school": "Central Piedmont Community College",
+        "location": "Charlotte, NC",
+        "start": "2010-08",
+        "end": "2012-05"
+      }
+    ],
+    "courses": [
+      { "name": "Diamonds & Diamond Grading (eLearning)", "provider": "Gemological Institute of America", "year": 2023 },
+      { "name": "RISE Up Customer Service and Sales credential", "provider": "NRF Foundation", "year": 2019 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Spanish", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Top seller, three years running", "detail": "Highest personal sales in the store in 2023, 2024 and 2025." },
+      { "title": "Bridal close rate", "detail": "Closed 62% of bridal appointments versus a 48% store average." }
+    ],
+    "skills": ["Clienteling", "Consultative selling", "Fine jewelry", "Bridal sales", "Financing applications", "Lightspeed POS", "Keyholder duties", "Cash handling", "Visual merchandising", "New-hire training", "Bilingual English/Spanish"],
+    "interests": ["Salsa dancing", "Church choir", "Thrift-store restoration projects"]
+  }
+}

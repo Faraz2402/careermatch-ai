@@ -1,0 +1,127 @@
+{
+  "id": "pharmacist-uk-mid",
+  "category": "healthcare-nursing",
+  "role": "pharmacist",
+  "country": "uk",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Oliver Mensah",
+    "title": "Primary Care Network Clinical Pharmacist (Independent Prescriber)",
+    "phone": "07700 900652",
+    "email": "oliver.mensah@example.com",
+    "linkedin": "linkedin.com/in/oliver-mensah",
+    "location": "Bristol",
+    "summary": "GPhC-registered pharmacist and independent prescriber with nine years in community pharmacy and general practice. I now run respiratory and polypharmacy clinics across a five-practice PCN, where structured medication reviews saved an estimated £61,000 in prescribing costs last year.",
+    "experience": [
+      {
+        "title": "Pre-registration Pharmacist",
+        "company": "Harbourside Pharmacy Group",
+        "location": "Bristol",
+        "start": "2017-07",
+        "end": "2018-07",
+        "bullets": [
+          "Completed the 52-week pre-registration year across two busy community branches dispensing 6,000 items a month.",
+          "Delivered 150 New Medicine Service consultations and 80 Medicines Use Reviews under supervision.",
+          "Passed the GPhC registration assessment at the first attempt."
+        ]
+      },
+      {
+        "title": "Pharmacist Manager",
+        "company": "Harbourside Pharmacy Group",
+        "location": "Bristol",
+        "start": "2018-08",
+        "end": "2021-03",
+        "bullets": [
+          "Managed a 100-hour pharmacy with 7 staff, accountable for clinical governance, controlled drugs and a monthly script volume of 9,500 items.",
+          "Grew NHS service income by 35% by expanding flu vaccination, NMS and the Community Pharmacist Consultation Service.",
+          "Ran Covid-19 vaccination sessions at a local hub, vaccinating over 3,000 patients in four months.",
+          "Achieved a 'standards met' outcome at the GPhC inspection with no improvement actions."
+        ]
+      },
+      {
+        "title": "PCN Clinical Pharmacist",
+        "company": "Avon Gorge Primary Care Network",
+        "location": "Bristol",
+        "start": "2021-04",
+        "end": "present",
+        "bullets": [
+          "Carry out around 60 structured medication reviews a month for patients with polypharmacy, frailty or care-home residence across five GP practices.",
+          "Run independent prescribing clinics for asthma and COPD, switching 240 patients to lower-carbon inhalers where clinically appropriate.",
+          "Reduced high-risk NSAID and antiplatelet prescribing combinations by 38% through searches in EMIS and targeted recalls.",
+          "Supervise two trainee pharmacy technicians and support the PCN's new foundation trainee pharmacist placements."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Practice Certificate in Independent Prescribing",
+        "school": "University of the West of England",
+        "location": "Bristol",
+        "start": "2021-09",
+        "end": "2022-06"
+      },
+      {
+        "degree": "MPharm (Hons), 2:1",
+        "school": "University of Bath",
+        "location": "Bath",
+        "start": "2013-09",
+        "end": "2017-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Primary Care Pharmacy Education Pathway",
+        "provider": "Centre for Pharmacy Postgraduate Education (CPPE)",
+        "year": 2022
+      },
+      {
+        "name": "Consultation skills for pharmacy practice",
+        "provider": "CPPE",
+        "year": 2019
+      },
+      {
+        "name": "Asthma and COPD diploma module",
+        "provider": "Education for Health",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Twi",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "GPhC registered pharmacist",
+        "detail": "Registered with the General Pharmaceutical Council since 2018; annotated as an independent prescriber since 2022."
+      },
+      {
+        "title": "Prescribing savings",
+        "detail": "Medication reviews and switches saved an estimated £61,000 across the PCN in 2025."
+      }
+    ],
+    "skills": [
+      "Independent prescribing",
+      "Structured medication reviews",
+      "Respiratory clinics",
+      "Deprescribing",
+      "EMIS Web",
+      "SystmOne",
+      "Clinical audit",
+      "Community pharmacy management",
+      "Controlled drugs governance",
+      "Vaccination"
+    ],
+    "interests": [
+      "Five-a-side football",
+      "Bristol music scene",
+      "Allotment gardening"
+    ]
+  }
+}

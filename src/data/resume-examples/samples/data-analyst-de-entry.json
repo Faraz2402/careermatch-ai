@@ -1,0 +1,63 @@
+{
+  "id": "data-analyst-de-entry",
+  "category": "data-science",
+  "role": "data-analyst",
+  "country": "de",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Elif Demir",
+    "title": "Junior Data Analyst",
+    "phone": "+49 30 23125 467",
+    "email": "elif.demir@example.com",
+    "linkedin": "linkedin.com/in/elif-demir",
+    "location": "Berlin",
+    "summary": "Junior data analyst at a Berlin parcel logistics company with an M.Sc. in Statistics from Humboldt-Universität zu Berlin and 15 months of working-student experience in mobility analytics. Strong in SQL, Python and Looker, with a master's thesis on demand forecasting for e-scooter sharing. Trilingual in German, Turkish and English.",
+    "experience": [
+      {
+        "title": "Junior Data Analyst",
+        "company": "Havelstrom Versand GmbH",
+        "location": "Berlin",
+        "start": "2025-01",
+        "end": "present",
+        "bullets": [
+          "Maintain the daily delivery KPI dashboard in Looker for 9 depots, used by depot leads in their morning briefings.",
+          "Traced a rise in failed deliveries to incorrect address geocoding in two postcodes, a fix that recovered around €12,000 a month in re-delivery costs.",
+          "Wrote dbt models with tests for parcel scan events, reducing broken dashboard tiles reported by users from weekly to rare."
+        ]
+      },
+      {
+        "title": "Working Student, Data Analytics (Werkstudentin)",
+        "company": "Spreeufer Mobilität GmbH",
+        "location": "Berlin",
+        "start": "2023-06",
+        "end": "2024-09",
+        "bullets": [
+          "Prepared weekly fleet utilisation reports for 2,400 e-scooters across 12 districts, 20 hours a week alongside my master's studies.",
+          "Analysed ride data to propose new parking zones near three S-Bahn stations; the pilot raised rides per vehicle by 7%.",
+          "Documented 40 core tables in the data catalogue so new analysts could find the right sources without asking."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "M.Sc. Statistics", "school": "Humboldt-Universität zu Berlin", "location": "Berlin", "start": "2022-10", "end": "2024-12", "details": "Grade 1.6. Thesis: short-term demand forecasting for shared e-scooters using gradient boosting." },
+      { "degree": "B.Sc. Business Informatics (Wirtschaftsinformatik)", "school": "Hochschule für Technik und Wirtschaft Berlin (HTW)", "location": "Berlin", "start": "2019-10", "end": "2022-09", "details": "Grade 1.9" },
+      { "degree": "Abitur", "school": "Carl-von-Ossietzky-Gymnasium", "location": "Berlin", "end": "2019-06" }
+    ],
+    "courses": [
+      { "name": "Google Data Analytics Professional Certificate", "provider": "Coursera", "year": 2025 },
+      { "name": "Analytics Engineering with dbt", "provider": "dbt Labs", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "German", "level": "Native" },
+      { "name": "Turkish", "level": "Native" },
+      { "name": "English", "level": "C1" }
+    ],
+    "achievements": [
+      { "title": "Hackathon finalist", "detail": "Team finalist at a Berlin open data hackathon (2023) with a map of cycle lane gaps built from public traffic data." },
+      { "title": "Statistics tutor", "detail": "Tutored first-year B.Sc. students in descriptive statistics for two semesters." }
+    ],
+    "skills": ["SQL (PostgreSQL, BigQuery)", "Python (pandas)", "Looker", "dbt", "Excel", "Forecasting", "Geospatial analysis", "Data documentation", "Git"],
+    "interests": ["Cycling", "Turkish cooking", "Open data projects"]
+  }
+}

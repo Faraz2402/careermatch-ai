@@ -1,0 +1,119 @@
+{
+  "id": "graphic-designer-de-mid",
+  "category": "design",
+  "role": "graphic-designer",
+  "country": "de",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Lena Hoffmann",
+    "title": "Graphic Designer (Brand & Editorial)",
+    "phone": "+49 221 4710 352",
+    "email": "lena.hoffmann@example.com",
+    "linkedin": "linkedin.com/in/lena-hoffmann",
+    "location": "Köln",
+    "summary": "Communication designer with nine years in agency, publishing and studio work in Köln, specialising in editorial design and brand systems. Designs magazines and annual reports in German and English, and the redesign of a publisher's travel guide series lifted sell-through by 16%.",
+    "experience": [
+      {
+        "title": "Junior Communication Designer",
+        "company": "Rheinufer Agentur für Kommunikation",
+        "location": "Köln",
+        "start": "2017-09",
+        "end": "2019-12",
+        "bullets": [
+          "Designed brochures, trade fair stands and social graphics for mid-sized industrial clients in North Rhine-Westphalia.",
+          "Adapted campaign layouts for German, English and French versions without breaking the grid.",
+          "Prepared print data in PDF/X-4 and checked proofs with printers, avoiding costly reprints on a 50,000-copy mailing."
+        ]
+      },
+      {
+        "title": "Graphic Designer",
+        "company": "Domblick Verlag",
+        "location": "Köln",
+        "start": "2020-01",
+        "end": "2022-10",
+        "bullets": [
+          "Laid out four to six books a quarter, from cover concepts to final print files, for a non-fiction and travel publisher.",
+          "Redesigned the cover and inside template of a 20-title travel guide series, followed by a 16% rise in sell-through.",
+          "Built paragraph and object styles in InDesign that let editors make late text changes without breaking layouts."
+        ]
+      },
+      {
+        "title": "Graphic Designer (Brand & Editorial)",
+        "company": "Ehrenfeld Studio",
+        "location": "Köln",
+        "start": "2022-11",
+        "end": "present",
+        "bullets": [
+          "Own brand systems and editorial projects for cultural and sustainability clients, including two annual reports a year.",
+          "Created the visual identity for a regional food co-op, rolled out across 9 shops and its delivery vans.",
+          "Coordinate photographers and illustrators on shoots and commissions, keeping projects within budgets of up to €40,000.",
+          "Supervise one junior designer and a working student, reviewing files and planning their weekly workload."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.A. Kommunikationsdesign (Communication Design)",
+        "school": "Technische Hochschule Köln",
+        "location": "Köln",
+        "start": "2013-10",
+        "end": "2017-07",
+        "details": "Thesis: a typographic system for bilingual signage"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Barrierefreie PDFs (accessible PDF design)",
+        "provider": "Akademie des Deutschen Buchhandels",
+        "year": 2023
+      },
+      {
+        "name": "Variable Fonts in Practice",
+        "provider": "Typo Labs Online",
+        "year": 2021
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native (C2)"
+      },
+      {
+        "name": "English",
+        "level": "Fluent (C1)"
+      },
+      {
+        "name": "French",
+        "level": "Intermediate (B1)"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Book design commendation",
+        "detail": "Travel guide series commended in a German book design competition in 2022."
+      },
+      {
+        "title": "Typography workshops",
+        "detail": "Run evening type workshops for a Köln makerspace twice a year."
+      }
+    ],
+    "skills": [
+      "Editorial design",
+      "Brand identity",
+      "Adobe InDesign",
+      "Adobe Illustrator",
+      "Adobe Photoshop",
+      "Figma",
+      "Typography",
+      "Prepress (PDF/X)",
+      "Accessible PDFs",
+      "Art buying"
+    ],
+    "interests": [
+      "Riso printing",
+      "Rhine cycling",
+      "Collecting old maps"
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "recruiter-uk-mid",
+  "category": "human-resources",
+  "role": "recruiter",
+  "country": "uk",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Callum McLeod",
+    "title": "Talent Acquisition Partner",
+    "phone": "07700 900145",
+    "email": "callum.mcleod@example.com",
+    "linkedin": "linkedin.com/in/callum-mcleod",
+    "location": "Glasgow",
+    "summary": "Recruiter with nine years across agency and in-house roles, specialising in software and data hiring. Hires engineers for a 600-person fintech, cut average time to hire from 52 to 34 days, and raised the share of women in engineering offers from 18% to 31%.",
+    "experience": [
+      {
+        "title": "Talent Acquisition Partner",
+        "company": "Clydeway Payments",
+        "location": "Glasgow",
+        "start": "2022-03",
+        "end": "present",
+        "bullets": [
+          "Own engineering and data hiring for a 600-person fintech, closing 45 to 55 roles a year.",
+          "Reduced average time to hire from 52 to 34 days by agreeing interview SLAs with hiring managers and moving to structured scorecards.",
+          "Raised the share of offers to women in engineering from 18% to 31% through rewritten adverts and diverse interview panels.",
+          "Brought agency spend down by £240k a year by building a direct-sourcing and referral pipeline."
+        ]
+      },
+      {
+        "title": "Senior Recruitment Consultant",
+        "company": "Merchant City Talent",
+        "location": "Glasgow",
+        "start": "2019-04",
+        "end": "2022-02",
+        "bullets": [
+          "Billed £310k in my best year placing developers and data engineers with Scottish tech firms.",
+          "Managed 14 retained and contingent clients, including three exclusive accounts I won.",
+          "Trained four new consultants on candidate qualification and client calls."
+        ]
+      },
+      {
+        "title": "Trainee Recruitment Consultant",
+        "company": "Kelvingrove Recruitment",
+        "location": "Glasgow",
+        "start": "2017-01",
+        "end": "2019-03",
+        "bullets": [
+          "Recruited for contract and permanent IT support roles across the central belt.",
+          "Made 60 to 80 candidate and client calls a day and hit target in seven of eight quarters.",
+          "Promoted to consultant after 11 months."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "MA (Hons) History, 2:1",
+        "school": "University of Glasgow",
+        "location": "Glasgow",
+        "start": "2012-09",
+        "end": "2016-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Certificate in Recruitment Practice",
+        "provider": "Recruitment & Employment Confederation (REC)",
+        "year": 2017
+      },
+      {
+        "name": "Inclusive Recruitment",
+        "provider": "CIPD",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Scottish Gaelic",
+        "level": "Basic"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Time to hire down to 34 days",
+        "detail": "Interview SLAs and scorecards at Clydeway Payments."
+      },
+      {
+        "title": "Top biller 2021",
+        "detail": "Highest fee income in a team of 12 at Merchant City Talent."
+      }
+    ],
+    "skills": [
+      "Technical recruiting",
+      "Stakeholder management",
+      "Structured interviewing",
+      "Sourcing",
+      "Ashby ATS",
+      "LinkedIn Recruiter",
+      "Diversity hiring",
+      "Offer negotiation",
+      "Recruitment metrics",
+      "Employer branding"
+    ],
+    "interests": [
+      "Munro bagging",
+      "Five-a-side football",
+      "Podcasts on tech careers"
+    ]
+  }
+}

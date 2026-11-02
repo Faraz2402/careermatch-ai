@@ -1,0 +1,111 @@
+{
+  "id": "administrative-assistant-ca-entry",
+  "category": "office-administration",
+  "role": "administrative-assistant",
+  "country": "ca",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Priya Sandhu",
+    "title": "Administrative Assistant",
+    "phone": "(403) 555-0127",
+    "email": "priya.sandhu@example.com",
+    "linkedin": "linkedin.com/in/priya-sandhu",
+    "location": "Calgary, AB",
+    "summary": "Organized administrative assistant with a SAIT business administration diploma and two years of office experience in a busy physiotherapy clinic and a property management firm. Comfortable with Microsoft 365, Yardi and high call volumes, and recently helped cut late rent notices by a quarter.",
+    "experience": [
+      {
+        "title": "Clinic Office Assistant (part-time)",
+        "company": "Bow River Physiotherapy",
+        "location": "Calgary, AB",
+        "start": "2024-01",
+        "end": "2024-08",
+        "bullets": [
+          "Answered the clinic's main line and booked about 40 appointments per shift while finishing my diploma.",
+          "Confirmed Alberta Blue Cross and WCB coverage before visits, reducing rejected direct billings for the two therapists I supported.",
+          "Kept the waiting room and front counter organized and restocked, and handled cheque and debit payments accurately."
+        ]
+      },
+      {
+        "title": "Administrative Assistant",
+        "company": "Foothills Property Group",
+        "location": "Calgary, AB",
+        "start": "2024-09",
+        "end": "present",
+        "bullets": [
+          "Support three property managers responsible for 420 rental units, logging maintenance tickets and tenant requests in Yardi.",
+          "Built a rent-reminder email schedule that cut late payment notices by about 25% within six months.",
+          "Prepare move-in and move-out packages, key logs and inspection forms for roughly 30 tenancies a month.",
+          "Reconcile petty cash and courier invoices each month and file them for the bookkeeper by the 5th."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Business Administration Diploma",
+        "school": "SAIT (Southern Alberta Institute of Technology)",
+        "location": "Calgary, AB",
+        "start": "2022-09",
+        "end": "2024-06",
+        "details": "GPA 3.7/4.0; Dean's Honour Roll, two terms"
+      },
+      {
+        "degree": "Alberta High School Diploma",
+        "school": "Crescent Heights High School",
+        "location": "Calgary, AB",
+        "end": "2022-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Excel: Intermediate Formulas and Pivot Tables",
+        "provider": "LinkedIn Learning",
+        "year": 2024
+      },
+      {
+        "name": "Standard First Aid with CPR C",
+        "provider": "Canadian Red Cross",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Punjabi",
+        "level": "Fluent"
+      },
+      {
+        "name": "French",
+        "level": "Intermediate"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "SAIT student association volunteer",
+        "detail": "Coordinated sign-up tables and schedules for 18 volunteers at orientation week."
+      },
+      {
+        "title": "Front desk shout-out",
+        "detail": "Named in the clinic's patient survey comments for friendly, efficient service."
+      }
+    ],
+    "skills": [
+      "Microsoft 365",
+      "Yardi Voyager",
+      "Data entry (60 wpm)",
+      "Appointment scheduling",
+      "Filing and records",
+      "Petty cash",
+      "Customer service",
+      "Google Workspace"
+    ],
+    "interests": [
+      "Bhangra dance",
+      "Cooking for friends",
+      "Hiking in Kananaskis"
+    ]
+  }
+}

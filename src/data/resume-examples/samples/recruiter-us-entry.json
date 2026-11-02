@@ -1,0 +1,113 @@
+{
+  "id": "recruiter-us-entry",
+  "category": "human-resources",
+  "role": "recruiter",
+  "country": "us",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Alyssa Moreno",
+    "title": "Recruiter",
+    "phone": "(512) 555-0109",
+    "email": "alyssa.moreno@example.com",
+    "linkedin": "linkedin.com/in/alyssa-moreno",
+    "location": "Austin, TX",
+    "summary": "Recruiter with three years at a fast-growing healthcare staffing firm, moving from intern to coordinator to full-cycle recruiter. Fills 6 to 8 nursing and allied health roles a month and lifted candidate show rates for interviews from 68% to 86%.",
+    "experience": [
+      {
+        "title": "Recruiter",
+        "company": "Hill Country Health Staffing",
+        "location": "Austin, TX",
+        "start": "2025-05",
+        "end": "present",
+        "bullets": [
+          "Run full-cycle recruiting for travel and local nursing and allied health roles, averaging seven placements a month.",
+          "Source candidates through LinkedIn Recruiter, Indeed and referral campaigns, keeping a pipeline of about 120 active candidates.",
+          "Verify Texas and compact nursing licenses and certifications before submittal, with zero compliance holds this year.",
+          "Added text reminders and a prep call before interviews, raising show rates from 68% to 86%."
+        ]
+      },
+      {
+        "title": "Recruiting Coordinator",
+        "company": "Hill Country Health Staffing",
+        "location": "Austin, TX",
+        "start": "2024-01",
+        "end": "2025-04",
+        "bullets": [
+          "Scheduled about 60 candidate interviews a week across 12 hiring managers in Greenhouse.",
+          "Built offer letter and background-check templates that cut offer turnaround from three days to one.",
+          "Hosted a monthly virtual open house that brought in 25 to 40 new applicants each session."
+        ]
+      },
+      {
+        "title": "Talent Acquisition Intern",
+        "company": "Hill Country Health Staffing",
+        "location": "Austin, TX",
+        "start": "2023-06",
+        "end": "2023-08",
+        "bullets": [
+          "Screened 400 applications for entry-level patient care roles against posted requirements.",
+          "Cleaned 2,000 duplicate candidate records in the applicant tracking system.",
+          "Shadowed recruiters on phone screens and wrote screening notes for 50 candidates."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.A. in Communication Studies",
+        "school": "Texas State University",
+        "location": "San Marcos, TX",
+        "start": "2019-08",
+        "end": "2023-05",
+        "details": "GPA 3.4/4.0; minor in Psychology"
+      }
+    ],
+    "courses": [
+      {
+        "name": "LinkedIn Certified Professional, Recruiter",
+        "provider": "LinkedIn",
+        "year": 2025
+      },
+      {
+        "name": "Boolean Sourcing Basics",
+        "provider": "AIRS",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Spanish",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Show rate 68% to 86%",
+        "detail": "Interview reminder and prep-call process at Hill Country Health Staffing."
+      },
+      {
+        "title": "Intern to recruiter in 23 months",
+        "detail": "Promoted twice at the same firm."
+      }
+    ],
+    "skills": [
+      "Full-cycle recruiting",
+      "Sourcing",
+      "Boolean search",
+      "Greenhouse",
+      "LinkedIn Recruiter",
+      "Phone screening",
+      "Interview scheduling",
+      "License verification",
+      "Bilingual candidate outreach"
+    ],
+    "interests": [
+      "Live music",
+      "Hiking the Greenbelt"
+    ]
+  }
+}

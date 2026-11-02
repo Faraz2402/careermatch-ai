@@ -1,0 +1,93 @@
+{
+  "id": "software-engineer-in-senior",
+  "category": "software-engineering",
+  "role": "software-engineer",
+  "country": "in",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Aditya Kulkarni",
+    "title": "Principal Software Engineer",
+    "phone": "+91 00000 48213",
+    "email": "aditya.kulkarni@example.com",
+    "linkedin": "linkedin.com/in/aditya-kulkarni",
+    "location": "Pune, Maharashtra",
+    "summary": "Principal engineer with 14 years across lending, retail and payments platforms in Java and Go. Currently responsible for the UPI switch at a Pune payments company that clears 9 million transactions a day at 99.98% availability. Leads a 35-member engineering group and has built three teams from scratch.",
+    "experience": [
+      {
+        "title": "Software Engineer",
+        "company": "Sahyadri Fintech Solutions Pvt. Ltd.",
+        "location": "Pune, Maharashtra",
+        "start": "2012-07",
+        "end": "2016-03",
+        "bullets": [
+          "Wrote the loan-origination workflow in Java and Spring for a co-operative bank client, taking approval turnaround from four days to six hours.",
+          "Integrated CIBIL credit-bureau lookups and automated eligibility rules, removing 70% of manual credit checks.",
+          "Moved from fresher to module owner in two years and trained the next batch of eight campus hires."
+        ]
+      },
+      {
+        "title": "Senior Software Engineer",
+        "company": "Deccan Retail Cloud Pvt. Ltd.",
+        "location": "Pune, Maharashtra",
+        "start": "2016-04",
+        "end": "2020-08",
+        "bullets": [
+          "Re-architected the point-of-sale sync service for 3,400 kirana and mid-size stores to work offline for up to 48 hours.",
+          "Brought GST invoice generation in line with the 2017 rollout two weeks before go-live, with no billing downtime for clients.",
+          "Shrank average sync payload by 60% using delta encoding, which mattered for stores on 3G connections."
+        ]
+      },
+      {
+        "title": "Lead Software Engineer",
+        "company": "Koregaon Health Platforms Pvt. Ltd.",
+        "location": "Pune, Maharashtra",
+        "start": "2020-09",
+        "end": "2023-12",
+        "bullets": [
+          "Built and led a 12-member team that delivered a teleconsultation platform handling 25,000 video consultations a day at peak.",
+          "Chose Go for the scheduling and notification services, reducing server count by a third compared with the earlier Node.js prototype.",
+          "Set up the engineering hiring process and closed 18 roles in a year with an offer acceptance rate of about 80%."
+        ]
+      },
+      {
+        "title": "Principal Software Engineer",
+        "company": "Indrayani Payments Pvt. Ltd.",
+        "location": "Pune, Maharashtra",
+        "start": "2024-01",
+        "end": "present",
+        "bullets": [
+          "Own the architecture of the UPI switch processing 9 million transactions a day at 99.98% availability across three data centres.",
+          "Led a migration to active-active deployment that took recovery time for a regional outage from 40 minutes to under 3.",
+          "Manage a ₹6.5 crore annual infrastructure budget and cut per-transaction compute cost by 27% through capacity planning.",
+          "Run architecture reviews for five teams (35 engineers) and coach four tech leads."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech Computer Engineering",
+        "school": "College of Engineering Pune (COEP)",
+        "location": "Pune, Maharashtra",
+        "start": "2008-08",
+        "end": "2012-05",
+        "details": "CGPA 8.4/10."
+      }
+    ],
+    "courses": [
+      { "name": "Distributed Systems", "provider": "NPTEL", "year": 2019 },
+      { "name": "AWS Certified Solutions Architect – Professional", "provider": "Amazon Web Services", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Marathi", "level": "Native" },
+      { "name": "Hindi", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Speaker at a national Java developer conference", "detail": "Presented on idempotency patterns in payment systems to about 400 attendees." },
+      { "title": "Engineering excellence award, Koregaon Health Platforms", "detail": "Awarded for scaling the platform during a fivefold demand spike without a major outage." }
+    ],
+    "skills": ["Java", "Go", "Spring Boot", "Distributed systems", "UPI and payment switching", "PostgreSQL", "Redis", "Apache Kafka", "Kubernetes", "AWS", "Capacity planning", "Team building and hiring"],
+    "interests": ["Trekking in the Sahyadris", "Marathi theatre", "Mentoring engineering students"]
+  }
+}

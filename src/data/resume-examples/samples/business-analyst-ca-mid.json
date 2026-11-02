@@ -1,0 +1,73 @@
+{
+  "id": "business-analyst-ca-mid",
+  "category": "business-management",
+  "role": "business-analyst",
+  "country": "ca",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Olivia MacPherson",
+    "title": "Business Analyst",
+    "phone": "(403) 555-0191",
+    "email": "olivia.macpherson@example.com",
+    "linkedin": "linkedin.com/in/olivia-macpherson",
+    "location": "Calgary, AB",
+    "summary": "CCBA-certified business analyst with nine years in oilfield supply, insurance and group benefits. Lead analysis for a benefits co-op's claims portal rebuild, where the new self-serve flow removed about 30% of inbound calls. Practical, detail-focused and comfortable moving between process maps, SQL queries and user acceptance testing.",
+    "experience": [
+      {
+        "title": "Business Analyst",
+        "company": "Glenmore Health Benefits Co-op",
+        "location": "Calgary, AB",
+        "start": "2022-10",
+        "end": "present",
+        "bullets": [
+          "Lead business analysis for the member claims portal rebuild, coordinating requirements across claims, member services and two vendor teams.",
+          "Designed a self-serve claim status flow that removed about 30% of inbound calls to the contact centre within four months.",
+          "Wrote data mapping specifications for migrating 1.1 million historical claims, with reconciliations signed off by finance.",
+          "Coach two newer analysts on story writing and facilitation."
+        ]
+      },
+      {
+        "title": "Business Analyst",
+        "company": "Rundle Mutual Insurance",
+        "location": "Calgary, AB",
+        "start": "2019-08",
+        "end": "2022-09",
+        "bullets": [
+          "Captured requirements for a broker portal used by 300 brokerages, raising online submissions from 40% to 72% of new business.",
+          "Ran root-cause analysis on policy issuance errors and specified validation rules that halved rework.",
+          "Planned and led UAT for four releases, triaging 380 defects with the QA lead."
+        ]
+      },
+      {
+        "title": "Junior Business Analyst",
+        "company": "Peace River Oilfield Supply",
+        "location": "Calgary, AB",
+        "start": "2017-05",
+        "end": "2019-07",
+        "bullets": [
+          "Documented order-to-cash processes across six branches ahead of an ERP upgrade.",
+          "Built SQL reports on backorders that helped purchasing reduce stockouts of fast-moving parts by 20%.",
+          "Trained 35 branch staff on new quoting screens during the upgrade."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "Bachelor of Business Administration (BBA), General Management", "school": "Mount Royal University", "location": "Calgary, AB", "start": "2013-09", "end": "2017-04" }
+    ],
+    "courses": [
+      { "name": "Certification of Capability in Business Analysis (CCBA)", "provider": "IIBA", "year": 2021 },
+      { "name": "Business Analysis Foundations", "provider": "LinkedIn Learning", "year": 2018 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "French", "level": "Intermediate" }
+    ],
+    "achievements": [
+      { "title": "Service excellence award", "detail": "Glenmore Health Benefits Co-op team award (2024) for the claims portal launch." },
+      { "title": "Volunteer board member", "detail": "Treasurer for a Calgary community association, managing an annual budget of about $90,000." }
+    ],
+    "skills": ["Requirements elicitation", "Process mapping", "Data mapping and migration", "SQL", "UAT coordination", "Jira", "Confluence", "Lucidchart", "Agile (Scrum)", "Vendor coordination", "Facilitation"],
+    "interests": ["Hiking in Kananaskis", "Pottery", "Community league volleyball"]
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "id": "pharmacist-de-mid",
+  "category": "healthcare-nursing",
+  "role": "pharmacist",
+  "country": "de",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Lena Hoffmann-Nguyen",
+    "title": "Filialleiterin (Branch Manager), Public Pharmacy",
+    "phone": "+49 89 99998 427",
+    "email": "lena.hoffmann-nguyen@example.com",
+    "linkedin": "linkedin.com/in/lena-hoffmann-nguyen",
+    "location": "München",
+    "summary": "Licensed pharmacist (Approbation 2017) with nine years in public pharmacies in München, now running a branch with 11 staff and a specialist qualification in general pharmacy. I introduced paid pharmaceutical services in my branch, delivering more than 400 medication reviews for polypharmacy patients since 2023.",
+    "experience": [
+      {
+        "title": "Pharmazeutin im Praktikum (Pharmacist in Training)",
+        "company": "Isartor-Apotheke",
+        "location": "München",
+        "start": "2016-11",
+        "end": "2017-10",
+        "bullets": [
+          "Completed the 12-month practical year in a public pharmacy, dispensing and counselling under the supervision of the owner pharmacist.",
+          "Prepared 150+ individual compounded preparations a month in the pharmacy laboratory, following NRF formulas.",
+          "Prepared a case presentation for the accompanying practical-year seminar on interaction checks for patients taking direct oral anticoagulants."
+        ]
+      },
+      {
+        "title": "Approbierte Apothekerin (Pharmacist)",
+        "company": "Isartor-Apotheke",
+        "location": "München",
+        "start": "2017-12",
+        "end": "2021-08",
+        "bullets": [
+          "Advised 120–150 patients a day on prescriptions and self-medication in a city-centre pharmacy.",
+          "Took over the pharmacy's supply of care homes, managing weekly blister packs for 210 residents across three homes.",
+          "Ran the pharmacy's COVID-19 rapid testing station in 2021, testing up to 250 people a day and reporting positive results to the local health office.",
+          "Completed the three-year further training as Fachapothekerin für Allgemeinpharmazie with the Bayerische Landesapothekerkammer."
+        ]
+      },
+      {
+        "title": "Filialleiterin (Branch Manager)",
+        "company": "Apotheke am Nordbad",
+        "location": "München",
+        "start": "2021-09",
+        "end": "present",
+        "bullets": [
+          "Lead a branch team of 11 pharmacists, PTAs and PKAs with annual revenue of about €4.2 million.",
+          "Introduced pharmaceutical services (pDL) including extended medication reviews and blood pressure checks, delivering 400+ medication reviews since 2023, and added flu and COVID-19 vaccination.",
+          "Moved the branch smoothly to the E-Rezept, training the team and cutting rejected prescriptions to below 0.5%.",
+          "Lowered stock value by €65,000 while keeping availability above 96% by tightening ordering rules with wholesaler data."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Fachapothekerin für Allgemeinpharmazie (specialist pharmacist, general pharmacy)",
+        "school": "Bayerische Landesapothekerkammer",
+        "location": "München",
+        "start": "2018-01",
+        "end": "2021-03"
+      },
+      {
+        "degree": "Pharmazie (Staatsexamen, sections 1 and 2)",
+        "school": "Ludwig-Maximilians-Universität München",
+        "location": "München",
+        "start": "2012-10",
+        "end": "2016-10"
+      }
+    ],
+    "courses": [
+      {
+        "name": "ATHINA medication analysis training",
+        "provider": "Landesapothekerkammer course",
+        "year": 2022
+      },
+      {
+        "name": "Impfen in der Apotheke (Pharmacy vaccination training)",
+        "provider": "Bayerische Landesapothekerkammer",
+        "year": 2022
+      },
+      {
+        "name": "Personalführung (People Management)",
+        "provider": "Apothekerverband course",
+        "year": 2021
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native"
+      },
+      {
+        "name": "Vietnamese",
+        "level": "B2"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Approbation als Apothekerin",
+        "detail": "Licensed to practise as a pharmacist in Germany since December 2017 after the third state examination."
+      },
+      {
+        "title": "Branch growth",
+        "detail": "Branch revenue rose by 14% in three years without additional staff."
+      }
+    ],
+    "skills": [
+      "Patient counselling",
+      "Medication review (pDL)",
+      "E-Rezept",
+      "Compounding (NRF)",
+      "Branch management",
+      "Care home supply",
+      "Stock control",
+      "Team leadership",
+      "Interaction checks",
+      "ADG pharmacy software"
+    ],
+    "interests": [
+      "Ski touring",
+      "Vietnamese cooking",
+      "Choir"
+    ]
+  }
+}

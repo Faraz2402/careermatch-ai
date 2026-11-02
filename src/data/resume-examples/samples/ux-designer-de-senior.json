@@ -1,0 +1,133 @@
+{
+  "id": "ux-designer-de-senior",
+  "category": "design",
+  "role": "ux-designer",
+  "country": "de",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Tobias Krämer",
+    "title": "Lead UX Designer",
+    "phone": "+49 89 99998 147",
+    "email": "tobias.kraemer@example.com",
+    "linkedin": "linkedin.com/in/tobias-kraemer",
+    "location": "München",
+    "summary": "Lead UX designer with 14 years in enterprise software, mobility and insurance in München. Leads a design team of seven, introduced a company-wide design system, and prepared the customer portal for the Barrierefreiheitsstärkungsgesetz; the redesigned claims journey reduced handling time by 22%.",
+    "experience": [
+      {
+        "title": "UX Designer",
+        "company": "Isarwerk Software GmbH",
+        "location": "München",
+        "start": "2012-04",
+        "end": "2016-03",
+        "bullets": [
+          "Designed interfaces for a production planning suite used by about 200 manufacturing customers.",
+          "Ran usability tests on shop-floor terminals, which led to larger touch targets and a simplified shift overview.",
+          "Wrote the first UX guidelines for the product, adopted by three development teams."
+        ]
+      },
+      {
+        "title": "Senior UX Designer",
+        "company": "Bavaria Mobility Labs GmbH",
+        "location": "München",
+        "start": "2016-04",
+        "end": "2020-06",
+        "bullets": [
+          "Led UX for a car-sharing and charging app across Germany and Austria, growing to 350,000 active users.",
+          "Designed the charging-session flow with field tests at 30 charging stations, reducing failed starts by 18%.",
+          "Built a research panel of 500 users and ran monthly testing rounds with product managers.",
+          "Mentored four designers and introduced design reviews into the sprint process."
+        ]
+      },
+      {
+        "title": "Lead UX Designer",
+        "company": "Nymphenburg Versicherung AG",
+        "location": "München",
+        "start": "2020-07",
+        "end": "present",
+        "bullets": [
+          "Lead a team of seven UX and UI designers and researchers across the customer portal, claims and broker tools.",
+          "Introduced a design system shared by 12 development teams, with tokens, components and documentation in German and English.",
+          "Redesigned the claims journey with the claims department, reducing average handling time by 22%.",
+          "Prepared the customer portal for the Barrierefreiheitsstärkungsgesetz (BFSG) by auditing against EN 301 549 and fixing priority issues before June 2025.",
+          "Own a design budget of €600,000 a year for research, tools and external support."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc. Medieninformatik (Media Informatics)",
+        "school": "Ludwig-Maximilians-Universität München",
+        "location": "München",
+        "start": "2009-10",
+        "end": "2012-03",
+        "details": "Thesis on touch interaction in industrial settings"
+      },
+      {
+        "degree": "B.Sc. Medieninformatik",
+        "school": "Ludwig-Maximilians-Universität München",
+        "location": "München",
+        "start": "2006-10",
+        "end": "2009-09"
+      }
+    ],
+    "courses": [
+      {
+        "name": "CPUX-F (Certified Professional for Usability and User Experience)",
+        "provider": "UXQB",
+        "year": 2014
+      },
+      {
+        "name": "CPUX-UR (User Requirements Engineering)",
+        "provider": "UXQB",
+        "year": 2017
+      },
+      {
+        "name": "Leading Design Organisations",
+        "provider": "Interaction Design Foundation",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native (C2)"
+      },
+      {
+        "name": "English",
+        "level": "Fluent (C1)"
+      },
+      {
+        "name": "Italian",
+        "level": "Basic (A2)"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Design system rollout",
+        "detail": "Took the design system from pilot to all 12 teams in 18 months."
+      },
+      {
+        "title": "Speaker",
+        "detail": "Talk on accessible insurance forms at a German UX conference in 2024."
+      }
+    ],
+    "skills": [
+      "Design leadership",
+      "Design systems",
+      "User research",
+      "Accessibility (BFSG, EN 301 549, WCAG)",
+      "Interaction design",
+      "Figma",
+      "Usability testing",
+      "Research operations",
+      "Stakeholder management",
+      "Budget planning"
+    ],
+    "interests": [
+      "Mountain biking in the Alps",
+      "Jazz piano",
+      "Bavarian cooking"
+    ]
+  }
+}

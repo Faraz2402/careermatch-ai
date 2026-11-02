@@ -1,0 +1,81 @@
+{
+  "id": "it-support-specialist-uk-mid",
+  "category": "information-technology",
+  "role": "it-support-specialist",
+  "country": "uk",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Daniel Kowalski",
+    "title": "2nd Line IT Support Engineer",
+    "phone": "07700 900634",
+    "email": "daniel.kowalski@example.com",
+    "linkedin": "linkedin.com/in/daniel-kowalski",
+    "location": "Leeds",
+    "summary": "2nd line support engineer with nine years across an accountancy practice, a multi-academy trust and a law firm in Leeds. Led the move of 280 users to Intune-managed laptops and helped the firm pass Cyber Essentials Plus first time. ITIL 4 certified, calm with fee-earners on deadline and good at writing guides people actually read.",
+    "experience": [
+      {
+        "title": "1st Line Support Analyst",
+        "company": "Headingley Accountancy Partners",
+        "location": "Leeds",
+        "start": "2017-01",
+        "end": "2019-02",
+        "bullets": [
+          "Handled 35–45 calls and tickets a day for 120 staff, logging everything in Freshdesk against agreed SLAs.",
+          "Prepared laptops for the January self-assessment rush so every temporary staff member had a working machine on day one.",
+          "Wrote 40 knowledge-base articles that reduced repeat password and printer calls by about a quarter."
+        ]
+      },
+      {
+        "title": "2nd Line Support Technician",
+        "company": "Calder Valley Schools Trust",
+        "location": "Halifax, West Yorkshire",
+        "start": "2019-03",
+        "end": "2022-10",
+        "bullets": [
+          "Supported seven primary and secondary schools with 2,600 pupils, covering networks, interactive panels and the MIS.",
+          "Deployed 900 Chromebooks for remote learning in eight weeks during the 2020 school closures.",
+          "Moved the trust from on-site file servers to SharePoint and Teams, retiring four ageing servers.",
+          "Ran safeguarding-aware web filtering reviews with designated safeguarding leads every term."
+        ]
+      },
+      {
+        "title": "2nd Line IT Support Engineer",
+        "company": "Roundhay Legal LLP",
+        "location": "Leeds (hybrid)",
+        "start": "2022-11",
+        "end": "present",
+        "bullets": [
+          "Lead endpoint management for 280 users, migrating every laptop to Intune and Autopilot with BitLocker enforced.",
+          "Prepared device and patching evidence that helped the firm achieve Cyber Essentials Plus at the first assessment.",
+          "Cut average resolution time for 2nd line tickets from 2.1 days to 0.9 days by introducing triage categories and weekly backlog reviews.",
+          "Coach two 1st line analysts and run the onboarding session for new trainee solicitors each September."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BTEC Level 3 Extended Diploma in Information Technology (Distinction*, Distinction, Distinction)",
+        "school": "Leeds City College",
+        "location": "Leeds",
+        "start": "2014-09",
+        "end": "2016-06"
+      }
+    ],
+    "courses": [
+      { "name": "ITIL 4 Foundation", "provider": "PeopleCert", "year": 2020 },
+      { "name": "Microsoft 365 Certified: Endpoint Administrator Associate (MD-102)", "provider": "Microsoft", "year": 2024 },
+      { "name": "CompTIA Network+", "provider": "CompTIA", "year": 2018 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Polish", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Trust staff recognition award", "detail": "Nominated by head teachers for the Chromebook rollout during school closures." },
+      { "title": "Volunteer, digital inclusion drop-in", "detail": "Help residents with online forms and video calls at a community centre in Harehills monthly." }
+    ],
+    "skills": ["Microsoft 365 and Exchange Online", "Intune and Autopilot", "Entra ID / Active Directory", "Windows 11", "BitLocker", "SharePoint and Teams", "Networking (VLANs, DHCP, DNS)", "Cyber Essentials controls", "Freshdesk and ServiceNow", "Knowledge-base writing", "ITIL incident management"],
+    "interests": ["Leeds Rhinos", "Repairing vintage hi-fi", "Polish cooking"]
+  }
+}

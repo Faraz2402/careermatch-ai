@@ -1,0 +1,73 @@
+{
+  "id": "product-manager-us-mid",
+  "category": "business-management",
+  "role": "product-manager",
+  "country": "us",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Kevin Ostrowski",
+    "title": "Senior Product Manager",
+    "phone": "(512) 555-0164",
+    "email": "kevin.ostrowski@example.com",
+    "linkedin": "linkedin.com/in/kevin-ostrowski",
+    "location": "Austin, TX",
+    "summary": "Product manager with nine years in B2B SaaS, telehealth and payroll software, starting as an industrial engineer turned associate PM. Own the employer onboarding product at an Austin payroll company, where a rebuilt setup flow took median time-to-first-payroll from 19 days to 8. Strong at discovery interviews, tight problem framing and shipping in small increments with engineering.",
+    "experience": [
+      {
+        "title": "Senior Product Manager, Employer Onboarding",
+        "company": "Limestone Payroll Co.",
+        "location": "Austin, TX",
+        "start": "2023-01",
+        "end": "present",
+        "bullets": [
+          "Own onboarding for small-business employers, working with a squad of seven engineers, a designer and an analyst.",
+          "Rebuilt the company setup flow around prefilled tax data, shrinking median time-to-first-payroll from 19 days to 8 and lifting 90-day retention by 6 points.",
+          "Interviewed 45 bookkeepers and owners to rank onboarding pain points, which became the basis of a two-quarter roadmap approved by the CPO.",
+          "Coach an associate PM on writing PRDs and running experiments."
+        ]
+      },
+      {
+        "title": "Product Manager",
+        "company": "Riverbend Telehealth",
+        "location": "Austin, TX",
+        "start": "2019-10",
+        "end": "2022-12",
+        "bullets": [
+          "Launched video-visit scheduling for behavioral health, growing to 22,000 monthly visits within a year.",
+          "Prioritized a waitlist feature from support ticket analysis that reduced unfilled appointment slots by 17%.",
+          "Coordinated HIPAA reviews with security and legal for every release that touched patient data."
+        ]
+      },
+      {
+        "title": "Associate Product Manager",
+        "company": "Barton Springs Software",
+        "location": "Austin, TX",
+        "start": "2017-07",
+        "end": "2019-09",
+        "bullets": [
+          "Managed the reporting module backlog for a field-service scheduling tool used by 600 companies.",
+          "Shipped CSV export and saved filters, the two most requested features, which cut related support tickets by 30%.",
+          "Ran monthly customer advisory calls and published release notes."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "B.S. Industrial Engineering", "school": "Texas Tech University", "location": "Lubbock, TX", "start": "2013-08", "end": "2017-05" }
+    ],
+    "courses": [
+      { "name": "Certified Scrum Product Owner (CSPO)", "provider": "Scrum Alliance", "year": 2018 },
+      { "name": "Reforge Product Management Foundations", "provider": "Reforge", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Polish", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Product launch award", "detail": "Riverbend Telehealth company award (2021) for the behavioral health scheduling launch." },
+      { "title": "Mentor", "detail": "Volunteer product mentor for a local coding bootcamp's capstone teams since 2021." }
+    ],
+    "skills": ["Product discovery", "Roadmapping", "PRD writing", "A/B testing", "SQL", "Amplitude", "Figma", "Jira", "User interviews", "Pricing and packaging", "Agile delivery"],
+    "interests": ["Homebrewing", "Pickleball", "Live music"]
+  }
+}

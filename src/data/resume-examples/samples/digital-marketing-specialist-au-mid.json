@@ -1,0 +1,80 @@
+{
+  "id": "digital-marketing-specialist-au-mid",
+  "category": "marketing",
+  "role": "digital-marketing-specialist",
+  "country": "au",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Liam O'Connor",
+    "title": "Digital Marketing Specialist",
+    "phone": "0491 570 157",
+    "email": "liam.oconnor@example.com",
+    "linkedin": "linkedin.com/in/liam-oconnor",
+    "location": "Melbourne VIC",
+    "summary": "Digital marketing specialist with nearly a decade in furniture retail, agency paid search and pet insurance in Melbourne. Owns SEO, SEM and lifecycle email for an online pet insurer and grew organic quote starts by 52% by rebuilding its breed and condition content library.",
+    "experience": [
+      {
+        "title": "Digital Marketing Specialist",
+        "company": "Bayside Pet Cover",
+        "location": "Melbourne VIC",
+        "start": "2022-09",
+        "end": "present",
+        "bullets": [
+          "Own SEO, Google Ads and lifecycle email for a direct pet insurer, with $720,000 in annual paid media.",
+          "Planned and briefed 180 breed and health-condition articles with a vet adviser, lifting organic quote starts by 52% in 18 months.",
+          "Cut paid search cost per policy by 21% by splitting brand and generic budgets and adding postcode-level bid adjustments.",
+          "Built renewal reminder and multi-pet cross-sell journeys in Braze that raised retention at first renewal from 78% to 84%.",
+          "Work with the compliance team to make sure ads and product pages meet general advice and PDS disclosure rules."
+        ]
+      },
+      {
+        "title": "Paid Search Specialist",
+        "company": "Yarra Lane Digital",
+        "location": "Melbourne VIC",
+        "start": "2019-07",
+        "end": "2022-08",
+        "bullets": [
+          "Managed Google and Microsoft Ads accounts for 12 clients in education, automotive and trades, with up to $150,000 monthly spend each.",
+          "Took a TAFE-course provider's enrolments from paid search up by 33% in one intake by rewriting ads around course start dates and fee-free places.",
+          "Built a shared negative keyword library across accounts that reduced wasted spend by an average of 11%."
+        ]
+      },
+      {
+        "title": "Digital Marketing Coordinator",
+        "company": "Fitzroy Furniture House",
+        "location": "Melbourne VIC",
+        "start": "2017-03",
+        "end": "2019-06",
+        "bullets": [
+          "Coordinated EDMs, website banners and marketplace listings for a three-showroom furniture retailer.",
+          "Grew the email database from 18,000 to 45,000 with an in-store tablet sign-up and a design-consultation giveaway.",
+          "Uploaded and optimised 1,200 product pages, adding dimensions and fabric details that cut pre-sale enquiries to the call centre by a fifth."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Commerce (Marketing)",
+        "school": "Monash University",
+        "location": "Melbourne VIC",
+        "start": "2014-02",
+        "end": "2016-11"
+      }
+    ],
+    "courses": [
+      { "name": "Google Ads Search Certification", "provider": "Google Skillshop", "year": 2025 },
+      { "name": "SEO Certification", "provider": "HubSpot Academy", "year": 2023 },
+      { "name": "Braze Certified Practitioner", "provider": "Braze", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Content programme", "detail": "Breed guide hub now ranks on page one for over 300 tracked search terms." },
+      { "title": "Retention gain", "detail": "First-renewal retention up six points after lifecycle journeys went live." }
+    ],
+    "skills": ["SEO", "Content strategy", "Google Ads", "Microsoft Ads", "Braze", "Lifecycle email", "GA4", "Google Search Console", "Semrush", "Screaming Frog", "Looker Studio", "Compliance-aware copywriting"],
+    "interests": ["AFL", "Volunteer dog walking", "Coastal hiking"]
+  }
+}

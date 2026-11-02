@@ -1,0 +1,81 @@
+{
+  "id": "sales-associate-in-mid",
+  "category": "sales-retail",
+  "role": "sales-associate",
+  "country": "in",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Syed Farhan Ali",
+    "title": "Senior Retail Sales Associate",
+    "phone": "+91 00000 37509",
+    "email": "syed.ali@example.com",
+    "linkedin": "linkedin.com/in/syed-ali",
+    "location": "Hyderabad, Telangana",
+    "summary": "Retail sales associate with nearly ten years in electronics, home furnishings and premium watches in Hyderabad. Delivers ₹1.6 crore in personal annual sales at a luxury watch boutique, built on a loyal client base and after-sales care in four languages.",
+    "experience": [
+      {
+        "title": "Senior Retail Sales Associate",
+        "company": "HITEC City Watch Boutique Pvt Ltd",
+        "location": "Hyderabad, Telangana",
+        "start": "2022-09",
+        "end": "present",
+        "bullets": [
+          "Achieved ₹1.6 crore in personal sales in FY 2025-26, 22% above target, with an average bill of ₹1.4 lakh.",
+          "Maintain a client register of 650 buyers and invite them to new-collection previews, which convert about one in four attendees.",
+          "Coordinate servicing and warranty repairs with brand service centres, keeping customers updated by WhatsApp until pickup.",
+          "Guide two junior associates on product features, GST invoicing and EMI financing options."
+        ]
+      },
+      {
+        "title": "Senior Sales Associate",
+        "company": "Jubilee Hills Furnishings",
+        "location": "Hyderabad, Telangana",
+        "start": "2019-04",
+        "end": "2022-08",
+        "bullets": [
+          "Sold sofas, curtains and custom upholstery to homeowners and interior designers, averaging ₹11 lakh in monthly sales.",
+          "Took measurements at customer homes and prepared quotes, cutting order errors on curtains by a third.",
+          "Started a referral scheme with 18 interior designers that brought in ₹65 lakh of business in its first year."
+        ]
+      },
+      {
+        "title": "Sales Associate",
+        "company": "Charminar Electronics",
+        "location": "Hyderabad, Telangana",
+        "start": "2017-01",
+        "end": "2019-03",
+        "bullets": [
+          "Demonstrated smartphones, televisions and air conditioners to walk-in customers, closing around 14 sales a day in peak season.",
+          "Processed consumer durable loans with finance partners and explained terms clearly to first-time buyers.",
+          "Ranked first among 12 floor staff for extended warranty sales during the Diwali and Sankranti sale periods."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Com",
+        "school": "Osmania University",
+        "location": "Hyderabad, Telangana",
+        "start": "2013-07",
+        "end": "2016-05"
+      }
+    ],
+    "courses": [
+      { "name": "Retail Sales Associate (Retailers Association's Skill Council of India qualification)", "provider": "RASCI", "year": 2018 },
+      { "name": "Customer Service Excellence", "provider": "Coursera", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Urdu", "level": "Native" },
+      { "name": "Hindi", "level": "Fluent" },
+      { "name": "Telugu", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Top boutique seller", "detail": "Highest personal sales in the boutique for FY 2024-25 and FY 2025-26." },
+      { "title": "Designer referral scheme", "detail": "Designer referrals contributed ₹65 lakh in one year." }
+    ],
+    "skills": ["Luxury retail selling", "Clienteling", "Product demonstration", "GST invoicing", "EMI and consumer finance", "After-sales service", "Home measurement and quotes", "POS billing", "WhatsApp Business"],
+    "interests": ["Cricket", "Urdu poetry evenings", "Collecting vintage HMT watches"]
+  }
+}

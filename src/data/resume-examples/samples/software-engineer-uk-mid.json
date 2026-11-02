@@ -1,0 +1,80 @@
+{
+  "id": "software-engineer-uk-mid",
+  "category": "software-engineering",
+  "role": "software-engineer",
+  "country": "uk",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Callum Hargreaves",
+    "title": "Software Engineer (C# / .NET)",
+    "phone": "07700 900412",
+    "email": "callum.hargreaves@example.com",
+    "linkedin": "linkedin.com/in/callum-hargreaves",
+    "location": "Leeds, West Yorkshire",
+    "summary": "Software engineer with nine years in C# and .NET, most recently on patient-record systems used by GP surgeries across Yorkshire. Led the move of a monolithic referrals module to Azure-hosted services, halving release lead time. Mentors two junior developers and cares about readable code and boring, predictable deployments.",
+    "experience": [
+      {
+        "title": "Graduate Software Developer",
+        "company": "Kirkgate Insurance Systems",
+        "location": "Leeds",
+        "start": "2017-09",
+        "end": "2019-12",
+        "bullets": [
+          "Maintained the quote engine for a motor insurance product handling roughly 18,000 quotes a day, fixing 120+ defects from the support queue.",
+          "Introduced xUnit tests around the premium calculation rules, which caught three pricing regressions before they reached brokers.",
+          "Automated the monthly broker commission export with a scheduled .NET console job, saving the finance team two days of spreadsheet work each month."
+        ]
+      },
+      {
+        "title": "Software Engineer",
+        "company": "Aire Valley Payments",
+        "location": "Leeds",
+        "start": "2020-01",
+        "end": "2022-03",
+        "bullets": [
+          "Built Direct Debit mandate APIs in ASP.NET Core for 300+ small-business merchants, meeting Bacs submission windows with zero missed files over two years.",
+          "Reduced failed payment retries by 22% by redesigning the retry scheduler around Bacs return codes instead of fixed intervals.",
+          "Moved the team from manual releases to Azure DevOps pipelines, taking deployment from a half-day ritual to a 15-minute job.",
+          "Ran fortnightly lunch-and-learn sessions on domain-driven design for a team of nine."
+        ]
+      },
+      {
+        "title": "Software Engineer",
+        "company": "Wharfedale Health Records Ltd",
+        "location": "Leeds (hybrid)",
+        "start": "2022-04",
+        "end": "present",
+        "bullets": [
+          "Led the split of the referrals module out of a 400,000-line monolith into four Azure-hosted services, cutting release lead time from ten days to five.",
+          "Implemented FHIR-based endpoints so 210 GP surgeries could exchange referral letters electronically, removing around 6,000 posted letters a month.",
+          "Tuned slow Entity Framework queries on the appointments screen, bringing p95 response time down from 2.4 s to 600 ms.",
+          "Mentor two junior developers through code review and pairing; both now own features end to end."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc (Hons) Computer Science, First Class",
+        "school": "University of Leeds",
+        "location": "Leeds",
+        "start": "2014-09",
+        "end": "2017-06",
+        "details": "Dissertation: static analysis of null-reference bugs in C# codebases."
+      }
+    ],
+    "courses": [
+      { "name": "Microsoft Certified: Azure Developer Associate (AZ-204)", "provider": "Microsoft", "year": 2023 },
+      { "name": "Domain-Driven Design Fundamentals", "provider": "Pluralsight", "year": 2021 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Internal engineering award, Wharfedale Health Records", "detail": "Recognised for the referrals migration, delivered without a single unplanned outage for surgeries." },
+      { "title": "Speaker, Leeds .NET user group", "detail": "Gave a talk on strangler-fig migrations to an audience of about 70 developers." }
+    ],
+    "skills": ["C#", ".NET 8 / ASP.NET Core", "Entity Framework Core", "SQL Server", "Azure App Service and Functions", "Azure DevOps", "HL7 FHIR", "xUnit", "Docker", "Domain-driven design", "Code review and mentoring"],
+    "interests": ["Fell running in the Dales", "Board game design", "Local history podcasts"]
+  }
+}

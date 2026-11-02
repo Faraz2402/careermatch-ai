@@ -1,0 +1,86 @@
+{
+  "id": "data-analyst-us-senior",
+  "category": "data-science",
+  "role": "data-analyst",
+  "country": "us",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Danielle Whitaker",
+    "title": "Lead Data Analyst",
+    "phone": "(512) 555-0143",
+    "email": "danielle.whitaker@example.com",
+    "linkedin": "linkedin.com/in/danielle-whitaker",
+    "location": "Austin, TX",
+    "summary": "Lead data analyst with 13 years across grocery retail, healthcare, freight and insurance, now running a six-person analytics team at a regional property and casualty insurer. Rebuilt claims reporting on Snowflake and Power BI, cutting the monthly reporting cycle from nine business days to three. Known for turning messy operational data into numbers that underwriting and finance leaders trust.",
+    "experience": [
+      {
+        "title": "Lead Data Analyst",
+        "company": "Cedar Fork Insurance Group",
+        "location": "Austin, TX",
+        "start": "2022-09",
+        "end": "present",
+        "bullets": [
+          "Lead a team of six analysts supporting claims, underwriting and finance, setting quarterly priorities with three VPs and running weekly peer reviews of SQL and DAX code.",
+          "Migrated 140 legacy Excel and Access reports to Snowflake and Power BI, shrinking the monthly reporting cycle from 9 business days to 3.",
+          "Built a claims severity early-warning dashboard that flagged 1,200 high-risk files in its first year; adjusters used it to bring average litigated claim cost down 11%.",
+          "Defined a certified layer of 48 KPIs with the finance team, ending recurring disputes over loss ratio figures in quarterly board packs."
+        ]
+      },
+      {
+        "title": "Senior Data Analyst",
+        "company": "Bluebonnet Freight Logistics",
+        "location": "San Antonio, TX",
+        "start": "2019-06",
+        "end": "2022-08",
+        "bullets": [
+          "Designed a lane profitability model covering 3,400 shipping lanes, which the pricing team used to renegotiate 210 contracts and lift gross margin by 2.8 points.",
+          "Automated daily on-time delivery reporting with Python and Airflow, freeing roughly 25 hours a week that dispatch supervisors had spent in spreadsheets.",
+          "Analyzed telematics data from 900 trucks with the fleet maintenance lead, uncovering idling patterns whose fix saved $640,000 a year in fuel.",
+          "Coached two junior analysts on SQL performance tuning and storytelling; both were promoted within 18 months."
+        ]
+      },
+      {
+        "title": "Data Analyst",
+        "company": "Pecan Ridge Health Partners",
+        "location": "Austin, TX",
+        "start": "2016-01",
+        "end": "2019-05",
+        "bullets": [
+          "Produced readmission and length-of-stay reporting for four clinics and two surgical centers, reviewed monthly by the quality committee.",
+          "Matched 2.1 million patient encounter records across two EHR systems after a merger, raising match accuracy from 82% to 97%.",
+          "Ran a no-show study that led to text reminders for high-risk appointment slots, cutting missed appointments by 18% over six months."
+        ]
+      },
+      {
+        "title": "Junior Data Analyst",
+        "company": "Lone Star Grocery Cooperative",
+        "location": "Round Rock, TX",
+        "start": "2013-07",
+        "end": "2015-12",
+        "bullets": [
+          "Maintained weekly sales and shrink reports for 27 stores using SQL Server and Excel pivot models.",
+          "Built a basket analysis of loyalty-card transactions that shaped end-cap placements and raised promoted item sales by 9%.",
+          "Reconciled vendor rebate data against invoices and recovered $85,000 in unclaimed rebates in one fiscal year."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "B.S. Statistics", "school": "Texas State University", "location": "San Marcos, TX", "start": "2009-08", "end": "2013-05" }
+    ],
+    "courses": [
+      { "name": "Microsoft Certified: Power BI Data Analyst Associate", "provider": "Microsoft", "year": 2021 },
+      { "name": "SnowPro Core Certification", "provider": "Snowflake", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Spanish", "level": "Professional working proficiency" }
+    ],
+    "achievements": [
+      { "title": "Claims analytics program award", "detail": "Internal President's Award at Cedar Fork Insurance Group (2024) for the claims severity dashboard rollout." },
+      { "title": "Conference speaker", "detail": "Presented a session on building a certified KPI layer at a regional Power BI user group meetup (2023)." }
+    ],
+    "skills": ["SQL", "Snowflake", "Power BI (DAX)", "Python (pandas)", "Apache Airflow", "dbt", "Tableau", "Excel and Power Query", "Data modeling", "A/B test analysis", "KPI design", "Team leadership"],
+    "interests": ["Trail running", "Volunteer tax preparation", "Texas barbecue"]
+  }
+}

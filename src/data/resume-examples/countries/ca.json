@@ -1,0 +1,180 @@
+{
+  "code": "ca",
+  "name": "Canada",
+  "slug": "canada",
+  "term": {
+    "value": "resume",
+    "note": "English-speaking Canada uses 'resume' (often written résumé) for the standard job-application document, as Job Bank and university career centres do. As in the US, a CV usually means a longer academic record used for research and teaching posts."
+  },
+  "paper": {
+    "value": "Letter",
+    "note": "Canada uses North American Letter (8.5 x 11 in, 216 x 279 mm) in everyday use, and the federal government's stationery specifications are set in letter and legal sizes. A4 is not standard in Canadian offices."
+  },
+  "length": {
+    "value": "1–2 pages",
+    "note": "Job Bank tells job seekers to keep a resume to two pages and to cut or shorten jobs older than about 15 years. Memorial University's career centre recommends one to two pages. One page suits students and people with little Canadian experience."
+  },
+  "photo": {
+    "value": "leave out",
+    "note": "Job Bank says a photo is not the norm in Canada, and university career centres (Memorial, UBC, Toronto, Alberta) tell international students not to include one. Leaving personal attributes off reflects human-rights rules on protected grounds and helps avoid bias."
+  },
+  "include": [
+    "Name, phone number and email at the top of the first page",
+    "City and province; career centres differ on whether a street address is needed",
+    "A LinkedIn profile or portfolio link if relevant",
+    "Work authorization (e.g. permanent resident, open work permit) if you are a newcomer and it is not obvious",
+    "Canadian education, training or volunteer work, which newcomers should make easy to spot"
+  ],
+  "leaveOut": [
+    "Photo",
+    "Age or date of birth",
+    "Marital status, height, weight, health, religion and political views",
+    "Social Insurance Number (SIN), driver's licence number, health card or banking details",
+    "References on the resume itself; prepare a separate references sheet"
+  ],
+  "dateFormat": {
+    "value": "MMM YYYY",
+    "example": "Jan 2024",
+    "note": "Canadian guidance stresses clear, consistent month-and-year dates in reverse chronological order. We found no official rule on month style. Our Canadian samples use abbreviated month plus year (Jan 2024 – Present), matching North American practice."
+  },
+  "education": {
+    "terms": [
+      {
+        "term": "GPA",
+        "meaning": "Grade point average. There is no national scale: many Ontario schools use 4.0, UBC uses 4.33 and some Atlantic schools use 4.3, so state the scale (e.g. 3.7/4.33)."
+      },
+      {
+        "term": "College diploma",
+        "meaning": "A credential from a community college or polytechnic, usually two or three years and career-focused; different from a university degree."
+      },
+      {
+        "term": "CEGEP / DEC",
+        "meaning": "Quebec's college level between high school and university; the Diplôme d'études collégiales is the diploma earned there."
+      },
+      {
+        "term": "Co-op",
+        "meaning": "Paid work terms built into a degree or diploma programme; list them as work experience."
+      },
+      {
+        "term": "Honours BA / BSc",
+        "meaning": "A four-year bachelor's degree with extra depth or a thesis in the major."
+      }
+    ],
+    "note": "List credential, institution, city and completion date, newest first. Newcomers should consider adding a credential assessment (e.g. WES) for foreign degrees. Because GPA scales differ between schools, always give the scale."
+  },
+  "spelling": "Canadian",
+  "currency": {
+    "code": "CAD",
+    "symbol": "C$"
+  },
+  "fictionalPhone": {
+    "pattern": "(AAA) 555-01NN",
+    "note": "Canada is part of the North American Numbering Plan. NANPA keeps 555-0100 to 555-0199 reserved as non-working numbers for fiction and advertising, so our Canadian samples use only that block with a Canadian area code."
+  },
+  "disagreements": [
+    "Address: Job Bank says your resume should list your name, address, email and phone, while the University of Alberta advises leaving off your full home address and U of T Scarborough calls a street address optional.",
+    "Length: Job Bank frames two pages as the limit, Memorial University recommends one to two pages, and commercial newcomer guides push one page for entry-level applicants. None of these conflict outright, but the target differs.",
+    "GPA scales: there is no national grading standard (4.0, 4.3 and 4.33 scales are all in use), and the sources we found on this are mostly commercial guides, so check the specific school's scale."
+  ],
+  "tips": [
+    "Keep it to two pages and put your most recent, most relevant work first.",
+    "Never include your SIN; employers ask for it only after hiring.",
+    "Use Canadian spelling consistently (colour, centre, licence as a noun).",
+    "Newcomers: show work authorization and any Canadian training near the top.",
+    "State the GPA scale whenever you list a GPA.",
+    "Keep references on a separate sheet and ask permission before naming anyone."
+  ],
+  "sources": [
+    {
+      "title": "How to write a good resume",
+      "publisher": "Job Bank, Government of Canada",
+      "url": "https://www.jobbank.gc.ca/findajob/resources/write-good-resume",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Job search safety tips",
+      "publisher": "Job Bank, Government of Canada",
+      "url": "https://www.jobbank.gc.ca/findajob/resources/safety-tips",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Career FAQs: International Students",
+      "publisher": "Memorial University of Newfoundland Career Development",
+      "url": "https://www.mun.ca/student/career-services/graduate/career-resources/career-resources-for-international-students/career-faqs---international-students/",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Résumé and Cover Letter Tips for International Students",
+      "publisher": "University of Toronto Mississauga Career Centre",
+      "url": "https://www.utm.utoronto.ca/careers/resume-and-cover-letter-tips-international-students",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Resume and Cover Letter Toolkit",
+      "publisher": "University of Toronto Student Life",
+      "url": "https://www.studentlife.utoronto.ca/wp-content/uploads/CC-Resume-and-Cover-Letter-Toolkit.pdf",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "The Resume",
+      "publisher": "University of Toronto Scarborough",
+      "url": "https://www.utsc.utoronto.ca/aacc/resume",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Resumes + Cover Letters",
+      "publisher": "University of Alberta Career Centre",
+      "url": "https://www.ualberta.ca/en/career-centre/resources/resumes-cover-letters.html",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Applying successfully for career opportunities: Resumes and CVs",
+      "publisher": "University of British Columbia Graduate and Postdoctoral Studies",
+      "url": "https://www.grad.ubc.ca/sites/default/files/doc/page/gps_applying_successfully_for_career_opportunities.pdf",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Letterhead (Arms of Canada): Federal Identity Program technical specifications",
+      "publisher": "Treasury Board of Canada Secretariat",
+      "url": "https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-arms-canada.html",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Spelling: Government of Yukon style guide",
+      "publisher": "Government of Yukon",
+      "url": "https://guide.yukon.ca/en/content-and-design/government-yukon-style-guide/z-style-guide-contents/spelling",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Spelling: Memorial's style guide",
+      "publisher": "Memorial University Marketing and Communications",
+      "url": "https://www.mun.ca/marcomm/services/communications/memorials-style-guide/spelling/",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Canada university GPA grading system",
+      "publisher": "OpenEduCat",
+      "url": "https://openeducat.org/articles/canada-university-gpa-grading-system/",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "555 line numbers",
+      "publisher": "North American Numbering Plan Administrator (NANPA)",
+      "url": "https://nanpa.com/numbering/555-line-numbers",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    }
+  ]
+}

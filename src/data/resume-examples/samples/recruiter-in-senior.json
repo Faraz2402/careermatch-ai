@@ -1,0 +1,138 @@
+{
+  "id": "recruiter-in-senior",
+  "category": "human-resources",
+  "role": "recruiter",
+  "country": "in",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Nikhil Malhotra",
+    "title": "Head of Talent Acquisition",
+    "phone": "+91 00000 69420",
+    "email": "nikhil.malhotra@example.com",
+    "linkedin": "linkedin.com/in/nikhil-malhotra",
+    "location": "Gurugram, Haryana",
+    "summary": "Talent acquisition leader with 16 years across RPO, IT services and fintech. Heads a 22-member TA team hiring about 2,500 people a year for a digital lending company, and cut cost per hire by 34% while halving dependence on recruitment agencies.",
+    "experience": [
+      {
+        "title": "Head of Talent Acquisition",
+        "company": "Kosh Fintech Pvt Ltd",
+        "location": "Gurugram, Haryana",
+        "start": "2021-08",
+        "end": "present",
+        "bullets": [
+          "Lead a 22-member team hiring about 2,500 people a year across tech, collections and sales for a digital lending company.",
+          "Reduced agency share of hires from 55% to 24% and cost per hire by 34% through referrals and in-house sourcing.",
+          "Set up hiring hubs in Jaipur and Indore that filled 900 collections roles in tier-2 cities.",
+          "Introduced a hiring-manager scorecard and monthly business reviews with each function head.",
+          "Own an annual TA budget of ₹9 crore including tools, job boards and campus events."
+        ]
+      },
+      {
+        "title": "Talent Acquisition Lead",
+        "company": "Aravalli Tech Services Ltd",
+        "location": "Noida, Uttar Pradesh",
+        "start": "2016-05",
+        "end": "2021-07",
+        "bullets": [
+          "Led a team of 12 recruiters handling lateral hiring for cloud and testing practices, about 1,200 hires a year.",
+          "Ran campus hiring at 40 engineering colleges, onboarding 600 freshers a year.",
+          "Brought offer-to-joining drop-offs down from 32% to 17% with pre-joining engagement calls."
+        ]
+      },
+      {
+        "title": "Senior Recruiter",
+        "company": "Yamuna RPO Services",
+        "location": "Gurugram, Haryana",
+        "start": "2012-04",
+        "end": "2016-04",
+        "bullets": [
+          "Managed delivery for two global banking clients' Indian operations hiring.",
+          "Filled 25 to 30 positions a month for analytics and operations roles.",
+          "Trained 15 junior recruiters on sourcing on Naukri and client documentation."
+        ]
+      },
+      {
+        "title": "Recruitment Executive",
+        "company": "Yamuna RPO Services",
+        "location": "Gurugram, Haryana",
+        "start": "2010-06",
+        "end": "2012-03",
+        "bullets": [
+          "Screened and scheduled candidates for BPO and customer support roles.",
+          "Conducted walk-in drives that processed up to 300 candidates a day.",
+          "Maintained candidate trackers and daily MIS for account managers."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA (Human Resources)",
+        "school": "Amity Business School, Amity University",
+        "location": "Noida, Uttar Pradesh",
+        "start": "2008-07",
+        "end": "2010-05"
+      },
+      {
+        "degree": "B.A. (Hons) Psychology",
+        "school": "University of Delhi",
+        "location": "New Delhi",
+        "start": "2005-07",
+        "end": "2008-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Strategic HR Leadership",
+        "provider": "NPTEL (IIT Kharagpur)",
+        "year": 2022
+      },
+      {
+        "name": "People Analytics",
+        "provider": "Coursera",
+        "year": 2020
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Hindi",
+        "level": "Native"
+      },
+      {
+        "name": "Punjabi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Cost per hire down 34%",
+        "detail": "In-house sourcing and referrals at Kosh Fintech."
+      },
+      {
+        "title": "Joining drop-off 32% to 17%",
+        "detail": "Pre-joining engagement at Aravalli Tech Services."
+      }
+    ],
+    "skills": [
+      "Talent acquisition strategy",
+      "Volume hiring",
+      "Campus recruitment",
+      "RPO management",
+      "Naukri RMS",
+      "LinkedIn Recruiter",
+      "Recruitment analytics",
+      "Budget management",
+      "Employer branding",
+      "Team leadership",
+      "Vendor negotiation"
+    ],
+    "interests": [
+      "Golf",
+      "Hindustani classical music"
+    ]
+  }
+}

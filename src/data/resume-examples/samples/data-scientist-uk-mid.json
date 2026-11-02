@@ -1,0 +1,74 @@
+{
+  "id": "data-scientist-uk-mid",
+  "category": "data-science",
+  "role": "data-scientist",
+  "country": "uk",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Hannah Osei",
+    "title": "Senior Data Scientist",
+    "phone": "07700 900276",
+    "email": "hannah.osei@example.com",
+    "linkedin": "linkedin.com/in/hannah-osei",
+    "location": "Leeds",
+    "summary": "Data scientist with nine years in insurance, rail ticketing and home retail, moving from pricing analysis into recommendation and forecasting models. At a Leeds homeware retailer I lead the personalisation workstream, where a rebuilt recommender added an estimated £2.4m in annual online revenue. Equally comfortable writing production Python and explaining uncertainty to a trading director.",
+    "experience": [
+      {
+        "title": "Senior Data Scientist",
+        "company": "Briggate Home Retail",
+        "location": "Leeds",
+        "start": "2022-11",
+        "end": "present",
+        "bullets": [
+          "Lead the personalisation workstream with two data scientists and an ML engineer; our rebuilt product recommender lifted online revenue per session by 4.5%, worth about £2.4m a year.",
+          "Replaced a rules-based stock allocation tool with a probabilistic demand model for 9,000 SKUs, reducing store stockouts by 16% in the trial region.",
+          "Set up offline evaluation and A/B testing standards adopted by all four data teams in the business.",
+          "Run a monthly reading group and mentor two graduate analysts working towards data science roles."
+        ]
+      },
+      {
+        "title": "Data Scientist",
+        "company": "Pennine Rail Ticketing",
+        "location": "Manchester",
+        "start": "2019-09",
+        "end": "2022-10",
+        "bullets": [
+          "Forecast daily passenger demand on 180 routes to support advance fare quotas, improving forecast accuracy by 22% against the legacy model.",
+          "Built a churn model for season ticket holders during the shift to hybrid working, helping the commercial team design flexible tickets that retained 11,000 customers.",
+          "Moved model training from desktop scripts to scheduled jobs on Azure Machine Learning, cutting retraining from two days to three hours."
+        ]
+      },
+      {
+        "title": "Data Analyst, Pricing",
+        "company": "Calder Insurance Services",
+        "location": "Halifax",
+        "start": "2017-09",
+        "end": "2019-08",
+        "bullets": [
+          "Maintained GLM-based risk models for home insurance with the actuarial team, refreshing factor tables each quarter.",
+          "Automated competitor price-scrape cleaning in Python, saving the pricing team around 12 hours a week.",
+          "Analysed renewal elasticity across 300,000 policies and supported the FCA pricing practices review with documented evidence."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "MSc Data Science", "school": "University of Sheffield", "location": "Sheffield", "start": "2016-09", "end": "2017-09", "details": "Distinction" },
+      { "degree": "BSc (Hons) Economics, 2:1", "school": "University of York", "location": "York", "start": "2013-09", "end": "2016-06" }
+    ],
+    "courses": [
+      { "name": "Microsoft Certified: Azure Data Scientist Associate", "provider": "Microsoft", "year": 2021 },
+      { "name": "Bayesian Statistics: From Concept to Data Analysis", "provider": "Coursera (UC Santa Cruz)", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Twi", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Conference talk", "detail": "Spoke on offline evaluation for recommenders at a northern England PyData meetup (2024)." },
+      { "title": "Open-source contributor", "detail": "Contributed documentation fixes and an example notebook to a Python forecasting library." }
+    ],
+    "skills": ["Python", "PyTorch", "scikit-learn", "SQL", "Spark", "Azure Machine Learning", "Recommender systems", "Demand forecasting", "Bayesian modelling", "A/B testing", "MLflow", "Mentoring"],
+    "interests": ["Climbing", "Allotment gardening", "Jazz piano"]
+  }
+}

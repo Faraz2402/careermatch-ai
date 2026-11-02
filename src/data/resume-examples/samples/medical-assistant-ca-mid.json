@@ -1,0 +1,124 @@
+{
+  "id": "medical-assistant-ca-mid",
+  "category": "healthcare-nursing",
+  "role": "medical-assistant",
+  "country": "ca",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Harpreet Grewal",
+    "title": "Senior Medical Office Assistant",
+    "phone": "(905) 555-0174",
+    "email": "harpreet.grewal@example.com",
+    "linkedin": "linkedin.com/in/harpreet-grewal",
+    "location": "Mississauga, ON",
+    "summary": "Medical office assistant with eight years in walk-in, paediatric and family health team settings across the GTA. I keep busy clinics running on time, and recovered $46,000 in rejected OHIP claims in my current role by cleaning up billing codes and resubmission routines.",
+    "experience": [
+      {
+        "title": "Medical Office Assistant",
+        "company": "Cooksville Walk-In Clinic",
+        "location": "Mississauga, ON",
+        "start": "2018-06",
+        "end": "2020-07",
+        "bullets": [
+          "Checked in up to 120 walk-in patients a day, verified OHIP health cards and triaged phone calls for four rotating physicians.",
+          "Booked specialist referrals and diagnostic imaging, tracking 300+ open referrals a month in a colour-coded EMR task list.",
+          "Prepared exam rooms, took vitals and assisted with dressing changes and ear syringing when the clinic nurse was off."
+        ]
+      },
+      {
+        "title": "Medical Office Assistant",
+        "company": "Maple Grove Children's Clinic",
+        "location": "Brampton, ON",
+        "start": "2020-08",
+        "end": "2023-02",
+        "bullets": [
+          "Coordinated well-baby visits and vaccine schedules for a roster of 3,800 children across three pediatricians.",
+          "Moved paper vaccine records into Accuro EMR and reconciled them with public health immunization reports for school-age patients.",
+          "Answered parent calls in English, Punjabi and Hindi, and cut the phone message backlog from two days to same-day with a callback template."
+        ]
+      },
+      {
+        "title": "Senior Medical Office Assistant",
+        "company": "Credit River Family Health Team",
+        "location": "Mississauga, ON",
+        "start": "2023-03",
+        "end": "present",
+        "bullets": [
+          "Lead a front-desk team of 5 MOAs serving 9 physicians, a nurse practitioner and two allied health providers.",
+          "Recovered $46,000 in rejected OHIP claims in 18 months by fixing fee and diagnostic codes and setting a weekly resubmission routine.",
+          "Rebuilt the appointment templates in Accuro, reducing average patient wait time in the waiting room from 34 to 19 minutes.",
+          "Train new MOAs on privacy obligations under PHIPA and manage the clinic's records-release requests."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Ontario College Diploma, Health Office Administration",
+        "school": "Centennial College",
+        "location": "Toronto, ON",
+        "start": "2016-09",
+        "end": "2018-04",
+        "details": "Included a 4-week clinic placement."
+      }
+    ],
+    "courses": [
+      {
+        "name": "OHIP Billing for Medical Office Staff",
+        "provider": "Sheridan College Continuing and Professional Studies",
+        "year": 2021
+      },
+      {
+        "name": "Standard First Aid with CPR Level C",
+        "provider": "Canadian Red Cross",
+        "year": 2024
+      },
+      {
+        "name": "Medical Terminology",
+        "provider": "Centennial College Continuing Education",
+        "year": 2017
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Punjabi",
+        "level": "Native"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Clinic recognition, 2024",
+        "detail": "Thanked by the lead physician for the scheduling redesign that cut patient wait times."
+      },
+      {
+        "title": "Volunteer, community health fair",
+        "detail": "Helped run a yearly diabetes screening day for 200+ residents in Malton."
+      }
+    ],
+    "skills": [
+      "OHIP billing",
+      "Accuro EMR",
+      "TELUS PS Suite",
+      "Appointment scheduling",
+      "Referral management",
+      "Medical terminology",
+      "PHIPA privacy",
+      "Vital signs",
+      "Front desk leadership",
+      "Multilingual patient service"
+    ],
+    "interests": [
+      "Cricket",
+      "Photography",
+      "Community volunteering"
+    ]
+  }
+}

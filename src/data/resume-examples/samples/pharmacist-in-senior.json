@@ -1,0 +1,144 @@
+{
+  "id": "pharmacist-in-senior",
+  "category": "healthcare-nursing",
+  "role": "pharmacist",
+  "country": "in",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Rohan Deshpande",
+    "title": "Head of Pharmacy Services",
+    "phone": "+91 00000 26784",
+    "email": "rohan.deshpande@example.com",
+    "linkedin": "linkedin.com/in/rohan-deshpande",
+    "location": "Pune, Maharashtra",
+    "summary": "Hospital pharmacist with 15 years in clinical and operational pharmacy, now heading pharmacy services for a 550-bed tertiary care hospital with 68 staff. I led the department through two NABH reaccreditations and cut drug inventory holding by ₹1.8 crore without stock-outs of critical medicines.",
+    "experience": [
+      {
+        "title": "Clinical Pharmacist",
+        "company": "Deccan Lifeline Hospital",
+        "location": "Pune, Maharashtra",
+        "start": "2011-08",
+        "end": "2014-12",
+        "bullets": [
+          "Reviewed prescriptions for 60–70 inpatients a day on medicine and nephrology wards and recommended dose changes in renal impairment.",
+          "Set up the hospital's first adverse drug reaction reporting desk, raising ADR reports to the PvPI centre from 12 to 140 a year.",
+          "Counselled discharged patients on anticoagulants and insulin in English, Hindi and Marathi."
+        ]
+      },
+      {
+        "title": "Senior Clinical Pharmacist",
+        "company": "Deccan Lifeline Hospital",
+        "location": "Pune, Maharashtra",
+        "start": "2015-01",
+        "end": "2018-06",
+        "bullets": [
+          "Led a team of 6 clinical pharmacists covering ICUs, oncology and paediatrics.",
+          "Developed the hospital's antimicrobial policy with the infection control committee, reducing carbapenem use by 27% in two years.",
+          "Trained 30 Pharm.D interns a year on clinical rotations as their site preceptor."
+        ]
+      },
+      {
+        "title": "Pharmacy Manager",
+        "company": "Mula-Mutha Institute of Medical Sciences",
+        "location": "Pune, Maharashtra",
+        "start": "2018-07",
+        "end": "2022-03",
+        "bullets": [
+          "Managed inpatient, outpatient and OT pharmacies with 42 staff and an annual drug spend of ₹85 crore.",
+          "Introduced barcode-based dispensing and automated reorder levels in the HIS, cutting dispensing errors by 46%.",
+          "Negotiated rate contracts with 30+ suppliers, saving ₹3.2 crore in the first year.",
+          "Kept 24x7 supply running through the COVID-19 surges, including remdesivir and tocilizumab allocation as per state guidelines."
+        ]
+      },
+      {
+        "title": "Head of Pharmacy Services",
+        "company": "Mula-Mutha Institute of Medical Sciences",
+        "location": "Pune, Maharashtra",
+        "start": "2022-04",
+        "end": "present",
+        "bullets": [
+          "Head a department of 68 pharmacists and pharmacy assistants across six pharmacies in a 550-bed hospital.",
+          "Reduced inventory holding by ₹1.8 crore through ABC-VED analysis and consignment stock for high-cost implants and oncology drugs.",
+          "Led pharmacy chapters for two NABH reaccreditations with no major non-conformities.",
+          "Chair the pharmacy and therapeutics committee, maintaining a 1,100-item formulary."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Pharm (Pharmacy Practice)",
+        "school": "Manipal College of Pharmaceutical Sciences",
+        "location": "Manipal, Karnataka",
+        "start": "2009-08",
+        "end": "2011-06",
+        "details": "CGPA 8.6/10."
+      },
+      {
+        "degree": "B.Pharm",
+        "school": "Bombay College of Pharmacy (University of Mumbai)",
+        "location": "Mumbai, Maharashtra",
+        "start": "2005-08",
+        "end": "2009-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "NABH Internal Assessor Programme",
+        "provider": "Quality Council of India / NABH",
+        "year": 2019
+      },
+      {
+        "name": "Executive Programme in Healthcare Management",
+        "provider": "Indian Institute of Management (online)",
+        "year": 2021
+      },
+      {
+        "name": "Pharmacovigilance training",
+        "provider": "Pharmacovigilance Programme of India (PvPI)",
+        "year": 2013
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Marathi",
+        "level": "Native"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Registered Pharmacist",
+        "detail": "Registered with the Maharashtra State Pharmacy Council since 2009."
+      },
+      {
+        "title": "Conference speaker",
+        "detail": "Presented the hospital's antimicrobial stewardship results at a national hospital pharmacy conference, 2017."
+      }
+    ],
+    "skills": [
+      "Pharmacy leadership",
+      "Formulary management",
+      "Antimicrobial stewardship",
+      "NABH accreditation",
+      "Inventory control (ABC-VED)",
+      "Procurement and rate contracts",
+      "Pharmacovigilance",
+      "Clinical pharmacy",
+      "HIS and barcoding",
+      "Budgeting"
+    ],
+    "interests": [
+      "Trekking in the Sahyadris",
+      "Chess",
+      "Teaching pharmacy students"
+    ]
+  }
+}

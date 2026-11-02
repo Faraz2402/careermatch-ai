@@ -1,0 +1,111 @@
+{
+  "id": "customer-service-representative-de-entry",
+  "category": "office-administration",
+  "role": "customer-service-representative",
+  "country": "de",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Julia Nowak",
+    "title": "Customer Service Representative (German, English, Polish)",
+    "phone": "+49 30 23125 619",
+    "email": "julia.nowak@example.com",
+    "linkedin": "linkedin.com/in/julia-nowak",
+    "location": "Berlin",
+    "summary": "Trilingual customer service representative (German, English, Polish) with a business degree from HWR Berlin and two and a half years in e-commerce and mobility support. Handles around 70 tickets a day and keeps a satisfaction score above 4.5 out of 5.",
+    "experience": [
+      {
+        "title": "Werkstudentin Customer Support (student job)",
+        "company": "Kiezkorb GmbH",
+        "location": "Berlin",
+        "start": "2023-05",
+        "end": "2024-09",
+        "bullets": [
+          "Answered email and chat questions about orders, returns and deliveries for a subscription food box, about 20 hours a week during my studies.",
+          "Handled Polish-language tickets for the new Polish market launch, covering roughly 150 tickets a week on my own.",
+          "Suggested new canned responses for the five most common return questions, which the team adopted in Freshdesk."
+        ]
+      },
+      {
+        "title": "Customer Service Representative",
+        "company": "Spreewerk Mobility GmbH",
+        "location": "Berlin",
+        "start": "2024-10",
+        "end": "present",
+        "bullets": [
+          "Support riders of an e-scooter and e-bike sharing app by chat, email and phone in German, English and Polish, around 70 contacts a day.",
+          "Process refunds and fine disputes following clear rules, keeping incorrect refunds below 1% in monthly audits.",
+          "Report recurring app bugs to the product team with screenshots and steps, and three of my reports led to fixes in the next release.",
+          "Keep an average customer satisfaction score of 4.6 out of 5 across more than 9,000 rated conversations."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.A. Business Administration (Betriebswirtschaftslehre)",
+        "school": "Hochschule für Wirtschaft und Recht Berlin",
+        "location": "Berlin",
+        "start": "2021-10",
+        "end": "2024-09",
+        "details": "Final grade 1.9; thesis on chatbot handover in customer service"
+      },
+      {
+        "degree": "Abitur",
+        "school": "Gymnasium Tiergarten",
+        "location": "Berlin",
+        "end": "2021-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Customer Service Fundamentals",
+        "provider": "Coursera",
+        "year": 2023
+      },
+      {
+        "name": "Zendesk for Agents",
+        "provider": "Zendesk Training",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native (C2)"
+      },
+      {
+        "name": "Polish",
+        "level": "Native (C2)"
+      },
+      {
+        "name": "English",
+        "level": "Fluent (C1)"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Market launch support",
+        "detail": "Covered Polish-language support alone during Kiezkorb's first three months in Poland."
+      },
+      {
+        "title": "University mentoring",
+        "detail": "Mentored first-year students in HWR Berlin's buddy programme for two semesters."
+      }
+    ],
+    "skills": [
+      "Ticketing (Zendesk, Freshdesk)",
+      "Live chat support",
+      "Refunds and disputes",
+      "Multilingual support DE/EN/PL",
+      "Bug reporting",
+      "Microsoft 365",
+      "DSGVO basics",
+      "Google Sheets"
+    ],
+    "interests": [
+      "Cycling around Brandenburg lakes",
+      "Indie concerts",
+      "Learning Spanish"
+    ]
+  }
+}

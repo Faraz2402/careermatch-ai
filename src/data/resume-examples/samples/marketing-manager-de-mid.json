@@ -1,0 +1,89 @@
+{
+  "id": "marketing-manager-de-mid",
+  "category": "marketing",
+  "role": "marketing-manager",
+  "country": "de",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Selin Yıldız",
+    "title": "Senior Marketing Manager DACH",
+    "phone": "+49 40 66969 218",
+    "email": "selin.yildiz@example.com",
+    "linkedin": "linkedin.com/in/selin-yildiz",
+    "location": "Hamburg",
+    "summary": "Marketing manager with ten years in Hamburg consumer brands, from travel to bicycles to natural cosmetics. Currently owns the DACH marketing plan and a €1.3m budget for a certified natural cosmetics brand, where a drugstore launch took revenue in Austria and Switzerland past €4m. Works fluently in German, Turkish and English.",
+    "experience": [
+      {
+        "title": "Senior Marketing Manager DACH",
+        "company": "Nordlicht Naturkosmetik GmbH",
+        "location": "Hamburg",
+        "start": "2023-01",
+        "end": "present",
+        "bullets": [
+          "Own the annual marketing plan and €1.3m budget for Germany, Austria and Switzerland, leading two marketing managers and a working student.",
+          "Planned the brand's entry into Austrian and Swiss drugstore chains with shelf activation and sampling, reaching €4.2m in combined revenue in 2025.",
+          "Commissioned a twice-yearly brand tracker from a Hamburg research agency, using the results to refocus messaging on skin sensitivity and halve wasted media.",
+          "Set up GDPR-compliant consent and CRM journeys with the data protection officer, growing the opt-in customer base to 180,000 contacts."
+        ]
+      },
+      {
+        "title": "Marketing Manager",
+        "company": "Hanseatic Fahrradwerk GmbH",
+        "location": "Hamburg",
+        "start": "2019-07",
+        "end": "2022-12",
+        "bullets": [
+          "Managed marketing for a mid-sized e-bike manufacturer selling through 260 specialist dealers in Germany and the Netherlands.",
+          "Built a dealer co-marketing fund of €400,000 a year, with clear rules and reporting, which raised dealer participation from 35% to 71%.",
+          "Coordinated the launch of a cargo e-bike range at Eurobike, generating 1,900 dealer pre-orders in the first season.",
+          "Moved the product catalogue from print to a configurable digital version, saving €85,000 in annual print and postage costs."
+        ]
+      },
+      {
+        "title": "Junior Marketing Manager",
+        "company": "Elbstrand Reisen GmbH",
+        "location": "Hamburg",
+        "start": "2016-11",
+        "end": "2019-06",
+        "bullets": [
+          "Produced seasonal campaigns for North Sea and Baltic holiday packages across print, newsletter and travel fairs.",
+          "Tested early-booking offers across 12 newsletter segments, raising January booking revenue by 19% compared with the previous year.",
+          "Organised the company stand at ITB Berlin for two years, coordinating suppliers, staff rotas and lead capture."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc. Marketing",
+        "school": "Universität Hamburg",
+        "location": "Hamburg",
+        "start": "2014-10",
+        "end": "2016-09",
+        "details": "Final grade 1.7. Thesis on consumer trust in natural cosmetics certification labels."
+      },
+      {
+        "degree": "B.A. Betriebswirtschaftslehre (Business Administration)",
+        "school": "Universität zu Köln",
+        "location": "Köln",
+        "start": "2011-10",
+        "end": "2014-09"
+      }
+    ],
+    "courses": [
+      { "name": "Brand Management", "provider": "Haufe Akademie", "year": 2022 },
+      { "name": "Google Analytics 4 Certification", "provider": "Google Skillshop", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "German", "level": "Native (C2)" },
+      { "name": "Turkish", "level": "Native (C2)" },
+      { "name": "English", "level": "Fluent (C1)" }
+    ],
+    "achievements": [
+      { "title": "Retail expansion", "detail": "Brand listed in two Austrian and one Swiss drugstore chain within 14 months." },
+      { "title": "Dealer programme", "detail": "Dealer co-marketing participation more than doubled after redesigning the fund rules." }
+    ],
+    "skills": ["Integrated campaign planning", "Brand positioning", "Trade and retail marketing", "Budget control", "Team leadership", "Market research", "GDPR-compliant CRM", "Salesforce Marketing Cloud", "GA4", "Trade fairs", "Agency briefing"],
+    "interests": ["Sailing on the Alster", "Turkish poetry", "Running the Hamburg half marathon"]
+  }
+}

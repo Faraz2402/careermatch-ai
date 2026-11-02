@@ -1,0 +1,72 @@
+{
+  "id": "product-manager-au-mid",
+  "category": "business-management",
+  "role": "product-manager",
+  "country": "au",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Tahlia Brennan",
+    "title": "Product Manager",
+    "phone": "0491 573 770",
+    "email": "tahlia.brennan@example.com",
+    "linkedin": "linkedin.com/in/tahlia-brennan",
+    "location": "Brisbane QLD",
+    "summary": "Product manager with nine years in SaaS, travel bookings and health technology, who moved into product from customer success. Own the clinic booking product at a Brisbane health-tech company used by 1,100 allied health practices, where online booking share grew from 38% to 61%. Grounded in customer research and steady delivery with small cross-functional teams.",
+    "experience": [
+      {
+        "title": "Product Manager",
+        "company": "Wynnum Health Tech",
+        "location": "Brisbane QLD",
+        "start": "2021-06",
+        "end": "present",
+        "bullets": [
+          "Own the online booking and reminders product for 1,100 physiotherapy, podiatry and psychology practices across Australia.",
+          "Grew the share of appointments booked online from 38% to 61% by shipping deposit payments, waitlists and a simpler mobile flow.",
+          "Partnered with the privacy officer on consent and data retention requirements under the Privacy Act.",
+          "Run fortnightly discovery calls with practice managers and share insights with sales and support."
+        ]
+      },
+      {
+        "title": "Associate Product Manager",
+        "company": "Bulimba Bookings",
+        "location": "Brisbane QLD",
+        "start": "2018-09",
+        "end": "2021-05",
+        "bullets": [
+          "Managed the operator dashboard for 900 tour and activity operators.",
+          "Rebuilt cancellation and refund settings during 2020 travel restrictions, reducing refund-related tickets by 40%.",
+          "Defined product metrics and a weekly reporting pack for the leadership team."
+        ]
+      },
+      {
+        "title": "Customer Success Lead",
+        "company": "Fortitude Valley Software",
+        "location": "Brisbane QLD",
+        "start": "2017-03",
+        "end": "2018-08",
+        "bullets": [
+          "Led a team of four managing 250 accounts for a job management app used by trades businesses.",
+          "Turned recurring feature requests into a monthly product feedback report, which led to three roadmap items.",
+          "Lowered annual churn on managed accounts from 14% to 10%."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "Bachelor of Commerce (Marketing)", "school": "Griffith University", "location": "Brisbane QLD", "start": "2013-02", "end": "2016-11" }
+    ],
+    "courses": [
+      { "name": "Certified Scrum Product Owner (CSPO)", "provider": "Scrum Alliance", "year": 2019 },
+      { "name": "Product Management short course", "provider": "General Assembly", "year": 2018 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Customer impact award", "detail": "Wynnum Health Tech annual customer impact award (2023) for the deposits and waitlist release." },
+      { "title": "Meetup speaker", "detail": "Spoke on moving from customer success into product at a Brisbane product community meetup." }
+    ],
+    "skills": ["Product discovery", "Roadmapping", "Customer research", "Prioritisation frameworks", "Product analytics (Mixpanel)", "SQL (basic)", "Figma", "Jira", "Payments features", "Privacy-by-design"],
+    "interests": ["Netball", "Op-shop furniture restoration", "Camping"]
+  }
+}

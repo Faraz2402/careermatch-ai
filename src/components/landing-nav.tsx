@@ -1,9 +1,10 @@
 import Link from "next/link";
 
 const LINKS = [
-  { href: "#product", label: "Product" },
-  { href: "#features", label: "Features" },
-  { href: "#method", label: "How it works" },
+  { href: "/#product", label: "Product" },
+  { href: "/#features", label: "Features" },
+  { href: "/#method", label: "How it works" },
+  { href: "/resume-examples", label: "Resume examples" },
   { href: "/pricing", label: "Pricing" },
 ];
 
@@ -22,7 +23,7 @@ export function LandingNav({ className = "" }: { className?: string }) {
           );
           return (
             <li key={href}>
-              {href.startsWith("#") ? <a href={href} className={cls}>{inner}</a> : <Link href={href} className={cls}>{inner}</Link>}
+              {href.startsWith("/#") ? <a href={href} className={cls}>{inner}</a> : <Link href={href} className={cls}>{inner}</Link>}
             </li>
           );
         })}

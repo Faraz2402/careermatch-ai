@@ -1,0 +1,61 @@
+{
+  "id": "data-analyst-uk-entry",
+  "category": "data-science",
+  "role": "data-analyst",
+  "country": "uk",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Priya Lockwood",
+    "title": "Graduate Data Analyst",
+    "phone": "07700 900418",
+    "email": "priya.lockwood@example.com",
+    "linkedin": "linkedin.com/in/priya-lockwood",
+    "location": "Leeds, West Yorkshire",
+    "summary": "Mathematics with Statistics graduate (First) in my first full-time analyst role at a Yorkshire building society, after a year-long placement in a water utility's performance team. Comfortable with SQL, Power BI and R, and happiest when a report I built replaces a manual process. My placement dashboard on leak response times is still used by the operations team.",
+    "experience": [
+      {
+        "title": "Graduate Data Analyst",
+        "company": "Kirkstall Mutual Building Society",
+        "location": "Leeds",
+        "start": "2025-09",
+        "end": "present",
+        "bullets": [
+          "Rebuilt the weekly mortgage pipeline report in Power BI, replacing a 30-tab spreadsheet and saving the lending team about 4 hours every Monday.",
+          "Wrote SQL checks that catch duplicate and incomplete savings applications before month end, reducing manual corrections by roughly a quarter.",
+          "Support two senior analysts on the member retention model by preparing and documenting the data extracts used for each monthly refresh."
+        ]
+      },
+      {
+        "title": "Placement Data Analyst (industrial year)",
+        "company": "Wharfedale Water Services",
+        "location": "Bradford",
+        "start": "2023-07",
+        "end": "2024-06",
+        "bullets": [
+          "Created a leak response dashboard covering 1,800 monthly jobs, which the operations manager adopted for daily stand-ups.",
+          "Cleaned five years of customer contact data in R and spotted that 14% of complaints were repeat contacts about the same fault.",
+          "Presented findings on weekend call-out delays to a panel of six managers, leading to a trial of an extra standby crew."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "BSc (Hons) Mathematics with Statistics, First Class", "school": "University of Leeds", "location": "Leeds", "start": "2021-09", "end": "2025-06", "details": "Sandwich degree with industrial placement year. Dissertation: forecasting hospital A&E attendances with time-series models." },
+      { "degree": "A-levels: Mathematics (A*), Further Mathematics (A), Economics (A)", "school": "Harrogate Grammar School", "location": "Harrogate", "start": "2019-09", "end": "2021-06" }
+    ],
+    "courses": [
+      { "name": "PL-300: Microsoft Power BI Data Analyst", "provider": "Microsoft Learn", "year": 2025 },
+      { "name": "Intermediate SQL", "provider": "DataCamp", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Gujarati", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Best placement project, School of Mathematics", "detail": "Awarded for the leak response dashboard and the write-up of its impact on call-out planning (2024)." },
+      { "title": "Student society treasurer", "detail": "Managed a £6,000 annual budget for the university statistics society and published termly accounts." }
+    ],
+    "skills": ["SQL", "Power BI", "R (tidyverse)", "Excel", "Python (basic)", "Data cleaning", "Data visualisation", "Time-series forecasting", "Report automation", "Presenting to non-technical audiences"],
+    "interests": ["Parkrun", "Board game design", "Yorkshire Dales walking"]
+  }
+}

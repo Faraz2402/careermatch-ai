@@ -1,0 +1,87 @@
+{
+  "id": "front-end-developer-ca-entry",
+  "category": "software-engineering",
+  "role": "front-end-developer",
+  "country": "ca",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Émile Gagnon",
+    "title": "Junior Front-End Developer",
+    "phone": "(514) 555-0131",
+    "email": "emile.gagnon@example.com",
+    "linkedin": "linkedin.com/in/emile-gagnon",
+    "location": "Montréal, QC",
+    "summary": "Bilingual junior front-end developer with two co-op terms and a first full-time role building a French and English e-learning app in Vue and TypeScript. Built the language switcher and translation workflow that let the team ship both versions on the same day. Pays close attention to colour contrast, keyboard use and clear copy.",
+    "experience": [
+      {
+        "title": "Front-End Developer (Co-op)",
+        "company": "Plateau Bookings Inc.",
+        "location": "Montréal, QC",
+        "start": "2023-05",
+        "end": "2023-08",
+        "bullets": [
+          "Built a restaurant table-booking widget in Vue that partners embedded on 60 websites during the summer patio season.",
+          "Fixed 25 layout bugs on small Android phones reported by the support team, using real-device testing instead of desktop emulation.",
+          "Translated and localized date, time and currency formats for French and English users."
+        ]
+      },
+      {
+        "title": "Web Developer (Co-op)",
+        "company": "Rive-Sud Transit Apps",
+        "location": "Longueuil, QC",
+        "start": "2024-01",
+        "end": "2024-04",
+        "bullets": [
+          "Created a React page showing real-time bus delays from GTFS-realtime feeds, viewed about 9,000 times a day in its first month.",
+          "Improved Lighthouse accessibility score on the trip planner from 72 to 96 by fixing labels, focus order and contrast.",
+          "Presented my work at the end-of-term demo to the CTO and two municipal transit partners."
+        ]
+      },
+      {
+        "title": "Junior Front-End Developer",
+        "company": "Mile End Learning Studio",
+        "location": "Montréal, QC (hybrid)",
+        "start": "2025-06",
+        "end": "present",
+        "bullets": [
+          "Built the language switcher and i18n workflow in Vue 3 and TypeScript, so French and English releases now ship on the same day instead of two weeks apart.",
+          "Developed quiz and flash-card components used by 12,000 adult learners, with unit tests in Vitest.",
+          "Reduced initial page weight by 35% by lazy-loading lesson videos and compressing images.",
+          "Take part in design critiques and raise accessibility concerns early with the two designers on the team."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Computer Science (Co-op)",
+        "school": "Concordia University",
+        "location": "Montréal, QC",
+        "start": "2021-09",
+        "end": "2025-04",
+        "details": "GPA 3.5/4.3. Minor in Interaction Design."
+      },
+      {
+        "degree": "DEC (Diplôme d'études collégiales), Natural Sciences",
+        "school": "Collège de Maisonneuve",
+        "location": "Montréal, QC",
+        "start": "2019-08",
+        "end": "2021-05"
+      }
+    ],
+    "courses": [
+      { "name": "Meta Front-End Developer Professional Certificate", "provider": "Coursera", "year": 2023 },
+      { "name": "Vue.js 3 Fundamentals", "provider": "Vue School", "year": 2025 }
+    ],
+    "languages": [
+      { "name": "French", "level": "Native" },
+      { "name": "English", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Best user experience award, ConUHacks", "detail": "Built a bilingual library-seat finder with two classmates in 24 hours." },
+      { "title": "Volunteer web lead, neighbourhood food bank", "detail": "Rebuilt the volunteer sign-up site, which now handles about 200 shift bookings a month." }
+    ],
+    "skills": ["HTML and CSS", "JavaScript", "TypeScript", "Vue 3", "React", "Internationalization (i18n)", "Vitest", "Figma", "Accessibility basics (WCAG)", "Git and GitHub"],
+    "interests": ["Hockey (rec league)", "Street photography", "Québec indie music"]
+  }
+}

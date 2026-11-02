@@ -1,0 +1,87 @@
+{
+  "id": "data-scientist-ca-senior",
+  "category": "data-science",
+  "role": "data-scientist",
+  "country": "ca",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Priyanka Desai",
+    "title": "Principal Data Scientist",
+    "phone": "(587) 555-0158",
+    "email": "priyanka.desai@example.com",
+    "linkedin": "linkedin.com/in/priyanka-desai",
+    "location": "Calgary, AB",
+    "summary": "Principal data scientist with 15 years in agriculture, insurance, telecom and energy trading. Lead a data science group of nine at a Calgary natural gas marketer, where our price and demand forecasting platform informs about $1.8 billion in annual trading volume. Accredited P.Stat. with a track record of getting models out of notebooks and into daily decisions.",
+    "experience": [
+      {
+        "title": "Principal Data Scientist",
+        "company": "Northcrest Energy Marketing",
+        "location": "Calgary, AB",
+        "start": "2022-04",
+        "end": "present",
+        "bullets": [
+          "Lead nine data scientists and ML engineers across forecasting, risk and customer analytics, with a $2.6 million annual budget.",
+          "Delivered a gas demand forecasting platform using hierarchical models and weather ensembles, lowering day-ahead forecast error by 19% and informing roughly $1.8 billion in yearly volume.",
+          "Established model risk governance with the CRO: model cards, validation sign-off and drift monitoring for all 23 production models.",
+          "Hired and onboarded five team members and created a promotion framework with clear expectations for each level."
+        ]
+      },
+      {
+        "title": "Senior Data Scientist",
+        "company": "Elbow River Telecom",
+        "location": "Calgary, AB",
+        "start": "2018-07",
+        "end": "2022-03",
+        "bullets": [
+          "Built a customer lifetime value model for 1.2 million wireless subscribers that reshaped retention offers and reduced postpaid churn by 0.4 points a month.",
+          "Developed network capacity forecasts that deferred $14 million in tower upgrades without breaching service targets.",
+          "Led a team of three on a bilingual call transcript classifier that routed English and French complaints with 91% accuracy."
+        ]
+      },
+      {
+        "title": "Data Scientist",
+        "company": "Kananaskis Mutual Insurance",
+        "location": "Calgary, AB",
+        "start": "2014-09",
+        "end": "2018-06",
+        "bullets": [
+          "Created a hail claims severity model using radar and policy data, shortening catastrophe reserve estimates from two weeks to two days after major storms.",
+          "Introduced fraud propensity scoring for auto claims, increasing the hit rate of special investigations referrals from 18% to 31%.",
+          "Partnered with underwriting to retire 40 manual rating rules after validating them against loss experience."
+        ]
+      },
+      {
+        "title": "Research Analyst",
+        "company": "Prairie Grain Analytics",
+        "location": "Saskatoon, SK",
+        "start": "2011-05",
+        "end": "2014-08",
+        "bullets": [
+          "Modelled crop yield from satellite vegetation indices for 3,000 townships, supporting grain marketing reports sold to 60 subscribers.",
+          "Wrote R packages for data cleaning that cut weekly report production from three days to one.",
+          "Presented yield outlooks at two provincial agriculture conferences."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "MSc Statistics", "school": "University of Saskatchewan", "location": "Saskatoon, SK", "start": "2009-09", "end": "2011-04", "details": "Thesis on spatial models for crop yield" },
+      { "degree": "BMath Statistics", "school": "University of Waterloo", "location": "Waterloo, ON", "start": "2004-09", "end": "2009-04", "details": "Co-operative program" }
+    ],
+    "courses": [
+      { "name": "P.Stat. accreditation", "provider": "Statistical Society of Canada", "year": 2017 },
+      { "name": "Leadership development program", "provider": "Haskayne School of Business, Executive Education", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Gujarati", "level": "Fluent" },
+      { "name": "French", "level": "Intermediate" }
+    ],
+    "achievements": [
+      { "title": "Industry keynote", "detail": "Keynote on forecasting under weather uncertainty at a Calgary energy analytics forum (2024)." },
+      { "title": "Mentorship", "detail": "Volunteer mentor for graduate students in a western Canadian statistics mentorship program since 2019." }
+    ],
+    "skills": ["Python", "R", "SQL", "Bayesian hierarchical models", "Time-series forecasting", "Databricks", "MLOps", "Model risk governance", "Causal inference", "Team leadership", "Budget ownership", "Executive communication"],
+    "interests": ["Backcountry skiing", "Classical Indian dance", "STEM outreach"]
+  }
+}

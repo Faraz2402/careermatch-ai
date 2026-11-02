@@ -1,0 +1,114 @@
+{
+  "id": "medical-assistant-de-entry",
+  "category": "healthcare-nursing",
+  "role": "medical-assistant",
+  "country": "de",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Natalia Wiśniewska",
+    "title": "Medizinische Fachangestellte (MFA)",
+    "phone": "+49 221 4710 358",
+    "email": "natalia.wisniewska@example.com",
+    "linkedin": "linkedin.com/in/natalia-wisniewska",
+    "location": "Köln",
+    "summary": "Newly qualified Medizinische Fachangestellte who trained for three years in a busy general practice in Köln-Ehrenfeld and now works in an internal medicine practice. Confident with blood draws, ECGs, practice software and patients in German, Polish and English.",
+    "experience": [
+      {
+        "title": "Auszubildende Medizinische Fachangestellte (Trainee MFA)",
+        "company": "Hausarztpraxis am Ehrenfeldgürtel",
+        "location": "Köln",
+        "start": "2023-08",
+        "end": "2026-06",
+        "bullets": [
+          "Learned reception, scheduling and billing for a two-doctor GP practice with about 1,400 patients per quarter.",
+          "Took 15–20 blood samples a day and performed ECGs, spirometry and wound care under the doctors' supervision.",
+          "Managed the vaccination recall list for flu and pneumococcal jabs and helped run Saturday vaccine clinics for 300+ patients.",
+          "Passed the final exam before the Ärztekammer Nordrhein with grade 'gut' (2)."
+        ]
+      },
+      {
+        "title": "Medizinische Fachangestellte",
+        "company": "Internistische Praxis Lindenthal",
+        "location": "Köln",
+        "start": "2026-07",
+        "end": "present",
+        "bullets": [
+          "Prepare patients for ultrasound, long-term ECG and 24-hour blood pressure monitoring in a practice seeing 90 patients a day.",
+          "Manage lab orders and results in the practice software and contact patients when the doctor asks for follow-up.",
+          "Handle e-prescriptions and electronic sick notes, reducing paper requests at the front desk."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Medizinische Fachangestellte (Ärztekammer Nordrhein), vocational qualification",
+        "school": "Berufskolleg Ehrenfeld (vocational school)",
+        "location": "Köln",
+        "start": "2023-08",
+        "end": "2026-06",
+        "details": "Dual training: practice placement plus vocational school."
+      },
+      {
+        "degree": "Abitur (overall grade 2.4)",
+        "school": "Gesamtschule Köln-Nippes",
+        "location": "Köln",
+        "start": "2014-08",
+        "end": "2023-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Notfallmanagement in der Arztpraxis (Practice Emergency Training)",
+        "provider": "Ärztekammer Nordrhein course",
+        "year": 2025
+      },
+      {
+        "name": "Hygiene in der Arztpraxis",
+        "provider": "Practice in-house training",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "C2 (native level)"
+      },
+      {
+        "name": "Polish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "B2"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Best trainee in class",
+        "detail": "Top three results in the year group at vocational school."
+      },
+      {
+        "title": "Volunteer, Malteser Hilfsdienst",
+        "detail": "First aid volunteer at Cologne carnival events since 2022."
+      }
+    ],
+    "skills": [
+      "Venepuncture",
+      "ECG and long-term ECG",
+      "Spirometry",
+      "Appointment management",
+      "E-prescription (E-Rezept)",
+      "Practice software (MEDISTAR)",
+      "EBM billing basics",
+      "Hygiene standards",
+      "Patient reception",
+      "Polish-speaking patients"
+    ],
+    "interests": [
+      "Volleyball",
+      "Carnival",
+      "Cooking"
+    ]
+  }
+}

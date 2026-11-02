@@ -1,0 +1,115 @@
+{
+  "id": "registered-nurse-in-entry",
+  "category": "healthcare-nursing",
+  "role": "registered-nurse",
+  "country": "in",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Anjali Kulkarni",
+    "title": "Staff Nurse, Cardiac Care Unit",
+    "phone": "+91 00000 48213",
+    "email": "anjali.kulkarni@example.com",
+    "linkedin": "linkedin.com/in/anjali-kulkarni",
+    "location": "Pune, Maharashtra",
+    "summary": "B.Sc Nursing graduate registered with the Maharashtra Nursing Council, working as a staff nurse in a 16-bed cardiac care unit. Completed my internship in critical care and hold AHA BLS and ACLS, with strong patient counselling skills in Marathi, Hindi and English.",
+    "experience": [
+      {
+        "title": "Nursing Intern",
+        "company": "Pavana Riverside Multispeciality Hospital",
+        "location": "Pune, Maharashtra",
+        "start": "2023-08",
+        "end": "2024-07",
+        "bullets": [
+          "Rotated through medical ICU, surgical wards, paediatrics and labour room under the supervision of nursing tutors and ward sisters.",
+          "Assisted in 40+ central line and urinary catheter insertions while maintaining aseptic technique audited by the infection control nurse.",
+          "Delivered 12 health education sessions on hypertension and diet to OPD patients and their families in Marathi and Hindi."
+        ]
+      },
+      {
+        "title": "Staff Nurse, Cardiac Care Unit",
+        "company": "Shivneri Heart and Vascular Hospital",
+        "location": "Pune, Maharashtra",
+        "start": "2024-09",
+        "end": "present",
+        "bullets": [
+          "Monitor 3 patients per shift in a 16-bed CCU, including post-angioplasty, heart failure and post-CABG patients on inotropes.",
+          "Prepare patients for 25–30 cath lab procedures a week, completing checklists, femoral and radial site care and post-procedure monitoring.",
+          "Identified early ST changes in a post-PCI patient during a night shift and escalated promptly, leading to an emergency re-intervention.",
+          "Maintained 100% compliance in two NABH documentation audits for high-alert medication double checks."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Sc Nursing",
+        "school": "Bharati Vidyapeeth College of Nursing",
+        "location": "Pune, Maharashtra",
+        "start": "2020-08",
+        "end": "2024-07",
+        "details": "CGPA 8.2/10. Internship included 6 weeks in critical care."
+      },
+      {
+        "degree": "Class XII (HSC), Science",
+        "school": "Maharashtra State Board",
+        "location": "Pune, Maharashtra",
+        "start": "2018-06",
+        "end": "2020-03",
+        "details": "84%"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Basic Life Support (BLS) and ACLS",
+        "provider": "American Heart Association, authorised training centre",
+        "year": 2024
+      },
+      {
+        "name": "Infection Prevention and Control Basics",
+        "provider": "NPTEL",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Marathi",
+        "level": "Native"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Registered Nurse and Registered Midwife",
+        "detail": "Registered with the Maharashtra Nursing Council, 2024."
+      },
+      {
+        "title": "Best Outgoing Student, clinical practice",
+        "detail": "Awarded by the college for highest marks in Medical-Surgical Nursing practicals."
+      }
+    ],
+    "skills": [
+      "Cardiac monitoring",
+      "ECG recognition",
+      "Cath lab preparation",
+      "Inotrope infusions",
+      "Medication safety",
+      "NABH documentation",
+      "Patient counselling",
+      "Aseptic technique",
+      "Vital signs",
+      "Bedside procedures"
+    ],
+    "interests": [
+      "Classical singing",
+      "Badminton",
+      "Health camp volunteering"
+    ]
+  }
+}

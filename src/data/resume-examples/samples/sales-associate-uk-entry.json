@@ -1,0 +1,73 @@
+{
+  "id": "sales-associate-uk-entry",
+  "category": "sales-retail",
+  "role": "sales-associate",
+  "country": "uk",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Owen Barraclough",
+    "title": "Sales Associate",
+    "phone": "07700 900215",
+    "email": "owen.barraclough@example.com",
+    "linkedin": "linkedin.com/in/owen-barraclough",
+    "location": "Sheffield, South Yorkshire",
+    "summary": "Sales associate with three years in independent retail in Sheffield, now on the shop floor of a running and outdoor sports store. Regularly hits weekly targets, runs gait analysis appointments and is trusted to cover till and stockroom on weekend shifts.",
+    "experience": [
+      {
+        "title": "Sales Associate",
+        "company": "Steel City Sports",
+        "location": "Sheffield",
+        "start": "2023-09",
+        "end": "present",
+        "bullets": [
+          "Serve 60 to 90 customers on a typical Saturday across running, football and outdoor departments, beating my weekly sales target in 41 of the last 52 weeks.",
+          "Run video gait analysis sessions after in-house training, booking about 25 a month and converting most into shoe and insole sales.",
+          "Signed up 380 customers to the store's running club newsletter, which now fills weekly group runs.",
+          "Receive deliveries and replenish the shop floor from the stockroom, flagging size gaps to the manager before weekend peaks."
+        ]
+      },
+      {
+        "title": "Saturday Sales Assistant",
+        "company": "Ecclesall Road Books",
+        "location": "Sheffield",
+        "start": "2023-05",
+        "end": "2023-08",
+        "bullets": [
+          "Handled till, card payments and special orders on busy Saturdays at an independent bookshop.",
+          "Built a staff-picks table for summer reading that sold out its first restock within a fortnight.",
+          "Gift-wrapped and packed web orders for collection, keeping the click-and-collect shelf tidy and labelled."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "A-levels: Business (B), Media Studies (B), Psychology (C)",
+        "school": "Longley Park Sixth Form College",
+        "location": "Sheffield",
+        "start": "2021-09",
+        "end": "2023-06"
+      },
+      {
+        "degree": "GCSEs: 8 at grades 9–4, including English Language (6) and Maths (5)",
+        "school": "High Storrs School",
+        "location": "Sheffield",
+        "start": "2016-09",
+        "end": "2021-06"
+      }
+    ],
+    "courses": [
+      { "name": "Emergency First Aid at Work (1 day)", "provider": "St John Ambulance", "year": 2024 },
+      { "name": "Level 2 Award in Customer Service", "provider": "NCFE", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Employee of the Month", "detail": "Named twice in 2024 for customer feedback and running club sign-ups." },
+      { "title": "Duke of Edinburgh's Award", "detail": "Completed the Silver Award, including a three-day expedition in the Peak District." }
+    ],
+    "skills": ["Customer service", "Product knowledge", "Gait analysis", "Till and card payments", "Stock replenishment", "Click-and-collect", "Upselling", "Teamwork", "Visual merchandising"],
+    "interests": ["Parkrun", "Five-a-side football", "Climbing at the Peak District edges"]
+  }
+}

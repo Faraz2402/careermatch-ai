@@ -1,0 +1,130 @@
+{
+  "id": "financial-analyst-in-mid",
+  "category": "accounting-finance",
+  "role": "financial-analyst",
+  "country": "in",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Divya Raghavan",
+    "title": "Senior Financial Analyst",
+    "phone": "+91 00000 73514",
+    "email": "divya.raghavan@example.com",
+    "linkedin": "linkedin.com/in/divya-raghavan",
+    "location": "Bengaluru, Karnataka",
+    "summary": "Financial analyst with nine years in research outsourcing, D2C consumer electronics and electric vehicles. Owns unit economics and the annual operating plan for an EV two-wheeler maker with ₹1,450 crore revenue, and her battery-cost model shaped a supplier deal worth ₹38 crore a year.",
+    "experience": [
+      {
+        "title": "Senior Financial Analyst",
+        "company": "Voltaro Mobility Pvt Ltd",
+        "location": "Bengaluru, Karnataka",
+        "start": "2023-01",
+        "end": "present",
+        "bullets": [
+          "Own unit economics by scooter model and track bill-of-materials cost against plan every month.",
+          "Built a battery cell cost model that supported a dual-sourcing agreement worth ₹38 crore a year.",
+          "Coordinate the annual operating plan with eight department heads and present monthly variances to the CFO.",
+          "Guide two analysts on model structure and review their dealer-margin analysis."
+        ]
+      },
+      {
+        "title": "FP&A Analyst",
+        "company": "Soundwave Gadgets Pvt Ltd",
+        "location": "Bengaluru, Karnataka",
+        "start": "2020-01",
+        "end": "2022-12",
+        "bullets": [
+          "Tracked contribution margin by marketplace channel for a D2C audio brand that grew from ₹120 crore to ₹310 crore in revenue.",
+          "Showed that returns on one marketplace were eroding margin, leading to a packaging change that halved damage claims.",
+          "Prepared monthly MIS for investors and supported due diligence for a Series C round.",
+          "Built cash-flow forecasts during the 2020 lockdowns that the founders used to renegotiate vendor terms."
+        ]
+      },
+      {
+        "title": "Analyst, Equity Research Support",
+        "company": "Meridian Insight Analytics",
+        "location": "Bengaluru, Karnataka",
+        "start": "2017-07",
+        "end": "2019-12",
+        "bullets": [
+          "Maintained earnings models for 15 US-listed industrial companies for an overseas research client.",
+          "Wrote quarterly result notes within 24 hours of each earnings release.",
+          "Trained four new joiners on modelling standards and client style guides."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "PGDM (Finance)",
+        "school": "Xavier Institute of Management and Entrepreneurship",
+        "location": "Bengaluru, Karnataka",
+        "start": "2015-06",
+        "end": "2017-04",
+        "details": "CGPA 8.1/10"
+      },
+      {
+        "degree": "B.Com (Honours)",
+        "school": "Christ University",
+        "location": "Bengaluru, Karnataka",
+        "start": "2012-06",
+        "end": "2015-04"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Financial Modeling and Valuation",
+        "provider": "NPTEL (IIT Roorkee)",
+        "year": 2021
+      },
+      {
+        "name": "SQL for Data Analysis",
+        "provider": "Coursera",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Tamil",
+        "level": "Native"
+      },
+      {
+        "name": "Kannada",
+        "level": "Conversational"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "CFA Level II passed",
+        "detail": "Cleared in 2019."
+      },
+      {
+        "title": "₹38 crore supplier deal",
+        "detail": "Battery cost model at Voltaro used in dual-sourcing negotiations."
+      }
+    ],
+    "skills": [
+      "Financial modelling",
+      "Unit economics",
+      "Annual operating plan",
+      "MIS reporting",
+      "Excel",
+      "SQL",
+      "Power BI",
+      "Valuation",
+      "Cash-flow forecasting",
+      "Ind AS"
+    ],
+    "interests": [
+      "Carnatic music",
+      "Long-distance cycling"
+    ]
+  }
+}

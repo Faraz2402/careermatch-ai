@@ -1,0 +1,122 @@
+{
+  "id": "financial-analyst-au-senior",
+  "category": "accounting-finance",
+  "role": "financial-analyst",
+  "country": "au",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Hannah Whitlock",
+    "title": "Head of FP&A",
+    "phone": "0491 571 266",
+    "email": "hannah.whitlock@example.com",
+    "linkedin": "linkedin.com/in/hannah-whitlock",
+    "location": "Sydney NSW",
+    "summary": "Chartered Accountant (CA ANZ) and FP&A lead with 15 years across superannuation, telecommunications and healthcare. Heads a team of six planning a $780 million private hospital network and led the cost program that lifted EBITDA margin by 2.1 points in two years.",
+    "experience": [
+      {
+        "title": "Head of FP&A",
+        "company": "Harbourline Private Hospitals",
+        "location": "Sydney NSW",
+        "start": "2022-03",
+        "end": "present",
+        "bullets": [
+          "Lead six analysts responsible for budgeting, forecasting and board reporting for 9 private hospitals with $780 million revenue.",
+          "Ran a theatre-utilisation and procurement program that raised EBITDA margin from 11.4% to 13.5% over two years.",
+          "Built a rolling 18-month forecast in Adaptive Planning, replacing a once-a-year budget that was stale by March.",
+          "Present monthly performance and capital requests to the CFO and board audit and risk committee."
+        ]
+      },
+      {
+        "title": "Finance Business Partner",
+        "company": "Southern Cross Connect",
+        "location": "Sydney NSW",
+        "start": "2018-01",
+        "end": "2022-02",
+        "bullets": [
+          "Partnered with the enterprise sales division on a $240 million revenue line, including pricing approvals for large tenders.",
+          "Introduced customer-level profitability reporting that showed 15% of accounts were loss-making after support costs.",
+          "Built the business case for a $36 million fibre extension that was approved and delivered on budget."
+        ]
+      },
+      {
+        "title": "Commercial Analyst",
+        "company": "Southern Cross Connect",
+        "location": "Sydney NSW",
+        "start": "2014-06",
+        "end": "2017-12",
+        "bullets": [
+          "Modelled handset subsidy and plan pricing scenarios for the consumer mobile team.",
+          "Tracked churn and average revenue per user across 1.2 million subscribers each month.",
+          "Automated the weekly trading report with SQL and Tableau, saving roughly two days a week."
+        ]
+      },
+      {
+        "title": "Investment Analyst",
+        "company": "Coastal Trustees Superannuation",
+        "location": "Sydney NSW",
+        "start": "2011-02",
+        "end": "2014-05",
+        "bullets": [
+          "Monitored performance of 40 external fund managers against benchmarks for a $9 billion fund.",
+          "Prepared quarterly investment committee papers on asset allocation and fees.",
+          "Completed the CA Program while working full time."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Commerce (Finance and Accounting)",
+        "school": "UNSW Sydney",
+        "location": "Sydney NSW",
+        "start": "2007-02",
+        "end": "2010-11"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Workday Adaptive Planning Fundamentals",
+        "provider": "Workday",
+        "year": 2022
+      },
+      {
+        "name": "Company Directors Course",
+        "provider": "Australian Institute of Company Directors",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "EBITDA margin +2.1 points",
+        "detail": "Hospital cost and theatre-utilisation program at Harbourline, 2022 to 2024."
+      },
+      {
+        "title": "Chartered Accountant",
+        "detail": "Member of Chartered Accountants Australia and New Zealand since 2014."
+      }
+    ],
+    "skills": [
+      "FP&A leadership",
+      "Rolling forecasts",
+      "Workday Adaptive Planning",
+      "Board reporting",
+      "Business partnering",
+      "Capital allocation",
+      "Pricing analysis",
+      "SQL",
+      "Tableau",
+      "Healthcare finance",
+      "Excel"
+    ],
+    "interests": [
+      "Ocean swimming",
+      "Surf life saving volunteer"
+    ]
+  }
+}

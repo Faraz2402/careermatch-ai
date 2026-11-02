@@ -1,0 +1,161 @@
+{
+  "code": "us",
+  "name": "United States",
+  "slug": "united-states",
+  "term": {
+    "value": "resume",
+    "note": "Most US employers expect a short, targeted resume. University career offices draw a clear line between that and a curriculum vitae (CV), which in the US is a longer, complete record of academic work (teaching, research, publications, grants) used mainly for faculty, research, postdoc and fellowship applications. Outside academia, sending a CV when a resume is asked for can look unfocused."
+  },
+  "paper": {
+    "value": "Letter",
+    "note": "US Letter (8.5 x 11 in, about 216 x 279 mm, called ANSI A) is the default paper and printer size in the US. It is slightly wider and shorter than A4, so a document laid out for A4 can reflow or clip when printed in the US. Set the page size to Letter before exporting a PDF."
+  },
+  "length": {
+    "value": "1 page early career; 2 pages with more experience",
+    "note": "University career centres usually advise one page for students and recent graduates, but several say two pages is fine once you have substantial relevant experience, and at least one calls the strict one-page rule a myth. Federal jobs are a special case: since September 2025 the Office of Personnel Management caps resumes submitted through USAJOBS at two pages, and longer ones can make an applicant ineligible."
+  },
+  "photo": {
+    "value": "leave out",
+    "note": "US career services advise against a photo except for acting or modelling work. A photo reveals characteristics such as race, sex and approximate age, which employers are not supposed to weigh, so many recruiters prefer not to see one. Applicant tracking systems also cannot read images."
+  },
+  "include": [
+    "Full name, phone number and a professional email address at the top",
+    "City and state; a full street address is not needed",
+    "A LinkedIn or portfolio link if it is current and relevant",
+    "Work authorization status only when it is relevant, for example if you will need visa sponsorship",
+    "GPA when it is 3.0 or higher and you are a student or recent graduate"
+  ],
+  "leaveOut": [
+    "Photo",
+    "Date of birth or age",
+    "Marital status, number of children, religion, race or ethnicity, height and weight",
+    "Social Security number",
+    "The line 'References available upon request' (references go on a separate page when asked for)"
+  ],
+  "dateFormat": {
+    "value": "MMM YYYY",
+    "example": "Mar 2024",
+    "note": "University resume checklists ask for month and year on each date range and for one format used consistently throughout (they show spelled-out months as well as 09/20XX). Our US samples use abbreviated month plus year, such as Mar 2024 – Present, which is common and easy to scan."
+  },
+  "education": {
+    "terms": [
+      {
+        "term": "GPA",
+        "meaning": "Grade point average, normally on a 4.0 scale. Usually listed if 3.0 or higher; some schools suggest a major GPA instead if that is stronger."
+      },
+      {
+        "term": "Bachelor of Arts / Bachelor of Science (BA/BS)",
+        "meaning": "A four-year undergraduate degree."
+      },
+      {
+        "term": "Associate degree",
+        "meaning": "A two-year degree, usually from a community college."
+      },
+      {
+        "term": "Expected [Month Year]",
+        "meaning": "How students show a graduation date that has not happened yet."
+      },
+      {
+        "term": "Magna cum laude / Dean's List",
+        "meaning": "Latin honours awarded at graduation, and a term-by-term academic honour; both go under the degree."
+      }
+    ],
+    "note": "List the degree, school, location and graduation month and year, newest first. High school is normally dropped once you have started college. Whether to show GPA depends on its value and the industry; career offices differ slightly on the exact cutoff."
+  },
+  "spelling": "American",
+  "currency": {
+    "code": "USD",
+    "symbol": "$"
+  },
+  "fictionalPhone": {
+    "pattern": "(AAA) 555-01NN",
+    "note": "The North American Numbering Plan Administrator (NANPA) keeps 555-0100 to 555-0199 reserved as non-working numbers for films, TV and advertising. Other 555 numbers can be real, so our samples use only that block."
+  },
+  "disagreements": [
+    "Length: many university career centres tell students to keep to one page, while Saint Louis University and others allow two pages for candidates with a lot of experience, and UMBC's career centre lists 'never longer than one page' as a myth.",
+    "Federal vs private sector: OPM now caps USAJOBS resumes at two pages and treats longer ones as ineligible, while private-sector guidance treats two pages as a soft upper limit rather than a hard rule.",
+    "References: some university guides say 'References available upon request' is enough, while others say to leave the line off and only supply a separate references page when the employer asks.",
+    "GPA cutoff: most career offices use 3.0 as the threshold, but they differ on whether 3.0 itself counts or only grades above it, and some suggest listing a major GPA instead.",
+    "Graduation dates: some US career-advice articles suggest dropping graduation dates so employers cannot work out your age, while university checklists such as Oklahoma State's expect a graduation or expected graduation date on student resumes."
+  ],
+  "tips": [
+    "Tailor the resume to each posting and reuse the job ad's own keywords where they truthfully describe your work.",
+    "Lead each bullet with a strong verb and add a number where you can: volume, money, time saved, or growth.",
+    "Use a single-column layout with standard section headings so applicant tracking systems can parse it.",
+    "For a federal job, follow the announcement exactly and fit everything into two pages.",
+    "Keep a longer academic CV separate and only send it for research or teaching roles.",
+    "Export as PDF on Letter-size paper unless the employer asks for another format."
+  ],
+  "sources": [
+    {
+      "title": "Agency guidance on the two page limit on resume length",
+      "publisher": "U.S. Office of Personnel Management",
+      "url": "https://www.opm.gov/policy-data-oversight/hiring-information/merit-hiring-plan-resources/agency-guidance-on-the-two-page-limit-on-resume-length",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "555 line numbers",
+      "publisher": "North American Numbering Plan Administrator (NANPA)",
+      "url": "https://nanpa.com/numbering/555-line-numbers",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Resume dos and don'ts",
+      "publisher": "Saint Louis University Career Services",
+      "url": "https://slu.edu/life-at-slu/career-services/pdfs/resume-dos-and-donts.pdf",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "CV or resume?",
+      "publisher": "University of Illinois Graduate College",
+      "url": "https://grad.illinois.edu/document/student-success/cv-or-resume",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Curricula Vitae (CVs) versus Resumes",
+      "publisher": "UNC Writing Center",
+      "url": "https://writingcenter.unc.edu/handouts/curricula-vitae-cvs-versus-resumes/",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Resume checklist",
+      "publisher": "Oklahoma State University Career Services",
+      "url": "https://careerservices.okstate.edu/students-alumni/develop-materials/resume_checklist",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Resume checklist",
+      "publisher": "UC Santa Cruz Career Success",
+      "url": "https://careers.ucsc.edu/student/resources/resume_cover_letters/resume-checklist-2019",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Job-search tips for students",
+      "publisher": "Georgetown University Department of Biostatistics",
+      "url": "https://biostatistics.georgetown.edu/?p=78",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Resume guide myths",
+      "publisher": "UMBC Career Center",
+      "url": "https://my3.my.umbc.edu/groups/careers/files/13280",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    },
+    {
+      "title": "Letter (paper size)",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Letter_(paper_size)",
+      "accessed": "2026-11-02",
+      "how": "search-result"
+    }
+  ]
+}

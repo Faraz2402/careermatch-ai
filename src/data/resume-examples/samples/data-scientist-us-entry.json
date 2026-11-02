@@ -1,0 +1,59 @@
+{
+  "id": "data-scientist-us-entry",
+  "category": "data-science",
+  "role": "data-scientist",
+  "country": "us",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Tyler Abernathy",
+    "title": "Associate Data Scientist",
+    "phone": "(512) 555-0119",
+    "email": "tyler.abernathy@example.com",
+    "linkedin": "linkedin.com/in/tyler-abernathy",
+    "location": "Austin, TX",
+    "summary": "Associate data scientist at an Austin home services marketplace, a little over a year after finishing a B.S. in Statistics and Data Science. Ship small, well-tested models in Python and explain them clearly to product managers. My first production model, a technician no-show predictor, cut same-day cancellations by 14%.",
+    "experience": [
+      {
+        "title": "Associate Data Scientist",
+        "company": "Mesquite Home Services Marketplace",
+        "location": "Austin, TX",
+        "start": "2025-07",
+        "end": "present",
+        "bullets": [
+          "Trained a gradient-boosted classifier that predicts technician no-shows from booking and history features; dispatch now backfills risky jobs early, cutting same-day cancellations by 14%.",
+          "Designed and analyzed three pricing page experiments with the growth team, including power calculations and a readout template the team still uses.",
+          "Packaged feature pipelines as tested Python modules with 85% unit test coverage, so models retrain on a weekly schedule without manual steps."
+        ]
+      },
+      {
+        "title": "Data Science Intern",
+        "company": "Hill Country Electric Cooperative",
+        "location": "Johnson City, TX",
+        "start": "2024-06",
+        "end": "2024-08",
+        "bullets": [
+          "Built an hourly load forecast for 12 substations using weather and calendar features, reducing mean absolute percentage error from 8.1% to 5.6% against the existing spreadsheet method.",
+          "Mapped outage tickets to vegetation data and presented a tree-trimming priority list to the operations director.",
+          "Wrote the internship final report and demo notebook that the co-op's analytics lead used to justify a full-time data role."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "B.S. Statistics and Data Science", "school": "The University of Texas at Austin", "location": "Austin, TX", "start": "2021-08", "end": "2025-05", "details": "GPA 3.7/4.0. Capstone: predicting bike-share station shortages with spatio-temporal models." }
+    ],
+    "courses": [
+      { "name": "Machine Learning Specialization", "provider": "Coursera (DeepLearning.AI and Stanford)", "year": 2023 },
+      { "name": "AWS Certified Cloud Practitioner", "provider": "Amazon Web Services", "year": 2025 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Datathon winner", "detail": "First place out of 38 teams at a university datathon (2024) for a model predicting food pantry demand." },
+      { "title": "Teaching assistant", "detail": "TA for an introductory regression course of 120 students for two semesters." }
+    ],
+    "skills": ["Python", "scikit-learn", "XGBoost", "SQL", "pandas", "Experiment design", "Time-series forecasting", "Git", "Docker", "AWS (S3, SageMaker basics)", "Data visualization"],
+    "interests": ["Disc golf", "Sports analytics blogging", "Food bank volunteering"]
+  }
+}

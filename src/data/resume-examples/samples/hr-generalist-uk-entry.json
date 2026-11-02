@@ -1,0 +1,108 @@
+{
+  "id": "hr-generalist-uk-entry",
+  "category": "human-resources",
+  "role": "hr-generalist",
+  "country": "uk",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Bethany Clarke",
+    "title": "HR Assistant",
+    "phone": "07700 900731",
+    "email": "bethany.clarke@example.com",
+    "linkedin": "linkedin.com/in/bethany-clarke",
+    "location": "Bristol",
+    "summary": "Human resource management graduate from UWE Bristol with a year-long placement and a first permanent HR role at a care home group. Supports 600 staff across nine homes with onboarding and DBS checks, and cut the average time to clear a new starter from 26 days to 15.",
+    "experience": [
+      {
+        "title": "HR Assistant",
+        "company": "Severnside Care Homes",
+        "location": "Bristol",
+        "start": "2025-08",
+        "end": "present",
+        "bullets": [
+          "Coordinate onboarding for around 25 new care staff a month across nine homes, including DBS checks and right-to-work checks.",
+          "Cut the average time from offer to start date from 26 to 15 days by chasing references and DBS applications on a shared tracker.",
+          "Prepare letters and notes for absence and disciplinary meetings, and take minutes at formal hearings.",
+          "Keep 600 employee records accurate in Breathe HR and run a monthly report of expiring training."
+        ]
+      },
+      {
+        "title": "HR Placement Student",
+        "company": "Avonmouth Engineering Group",
+        "location": "Bristol",
+        "start": "2023-07",
+        "end": "2024-06",
+        "bullets": [
+          "Answered about 40 HR queries a week from a 350-strong workforce on pay, holiday and policies.",
+          "Helped run the apprentice recruitment campaign, screening 210 applications for 12 places.",
+          "Built an exit-interview summary in Excel that showed shift patterns were the top reason for leaving."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA (Hons) Business and Human Resource Management, 2:1",
+        "school": "University of the West of England (UWE Bristol)",
+        "location": "Bristol",
+        "start": "2021-09",
+        "end": "2025-06",
+        "details": "Sandwich degree with a placement year"
+      },
+      {
+        "degree": "A-levels: Psychology (A), Business (B), English Literature (B)",
+        "school": "St Brendan's Sixth Form College",
+        "location": "Bristol",
+        "start": "2019-09",
+        "end": "2021-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "CIPD Level 3 Foundation Certificate in People Practice",
+        "provider": "CIPD",
+        "year": 2025
+      },
+      {
+        "name": "Mental Health First Aid",
+        "provider": "MHFA England",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "French",
+        "level": "Basic"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Time to start cut to 15 days",
+        "detail": "Shared onboarding tracker at Severnside Care Homes."
+      },
+      {
+        "title": "Students' union volunteer coordinator",
+        "detail": "Recruited and scheduled 60 volunteers for freshers' week, 2022."
+      }
+    ],
+    "skills": [
+      "Onboarding",
+      "Right-to-work checks",
+      "DBS checks",
+      "HR administration",
+      "Breathe HR",
+      "Minute taking",
+      "Excel",
+      "Employee records",
+      "GDPR awareness"
+    ],
+    "interests": [
+      "Wild swimming",
+      "Amateur theatre"
+    ]
+  }
+}

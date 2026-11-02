@@ -1,0 +1,116 @@
+{
+  "id": "operations-manager-de-mid",
+  "category": "business-management",
+  "role": "operations-manager",
+  "country": "de",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Tomasz Nowak",
+    "title": "Operations Manager, E-commerce Fulfilment",
+    "phone": "+49 40 66969 247",
+    "email": "tomasz.nowak@example.com",
+    "linkedin": "linkedin.com/in/tomasz-nowak",
+    "location": "Hamburg",
+    "summary": "Industrial engineer (B.Sc. Wirtschaftsingenieurwesen) with eight years in contract logistics and e-commerce fulfilment. Runs a 35,000 m² fashion returns and fulfilment centre with 280 employees and raised returns processing capacity by 40% in a single season.",
+    "experience": [
+      {
+        "title": "Operations Manager",
+        "company": "Elbkontor Fulfilment GmbH",
+        "location": "Hamburg",
+        "start": "2023-01",
+        "end": "present",
+        "bullets": [
+          "Manage a 35,000 m² fulfilment and returns centre for three fashion brands, with 280 employees and seasonal temporary staff.",
+          "Redesigned the returns workflow into grading, refurbishment and restock cells, raising daily capacity from 25,000 to 35,000 items.",
+          "Work with the works council (Betriebsrat) on shift models, overtime rules and the introduction of new scanners.",
+          "Own a €12 million operating budget and cut cost per outbound order by 11% through better wave planning."
+        ]
+      },
+      {
+        "title": "Team Leader Operations (Teamleiter)",
+        "company": "Hansa Kontraktlogistik GmbH",
+        "location": "Hamburg",
+        "start": "2020-04",
+        "end": "2022-12",
+        "bullets": [
+          "Led two outbound teams with 65 employees shipping spare parts for an automotive customer.",
+          "Kept on-time shipment at or above the contractual 99.5% for 30 consecutive months.",
+          "Rolled out daily shopfloor meetings with visual boards, which reduced picking errors by 27%."
+        ]
+      },
+      {
+        "title": "Logistics Planner",
+        "company": "Hansa Kontraktlogistik GmbH",
+        "location": "Hamburg",
+        "start": "2018-09",
+        "end": "2020-03",
+        "bullets": [
+          "Planned staffing and inbound slots for a 20,000-pallet warehouse.",
+          "Built an Excel capacity model that the site used in two tender bids for new customers.",
+          "Coordinated customs paperwork with forwarders for non-EU inbound containers."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Sc. Wirtschaftsingenieurwesen (Industrial Engineering and Management)",
+        "school": "Technische Universität Hamburg",
+        "location": "Hamburg",
+        "start": "2014-10",
+        "end": "2018-08"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Lean Management Green Belt",
+        "provider": "TÜV Nord Akademie",
+        "year": 2021
+      },
+      {
+        "name": "Ausbildereignungsprüfung (AEVO, trainer aptitude certificate)",
+        "provider": "Handelskammer Hamburg",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "C2"
+      },
+      {
+        "name": "Polish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Returns capacity +40%",
+        "detail": "Cell-based returns process at Elbkontor Fulfilment ahead of the 2023 peak."
+      },
+      {
+        "title": "30 months at contract SLA",
+        "detail": "On-time shipment at or above 99.5% at Hansa Kontraktlogistik."
+      }
+    ],
+    "skills": [
+      "Fulfilment operations",
+      "Returns management",
+      "Shift planning",
+      "Works council cooperation",
+      "Lean management",
+      "SAP EWM",
+      "Budget responsibility",
+      "Workforce planning",
+      "KPI dashboards"
+    ],
+    "interests": [
+      "Sailing on the Alster",
+      "Handball"
+    ]
+  }
+}

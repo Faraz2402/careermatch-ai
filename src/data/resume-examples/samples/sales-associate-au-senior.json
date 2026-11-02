@@ -1,0 +1,97 @@
+{
+  "id": "sales-associate-au-senior",
+  "category": "sales-retail",
+  "role": "sales-associate",
+  "country": "au",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Sarah Mitchell",
+    "title": "Senior Sales Associate",
+    "phone": "0491 570 158",
+    "email": "sarah.mitchell@example.com",
+    "linkedin": "linkedin.com/in/sarah-mitchell",
+    "location": "Perth WA",
+    "summary": "Senior sales associate with 15 years across surfwear, furniture, optical and appliance retail in Perth. Combines high personal sales ($1.1m last financial year) with floor leadership: rosters, onboarding and stepping in as acting manager when needed.",
+    "experience": [
+      {
+        "title": "Senior Sales Associate",
+        "company": "Kings Park Home Appliances",
+        "location": "Perth WA",
+        "start": "2022-05",
+        "end": "present",
+        "bullets": [
+          "Achieved $1.1m in personal sales in FY2025, mainly premium kitchen packages and laundry, at an average margin above store target.",
+          "Act as store manager during leave periods for up to four weeks at a time, running a team of nine and the weekly roster.",
+          "Built relationships with 25 local builders and kitchen designers, who now send roughly a fifth of the store's renovation customers.",
+          "Explain consumer guarantee rights clearly at the counter, which helped drop escalated complaints by about a third."
+        ]
+      },
+      {
+        "title": "Senior Sales Consultant",
+        "company": "Subiaco Eyewear",
+        "location": "Subiaco WA",
+        "start": "2018-12",
+        "end": "2022-04",
+        "bullets": [
+          "Dispensed frames and lenses alongside two optometrists, reaching 118% of my annual sales target in 2021.",
+          "Explained private health fund rebates and lens options in plain language, raising premium lens uptake from 29% to 41%.",
+          "Took over recall lists and contacted 300 patients a month whose prescriptions were due."
+        ]
+      },
+      {
+        "title": "Sales Consultant",
+        "company": "Swan Valley Furniture Gallery",
+        "location": "Midland WA",
+        "start": "2014-08",
+        "end": "2018-11",
+        "bullets": [
+          "Sold lounge, dining and bedroom furniture with a personal average of $62,000 a month.",
+          "Arranged custom fabric orders with two local manufacturers and tracked lead times for each customer.",
+          "Mentored three new consultants, sharing call-back scripts that lifted their follow-up sales."
+        ]
+      },
+      {
+        "title": "Retail Sales Assistant",
+        "company": "Fremantle Surf Co.",
+        "location": "Fremantle WA",
+        "start": "2011-03",
+        "end": "2014-07",
+        "bullets": [
+          "Served customers across wetsuits, boards and apparel during busy summer trade.",
+          "Processed hire bookings for boards and stand-up paddleboards, handling up to 40 hires on peak days.",
+          "Restocked and rearranged displays weekly with the visual merchandiser."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Certificate IV in Retail Management",
+        "school": "North Metropolitan TAFE",
+        "location": "Perth WA",
+        "start": "2016-02",
+        "end": "2017-06",
+        "details": "Completed part-time while working full-time."
+      },
+      {
+        "degree": "Western Australian Certificate of Education (WACE)",
+        "school": "John Curtin College of the Arts",
+        "location": "Fremantle WA",
+        "end": "2010-11"
+      }
+    ],
+    "courses": [
+      { "name": "Provide First Aid (HLTAID011)", "provider": "St John WA", "year": 2025 },
+      { "name": "Certificate III in Retail", "provider": "Retail traineeship, completed on the job", "year": 2012 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Top seller FY2024 and FY2025", "detail": "Highest personal sales across the store two financial years running." },
+      { "title": "Acting manager", "detail": "Covered management leave periods totalling 11 weeks with no missed stocktake or payroll deadline." }
+    ],
+    "skills": ["Consultative selling", "Premium appliance sales", "Trade and builder relationships", "Rostering", "Team onboarding", "Australian Consumer Law basics", "Stocktakes", "POS and finance applications", "Complaint resolution"],
+    "interests": ["Ocean swimming at Cottesloe", "Netball coaching", "Upcycling furniture"]
+  }
+}

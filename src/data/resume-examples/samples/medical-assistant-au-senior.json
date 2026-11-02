@@ -1,0 +1,135 @@
+{
+  "id": "medical-assistant-au-senior",
+  "category": "healthcare-nursing",
+  "role": "medical-assistant",
+  "country": "au",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Megan O'Sullivan",
+    "title": "Practice Team Leader and Senior Practice Assistant",
+    "phone": "0491 571 266",
+    "email": "megan.o-sullivan@example.com",
+    "linkedin": "linkedin.com/in/megan-o-sullivan",
+    "location": "Perth WA",
+    "summary": "Practice assistant and reception leader with 15 years in Perth general practice, holding a Certificate IV in Medical Practice Assisting. I lead 11 reception and practice assistant staff at a 14-GP clinic and steered us through two RACGP Standards accreditations with no critical findings.",
+    "experience": [
+      {
+        "title": "Medical Receptionist",
+        "company": "Swan River Medical Group",
+        "location": "Perth WA",
+        "start": "2011-03",
+        "end": "2014-06",
+        "bullets": [
+          "Greeted and booked 150+ patients a day for 8 GPs, processing Medicare bulk billing and private fees in Best Practice.",
+          "Managed the recall and reminder list for cervical screening and immunisations, contacting around 90 patients a week.",
+          "Covered after-hours on-call phone triage scripts and escalated urgent calls to the duty doctor."
+        ]
+      },
+      {
+        "title": "Senior Medical Receptionist",
+        "company": "Swan River Medical Group",
+        "location": "Perth WA",
+        "start": "2014-07",
+        "end": "2018-01",
+        "bullets": [
+          "Supervised a reception roster of 6 staff and trained new starters on Medicare item numbers and privacy procedures.",
+          "Introduced HotDoc online bookings, which handled 45% of appointments within a year and freed up phone lines.",
+          "Cut the overdue account balance from $27,000 to $8,500 by setting up regular statements and payment plans."
+        ]
+      },
+      {
+        "title": "Practice Assistant",
+        "company": "Kings Park Family Clinic",
+        "location": "Perth WA",
+        "start": "2018-02",
+        "end": "2021-12",
+        "bullets": [
+          "Performed ECGs, spirometry, wound dressing set-up and vital signs for 14 GPs under delegation from the practice nurses.",
+          "Managed vaccine cold chain for a fridge holding $60,000 of stock, following the National Vaccine Storage Guidelines with twice-daily data-logger checks.",
+          "Prepared health assessment templates for 75+ and chronic disease management plans, lifting completed plans by 26%.",
+          "Set up the drive-through COVID-19 testing flow that saw 2,400 patients in its first eight weeks."
+        ]
+      },
+      {
+        "title": "Practice Team Leader",
+        "company": "Kings Park Family Clinic",
+        "location": "Perth WA",
+        "start": "2022-01",
+        "end": "present",
+        "bullets": [
+          "Lead 11 receptionists and practice assistants, owning rosters, performance reviews and training plans.",
+          "Coordinated evidence for two accreditation cycles against the RACGP Standards for general practices, with no critical findings at either visit.",
+          "Rebuilt the triage scripts with the GP partners, cutting same-day appointment overflow to the nurse team by 30%.",
+          "Introduced a quarterly induction day and skills checklist, reducing new-starter errors in Medicare claiming by 60%."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Certificate IV in Medical Practice Assisting",
+        "school": "North Metropolitan TAFE",
+        "location": "Perth WA",
+        "start": "2017-02",
+        "end": "2017-12"
+      },
+      {
+        "degree": "Certificate III in Health Administration",
+        "school": "West Coast Institute of Training",
+        "location": "Perth WA",
+        "start": "2010-02",
+        "end": "2010-11"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Provide First Aid (HLTAID011)",
+        "provider": "St John WA",
+        "year": 2025
+      },
+      {
+        "name": "Immunisation cold chain management",
+        "provider": "WA Health online module",
+        "year": 2024
+      },
+      {
+        "name": "Leadership Essentials for Practice Teams",
+        "provider": "Australian Association of Practice Management",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Practice staff award, 2023",
+        "detail": "Named staff member of the year by the clinic's GP partners."
+      },
+      {
+        "title": "Accreditation success",
+        "detail": "Two consecutive RACGP Standards accreditations with no critical findings."
+      }
+    ],
+    "skills": [
+      "Team leadership",
+      "Medicare and bulk billing",
+      "Best Practice software",
+      "ECG and spirometry",
+      "Vaccine cold chain",
+      "Accreditation preparation",
+      "Triage scripts",
+      "HotDoc",
+      "Chronic disease plans",
+      "Staff rostering"
+    ],
+    "interests": [
+      "Netball coaching",
+      "Bushwalking",
+      "Gardening"
+    ]
+  }
+}

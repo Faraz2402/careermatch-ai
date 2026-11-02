@@ -1,0 +1,136 @@
+{
+  "id": "financial-analyst-us-senior",
+  "category": "accounting-finance",
+  "role": "financial-analyst",
+  "country": "us",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Marcus Delgado",
+    "title": "Senior FP&A Manager",
+    "phone": "(312) 555-0172",
+    "email": "marcus.delgado@example.com",
+    "linkedin": "linkedin.com/in/marcus-delgado",
+    "location": "Chicago, IL",
+    "summary": "FP&A leader with 14 years in banking, consumer goods and freight logistics. Runs planning for a $1.1B transportation company, manages a team of five analysts, and built the driver-based forecast that held full-year EBITDA within 2% of plan through a volatile fuel market.",
+    "experience": [
+      {
+        "title": "Senior FP&A Manager",
+        "company": "Lakeshore Freight Systems",
+        "location": "Chicago, IL",
+        "start": "2023-04",
+        "end": "present",
+        "bullets": [
+          "Lead a five-analyst team that owns the annual operating plan, quarterly reforecasts and board materials for a $1.1B carrier.",
+          "Designed a driver-based forecast linking lane volume, fuel surcharge and driver pay, keeping full-year EBITDA within 2% of plan for two straight years.",
+          "Moved planning from 40 linked workbooks to Anaplan, cutting the reforecast cycle from three weeks to eight days.",
+          "Partner with the COO on network decisions; a terminal consolidation case I modeled is saving $6.4M a year."
+        ]
+      },
+      {
+        "title": "FP&A Manager",
+        "company": "Lakeshore Freight Systems",
+        "location": "Chicago, IL",
+        "start": "2019-10",
+        "end": "2023-03",
+        "bullets": [
+          "Built monthly cost-per-mile reporting by terminal that operations leaders now review every Monday.",
+          "Led budgeting for $380M of linehaul and maintenance spend across 31 terminals.",
+          "Evaluated three tuck-in acquisitions; two closed, adding $95M in annual revenue at the multiples we modeled.",
+          "Hired and trained two analysts who were both promoted within 24 months."
+        ]
+      },
+      {
+        "title": "Senior Financial Analyst",
+        "company": "Prairie Pantry Foods",
+        "location": "Oak Brook, IL",
+        "start": "2015-07",
+        "end": "2019-09",
+        "bullets": [
+          "Owned trade-spend analysis for a $420M snack portfolio and reallocated $11M from low-return promotions.",
+          "Built SKU-level margin waterfalls that led to the exit of 60 unprofitable items.",
+          "Prepared the monthly variance package for the CFO, explaining price, volume and mix drivers."
+        ]
+      },
+      {
+        "title": "Financial Analyst",
+        "company": "Second City Savings Bank",
+        "location": "Chicago, IL",
+        "start": "2012-07",
+        "end": "2015-06",
+        "bullets": [
+          "Produced branch profitability reports for 48 branches and supported two branch closure decisions.",
+          "Maintained the deposit pricing model used by the ALCO committee each month.",
+          "Automated the monthly regulatory call-report tie-out, saving about 30 analyst hours per cycle."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.B.A., Finance and Strategy (part-time)",
+        "school": "DePaul University, Kellstadt Graduate School of Business",
+        "location": "Chicago, IL",
+        "start": "2016-09",
+        "end": "2019-06"
+      },
+      {
+        "degree": "B.S. in Finance",
+        "school": "University of Illinois Urbana-Champaign",
+        "location": "Champaign, IL",
+        "start": "2008-08",
+        "end": "2012-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Anaplan Model Builder Certification",
+        "provider": "Anaplan",
+        "year": 2021
+      },
+      {
+        "name": "Advanced Financial Modeling",
+        "provider": "Corporate Finance Institute",
+        "year": 2018
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Spanish",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "CFA charterholder",
+        "detail": "Awarded the CFA charter in 2017."
+      },
+      {
+        "title": "$6.4M annual savings",
+        "detail": "Terminal consolidation business case approved by the board in 2024."
+      }
+    ],
+    "skills": [
+      "FP&A",
+      "Driver-based forecasting",
+      "Anaplan",
+      "Financial modeling",
+      "Board reporting",
+      "M&A analysis",
+      "SQL",
+      "Power BI",
+      "Excel",
+      "Variance analysis",
+      "Team leadership",
+      "Capital planning"
+    ],
+    "interests": [
+      "Youth soccer coach",
+      "Chicago architecture tours",
+      "Chess"
+    ]
+  }
+}

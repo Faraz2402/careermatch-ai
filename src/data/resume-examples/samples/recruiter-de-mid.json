@@ -1,0 +1,125 @@
+{
+  "id": "recruiter-de-mid",
+  "category": "human-resources",
+  "role": "recruiter",
+  "country": "de",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Elif Şahin",
+    "title": "Senior Talent Acquisition Partner",
+    "phone": "+49 89 99998 205",
+    "email": "elif.sahin@example.com",
+    "linkedin": "linkedin.com/in/elif-sahin",
+    "location": "München",
+    "summary": "Recruiter with nine years across in-house HR and tech recruiting, with a psychology degree from LMU München. Hires software and hardware engineers for an automotive software company, and built an active sourcing programme that now produces 45% of hires.",
+    "experience": [
+      {
+        "title": "Senior Talent Acquisition Partner",
+        "company": "Isarwerk Automotive Software GmbH",
+        "location": "München",
+        "start": "2022-04",
+        "end": "present",
+        "bullets": [
+          "Recruit embedded software, safety and test engineers for a 1,200-person company, closing around 50 roles a year.",
+          "Built an active sourcing programme on LinkedIn and XING that now provides 45% of all hires, up from 15%.",
+          "Introduced structured interviews and anonymised CV screening checked for compliance with the AGG.",
+          "Coordinate relocation and EU Blue Card applications with the immigration service for hires from 14 countries."
+        ]
+      },
+      {
+        "title": "Tech Recruiter",
+        "company": "Glockenbach Digital GmbH",
+        "location": "München",
+        "start": "2019-02",
+        "end": "2022-03",
+        "bullets": [
+          "Hired developers, designers and product managers for a growing e-commerce agency, about 35 hires a year.",
+          "Shortened time to offer from 41 to 27 days by moving technical tests earlier in the process.",
+          "Ran the company's presence at three careers fairs and two university hackathons."
+        ]
+      },
+      {
+        "title": "HR Officer, Recruiting (Personalreferentin)",
+        "company": "Würmtal Medizintechnik GmbH",
+        "location": "Gräfelfing",
+        "start": "2017-03",
+        "end": "2019-01",
+        "bullets": [
+          "Managed recruiting for production and lab roles, plus apprenticeships (Ausbildung) and dual-study places.",
+          "Coordinated the works council's participation in hiring decisions under the Works Constitution Act.",
+          "Replaced email-based applications with an applicant tracking system, cutting admin time per vacancy."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc. Psychologie (Work and Organisational Psychology)",
+        "school": "Ludwig-Maximilians-Universität München",
+        "location": "München",
+        "start": "2014-10",
+        "end": "2017-02"
+      },
+      {
+        "degree": "B.Sc. Psychologie",
+        "school": "Ludwig-Maximilians-Universität München",
+        "location": "München",
+        "start": "2011-10",
+        "end": "2014-09"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Active Sourcing and Talent Pipelines",
+        "provider": "LinkedIn Learning",
+        "year": 2020
+      },
+      {
+        "name": "Structured Interviewing for Hiring Teams",
+        "provider": "Haufe Akademie",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native"
+      },
+      {
+        "name": "Turkish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Active sourcing 15% to 45% of hires",
+        "detail": "Programme built at Isarwerk Automotive Software."
+      },
+      {
+        "title": "Time to offer down to 27 days",
+        "detail": "Earlier technical tests at Glockenbach Digital."
+      }
+    ],
+    "skills": [
+      "Technical recruiting",
+      "Active sourcing",
+      "LinkedIn Recruiter",
+      "XING TalentManager",
+      "Structured interviews",
+      "AGG compliance",
+      "Works council processes",
+      "EU Blue Card",
+      "Personio",
+      "Employer branding"
+    ],
+    "interests": [
+      "Mountain hiking",
+      "Turkish cooking",
+      "Volleyball"
+    ]
+  }
+}

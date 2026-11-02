@@ -1,0 +1,115 @@
+{
+  "id": "hr-generalist-ca-mid",
+  "category": "human-resources",
+  "role": "hr-generalist",
+  "country": "ca",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Émilie Gagnon",
+    "title": "HR Generalist, CHRP",
+    "phone": "(613) 555-0146",
+    "email": "emilie.gagnon@example.com",
+    "linkedin": "linkedin.com/in/emilie-gagnon",
+    "location": "Ottawa, ON",
+    "summary": "Bilingual (English/French) HR generalist with eight years in hospitality, technology and the non-profit sector. Supports 520 employees at a national charity, holds the CHRP designation, and rebuilt the performance review process so completion rose from 58% to 96%.",
+    "experience": [
+      {
+        "title": "HR Generalist",
+        "company": "Rideau Care Foundation",
+        "location": "Ottawa, ON",
+        "start": "2023-03",
+        "end": "present",
+        "bullets": [
+          "Provide HR advice in English and French to 520 employees and 45 people leaders across Ontario and Québec.",
+          "Replaced a paper performance review with a two-step check-in in BambooHR, raising completion from 58% to 96%.",
+          "Updated policies for Ontario ESA changes, including the right-to-disconnect and electronic monitoring policies.",
+          "Manage WSIB and CNESST claims and return-to-work plans, closing 18 claims in 2025."
+        ]
+      },
+      {
+        "title": "HR Advisor",
+        "company": "ByWard Software Inc.",
+        "location": "Ottawa, ON",
+        "start": "2020-06",
+        "end": "2023-02",
+        "bullets": [
+          "Supported a tech company as it grew from 140 to 310 employees, including two acquisitions.",
+          "Harmonized benefits and vacation policies for 75 employees joining through acquisitions.",
+          "Coached managers through 30 performance improvement plans, with two-thirds ending in successful improvement.",
+          "Launched an employee engagement survey and action-planning sessions; the response rate reached 84%."
+        ]
+      },
+      {
+        "title": "HR Assistant",
+        "company": "Outaouais Lantern Hospitality Group",
+        "location": "Gatineau, QC",
+        "start": "2018-05",
+        "end": "2020-05",
+        "bullets": [
+          "Processed payroll changes and new hire paperwork for 260 hotel and restaurant staff.",
+          "Organized seasonal hiring fairs that filled 70 summer positions.",
+          "Kept AODA and WHMIS training records up to date for the Ottawa properties."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Commerce, Human Resource Management",
+        "school": "University of Ottawa, Telfer School of Management",
+        "location": "Ottawa, ON",
+        "start": "2014-09",
+        "end": "2018-04",
+        "details": "Co-op program; studied in French and English"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Certified Human Resources Professional (CHRP)",
+        "provider": "Human Resources Professionals Association (HRPA)",
+        "year": 2021
+      },
+      {
+        "name": "Workplace Investigations",
+        "provider": "HRPA",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "French",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Review completion 58% to 96%",
+        "detail": "New performance check-in process at Rideau Care Foundation."
+      },
+      {
+        "title": "Integrated two acquisitions",
+        "detail": "Harmonized policies and benefits for 75 employees at ByWard Software."
+      }
+    ],
+    "skills": [
+      "Employee relations",
+      "Ontario ESA",
+      "WSIB and CNESST",
+      "Performance management",
+      "BambooHR",
+      "Policy development",
+      "Benefits administration",
+      "Engagement surveys",
+      "Bilingual HR advice",
+      "Return-to-work planning"
+    ],
+    "interests": [
+      "Cross-country skiing",
+      "Community choir"
+    ]
+  }
+}

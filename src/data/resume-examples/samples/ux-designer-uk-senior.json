@@ -1,0 +1,136 @@
+{
+  "id": "ux-designer-uk-senior",
+  "category": "design",
+  "role": "ux-designer",
+  "country": "uk",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Harriet Penrose",
+    "title": "Lead UX Designer",
+    "phone": "07700 900781",
+    "email": "harriet.penrose@example.com",
+    "linkedin": "linkedin.com/in/harriet-penrose",
+    "location": "Bristol",
+    "summary": "Lead UX designer with 13 years in agency, insurance, rail and energy, now heading a team of five designers for a renewable energy supplier. Combines a psychology background with service design, and the redesigned switching journey I led raised online sign-ups by 31% while halving drop-out at the meter step.",
+    "experience": [
+      {
+        "title": "Junior UX Designer",
+        "company": "Harbourside Digital",
+        "location": "Bristol",
+        "start": "2013-09",
+        "end": "2015-12",
+        "bullets": [
+          "Produced wireframes, site maps and clickable prototypes for charity and higher education websites.",
+          "Ran guerrilla usability tests in cafés and libraries, five to eight people per round, and wrote up findings for clients.",
+          "Helped a university client restructure its course pages, cutting calls to the admissions office about entry requirements."
+        ]
+      },
+      {
+        "title": "UX Designer",
+        "company": "Clifton Insurance Group",
+        "location": "Bristol",
+        "start": "2016-01",
+        "end": "2019-05",
+        "bullets": [
+          "Designed the online claims journey for home and car policies, handling about 4,000 claims a month.",
+          "Replaced a 14-page claim form with a step-by-step flow, raising online claim completion from 49% to 70%.",
+          "Introduced plain-English content testing with the content design team, reducing complaints about unclear wording.",
+          "Built the company's first accessibility checklist, aligned to WCAG 2.1 AA, and trained 30 staff in how to use it."
+        ]
+      },
+      {
+        "title": "Senior UX Designer",
+        "company": "Severnside Rail Tech",
+        "location": "Bristol",
+        "start": "2019-06",
+        "end": "2022-08",
+        "bullets": [
+          "Led UX for a journey-planning and ticketing app used by about 1.5 million passengers a year.",
+          "Designed disruption messaging with operations staff, so passengers saw alternatives within seconds of a cancellation.",
+          "Ran diary studies with commuters and occasional travellers, which reshaped the season ticket renewal flow.",
+          "Mentored three mid-level designers, two of whom moved into senior roles."
+        ]
+      },
+      {
+        "title": "Lead UX Designer",
+        "company": "Avon Gorge Energy",
+        "location": "Bristol",
+        "start": "2022-09",
+        "end": "present",
+        "bullets": [
+          "Head a team of five product and service designers covering sign-up, billing, smart meter and help journeys.",
+          "Led the redesign of the switching journey, increasing online sign-ups by 31% and halving drop-out at the meter details step.",
+          "Set up a research operations practice with a participant panel of 900 customers, including people in vulnerable circumstances.",
+          "Work with the Head of Product on a £1.2 million annual roadmap, deciding priorities with evidence from research and analytics.",
+          "Run a shared design system with engineering, cutting UI inconsistencies flagged in QA by more than half."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc (Hons) Psychology, 2:1",
+        "school": "University of Bristol",
+        "location": "Bristol",
+        "start": "2010-09",
+        "end": "2013-06",
+        "details": "Dissertation on decision-making under time pressure"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Service Design Fundamentals",
+        "provider": "Service Design Network",
+        "year": 2020
+      },
+      {
+        "name": "Certified Professional for Usability and User Experience (CPUX-F)",
+        "provider": "UXQB",
+        "year": 2018
+      },
+      {
+        "name": "Leading Design Teams",
+        "provider": "Interaction Design Foundation",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Spanish",
+        "level": "Intermediate (B1)"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Industry award shortlist",
+        "detail": "Switching journey shortlisted for a UK digital customer experience award in 2024."
+      },
+      {
+        "title": "Mentor",
+        "detail": "Volunteer mentor for career changers on a Bristol bootcamp's UX programme."
+      }
+    ],
+    "skills": [
+      "Design leadership",
+      "Service design",
+      "User research",
+      "Usability testing",
+      "Interaction design",
+      "Figma",
+      "Design systems",
+      "WCAG 2.2",
+      "Content design",
+      "Research operations",
+      "Stakeholder management"
+    ],
+    "interests": [
+      "Paddleboarding on the harbour",
+      "Bristol Old Vic member",
+      "Sourdough baking"
+    ]
+  }
+}

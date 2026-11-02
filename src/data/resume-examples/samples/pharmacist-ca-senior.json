@@ -1,0 +1,133 @@
+{
+  "id": "pharmacist-ca-senior",
+  "category": "healthcare-nursing",
+  "role": "pharmacist",
+  "country": "ca",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Geneviève Tremblay-Ross",
+    "title": "Pharmacy Operations Manager, Primary Care",
+    "phone": "(780) 555-0193",
+    "email": "genevieve.tremblay-ross@example.com",
+    "linkedin": "linkedin.com/in/genevieve-tremblay-ross",
+    "location": "Edmonton, AB",
+    "summary": "Licensed pharmacist with Additional Prescribing Authorization in Alberta and 16 years across community, long-term care and primary care. I oversee 14 pharmacists embedded in primary care clinics and led a hypertension program that brought 58% of enrolled patients to target within six months.",
+    "experience": [
+      {
+        "title": "Staff Pharmacist",
+        "company": "Whyte Avenue Pharmacy",
+        "location": "Edmonton, AB",
+        "start": "2010-07",
+        "end": "2013-08",
+        "bullets": [
+          "Dispensed and counselled on 250–300 prescriptions a day in a high-volume community pharmacy.",
+          "Started a blister-pack service for 140 seniors living independently, reducing missed doses reported by home care nurses.",
+          "Gave more than 1,500 flu shots each season using Alberta pharmacists' authority to administer injections."
+        ]
+      },
+      {
+        "title": "Pharmacy Manager",
+        "company": "Mill Creek Health Pharmacy",
+        "location": "Edmonton, AB",
+        "start": "2013-09",
+        "end": "2017-10",
+        "bullets": [
+          "Managed a team of 4 pharmacists and 6 technicians with annual sales of $5.8 million.",
+          "Obtained Additional Prescribing Authorization from the Alberta College of Pharmacy in 2014 and built a prescriber-led renewal and adaptation clinic.",
+          "Grew billed comprehensive annual care plans to 900 a year, adding $180,000 in clinical service revenue.",
+          "Passed every Alberta College of Pharmacy practice visit with no deficiencies."
+        ]
+      },
+      {
+        "title": "Consultant Pharmacist, Long-Term Care",
+        "company": "Aspen Lodge Continuing Care Network",
+        "location": "Edmonton, AB",
+        "start": "2017-11",
+        "end": "2021-01",
+        "bullets": [
+          "Provided quarterly medication reviews for 620 residents across five continuing care centres.",
+          "Cut antipsychotic use without a supporting diagnosis from 24% to 13% of residents through a deprescribing project with physicians and nurses.",
+          "Delivered monthly in-services on falls risk medications and anticoagulants to 90 nursing staff."
+        ]
+      },
+      {
+        "title": "Pharmacy Operations Manager, Primary Care",
+        "company": "North Saskatchewan Primary Care Network",
+        "location": "Edmonton, AB",
+        "start": "2021-02",
+        "end": "present",
+        "bullets": [
+          "Lead 14 pharmacists embedded in 32 family medicine clinics, managing a $2.3 million annual budget.",
+          "Launched a pharmacist-led hypertension program for 1,900 patients; 58% reached blood pressure targets within six months.",
+          "Introduced a shared documentation template in the clinics' EMR, improving physician acceptance of pharmacist recommendations from 61% to 82%.",
+          "Negotiated collaborative practice agreements with 120 physicians and represent pharmacy on the network's quality council."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc Pharmacy",
+        "school": "University of Alberta",
+        "location": "Edmonton, AB",
+        "start": "2006-09",
+        "end": "2010-05",
+        "details": "Graduated with distinction."
+      }
+    ],
+    "courses": [
+      {
+        "name": "Board Certified Geriatric Pharmacist (BCGP)",
+        "provider": "Board of Pharmacy Specialties",
+        "year": 2019
+      },
+      {
+        "name": "Certified Diabetes Educator (CDE)",
+        "provider": "Canadian Diabetes Educator Certification Board",
+        "year": 2016
+      },
+      {
+        "name": "Leadership Development Program",
+        "provider": "Alberta School of Business, Executive Education",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "French",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Licensed pharmacist, Alberta College of Pharmacy",
+        "detail": "Clinical pharmacist register with Additional Prescribing Authorization; PEBC Qualifying Examination passed in 2010."
+      },
+      {
+        "title": "Provincial conference speaker",
+        "detail": "Presented the hypertension program results at the RxA annual conference, 2024."
+      }
+    ],
+    "skills": [
+      "Pharmacist prescribing (APA)",
+      "Chronic disease management",
+      "Deprescribing",
+      "Team leadership",
+      "Budget management",
+      "Collaborative practice",
+      "Long-term care reviews",
+      "Quality improvement",
+      "Netcare",
+      "Clinical service billing"
+    ],
+    "interests": [
+      "Cross-country skiing",
+      "Francophone community theatre",
+      "Canoeing"
+    ]
+  }
+}

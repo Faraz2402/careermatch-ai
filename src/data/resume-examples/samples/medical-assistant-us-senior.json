@@ -1,0 +1,134 @@
+{
+  "id": "medical-assistant-us-senior",
+  "category": "healthcare-nursing",
+  "role": "medical-assistant",
+  "country": "us",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Rosa Villanueva",
+    "title": "Clinical Supervisor, Medical Assistants (CMA)",
+    "phone": "(303) 555-0162",
+    "email": "rosa.villanueva@example.com",
+    "linkedin": "linkedin.com/in/rosa-villanueva",
+    "location": "Denver, CO",
+    "summary": "Certified Medical Assistant (AAMA) with 13 years in family medicine and cardiology clinics, now supervising 24 medical assistants across four primary care sites. I built the MA training academy that cut new-hire onboarding from 10 weeks to 6 and helped our clinics close 3,100 overdue preventive-care gaps in a single year.",
+    "experience": [
+      {
+        "title": "Medical Assistant",
+        "company": "Cherry Creek Family Practice",
+        "location": "Denver, CO",
+        "start": "2013-06",
+        "end": "2016-04",
+        "bullets": [
+          "Roomed 28–32 patients a day for three family physicians, taking vitals, medication histories and chief complaints in athenahealth.",
+          "Performed venipuncture, rapid strep and A1c point-of-care tests and kept CLIA-waived testing logs audit-ready.",
+          "Administered childhood and adult vaccines under provider orders and reconciled state immunization registry records weekly."
+        ]
+      },
+      {
+        "title": "Cardiology Medical Assistant",
+        "company": "Front Range Heart Associates",
+        "location": "Lakewood, CO",
+        "start": "2016-05",
+        "end": "2019-08",
+        "bullets": [
+          "Performed 12-lead EKGs, applied Holter and event monitors and prepped patients for 15–20 stress tests a week.",
+          "Managed the anticoagulation recall list for 640 warfarin patients, raising on-time clotting-test checks from 72% to 93%.",
+          "Trained 6 new medical assistants on cardiology workflows and wrote the clinic's first EKG troubleshooting guide."
+        ]
+      },
+      {
+        "title": "Lead Medical Assistant",
+        "company": "Platte Valley Primary Care",
+        "location": "Denver, CO",
+        "start": "2019-09",
+        "end": "2022-10",
+        "bullets": [
+          "Led 9 medical assistants at a 12-provider clinic seeing about 260 patients a day, handling schedules, huddles and supply ordering.",
+          "Set up a curbside and telehealth intake workflow in two weeks during COVID-19, keeping visit volume at 85% of normal.",
+          "Introduced pre-visit planning huddles that closed 1,200 care gaps for mammograms, colorectal screening and diabetic eye exams in one year.",
+          "Cut supply spend by $38,000 a year by moving to par-level ordering and tracking expiry dates in a shared log."
+        ]
+      },
+      {
+        "title": "Clinical Supervisor, Medical Assistants",
+        "company": "Platte Valley Primary Care",
+        "location": "Denver, CO",
+        "start": "2022-11",
+        "end": "present",
+        "bullets": [
+          "Supervise 24 medical assistants across four clinic sites, owning hiring, competency checks, scheduling and annual reviews.",
+          "Built an in-house MA training academy with skills labs and shadowing, shortening onboarding from 10 weeks to 6.",
+          "Partnered with the quality team on standing orders for screenings, helping close 3,100 preventive-care gaps in 2024.",
+          "Reduced MA turnover from 34% to 18% by creating a three-step career ladder tied to CMA certification and lead roles."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Certificate, Medical Assisting",
+        "school": "Front Range Community College",
+        "location": "Westminster, CO",
+        "start": "2012-01",
+        "end": "2013-05",
+        "details": "Included a 180-hour clinical externship."
+      }
+    ],
+    "courses": [
+      {
+        "name": "Certified Medical Assistant (CMA) recertification",
+        "provider": "American Association of Medical Assistants",
+        "year": 2023
+      },
+      {
+        "name": "Basic Life Support (BLS)",
+        "provider": "American Heart Association",
+        "year": 2025
+      },
+      {
+        "name": "Supervisory Skills for Healthcare Leaders",
+        "provider": "Community College of Denver Continuing Education",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Spanish",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "CMA (AAMA) credential",
+        "detail": "Certified Medical Assistant since 2013, maintained through continuing education."
+      },
+      {
+        "title": "Employee of the Year, 2021",
+        "detail": "Chosen by clinic staff for leading the COVID-19 intake redesign."
+      }
+    ],
+    "skills": [
+      "Team supervision",
+      "Patient intake and rooming",
+      "Venipuncture",
+      "12-lead EKG",
+      "Vaccine administration",
+      "athenahealth",
+      "Epic",
+      "Care-gap closure",
+      "CLIA-waived testing",
+      "Scheduling",
+      "Bilingual patient communication"
+    ],
+    "interests": [
+      "Mountain biking",
+      "Mentoring first-generation students",
+      "Mexican folk dance"
+    ]
+  }
+}

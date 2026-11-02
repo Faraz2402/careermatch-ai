@@ -1,0 +1,106 @@
+{
+  "id": "customer-service-representative-uk-entry",
+  "category": "office-administration",
+  "role": "customer-service-representative",
+  "country": "uk",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Callum Briggs",
+    "title": "Customer Service Advisor",
+    "phone": "07700 900238",
+    "email": "callum.briggs@example.com",
+    "linkedin": "linkedin.com/in/callum-briggs",
+    "location": "Bradford, West Yorkshire",
+    "summary": "Friendly customer service advisor with two years of retail and contact centre experience, now handling billing and meter queries for an energy supplier. Consistently scores above 90% on call quality and was the fastest in my intake to sign off on complaint handling.",
+    "experience": [
+      {
+        "title": "Sales Assistant (part-time)",
+        "company": "Baildon Garden Centre",
+        "location": "Shipley, West Yorkshire",
+        "start": "2023-06",
+        "end": "2024-08",
+        "bullets": [
+          "Served customers on the tills and shop floor at weekends and through the summer, often 200 transactions a shift in peak season.",
+          "Handled refunds and exchanges in line with store policy, calmly sorting out complaints about plants and delivered goods.",
+          "Helped set up the Christmas grotto booking system and took phone bookings for over 600 family slots."
+        ]
+      },
+      {
+        "title": "Customer Service Advisor",
+        "company": "Pennine Energy Direct",
+        "location": "Bradford, West Yorkshire",
+        "start": "2024-09",
+        "end": "present",
+        "bullets": [
+          "Take around 55 calls a day on bills, smart meter readings, payment plans and moving home for domestic customers.",
+          "Set up affordable payment plans for customers in arrears and flag vulnerable customers to the Priority Services Register.",
+          "Hold a call quality score averaging 92% against a team target of 85%.",
+          "Signed off to handle formal complaints after four months, two months ahead of the usual timeline, following Ofgem complaint-handling rules."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "A-levels: Business (B), English Literature (C), Psychology (C)",
+        "school": "Saltaire Sixth Form College",
+        "location": "Shipley, West Yorkshire",
+        "start": "2021-09",
+        "end": "2023-06"
+      },
+      {
+        "degree": "GCSEs: 8 at grades 9–5, including English Language (6) and Maths (6)",
+        "school": "Titus Salt School",
+        "location": "Baildon, West Yorkshire",
+        "end": "2021-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Level 2 Award in Customer Service",
+        "provider": "NCFE",
+        "year": 2024
+      },
+      {
+        "name": "Mental Health Awareness for Customer-Facing Staff",
+        "provider": "OpenLearn",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Urdu",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Duke of Edinburgh Silver Award",
+        "detail": "Completed volunteering, skills and expedition sections over 12 months."
+      },
+      {
+        "title": "Star of the month",
+        "detail": "Picked by the team leader at Pennine Energy Direct in March 2025 for customer feedback."
+      }
+    ],
+    "skills": [
+      "Inbound call handling",
+      "Complaint handling",
+      "Payment plans",
+      "Vulnerable customer support",
+      "Salesforce",
+      "Microsoft Teams",
+      "Data protection (UK GDPR)",
+      "Cash handling"
+    ],
+    "interests": [
+      "Five-a-side football",
+      "Gaming",
+      "Cooking curry for the family"
+    ]
+  }
+}

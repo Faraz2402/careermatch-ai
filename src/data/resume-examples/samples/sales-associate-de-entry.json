@@ -1,0 +1,73 @@
+{
+  "id": "sales-associate-de-entry",
+  "category": "sales-retail",
+  "role": "sales-associate",
+  "country": "de",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Amira Haddad",
+    "title": "Sales Associate",
+    "phone": "+49 89 99998 304",
+    "email": "amira.haddad@example.com",
+    "linkedin": "linkedin.com/in/amira-haddad",
+    "location": "München",
+    "summary": "Newly qualified Kauffrau im Einzelhandel (IHK) working as a sales associate in a München outdoor shop. Completed a shortened two-year apprenticeship with a final grade of 1.8 and serves customers in German, English and Arabic, which makes her the go-to person for the store's many international visitors.",
+    "experience": [
+      {
+        "title": "Sales Associate",
+        "company": "Schwabinger Outdoor GmbH",
+        "location": "München",
+        "start": "2025-07",
+        "end": "present",
+        "bullets": [
+          "Advise 40 to 70 customers a day on hiking boots, alpine clothing and climbing gear, reaching 108% of my personal monthly target on average.",
+          "Look after tax-free shopping forms and international customers, serving visitors in English and Arabic during the summer season.",
+          "Plan the boot-fitting corner layout with the department manager, which shortened waiting times on Saturdays."
+        ]
+      },
+      {
+        "title": "Auszubildende Kauffrau im Einzelhandel (retail apprentice)",
+        "company": "Isartal Sport GmbH",
+        "location": "München",
+        "start": "2023-08",
+        "end": "2025-06",
+        "bullets": [
+          "Rotated through checkout, goods receiving, ski rental and the sales floor as part of the dual training programme.",
+          "Ran the ski rental desk on winter weekends, issuing and checking in up to 120 sets a day.",
+          "Prepared a project on reducing returns of online orders for the IHK final exam, later partly adopted by the store."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Kauffrau im Einzelhandel (IHK), retail sales qualification, shortened to two years",
+        "school": "Städtische Berufsschule für den Einzelhandel / IHK für München und Oberbayern",
+        "location": "München",
+        "start": "2023-08",
+        "end": "2025-06",
+        "details": "Final grade 1.8 (good)."
+      },
+      {
+        "degree": "Abitur",
+        "school": "Gymnasium München-Pasing",
+        "location": "München",
+        "end": "2023-06"
+      }
+    ],
+    "courses": [
+      { "name": "Erste-Hilfe-Kurs (first aid)", "provider": "Bayerisches Rotes Kreuz", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "German", "level": "Native (C2)" },
+      { "name": "Arabic", "level": "Native" },
+      { "name": "English", "level": "Fluent (C1)" }
+    ],
+    "achievements": [
+      { "title": "Shortened apprenticeship", "detail": "Completed the three-year apprenticeship in two years with a final grade of 1.8." },
+      { "title": "Returns project", "detail": "Exam project on online-order returns was used to update the store's size guidance." }
+    ],
+    "skills": ["Customer advice", "Outdoor and alpine products", "Checkout and cash handling", "Tax-free forms", "Goods receiving", "Ski rental", "Merchandise presentation", "Microsoft Excel"],
+    "interests": ["Via ferrata routes in the Alps", "Bouldering", "Lebanese cooking"]
+  }
+}

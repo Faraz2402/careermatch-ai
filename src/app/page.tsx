@@ -8,6 +8,8 @@ import { JsonLd, organization, softwareApplication } from "@/components/json-ld"
 import { LandingFx } from "@/components/landing-fx";
 import { LandingNav } from "@/components/landing-nav";
 import { CountUp } from "@/components/count-up";
+import { HomeExamples } from "@/components/resume-examples/home-examples";
+import { featured, formatFor, publishedRoles, visibleCategories } from "@/lib/resume-examples/data";
 import type { Metadata } from "next";
 import { getCurrentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -213,6 +215,18 @@ export default async function Landing() {
                 ))}
               </ul>
               <div className="mt-9"><ArrowLink href={start} className="text-slate-900 decoration-brand-500">Open the studio</ArrowLink></div>
+            </div>
+          </div>
+        </section>
+
+        {/* Resume examples */}
+        <section id="resume-examples" className="relative scroll-mt-20 border-y border-white/[0.06] bg-[#0a1020]">
+          <div className="shell py-20 lg:py-28">
+            <p className="text-sm font-bold tracking-[0.14em] text-[#a3b8ff] uppercase">Resume examples</p>
+            <h2 className="reveal mt-4 max-w-4xl font-serif text-[clamp(2.46rem,4.6vw,4.48rem)] leading-[1.04] font-normal tracking-[-0.015em] text-slate-900">Examples written for <em className="text-brand-600 italic">your country&rsquo;s rules.</em></h2>
+            <p className="reveal mt-5 max-w-2xl text-lg text-slate-600" style={delay(100)}>Fictional résumés and CVs for popular jobs in six countries, each with local qualifications, the right paper size and a writing guide.</p>
+            <div className="mt-10">
+              <HomeExamples initial={{ format: formatFor("us"), samples: featured("us") }} categories={visibleCategories().map((c) => ({ slug: c.slug, name: c.name }))} roleNames={Object.fromEntries(publishedRoles().map((r) => [r.slug, r.name]))} />
             </div>
           </div>
         </section>

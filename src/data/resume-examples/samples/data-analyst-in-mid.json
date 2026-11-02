@@ -1,0 +1,75 @@
+{
+  "id": "data-analyst-in-mid",
+  "category": "data-science",
+  "role": "data-analyst",
+  "country": "in",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Aditya Kulkarni",
+    "title": "Senior Data Analyst",
+    "phone": "+91 00000 41827",
+    "email": "aditya.kulkarni@example.com",
+    "linkedin": "linkedin.com/in/aditya-kulkarni",
+    "location": "Pune, Maharashtra",
+    "summary": "Data analyst with nine years in agri-food MIS, digital payments and omnichannel retail. Lead category and store analytics for a 140-store retail chain, where my markdown analysis protected ₹3.1 crore of margin last festive season. Started in MIS reporting and moved into SQL, Python and Power BI along the way.",
+    "experience": [
+      {
+        "title": "Senior Data Analyst",
+        "company": "Indrayani Retail Ventures",
+        "location": "Pune, Maharashtra",
+        "start": "2023-01",
+        "end": "present",
+        "bullets": [
+          "Own category performance analytics for 140 stores and the app, supporting 11 category managers with weekly Power BI packs.",
+          "Modelled markdown depth against sell-through during the Diwali season, protecting about ₹3.1 crore in gross margin versus the previous year's blanket discounts.",
+          "Set up a store clustering model on footfall and basket mix that now drives planograms for 4 store formats.",
+          "Guide two analysts on SQL and presentation skills and review all numbers before they reach leadership."
+        ]
+      },
+      {
+        "title": "Data Analyst",
+        "company": "Deccan Paylink Fintech Pvt Ltd",
+        "location": "Pune, Maharashtra",
+        "start": "2019-09",
+        "end": "2022-12",
+        "bullets": [
+          "Monitored UPI and wallet transaction funnels for 6 million monthly users and alerted product teams to drop-offs within a day.",
+          "Found that 23% of failed merchant onboardings stalled at KYC document upload; a redesigned flow raised completion by 12 points.",
+          "Built a merchant cohort retention report in Metabase that the sales team used to plan ₹45 lakh of incentive spend."
+        ]
+      },
+      {
+        "title": "MIS Executive",
+        "company": "Sahyadri Agro Foods Ltd",
+        "location": "Nashik, Maharashtra",
+        "start": "2017-07",
+        "end": "2019-08",
+        "bullets": [
+          "Compiled daily procurement and dispatch MIS for 3 processing plants and 900 contract farmers.",
+          "Replaced manual Excel consolidation with Access macros, saving the plant accounts team 10 hours a week.",
+          "Tracked distributor stock ageing and helped reduce expired product write-offs by 17% in one year."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "M.Sc. Statistics", "school": "Savitribai Phule Pune University", "location": "Pune, Maharashtra", "start": "2015-07", "end": "2017-05", "details": "CGPA 8.4/10" },
+      { "degree": "B.Sc. Statistics", "school": "Fergusson College, Pune", "location": "Pune, Maharashtra", "start": "2012-06", "end": "2015-04" }
+    ],
+    "courses": [
+      { "name": "Python for Data Science", "provider": "NPTEL", "year": 2019 },
+      { "name": "Google Data Analytics Professional Certificate", "provider": "Coursera", "year": 2021 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Marathi", "level": "Native" },
+      { "name": "Hindi", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Retail analytics award", "detail": "Indrayani Retail Ventures 'Insight of the Year' (2024) for the festive markdown model." },
+      { "title": "Kaggle notebook", "detail": "Published a public notebook on retail demand seasonality that reached the platform's bronze medal tier." }
+    ],
+    "skills": ["SQL (MySQL, PostgreSQL)", "Python (pandas, scikit-learn)", "Power BI", "Metabase", "Excel and VBA", "Retail analytics", "Funnel analysis", "Clustering", "Forecasting", "Stakeholder communication"],
+    "interests": ["Trekking in the Sahyadris", "Cricket statistics", "Marathi theatre"]
+  }
+}

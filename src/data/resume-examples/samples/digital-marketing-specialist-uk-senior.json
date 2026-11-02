@@ -1,0 +1,94 @@
+{
+  "id": "digital-marketing-specialist-uk-senior",
+  "category": "marketing",
+  "role": "digital-marketing-specialist",
+  "country": "uk",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Rebecca Adeyemi",
+    "title": "Lead Digital Marketing Specialist",
+    "phone": "07700 900731",
+    "email": "rebecca.adeyemi@example.com",
+    "linkedin": "linkedin.com/in/rebecca-adeyemi",
+    "location": "Manchester",
+    "summary": "Digital marketing specialist with 15 years across travel, agency PPC, furniture retail and insurance. Leads a five-person performance team at a regulated insurer, managing £2.4m in annual media and building the measurement setup that let the business cut aggregator dependence from 64% to 47% of new policies.",
+    "experience": [
+      {
+        "title": "Lead Digital Marketing Specialist",
+        "company": "Lowry Lane Insurance",
+        "location": "Manchester",
+        "start": "2022-07",
+        "end": "present",
+        "bullets": [
+          "Lead a team of five covering paid search, paid social, SEO and CRO for a home and pet insurer, with a £2.4m annual media budget.",
+          "Grew direct online quotes by 41% in two years, reducing reliance on price comparison sites and saving an estimated £1.1m in commission.",
+          "Worked with compliance to build an FCA-approved ad copy library, cutting campaign sign-off time from ten days to three.",
+          "Introduced a geo-holdout testing method with the data team to measure the incremental effect of paid social, which led to a 30% budget reallocation.",
+          "Migrated tagging to server-side Google Tag Manager and Consent Mode v2, recovering conversion visibility lost to cookie consent."
+        ]
+      },
+      {
+        "title": "Senior Digital Marketing Specialist",
+        "company": "Castlefield Home Furnishings",
+        "location": "Manchester",
+        "start": "2018-04",
+        "end": "2022-06",
+        "bullets": [
+          "Managed Google Shopping and Performance Max for 9,000 SKUs, growing online revenue from £14m to £23m over four years.",
+          "Rebuilt the product feed with custom labels for margin and stock depth so spend favoured profitable lines, raising return on ad spend from 5.2 to 7.4.",
+          "Led a site-speed and technical SEO programme with the developers that took organic sessions up 36%.",
+          "Hired and trained two PPC executives and wrote the team's first channel playbooks."
+        ]
+      },
+      {
+        "title": "PPC Manager",
+        "company": "Irwell Digital",
+        "location": "Salford",
+        "start": "2014-07",
+        "end": "2018-03",
+        "bullets": [
+          "Ran paid search accounts for 16 agency clients in retail, education and B2B, with combined monthly spend of £600,000.",
+          "Retained the agency's largest client through a competitive pitch by presenting a revised bidding strategy and a 90-day test plan.",
+          "Wrote automated budget pacing scripts in Google Ads Scripts that saved account managers around eight hours a week.",
+          "Delivered monthly client reports and quarterly strategy reviews to marketing directors."
+        ]
+      },
+      {
+        "title": "Digital Marketing Executive",
+        "company": "Pennine Travel Co.",
+        "location": "Manchester",
+        "start": "2011-08",
+        "end": "2014-06",
+        "bullets": [
+          "Managed email, affiliate and early paid search campaigns for coach and rail holiday packages.",
+          "Built segmented newsletters for over-60s and family audiences, lifting click-through rates from 2.1% to 3.8%.",
+          "Coordinated an affiliate programme with 40 travel publishers, contributing 12% of online bookings."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA (Hons) Media and Communication, 2:1",
+        "school": "University of Salford",
+        "location": "Salford",
+        "start": "2008-09",
+        "end": "2011-06"
+      }
+    ],
+    "courses": [
+      { "name": "Google Ads Measurement Certification", "provider": "Google Skillshop", "year": 2024 },
+      { "name": "Diploma in Digital Marketing", "provider": "Chartered Institute of Marketing", "year": 2016 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Yoruba", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Lower aggregator dependence", "detail": "Direct channels' share of new policies rose from 36% to 53% in two years." },
+      { "title": "Industry speaker", "detail": "Spoke on incrementality testing at a Manchester digital marketing meetup in 2024." }
+    ],
+    "skills": ["Paid search", "Paid social", "Performance Max", "Incrementality testing", "Technical SEO", "Conversion rate optimisation", "Server-side GTM", "GA4", "BigQuery", "Looker Studio", "Financial promotions compliance", "Team leadership"],
+    "interests": ["Parkrun volunteering", "Afrobeat DJing", "Allotment gardening"]
+  }
+}

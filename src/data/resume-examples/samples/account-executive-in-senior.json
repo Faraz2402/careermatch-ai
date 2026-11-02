@@ -1,0 +1,101 @@
+{
+  "id": "account-executive-in-senior",
+  "category": "sales-retail",
+  "role": "account-executive",
+  "country": "in",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Rohan Malhotra",
+    "title": "Enterprise Account Executive",
+    "phone": "+91 00000 72154",
+    "email": "rohan.malhotra@example.com",
+    "linkedin": "linkedin.com/in/rohan-malhotra",
+    "location": "Gurugram, Haryana",
+    "summary": "Enterprise account executive with 14 years in B2B technology sales, including networking, cloud and HR software, to Indian conglomerates and BFSI companies. Manages strategic accounts worth ₹62 crore in annual contract value and has led five deals above ₹10 crore.",
+    "experience": [
+      {
+        "title": "Enterprise Account Executive (Strategic Accounts)",
+        "company": "Kalinga HR Tech Pvt Ltd",
+        "location": "Gurugram, Haryana",
+        "start": "2021-07",
+        "end": "present",
+        "bullets": [
+          "Own 11 strategic accounts in BFSI and manufacturing with ₹62 crore in combined annual contract value.",
+          "Closed a ₹18 crore, three-year HRMS contract for 85,000 employees at a private bank after a 10-month evaluation with HR, IT and information security.",
+          "Achieved 126% of the annual new-business target in FY 2024-25, the highest in the North India team.",
+          "Brought in implementation partners early on large bids so timelines and payroll compliance (PF, ESI, TDS) were agreed before signing.",
+          "Mentor four account executives and run the weekly North region pipeline review."
+        ]
+      },
+      {
+        "title": "Senior Account Executive",
+        "company": "Indus Data Systems Pvt Ltd",
+        "location": "New Delhi",
+        "start": "2017-04",
+        "end": "2021-06",
+        "bullets": [
+          "Sold data centre and private cloud services to large enterprises in Delhi NCR, growing my book from ₹14 crore to ₹31 crore.",
+          "Won a ₹12 crore disaster recovery contract with an insurance company by aligning the proposal with IRDAI outsourcing guidelines.",
+          "Responded to 30+ public and private sector tenders, maintaining a 38% win rate."
+        ]
+      },
+      {
+        "title": "Account Executive",
+        "company": "Qutub Cloud Solutions",
+        "location": "Gurugram, Haryana",
+        "start": "2013-05",
+        "end": "2017-03",
+        "bullets": [
+          "Sold email, collaboration and backup subscriptions to mid-sized companies, signing around 60 new logos a year.",
+          "Ran CXO breakfast sessions in Gurugram and Noida that generated ₹4 crore in pipeline.",
+          "Exceeded quota in all four years and was promoted to senior AE."
+        ]
+      },
+      {
+        "title": "Sales Executive",
+        "company": "Aravalli Networks Pvt Ltd",
+        "location": "New Delhi",
+        "start": "2010-07",
+        "end": "2011-05",
+        "bullets": [
+          "Sold routers, switches and structured cabling projects to schools and small offices across West Delhi.",
+          "Prepared technical quotes with pre-sales engineers and tracked payments to keep receivables under 45 days.",
+          "Closed ₹1.2 crore in orders in my first year before leaving for full-time PGDM study."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "PGDM (Marketing and Strategy)",
+        "school": "Management Development Institute (MDI), Gurgaon",
+        "location": "Gurugram, Haryana",
+        "start": "2011-06",
+        "end": "2013-04",
+        "details": "CGPA 7.8/10."
+      },
+      {
+        "degree": "B.Tech, Electronics and Communication Engineering",
+        "school": "Delhi College of Engineering (now Delhi Technological University)",
+        "location": "New Delhi",
+        "start": "2006-08",
+        "end": "2010-05"
+      }
+    ],
+    "courses": [
+      { "name": "Strategic Sales Management", "provider": "IIM Bangalore (online executive programme)", "year": 2022 },
+      { "name": "AWS Cloud Practitioner", "provider": "Amazon Web Services", "year": 2019 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Hindi", "level": "Native" },
+      { "name": "Punjabi", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Largest HRMS contract", "detail": "₹18 crore contract covering 85,000 employees, the company's biggest single deal." },
+      { "title": "Five ₹10 crore+ deals", "detail": "Led five enterprise deals above ₹10 crore across two companies." }
+    ],
+    "skills": ["Strategic account management", "Enterprise negotiation", "Tender and RFP responses", "BFSI sales", "HR and payroll software", "Cloud and data centre services", "Stakeholder mapping", "Salesforce", "Forecasting", "Team mentoring"],
+    "interests": ["Golf", "Long-distance running", "Reading business history"]
+  }
+}

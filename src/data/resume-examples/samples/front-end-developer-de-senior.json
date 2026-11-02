@@ -1,0 +1,100 @@
+{
+  "id": "front-end-developer-de-senior",
+  "category": "software-engineering",
+  "role": "front-end-developer",
+  "country": "de",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Lena Hoffmann",
+    "title": "Front-End Lead",
+    "phone": "+49 40 66969 214",
+    "email": "lena.hoffmann@example.com",
+    "linkedin": "linkedin.com/in/lena-hoffmann",
+    "location": "Hamburg",
+    "summary": "Front-end lead with 15 years in Hamburg, trained first as a Fachinformatikerin and then in media computer science. Leads eight developers building the customer portal of a digital insurer with 600,000 policyholders, and led its readiness work for the Barrierefreiheitsstärkungsgesetz (BFSG). Focused on React, TypeScript and design systems that teams actually adopt.",
+    "experience": [
+      {
+        "title": "Web Developer",
+        "company": "Elbblick Medien GmbH",
+        "location": "Hamburg",
+        "start": "2011-09",
+        "end": "2014-12",
+        "bullets": [
+          "Built responsive publishing templates for regional magazine websites with about 4 million monthly page views.",
+          "Introduced Grunt-based build tooling and code linting, reducing broken releases from several a month to roughly one a quarter.",
+          "Trained editorial staff on the new templates in German and wrote the internal style guide."
+        ]
+      },
+      {
+        "title": "Front-End Developer",
+        "company": "Alsterhafen Reisen GmbH",
+        "location": "Hamburg",
+        "start": "2015-01",
+        "end": "2018-06",
+        "bullets": [
+          "Developed the Angular package-holiday search for German, Austrian and Swiss markets, handling 50,000 searches a day.",
+          "Implemented SEPA direct debit and invoice payment options in checkout, which German customers preferred over cards.",
+          "Raised booking conversion on tablets by 12% after rebuilding filters and date pickers for touch."
+        ]
+      },
+      {
+        "title": "Senior Front-End Engineer",
+        "company": "Speicherstadt Commerce GmbH",
+        "location": "Hamburg",
+        "start": "2018-07",
+        "end": "2022-03",
+        "bullets": [
+          "Led migration of a fashion marketplace from AngularJS to React and TypeScript over 18 months without a feature freeze.",
+          "Designed a micro-frontend setup that let five teams release independently, increasing weekly front-end deploys from 3 to 25.",
+          "Implemented a consent-management flow that met GDPR and TTDSG requirements while keeping analytics opt-in near 60%.",
+          "Interviewed and hired four front-end engineers for the Hamburg office."
+        ]
+      },
+      {
+        "title": "Front-End Lead",
+        "company": "Nordlicht Versicherungsdigital GmbH",
+        "location": "Hamburg (hybrid)",
+        "start": "2022-04",
+        "end": "present",
+        "bullets": [
+          "Lead eight front-end developers across two squads delivering the customer portal for 600,000 policyholders.",
+          "Ran the BFSG accessibility readiness project ahead of June 2025, auditing 220 screens and fixing over 400 WCAG issues.",
+          "Built a shared React component library with Storybook and design tokens, now used by every customer-facing product.",
+          "Reduced claims-form drop-off by 19% through a step-by-step flow tested with older customers in usability sessions."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Sc. Medieninformatik (Media Computer Science)",
+        "school": "Hochschule für Angewandte Wissenschaften Hamburg (HAW Hamburg)",
+        "location": "Hamburg",
+        "start": "2008-10",
+        "end": "2011-08"
+      },
+      {
+        "degree": "Fachinformatikerin für Anwendungsentwicklung (IHK) – vocational training in application development",
+        "school": "Handelskammer Hamburg (dual training)",
+        "location": "Hamburg",
+        "start": "2005-08",
+        "end": "2008-07"
+      }
+    ],
+    "courses": [
+      { "name": "Professional Scrum Master I (PSM I)", "provider": "Scrum.org", "year": 2020 },
+      { "name": "Web Accessibility Specialist (WAS)", "provider": "IAAP", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "German", "level": "Native" },
+      { "name": "English", "level": "C1" },
+      { "name": "Danish", "level": "A2" }
+    ],
+    "achievements": [
+      { "title": "Speaker at a German front-end conference", "detail": "Talk on preparing insurance portals for the BFSG, attended by about 300 developers." },
+      { "title": "Mentor, women-in-tech programme in Hamburg", "detail": "Mentored six career changers into their first developer roles." }
+    ],
+    "skills": ["React", "TypeScript", "Angular", "Micro-frontends", "Storybook and design tokens", "Accessibility (WCAG 2.1, BITV 2.0, BFSG)", "CSS architecture", "Jest and Playwright", "GDPR-compliant consent flows", "Team leadership", "Hiring"],
+    "interests": ["Sailing on the Alster", "Indie board games", "Volunteering at a Hamburg repair café"]
+  }
+}

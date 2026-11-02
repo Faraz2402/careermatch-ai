@@ -1,0 +1,131 @@
+{
+  "id": "graphic-designer-in-senior",
+  "category": "design",
+  "role": "graphic-designer",
+  "country": "in",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Rohan Deshpande",
+    "title": "Design Head",
+    "phone": "+91 00000 26481",
+    "email": "rohan.deshpande@example.com",
+    "linkedin": "linkedin.com/in/rohan-deshpande",
+    "location": "Mumbai, Maharashtra",
+    "summary": "Design head with 16 years in advertising, brand studios and in-house consumer brands in Mumbai. Leads a 12-person design team, manages ₹1.8 crore in annual production spend, and the packaging overhaul for a snacks portfolio helped grow modern-trade sales by 23%.",
+    "experience": [
+      {
+        "title": "Visualiser",
+        "company": "Worli Ad Works",
+        "location": "Mumbai, Maharashtra",
+        "start": "2010-07",
+        "end": "2013-03",
+        "bullets": [
+          "Created press ads, hoardings and point-of-sale material for FMCG and real estate clients.",
+          "Adapted master campaigns into Marathi, Hindi and Gujarati versions, keeping type legible in each script.",
+          "Worked on 30-plus campaign launches, many on overnight deadlines for newspaper releases."
+        ]
+      },
+      {
+        "title": "Senior Visualiser",
+        "company": "Bandra Pixel Studio",
+        "location": "Mumbai, Maharashtra",
+        "start": "2013-04",
+        "end": "2016-09",
+        "bullets": [
+          "Led design on identity and packaging projects for start-ups and family-run businesses moving into retail.",
+          "Managed two junior visualisers and a production artist, sharing out work and checking final artwork.",
+          "Won the studio's largest retainer of that period, a ₹45 lakh annual brand contract, after leading the pitch design."
+        ]
+      },
+      {
+        "title": "Lead Graphic Designer",
+        "company": "Konkan Consumer Brands Pvt. Ltd.",
+        "location": "Mumbai, Maharashtra",
+        "start": "2016-10",
+        "end": "2021-01",
+        "bullets": [
+          "Ran in-house design for a 70-SKU snacks and spices portfolio across general and modern trade.",
+          "Overhauled the packaging architecture with clearer flavour colour coding, followed by 23% growth in modern-trade sales.",
+          "Brought FSSAI and Legal Metrology label checks into the artwork approval flow, removing last-minute reprints.",
+          "Cut external agency spend by ₹60 lakh a year by building an in-house team of four."
+        ]
+      },
+      {
+        "title": "Design Head",
+        "company": "Marine Drive Media",
+        "location": "Mumbai, Maharashtra",
+        "start": "2021-02",
+        "end": "present",
+        "bullets": [
+          "Lead a 12-person team of designers, illustrators and motion artists working on 25 brand accounts.",
+          "Manage ₹1.8 crore in annual production spend across print, outdoor and digital campaigns.",
+          "Set up a design operations process with briefs, review stages and file standards that improved on-time delivery to 95%.",
+          "Hire and develop designers through a structured six-month programme; three team members have been promoted to leads."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Fine Arts (Applied Art)",
+        "school": "Sir J.J. Institute of Applied Art",
+        "location": "Mumbai, Maharashtra",
+        "start": "2006-07",
+        "end": "2010-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Design Thinking for Innovation",
+        "provider": "Coursera",
+        "year": 2019
+      },
+      {
+        "name": "Leadership and Team Management",
+        "provider": "NPTEL",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Marathi",
+        "level": "Native"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Packaging recognition",
+        "detail": "Snacks range recognised at a national packaging awards event in 2019."
+      },
+      {
+        "title": "Visiting faculty",
+        "detail": "Teach a semester module on packaging design at a Mumbai design college."
+      }
+    ],
+    "skills": [
+      "Creative leadership",
+      "Brand identity",
+      "Packaging design",
+      "Devanagari and Latin typography",
+      "Adobe Creative Cloud",
+      "Figma",
+      "Print and outdoor production",
+      "Budget management",
+      "Hiring and mentoring",
+      "Client pitching"
+    ],
+    "interests": [
+      "Mumbai street sketching",
+      "Collecting old Bollywood posters",
+      "Running the Mumbai half marathon"
+    ]
+  }
+}

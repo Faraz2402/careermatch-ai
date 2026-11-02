@@ -1,0 +1,89 @@
+{
+  "id": "software-engineer-de-mid",
+  "category": "software-engineering",
+  "role": "software-engineer",
+  "country": "de",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Deniz Yılmaz",
+    "title": "Backend Software Engineer",
+    "phone": "+49 30 23125 417",
+    "email": "deniz.yilmaz@example.com",
+    "linkedin": "linkedin.com/in/deniz-yilmaz",
+    "location": "Berlin",
+    "summary": "Backend engineer with nine years in Kotlin and Java, starting as a Werkstudent during my master's and now building metering services for a Berlin energy-data company. Designed an event-sourced tariff engine that settles about 1.2 million customer accounts each month. Works comfortably across German- and English-speaking teams.",
+    "experience": [
+      {
+        "title": "Werkstudent Software Development",
+        "company": "Spreeufer Mobility GmbH",
+        "location": "Berlin",
+        "start": "2017-01",
+        "end": "2018-09",
+        "bullets": [
+          "Built a Spring Boot service that pulled e-scooter battery telemetry every 30 seconds, giving the operations team a live map of 2,500 vehicles.",
+          "Implemented charging-route suggestions that reduced driving distance for the night shift by around 15%.",
+          "Worked 20 hours a week alongside my M.Sc., completing every sprint commitment over 20 months."
+        ]
+      },
+      {
+        "title": "Software Engineer",
+        "company": "Kreuzberg Logistiksysteme GmbH",
+        "location": "Berlin",
+        "start": "2018-11",
+        "end": "2022-02",
+        "bullets": [
+          "Developed warehouse slotting APIs in Kotlin used by 14 fulfilment centres, cutting average pick-path length by 11%.",
+          "Replaced a shared Oracle schema with per-service PostgreSQL databases, ending a weekly release freeze that blocked four teams.",
+          "Introduced contract tests with Pact between six services, catching breaking API changes before merge rather than in staging.",
+          "Onboarded three new engineers and wrote the team's German-English glossary of logistics terms."
+        ]
+      },
+      {
+        "title": "Backend Engineer",
+        "company": "Havelstrom Energiedaten GmbH",
+        "location": "Berlin (hybrid)",
+        "start": "2022-04",
+        "end": "present",
+        "bullets": [
+          "Designed an event-sourced tariff engine in Kotlin that settles around 1.2 million household accounts monthly, replacing a spreadsheet-driven process that took five days.",
+          "Implemented processing of smart-meter readings to market-communication formats, keeping data exchange with grid operators within regulatory deadlines.",
+          "Cut monthly cloud spend on the billing cluster by €6,500 by right-sizing Kubernetes workloads and moving cold data to object storage.",
+          "Own the team's on-call handbook and run blameless post-mortems after every customer-facing incident."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc. Informatik (Computer Science)",
+        "school": "Technische Universität Berlin",
+        "location": "Berlin",
+        "start": "2016-04",
+        "end": "2018-09",
+        "details": "Thesis on consistency models for event-sourced systems. Grade 1.7."
+      },
+      {
+        "degree": "B.Sc. Informatik (Computer Science)",
+        "school": "Technische Universität Berlin",
+        "location": "Berlin",
+        "start": "2012-10",
+        "end": "2016-03"
+      }
+    ],
+    "courses": [
+      { "name": "Certified Kubernetes Application Developer (CKAD)", "provider": "The Linux Foundation", "year": 2023 },
+      { "name": "iSAQB Certified Professional for Software Architecture – Foundation Level", "provider": "iSAQB", "year": 2021 }
+    ],
+    "languages": [
+      { "name": "German", "level": "C2" },
+      { "name": "Turkish", "level": "Native" },
+      { "name": "English", "level": "C1" }
+    ],
+    "achievements": [
+      { "title": "Maintainer of an open-source Kotlin event-store library", "detail": "Volunteer maintainer since 2021; reviewed contributions from about 30 developers." },
+      { "title": "Mentor, Berlin coding bootcamp for career changers", "detail": "Mentored five participants through their final projects; four now work as developers." }
+    ],
+    "skills": ["Kotlin", "Java", "Spring Boot", "PostgreSQL", "Apache Kafka", "Event sourcing / CQRS", "Kubernetes", "Terraform", "Pact contract testing", "Grafana and Prometheus", "Code review"],
+    "interests": ["Cycling the Mauerweg", "Turkish cooking", "Chess club"]
+  }
+}

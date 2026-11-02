@@ -1,0 +1,118 @@
+{
+  "id": "financial-analyst-ca-mid",
+  "category": "accounting-finance",
+  "role": "financial-analyst",
+  "country": "ca",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Anika Sharma",
+    "title": "Senior Financial Analyst",
+    "phone": "(416) 555-0139",
+    "email": "anika.sharma@example.com",
+    "linkedin": "linkedin.com/in/anika-sharma",
+    "location": "Toronto, ON",
+    "summary": "Financial analyst with eight years in insurance, grocery retail and renewable energy, and a CFA Level II pass. Models project returns for a 1.4 GW wind and solar pipeline and built the financing model that supported a $310 million project loan.",
+    "experience": [
+      {
+        "title": "Senior Financial Analyst",
+        "company": "Northshore Renewables Inc.",
+        "location": "Toronto, ON",
+        "start": "2023-06",
+        "end": "present",
+        "bullets": [
+          "Maintain project finance models for 12 wind and solar projects totalling 1.4 GW, from development through commercial operation.",
+          "Built the base-case and lender sensitivity model for a $310 million construction loan that closed in 2024.",
+          "Analyze power purchase agreement bids, showing the effect of price escalators and curtailment on equity returns.",
+          "Mentor a junior analyst on model review and audit trails."
+        ]
+      },
+      {
+        "title": "Financial Analyst",
+        "company": "Maple Basket Grocers",
+        "location": "Mississauga, ON",
+        "start": "2020-11",
+        "end": "2023-05",
+        "bullets": [
+          "Produced weekly sales and margin reporting for 86 stores and the executive team.",
+          "Ran shrink analysis by category that cut produce write-offs by 12% in the pilot region.",
+          "Supported capital requests for 14 store renovations, tracking actual payback against the approved business cases.",
+          "Built a labour-cost forecast tied to sales per hour, adopted by district managers for scheduling."
+        ]
+      },
+      {
+        "title": "Financial Analyst, Actuarial Finance",
+        "company": "Harbourfront Mutual Insurance",
+        "location": "Toronto, ON",
+        "start": "2018-08",
+        "end": "2020-10",
+        "bullets": [
+          "Reconciled reserve movements each quarter for a $2.1 billion property and casualty book.",
+          "Prepared IFRS 17 transition data extracts and documented assumptions for the project team.",
+          "Replaced manual claims-ratio reports with a SQL and Excel process that ran in minutes instead of hours."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Commerce (Honours), Finance",
+        "school": "Queen's University, Smith School of Business",
+        "location": "Kingston, ON",
+        "start": "2014-09",
+        "end": "2018-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Project Finance Modelling",
+        "provider": "Corporate Finance Institute",
+        "year": 2023
+      },
+      {
+        "name": "Power BI Data Analyst Associate",
+        "provider": "Microsoft",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      },
+      {
+        "name": "French",
+        "level": "Intermediate (B2)"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "CFA Level II passed",
+        "detail": "Passed in 2022; sitting Level III."
+      },
+      {
+        "title": "$310M loan closed",
+        "detail": "Built the lender model for Northshore's largest construction financing."
+      }
+    ],
+    "skills": [
+      "Project finance",
+      "Financial modeling",
+      "Excel",
+      "SQL",
+      "Power BI",
+      "PPA analysis",
+      "Sensitivity analysis",
+      "IFRS",
+      "Capital budgeting",
+      "Retail analytics"
+    ],
+    "interests": [
+      "Rock climbing",
+      "Indian classical dance"
+    ]
+  }
+}

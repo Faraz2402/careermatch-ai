@@ -1,0 +1,112 @@
+{
+  "id": "registered-nurse-ca-entry",
+  "category": "healthcare-nursing",
+  "role": "registered-nurse",
+  "country": "ca",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Priya Sandhu",
+    "title": "Registered Nurse, General Medicine",
+    "phone": "(403) 555-0128",
+    "email": "priya.sandhu@example.com",
+    "linkedin": "linkedin.com/in/priya-sandhu",
+    "location": "Calgary, AB",
+    "summary": "Newly registered nurse (CRNA) on an acute general medicine unit, with a final-year practicum in emergency and a summer as an Undergraduate Nursing Employee. Bilingual in English and Punjabi, which I use daily with patients and families from Calgary's South Asian community.",
+    "experience": [
+      {
+        "title": "Undergraduate Nursing Employee (UNE)",
+        "company": "Nose Creek Community Hospital",
+        "location": "Calgary, AB",
+        "start": "2024-05",
+        "end": "2024-08",
+        "bullets": [
+          "Worked under RN supervision on a 28-bed surgical unit, providing post-operative assessments, vital signs and wound care for up to 4 patients per shift.",
+          "Performed blood glucose monitoring and documented intake and output in Connect Care for 20+ diabetic and bariatric patients.",
+          "Created a laminated, picture-based mobility guide for post-op hip patients that the unit adopted for its patient whiteboards."
+        ]
+      },
+      {
+        "title": "Registered Nurse, General Medicine",
+        "company": "Foothills Ridge General Hospital",
+        "location": "Calgary, AB",
+        "start": "2025-06",
+        "end": "present",
+        "bullets": [
+          "Care for 5 patients per shift on a 34-bed medicine unit, including COPD exacerbations, heart failure and patients awaiting continuing care placement.",
+          "Completed the unit's 8-week new-graduate transition program and now independently manage IV therapy, PICC line care and blood transfusions.",
+          "Interpret for Punjabi-speaking patients during consent and discharge teaching, supporting roughly 15 families a month alongside formal interpreter services.",
+          "Joined the unit's delirium prevention working group and help audit CAM screening, which rose from 62% to 84% completion over two quarters."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Nursing (BN)",
+        "school": "University of Calgary",
+        "location": "Calgary, AB",
+        "start": "2021-09",
+        "end": "2025-04",
+        "details": "Final practicum: 300 hours in an adult emergency department. Dean's List 2023 and 2024."
+      }
+    ],
+    "courses": [
+      {
+        "name": "Basic Life Support (BLS) Provider",
+        "provider": "Heart and Stroke Foundation of Canada",
+        "year": 2025
+      },
+      {
+        "name": "Nonviolent Crisis Intervention",
+        "provider": "Crisis Prevention Institute",
+        "year": 2025
+      },
+      {
+        "name": "ECG Interpretation for Nurses",
+        "provider": "University of Calgary Continuing Education",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Punjabi",
+        "level": "Fluent"
+      },
+      {
+        "name": "French",
+        "level": "Basic"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Registered Nurse, CRNA",
+        "detail": "Registered with the College of Registered Nurses of Alberta after passing the NCLEX-RN on the first attempt in 2025."
+      },
+      {
+        "title": "Volunteer, student-run health clinic",
+        "detail": "Took blood pressure and screened 150+ visitors at a free community clinic over two years."
+      }
+    ],
+    "skills": [
+      "Head-to-toe assessment",
+      "IV therapy",
+      "PICC line care",
+      "Medication administration",
+      "Connect Care (Epic)",
+      "Wound care",
+      "Delirium screening (CAM)",
+      "Discharge teaching",
+      "Infection prevention",
+      "Culturally safe care"
+    ],
+    "interests": [
+      "Bhangra dance",
+      "Hiking in Kananaskis",
+      "Volunteering"
+    ]
+  }
+}

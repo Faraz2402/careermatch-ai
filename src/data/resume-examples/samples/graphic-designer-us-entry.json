@@ -1,0 +1,99 @@
+{
+  "id": "graphic-designer-us-entry",
+  "category": "design",
+  "role": "graphic-designer",
+  "country": "us",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Tessa Whitfield",
+    "title": "Junior Graphic Designer",
+    "phone": "(503) 555-0119",
+    "email": "tessa.whitfield@example.com",
+    "linkedin": "linkedin.com/in/tessa-whitfield",
+    "location": "Portland, OR",
+    "summary": "Junior graphic designer with a B.F.A. from Portland State University and a year designing packaging, social content and event graphics for a regional maker marketplace. Strong in Illustrator, InDesign and hand lettering; a redesigned holiday campaign I led drove a 19% lift in online gift-card sales.",
+    "experience": [
+      {
+        "title": "Graphic Design Intern",
+        "company": "Hawthorne Letterpress Studio",
+        "location": "Portland, OR",
+        "start": "2024-06",
+        "end": "2024-09",
+        "bullets": [
+          "Designed 14 wedding and event invitation suites from client briefs, preparing print-ready files with correct bleeds and Pantone specs.",
+          "Set type and locked up plates on the studio's Vandercook press for short runs of 50 to 300 pieces.",
+          "Photographed finished work and refreshed 30 portfolio pages on the studio's Squarespace site."
+        ]
+      },
+      {
+        "title": "Junior Graphic Designer",
+        "company": "Willamette Craft Collective",
+        "location": "Portland, OR",
+        "start": "2025-07",
+        "end": "present",
+        "bullets": [
+          "Create weekly social posts, email headers and in-store signage for a marketplace representing 85 local makers.",
+          "Led the visual concept for the 2025 holiday campaign, which saw online gift-card sales rise 19% year over year.",
+          "Built a Canva brand kit and template set so makers can produce on-brand product cards without design help.",
+          "Redesigned the label system for the collective's house candle line, cutting print waste by switching to a gang-run sheet layout."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.F.A. in Graphic Design",
+        "school": "Portland State University",
+        "location": "Portland, OR",
+        "start": "2021-09",
+        "end": "2025-06",
+        "details": "GPA 3.7/4.0; senior thesis on wayfinding for food carts"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Motion Design Basics with After Effects",
+        "provider": "School of Motion",
+        "year": 2024
+      },
+      {
+        "name": "Accessible Design for Print and Web",
+        "provider": "LinkedIn Learning",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "AIGA Portland student show",
+        "detail": "Packaging project selected for the 2024 student exhibition."
+      },
+      {
+        "title": "Food cart wayfinding",
+        "detail": "Thesis map and signage concept piloted by one food cart pod for a summer season."
+      }
+    ],
+    "skills": [
+      "Adobe Illustrator",
+      "Adobe InDesign",
+      "Adobe Photoshop",
+      "After Effects (basic)",
+      "Figma",
+      "Canva brand kits",
+      "Typography",
+      "Hand lettering",
+      "Packaging dielines",
+      "Print production"
+    ],
+    "interests": [
+      "Letterpress printing",
+      "Zine making",
+      "Bouldering"
+    ]
+  }
+}

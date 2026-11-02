@@ -1,0 +1,120 @@
+{
+  "id": "pharmacist-au-entry",
+  "category": "healthcare-nursing",
+  "role": "pharmacist",
+  "country": "au",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Jasmine Huang",
+    "title": "Pharmacist, Community Pharmacy",
+    "phone": "0491 572 549",
+    "email": "jasmine.huang@example.com",
+    "linkedin": "linkedin.com/in/jasmine-huang",
+    "location": "Melbourne VIC",
+    "summary": "Newly registered pharmacist with general registration from the Pharmacy Board of Australia, after an intern year in a busy suburban community pharmacy. Trained as a pharmacist immuniser and keen on chronic disease care, especially diabetes and asthma counselling for Mandarin-speaking patients.",
+    "experience": [
+      {
+        "title": "Pharmacy Assistant (part-time)",
+        "company": "Glen Waverley Family Pharmacy",
+        "location": "Melbourne VIC",
+        "start": "2023-07",
+        "end": "2024-11",
+        "bullets": [
+          "Served 60–80 customers per shift, handled script intake and referred clinical questions to the pharmacist.",
+          "Restocked and rotated stock using the dispensary system, reducing out-of-date write-offs in the vitamins section by 20%.",
+          "Translated for Mandarin-speaking customers during pharmacist consultations on around 10 occasions a week."
+        ]
+      },
+      {
+        "title": "Intern Pharmacist",
+        "company": "Bayside Health Chemist",
+        "location": "Melbourne VIC",
+        "start": "2025-01",
+        "end": "2025-12",
+        "bullets": [
+          "Dispensed up to 220 prescriptions a day under the supervision of a registered preceptor pharmacist.",
+          "Administered 600+ influenza and COVID-19 vaccines after completing accredited immunisation training.",
+          "Delivered 45 MedsCheck and Diabetes MedsCheck consultations, documenting outcomes for follow-up.",
+          "Passed the Pharmacy Board of Australia intern written and oral exams at the first attempt."
+        ]
+      },
+      {
+        "title": "Pharmacist",
+        "company": "Bayside Health Chemist",
+        "location": "Melbourne VIC",
+        "start": "2026-01",
+        "end": "present",
+        "bullets": [
+          "Work as one of two pharmacists on shift, checking and counselling on about 200 scripts a day including PBS and private items.",
+          "Run inhaler technique checks for asthma and COPD patients, correcting technique for 7 in 10 patients reviewed.",
+          "Manage the dose administration aid service for 85 patients, liaising with GPs on medication changes."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Pharmacy (Honours)",
+        "school": "Monash University",
+        "location": "Parkville VIC",
+        "start": "2021-02",
+        "end": "2024-11",
+        "details": "Honours project on inhaler technique in older adults. ATAR 97.15."
+      }
+    ],
+    "courses": [
+      {
+        "name": "Pharmacist Immuniser Training",
+        "provider": "Pharmaceutical Society of Australia (PSA)",
+        "year": 2025
+      },
+      {
+        "name": "Intern Training Program",
+        "provider": "Pharmaceutical Society of Australia (PSA)",
+        "year": 2025
+      },
+      {
+        "name": "Provide First Aid (HLTAID011) and CPR (HLTAID009)",
+        "provider": "Registered training organisation",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Mandarin",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "AHPRA general registration",
+        "detail": "Registered pharmacist with the Pharmacy Board of Australia since January 2026."
+      },
+      {
+        "title": "Student leadership",
+        "detail": "Treasurer of the Monash Pharmacy Students' Society, managing a $14,000 events budget."
+      }
+    ],
+    "skills": [
+      "Dispensing",
+      "Patient counselling",
+      "Vaccination",
+      "PBS rules",
+      "MedsCheck",
+      "Dose administration aids",
+      "Inhaler technique",
+      "Fred Dispense",
+      "Drug interactions",
+      "Mandarin-speaking patients"
+    ],
+    "interests": [
+      "Badminton",
+      "Food markets",
+      "Piano"
+    ]
+  }
+}

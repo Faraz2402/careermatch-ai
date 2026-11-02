@@ -1,0 +1,85 @@
+{
+  "id": "product-manager-uk-senior",
+  "category": "business-management",
+  "role": "product-manager",
+  "country": "uk",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Fiona Ashworth",
+    "title": "Head of Product",
+    "phone": "07700 900731",
+    "email": "fiona.ashworth@example.com",
+    "linkedin": "linkedin.com/in/fiona-ashworth",
+    "location": "Leeds",
+    "summary": "Head of product with 16 years in telecoms, property, pensions and energy. Lead six product managers at a Leeds-based renewable energy supplier, where the smart tariff app we launched grew to 180,000 active users and cut customer service contacts by a fifth. Started as a business analyst and still enjoys getting close to customer problems before committing a roadmap.",
+    "experience": [
+      {
+        "title": "Head of Product",
+        "company": "Otley Road Energy",
+        "location": "Leeds",
+        "start": "2021-05",
+        "end": "present",
+        "bullets": [
+          "Lead a product team of six PMs and two designers across customer app, billing and smart tariffs, reporting to the COO.",
+          "Launched a time-of-use tariff app that reached 180,000 active users and shifted 11% of evening peak demand for enrolled homes.",
+          "Cut customer service contacts by 20% by prioritising self-serve meter readings, payment plans and moving home.",
+          "Introduced quarterly outcome-based planning, replacing feature lists with three measurable goals per team."
+        ]
+      },
+      {
+        "title": "Senior Product Manager",
+        "company": "Pudsey Pensions Online",
+        "location": "Leeds",
+        "start": "2017-03",
+        "end": "2021-04",
+        "bullets": [
+          "Owned the member web and app experience for 600,000 workplace pension savers.",
+          "Shipped a pension consolidation journey that brought in £310m of transferred assets in its first 18 months.",
+          "Worked with compliance to meet FCA communication rules while simplifying retirement options screens."
+        ]
+      },
+      {
+        "title": "Product Manager",
+        "company": "Kirkstall Property Portal",
+        "location": "Leeds",
+        "start": "2013-06",
+        "end": "2017-02",
+        "bullets": [
+          "Built the lettings agent dashboard used by 2,300 branches to manage listings and leads.",
+          "Introduced lead quality scoring that improved agent response rates by 15%.",
+          "Ran the first A/B testing programme on search results, with 40 experiments in two years."
+        ]
+      },
+      {
+        "title": "Business Analyst",
+        "company": "Chapel Allerton Telecom",
+        "location": "Leeds",
+        "start": "2010-09",
+        "end": "2013-05",
+        "bullets": [
+          "Gathered requirements for broadband order tracking used by 70 call centre agents.",
+          "Analysed failed installation data and proposed engineer slot changes that reduced repeat visits by 12%.",
+          "Moved into product ownership for the order tracking tool in the final year."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "BSc (Hons) Computer Science, 2:1", "school": "Durham University", "location": "Durham", "start": "2007-10", "end": "2010-06" }
+    ],
+    "courses": [
+      { "name": "Product Leadership", "provider": "Mind the Product training", "year": 2022 },
+      { "name": "BCS Foundation Certificate in Business Analysis", "provider": "BCS, The Chartered Institute for IT", "year": 2011 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "French", "level": "Intermediate" }
+    ],
+    "achievements": [
+      { "title": "Industry award shortlist", "detail": "Smart tariff app shortlisted for a UK energy industry customer experience award (2024)." },
+      { "title": "Mentoring", "detail": "Mentor three women moving into product roles through a northern tech mentoring scheme." }
+    ],
+    "skills": ["Product strategy", "Outcome-based roadmaps", "Team leadership", "Discovery research", "Experimentation", "Regulated product delivery (FCA, Ofgem)", "Stakeholder management", "Pricing", "SQL", "Mixpanel", "Budget ownership"],
+    "interests": ["Fell running", "Amateur dramatics", "Cooking"]
+  }
+}

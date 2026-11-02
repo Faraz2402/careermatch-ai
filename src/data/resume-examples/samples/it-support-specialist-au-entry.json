@@ -1,0 +1,75 @@
+{
+  "id": "it-support-specialist-au-entry",
+  "category": "information-technology",
+  "role": "it-support-specialist",
+  "country": "au",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Jack Morrison",
+    "title": "Service Desk Analyst",
+    "phone": "0491 570 159",
+    "email": "jack.morrison@example.com",
+    "linkedin": "linkedin.com/in/jack-morrison",
+    "location": "Adelaide SA",
+    "summary": "Service desk analyst with a TAFE Certificate IV in IT and nearly two years of support work, starting as a trainee at a real estate group. Now part of a five-person service desk for a community health provider, resolving around 70% of calls at first contact. Patient with non-technical users and quick to write up fixes for the team.",
+    "experience": [
+      {
+        "title": "IT Support Trainee",
+        "company": "Glenelg Real Estate Group",
+        "location": "Adelaide SA",
+        "start": "2024-01",
+        "end": "2024-12",
+        "bullets": [
+          "Set up phones, laptops and property-management software for 45 agents across four offices.",
+          "Reset passwords, fixed printers and mapped drives for walk-up requests, logging each one in the ticketing system.",
+          "Created a one-page new-starter checklist that the office manager now sends to every new agent.",
+          "Completed my traineeship alongside the Certificate IV, applying classroom networking to the office's switches and Wi-Fi."
+        ]
+      },
+      {
+        "title": "Service Desk Analyst",
+        "company": "Torrens Community Health",
+        "location": "Adelaide SA",
+        "start": "2025-01",
+        "end": "present",
+        "bullets": [
+          "Answer around 40 calls and tickets a day from 600 clinical and admin staff, with about 70% resolved on first contact.",
+          "Troubleshoot clinical software logins and mobile devices used by home-visit nurses, often while they are between appointments.",
+          "Wrote 18 knowledge articles in plain English that cut average call handling time for common issues by roughly two minutes.",
+          "Help with quarterly patching checks under the provider's Essential Eight uplift plan."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Certificate IV in Information Technology (Networking)",
+        "school": "TAFE SA",
+        "location": "Adelaide SA",
+        "start": "2024-01",
+        "end": "2024-12"
+      },
+      {
+        "degree": "South Australian Certificate of Education (SACE)",
+        "school": "Brighton Secondary School",
+        "location": "Adelaide SA",
+        "end": "2023-11",
+        "details": "ATAR 74.35. Digital Technologies, General Mathematics, English."
+      }
+    ],
+    "courses": [
+      { "name": "CompTIA A+", "provider": "CompTIA", "year": 2025 },
+      { "name": "Microsoft 365 Certified: Fundamentals (MS-900)", "provider": "Microsoft", "year": 2024 },
+      { "name": "Provide First Aid (HLTAID011)", "provider": "Registered training organisation", "year": 2025 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Outstanding Trainee nomination", "detail": "Nominated by Glenelg Real Estate Group in my traineeship year for reliability and initiative." },
+      { "title": "Volunteer tech helper, local library", "detail": "Help seniors set up myGov and video calls during monthly drop-in sessions." }
+    ],
+    "skills": ["Windows 11", "Microsoft 365", "Active Directory", "Intune (basic)", "Printer and peripheral support", "Networking basics (Cert IV)", "Mobile device support (iOS, Android)", "Ticketing (Jira Service Management)", "Remote support tools", "Clear phone manner"],
+    "interests": ["Footy (SANFL)", "Building Lego Technic", "Beach fishing"]
+  }
+}

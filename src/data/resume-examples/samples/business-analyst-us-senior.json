@@ -1,0 +1,85 @@
+{
+  "id": "business-analyst-us-senior",
+  "category": "business-management",
+  "role": "business-analyst",
+  "country": "us",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Jennifer Castellanos",
+    "title": "Lead Business Analyst",
+    "phone": "(512) 555-0127",
+    "email": "jennifer.castellanos@example.com",
+    "linkedin": "linkedin.com/in/jennifer-castellanos",
+    "location": "Austin, TX",
+    "summary": "CBAP-certified lead business analyst with 16 years in banking, hospital operations, insurance and utilities. Head a practice of seven analysts at a Central Texas electric utility and led requirements for its $38 million customer billing replacement, delivered with no missed bill cycles at cutover. Strong at process mapping, requirements traceability and getting finance, operations and IT to agree on scope.",
+    "experience": [
+      {
+        "title": "Lead Business Analyst",
+        "company": "Caprock Utilities",
+        "location": "Austin, TX",
+        "start": "2021-08",
+        "end": "present",
+        "bullets": [
+          "Lead a practice of seven business analysts across billing, field service and outage management, setting standards for user stories, acceptance criteria and traceability.",
+          "Owned requirements for a $38 million customer information and billing system replacement covering 610,000 accounts; cutover finished with no missed bill cycles.",
+          "Ran 60+ process workshops with call center, meter operations and finance staff, retiring 140 manual workarounds documented in the old system.",
+          "Introduced a requirements change board that cut unplanned scope additions by 35% during the build phase."
+        ]
+      },
+      {
+        "title": "Senior Business Analyst",
+        "company": "Trinity Pass Insurance",
+        "location": "Dallas, TX",
+        "start": "2017-05",
+        "end": "2021-07",
+        "bullets": [
+          "Gathered and prioritized requirements for a new commercial auto policy admin platform across 14 states, supporting go-live on schedule.",
+          "Modeled the end-to-end quote-to-bind process in BPMN and identified approval steps that added two days; removing them raised quote conversion by 8%.",
+          "Wrote 900 test scenarios with QA and led user acceptance testing for 45 underwriters."
+        ]
+      },
+      {
+        "title": "Business Analyst",
+        "company": "Guadalupe Health System",
+        "location": "San Antonio, TX",
+        "start": "2013-09",
+        "end": "2017-04",
+        "bullets": [
+          "Documented patient registration and scheduling workflows for three hospitals ahead of an EHR upgrade.",
+          "Analyzed denied insurance claims and specified front-desk eligibility checks that lowered denials by 13% in the first year.",
+          "Built a requirements traceability matrix in Jira and Confluence that became the template for the PMO."
+        ]
+      },
+      {
+        "title": "Operations Analyst",
+        "company": "Brazos Valley Bank",
+        "location": "College Station, TX",
+        "start": "2010-06",
+        "end": "2013-08",
+        "bullets": [
+          "Mapped account opening procedures across 22 branches and reduced average opening time from 48 to 31 minutes.",
+          "Produced monthly operational risk reports for the compliance committee.",
+          "Supported the rollout of online banking enrollment by drafting branch scripts and training materials."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "B.B.A. Management Information Systems", "school": "Texas A&M University, Mays Business School", "location": "College Station, TX", "start": "2006-08", "end": "2010-05" }
+    ],
+    "courses": [
+      { "name": "Certified Business Analysis Professional (CBAP)", "provider": "IIBA", "year": 2018 },
+      { "name": "Professional Scrum Product Owner I (PSPO I)", "provider": "Scrum.org", "year": 2020 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Spanish", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Billing program recognition", "detail": "Caprock Utilities CEO award (2024) for the billing replacement cutover." },
+      { "title": "IIBA chapter volunteer", "detail": "Ran study groups for CBAP candidates at a local IIBA chapter for three years." }
+    ],
+    "skills": ["Requirements elicitation", "BPMN process modeling", "User stories and acceptance criteria", "Requirements traceability", "UAT planning", "SQL", "Jira and Confluence", "Visio", "Power BI", "Agile and waterfall delivery", "Workshop facilitation", "Team leadership"],
+    "interests": ["Tejano music", "Habitat for Humanity builds", "Road cycling"]
+  }
+}

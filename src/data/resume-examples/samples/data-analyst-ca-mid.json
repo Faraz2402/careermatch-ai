@@ -1,0 +1,74 @@
+{
+  "id": "data-analyst-ca-mid",
+  "category": "data-science",
+  "role": "data-analyst",
+  "country": "ca",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Gabriel Tremblay",
+    "title": "Data Analyst II",
+    "phone": "(403) 555-0172",
+    "email": "gabriel.tremblay@example.com",
+    "linkedin": "linkedin.com/in/gabriel-tremblay",
+    "location": "Calgary, AB",
+    "summary": "Bilingual data analyst with eight years in energy services, credit union banking and public transit. Currently own ridership and service reliability reporting for a regional transit authority, where my route-level analysis informed a schedule redesign affecting 40,000 weekday riders. Strong in SQL, Tableau and turning analysis into plain-language briefings in English or French.",
+    "experience": [
+      {
+        "title": "Data Analyst II",
+        "company": "Foothills Regional Transit",
+        "location": "Calgary, AB",
+        "start": "2023-02",
+        "end": "present",
+        "bullets": [
+          "Own ridership, on-time performance and fare revenue reporting for 62 bus routes, publishing a monthly Tableau scorecard for the executive team and council liaison.",
+          "Combined automatic passenger counter data with farebox records to model route-level crowding, shaping a schedule redesign for roughly 40,000 weekday riders.",
+          "Cut the quarterly service review prep time from three weeks to six days by moving source extracts into scheduled SQL views.",
+          "Mentor a co-op student each term and wrote the team's onboarding guide for the data warehouse."
+        ]
+      },
+      {
+        "title": "Data Analyst",
+        "company": "Chinook Prairie Credit Union",
+        "location": "Calgary, AB",
+        "start": "2020-04",
+        "end": "2023-01",
+        "bullets": [
+          "Built member attrition reports that segmented 85,000 accounts by product mix, helping the retention team target outreach and lower annual attrition from 9.4% to 7.9%.",
+          "Delivered monthly regulatory and board reporting on loan delinquency with zero restatements over 33 months.",
+          "Partnered with marketing on a GIC renewal campaign test; the winning offer letter improved renewals by 6 points."
+        ]
+      },
+      {
+        "title": "Junior Analyst",
+        "company": "Bow River Energy Services",
+        "location": "Calgary, AB",
+        "start": "2018-06",
+        "end": "2020-03",
+        "bullets": [
+          "Consolidated field ticket data from 14 crews into a single Access-to-SQL Server database, ending weekly copy-and-paste reconciliations.",
+          "Tracked equipment utilization across 300 rental assets and flagged idle units that were later redeployed, avoiding about $220,000 in new purchases.",
+          "Prepared invoice accuracy reports that reduced customer billing disputes by 15% over one year."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "BSc Statistics", "school": "University of Calgary", "location": "Calgary, AB", "start": "2014-09", "end": "2018-04" },
+      { "degree": "DEC in Natural Sciences (Sciences de la nature)", "school": "Cégep de Sainte-Foy", "location": "Québec, QC", "start": "2012-08", "end": "2014-05" }
+    ],
+    "courses": [
+      { "name": "Tableau Certified Data Analyst", "provider": "Tableau", "year": 2023 },
+      { "name": "Data Engineering with dbt", "provider": "dbt Labs", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "French", "level": "Native" },
+      { "name": "English", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Open data contribution", "detail": "Published a cleaned, documented ridership dataset on the authority's open data portal, now downloaded by local researchers." },
+      { "title": "Employee recognition award", "detail": "Recognized by Chinook Prairie Credit Union leadership in 2022 for the attrition segmentation work." }
+    ],
+    "skills": ["SQL Server", "PostgreSQL", "Tableau", "Python (pandas)", "Excel", "dbt", "GIS mapping (QGIS)", "Data warehousing", "Dashboard design", "Statistical testing", "Bilingual reporting (EN/FR)"],
+    "interests": ["Cross-country skiing", "Curling league", "Francophone community radio"]
+  }
+}

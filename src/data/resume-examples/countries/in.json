@@ -1,0 +1,82 @@
+{
+  "code": "in",
+  "name": "India",
+  "slug": "india",
+  "term": {
+    "value": "resume or CV",
+    "note": "Indian employers and job portals use 'resume' and 'CV' interchangeably. 'Biodata' is an older format with extensive personal details that is still seen on some government and traditional forms but is out of step with private-sector and multinational hiring."
+  },
+  "paper": {
+    "value": "A4",
+    "note": "India uses ISO A4 (210 x 297 mm) for office documents. We did not find a resume-specific official source for India, so this rests on general ISO 216 usage outside North America."
+  },
+  "length": {
+    "value": "1 page for freshers; 1–2 pages with experience",
+    "note": "IIT placement cells set strict formats, and IIT Guwahati says single-page resumes are preferred for campus placements. Experienced candidates commonly use one to two pages, but that figure comes from commercial guides rather than an official source."
+  },
+  "photo": {
+    "value": "optional",
+    "note": "Practice is split. An NPTEL (IIT/IISc) communication-skills lecture says not to enclose a photograph unless the employer asks, and private-sector guidance increasingly omits it. Government and PSU application forms, however, often require a passport-size photo, and some guides still say Indian resumes always carry one."
+  },
+  "include": [
+    "Name, mobile number with +91, and a professional email address",
+    "City and state; a full address is usually unnecessary",
+    "Class X and Class XII board results plus degree CGPA or percentage, as recorded on official grade cards",
+    "Date of birth, father's name or category only when a government or PSU form or notification asks for them",
+    "Languages known, with level"
+  ],
+  "leaveOut": [
+    "Photo, unless the employer or form asks for one",
+    "Date of birth, age, gender, height and weight on private-sector resumes",
+    "Father's name, marital status, religion and caste on private-sector resumes",
+    "Aadhaar, PAN or other identity numbers",
+    "Rounded or unverifiable grades (IIT placement cells reject them)"
+  ],
+  "dateFormat": {
+    "value": "MMM YYYY",
+    "example": "Jul 2023",
+    "note": "We found no official rule for resume dates in India. Our Indian samples use abbreviated month plus year (Jul 2023 – Present) for work and study ranges. Government forms that ask for a date of birth usually want it as DD/MM/YYYY matching the Class X certificate."
+  },
+  "education": {
+    "terms": [
+      { "term": "Class X / Class XII", "meaning": "Secondary (Class 10) and senior secondary (Class 12) board examinations, e.g. CBSE, ICSE or a state board; results are listed with board, year and score." },
+      { "term": "CGPA", "meaning": "Cumulative grade point average, usually on a 10-point scale. Give it exactly as on the grade card; some employers convert using CGPA x 9.5 for a percentage." },
+      { "term": "B.Tech / B.E.", "meaning": "Four-year undergraduate engineering degrees." },
+      { "term": "B.Com / B.Sc / B.A.", "meaning": "Three-year undergraduate degrees in commerce, science and arts." },
+      { "term": "Diploma (polytechnic)", "meaning": "A vocational or technical diploma, typically three years after Class X." }
+    ],
+    "note": "Campus resumes usually show a qualification table with degree, institute, board or university, year and CGPA or percentage, newest first. Placement cells such as IIT Madras require exact, unrounded scores backed by proof. The CGPA-to-percentage factor varies by institution."
+  },
+  "spelling": "British",
+  "currency": { "code": "INR", "symbol": "₹" },
+  "fictionalPhone": {
+    "pattern": "+91 00000 NNNNN",
+    "note": "India has no official fictional number range. Indian mobile numbers are 10 digits starting with 6, 7, 8 or 9, so a mobile number starting with 0 cannot exist. We use +91 00000 NNNNN to make it plainly fake."
+  },
+  "disagreements": [
+    "Photo: an NPTEL résumé lecture says not to include a photograph unless asked, and commercial guides treat it as optional for private roles, while government application formats often require a passport-size photo and some guides still say Indian resumes always include one.",
+    "Date of birth and personal details: most recent guides (e.g. Naukri, ResumeGeni) call the old format with date of birth, father's name and marital status outdated for private-sector roles, while government forms (e.g. NITI Aayog) require date of birth and many ask for father's name and category.",
+    "Length: IIT Guwahati prefers single-page placement resumes, and IIT Kanpur says it sets only a few format restrictions. Outside campus hiring, one to two pages is the usual advice, but that comes mainly from commercial sources.",
+    "CGPA conversion: the common factor CGPA x 9.5 is widely used, but institutions apply their own charts, and sources disagree on how CBSE grading applies beyond Class X."
+  ],
+  "tips": [
+    "For campus placements, follow your placement cell's template exactly; it overrides general advice.",
+    "Copy CGPA and board marks exactly as on your grade cards and keep proof ready.",
+    "For private-sector jobs, keep personal details to contact information only.",
+    "For government jobs, use the form or format in the notification and include what it asks for.",
+    "Use British spelling (organised, programme) consistently throughout.",
+    "Quantify project and internship results, since freshers' resumes are judged heavily on them."
+  ],
+  "sources": [
+    { "title": "Communication Skills, Module 5, Lecture 16: Résumé", "publisher": "NPTEL (IITs and IISc, Government of India)", "url": "https://archive.nptel.ac.in/content/storage2/courses/109104030/Module5/Lecture16.pdf", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Internship Resume Guidelines 2025-26", "publisher": "IIT Madras Placement & Internship Cell", "url": "https://internship.iitm.ac.in/downloads/Internship_Resume_Guidelines_2025-26.pdf", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "F.A.Q. for Students", "publisher": "Centre for Career Development, IIT Guwahati", "url": "https://iitg.ac.in/ccd/faq_students.html", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "For students", "publisher": "Students' Placement Office, IIT Kanpur", "url": "https://spo.iitk.ac.in/students", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Guidelines for writing your CV", "publisher": "IIIT-Delhi Placement Cell", "url": "https://www.iiitd.ac.in/sites/default/files/docs/placements/GuidelinesForWritingCV.pdf", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Instructions for filling up the form (Work for Viksit Bharat)", "publisher": "NITI Aayog, Government of India", "url": "https://workforbharat.niti.gov.in/wp-content/uploads/2025/08/BnRa_NITI_Instruction_Page_Content_English_v1.2.pdf", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Personal details on resume", "publisher": "Naukri.com", "url": "https://www.naukri.com/career-advice/personal-details-on-resume", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "How to write a resume for jobs in India: biodata, CV and modern formats", "publisher": "ResumeGeni", "url": "https://resumegeni.com/blog/how-to-write-resume-india", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Mobile telephone numbering in India", "publisher": "Wikipedia", "url": "https://en.wikipedia.org/wiki/Mobile_telephone_numbering_in_India", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "CGPA full form", "publisher": "Vedantu", "url": "https://www.vedantu.com/full-form/cgpa-full-form", "accessed": "2026-11-02", "how": "search-result" }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "id": "accountant-au-mid",
+  "category": "accounting-finance",
+  "role": "accountant",
+  "country": "au",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Liam Fitzgerald",
+    "title": "Senior Accountant, CPA",
+    "phone": "0491 570 156",
+    "email": "liam.fitzgerald@example.com",
+    "linkedin": "linkedin.com/in/liam-fitzgerald",
+    "location": "Brisbane QLD",
+    "summary": "CPA Australia member with nine years in public practice, mining services and hospitality. Runs the monthly close, BAS and FBT for a 14-venue hospitality group turning over $96 million and recovered $260,000 in overpaid payroll tax after a grouping review.",
+    "experience": [
+      {
+        "title": "Senior Accountant",
+        "company": "Riverbend Hospitality Group",
+        "location": "Brisbane QLD",
+        "start": "2022-10",
+        "end": "present",
+        "bullets": [
+          "Run the monthly close for 14 pubs and restaurants, delivering venue P&Ls to operations managers by business day four.",
+          "Lodge monthly BAS and annual FBT returns, and reconcile GST across Xero and the Lightspeed point-of-sale feeds.",
+          "Identified $260,000 in overpaid Queensland payroll tax through a grouping review and lodged the reassessment request.",
+          "Supervise one assistant accountant and an accounts payable officer, reviewing reconciliations weekly."
+        ]
+      },
+      {
+        "title": "Accountant",
+        "company": "Coalface Mining Services Pty Ltd",
+        "location": "Brisbane QLD",
+        "start": "2019-07",
+        "end": "2022-09",
+        "bullets": [
+          "Managed project accounting for 22 contracts on Bowen Basin mine sites with combined annual billings of about $48 million.",
+          "Introduced weekly work-in-progress reviews with site leads, which reduced unbilled revenue at month end by 35%.",
+          "Prepared fixed asset registers and depreciation schedules for 340 items of heavy plant.",
+          "Coordinated the year-end audit and statutory accounts under Australian Accounting Standards."
+        ]
+      },
+      {
+        "title": "Graduate Accountant",
+        "company": "Hollis Marsh Chartered Accountants",
+        "location": "Brisbane QLD",
+        "start": "2017-02",
+        "end": "2019-06",
+        "bullets": [
+          "Prepared tax returns and financial statements for 70 small business, trust and SMSF clients.",
+          "Migrated 25 clients from MYOB desktop to Xero, including chart of accounts clean-ups.",
+          "Prepared quarterly BAS for tradespeople and medical practices, meeting every ATO lodgement deadline."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Commerce (Accounting)",
+        "school": "The University of Queensland",
+        "location": "Brisbane QLD",
+        "start": "2014-02",
+        "end": "2016-11"
+      }
+    ],
+    "courses": [
+      {
+        "name": "CPA Program",
+        "provider": "CPA Australia",
+        "year": 2020
+      },
+      {
+        "name": "Fringe Benefits Tax Essentials",
+        "provider": "The Tax Institute",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "$260,000 payroll tax recovery",
+        "detail": "Grouping review at Riverbend Hospitality Group led to a reassessment request and refund."
+      },
+      {
+        "title": "Unbilled revenue down 35%",
+        "detail": "Weekly WIP reviews at Coalface Mining Services."
+      }
+    ],
+    "skills": [
+      "Month-end close",
+      "BAS and GST",
+      "FBT",
+      "Payroll tax",
+      "Xero",
+      "MYOB",
+      "Lightspeed POS",
+      "Project accounting",
+      "Fixed assets",
+      "Australian Accounting Standards",
+      "Excel"
+    ],
+    "interests": [
+      "Rugby league",
+      "Fishing on Moreton Bay"
+    ]
+  }
+}

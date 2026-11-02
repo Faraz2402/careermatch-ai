@@ -1,0 +1,149 @@
+{
+  "id": "registered-nurse-de-senior",
+  "category": "healthcare-nursing",
+  "role": "registered-nurse",
+  "country": "de",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Aylin Demir",
+    "title": "Stationsleitung Intensivstation (ICU Nurse Manager)",
+    "phone": "+49 40 66969 214",
+    "email": "aylin.demir@example.com",
+    "linkedin": "linkedin.com/in/aylin-demir",
+    "location": "Hamburg",
+    "summary": "Registered nurse (Gesundheits- und Krankenpflegerin) with a specialist qualification in intensive care and anaesthesia nursing and 16 years in German hospitals, the last five managing a 20-bed interdisciplinary ICU. I led the unit through its first external audit for the DIVI quality indicators and reduced nurse turnover from 19% to 9%.",
+    "experience": [
+      {
+        "title": "Gesundheits- und Krankenpflegerin (General Surgery)",
+        "company": "Klinikum Alsterdorf-Nord",
+        "location": "Hamburg",
+        "start": "2010-10",
+        "end": "2013-09",
+        "bullets": [
+          "Provided post-operative care for 8–10 patients per shift on a 36-bed general and visceral surgery ward.",
+          "Took on the ward's wound care link role and standardised dressing documentation for 120+ chronic wound patients a year.",
+          "Trained 3 cohorts of Auszubildende as Praxisanleiterin after completing the 200-hour practice instructor qualification."
+        ]
+      },
+      {
+        "title": "Intensive Care Nurse (Fachkrankenpflegerin from 2016)",
+        "company": "Klinikum Alsterdorf-Nord",
+        "location": "Hamburg",
+        "start": "2013-10",
+        "end": "2017-12",
+        "bullets": [
+          "Cared for 2–3 ventilated patients per shift in a 14-bed surgical ICU, managing ECMO, CRRT and invasive haemodynamic monitoring.",
+          "Completed the two-year DKG specialist training in intensive and anaesthesia nursing alongside full-time work.",
+          "Introduced a nurse-led weaning protocol with the senior physicians, reducing average ventilation days from 6.8 to 5.4."
+        ]
+      },
+      {
+        "title": "Stellvertretende Stationsleitung (Deputy Nurse Manager), ICU",
+        "company": "Elbufer Klinikum",
+        "location": "Hamburg",
+        "start": "2018-01",
+        "end": "2021-03",
+        "bullets": [
+          "Deputised for the nurse manager of a 20-bed interdisciplinary ICU with 74 nursing staff.",
+          "Coordinated the expansion to 26 ventilation-capable beds during the COVID-19 pandemic, including cross-training 31 nurses from other wards.",
+          "Built a structured onboarding plan for nurses recognised from abroad, used for 12 colleagues from the Philippines, Tunisia and India."
+        ]
+      },
+      {
+        "title": "Stationsleitung Intensivstation (ICU Nurse Manager)",
+        "company": "Elbufer Klinikum",
+        "location": "Hamburg",
+        "start": "2021-04",
+        "end": "present",
+        "bullets": [
+          "Lead 78 nursing staff and manage a personnel budget of €4.6 million, meeting the statutory minimum ICU nurse staffing ratios (PpUGV) every month since 2022.",
+          "Cut nurse turnover from 19% to 9% in three years by introducing self-scheduling, protected training days and a mentoring scheme.",
+          "Prepared the unit for its first external peer review against the DIVI intensive care quality indicators, closing 11 of 12 recommended actions within a year.",
+          "Reduced central line infections from 2.9 to 1.1 per 1,000 catheter days with a bundle checklist and weekly bedside audits."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Weiterbildung Stationsleitung (Ward Management, 720 hours)",
+        "school": "Hamburger Bildungsakademie Gesundheit",
+        "location": "Hamburg",
+        "start": "2018-09",
+        "end": "2019-11"
+      },
+      {
+        "degree": "Fachweiterbildung Intensiv- und Anästhesiepflege (DKG)",
+        "school": "Klinikum Alsterdorf-Nord, Weiterbildungsstätte",
+        "location": "Hamburg",
+        "start": "2014-04",
+        "end": "2016-03"
+      },
+      {
+        "degree": "Ausbildung Gesundheits- und Krankenpflegerin (staatlich examiniert)",
+        "school": "Berufsfachschule für Pflege Hamburg-Barmbek",
+        "location": "Hamburg",
+        "start": "2007-10",
+        "end": "2010-09"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Praxisanleitung (Practice Instructor), 200 hours",
+        "provider": "Hamburger Bildungsakademie Gesundheit",
+        "year": 2012
+      },
+      {
+        "name": "ERC Advanced Life Support",
+        "provider": "European Resuscitation Council course",
+        "year": 2024
+      },
+      {
+        "name": "Hygienebeauftragte in der Pflege (Infection Control Link Nurse)",
+        "provider": "Hamburger Bildungsakademie Gesundheit",
+        "year": 2020
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native"
+      },
+      {
+        "name": "Turkish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Berufserlaubnis (licence to practise)",
+        "detail": "Holds permission to use the protected title Gesundheits- und Krankenpflegerin, granted in 2010."
+      },
+      {
+        "title": "Hospital innovation award, 2023",
+        "detail": "For the ICU self-scheduling model, later adopted by two other wards."
+      }
+    ],
+    "skills": [
+      "ICU leadership",
+      "Staff rostering (PpUGV)",
+      "ECMO and CRRT",
+      "Ventilator weaning",
+      "Infection prevention",
+      "Budget responsibility",
+      "Quality indicators (DIVI)",
+      "Onboarding international nurses",
+      "Conflict resolution",
+      "SAP i.s.h.med"
+    ],
+    "interests": [
+      "Sailing on the Alster",
+      "Turkish cooking",
+      "Volunteer first aid at events"
+    ]
+  }
+}

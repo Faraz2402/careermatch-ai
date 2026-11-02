@@ -1,0 +1,82 @@
+{
+  "id": "marketing-manager-uk-mid",
+  "category": "marketing",
+  "role": "marketing-manager",
+  "country": "uk",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Hannah Whitworth",
+    "title": "Marketing Manager",
+    "phone": "07700 900412",
+    "email": "hannah.whitworth@example.com",
+    "linkedin": "linkedin.com/in/hannah-whitworth",
+    "location": "Leeds, West Yorkshire",
+    "summary": "Marketing manager with nearly ten years in consumer brands across leisure, interiors and drinks in Yorkshire. Leads a team of four at an independent brewery, where a taproom-first brand relaunch grew direct-to-consumer revenue by £410,000 in two years. CIM-qualified, comfortable owning budget, agency relationships and board reporting.",
+    "experience": [
+      {
+        "title": "Marketing Manager",
+        "company": "Northgate Craft Brewing Co.",
+        "location": "Leeds",
+        "start": "2022-09",
+        "end": "present",
+        "bullets": [
+          "Lead a team of four (content, events, CRM and design) and a £320,000 annual budget, presenting quarterly results to the managing director and investors.",
+          "Relaunched the core range with a new design agency and taproom-led launch events, taking online shop and taproom revenue from £690,000 to £1.1m in two years.",
+          "Negotiated listings support with two regional wholesalers, funding 140 pub point-of-sale kits and adding 62 new free-trade accounts.",
+          "Introduced a simple attribution model in GA4 and Shopify reports that showed beer festivals out-earning paid social three to one, so spend was rebalanced.",
+          "Coached a junior executive through the CIM Certificate and promoted her to CRM lead after she rebuilt our segmentation."
+        ]
+      },
+      {
+        "title": "Senior Marketing Executive",
+        "company": "Wharfedale Leisure Parks",
+        "location": "Harrogate",
+        "start": "2019-06",
+        "end": "2022-08",
+        "bullets": [
+          "Planned the reopening campaign for three holiday parks after the 2020 closures, filling 87% of summer lodge nights within six weeks of launch.",
+          "Managed a £95,000 paid search and social budget with an external agency, cutting cost per booking by 23% through weekly bid and creative reviews.",
+          "Wrote and tested pricing messages for off-peak breaks that lifted October half-term occupancy from 58% to 74%.",
+          "Built a guest review programme with Trustpilot and post-stay emails, raising review volume fivefold and the average score to 4.6."
+        ]
+      },
+      {
+        "title": "Marketing Executive",
+        "company": "Kirkgate Home Interiors",
+        "location": "Leeds",
+        "start": "2017-01",
+        "end": "2019-05",
+        "bullets": [
+          "Produced monthly catalogues and window campaigns for four showrooms, coordinating photographers, printers and store managers to fixed deadlines.",
+          "Grew the email list from 11,000 to 27,000 subscribers with in-store sign-up incentives and a spring design competition.",
+          "Ran the brand's first Instagram shopping campaign, generating 640 tracked orders worth £182,000 in its opening quarter."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc (Hons) Marketing, 2:1",
+        "school": "Leeds Beckett University",
+        "location": "Leeds",
+        "start": "2013-09",
+        "end": "2016-06",
+        "details": "Dissertation on independent retailer loyalty in West Yorkshire market towns."
+      }
+    ],
+    "courses": [
+      { "name": "CIM Level 6 Diploma in Professional Marketing", "provider": "Chartered Institute of Marketing", "year": 2021 },
+      { "name": "Google Analytics 4 Certification", "provider": "Google Skillshop", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "French", "level": "Intermediate (B1)" }
+    ],
+    "achievements": [
+      { "title": "Regional marketing award finalist", "detail": "Brewery relaunch shortlisted for a Yorkshire business marketing award in 2024." },
+      { "title": "Team development", "detail": "Two direct reports promoted internally within 18 months of joining the team." }
+    ],
+    "skills": ["Brand management", "Budget ownership", "Team leadership", "Agency management", "Trade marketing", "CRM and segmentation", "GA4", "Shopify", "Dotdigital", "Event marketing", "Market research", "Board reporting"],
+    "interests": ["Fell walking", "Ceramics evening classes", "Volunteering at a Leeds food bank"]
+  }
+}

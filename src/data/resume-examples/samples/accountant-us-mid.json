@@ -1,0 +1,118 @@
+{
+  "id": "accountant-us-mid",
+  "category": "accounting-finance",
+  "role": "accountant",
+  "country": "us",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Megan Kowalczyk",
+    "title": "Senior Accountant, CPA",
+    "phone": "(303) 555-0127",
+    "email": "megan.kowalczyk@example.com",
+    "linkedin": "linkedin.com/in/megan-kowalczyk",
+    "location": "Denver, CO",
+    "summary": "Colorado-licensed CPA with eight years across public accounting, distribution and healthcare SaaS. Owns the month-end close and revenue recognition for a $64M subscription business and cut the close from nine business days to five without adding headcount.",
+    "experience": [
+      {
+        "title": "Senior Accountant",
+        "company": "Larkspur Health Software",
+        "location": "Denver, CO",
+        "start": "2023-09",
+        "end": "present",
+        "bullets": [
+          "Rebuilt the month-end close checklist in NetSuite and FloQast, shortening the close from 9 to 5 business days within three quarters.",
+          "Own ASC 606 revenue schedules for 1,400 multi-year SaaS contracts, including implementation fees and mid-term upgrades.",
+          "Prepared the audit PBC list and walkthrough support for the company's first full-scope financial statement audit, which closed with zero adjustments booked.",
+          "Coach two staff accountants on reconciliations and journal entry support; both now close their assigned accounts without review notes."
+        ]
+      },
+      {
+        "title": "Senior Accountant",
+        "company": "Pikes Peak Beverage Distributors",
+        "location": "Colorado Springs, CO",
+        "start": "2021-01",
+        "end": "2023-08",
+        "bullets": [
+          "Reconciled inventory across three warehouses each month, tracing a recurring $180K variance to a pricing table error in the ERP.",
+          "Calculated and booked monthly accruals for supplier rebates worth about $2.3M a year, replacing a spreadsheet that missed late claims.",
+          "Took over sales and use tax filings in four states and resolved a backlog of 11 notices with no penalties paid.",
+          "Built a fixed asset roll-forward for 260 delivery vehicles and coolers that the external auditors adopted as their lead schedule."
+        ]
+      },
+      {
+        "title": "Staff Accountant, Audit and Assurance",
+        "company": "Barlow & Fenn CPAs",
+        "location": "Denver, CO",
+        "start": "2018-07",
+        "end": "2020-12",
+        "bullets": [
+          "Performed fieldwork on 14 audit and review engagements for nonprofits, construction contractors and dental practices.",
+          "Drafted financial statements and footnotes for clients with revenue from $3M to $40M.",
+          "Tested payroll and cash disbursement controls, documenting findings that led three clients to add dual approval on wires."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.S. in Accounting",
+        "school": "University of Colorado Denver",
+        "location": "Denver, CO",
+        "start": "2014-08",
+        "end": "2018-05",
+        "details": "150 credit hours completed for CPA licensure; Beta Alpha Psi member"
+      }
+    ],
+    "courses": [
+      {
+        "name": "NetSuite Administrator Fundamentals",
+        "provider": "Oracle NetSuite",
+        "year": 2023
+      },
+      {
+        "name": "Revenue Recognition: ASC 606 in Practice",
+        "provider": "AICPA",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Polish",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Close time cut by 44%",
+        "detail": "Took the monthly close from 9 to 5 business days at Larkspur Health Software."
+      },
+      {
+        "title": "Clean first audit",
+        "detail": "No audit adjustments in the company's first full-scope financial statement audit."
+      }
+    ],
+    "skills": [
+      "Month-end close",
+      "ASC 606",
+      "GAAP",
+      "Account reconciliations",
+      "NetSuite",
+      "FloQast",
+      "Excel (XLOOKUP, Power Query)",
+      "Sales and use tax",
+      "Fixed assets",
+      "Audit preparation",
+      "Accruals",
+      "Internal controls"
+    ],
+    "interests": [
+      "Trail running",
+      "Volunteer tax preparer (VITA)",
+      "Bread baking"
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "ux-designer-us-mid",
+  "category": "design",
+  "role": "ux-designer",
+  "country": "us",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Nathan Kowalski",
+    "title": "UX Designer II",
+    "phone": "(206) 555-0151",
+    "email": "nathan.kowalski@example.com",
+    "linkedin": "linkedin.com/in/nathan-kowalski",
+    "location": "Seattle, WA",
+    "summary": "UX designer with nine years designing B2B logistics software, consumer health apps and payment tools in Seattle. Runs research and interaction design for a merchant onboarding flow used by 30,000 small businesses, where my redesign raised completion from 58% to 74%.",
+    "experience": [
+      {
+        "title": "UX Designer",
+        "company": "Puget Logistics Software",
+        "location": "Seattle, WA",
+        "start": "2017-02",
+        "end": "2019-06",
+        "bullets": [
+          "Designed dispatcher and warehouse screens for a route-planning product used by about 400 freight companies.",
+          "Ran 25 contextual inquiry sessions in warehouses, which reshaped the scan-and-load workflow around gloved, one-handed use.",
+          "Reduced the average time to build a delivery route from 11 minutes to 7 by consolidating three setup screens into one."
+        ]
+      },
+      {
+        "title": "Product Designer",
+        "company": "Cascade Health Apps",
+        "location": "Seattle, WA",
+        "start": "2019-07",
+        "end": "2022-09",
+        "bullets": [
+          "Owned the medication reminder and refill experience in an iOS and Android app with 600,000 monthly users.",
+          "Partnered with a clinical advisor to design dosage schedules that patients could set up without help, cutting support tickets by 27%.",
+          "Built the first shared component library in Figma, adopted by four product squads.",
+          "Audited the app against WCAG 2.1 AA and fixed 40-plus contrast, focus and screen reader issues with engineering."
+        ]
+      },
+      {
+        "title": "UX Designer II",
+        "company": "Rainier Payments",
+        "location": "Seattle, WA",
+        "start": "2022-10",
+        "end": "present",
+        "bullets": [
+          "Lead research and interaction design for merchant onboarding, identity verification and first payout.",
+          "Redesigned the onboarding flow after 18 usability sessions, increasing completion from 58% to 74%.",
+          "Mentor two associate designers and run a fortnightly design critique for the payments group.",
+          "Set up a quarterly usability benchmark with the research team so product changes are measured against a stable baseline."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.S. in Human Centered Design & Engineering",
+        "school": "University of Washington",
+        "location": "Seattle, WA",
+        "start": "2012-09",
+        "end": "2016-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Nielsen Norman Group UX Certification",
+        "provider": "Nielsen Norman Group",
+        "year": 2021
+      },
+      {
+        "name": "Designing for Accessibility",
+        "provider": "Deque University",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Polish",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Conference talk",
+        "detail": "Spoke at a regional UX meetup on designing for warehouse workers."
+      },
+      {
+        "title": "Hackathon winner",
+        "detail": "Co-designed a prescription price comparison prototype that won Cascade Health Apps' internal hackathon."
+      }
+    ],
+    "skills": [
+      "User research",
+      "Usability testing",
+      "Interaction design",
+      "Prototyping",
+      "Figma",
+      "Design systems",
+      "WCAG 2.1 AA",
+      "Information architecture",
+      "Dovetail",
+      "Amplitude",
+      "Journey mapping"
+    ],
+    "interests": [
+      "Sea kayaking",
+      "Board game design",
+      "Volunteering at a tech literacy nonprofit"
+    ]
+  }
+}

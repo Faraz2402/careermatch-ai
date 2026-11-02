@@ -1,0 +1,83 @@
+{
+  "id": "devops-engineer-in-mid",
+  "category": "software-engineering",
+  "role": "devops-engineer",
+  "country": "in",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Karthik Raghavan",
+    "title": "DevOps Engineer",
+    "phone": "+91 00000 73590",
+    "email": "karthik.raghavan@example.com",
+    "linkedin": "linkedin.com/in/karthik-raghavan",
+    "location": "Chennai, Tamil Nadu",
+    "summary": "DevOps engineer with nine years in Chennai, starting in server support and moving through build and release work for an insurer. Today runs AWS and Kubernetes infrastructure for an e-commerce platform that handled 14 lakh orders on its biggest festive-sale day. Hands-on with Jenkins, Terraform and incident response.",
+    "experience": [
+      {
+        "title": "Systems Engineer",
+        "company": "Adyar Software Services Pvt. Ltd.",
+        "location": "Chennai, Tamil Nadu",
+        "start": "2017-07",
+        "end": "2019-03",
+        "bullets": [
+          "Supported 250 Linux and Windows servers for offshore client projects under strict SLA response times.",
+          "Wrote shell scripts for log rotation and disk alerts that cut disk-full incidents by more than half.",
+          "Cleared the Red Hat Certified System Administrator exam in my first year while working night shifts."
+        ]
+      },
+      {
+        "title": "Build and Release Engineer",
+        "company": "Velachery Insurance Tech Pvt. Ltd.",
+        "location": "Chennai, Tamil Nadu",
+        "start": "2019-04",
+        "end": "2022-08",
+        "bullets": [
+          "Maintained Jenkins pipelines for 40 Java applications and introduced shared libraries to remove duplicated job code.",
+          "Shifted policy-servicing releases from monthly to weekly by adding automated smoke tests and rollback steps.",
+          "Containerised the claims portal with Docker, reducing environment-related defects reported by QA by around 35%.",
+          "Coordinated release calls with QA, business and vendor teams for every production change."
+        ]
+      },
+      {
+        "title": "DevOps Engineer",
+        "company": "Kaveri Commerce Cloud Pvt. Ltd.",
+        "location": "Chennai, Tamil Nadu (hybrid)",
+        "start": "2022-09",
+        "end": "present",
+        "bullets": [
+          "Run Amazon EKS clusters and Terraform-managed infrastructure for a marketplace that peaked at 14 lakh orders in one festive-sale day.",
+          "Ran load tests and pre-scaling for the sale, keeping checkout error rates below 0.3% at peak traffic.",
+          "Lowered monthly AWS cost by ₹9 lakh by rightsizing instances and moving batch jobs to Spot capacity.",
+          "Lead incident calls on my on-call weeks and mentor two associate engineers on Kubernetes and Terraform."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E. Electronics and Communication Engineering",
+        "school": "College of Engineering, Guindy (Anna University)",
+        "location": "Chennai, Tamil Nadu",
+        "start": "2013-08",
+        "end": "2017-05",
+        "details": "CGPA 7.9/10."
+      }
+    ],
+    "courses": [
+      { "name": "Red Hat Certified System Administrator (RHCSA)", "provider": "Red Hat", "year": 2018 },
+      { "name": "AWS Certified SysOps Administrator – Associate", "provider": "Amazon Web Services", "year": 2021 },
+      { "name": "Certified Kubernetes Administrator (CKA)", "provider": "The Linux Foundation / CNCF", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Tamil", "level": "Native" },
+      { "name": "Hindi", "level": "Intermediate" }
+    ],
+    "achievements": [
+      { "title": "Spot award for festive-sale readiness", "detail": "Recognised by the CTO for zero downtime during the 2024 sale season." },
+      { "title": "Speaker, Chennai DevOps meetup", "detail": "Talk on running Jenkins shared libraries at scale." }
+    ],
+    "skills": ["AWS (EKS, EC2, RDS)", "Kubernetes", "Terraform", "Jenkins", "Docker", "Linux (RHEL)", "Bash", "Python", "Prometheus and Grafana", "Load testing (k6)", "Incident response"],
+    "interests": ["Cricket", "Bharatanatyam concerts", "Weekend cycling on ECR"]
+  }
+}

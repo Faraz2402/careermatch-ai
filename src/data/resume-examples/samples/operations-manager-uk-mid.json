@@ -1,0 +1,116 @@
+{
+  "id": "operations-manager-uk-mid",
+  "category": "business-management",
+  "role": "operations-manager",
+  "country": "uk",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Chloe Ashworth",
+    "title": "Operations Manager",
+    "phone": "07700 900582",
+    "email": "chloe.ashworth@example.com",
+    "linkedin": "linkedin.com/in/chloe-ashworth",
+    "location": "Birmingham",
+    "summary": "Operations manager with nine years in food manufacturing, parcel logistics and e-commerce fulfilment. Runs a 220,000 sq ft furniture distribution centre with 160 staff across two shifts and cut cost per order by 14% while peak volumes doubled.",
+    "experience": [
+      {
+        "title": "Operations Manager",
+        "company": "Hearth & Oak Home Ltd",
+        "location": "Birmingham",
+        "start": "2022-05",
+        "end": "present",
+        "bullets": [
+          "Manage a 220,000 sq ft fulfilment centre with 160 permanent and agency staff across two shifts.",
+          "Re-slotted 4,000 SKUs by velocity and introduced zone picking, reducing cost per order by 14% as Black Friday volumes doubled.",
+          "Cut damaged-in-transit claims by 31% by redesigning packing standards with the carrier and the product team.",
+          "Lead four shift managers and coach them on absence management and performance conversations.",
+          "Hold a site budget of £6.8m and report weekly to the head of supply chain."
+        ]
+      },
+      {
+        "title": "Operations Team Leader",
+        "company": "Midland Parcel Network",
+        "location": "Wolverhampton",
+        "start": "2019-06",
+        "end": "2022-04",
+        "bullets": [
+          "Led a night sort team of 45 processing up to 60,000 parcels a shift.",
+          "Improved sorter induction rates by 9% through better trailer scheduling with the transport office.",
+          "Ran return-to-work interviews and reduced short-term absence from 7.5% to 4.8%."
+        ]
+      },
+      {
+        "title": "Production Shift Manager",
+        "company": "Bournbrook Bakeries Ltd",
+        "location": "Birmingham",
+        "start": "2017-08",
+        "end": "2019-05",
+        "bullets": [
+          "Managed three bread lines and 30 operatives on a rotating shift pattern.",
+          "Prepared the site for a BRCGS Food Safety audit that achieved an AA grade.",
+          "Lowered line waste from 6% to 3.9% with a changeover checklist and daily root-cause reviews."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc (Hons) Business Management, 2:1",
+        "school": "Aston University",
+        "location": "Birmingham",
+        "start": "2013-09",
+        "end": "2017-06",
+        "details": "Placement year in supply chain planning"
+      }
+    ],
+    "courses": [
+      {
+        "name": "IOSH Managing Safely",
+        "provider": "IOSH",
+        "year": 2020
+      },
+      {
+        "name": "Lean Six Sigma Green Belt",
+        "provider": "British Quality Foundation",
+        "year": 2023
+      },
+      {
+        "name": "Level 5 Certificate in Management and Leadership",
+        "provider": "Chartered Management Institute",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Cost per order down 14%",
+        "detail": "Re-slotting and zone picking at Hearth & Oak during a record peak season."
+      },
+      {
+        "title": "BRCGS grade AA",
+        "detail": "Led the shift preparation for Bournbrook Bakeries' food safety audit."
+      }
+    ],
+    "skills": [
+      "Warehouse management",
+      "Lean and continuous improvement",
+      "Labour planning",
+      "Budget management",
+      "Health and safety",
+      "Absence management",
+      "Carrier management",
+      "KPI reporting",
+      "SAP EWM",
+      "Excel"
+    ],
+    "interests": [
+      "Netball",
+      "Allotment gardening"
+    ]
+  }
+}

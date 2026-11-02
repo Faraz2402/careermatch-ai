@@ -1,0 +1,94 @@
+{
+  "id": "devops-engineer-us-senior",
+  "category": "software-engineering",
+  "role": "devops-engineer",
+  "country": "us",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Darnell Harper",
+    "title": "Principal DevOps Engineer",
+    "phone": "(303) 555-0164",
+    "email": "darnell.harper@example.com",
+    "linkedin": "linkedin.com/in/darnell-harper",
+    "location": "Denver, CO",
+    "summary": "Principal DevOps engineer with 15 years moving from Linux administration to running cloud platforms for health and insurance software. Leads a seven-person platform team supporting 140 developers on AWS and Kubernetes, and cut annual cloud spend by $1.1 million without slowing delivery. Comfortable with HIPAA and SOC 2 audits.",
+    "experience": [
+      {
+        "title": "Systems Administrator",
+        "company": "Front Range Hosting",
+        "location": "Denver, CO",
+        "start": "2011-07",
+        "end": "2014-09",
+        "bullets": [
+          "Administered 600 Linux servers for small-business hosting customers and kept the shared platform at 99.9% monthly uptime.",
+          "Replaced hand-edited configs with Puppet, so new servers went from a day of setup to under an hour.",
+          "Rotated through overnight on-call and wrote the escalation guide still in use when I left."
+        ]
+      },
+      {
+        "title": "DevOps Engineer",
+        "company": "Mile High Grocery Delivery",
+        "location": "Denver, CO",
+        "start": "2014-10",
+        "end": "2018-05",
+        "bullets": [
+          "Moved the order platform from a colocation rack to AWS over nine months with a single planned two-hour maintenance window.",
+          "Built Jenkins pipelines that took the team from monthly releases to several deploys a day.",
+          "Set up autoscaling for holiday peaks that handled four times normal order volume at Thanksgiving with no outage.",
+          "Introduced centralized logging with the ELK stack, cutting average time to diagnose incidents from about an hour to 15 minutes."
+        ]
+      },
+      {
+        "title": "Senior DevOps Engineer",
+        "company": "Cherry Creek Health Analytics",
+        "location": "Denver, CO",
+        "start": "2018-06",
+        "end": "2022-01",
+        "bullets": [
+          "Designed the Terraform module library for a HIPAA-regulated analytics platform spanning 45 AWS accounts.",
+          "Migrated 70 services from EC2 to Amazon EKS, improving average node utilization from 22% to 61%.",
+          "Automated evidence collection for SOC 2 Type II, reducing audit prep from six weeks to ten days.",
+          "Coached three engineers through their first production on-call rotations."
+        ]
+      },
+      {
+        "title": "Principal DevOps Engineer",
+        "company": "Platte River Insurance Technology",
+        "location": "Denver, CO (hybrid)",
+        "start": "2022-02",
+        "end": "present",
+        "bullets": [
+          "Lead a seven-person platform team serving 140 developers, owning Kubernetes, CI/CD, observability and developer tooling.",
+          "Cut annual AWS spend by $1.1 million through Savings Plans, Graviton migration and deleting idle environments.",
+          "Rolled out Argo CD and a golden-path service template, shortening new-service setup from two weeks to one day.",
+          "Established incident review and SLO practices across 12 teams; Sev-1 incidents fell from 11 in 2022 to 3 in 2025.",
+          "Manage a $2.4 million annual platform budget and the vendor relationships behind it."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.S. Computer Engineering",
+        "school": "Colorado State University",
+        "location": "Fort Collins, CO",
+        "start": "2007-08",
+        "end": "2011-05"
+      }
+    ],
+    "courses": [
+      { "name": "AWS Certified DevOps Engineer – Professional", "provider": "Amazon Web Services", "year": 2023 },
+      { "name": "Certified Kubernetes Administrator (CKA)", "provider": "The Linux Foundation / CNCF", "year": 2021 },
+      { "name": "HashiCorp Certified: Terraform Associate", "provider": "HashiCorp", "year": 2020 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Speaker, Denver DevOps meetup", "detail": "Talk on FinOps habits for engineering teams, later shared internally as a training module." },
+      { "title": "Open-source contributor", "detail": "Merged fixes to two widely used Terraform providers." }
+    ],
+    "skills": ["AWS", "Kubernetes (EKS)", "Terraform", "Argo CD", "GitHub Actions", "Python", "Bash", "Prometheus and Grafana", "Datadog", "FinOps", "HIPAA and SOC 2 controls", "Incident management", "Team leadership"],
+    "interests": ["Backcountry skiing", "Homebrewing", "Youth basketball coaching"]
+  }
+}

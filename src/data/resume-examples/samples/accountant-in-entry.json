@@ -1,0 +1,121 @@
+{
+  "id": "accountant-in-entry",
+  "category": "accounting-finance",
+  "role": "accountant",
+  "country": "in",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Rohan Kulkarni",
+    "title": "Junior Accountant",
+    "phone": "+91 00000 41827",
+    "email": "rohan.kulkarni@example.com",
+    "linkedin": "linkedin.com/in/rohan-kulkarni",
+    "location": "Pune, Maharashtra",
+    "summary": "CA Intermediate-qualified commerce graduate preparing for CA Final, with two years of articleship and a first in-house role at a pharmaceutical packaging company. Files GST and TDS returns, reconciles vendor ledgers in Tally Prime, and recovered ₹6.8 lakh of input tax credit missed in the previous year.",
+    "experience": [
+      {
+        "title": "Junior Accountant",
+        "company": "Sahyadri Pharma Packaging Pvt Ltd",
+        "location": "Pune, Maharashtra",
+        "start": "2025-07",
+        "end": "present",
+        "bullets": [
+          "Prepare monthly GSTR-1 and GSTR-3B returns and reconcile purchase registers with GSTR-2B for 310 suppliers.",
+          "Recovered ₹6.8 lakh of eligible input tax credit by matching last year's unreconciled invoices with vendors.",
+          "Compute TDS on contractor, rent and professional payments and file quarterly returns on time.",
+          "Reconcile vendor ledgers in Tally Prime each month and chase 40+ open debit notes."
+        ]
+      },
+      {
+        "title": "Articled Assistant",
+        "company": "Joshi Deshpande & Associates, Chartered Accountants",
+        "location": "Pune, Maharashtra",
+        "start": "2023-06",
+        "end": "2025-05",
+        "bullets": [
+          "Took part in statutory and tax audits of 18 clients including traders, a cooperative bank and a hospital trust.",
+          "Vouched sales, purchase and expense entries and prepared draft audit observations for partner review.",
+          "Prepared income tax returns for 60 individual and partnership clients each filing season.",
+          "Drafted Form 3CD tax audit reports under partner supervision."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "CA Intermediate (both groups cleared)",
+        "school": "The Institute of Chartered Accountants of India (ICAI)",
+        "location": "Pune, Maharashtra",
+        "end": "2023-01",
+        "details": "Preparing for CA Final"
+      },
+      {
+        "degree": "B.Com",
+        "school": "Savitribai Phule Pune University (Brihan Maharashtra College of Commerce)",
+        "location": "Pune, Maharashtra",
+        "start": "2020-07",
+        "end": "2023-05",
+        "details": "CGPA 8.4/10"
+      },
+      {
+        "degree": "Class XII (Commerce)",
+        "school": "Maharashtra State Board",
+        "location": "Pune, Maharashtra",
+        "end": "2020-03",
+        "details": "88%"
+      }
+    ],
+    "courses": [
+      {
+        "name": "GST Practitioner Training",
+        "provider": "NPTEL",
+        "year": 2024
+      },
+      {
+        "name": "Excel Skills for Business",
+        "provider": "Coursera (Macquarie University)",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Marathi",
+        "level": "Native"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "₹6.8 lakh ITC recovered",
+        "detail": "Matched unreconciled supplier invoices against GSTR-2B at Sahyadri Pharma Packaging."
+      },
+      {
+        "title": "College quiz champion",
+        "detail": "Won the inter-college commerce quiz at Pune, 2022."
+      }
+    ],
+    "skills": [
+      "GST returns",
+      "TDS",
+      "Tally Prime",
+      "Bank reconciliation",
+      "Statutory audit",
+      "Tax audit",
+      "Income tax returns",
+      "Excel",
+      "Vendor reconciliation",
+      "Ind AS basics"
+    ],
+    "interests": [
+      "Cricket",
+      "Trekking in the Sahyadris"
+    ]
+  }
+}

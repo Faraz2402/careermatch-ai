@@ -1,0 +1,81 @@
+{
+  "id": "digital-marketing-specialist-us-mid",
+  "category": "marketing",
+  "role": "digital-marketing-specialist",
+  "country": "us",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Marcus Bell",
+    "title": "Digital Marketing Specialist",
+    "phone": "(614) 555-0172",
+    "email": "marcus.bell@example.com",
+    "linkedin": "linkedin.com/in/marcus-bell",
+    "location": "Columbus, OH",
+    "summary": "Digital marketing specialist with nine years in paid search, paid social and marketing automation for healthcare, meal-kit and B2B software companies. Currently manages $1.1M in annual ad spend for a SaaS analytics firm and lowered cost per sales-qualified lead by 34% by connecting HubSpot pipeline data back into Google Ads bidding.",
+    "experience": [
+      {
+        "title": "Digital Marketing Specialist",
+        "company": "Clintonville Analytics",
+        "location": "Columbus, OH",
+        "start": "2022-05",
+        "end": "present",
+        "bullets": [
+          "Manage $1.1M a year across Google Ads, LinkedIn Ads and Capterra for a B2B analytics platform selling to mid-market finance teams.",
+          "Imported offline conversions from HubSpot deal stages into Google Ads, letting bidding target pipeline value and cutting cost per SQL from $412 to $272.",
+          "Built 14 lead-nurture workflows segmented by industry and trial behavior, raising trial-to-demo conversion from 9% to 15%.",
+          "Run A/B tests on demo-request pages in Unbounce every two weeks; the winning layout lifted form completion by 22%.",
+          "Train two marketing coordinators on campaign QA, UTM standards and Looker Studio reporting."
+        ]
+      },
+      {
+        "title": "SEM Specialist",
+        "company": "Short North Meal Co.",
+        "location": "Columbus, OH",
+        "start": "2019-01",
+        "end": "2022-04",
+        "bullets": [
+          "Scaled paid search for a regional meal-kit subscription from $40,000 to $190,000 a month during 2020 demand growth while keeping CAC under $58.",
+          "Restructured 3,000+ keywords into tightly themed ad groups and added negative lists, raising Quality Scores and trimming CPC by 17%.",
+          "Launched the first Meta catalog ads for weekly menus, contributing 28% of new subscribers within a year.",
+          "Reported weekly on subscriber cohorts with the finance team so promo codes were cut back once payback periods exceeded four months."
+        ]
+      },
+      {
+        "title": "Digital Marketing Coordinator",
+        "company": "Scioto Valley Dental Partners",
+        "location": "Dublin, OH",
+        "start": "2017-01",
+        "end": "2018-12",
+        "bullets": [
+          "Ran local search and Google Ads for 11 dental offices, booking an average of 420 new-patient appointments a month online.",
+          "Rewrote service pages for implants and orthodontics with clearer pricing FAQs, doubling organic leads to those pages in a year.",
+          "Set up call tracking with CallRail so office managers could hear and score how front-desk staff handled ad-driven calls."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.A. in Communication",
+        "school": "The Ohio State University",
+        "location": "Columbus, OH",
+        "start": "2012-08",
+        "end": "2016-05"
+      }
+    ],
+    "courses": [
+      { "name": "Google Ads Search Certification", "provider": "Google Skillshop", "year": 2025 },
+      { "name": "Marketing Hub Software Certification", "provider": "HubSpot Academy", "year": 2024 },
+      { "name": "LinkedIn Marketing Labs: Advertising Strategy", "provider": "LinkedIn", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Pipeline-based bidding", "detail": "First at the company to feed CRM deal stages into ad bidding, now the standard setup for all paid channels." },
+      { "title": "Peak-season scaling", "detail": "Grew monthly search spend almost fivefold in 2020 without breaking the CAC ceiling." }
+    ],
+    "skills": ["Google Ads", "LinkedIn Ads", "Meta Ads", "HubSpot", "Marketing automation", "Conversion rate optimization", "GA4", "Google Tag Manager", "Looker Studio", "Unbounce", "A/B testing", "SQL basics"],
+    "interests": ["Columbus Crew season tickets", "Home brewing", "Mentoring at a local coding bootcamp"]
+  }
+}

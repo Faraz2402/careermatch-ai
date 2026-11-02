@@ -1,0 +1,95 @@
+{
+  "id": "devops-engineer-au-senior",
+  "category": "software-engineering",
+  "role": "devops-engineer",
+  "country": "au",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Mei Lin Chen",
+    "title": "DevOps Lead",
+    "phone": "0491 570 158",
+    "email": "meilin.chen@example.com",
+    "linkedin": "linkedin.com/in/meilin-chen",
+    "location": "Sydney NSW",
+    "summary": "DevOps lead with 17 years in Sydney across data centres, game studios, banking and health. Leads a team of nine running hybrid AWS and on-premises infrastructure for an electronic health-record vendor used by 320 clinics. Previously helped a mutual bank meet APRA CPS 234 expectations for its delivery pipeline.",
+    "experience": [
+      {
+        "title": "Linux Systems Engineer",
+        "company": "Parramatta Data Centres",
+        "location": "Sydney NSW",
+        "start": "2009-02",
+        "end": "2012-06",
+        "bullets": [
+          "Built and maintained Red Hat and CentOS hosts for 70 co-location and managed-hosting customers.",
+          "Wrote Bash and Perl tooling for provisioning that cut new-server handover from five days to two.",
+          "Worked rotating shifts in the network operations centre and handled first response for hardware and power faults."
+        ]
+      },
+      {
+        "title": "Build and Release Engineer",
+        "company": "Harbourside Games Studio",
+        "location": "Sydney NSW",
+        "start": "2012-07",
+        "end": "2016-03",
+        "bullets": [
+          "Ran nightly builds for three console and mobile titles, managing a farm of 40 build machines.",
+          "Halved full build time from eight hours to four by introducing distributed compilation and caching.",
+          "Automated certification submission packages for console platform holders, ending last-minute manual packaging before launches."
+        ]
+      },
+      {
+        "title": "Senior DevOps Engineer",
+        "company": "Coastline Mutual Bank",
+        "location": "Sydney NSW",
+        "start": "2016-04",
+        "end": "2021-08",
+        "bullets": [
+          "Designed the bank's first cloud landing zone on AWS with separate accounts, guardrails and centralised logging.",
+          "Built pipeline controls (peer review, signed artefacts, change records) used as evidence for APRA CPS 234 information security reviews.",
+          "Moved internet banking releases from quarterly weekend outages to fortnightly daytime releases using blue-green deployment.",
+          "Led a team of four engineers during the mobile banking app rebuild."
+        ]
+      },
+      {
+        "title": "DevOps Lead",
+        "company": "Blue Gum Health Records",
+        "location": "Sydney NSW (hybrid)",
+        "start": "2021-09",
+        "end": "present",
+        "bullets": [
+          "Lead nine engineers running hybrid AWS and on-premises infrastructure for an EHR product used in 320 GP and specialist clinics.",
+          "Delivered a multi-region disaster-recovery design that met a one-hour recovery time objective in three consecutive tests.",
+          "Reduced hosting costs by $640,000 a year by consolidating Kubernetes clusters and retiring legacy virtual machines.",
+          "Aligned patching and backup practice with the ASD Essential Eight, reaching Maturity Level Two for six of the eight strategies."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Engineering (Software) (Honours)",
+        "school": "UNSW Sydney",
+        "location": "Sydney NSW",
+        "start": "2005-02",
+        "end": "2008-11",
+        "details": "Honours Class 2 Division 1."
+      }
+    ],
+    "courses": [
+      { "name": "AWS Certified Solutions Architect – Professional", "provider": "Amazon Web Services", "year": 2022 },
+      { "name": "Certified Kubernetes Administrator (CKA)", "provider": "The Linux Foundation / CNCF", "year": 2020 },
+      { "name": "ITIL 4 Foundation", "provider": "PeopleCert", "year": 2019 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Mandarin", "level": "Fluent" },
+      { "name": "Cantonese", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Panel speaker, Sydney DevOps meetup", "detail": "Discussed running regulated workloads in public cloud with peers from banking and government." },
+      { "title": "Mentor, women in infrastructure programme", "detail": "Mentored five early-career engineers over three intakes." }
+    ],
+    "skills": ["AWS", "Kubernetes", "Terraform", "Ansible", "GitLab CI", "Linux (RHEL)", "Python", "Disaster recovery", "APRA CPS 234 controls", "ASD Essential Eight", "Observability (Datadog, OpenTelemetry)", "Team leadership", "Budget management"],
+    "interests": ["Ocean swimming at Bronte", "Dragon boating", "Mentoring at a girls' coding camp"]
+  }
+}

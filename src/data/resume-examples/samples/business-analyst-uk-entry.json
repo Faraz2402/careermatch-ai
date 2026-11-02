@@ -1,0 +1,62 @@
+{
+  "id": "business-analyst-uk-entry",
+  "category": "business-management",
+  "role": "business-analyst",
+  "country": "uk",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Callum Brierley",
+    "title": "Junior Business Analyst",
+    "phone": "07700 900583",
+    "email": "callum.brierley@example.com",
+    "linkedin": "linkedin.com/in/callum-brierley",
+    "location": "Leeds",
+    "summary": "Junior business analyst who joined through the Level 4 Business Analyst apprenticeship after six months in insurance customer operations. Completed the apprenticeship with a Distinction and now work on process and requirements for a digital services agency's public-sector clients. Bring a front-line view of how processes actually work, plus solid process mapping and user story skills.",
+    "experience": [
+      {
+        "title": "Junior Business Analyst (Apprentice until August 2025)",
+        "company": "Roundhay Digital Services",
+        "location": "Leeds",
+        "start": "2024-02",
+        "end": "present",
+        "bullets": [
+          "Mapped the current blue-badge renewal process for a council client with eight staff interviews, finding three duplicate data entry points.",
+          "Wrote 70 user stories with acceptance criteria for an online renewal form; first-month online uptake reached 46% of renewals.",
+          "Ran usability sessions with five residents alongside the UX designer and fed changes back into the backlog.",
+          "Kept the RAID log and weekly status notes for a team of nine during the build."
+        ]
+      },
+      {
+        "title": "Customer Operations Assistant",
+        "company": "Headingley Home Insurance",
+        "location": "Leeds",
+        "start": "2023-07",
+        "end": "2024-01",
+        "bullets": [
+          "Handled around 60 policy change requests a day by phone and email while meeting quality targets.",
+          "Suggested a shared template for common address changes that the team leader rolled out to 14 colleagues.",
+          "Logged recurring system errors in a tracker that IT used to prioritise two fixes."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "Level 4 Business Analyst Apprenticeship, Distinction", "school": "Kirkgate Skills Academy (training provider)", "location": "Leeds", "start": "2024-02", "end": "2025-08", "details": "Covered process modelling, requirements engineering, stakeholder analysis and Agile delivery." },
+      { "degree": "A-levels: Business (A), Psychology (B), Computer Science (B)", "school": "Leeds City College", "location": "Leeds", "start": "2021-09", "end": "2023-06" },
+      { "degree": "GCSEs: 9 subjects at grades 9–5, including English and Maths", "school": "Allerton Grange School", "location": "Leeds", "start": "2019-09", "end": "2021-06" }
+    ],
+    "courses": [
+      { "name": "BCS Foundation Certificate in Business Analysis", "provider": "BCS, The Chartered Institute for IT", "year": 2024 },
+      { "name": "Agile Fundamentals", "provider": "LinkedIn Learning", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Apprentice of the Year (internal)", "detail": "Named apprentice of the year at Roundhay Digital Services in 2025." },
+      { "title": "Duke of Edinburgh's Award, Silver", "detail": "Completed volunteering, skills and expedition sections during sixth form." }
+    ],
+    "skills": ["Process mapping (BPMN)", "User stories", "Acceptance criteria", "Stakeholder interviews", "Jira", "Miro", "Excel", "RAID logs", "Usability testing support", "Customer service"],
+    "interests": ["Five-a-side football", "Volunteering at a food bank", "Retro gaming"]
+  }
+}

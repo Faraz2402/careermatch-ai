@@ -1,0 +1,132 @@
+{
+  "id": "customer-service-representative-us-senior",
+  "category": "office-administration",
+  "role": "customer-service-representative",
+  "country": "us",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Marcus Bellamy",
+    "title": "Senior Customer Service Representative and Escalations Lead",
+    "phone": "(813) 555-0162",
+    "email": "marcus.bellamy@example.com",
+    "linkedin": "linkedin.com/in/marcus-bellamy",
+    "location": "Tampa, FL",
+    "summary": "Customer service professional with 13 years across insurance, medical supply, broadband and banking contact centers. Handles the toughest escalations for a credit union serving 140,000 members, coaches a pod of eight representatives and lifted first-contact resolution from 71% to 84%.",
+    "experience": [
+      {
+        "title": "Customer Service Representative",
+        "company": "Gulfline Home Insurance",
+        "location": "Tampa, FL",
+        "start": "2013-05",
+        "end": "2016-08",
+        "bullets": [
+          "Answered 70 to 90 inbound calls a day on policy changes, billing and hurricane-season claims intake.",
+          "Kept average handle time under the 6-minute target while holding a 94% quality score on monitored calls.",
+          "Volunteered for the catastrophe response team after two major storms, working extended shifts to log more than 1,200 first notices of loss."
+        ]
+      },
+      {
+        "title": "Senior Customer Service Representative",
+        "company": "Bayshore Medical Supply",
+        "location": "Tampa, FL",
+        "start": "2016-09",
+        "end": "2019-12",
+        "bullets": [
+          "Resolved order, insurance authorization and delivery problems for home oxygen and mobility patients, many of them elderly callers.",
+          "Wrote plain-language call scripts for Medicare documentation requests, cutting repeat calls on that topic by about 30%.",
+          "Became the go-to contact for HIPAA identity verification questions and refreshed the team's job aid twice a year."
+        ]
+      },
+      {
+        "title": "Team Lead, Customer Care",
+        "company": "Suncoast Broadband",
+        "location": "Clearwater, FL",
+        "start": "2020-01",
+        "end": "2023-03",
+        "bullets": [
+          "Led a remote team of 14 agents handling billing and technical tier-1 contacts across phone, chat and email.",
+          "Introduced weekly calibration sessions and side-by-side coaching, raising the team's CSAT from 3.9 to 4.4 out of 5.",
+          "Built a Zendesk macro library of 60 approved responses that shortened chat handle time by nearly two minutes.",
+          "Reduced voluntary agent turnover on my team to 12% a year, compared with 31% across the wider floor."
+        ]
+      },
+      {
+        "title": "Senior Customer Service Representative and Escalations Lead",
+        "company": "Palmetto Harbor Credit Union",
+        "location": "Tampa, FL",
+        "start": "2023-04",
+        "end": "present",
+        "bullets": [
+          "Own complex member escalations, including disputed card transactions, fraud holds and loan payment issues, for a 140,000-member credit union.",
+          "Coach a pod of eight representatives and lead their monthly quality reviews against Regulation E and complaint-handling standards.",
+          "Mapped the top 20 reasons calls were transferred and rewrote knowledge articles, lifting first-contact resolution from 71% to 84%.",
+          "Partner with the fraud team on a callback process that recovered about $210,000 for members in its first year."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.A. in Communication",
+        "school": "University of South Florida",
+        "location": "Tampa, FL",
+        "start": "2009-08",
+        "end": "2013-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Zendesk Support Administrator",
+        "provider": "Zendesk Training",
+        "year": 2021
+      },
+      {
+        "name": "De-escalation and Conflict Resolution",
+        "provider": "LinkedIn Learning",
+        "year": 2023
+      },
+      {
+        "name": "Anti-Money Laundering Essentials",
+        "provider": "LinkedIn Learning",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Spanish",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "President's Circle 2024",
+        "detail": "One of five employees credit-union-wide recognized for member service results."
+      },
+      {
+        "title": "Mentor program founder",
+        "detail": "Started a peer mentor program at Suncoast Broadband that paired 40 new hires with experienced agents."
+      }
+    ],
+    "skills": [
+      "Escalation handling",
+      "Complaint resolution",
+      "Zendesk",
+      "Salesforce Service Cloud",
+      "Genesys Cloud",
+      "Quality monitoring",
+      "Coaching and calibration",
+      "Regulation E disputes",
+      "Knowledge base writing",
+      "CSAT and FCR analysis"
+    ],
+    "interests": [
+      "Youth basketball coach",
+      "Fishing on Tampa Bay",
+      "Podcasts on behavioral economics"
+    ]
+  }
+}

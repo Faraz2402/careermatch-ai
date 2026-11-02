@@ -1,0 +1,81 @@
+{
+  "code": "au",
+  "name": "Australia",
+  "slug": "australia",
+  "term": {
+    "value": "resume",
+    "note": "University careers services and most state government guides say 'resume'. Some federal agencies (for example the Department of Climate Change, Energy, the Environment and Water) say 'CV' for the same document, and Australian guides often treat the two words as interchangeable outside academia."
+  },
+  "paper": {
+    "value": "A4",
+    "note": "Australia uses ISO A4 (210 x 297 mm) for office documents. Set the page size to A4 before exporting a PDF. We found no resume-specific official source stating this, so it rests on general ISO 216 usage."
+  },
+  "length": {
+    "value": "2–3 pages",
+    "note": "James Cook University suggests one to two pages for part-time jobs and two to three for graduate roles, and Queensland Government guidance gives one to three pages depending on work history. Some federal public-service guidance goes further: ASIC allows up to four pages and DCCEEW says its typical CVs run four to five pages."
+  },
+  "photo": {
+    "value": "leave out",
+    "note": "University of Sydney and UTS careers guidance say a photo is not needed on an Australian resume, and Kaplan notes it is not required. Leave it out unless an employer asks for one (e.g. for some performing roles)."
+  },
+  "include": [
+    "Name, mobile number and email address",
+    "Suburb or city and state; a full street address is not needed",
+    "Citizenship, permanent residency or visa and work-rights status, especially for public-sector roles",
+    "Two or three referees who have supervised your work, with their permission (or 'available on request')",
+    "A LinkedIn profile or portfolio link if relevant"
+  ],
+  "leaveOut": [
+    "Photo",
+    "Date of birth or age",
+    "Gender, marital status and religion",
+    "Health information unless it relates to the role",
+    "Friends or family as referees"
+  ],
+  "dateFormat": {
+    "value": "MMM YYYY",
+    "example": "Feb 2024",
+    "note": "Australian guidance asks for consistent, reverse-chronological dates but sets no month style. Our Australian samples use abbreviated month plus year (Feb 2024 – Present), which is common and easy to scan. Note that numeric dates in Australia are day-first, so avoid ambiguous formats."
+  },
+  "education": {
+    "terms": [
+      { "term": "ATAR", "meaning": "Australian Tertiary Admission Rank, a percentile used for university entry. Relevant mainly for school leavers; usually dropped once you have a degree." },
+      { "term": "TAFE", "meaning": "Technical and Further Education: government vocational colleges delivering VET qualifications." },
+      { "term": "Certificate III / IV, Diploma", "meaning": "Nationally recognised VET qualifications under the Australian Qualifications Framework (AQF); Certificate III is AQF level 3." },
+      { "term": "Bachelor (Honours)", "meaning": "An extra research year (or an embedded honours stream) after a bachelor's degree, graded in classes such as First Class Honours." },
+      { "term": "WAM / GPA", "meaning": "Weighted average mark or grade point average; scales differ by university (often 7-point GPA), so state the scale." }
+    ],
+    "note": "List the qualification, institution, and completion year, newest first. Give the full official title of VET qualifications (e.g. Certificate III in Carpentry). School results and ATAR usually only matter for school leavers and first-year students."
+  },
+  "spelling": "Australian",
+  "currency": { "code": "AUD", "symbol": "A$" },
+  "fictionalPhone": {
+    "pattern": "0491 57X NNN",
+    "note": "The ACMA publishes a list of mobile numbers in the 0491 57x xxx range (starting at 0491 570 006) reserved for TV, film and other creative works. Only the listed numbers are reserved, so our samples pick numbers from the ACMA list rather than any number in the block."
+  },
+  "disagreements": [
+    "Length: James Cook University suggests two to three pages for graduate roles, Queensland Government says one to three, ASIC sets a four-page maximum, and DCCEEW says the one-or-two-page rule should not drive content and its typical CVs run four to five pages.",
+    "Referees: the University of Sydney recommends listing two or three referees as the final section, but notes that writing 'available on request' is an accepted alternative.",
+    "Terminology: universities and Queensland Government say 'resume', while DCCEEW's guide calls the same document a CV, and commercial guides call the terms interchangeable."
+  ],
+  "tips": [
+    "Aim for two to three pages for a graduate or professional role; public-service roles may accept longer.",
+    "Ask referees first and tell them about the role before you list them.",
+    "State your work rights or visa status clearly if you are not a citizen or permanent resident.",
+    "Use Australian spelling (organise, colour, licence as a noun) consistently.",
+    "For VET qualifications, give the full AQF title and the provider, such as a named TAFE institute.",
+    "For government jobs, address the selection criteria or capabilities in the job pack, not just the resume."
+  ],
+  "sources": [
+    { "title": "How to write a resume", "publisher": "The University of Sydney Careers Centre", "url": "https://www.sydney.edu.au/careers/students/applying-for-jobs/how-to-write-a-resume.html", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Resumes", "publisher": "James Cook University Careers and Employability", "url": "https://www.jcu.edu.au/employability-edge/master-written-applications/resumes", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Resume preparation checklist", "publisher": "UTS Careers", "url": "https://www.uts.edu.au/globalassets/sites/default/files/SSU-Careers-Resume-Preparation-Checklist.pdf", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "How to write a resume and cover letter", "publisher": "Queensland Government", "url": "https://www.qld.gov.au/jobs/finding/resume", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Authoring a successful CV", "publisher": "Department of Climate Change, Energy, the Environment and Water (DCCEEW)", "url": "https://www.dcceew.gov.au/sites/default/files/documents/dcceew-authoring-a-successful-cv.pdf", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Tips on preparing your resume", "publisher": "Australian Securities and Investments Commission (ASIC)", "url": "https://careers.asic.gov.au/pdf/Resume_tips.pdf", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "How to write an Australian resume (as a student)", "publisher": "Kaplan Business School / Kaplan College Adelaide", "url": "https://www.kaplancollegeadelaide.edu.au/blog/jobs-and-careers/how-to-write-an-australian-resume-as-a-student", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Phone numbers for use in TV shows, films and creative works", "publisher": "Australian Communications and Media Authority (ACMA)", "url": "https://www.acma.gov.au/phone-numbers-use-tv-shows-films-and-creative-works", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "Spelling", "publisher": "Australian Government Style Manual", "url": "https://www.stylemanual.gov.au/grammar-punctuation-and-conventions/spelling", "accessed": "2026-11-02", "how": "search-result" },
+    { "title": "What is a Certificate III in Australia?", "publisher": "training.com.au", "url": "https://www.training.com.au/ed/what-is-a-certificate-iii-in-australia/?_paged=28", "accessed": "2026-11-02", "how": "search-result" }
+  ]
+}

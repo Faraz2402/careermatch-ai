@@ -1,0 +1,70 @@
+{
+  "id": "marketing-manager-us-entry",
+  "category": "marketing",
+  "role": "marketing-manager",
+  "country": "us",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Danielle Okafor",
+    "title": "Marketing Manager",
+    "phone": "(512) 555-0127",
+    "email": "danielle.okafor@example.com",
+    "linkedin": "linkedin.com/in/danielle-okafor",
+    "location": "Austin, TX",
+    "summary": "Marketing manager three years out of UT Austin, running the full marketing function for a two-store independent pet supply retailer. Built its email and loyalty program from zero to 9,400 members and tied every campaign to point-of-sale data, lifting repeat purchases 18% in the first year.",
+    "experience": [
+      {
+        "title": "Marketing Manager",
+        "company": "Limestone Pet Supply",
+        "location": "Austin, TX",
+        "start": "2025-02",
+        "end": "present",
+        "bullets": [
+          "Own a $140,000 annual marketing budget across paid social, local radio, events and in-store signage, reporting monthly ROI to the two owners.",
+          "Launched a points-based loyalty program in Klaviyo that reached 9,400 members in 14 months and now drives 46% of total sales.",
+          "Organized six adoption weekends with three Travis County rescue groups, bringing 2,100 visitors and $38,000 in same-weekend revenue.",
+          "Cut cost per new customer from $31 to $22 by moving spend from broad Facebook audiences to ZIP-code targeted Instagram and Google Local ads.",
+          "Hired and direct a part-time content creator and a freelance designer, setting a weekly production calendar of 12 posts and two emails."
+        ]
+      },
+      {
+        "title": "Marketing Coordinator",
+        "company": "Lonestar Home Services Group",
+        "location": "Round Rock, TX",
+        "start": "2023-06",
+        "end": "2025-01",
+        "bullets": [
+          "Coordinated seasonal HVAC tune-up campaigns across direct mail, Google Ads and door hangers, booking 1,350 service appointments in spring 2024.",
+          "Rebuilt the landing pages for four service lines in WordPress, raising form completion from 3.1% to 5.4% over two quarters.",
+          "Pulled weekly lead-source reports from ServiceTitan so the sales manager could drop two underperforming lead vendors and save $2,600 a month.",
+          "Managed 90+ Google Business Profile reviews a quarter, responding within 24 hours and lifting the average rating from 4.3 to 4.7."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.B.A. in Marketing",
+        "school": "The University of Texas at Austin, McCombs School of Business",
+        "location": "Austin, TX",
+        "start": "2019-08",
+        "end": "2023-05",
+        "details": "GPA 3.6/4.0. Senior capstone: go-to-market plan for a local kombucha brewer, adopted for its 2023 grocery launch."
+      }
+    ],
+    "courses": [
+      { "name": "Google Ads Search Certification", "provider": "Google Skillshop", "year": 2024 },
+      { "name": "Email Marketing Certification", "provider": "HubSpot Academy", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Spanish", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Capstone client adoption", "detail": "Student team's go-to-market plan was used by a local beverage startup for its first grocery listing." },
+      { "title": "Loyalty launch on budget", "detail": "Delivered the loyalty program for under $6,000 in setup costs, including staff training at both stores." }
+    ],
+    "skills": ["Marketing strategy", "Budget management", "Klaviyo", "Meta Ads Manager", "Google Ads", "Google Analytics 4", "WordPress", "Canva", "Event marketing", "Loyalty programs", "Copywriting"],
+    "interests": ["Fostering rescue dogs", "Trail running", "Film photography"]
+  }
+}

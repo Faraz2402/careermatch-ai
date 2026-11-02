@@ -1,0 +1,127 @@
+{
+  "id": "registered-nurse-au-mid",
+  "category": "healthcare-nursing",
+  "role": "registered-nurse",
+  "country": "au",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Liam Kowalczyk",
+    "title": "Clinical Nurse, Emergency Department",
+    "phone": "0491 570 156",
+    "email": "liam.kowalczyk@example.com",
+    "linkedin": "linkedin.com/in/liam-kowalczyk",
+    "location": "Brisbane QLD",
+    "summary": "Emergency nurse with nine years' experience across a regional ED and a major Brisbane trauma service, holding AHPRA general registration and a Graduate Certificate in Emergency Nursing. Credentialled triage nurse who helped bring the department's 'seen on time' rate for Category 2 patients from 71% to 86%.",
+    "experience": [
+      {
+        "title": "Graduate Registered Nurse",
+        "company": "Sunshine Hinterland Hospital",
+        "location": "Nambour QLD",
+        "start": "2017-02",
+        "end": "2018-01",
+        "bullets": [
+          "Rotated through medical, surgical and emergency wards in a 12-month graduate transition program, carrying a 4–5 patient load by month three.",
+          "Completed 6 clinical competencies including IV cannulation and venepuncture ahead of the program schedule.",
+          "Developed a bedside handover checklist for the surgical ward that halved missed post-op observations in a three-week audit."
+        ]
+      },
+      {
+        "title": "Registered Nurse, Emergency Department",
+        "company": "Sunshine Hinterland Hospital",
+        "location": "Nambour QLD",
+        "start": "2018-02",
+        "end": "2021-06",
+        "bullets": [
+          "Worked in a 32-bed regional ED seeing around 140 presentations a day, rotating through resus, acute, short-stay and fast-track.",
+          "Earned triage credentialling in 2019 after completing the Emergency Triage Education Kit and 60 supervised triage shifts.",
+          "Ran simulated paediatric resuscitation drills for 30 staff each quarter in partnership with the clinical facilitator.",
+          "Supported the rollout of nurse-initiated analgesia, cutting the median time to first analgesia from 52 to 31 minutes."
+        ]
+      },
+      {
+        "title": "Clinical Nurse, Emergency Department",
+        "company": "Kedron Valley Hospital",
+        "location": "Brisbane QLD",
+        "start": "2021-07",
+        "end": "present",
+        "bullets": [
+          "Lead shifts as team leader in a level 6 trauma ED, coordinating 14 nurses and allocating patients across 58 treatment spaces.",
+          "Co-designed a rapid assessment zone at triage that lifted Category 2 'seen on time' performance from 71% to 86% within eight months.",
+          "Mentor 8 transition-to-practice nurses each year and assess their emergency competency packages.",
+          "Audited sepsis pathway compliance monthly and presented results to the ED quality committee, raising antibiotics-within-60-minutes from 64% to 83%."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Graduate Certificate in Emergency Nursing",
+        "school": "Queensland University of Technology",
+        "location": "Brisbane QLD",
+        "start": "2019-02",
+        "end": "2020-06"
+      },
+      {
+        "degree": "Bachelor of Nursing",
+        "school": "University of the Sunshine Coast",
+        "location": "Sippy Downs QLD",
+        "start": "2014-02",
+        "end": "2016-11"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Advanced Life Support (ALS2)",
+        "provider": "Australian Resuscitation Council accredited provider",
+        "year": 2025
+      },
+      {
+        "name": "Trauma Nursing Program",
+        "provider": "College of Emergency Nursing Australasia (CENA)",
+        "year": 2022
+      },
+      {
+        "name": "Provide First Aid (HLTAID011)",
+        "provider": "Registered training organisation",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Polish",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "AHPRA general registration",
+        "detail": "Registered Nurse with the Nursing and Midwifery Board of Australia since 2017."
+      },
+      {
+        "title": "ED Staff Excellence Award, 2023",
+        "detail": "Recognised for leadership during a 22-patient mass-casualty response after a highway crash."
+      }
+    ],
+    "skills": [
+      "Emergency triage (ATS)",
+      "Resuscitation",
+      "Trauma care",
+      "Paediatric emergency",
+      "Sepsis pathway",
+      "IV cannulation",
+      "Team leading",
+      "ieMR documentation",
+      "Mental health assessment",
+      "Clinical teaching"
+    ],
+    "interests": [
+      "Surf lifesaving",
+      "Rugby league",
+      "Cooking"
+    ]
+  }
+}

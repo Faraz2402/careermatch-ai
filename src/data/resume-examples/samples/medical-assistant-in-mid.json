@@ -1,0 +1,135 @@
+{
+  "id": "medical-assistant-in-mid",
+  "category": "healthcare-nursing",
+  "role": "medical-assistant",
+  "country": "in",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Sravani Reddy",
+    "title": "Senior OPD Assistant (Clinical Support)",
+    "phone": "+91 00000 71539",
+    "email": "sravani.reddy@example.com",
+    "linkedin": "linkedin.com/in/sravani-reddy",
+    "location": "Hyderabad, Telangana",
+    "summary": "Clinical support professional with nine years in hospital OPDs, starting as a certified General Duty Assistant and now running patient flow for a 40-doctor eye hospital outpatient wing. Reduced average OPD waiting time from 85 to 50 minutes through token re-design and pre-consultation testing.",
+    "experience": [
+      {
+        "title": "General Duty Assistant",
+        "company": "Musi Valley Multispeciality Hospital",
+        "location": "Hyderabad, Telangana",
+        "start": "2017-08",
+        "end": "2019-12",
+        "bullets": [
+          "Assisted nurses on a 30-bed medical ward with patient positioning, vitals, bed-making and transfers for 10–12 patients per shift.",
+          "Collected and labelled urine and stool samples and transported specimens to the lab within the 30-minute turnaround target.",
+          "Supported discharge counselling for Telugu-speaking families on diet and wound hygiene."
+        ]
+      },
+      {
+        "title": "OPD Assistant",
+        "company": "Banjara Diagnostics and Polyclinic",
+        "location": "Hyderabad, Telangana",
+        "start": "2020-01",
+        "end": "2022-08",
+        "bullets": [
+          "Prepared 80–100 patients a day for consultations, recording height, weight, BP and SpO2 in the hospital information system.",
+          "Ran the ECG room and assisted in minor procedures such as suture removal and dressings.",
+          "Managed preventive health check packages, raising same-day report completion from 70% to 92%.",
+          "Trained 5 new OPD assistants on vitals, billing counters and patient etiquette."
+        ]
+      },
+      {
+        "title": "Senior OPD Assistant",
+        "company": "Golconda Eye Care Hospital",
+        "location": "Hyderabad, Telangana",
+        "start": "2022-09",
+        "end": "present",
+        "bullets": [
+          "Coordinate patient flow for a 40-doctor outpatient wing seeing around 650 patients a day, leading a team of 12 assistants.",
+          "Redesigned the token system and moved vision and pressure tests to before consultation, cutting average waiting time from 85 to 50 minutes.",
+          "Track daily OPD revenue and cash counters, reconciling about ₹6 lakh in collections each day with zero audit shortfalls in 2025.",
+          "Organised 18 free rural eye screening camps that referred 1,100 patients for cataract surgery."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Sc (Biotechnology, Zoology, Chemistry)",
+        "school": "Osmania University",
+        "location": "Hyderabad, Telangana",
+        "start": "2014-06",
+        "end": "2017-04"
+      },
+      {
+        "degree": "General Duty Assistant certification",
+        "school": "Healthcare Sector Skill Council (NSDC partner)",
+        "location": "Hyderabad, Telangana",
+        "start": "2017-05",
+        "end": "2017-07"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Basic Life Support",
+        "provider": "American Heart Association, authorised training centre",
+        "year": 2024
+      },
+      {
+        "name": "Patient Safety and Quality (NABH basics)",
+        "provider": "Hospital quality department",
+        "year": 2023
+      },
+      {
+        "name": "Hospital Management Essentials",
+        "provider": "Coursera",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Telugu",
+        "level": "Native"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      },
+      {
+        "name": "Urdu",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Best Team Leader, OPD",
+        "detail": "Awarded by hospital management in 2024 for the waiting-time project."
+      },
+      {
+        "title": "Outreach camps",
+        "detail": "Led logistics for 18 rural screening camps across Rangareddy and Medak districts."
+      }
+    ],
+    "skills": [
+      "OPD patient flow",
+      "Vital signs",
+      "ECG",
+      "Hospital information systems",
+      "Billing counters",
+      "Team leadership",
+      "Health camp coordination",
+      "Patient counselling",
+      "NABH documentation",
+      "Infection control"
+    ],
+    "interests": [
+      "Kabaddi",
+      "Telugu literature",
+      "Community health camps"
+    ]
+  }
+}

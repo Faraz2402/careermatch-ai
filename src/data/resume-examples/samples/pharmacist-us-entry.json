@@ -1,0 +1,127 @@
+{
+  "id": "pharmacist-us-entry",
+  "category": "healthcare-nursing",
+  "role": "pharmacist",
+  "country": "us",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Marcus Tran",
+    "title": "Clinical Staff Pharmacist (PGY1 Residency Graduate)",
+    "phone": "(614) 555-0139",
+    "email": "marcus.tran@example.com",
+    "linkedin": "linkedin.com/in/marcus-tran",
+    "location": "Columbus, OH",
+    "summary": "Pharm.D. graduate and Ohio-licensed pharmacist who completed an ASHP-accredited PGY1 residency, now working as a clinical staff pharmacist in a 400-bed community hospital. Interested in antimicrobial stewardship, where my residency project cut average IV-to-PO conversion time by 1.4 days.",
+    "experience": [
+      {
+        "title": "Pharmacy Intern (part-time)",
+        "company": "Olentangy Community Pharmacy",
+        "location": "Columbus, OH",
+        "start": "2023-06",
+        "end": "2025-04",
+        "bullets": [
+          "Filled and checked prescriptions under pharmacist supervision in a store processing about 280 prescriptions a day.",
+          "Administered 450+ flu, COVID-19 and shingles vaccines after completing APhA immunization training.",
+          "Called prescribers and insurers to resolve prior authorizations, clearing a backlog of 60 pending claims in three weeks."
+        ]
+      },
+      {
+        "title": "PGY1 Pharmacy Resident",
+        "company": "Scioto Valley Medical Center",
+        "location": "Columbus, OH",
+        "start": "2025-07",
+        "end": "2026-06",
+        "bullets": [
+          "Rotated through internal medicine, critical care, infectious diseases, oncology and ambulatory care, rounding daily with physician teams.",
+          "Led a residency project on IV-to-PO antibiotic conversion that shortened average conversion time from 3.1 to 1.7 days.",
+          "Precepted 6 fourth-year Pharm.D. students on APPE rotations and delivered 4 accredited CE presentations to pharmacy staff.",
+          "Drafted a vancomycin AUC-based dosing protocol adopted by the pharmacy and therapeutics committee."
+        ]
+      },
+      {
+        "title": "Clinical Staff Pharmacist",
+        "company": "Scioto Valley Medical Center",
+        "location": "Columbus, OH",
+        "start": "2026-07",
+        "end": "present",
+        "bullets": [
+          "Verify about 350 inpatient medication orders per shift and manage pharmacy-to-dose consults for vancomycin, aminoglycosides and warfarin.",
+          "Respond to codes and rapid responses as the pharmacy representative, preparing emergency medications at the bedside.",
+          "Support antimicrobial stewardship rounds twice a week, flagging de-escalation opportunities for the ID physician."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Doctor of Pharmacy (Pharm.D.)",
+        "school": "The Ohio State University College of Pharmacy",
+        "location": "Columbus, OH",
+        "start": "2021-08",
+        "end": "2025-05",
+        "details": "GPA 3.7/4.0. Rho Chi Honor Society."
+      },
+      {
+        "degree": "B.S. Biology",
+        "school": "University of Toledo",
+        "location": "Toledo, OH",
+        "start": "2017-08",
+        "end": "2021-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Pharmacy-Based Immunization Delivery certificate",
+        "provider": "American Pharmacists Association (APhA)",
+        "year": 2022
+      },
+      {
+        "name": "Basic Life Support and ACLS",
+        "provider": "American Heart Association",
+        "year": 2025
+      },
+      {
+        "name": "Antimicrobial Stewardship certificate",
+        "provider": "Society of Infectious Diseases Pharmacists (SIDP)",
+        "year": 2026
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Vietnamese",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Licensed Pharmacist, Ohio State Board of Pharmacy",
+        "detail": "Passed NAPLEX and the Ohio MPJE in 2025."
+      },
+      {
+        "title": "Residency research poster",
+        "detail": "Presented the IV-to-PO project at the ASHP Midyear Clinical Meeting, 2025."
+      }
+    ],
+    "skills": [
+      "Order verification",
+      "Pharmacokinetic dosing",
+      "Antimicrobial stewardship",
+      "Epic Willow",
+      "Anticoagulation management",
+      "Immunizations",
+      "Drug information",
+      "Code response",
+      "Sterile compounding (USP <797>)",
+      "Precepting students"
+    ],
+    "interests": [
+      "Pickleball",
+      "Vietnamese cooking",
+      "Volunteering at a free clinic"
+    ]
+  }
+}

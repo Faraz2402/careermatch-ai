@@ -1,0 +1,62 @@
+{
+  "id": "data-scientist-au-entry",
+  "category": "data-science",
+  "role": "data-scientist",
+  "country": "au",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Liam Tran",
+    "title": "Graduate Data Scientist",
+    "phone": "0491 571 266",
+    "email": "liam.tran@example.com",
+    "linkedin": "linkedin.com/in/liam-tran",
+    "location": "Brisbane QLD",
+    "summary": "Graduate data scientist in a Brisbane health analytics consultancy, with a Bachelor of Science (Honours, First Class) in statistics from The University of Queensland. Honours research on hospital bed demand forecasting led directly to my current role. Practical with Python, R and SQL, and careful about privacy when working with patient-level data.",
+    "experience": [
+      {
+        "title": "Graduate Data Scientist",
+        "company": "Redcliffe Health Insights",
+        "location": "Brisbane QLD",
+        "start": "2025-02",
+        "end": "present",
+        "bullets": [
+          "Built an emergency department arrivals forecast for two client hospitals that is now used in weekly rostering meetings, with errors around 6% at the daily level.",
+          "Developed de-identification scripts and data checks for patient extracts, helping the team pass a client privacy audit with no findings.",
+          "Prepared plain-English model explainers for nursing unit managers, which reduced follow-up questions after each forecast release."
+        ]
+      },
+      {
+        "title": "Summer Data Science Intern",
+        "company": "Paddington Fresh Grocers",
+        "location": "Brisbane QLD",
+        "start": "2023-12",
+        "end": "2024-02",
+        "bullets": [
+          "Analysed two years of point-of-sale data for 14 stores to estimate bakery waste by day of week.",
+          "Proposed revised bake quantities for weekends that store managers trialled, trimming bakery waste by roughly 12% over six weeks.",
+          "Built a small Streamlit app so store staff could check suggested quantities on a tablet."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "Bachelor of Science (Honours), First Class, Statistics", "school": "The University of Queensland", "location": "Brisbane QLD", "start": "2024-02", "end": "2024-11", "details": "Thesis: forecasting hospital bed occupancy with hierarchical time-series models." },
+      { "degree": "Bachelor of Science (Statistics and Computer Science majors)", "school": "The University of Queensland", "location": "Brisbane QLD", "start": "2021-02", "end": "2023-11", "details": "GPA 6.4/7" },
+      { "degree": "Queensland Certificate of Education, ATAR 96.40", "school": "Kelvin Grove State College", "location": "Brisbane QLD", "end": "2020-11" }
+    ],
+    "courses": [
+      { "name": "Deep Learning Specialization", "provider": "Coursera (DeepLearning.AI)", "year": 2024 },
+      { "name": "Practical Time Series Analysis", "provider": "Coursera", "year": 2025 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Vietnamese", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Honours scholarship", "detail": "Awarded a faculty honours scholarship of $5,000 for academic merit (2024)." },
+      { "title": "Kaggle competition", "detail": "Top 8% finish in a public retail sales forecasting competition." }
+    ],
+    "skills": ["Python", "R", "SQL", "scikit-learn", "statsmodels", "Streamlit", "Time-series forecasting", "Data de-identification", "Git", "Data visualisation"],
+    "interests": ["Futsal", "Photography", "Volunteer maths tutoring"]
+  }
+}

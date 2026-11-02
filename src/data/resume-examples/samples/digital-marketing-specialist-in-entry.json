@@ -1,0 +1,89 @@
+{
+  "id": "digital-marketing-specialist-in-entry",
+  "category": "marketing",
+  "role": "digital-marketing-specialist",
+  "country": "in",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Sneha Reddy",
+    "title": "Digital Marketing Specialist",
+    "phone": "+91 00000 61742",
+    "email": "sneha.reddy@example.com",
+    "linkedin": "linkedin.com/in/sneha-reddy",
+    "location": "Bengaluru, Karnataka",
+    "summary": "Digital marketing specialist with two and a half years' experience in performance marketing for D2C and edtech brands in Bengaluru. Manages ₹9 lakh a month in Google and Meta ads for a test-prep platform and reduced cost per paid enrolment by 26% through Kannada and Telugu ad variants.",
+    "experience": [
+      {
+        "title": "Digital Marketing Specialist",
+        "company": "Vidyakosh Learning Pvt Ltd",
+        "location": "Bengaluru, Karnataka",
+        "start": "2025-08",
+        "end": "present",
+        "bullets": [
+          "Run Google Search, YouTube and Meta campaigns worth ₹9 lakh a month for an online test-prep platform for state engineering entrance exams.",
+          "Launched regional-language ad variants in Kannada and Telugu that lowered cost per paid enrolment from ₹1,850 to ₹1,370.",
+          "Set up WhatsApp Business follow-ups for webinar sign-ups with the counselling team, raising webinar-to-trial conversion from 12% to 19%."
+        ]
+      },
+      {
+        "title": "Digital Marketing Executive",
+        "company": "Malleswaram Ayurveda Pvt Ltd",
+        "location": "Bengaluru, Karnataka",
+        "start": "2024-06",
+        "end": "2025-07",
+        "bullets": [
+          "Managed Instagram and Meta ads for a D2C herbal skincare brand, scaling monthly website orders from 1,100 to 2,600.",
+          "Coordinated 35 micro-influencer collaborations with tracked coupon codes, identifying eight creators who drove 70% of influencer sales.",
+          "Maintained product listings and sponsored ads on two marketplaces, improving average listing rating from 3.9 to 4.3."
+        ]
+      },
+      {
+        "title": "Digital Marketing Intern",
+        "company": "Koramangala Kitchen Co.",
+        "location": "Bengaluru, Karnataka",
+        "start": "2024-01",
+        "end": "2024-03",
+        "bullets": [
+          "Created reels and posts for a cloud kitchen brand, growing Instagram followers from 4,200 to 9,800 in ten weeks.",
+          "Tracked food delivery app offers against order volumes in a weekly Excel report for the founder.",
+          "Wrote Google Business Profile updates that increased direct calls for bulk orders."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BBA",
+        "school": "Christ University",
+        "location": "Bengaluru, Karnataka",
+        "start": "2021-06",
+        "end": "2024-04",
+        "details": "CGPA 8.4/10. Final-year project on regional-language advertising response among first-time online shoppers."
+      },
+      {
+        "degree": "Class XII (CBSE), Commerce",
+        "school": "Kendriya Vidyalaya, Bengaluru",
+        "location": "Bengaluru, Karnataka",
+        "end": "2021-05",
+        "details": "91%"
+      }
+    ],
+    "courses": [
+      { "name": "Google Digital Marketing & E-commerce Professional Certificate", "provider": "Coursera (Google)", "year": 2024 },
+      { "name": "Meta Certified Digital Marketing Associate", "provider": "Meta", "year": 2025 },
+      { "name": "Google Ads Search Certification", "provider": "Google Skillshop", "year": 2025 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Telugu", "level": "Native" },
+      { "name": "Kannada", "level": "Fluent" },
+      { "name": "Hindi", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "College fest marketing lead", "detail": "Led social media for the university cultural fest, reaching 1.2 lakh accounts in two weeks." },
+      { "title": "Regional ads test", "detail": "Regional-language campaigns now take 40% of the company's paid budget." }
+    ],
+    "skills": ["Google Ads", "Meta Ads", "YouTube Ads", "Instagram content", "Influencer marketing", "WhatsApp Business", "Marketplace ads", "GA4", "Excel", "Canva", "Regional-language campaigns"],
+    "interests": ["Classical Kuchipudi dance", "Food blogging", "Weekend treks to Nandi Hills"]
+  }
+}

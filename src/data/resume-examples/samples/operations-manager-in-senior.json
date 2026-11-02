@@ -1,0 +1,143 @@
+{
+  "id": "operations-manager-in-senior",
+  "category": "business-management",
+  "role": "operations-manager",
+  "country": "in",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Rajesh Iyer",
+    "title": "Head of Operations",
+    "phone": "+91 00000 26093",
+    "email": "rajesh.iyer@example.com",
+    "linkedin": "linkedin.com/in/rajesh-iyer",
+    "location": "Chennai, Tamil Nadu",
+    "summary": "Operations head with 18 years in auto components, FMCG manufacturing and quick commerce. Runs 64 dark stores and two mother warehouses across South India with 2,100 staff, and brought average delivery time down from 19 to 12 minutes while cutting cost per order by 23%.",
+    "experience": [
+      {
+        "title": "Head of Operations, South",
+        "company": "Minutely Retail Pvt Ltd",
+        "location": "Chennai, Tamil Nadu",
+        "start": "2021-06",
+        "end": "present",
+        "bullets": [
+          "Lead operations for 64 dark stores and two mother warehouses in Chennai, Bengaluru and Hyderabad, with 2,100 staff and riders.",
+          "Brought average delivery time from 19 to 12 minutes by redesigning store layouts and rider batching.",
+          "Lowered cost per order by 23% through shift planning tied to hourly demand forecasts.",
+          "Cut inventory shrinkage from 1.8% to 0.9% of sales with daily cycle counts and CCTV audits.",
+          "Manage an annual operating budget of ₹180 crore and report weekly to the COO."
+        ]
+      },
+      {
+        "title": "Senior Manager, Manufacturing Operations",
+        "company": "Kaveri Home Care Products Ltd",
+        "location": "Puducherry",
+        "start": "2016-04",
+        "end": "2021-05",
+        "bullets": [
+          "Ran a detergent and dishwash plant producing 90,000 tonnes a year with 650 employees and contract workers.",
+          "Led a TPM programme that raised line OEE from 64% to 79% over three years.",
+          "Commissioned a new liquids line worth ₹42 crore two weeks ahead of schedule."
+        ]
+      },
+      {
+        "title": "Plant Operations Manager",
+        "company": "Ambattur Precision Components Pvt Ltd",
+        "location": "Chennai, Tamil Nadu",
+        "start": "2012-01",
+        "end": "2016-03",
+        "bullets": [
+          "Managed machining and assembly of steering parts for two passenger-car OEMs.",
+          "Reduced customer PPM rejections from 850 to 120 through poka-yoke and layered process audits.",
+          "Prepared the plant for ISO/TS 16949 recertification with no major findings."
+        ]
+      },
+      {
+        "title": "Production Engineer",
+        "company": "Ambattur Precision Components Pvt Ltd",
+        "location": "Chennai, Tamil Nadu",
+        "start": "2008-07",
+        "end": "2011-12",
+        "bullets": [
+          "Planned daily production on 40 CNC machines across three shifts.",
+          "Shortened tool changeover time by 35% using SMED methods.",
+          "Trained 25 operators on SPC charts and first-piece inspection."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "PGPM (Operations), part-time",
+        "school": "Great Lakes Institute of Management",
+        "location": "Chennai, Tamil Nadu",
+        "start": "2013-07",
+        "end": "2015-06"
+      },
+      {
+        "degree": "B.E. Mechanical Engineering",
+        "school": "Anna University (College of Engineering, Guindy)",
+        "location": "Chennai, Tamil Nadu",
+        "start": "2004-08",
+        "end": "2008-05",
+        "details": "CGPA 8.3/10"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Lean Six Sigma Black Belt",
+        "provider": "Indian Statistical Institute",
+        "year": 2014
+      },
+      {
+        "name": "Supply Chain Analytics",
+        "provider": "NPTEL (IIT Madras)",
+        "year": 2020
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Tamil",
+        "level": "Native"
+      },
+      {
+        "name": "Hindi",
+        "level": "Conversational"
+      },
+      {
+        "name": "Telugu",
+        "level": "Basic"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Delivery time 19 to 12 minutes",
+        "detail": "Store layout and rider batching changes across 64 dark stores."
+      },
+      {
+        "title": "OEE 64% to 79%",
+        "detail": "TPM programme at Kaveri Home Care Products."
+      }
+    ],
+    "skills": [
+      "Multi-site operations",
+      "Quick commerce",
+      "Manufacturing excellence",
+      "TPM",
+      "Lean Six Sigma",
+      "P&L ownership",
+      "Workforce planning",
+      "Inventory control",
+      "SAP",
+      "ISO/TS 16949",
+      "Vendor management"
+    ],
+    "interests": [
+      "Marathon running",
+      "Mentoring engineering students"
+    ]
+  }
+}
