@@ -25,7 +25,7 @@ const COMPAT: Record<Exclude<ProviderId, "anthropic" | "gemini">, OpenAiCompat> 
   groq: { label: "Groq", baseUrl: "https://api.groq.com/openai/v1", keyEnv: "GROQ_API_KEY", modelsEnv: "GROQ_MODELS", defaults: ["openai/gpt-oss-120b", "qwen/qwen3.8-27b", "openai/gpt-oss-20b"], reasoning: true, maxOut: 3000 },
   cerebras: { label: "Cerebras", baseUrl: "https://api.cerebras.ai/v1", keyEnv: "CEREBRAS_API_KEY", modelsEnv: "CEREBRAS_MODELS", defaults: ["gpt-oss-120b", "qwen-3-235b-a22b-instruct-2507", "llama-3.3-70b"] },
   nvidia: { label: "NVIDIA NIM", baseUrl: "https://integrate.api.nvidia.com/v1", keyEnv: "NVIDIA_API_KEY", modelsEnv: "NVIDIA_MODELS", defaults: ["minimaxai/minimax-m3.1-flash", "mistralai/mistral-large-4-1t-a52b"] },
-  openrouter: { label: "OpenRouter", baseUrl: "https://openrouter.ai/api/v1", keyEnv: "OPENROUTER_API_KEY", modelsEnv: "OPENROUTER_MODELS", defaults: ["openrouter/free"], headers: { "HTTP-Referer": "https://careermatch-ai-ten.vercel.app", "X-Title": "CareerMatch AI" } },
+  openrouter: { label: "OpenRouter", baseUrl: "https://openrouter.ai/api/v1", keyEnv: "OPENROUTER_API_KEY", modelsEnv: "OPENROUTER_MODELS", defaults: ["openai/gpt-4.1-mini", "google/gemini-2.5-flash", "openrouter/free"], headers: { "HTTP-Referer": "https://careermatch-ai-ten.vercel.app", "X-Title": "CareerMatch AI" } },
   mistral: { label: "Mistral", baseUrl: "https://api.mistral.ai/v1", keyEnv: "MISTRAL_API_KEY", modelsEnv: "MISTRAL_MODELS", defaults: ["mistral-small-latest", "mistral-medium-latest"] },
 };
 
