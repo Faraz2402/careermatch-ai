@@ -5,8 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { api } from "@/components/client";
 import { useToast } from "@/components/toast";
 import { cx } from "@/lib/format";
-import { DIFFICULTIES, googleAssessmentPrompt, LEVELS, LOCALES, localeLabel, OTHER_LOCALE, parsePastedAssessment, QUANTITIES, scoreAssessment, shuffle, SKILL_GROUPS, type AssessmentRequest, type Difficulty, type Level, type McqItem } from "@/lib/interview-qa/assessment";
-import { googleAiUrl } from "@/lib/google";
+import { DIFFICULTIES, LEVELS, LOCALES, localeLabel, OTHER_LOCALE, parsePastedAssessment, QUANTITIES, scoreAssessment, shuffle, SKILL_GROUPS, type AssessmentRequest, type Difficulty, type Level, type McqItem } from "@/lib/interview-qa/assessment";
 
 const TONE: Record<Difficulty, string> = { Beginner: "#20c997", Intermediate: "#4263ff", Advanced: "#8457ff" };
 const LETTERS = ["A", "B", "C", "D"];
@@ -108,6 +107,7 @@ function Segmented<T extends string | number>({ options, value, onChange, label,
 function SetupForm({ initial, onStart }: { initial: Setup; onStart: (t: Test) => void }) {
   const [s, setS] = useState<Setup>(initial);
   const [busy, setBusy] = useState(false);
+  const [fallback, setFallback] = useState(false);
   const toast = useToast();
   const [paste, setPaste] = useState<string | null>(null);
   const request = () => {
@@ -115,35 +115,18 @@ function SetupForm({ initial, onStart }: { initial: Setup; onStart: (t: Test) =>
     if (s.locale === OTHER_LOCALE && s.other.trim().length < 2) return void toast("Type the language you want.", "error");
     return { skill: s.skill.trim(), locale: s.locale === OTHER_LOCALE ? s.other.trim() : s.locale, difficulty: s.difficulty, count: s.count as AssessmentRequest["count"] };
   };
-  const prompt = () => {
-    const r = request();
-    return r ? googleAssessmentPrompt(r) : null;
-  };
-  // Default: Google AI Mode writes the test (no CareerMatch AI action); the answer is pasted back.
+  // The test is generated in-app with CareerMatch AI; no copying or pasting needed.
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    const p = prompt();
-    if (!p) return;
-    window.open(googleAiUrl(p), "_blank", "noopener,noreferrer");
-    setPaste((cur) => cur ?? "");
-  };
-  const copyPrompt = async () => {
-    const p = prompt();
-    if (!p) return;
-    try {
-      await navigator.clipboard.writeText(p);
-      toast("Prompt copied. Paste it into Google AI Mode.", "success");
-    } catch {
-      toast("Couldn't copy. Use the Google AI Mode button instead.", "error");
-    }
+    generateHere();
   };
   const startFromPaste = () => {
     const items = parsePastedAssessment(paste ?? "", s.count);
-    if (items.length < Math.min(3, s.count)) return toast("Couldn't find enough complete questions in that text. Copy Google's whole answer (the JSON code block) and paste it again.", "error");
-    if (items.length < s.count) toast(`Using the ${items.length} complete questions Google gave (some were skipped by the checks).`, "info");
+    if (items.length < Math.min(3, s.count)) return toast("Couldn't find enough complete questions in that text. Paste the whole JSON answer again.", "error");
+    if (items.length < s.count) toast(`Using the ${items.length} complete questions (some were skipped by the checks).`, "info");
     onStart({ setup: { ...s, skill: s.skill.trim() }, items });
   };
-  // Optional: generate here with CareerMatch AI (uses 1 AI action).
+  // Generate the test here with CareerMatch AI (1 AI action). Runs in the background and starts the test on the same page.
   const generateHere = async () => {
     const r = request();
     if (!r) return;
@@ -152,6 +135,9 @@ function SetupForm({ initial, onStart }: { initial: Setup; onStart: (t: Test) =>
       const res = await api<{ items: McqItem[] }>("/api/skill-assessment", { method: "POST", json: r });
       onStart({ setup: { ...s, skill: r.skill }, items: res.items });
     } catch (err) {
+      // Fallback: if the AI can't answer, let the user run the prompt in Google AI Mode and paste it back.
+      setFallback(true);
+      setPaste("");
       toast((err as Error).message, "error");
     } finally {
       setBusy(false);
@@ -195,14 +181,10 @@ function SetupForm({ initial, onStart }: { initial: Setup; onStart: (t: Test) =>
           <span className="flex items-center gap-2 text-sm font-semibold text-slate-700">{s.timer ? <Timer className="size-4 text-brand-600" /> : <TimerOff className="size-4 text-slate-400" />} {SECONDS}-second timer per question</span>
           <input type="checkbox" className="size-4 accent-[#4263ff]" checked={s.timer} onChange={(e) => setS({ ...s, timer: e.target.checked })} />
         </label>
-        <button disabled={busy} className="btn-primary w-full !py-3 text-base">
-          <Sparkles className="size-5" /> Generate with Google AI Mode <ExternalLink className="size-4" />
+        <button disabled={busy} type="button" onClick={generateHere} className="btn-primary w-full !py-3 text-base">
+          {busy ? <Loader2 className="size-5 animate-spin" /> : <Sparkles className="size-5" />} {busy ? `Writing ${s.count} questions…` : "Generate test"}
         </button>
-        <p className="text-center text-xs text-slate-500">Opens Google AI Mode in a new tab with a ready-made prompt. It runs on Google, so it doesn&apos;t use your CareerMatch AI actions.</p>
-        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs font-semibold">
-          <button type="button" onClick={copyPrompt} className="flex items-center gap-1 text-brand-700 hover:underline"><Copy className="size-3.5" /> Copy the prompt</button>
-          <button type="button" onClick={generateHere} disabled={busy} className="flex items-center gap-1 text-slate-500 hover:text-slate-800 hover:underline">{busy ? <Loader2 className="size-3.5 animate-spin" /> : <BrainCircuit className="size-3.5" />}{busy ? `Writing ${s.count} questions…` : "Or generate here (uses 1 AI action)"}</button>
-        </div>
+        <p className="text-center text-xs text-slate-500">CareerMatch AI writes the questions and starts the test here. Uses 1 AI action.</p>
       </div>
       {paste !== null && (
         <div className="menu-in rounded-2xl border-2 border-dashed border-brand-300 bg-brand-50/50 p-4 lg:col-span-2">
