@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { cx } from "@/lib/format";
+import { googleAiUrl, googleUrl } from "@/lib/google";
 
 type Suggest = { facets: { kind: string; value: string }[]; questions: { id: string; question: string; type: string }[] };
 const KIND: Record<string, { label: string; icon: typeof Layers }> = { dept: { label: "Department", icon: Layers }, role: { label: "Role", icon: Briefcase }, tool: { label: "Tool", icon: Wrench }, skill: { label: "Skill", icon: Tag }, company: { label: "Company", icon: Building2 } };
@@ -12,9 +13,6 @@ const KIND: Record<string, { label: string; icon: typeof Layers }> = { dept: { l
 /** Google Programmable Search Engine ID (public, not a secret). Without it, Google mode opens Google AI Mode in a new tab. */
 const CSE_ID = process.env.NEXT_PUBLIC_GOOGLE_CSE_ID ?? "";
 
-/** Google's own AI Mode (udm=50) and classic results: they run on Google, so they never use CareerMatch AI actions. */
-export const googleAiUrl = (q: string) => `https://www.google.com/search?udm=50&q=${encodeURIComponent(q)}`;
-const googleUrl = (q: string) => `https://www.google.com/search?q=${encodeURIComponent(q)}`;
 
 const isSuggest = (d: unknown): d is Suggest => !!d && Array.isArray((d as Suggest).facets) && Array.isArray((d as Suggest).questions);
 

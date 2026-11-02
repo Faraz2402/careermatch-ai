@@ -1,11 +1,12 @@
 "use client";
 
-import { ArrowRight, BrainCircuit, Check, CheckCircle2, ChevronDown, Clock, Download, Globe2, Keyboard, Layers, ListOrdered, Loader2, RotateCcw, Sparkles, Timer, TimerOff, Trophy, X, XCircle } from "lucide-react";
+import { ArrowRight, BrainCircuit, Check, CheckCircle2, ChevronDown, ClipboardPaste, Clock, Copy, Download, ExternalLink, Globe2, Keyboard, Layers, ListOrdered, Loader2, RotateCcw, Sparkles, Timer, TimerOff, Trophy, X, XCircle } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { api } from "@/components/client";
 import { useToast } from "@/components/toast";
 import { cx } from "@/lib/format";
-import { DIFFICULTIES, LEVELS, LOCALES, localeLabel, OTHER_LOCALE, QUANTITIES, scoreAssessment, shuffle, SKILL_GROUPS, type Difficulty, type Level, type McqItem } from "@/lib/interview-qa/assessment";
+import { DIFFICULTIES, googleAssessmentPrompt, LEVELS, LOCALES, localeLabel, OTHER_LOCALE, parsePastedAssessment, QUANTITIES, scoreAssessment, shuffle, SKILL_GROUPS, type AssessmentRequest, type Difficulty, type Level, type McqItem } from "@/lib/interview-qa/assessment";
+import { googleAiUrl } from "@/lib/google";
 
 const TONE: Record<Difficulty, string> = { Beginner: "#20c997", Intermediate: "#4263ff", Advanced: "#8457ff" };
 const LETTERS = ["A", "B", "C", "D"];
@@ -108,14 +109,48 @@ function SetupForm({ initial, onStart }: { initial: Setup; onStart: (t: Test) =>
   const [s, setS] = useState<Setup>(initial);
   const [busy, setBusy] = useState(false);
   const toast = useToast();
-  const submit = async (e: React.FormEvent) => {
+  const [paste, setPaste] = useState<string | null>(null);
+  const request = () => {
+    if (s.skill.trim().length < 2) return void toast("Enter a skill to be assessed on.", "error");
+    if (s.locale === OTHER_LOCALE && s.other.trim().length < 2) return void toast("Type the language you want.", "error");
+    return { skill: s.skill.trim(), locale: s.locale === OTHER_LOCALE ? s.other.trim() : s.locale, difficulty: s.difficulty, count: s.count as AssessmentRequest["count"] };
+  };
+  const prompt = () => {
+    const r = request();
+    return r ? googleAssessmentPrompt(r) : null;
+  };
+  // Default: Google AI Mode writes the test (no CareerMatch AI action); the answer is pasted back.
+  const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (s.skill.trim().length < 2) return toast("Enter a skill to be assessed on.", "error");
-    if (s.locale === OTHER_LOCALE && s.other.trim().length < 2) return toast("Type the language you want.", "error");
+    const p = prompt();
+    if (!p) return;
+    window.open(googleAiUrl(p), "_blank", "noopener,noreferrer");
+    setPaste((cur) => cur ?? "");
+  };
+  const copyPrompt = async () => {
+    const p = prompt();
+    if (!p) return;
+    try {
+      await navigator.clipboard.writeText(p);
+      toast("Prompt copied. Paste it into Google AI Mode.", "success");
+    } catch {
+      toast("Couldn't copy. Use the Google AI Mode button instead.", "error");
+    }
+  };
+  const startFromPaste = () => {
+    const items = parsePastedAssessment(paste ?? "", s.count);
+    if (items.length < Math.min(3, s.count)) return toast("Couldn't find enough complete questions in that text. Copy Google's whole answer (the JSON code block) and paste it again.", "error");
+    if (items.length < s.count) toast(`Using the ${items.length} complete questions Google gave (some were skipped by the checks).`, "info");
+    onStart({ setup: { ...s, skill: s.skill.trim() }, items });
+  };
+  // Optional: generate here with CareerMatch AI (uses 1 AI action).
+  const generateHere = async () => {
+    const r = request();
+    if (!r) return;
     setBusy(true);
     try {
-      const r = await api<{ items: McqItem[] }>("/api/skill-assessment", { method: "POST", json: { skill: s.skill.trim(), locale: s.locale === OTHER_LOCALE ? s.other.trim() : s.locale, difficulty: s.difficulty, count: s.count } });
-      onStart({ setup: { ...s, skill: s.skill.trim() }, items: r.items });
+      const res = await api<{ items: McqItem[] }>("/api/skill-assessment", { method: "POST", json: r });
+      onStart({ setup: { ...s, skill: r.skill }, items: res.items });
     } catch (err) {
       toast((err as Error).message, "error");
     } finally {
@@ -161,11 +196,29 @@ function SetupForm({ initial, onStart }: { initial: Setup; onStart: (t: Test) =>
           <input type="checkbox" className="size-4 accent-[#4263ff]" checked={s.timer} onChange={(e) => setS({ ...s, timer: e.target.checked })} />
         </label>
         <button disabled={busy} className="btn-primary w-full !py-3 text-base">
-          {busy ? <Loader2 className="size-5 animate-spin" /> : <Sparkles className="size-5" />}
-          {busy ? `Writing ${s.count} questions…` : "Start your Skill Assessment"}
+          <Sparkles className="size-5" /> Generate with Google AI Mode <ExternalLink className="size-4" />
         </button>
-        <p className="text-center text-xs text-slate-500">Uses 1 AI action. Original AI-written practice questions, checked for 4 distinct options and one correct answer.</p>
+        <p className="text-center text-xs text-slate-500">Opens Google AI Mode in a new tab with a ready-made prompt. It runs on Google, so it doesn&apos;t use your CareerMatch AI actions.</p>
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs font-semibold">
+          <button type="button" onClick={copyPrompt} className="flex items-center gap-1 text-brand-700 hover:underline"><Copy className="size-3.5" /> Copy the prompt</button>
+          <button type="button" onClick={generateHere} disabled={busy} className="flex items-center gap-1 text-slate-500 hover:text-slate-800 hover:underline">{busy ? <Loader2 className="size-3.5 animate-spin" /> : <BrainCircuit className="size-3.5" />}{busy ? `Writing ${s.count} questions…` : "Or generate here (uses 1 AI action)"}</button>
+        </div>
       </div>
+      {paste !== null && (
+        <div className="menu-in rounded-2xl border-2 border-dashed border-brand-300 bg-brand-50/50 p-4 lg:col-span-2">
+          <p className="flex items-center gap-2 font-display font-bold text-slate-900"><ClipboardPaste className="size-5 text-brand-600" /> Paste Google&apos;s answer to start the test</p>
+          <ol className="mt-2 grid gap-1 text-sm text-slate-600 sm:grid-cols-3">
+            <li><b className="text-brand-700">1.</b> In the Google tab, wait for the answer to finish.</li>
+            <li><b className="text-brand-700">2.</b> Click the copy icon on its code block (or select all of it).</li>
+            <li><b className="text-brand-700">3.</b> Paste it below and start. We check, shuffle and score it here.</li>
+          </ol>
+          <textarea value={paste} onChange={(e) => setPaste(e.target.value)} rows={6} className="input mt-3 font-mono !text-xs" placeholder={'```json\n{"questions": [ ... ]}\n```'} aria-label="Google AI Mode answer" />
+          <div className="mt-3 flex flex-wrap justify-end gap-2">
+            <button type="button" onClick={() => setPaste(null)} className="btn-secondary">Cancel</button>
+            <button type="button" onClick={startFromPaste} disabled={!paste?.trim()} className="btn-primary">Start the test <ArrowRight className="size-4" /></button>
+          </div>
+        </div>
+      )}
       {busy && (
         <div className="space-y-2 lg:col-span-2" aria-hidden>
           {[0, 1, 2].map((i) => <div key={i} className="h-3 animate-pulse rounded-full bg-slate-100" style={{ width: `${90 - i * 18}%` }} />)}
@@ -396,7 +449,7 @@ export function SkillAssessment() {
             <div className="relative max-w-2xl">
               <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase"><BrainCircuit className="size-3.5 text-[#ffc857]" /> Skill Assessment</p>
               <h1 className="mt-4 font-serif text-4xl leading-[1.05] font-normal sm:text-5xl">Test yourself on <em className="iq-shimmer italic">any skill.</em></h1>
-              <p className="mt-3 text-lg text-[#c9d0ea]">Pick a skill and a language. AI writes a scenario-based multiple-choice test, then scores it instantly with an explanation for every answer.</p>
+              <p className="mt-3 text-lg text-[#c9d0ea]">Pick a skill and a language. Google AI Mode writes a scenario-based multiple-choice test, and CareerMatch checks it, scores it instantly and explains every answer.</p>
             </div>
           </section>
           <SetupForm

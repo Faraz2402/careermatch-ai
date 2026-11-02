@@ -1,6 +1,6 @@
 import { PDFDocument } from "pdf-lib";
 import { describe, expect, it } from "vitest";
-import { AssessmentRequest, assessmentPrompt, ASSESSMENT_SYSTEM, finalizeAssessment, scoreAssessment, shuffle, validateItems, type McqItem } from "@/lib/interview-qa/assessment";
+import { AssessmentRequest, assessmentPrompt, ASSESSMENT_SYSTEM, finalizeAssessment, googleAssessmentPrompt, parsePastedAssessment, scoreAssessment, shuffle, validateItems, type McqItem } from "@/lib/interview-qa/assessment";
 import { assessmentDocx, assessmentPdf, assessmentPdfUnsupported } from "@/lib/interview-qa/assessment-export";
 
 const item = (over: Partial<McqItem> = {}): McqItem => ({
@@ -119,5 +119,45 @@ describe("skill assessment export", () => {
   it("flags scripts the standard PDF fonts cannot show", () => {
     expect(assessmentPdfUnsupported(doc)).toBe(false);
     expect(assessmentPdfUnsupported({ ...doc, items: [item({ question: "कुबेरनेट्स में पॉड क्या है?", options: ["एक", "दो", "तीन", "चार"], correct_answer: "एक", explanation: "पॉड सबसे छोटी इकाई है।" })] })).toBe(true);
+  });
+});
+
+describe("Google AI Mode hand-off", () => {
+  it("builds a short prompt that fits in a URL", () => {
+    const p = googleAssessmentPrompt({ skill: "Clinical Nursing Logistics", locale: "pt-BR", difficulty: "Mixed", count: 20 });
+    expect(p).toContain("Clinical Nursing Logistics");
+    expect(p).toContain("pt-BR");
+    expect(p).toContain('"correct_answer"');
+    expect(encodeURIComponent(p).length).toBeLessThan(1800);
+  });
+
+  const good = (i: number) => ({ difficulty: "Beginner", question: `Question ${i}?`, options: ["Alpha", "Beta", "Gamma", "Delta"], correct_answer: "Beta", explanation: "Because." });
+
+  it("parses a fenced JSON answer with surrounding text", () => {
+    const text = `Here is your assessment:\n\n\`\`\`json\n${JSON.stringify({ questions: [good(1), good(2), good(3)] }, null, 2)}\n\`\`\`\nGood luck!`;
+    const out = parsePastedAssessment(text, 10);
+    expect(out).toHaveLength(3);
+    for (const q of out) expect(q.options).toContain("Beta");
+  });
+
+  it("accepts a bare array, trailing commas, letter answers and other key names", () => {
+    const text = `[{"level":"Advanced","question":"Q1?","choices":["A. Red","B. Blue","C. Green","D. Pink"],"answer":"C","rationale":"Green.",},]`;
+    const [q] = parsePastedAssessment(text, 5);
+    expect(q).toMatchObject({ difficulty: "Advanced", correct_answer: "Green", explanation: "Green." });
+    expect(q.options.sort()).toEqual(["Blue", "Green", "Pink", "Red"]);
+  });
+
+  it("falls back to a plain-text test format", () => {
+    const text = `1. Which port does HTTPS use by default?\nA) 21\nB) 80\nC) 443\nD) 8080\nAnswer: C\nExplanation: HTTPS defaults to 443.\n\n2. [Beginner] Which command lists files on Linux?\nA) ls\nB) cd\nC) rm\nD) mv\nAnswer: A\nExplanation: ls lists directory contents.`;
+    const out = parsePastedAssessment(text, 5);
+    expect(out).toHaveLength(2);
+    expect(out.map((q) => q.correct_answer).sort()).toEqual(["443", "ls"]);
+    expect(out[0].difficulty).toBe("Beginner");
+  });
+
+  it("still applies the quality checks and returns nothing for junk", () => {
+    expect(parsePastedAssessment(JSON.stringify({ questions: [{ ...good(1), options: ["Alpha", "Beta", "Gamma", "All of the above"] }] }), 5)).toHaveLength(0);
+    expect(parsePastedAssessment("Sorry, I can't help with that.", 5)).toHaveLength(0);
+    expect(parsePastedAssessment("", 5)).toHaveLength(0);
   });
 });

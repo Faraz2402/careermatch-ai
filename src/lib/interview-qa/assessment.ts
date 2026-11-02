@@ -171,3 +171,89 @@ export function scoreAssessment(items: McqItem[], answers: (string | null)[]) {
   });
   return { correct, total: items.length, percent: items.length ? Math.round((correct / items.length) * 100) : 0, by };
 }
+
+// --- Google AI Mode hand-off ---------------------------------------------------------------
+// Google AI Mode has no API and can't be embedded, so the user runs our prompt there and
+// pastes the answer back. Parsing and checking happen locally: no CareerMatch AI action.
+
+/** A compact prompt for Google AI Mode (kept short so it fits in a URL). */
+export function googleAssessmentPrompt(r: AssessmentRequest) {
+  const lang = r.locale === OTHER_LOCALE ? "English" : /^[a-z]{2}-[A-Z]{2}$/.test(r.locale) ? `${localeLabel(r.locale)} (${r.locale})` : r.locale;
+  const level = r.difficulty === "Mixed" ? "a mix of Beginner, Intermediate and Advanced" : `${r.difficulty} level`;
+  return [
+    `Write a ${r.count}-question multiple-choice skill assessment on "${r.skill}", ${level}, in ${lang}, using the terms professionals there use.`,
+    `Realistic workplace scenarios. Exactly 4 plausible options each, one clearly correct. No "all of the above" or "none of the above".`,
+    `Reply ONLY with one JSON code block: {"questions":[{"difficulty":"Beginner|Intermediate|Advanced","question":"...","options":["...","...","...","..."],"correct_answer":"<exact text of the correct option>","explanation":"1-2 sentences"}]}`,
+  ].join(" ");
+}
+
+type Loose = Record<string, unknown>;
+const str = (v: unknown) => (typeof v === "string" ? v : typeof v === "number" ? String(v) : "");
+const DIFF_ALIASES: [RegExp, Difficulty][] = [[/begin|easy|basic|iniciante|principiante|débutant|anfänger|初級|आरंभ|शुरु/i, "Beginner"], [/inter|medium|médio|medio|moyen|mittel|中級|मध्य/i, "Intermediate"], [/adv|hard|expert|avanç|avanz|difficile|fortgeschritten|上級|उन्नत/i, "Advanced"]];
+const toDifficulty = (v: unknown): Difficulty => DIFF_ALIASES.find(([re]) => re.test(str(v)))?.[1] ?? "Intermediate";
+
+/** Turn one loosely shaped question (any common key names, letter or index answers) into our shape. */
+function normalizeLoose(x: Loose) {
+  const options = (Array.isArray(x.options) ? x.options : Array.isArray(x.choices) ? x.choices : Array.isArray(x.answers) ? x.answers : []).map((o) => str(o).replace(/^\s*(?:[A-Da-d]|[1-4])[.)\]:]\s+/, ""));
+  let correct = str(x.correct_answer ?? x.correctAnswer ?? x.answer ?? x.correct);
+  const letter = correct.trim().match(/^([A-Da-d]|[1-4])[.)\]:]?(?:\s|$)/);
+  if (letter && !options.includes(correct.trim())) {
+    const idx = /\d/.test(letter[1]) ? Number(letter[1]) - 1 : letter[1].toUpperCase().charCodeAt(0) - 65;
+    const rest = correct.trim().slice(letter[0].length).trim();
+    correct = rest && options.some((o) => o.trim() === rest) ? rest : (options[idx] ?? correct);
+  }
+  return { difficulty: toDifficulty(x.difficulty ?? x.level), question: str(x.question ?? x.prompt ?? x.stem), options, correct_answer: correct, explanation: str(x.explanation ?? x.rationale ?? x.reason) };
+}
+
+/** Plain-text fallback: "1. Question / A) ... / B) ... / Answer: B / Explanation: ...". */
+function parseText(text: string) {
+  const blocks = text.split(/\n(?=\s*(?:\*\*)?(?:Q(?:uestion)?\s*)?\d+[.):])/i).filter((b) => /(^|\n)\s*\(?[A-D][.)]/i.test(b));
+  return blocks.map((b) => {
+    const lines = b.split("\n").map((l) => l.replace(/\*\*/g, "").trim()).filter(Boolean);
+    const options: string[] = [];
+    let question = "", answer = "", explanation = "", difficulty = "";
+    for (const l of lines) {
+      const opt = l.match(/^\(?([A-D])[.)]\s*(.+)/i);
+      const ans = l.match(/^(?:correct\s+)?answer\s*[:\-]\s*(.+)/i);
+      const exp = l.match(/^(?:explanation|why|rationale)\s*[:\-]\s*(.+)/i);
+      const dif = l.match(/^(?:difficulty|level)\s*[:\-]\s*(.+)/i);
+      if (ans) answer = ans[1];
+      else if (exp) explanation = exp[1];
+      else if (dif) difficulty = dif[1];
+      else if (opt && options.length < 6) options.push(opt[2]);
+      else if (!options.length) question += `${question ? " " : ""}${l.replace(/^(?:Q(?:uestion)?\s*)?\d+[.):]\s*/i, "")}`;
+      else if (explanation) explanation += ` ${l}`;
+    }
+    const dm = question.match(/\s*[[(](Beginner|Intermediate|Advanced)[\])]\s*/i);
+    if (dm) question = question.replace(dm[0], " ").trim();
+    return normalizeLoose({ question, options, answer, explanation, difficulty: difficulty || dm?.[1] || "" });
+  });
+}
+
+/**
+ * Parse an assessment pasted from Google AI Mode (JSON, ideally in a code block; plain text as a
+ * fallback), then validate and shuffle exactly like generated tests. Returns [] when nothing usable.
+ */
+export function parsePastedAssessment(text: string, count: number, rand: () => number = Math.random): McqItem[] {
+  const raw = text.replace(/ /g, " ").trim();
+  if (!raw) return [];
+  let items: ReturnType<typeof normalizeLoose>[] = [];
+  const fenced = raw.match(/```(?:json)?\s*([\s\S]*?)```/i)?.[1];
+  for (const candidate of [fenced, raw.slice(raw.search(/[[{]/), Math.max(raw.lastIndexOf("}"), raw.lastIndexOf("]")) + 1)]) {
+    if (!candidate) continue;
+    // As pasted first; then with trailing commas removed and smart quotes straightened.
+    for (const src of [candidate, candidate.replace(/,\s*([}\]])/g, "$1").replace(/[“”]/g, '"')]) {
+      try {
+        const j: unknown = JSON.parse(src);
+        const list = Array.isArray(j) ? j : Array.isArray((j as Loose)?.questions) ? ((j as Loose).questions as unknown[]) : [];
+        items = list.filter((x): x is Loose => !!x && typeof x === "object").map(normalizeLoose);
+        if (items.length) break;
+      } catch {
+        // not JSON; try the next variant / candidate / the text fallback
+      }
+    }
+    if (items.length) break;
+  }
+  if (!items.length) items = parseText(raw);
+  return finalizeAssessment(items, Math.min(count, 25), rand);
+}
