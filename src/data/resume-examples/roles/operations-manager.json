@@ -1,0 +1,141 @@
+{
+  "slug": "operations-manager",
+  "name": "Operations Manager",
+  "category": "business-management",
+  "updated": "2026-11-02",
+  "intro": "Operations managers are judged on whether the work gets out of the door safely, on time and at a sensible cost. A strong résumé shows the size of the operation you ran, the people and budget you were responsible for, and the measurable changes you made to throughput, quality, cost and safety.",
+  "recruiterFocus": [
+    "Scale of the operation: sites, square footage or pallet positions, volume per day or shift, headcount and budget.",
+    "Core metrics you moved, such as on-time delivery, cost per unit or order, OEE, accuracy, turnaround time or shrinkage.",
+    "Safety record and how you improved it, including injury rates, audits and inspections.",
+    "People leadership: how many supervisors and staff you led, shift patterns, and how you handled absence and turnover.",
+    "Improvement methods you actually used, such as Lean, Six Sigma, TPM or 5S, with an example of each."
+  ],
+  "experienceTips": [
+    "Start each role with a one-line scope bullet: what the site does, how big it is and who reports to you.",
+    "Follow with two or three improvement bullets, each with a before-and-after metric.",
+    "Include one bullet on safety or compliance; operations employers look for it on every résumé.",
+    "Mention cross-functional work with transport, procurement, HR or finance, especially when it fixed a recurring problem.",
+    "At senior level, add budget ownership, capital projects, labour relations and reporting to executives."
+  ],
+  "numbersTips": [
+    "Throughput: 'raised daily returns capacity from 25,000 to 35,000 items'.",
+    "Cost: 'cut cost per order by 14% while peak volumes doubled'.",
+    "Quality: 'order accuracy up from 97.1% to 99.3%' or 'customer PPM down from 850 to 120'.",
+    "Time: 'average truck turn time cut from 95 to 55 minutes'.",
+    "Safety: 'lost-time injury frequency down 38% over three years'."
+  ],
+  "noExperience": [
+    "Use supervisory or team-leader roles in retail, hospitality or warehousing to show you can run shifts and people.",
+    "Describe a university or capstone project on layout, inventory or scheduling with the result you modelled.",
+    "Add practical certificates such as first aid, forklift or site induction cards, and basic Lean or Six Sigma training.",
+    "Show organisational responsibility from clubs, events or volunteering, with numbers of people or attendees."
+  ],
+  "hardSkills": [
+    "Capacity and labour planning",
+    "KPI management",
+    "Lean and continuous improvement",
+    "Six Sigma",
+    "Inventory control",
+    "Warehouse management systems",
+    "ERP (SAP, Oracle, NetSuite)",
+    "Budget management",
+    "Health and safety compliance",
+    "Quality systems (ISO 9001, HACCP)",
+    "Vendor and carrier management",
+    "Root-cause analysis",
+    "Shift scheduling",
+    "Excel and dashboards"
+  ],
+  "softSkills": [
+    {
+      "skill": "Leading frontline teams",
+      "proof": "Give team size and a result such as lower absence or new-hire turnover."
+    },
+    {
+      "skill": "Calm problem solving",
+      "proof": "Describe a disruption you handled, such as a system outage or peak surge, and how service held up."
+    },
+    {
+      "skill": "Negotiation",
+      "proof": "Mention agreements with carriers, suppliers or unions and what they achieved."
+    },
+    {
+      "skill": "Coaching",
+      "proof": "Show supervisors you developed and any promotions that followed."
+    },
+    {
+      "skill": "Cross-team communication",
+      "proof": "Name the teams you aligned (dispatch, product, procurement) and the problem you solved together."
+    }
+  ],
+  "education": "Many operations managers hold degrees in business, supply chain, logistics or engineering, but plenty have been promoted from the floor. List your degree or diploma if you have one, then the practical training that matters most for the sector: safety, Lean or Six Sigma, management qualifications and any industry-specific certifications.",
+  "certifications": [
+    {
+      "name": "Lean Six Sigma (Yellow, Green or Black Belt)",
+      "note": "Widely recognised across manufacturing and logistics. Name the issuing body and back it with a project result."
+    },
+    {
+      "name": "Supply chain certifications (ASCM CPIM or CSCP, Supply Chain Canada SCMP, CILT)",
+      "note": "Useful for planning-heavy and distribution roles; check which one is known in your market."
+    },
+    {
+      "name": "Safety qualifications (OSHA outreach, IOSH, NEBOSH, Certificate IV in WHS)",
+      "note": "Matter for site-based roles, and some employers require a specific level."
+    },
+    {
+      "name": "PMP or PRINCE2",
+      "note": "Helpful when the role includes capital projects, site launches or system rollouts."
+    },
+    {
+      "name": "Management qualifications (for example CMI)",
+      "note": "Can support a move from supervisor to manager where you do not hold a degree."
+    }
+  ],
+  "summaryExample": "Operations manager with seven years in food production and distribution. Runs a two-shift warehouse with 120 staff and a 5 million budget, and raised on-time dispatch from 88% to 97% by re-planning wave picking with the transport team.",
+  "objectiveExample": "Supply chain graduate with two summers as a warehouse team member and a capstone on cross-dock layout. Looking for an operations coordinator or supervisor role where I can learn shift planning and help improve accuracy and safety.",
+  "summaryVsObjective": "If you have managed a shift, team or site, write a summary with scale, sector and one strong metric. An objective is only for graduates or career changers moving into operations, and should say which kind of operation you want to join.",
+  "extraSections": [
+    "Certifications and licences relevant to sites, such as forklift, first aid or safety cards.",
+    "Systems: WMS, ERP and reporting tools you have used daily.",
+    "Improvement projects, each with a one-line result.",
+    "Languages, especially for multilingual frontline teams."
+  ],
+  "weakStrong": [
+    {
+      "weak": "Managed warehouse staff.",
+      "strong": "Led 46 associates on night shift across receiving, picking and loading for 140 daily delivery routes.",
+      "why": "Gives headcount, scope and context."
+    },
+    {
+      "weak": "Improved efficiency.",
+      "strong": "Re-slotted 4,000 SKUs by velocity and moved to zone picking, cutting cost per order by 14%.",
+      "why": "Names the method and the measurable effect."
+    },
+    {
+      "weak": "Responsible for health and safety.",
+      "strong": "Ran a three-year safety plan with the joint health and safety committee, cutting lost-time injuries by 38%.",
+      "why": "Turns a duty into an outcome."
+    },
+    {
+      "weak": "Worked with suppliers to reduce costs.",
+      "strong": "Set a daily cut-off and consolidation rule for site orders with three carriers, reducing urgent freight spend by 19%.",
+      "why": "Shows the specific change and the saving."
+    }
+  ],
+  "takeaways": [
+    "State the size of every operation you ran: people, volume and budget.",
+    "Pair every improvement with a before-and-after metric.",
+    "Include safety and compliance results in each role.",
+    "List the methods and systems you have used in practice.",
+    "Show how you developed supervisors and teams."
+  ],
+  "countryNotes": {
+    "us": "No licence is required for the role itself. OSHA 10 or 30-hour outreach cards, ASQ Six Sigma belts and ASCM (APICS) CPIM or CSCP are commonly listed. Forklift operators must be trained and evaluated under OSHA rules, usually by the employer. Use 'labor' and 'center' spellings.",
+    "uk": "IOSH Managing Safely and the NEBOSH General Certificate are common safety credentials. CMI and CILT qualifications support career progression. Transport operations with an operator licence need a nominated transport manager holding the Transport Manager CPC. Use 'centre', 'labour' and 'programme'.",
+    "ca": "Supply Chain Canada's SCMP is well known. WHMIS training is required for workers handling hazardous products, and occupational health and safety rules are provincial (for example WorkSafeBC in British Columbia or the OHSA in Ontario). In Québec, French is often needed to supervise frontline staff.",
+    "au": "Most states and territories use the model WHS laws, while Victoria has its own OHS Act, so name the right one. Construction sites need a White Card, and forklift operators need a high-risk work licence. Heavy vehicle Chain of Responsibility duties apply in most states; check the NHVR. Diplomas of Leadership and Management are common.",
+    "de": "Where a works council (Betriebsrat) exists, it has co-determination rights on shift plans, overtime and monitoring technology, so show you have worked with one. The AEVO trainer certificate matters if you supervise apprentices. Meister (IHK) and Fachwirt qualifications are respected. Give CEFR language levels.",
+    "in": "Manufacturing roles involve factory, contract labour and safety compliance; India is consolidating labour laws into four labour codes, so check current rules. Six Sigma, TPM and IATF 16949 (automotive) experience are valued, along with B.E./B.Tech and MBA or PGDM in operations. Use ₹ with lakh and crore."
+  }
+}

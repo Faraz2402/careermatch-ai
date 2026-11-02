@@ -1,0 +1,125 @@
+{
+  "slug": "graphic-designer",
+  "name": "Graphic Designer",
+  "category": "design",
+  "updated": "2026-11-02",
+  "intro": "A graphic designer's résumé works alongside a portfolio, so its job is to give context: what kinds of work you do, for whom, with which tools, and what happened after the work went out. Keep the layout clean and readable; it is itself a sample of your typography.",
+  "recruiterFocus": [
+    "A portfolio link near the top, with work that matches the job: brand, packaging, editorial, digital or motion.",
+    "The type of clients or employers you have designed for, and the media you produce (print, signage, social, packaging).",
+    "Tool fluency, mainly Adobe Illustrator, InDesign and Photoshop, plus Figma or motion tools where relevant.",
+    "Print production know-how: file preparation, colour management, finishes and working with printers.",
+    "Evidence that the work met a business goal, such as sales, sign-ups, or a successful launch."
+  ],
+  "experienceTips": [
+    "Describe the projects, not just the role: 'identity systems for 11 clients' beats 'created designs for clients'.",
+    "Name the outcome where you know it: sales after a rebrand, entries after a campaign, fewer reprints after a new checklist.",
+    "Show ownership: guidelines you wrote, templates you built, juniors you reviewed.",
+    "Mention collaboration with copywriters, photographers, printers and developers.",
+    "Link each major project to a portfolio case study if you can."
+  ],
+  "numbersTips": [
+    "Output: 'designed 40 print jobs a month', '20-title book series', '240-product packaging range'.",
+    "Results: 'season ticket sales up 14% after the rebrand' or 'online gift-card sales up 19% year over year'.",
+    "Efficiency: 'templates cut layout time from a day to three hours' or 'reprints reduced from 8% of jobs to 2%'.",
+    "Scale and budget: 'managed a $650,000 production budget' or 'rolled out signage across nine shops'."
+  ],
+  "noExperience": [
+    "Lead with your portfolio and your best two or three student or personal projects, with a short brief and result for each.",
+    "Count placements, freelance jobs, student societies, local events and volunteer work for charities.",
+    "List design competitions, exhibitions or student shows you were selected for.",
+    "Keep the résumé to one page and let the portfolio carry the detail."
+  ],
+  "hardSkills": [
+    "Adobe Illustrator",
+    "Adobe InDesign",
+    "Adobe Photoshop",
+    "Figma",
+    "After Effects (motion basics)",
+    "Typography and layout",
+    "Brand identity systems",
+    "Packaging and dielines",
+    "Print production and prepress",
+    "Colour management",
+    "Accessible design for print and digital",
+    "Canva template systems"
+  ],
+  "softSkills": [
+    {
+      "skill": "Taking feedback",
+      "proof": "Mention client presentations and how quickly you turned around revision rounds."
+    },
+    {
+      "skill": "Attention to detail",
+      "proof": "Show a process you set up to catch errors, like a pre-flight checklist, and the drop in reprints."
+    },
+    {
+      "skill": "Collaboration",
+      "proof": "Name the people you worked with, such as copywriters, printers, photographers or developers, on a specific project."
+    },
+    {
+      "skill": "Time management",
+      "proof": "Give your typical volume or a deadline you hit, like a campaign delivered for a launch date."
+    },
+    {
+      "skill": "Mentoring",
+      "proof": "For mid and senior roles, say how many juniors you reviewed or coached and how."
+    }
+  ],
+  "education": "Most roles ask for a degree or diploma in graphic or communication design, but a strong portfolio can outweigh formal education. Common qualifications include a US B.F.A., a UK BA (Hons), a Canadian college diploma or Québec DEC, an Australian TAFE Diploma of Graphic Design, a German B.A. in Kommunikationsdesign, or an Indian B.Des or BFA in Applied Art.",
+  "certifications": [
+    {
+      "name": "Adobe Certified Professional",
+      "note": "Can help entry-level designers show tool skills, though a portfolio usually matters more."
+    },
+    {
+      "name": "Short courses in motion, accessibility or packaging",
+      "note": "Worth listing if the job asks for those specialisms."
+    },
+    {
+      "name": "Professional body membership (e.g. AIGA, RGD, DIA, AGDA)",
+      "note": "Shows engagement with the profession; RGD in Ontario also offers a 'Registered Graphic Designer' designation."
+    }
+  ],
+  "summaryExample": "Graphic designer with six years in brand and packaging design for food and retail clients. Take projects from concept to press, write brand guidelines and manage printers. A packaging refresh for a coffee range led to a 12% rise in supermarket sales.",
+  "objectiveExample": "Graphic design graduate seeking a junior designer role in a branding studio. Strong in Illustrator and InDesign, with placement experience in signage and print, and a portfolio covering identity, packaging and editorial projects.",
+  "summaryVsObjective": "Use a summary once you have professional design work to point to: specialism, sectors and one result. Use an objective if you are a graduate or changing careers, and direct the reader to the portfolio projects that best show your potential.",
+  "extraSections": [
+    "Portfolio link (and a Behance or Dribbble profile if it is up to date).",
+    "Awards, exhibitions and shortlists, with the year.",
+    "Selected clients, if you are allowed to name them.",
+    "Teaching, workshops or talks you have given."
+  ],
+  "weakStrong": [
+    {
+      "weak": "Designed logos and brochures.",
+      "strong": "Created identity systems for 11 clients, from logo and colour palette to signage and stationery.",
+      "why": "It shows breadth, volume and the full scope of the work."
+    },
+    {
+      "weak": "Worked on a theatre rebrand.",
+      "strong": "Led the rebrand of a 400-seat theatre; season ticket sales rose 14% in the first year.",
+      "why": "It shows ownership and a business result linked to the design."
+    },
+    {
+      "weak": "Prepared files for print.",
+      "strong": "Introduced a two-step proof sign-off that cut printer-rejected artwork from 8% of jobs to under 2%.",
+      "why": "It turns a routine task into a measurable quality improvement."
+    }
+  ],
+  "takeaways": [
+    "Put a portfolio link at the top and make sure it opens.",
+    "Describe projects and outcomes, not just duties.",
+    "Show print and production knowledge alongside creative skills.",
+    "Keep the layout clean: your résumé is a design sample.",
+    "Tailor the work and skills to the job's specialism."
+  ],
+  "countryNotes": {
+    "us": "No licence is needed. A B.F.A. or B.A. in graphic design is common, and a portfolio is expected with every application. Use US Letter size for a PDF résumé and leave out photos.",
+    "uk": "No licence is needed. A BA (Hons) in graphic design or a related subject is common, and job levels are often called junior, mid-weight and senior. Call it a CV and attach or link a portfolio.",
+    "ca": "No licence is needed, though the RGD in Ontario offers a 'Registered Graphic Designer' designation. Packaging and labels sold in Canada generally need English and French text, and Québec has extra French-language rules, so bilingual layout experience is useful.",
+    "au": "No licence is needed. A TAFE Diploma of Graphic Design or a Bachelor of Design are common routes. Check the job ad for software needs, and attach a portfolio link. Australian spelling (colour, organise) applies.",
+    "de": "No licence is needed. Typical qualifications are a B.A. in Kommunikationsdesign or an Ausbildung as Mediengestalter/in Digital und Print. Accessibility rules (BFSG) increasingly apply to digital products, so accessible PDF or web experience is worth mentioning. Give language levels in CEFR.",
+    "in": "No licence is needed. Common qualifications include a B.Des, a BFA in Applied Art or a diploma in design. Agency titles such as Visualiser and Art Director are widely used. For packaging, knowledge of FSSAI and Legal Metrology label requirements is a plus."
+  }
+}

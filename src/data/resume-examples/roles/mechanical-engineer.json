@@ -1,0 +1,134 @@
+{
+  "slug": "mechanical-engineer",
+  "name": "Mechanical Engineer",
+  "category": "engineering",
+  "updated": "2026-11-02",
+  "intro": "A mechanical engineer's résumé should show the systems you design or maintain, the standards and tools you work with, and the results in cost, reliability, weight or schedule. In many countries professional registration matters for senior roles, so state it clearly.",
+  "recruiterFocus": [
+    "Your field: product design, thermal, fluid power, piping, manufacturing, maintenance or materials handling.",
+    "CAD and analysis tools such as SolidWorks, Creo, NX, CATIA, ANSYS and pipe stress software.",
+    "Codes and standards you design to, for example ASME, ISO, AS or DIN EN standards.",
+    "Results: cost or weight reduced, reliability improved, scrap cut, projects delivered on time.",
+    "Professional status: PE, P.Eng., CEng/IEng, CPEng/RPEQ or progress towards it."
+  ],
+  "experienceTips": [
+    "Start each job with what you design or look after and for which industry.",
+    "Mention the full lifecycle you took part in: concept, analysis, testing, release, production and field support.",
+    "Name the standards and methods, such as GD&T, DFMEA, PPAP or risk assessments, in context.",
+    "Give at least one number per role on cost, mass, uptime, scrap or schedule.",
+    "Show licensure milestones as they happened, such as passing the FE or PE exam."
+  ],
+  "numbersTips": [
+    "Cost: 'unit cost down 21%' or 'value engineering saved ₹1.1 crore a year'.",
+    "Weight and material: 'frame weight cut by 18%' or 'removed 14% of material without lowering the safety factor'.",
+    "Reliability: 'plant availability up from 88% to 95%' or '120 hours of unplanned downtime removed a year'.",
+    "Quality: 'casting scrap down from 7.5% to 3%' or 'first-pass yield from 82% to 93%'.",
+    "Scale: project values, budgets, number of drawings released or team size."
+  ],
+  "noExperience": [
+    "Lead with your degree, design projects and placements, internships or co-op terms.",
+    "Student teams such as Formula Student, Baja SAE or robotics are strong evidence: give your subsystem and results.",
+    "List tools and test equipment you have used, plus any certificates like CSWA.",
+    "Describe your final-year or thesis project with a measurable result."
+  ],
+  "hardSkills": [
+    "3D CAD (SolidWorks, Creo, NX, CATIA)",
+    "FEA (ANSYS, Abaqus)",
+    "CFD basics",
+    "GD&T and tolerance stack-ups",
+    "Technical drawings to standard",
+    "DFMEA and root-cause analysis",
+    "Design for manufacture",
+    "Pressure equipment and piping codes",
+    "Thermal and fluid systems",
+    "PLM / PDM systems",
+    "MATLAB or Python",
+    "Machinery safety and risk assessment"
+  ],
+  "softSkills": [
+    {
+      "skill": "Problem solving",
+      "proof": "Describe a root-cause investigation and what the fix changed in scrap, failures or downtime."
+    },
+    {
+      "skill": "Collaboration",
+      "proof": "Show work with manufacturing, suppliers, quality or other engineering disciplines on a named project."
+    },
+    {
+      "skill": "Communication",
+      "proof": "Mention design reviews you led, technical reports you wrote or customer presentations."
+    },
+    {
+      "skill": "Leadership",
+      "proof": "Give team size, budgets and how you mentor junior engineers toward registration."
+    },
+    {
+      "skill": "Ownership",
+      "proof": "Show a product or system you took from concept to production."
+    }
+  ],
+  "education": "A bachelor's degree in mechanical engineering is the usual requirement, ideally one accredited by the relevant national body (for example ABET in the US, an IMechE-accredited degree in the UK, CEAB in Canada or Engineers Australia). Germany commonly uses B.Sc./M.Sc. or B.Eng. degrees and the older Dipl.-Ing.; India uses B.E. or B.Tech, with M.Tech for specialist roles.",
+  "certifications": [
+    {
+      "name": "Professional Engineer (PE), US state board",
+      "note": "Needed to seal designs and offer engineering services to the public; less often required in manufacturing. Rules vary by state."
+    },
+    {
+      "name": "P.Eng. (Canada) or EIT",
+      "note": "A licence from the provincial or territorial regulator is required to practise engineering and use the title in Canada."
+    },
+    {
+      "name": "CEng / IEng (UK, through IMechE or another institution)",
+      "note": "Not legally required for most roles but widely valued for senior posts and for signing off work."
+    },
+    {
+      "name": "CPEng (Engineers Australia) and RPEQ (Queensland)",
+      "note": "RPEQ is required for professional engineering services in or for Queensland; Victoria and NSW have their own registration schemes for some work."
+    },
+    {
+      "name": "CAD certifications (e.g. CSWA / CSWP)",
+      "note": "Helpful for graduates and design roles, especially when the ad names a specific tool."
+    }
+  ],
+  "summaryExample": "Mechanical design engineer with six years in industrial pumps and fluid systems. Design in Creo, run FEA and CFD checks, and work closely with foundries and machine shops. A housing redesign cut part cost by 15% and lead time by three weeks.",
+  "objectiveExample": "Mechanical engineering graduate seeking a graduate design engineer role in automotive or industrial machinery. Bringing SolidWorks and ANSYS skills, a summer placement in pump testing and experience as suspension lead in a Formula Student team.",
+  "summaryVsObjective": "Use a summary if you have engineering work experience: your field, tools and a measured result. Use an objective as a graduate to name the kind of engineering role you want and point to projects, placements and student teams.",
+  "extraSections": [
+    "Professional registration and licences, with the issuing body and year.",
+    "Patents and publications.",
+    "Student design teams and competitions.",
+    "Key projects, if your job titles hide the detail of what you worked on."
+  ],
+  "weakStrong": [
+    {
+      "weak": "Responsible for designing parts in CAD.",
+      "strong": "Designed transmission pump housings in Creo from concept through PPAP for two automotive programs.",
+      "why": "It names the part, the tool and how far the work went."
+    },
+    {
+      "weak": "Worked on reducing costs.",
+      "strong": "Value-engineered a casing family with the foundry, saving ₹1.1 crore a year without losing efficiency.",
+      "why": "It quantifies the saving and shows the constraint you protected."
+    },
+    {
+      "weak": "Did FEA analysis.",
+      "strong": "Ran FEA on hydraulic manifolds in ANSYS, removing 14% of material with no loss in safety factor.",
+      "why": "It links analysis to a clear engineering result."
+    }
+  ],
+  "takeaways": [
+    "Lead with your field and the systems you work on.",
+    "Show tools and standards in context.",
+    "Give a number for cost, weight, uptime or quality in every role.",
+    "State registration or progress towards it clearly.",
+    "Use student teams and placements if you are a graduate."
+  ],
+  "countryNotes": {
+    "us": "PE licensure is issued by each state board, usually after an ABET-accredited degree, the FE exam, about four years of experience and the PE exam. Many manufacturing roles fall under an industrial exemption, but sealing public designs needs a PE. Check your state board's rules.",
+    "uk": "No licence is needed to work as an engineer, but CEng and IEng are protected titles registered through an Engineering Council-licensed institution such as IMechE. An accredited MEng fully meets the academic requirement for CEng. IMechE runs a Monitored Professional Development Scheme for graduates.",
+    "ca": "Engineering is regulated by province or territory, for example APEGA in Alberta, PEO in Ontario and EGBC in British Columbia. You need a P.Eng. licence to practise and use the title; graduates register as EITs. Requirements typically include experience and an ethics and law exam. Check your regulator.",
+    "au": "Engineers Australia offers Chartered status (CPEng) and the National Engineering Register. Queensland requires RPEQ registration for professional engineering services, and Victoria and NSW have registration schemes for certain work. Check the scheme in your state.",
+    "de": "'Ingenieur' is a protected title under state engineering laws, but there is no general licence for mechanical engineers. Employers look at degrees (B.Sc./M.Sc., Dipl.-Ing.), CAD tools and standards such as DIN EN ISO 12100 and CE marking under the Machinery Directive, which the EU Machinery Regulation replaces from January 2027.",
+    "in": "There is no mandatory licence for most mechanical engineering roles. The Institution of Engineers (India) offers Chartered Engineer status, which some employers value. GATE scores matter for M.Tech admission and many public sector jobs. Leave out personal details such as date of birth and father's name."
+  }
+}

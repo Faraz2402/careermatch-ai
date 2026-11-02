@@ -1,0 +1,117 @@
+{
+  "id": "teacher-uk-entry",
+  "category": "teaching-education",
+  "role": "teacher",
+  "country": "uk",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Callum Brennan",
+    "title": "Early Career Teacher of Science (Chemistry)",
+    "phone": "07700 900738",
+    "email": "callum.brennan@example.com",
+    "linkedin": "linkedin.com/in/callum-brennan",
+    "location": "Sheffield",
+    "summary": "Chemistry graduate in my second ECT year at an 11–18 academy in Sheffield, teaching KS3 science and GCSE chemistry. Before training I tutored GCSE students, and in my first year my Year 10 set's mock results rose by an average of one grade.",
+    "experience": [
+      {
+        "title": "Science Tutor (part-time)",
+        "company": "Steel City Tutors",
+        "location": "Sheffield",
+        "start": "2023-10",
+        "end": "2024-06",
+        "bullets": [
+          "Tutored 9 GCSE students a week in chemistry and combined science alongside my PGCE.",
+          "Built a bank of 60 exam-style retrieval quizzes mapped to the AQA specification.",
+          "All 9 students met or beat their target grades in summer 2024."
+        ]
+      },
+      {
+        "title": "Early Career Teacher of Science",
+        "company": "Don Valley Park Academy",
+        "location": "Sheffield",
+        "start": "2024-09",
+        "end": "present",
+        "bullets": [
+          "Teach 7 classes across KS3 science and GCSE chemistry, about 190 students, in an 11–18 academy with 46% of pupils eligible for pupil premium.",
+          "Raised my Year 10 set's mock results by an average of one grade between autumn and summer using weekly low-stakes retrieval and live modelling.",
+          "Run the Year 8 STEM club for 25 pupils and entered a team in a regional chemistry competition, where they placed third.",
+          "Following my ECT induction programme with a school-based mentor, with fortnightly observations rated as meeting all Teachers' Standards."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "PGCE Secondary Science (Chemistry) with QTS",
+        "school": "Sheffield Hallam University",
+        "location": "Sheffield",
+        "start": "2023-09",
+        "end": "2024-06",
+        "details": "Placements in two Sheffield secondary schools."
+      },
+      {
+        "degree": "BSc (Hons) Chemistry, 2:1",
+        "school": "University of Sheffield",
+        "location": "Sheffield",
+        "start": "2020-09",
+        "end": "2023-06"
+      },
+      {
+        "degree": "A-levels: Chemistry (A), Biology (A), Mathematics (B)",
+        "school": "Longley Park Sixth Form College",
+        "location": "Sheffield",
+        "start": "2018-09",
+        "end": "2020-07"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Safeguarding and Prevent duty training",
+        "provider": "School in-house training",
+        "year": 2025
+      },
+      {
+        "name": "Practical science technician and safety course",
+        "provider": "CLEAPSS",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "French",
+        "level": "Basic"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Qualified Teacher Status (QTS)",
+        "detail": "Awarded in 2024 on completing the PGCE."
+      },
+      {
+        "title": "Royal Society of Chemistry Teacher Training Scholar",
+        "detail": "Scholarship holder during PGCE year, 2023–24."
+      }
+    ],
+    "skills": [
+      "Lesson planning",
+      "GCSE Chemistry (AQA)",
+      "Practical science safety",
+      "Behaviour management",
+      "Retrieval practice",
+      "Formative assessment",
+      "Differentiation for SEND",
+      "Google Classroom",
+      "Arbor MIS",
+      "Safeguarding"
+    ],
+    "interests": [
+      "Climbing in the Peak District",
+      "Football",
+      "Science communication"
+    ]
+  }
+}

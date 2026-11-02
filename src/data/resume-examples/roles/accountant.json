@@ -1,0 +1,141 @@
+{
+  "slug": "accountant",
+  "name": "Accountant",
+  "category": "accounting-finance",
+  "updated": "2026-11-02",
+  "intro": "An accountant's résumé has to prove two things quickly: that you hold, or are working towards, the qualification the job asks for, and that the books you touch close on time and survive an audit. This guide shows how to present your close, tax and reporting work with numbers a finance manager will trust.",
+  "recruiterFocus": [
+    "Your qualification status stated plainly: qualified, part-qualified (and which papers or modules), or studying, with the professional body named.",
+    "Which accounting framework and tax regime you work in, such as GAAP, IFRS, FRS 102, ASPE, HGB or Ind AS, and GST, VAT or sales tax.",
+    "The systems you have actually closed books in (NetSuite, SAP, Xero, Sage, Tally, DATEV) rather than a long list of tools you have opened once.",
+    "Evidence of reliability: close deadlines met, reconciliations kept current, audits with few or no adjustments.",
+    "The size and type of entity: revenue, number of entities or clients, industry and whether it was practice or in-house."
+  ],
+  "experienceTips": [
+    "Open each job with the scope: entity size, number of legal entities or clients, and which parts of the ledger you owned.",
+    "Separate routine work from improvements. One bullet on the close you run, then bullets on what you changed and what that saved.",
+    "Name the audit or filing outcome where you can, for example no adjustments, fewer auditor points, or every return lodged on time.",
+    "If you moved from practice to industry, keep the practice bullets short and focused on client mix and sector exposure.",
+    "Mention people you review or train, even informally. Supervising one assistant is worth a line at mid level."
+  ],
+  "numbersTips": [
+    "Close speed: 'cut the month-end close from 9 to 5 business days'.",
+    "Volume: 'reconcile 52 bank accounts a month' or 'process 1,800 supplier invoices a month'.",
+    "Money found or saved: 'recovered $260,000 in overpaid payroll tax' or 'identified £410k of under-billed service charges'.",
+    "Audit quality: 'auditor points reduced from 17 to 4 over three year-ends'.",
+    "Portfolio size in practice: 'prepared accounts and tax returns for 70 small business and trust clients'."
+  ],
+  "noExperience": [
+    "Lead with your degree, current exam or module progress and expected completion date, so the reader knows where you are on the qualification path.",
+    "Turn part-time, volunteer or student society treasurer work into bookkeeping evidence: reconciliations, receipts processed, budgets reported.",
+    "List software you have used in coursework or a placement, and say what you did in it, such as posting journals in Xero or running a trial balance.",
+    "Volunteer tax clinics and case competitions are worth an achievement line with the number of returns or the placing."
+  ],
+  "hardSkills": [
+    "Month-end close",
+    "Account reconciliations",
+    "Journal entries and accruals",
+    "Financial statements",
+    "Indirect tax (GST, VAT, sales tax)",
+    "Payroll accounting",
+    "Fixed asset accounting",
+    "Revenue recognition",
+    "Audit preparation",
+    "ERP systems (SAP, NetSuite, Dynamics)",
+    "Cloud ledgers (Xero, QuickBooks)",
+    "Advanced Excel",
+    "Internal controls",
+    "Cash flow forecasting"
+  ],
+  "softSkills": [
+    {
+      "skill": "Attention to detail",
+      "proof": "Show a variance you traced to its cause, such as a pricing table error behind a recurring inventory difference."
+    },
+    {
+      "skill": "Deadline management",
+      "proof": "Quote close and filing deadlines met over a period, for example every quarterly return on time for three years."
+    },
+    {
+      "skill": "Explaining numbers",
+      "proof": "Mention reports you present to non-finance managers and what they used them for."
+    },
+    {
+      "skill": "Process improvement",
+      "proof": "Describe a manual step you automated or removed and the hours or days it saved."
+    },
+    {
+      "skill": "Coaching",
+      "proof": "Say who you trained and the result, such as staff closing their accounts without review notes."
+    }
+  ],
+  "education": "Most accountant roles expect a degree in accounting, finance or business, although many countries also have a technician or vocational route into the profession. List the degree, institution and dates, then your professional qualification separately with its status. Grades matter mainly at entry level; after a few years, the qualification and your experience carry the weight.",
+  "certifications": [
+    {
+      "name": "CPA (US state licence, CPA Canada, or CPA Australia)",
+      "note": "Often required for senior and public accounting roles. Each body has its own exam and experience rules, so name the exact one."
+    },
+    {
+      "name": "ACA (ICAEW), ACCA or CIMA",
+      "note": "The main UK routes. State whether you are qualified, part-qualified or studying, and which papers you have passed."
+    },
+    {
+      "name": "Chartered Accountant (CA ANZ or ICAI)",
+      "note": "Key in Australia, New Zealand and India. In India, show your level (Foundation, Intermediate or Final) and articleship."
+    },
+    {
+      "name": "Geprüfter Bilanzbuchhalter (IHK)",
+      "note": "A respected German qualification for senior accounting and closing roles; Steuerberater and Wirtschaftsprüfer are separate regulated titles."
+    },
+    {
+      "name": "AAT or a similar technician qualification",
+      "note": "Useful for bookkeeping and assistant accountant roles, and as a stepping stone to full qualification."
+    }
+  ],
+  "summaryExample": "Qualified accountant with six years in manufacturing and wholesale. Runs the month-end close for three entities with combined revenue of about 40 million, owns VAT returns and fixed assets, and cut the close from eight days to five by rebuilding the reconciliation checklist.",
+  "objectiveExample": "Accounting graduate studying for my professional qualification, looking for a junior accountant role where I can take on reconciliations, payables and tax returns. I bring a summer placement in accounts payable and a year as treasurer of a student society with a budget of 15,000.",
+  "summaryVsObjective": "Use a summary once you have run part of a ledger or close yourself: it should give years, sector, scope and one result. Use an objective only if you are a student or graduate with no accounting job yet, and keep it specific about the role and the qualification you are working towards.",
+  "extraSections": [
+    "Professional qualification status, with papers passed and expected completion date.",
+    "Systems: the ERP and ledger software you have closed books in.",
+    "Volunteer work such as tax clinics or treasurer roles for charities and clubs.",
+    "Languages, if the role covers foreign entities or clients."
+  ],
+  "weakStrong": [
+    {
+      "weak": "Responsible for bank reconciliations.",
+      "strong": "Reconciled 40 operating and client bank accounts each month and cleared every unmatched item within five business days.",
+      "why": "Shows volume and timeliness instead of just naming the task."
+    },
+    {
+      "weak": "Helped with the year-end audit.",
+      "strong": "Prepared the audit request list and lead schedules for fixed assets and accruals; the audit closed with no adjustments.",
+      "why": "Says what you prepared and how the audit went."
+    },
+    {
+      "weak": "Worked on tax returns.",
+      "strong": "Prepared quarterly GST returns for 60 small business clients and met every lodgement deadline over two years.",
+      "why": "Gives the tax type, client count and a reliability result."
+    },
+    {
+      "weak": "Improved processes.",
+      "strong": "Replaced a manual rebate accrual spreadsheet with a system report, so late supplier claims were no longer missed at month end.",
+      "why": "Names the actual change and why it mattered."
+    }
+  ],
+  "takeaways": [
+    "Put your qualification status where it is easy to find, including the professional body.",
+    "Name the frameworks, tax regimes and systems you actually use.",
+    "Quantify volume, speed and audit results rather than listing duties.",
+    "Show one or two improvements per job, not just routine work.",
+    "Tailor sector and entity-size details to the employer you are applying to."
+  ],
+  "countryNotes": {
+    "us": "CPAs are licensed by state boards of accountancy after the Uniform CPA Exam. Education and experience rules differ by state and several states have recently added alternatives to the 150-hour rule, so check your board or NASBA. Write 'CPA (Colorado)' or 'CPA candidate, 2 of 4 sections passed'. Enrolled Agent (IRS) is relevant for tax roles.",
+    "uk": "The main qualifications are ACA (ICAEW), ACCA and CIMA, with AAT at technician level. Say 'part-qualified ACCA' with the exams passed if not finished. Common terms: management accounts, statutory accounts, year-end, FRS 102, VAT returns, Making Tax Digital. Signing audits requires registration through a recognised supervisory body.",
+    "ca": "CPA is the single designation, granted by provincial and regional bodies (for example CPA Ontario, CPA Alberta, Ordre des CPA du Québec) after the CPA PEP and practical experience. Public accounting licensing is provincial. Mention ASPE or IFRS and GST/HST; Québec roles may also involve QST and French.",
+    "au": "CPA Australia and CA ANZ are the main bodies; IPA is another. Tax agents and BAS agents must be registered with the Tax Practitioners Board. Use local terms: BAS, GST, FBT, payroll tax, EOFY, SMSF. Australian Accounting Standards are based on IFRS. Check the TPB for current registration requirements.",
+    "de": "Steuerberater and Wirtschaftsprüfer are regulated titles with their own chambers (Steuerberaterkammer, WPK). Many accountants train as Steuerfachangestellte or Industriekaufleute, then add Bilanzbuchhalter (IHK). Name HGB and IFRS, DATEV or SAP FI, and closing work (Monats- and Jahresabschluss). Give German and English levels using CEFR.",
+    "in": "Chartered Accountants qualify through ICAI (Foundation, Intermediate, Final and practical training called articleship); check ICAI for the current scheme. CMA (ICMAI) and CS (ICSI) are separate bodies. Show Ind AS, GST (GSTR-1, GSTR-3B), TDS and Tally or SAP. 'Semi-qualified' commonly means CA Intermediate cleared."
+  }
+}

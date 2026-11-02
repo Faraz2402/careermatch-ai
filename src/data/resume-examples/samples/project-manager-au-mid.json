@@ -1,0 +1,73 @@
+{
+  "id": "project-manager-au-mid",
+  "category": "project-management",
+  "role": "project-manager",
+  "country": "au",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Jack Hennessy",
+    "title": "Project Manager, Civil Infrastructure",
+    "phone": "0491 575 254",
+    "email": "jack.hennessy@example.com",
+    "linkedin": "linkedin.com/in/jack-hennessy",
+    "location": "Brisbane QLD",
+    "summary": "Civil project manager with nine years on roads, drainage and subdivision works in South East Queensland, moving from site engineer to project manager. Currently deliver council and developer contracts up to $35 million, most recently an intersection upgrade finished a month early with no lost-time injuries. Hold a Bachelor of Engineering (Civil) (Honours) and a White Card, and work closely with traffic management and community teams.",
+    "experience": [
+      {
+        "title": "Project Manager",
+        "company": "Kedron Infrastructure Partners",
+        "location": "Brisbane QLD",
+        "start": "2022-02",
+        "end": "present",
+        "bullets": [
+          "Deliver road and drainage contracts for councils and developers, with budgets from $4 million to $35 million and site teams of up to 40.",
+          "Finished a $22 million signalised intersection upgrade a month early and with zero lost-time injuries across 160,000 work hours.",
+          "Lift monthly margin reporting accuracy by reconciling subcontractor claims weekly instead of at month end.",
+          "Mentor two graduate engineers through their first year on site."
+        ]
+      },
+      {
+        "title": "Project Engineer",
+        "company": "Sandgate Building Group",
+        "location": "Brisbane QLD",
+        "start": "2019-07",
+        "end": "2022-01",
+        "bullets": [
+          "Managed design changes, variations and quality records for a 380-lot residential subdivision.",
+          "Coordinated traffic management plans with council, keeping a busy collector road open through 14 months of works.",
+          "Prepared progress claims worth $1.5 million a month and resolved 90% of variations without escalation."
+        ]
+      },
+      {
+        "title": "Site Engineer",
+        "company": "Caboolture Civil Pty Ltd",
+        "location": "Caboolture QLD",
+        "start": "2017-02",
+        "end": "2019-06",
+        "bullets": [
+          "Set out and supervised stormwater, kerb and pavement works on council road projects.",
+          "Ran inspection and test plans and closed out non-conformances within an average of five days.",
+          "Introduced daily pre-start photos that cut disputed dayworks claims."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "Bachelor of Engineering (Civil) (Honours)", "school": "Queensland University of Technology", "location": "Brisbane QLD", "start": "2013-02", "end": "2016-11" }
+    ],
+    "courses": [
+      { "name": "General construction induction (White Card), CPCWHS1001", "provider": "Registered training organisation", "year": 2016 },
+      { "name": "Diploma of Project Management (BSB50820)", "provider": "TAFE Queensland", "year": 2021 },
+      { "name": "Provide First Aid (HLTAID011)", "provider": "St John Ambulance Queensland", "year": 2025 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Safety award", "detail": "Kedron Infrastructure Partners project safety award (2024) for the intersection upgrade." },
+      { "title": "Community engagement", "detail": "Ran school safety talks near our worksites, reaching around 600 students." }
+    ],
+    "skills": ["Civil construction", "Contract administration (AS 4000)", "Variations and progress claims", "Programming (MS Project)", "Traffic management coordination", "Quality (ITPs)", "WHS management", "Subcontractor management", "Cost reporting", "12d Model (basic)"],
+    "interests": ["Rugby league", "Fishing on Moreton Bay", "Four-wheel driving"]
+  }
+}

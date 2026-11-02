@@ -1,0 +1,121 @@
+{
+  "id": "mechanical-engineer-de-entry",
+  "category": "engineering",
+  "role": "mechanical-engineer",
+  "country": "de",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Paul Nguyen",
+    "title": "Junior Design Engineer (Konstruktion)",
+    "phone": "+49 89 99998 412",
+    "email": "paul.nguyen@example.com",
+    "linkedin": "linkedin.com/in/paul-nguyen",
+    "location": "München",
+    "summary": "Junior mechanical design engineer with an M.Sc. in Mechanical Engineering from TUM and hands-on experience in drive technology and conveyor systems. Works in Siemens NX and CATIA, applies DIN EN ISO 12100 risk assessment, and cut the weight of a conveyor frame by 18% in my first year.",
+    "experience": [
+      {
+        "title": "Werkstudent Konstruktion (working student, design)",
+        "company": "Isartal Antriebstechnik GmbH",
+        "location": "München",
+        "start": "2024-03",
+        "end": "2025-02",
+        "bullets": [
+          "Modelled gearbox housings and adapter flanges in Siemens NX for customer-specific drive variants, about 16 hours a week.",
+          "Created technical drawings to DIN EN ISO standards and updated parts lists in the PDM system.",
+          "Wrote my master's thesis with the team on topology optimisation of a gearbox housing, saving 11% mass in simulation."
+        ]
+      },
+      {
+        "title": "Junior Design Engineer (Konstrukteur)",
+        "company": "Würmtal Fördertechnik GmbH",
+        "location": "Gräfelfing",
+        "start": "2025-04",
+        "end": "present",
+        "bullets": [
+          "Design modules for roller and belt conveyor systems used in warehouse logistics, from concept to production drawings.",
+          "Redesigned a conveyor frame with sheet-metal parts instead of welded profiles, cutting weight by 18% and assembly time by about a fifth.",
+          "Prepare risk assessments to DIN EN ISO 12100 and technical file inputs for CE marking under the Machinery Directive.",
+          "Support commissioning at two customer sites and feed findings back into the design standards."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc. Mechanical Engineering (Maschinenwesen)",
+        "school": "Technische Universität München",
+        "location": "Garching bei München",
+        "start": "2023-04",
+        "end": "2025-03",
+        "details": "Final grade 1.7; thesis on topology optimisation of gearbox housings"
+      },
+      {
+        "degree": "B.Sc. Maschinenwesen",
+        "school": "Technische Universität München",
+        "location": "Garching bei München",
+        "start": "2019-10",
+        "end": "2023-03",
+        "details": "Final grade 2.1"
+      },
+      {
+        "degree": "Abitur",
+        "school": "Gymnasium Neubiberg",
+        "location": "Neubiberg",
+        "end": "2019-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "CATIA V5 Part Design and Assembly",
+        "provider": "TUM Career Service workshop",
+        "year": 2022
+      },
+      {
+        "name": "Maschinenrichtlinie und CE-Kennzeichnung (Machinery Directive and CE marking)",
+        "provider": "TÜV SÜD Akademie",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native (C2)"
+      },
+      {
+        "name": "Vietnamese",
+        "level": "Fluent (C1)"
+      },
+      {
+        "name": "English",
+        "level": "Fluent (C1)"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Formula Student Germany",
+        "detail": "Chassis team member for TUfast Racing, designing uprights for the 2022 car."
+      },
+      {
+        "title": "Deutschlandstipendium",
+        "detail": "Scholarship holder during the master's programme."
+      }
+    ],
+    "skills": [
+      "Siemens NX",
+      "CATIA V5",
+      "Technical drawings (DIN EN ISO)",
+      "Tolerance analysis",
+      "FEM (ANSYS)",
+      "DIN EN ISO 12100",
+      "CE marking",
+      "Sheet-metal design",
+      "PDM / Teamcenter",
+      "MATLAB"
+    ],
+    "interests": [
+      "Formula Student",
+      "Bouldering",
+      "Vietnamese cooking"
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "slug": "business-analyst",
+  "name": "Business Analyst",
+  "category": "business-management",
+  "updated": "2026-11-02",
+  "intro": "Business analysts are hired to reduce the risk of building the wrong thing. Your résumé should show the problems you clarified, the processes and requirements you produced, and what happened when they were delivered: fewer errors, faster processes, smoother go-lives.",
+  "recruiterFocus": [
+    "Requirements work: elicitation, user stories, acceptance criteria and traceability, with the scale of the change.",
+    "Process analysis: current and future state maps and the improvements they led to.",
+    "Delivery involvement, such as UAT, data migration, cutover and change management.",
+    "Domain and regulatory knowledge relevant to the employer (banking, insurance, utilities, public sector).",
+    "Facilitation and stakeholder skills across business, IT and vendors."
+  ],
+  "experienceTips": [
+    "Name the system or change and its size: number of users, accounts, branches or the programme budget.",
+    "Show outputs and outcomes together: '70 user stories for an online form; 46% of renewals moved online in the first month'.",
+    "Mention methods you used (BPMN, workshops, interviews, data mapping) once, where they matter.",
+    "Include testing and go-live work; it shows you stayed through delivery.",
+    "At senior level, show practice leadership: standards, templates, coaching and change control."
+  ],
+  "numbersTips": [
+    "Process time: approval from 48 to 31 minutes, disbursal from 4 days to 36 hours.",
+    "Error and rework rates: denials down 13%, rework halved, mis-scans down 18%.",
+    "Volume: requirements written, workshops run, defects triaged, records migrated.",
+    "Adoption: share of online submissions or self-service use after launch.",
+    "Scope control: unplanned scope changes reduced, sign-off time shortened."
+  ],
+  "noExperience": [
+    "Use customer service or operations jobs to show you understand how processes really work, and point to any improvements you suggested.",
+    "Include apprenticeships, placements and university projects where you gathered requirements or mapped a process.",
+    "Add a foundation-level certificate (for example BCS or IIBA ECBA) to prove the basics.",
+    "Show a short case study: a process you mapped, the problem you found and what you recommended."
+  ],
+  "hardSkills": ["Requirements elicitation", "User stories and acceptance criteria", "Process modelling (BPMN)", "Requirements traceability", "Data mapping and migration", "SQL", "UAT planning", "Jira and Confluence", "Visio, Lucidchart or Miro", "Wireframing", "Agile and waterfall delivery", "Business case support"],
+  "softSkills": [
+    { "skill": "Facilitation", "proof": "Mention workshops run, who attended and the decisions reached." },
+    { "skill": "Questioning", "proof": "Show a root cause you uncovered that others had missed." },
+    { "skill": "Negotiation", "proof": "Describe how you agreed scope or priorities between teams with competing needs." },
+    { "skill": "Clear writing", "proof": "Mention specifications or templates adopted by other teams or the PMO." }
+  ],
+  "education": "Degrees in business, information systems, computer science or a related field are common, but many analysts enter from operations or customer service, or through apprenticeships. List degree, institution and dates. Professional BA training is often more relevant than academic detail after your first few years.",
+  "certifications": [
+    { "name": "IIBA ECBA, CCBA, CBAP", "note": "Widely recognised. ECBA suits beginners; CCBA and CBAP require documented business analysis experience." },
+    { "name": "BCS Foundation Certificate and International Diploma in Business Analysis", "note": "Well known in the UK and some other markets." },
+    { "name": "IREB CPRE (Certified Professional for Requirements Engineering)", "note": "Common in Germany and other German-speaking countries." },
+    { "name": "Scrum certificates (e.g. PSPO, PSM)", "note": "Helpful when the role sits inside agile teams." }
+  ],
+  "summaryExample": "Business analyst with six years in insurance and banking, focused on customer-facing digital journeys. Led requirements for a broker portal adopted by 300 brokerages, raising online submissions from 40% to 72%. Strong in process mapping, story writing and UAT.",
+  "objectiveExample": "Recent business graduate with a year in insurance customer operations and a BCS Foundation Certificate in Business Analysis. Looking for a junior business analyst role where I can map processes, write clear user stories and help teams deliver changes that front-line staff actually want.",
+  "summaryVsObjective": "Use a summary if you have done any BA work, including apprenticeships: years, domain, one change and its result. Use an objective if you are moving into business analysis from another role, and connect your previous work to BA tasks.",
+  "extraSections": [
+    "Certifications in business analysis or agile delivery.",
+    "Selected projects: a short list of systems or programmes with your role and scale.",
+    "Volunteering or board roles that show facilitation or governance.",
+    "Languages, for international or multilingual teams."
+  ],
+  "weakStrong": [
+    { "weak": "Gathered requirements from stakeholders.", "strong": "Ran 60 process workshops with call centre, meter and finance staff, retiring 140 manual workarounds in the new billing system.", "why": "Shows method, scale and the effect on the business." },
+    { "weak": "Helped with testing.", "strong": "Planned and led UAT for four releases with 45 underwriters, triaging 380 defects with QA before go-live.", "why": "Gives scope, ownership and the people involved." },
+    { "weak": "Improved processes.", "strong": "Mapped account opening across 22 branches and cut average opening time from 48 to 31 minutes.", "why": "Names the process, the scale and the measurable improvement." }
+  ],
+  "takeaways": [
+    "Pair every deliverable with an outcome.",
+    "State the scale: users, accounts, budget or branches.",
+    "Show you stayed through testing and go-live.",
+    "Name regulations only where you actually worked with them.",
+    "Certifications help early on; results matter more later."
+  ],
+  "countryNotes": {
+    "us": "No licence is required. IIBA's ECBA, CCBA and CBAP are the best-known credentials, and CCBA and CBAP require documented BA hours. Healthcare and insurance roles may expect familiarity with specific regulations; name them only if you worked with them. Use American spelling (modeling, prioritize).",
+    "uk": "No licence is required. BCS business analysis certificates (Foundation, Practitioner and the International Diploma) are widely recognised, alongside IIBA. A Level 4 Business Analyst apprenticeship is available in England. Government roles often refer to the DDaT capability framework for business analysts.",
+    "ca": "No licence is required. IIBA certifications are well known, and IIBA has chapters in several Canadian cities. Some federal roles require specific English/French language levels. Mention provincial regulation (for example insurance or privacy) only where you worked with it.",
+    "au": "No licence is required. IIBA certifications are common. Government roles usually ask you to address selection criteria and may reference capability frameworks (the APS and each state publish their own). Use Australian spelling (modelling, prioritise).",
+    "de": "No licence is required. IREB's CPRE certificates are widely recognised for requirements work in German-speaking countries, alongside IIBA and Scrum certificates. In banking, mention regulatory topics such as BaFin requirements (e.g. MaRisk) only if you worked on them. Workshops often need fluent German; give CEFR levels.",
+    "in": "No licence is required. IIBA certifications are recognised by IT services firms and banks. Titles vary (functional consultant, business analyst, product analyst), so describe what you actually did. In BFSI roles, mention RBI, IRDAI or SEBI requirements only where you worked with them. Include CGPA early in your career."
+  }
+}

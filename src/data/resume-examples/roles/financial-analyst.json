@@ -1,0 +1,130 @@
+{
+  "slug": "financial-analyst",
+  "name": "Financial Analyst",
+  "category": "accounting-finance",
+  "updated": "2026-11-02",
+  "intro": "Financial analysts are hired for judgement: building models people trust, explaining why numbers moved and helping someone make a decision. Your résumé should show the decisions your analysis fed into and the size of the money involved, not just the spreadsheets you maintained.",
+  "recruiterFocus": [
+    "The type of analysis you do: FP&A, corporate finance, investment research, credit, commercial or project finance.",
+    "Decisions your work supported, such as a pricing change, an acquisition, a capital project or a budget reallocation.",
+    "Scale: revenue, budget or portfolio size you analysed, and who you presented to.",
+    "Modelling and data tools: Excel, SQL, Python, Power BI or Tableau, and planning systems like Anaplan or Adaptive Planning.",
+    "Progress on CFA, CPA, CIMA or another relevant qualification."
+  ],
+  "experienceTips": [
+    "Write bullets as analysis plus decision plus result: what you modelled, who used it, and what changed.",
+    "Show the business areas you partner with, such as sales, operations or the COO, to signal commercial range.",
+    "Name the planning cycle you own (annual plan, reforecasts, monthly variance packs) and how long it takes.",
+    "For automation work, give the before and after time saved rather than just the tool name.",
+    "At senior level, include team size, the planning process you designed and board-level reporting."
+  ],
+  "numbersTips": [
+    "Decision value: 'business case for a 36 million fibre extension, approved and delivered on budget'.",
+    "Forecast accuracy: 'full-year EBITDA within 2% of plan for two years'.",
+    "Cycle time: 'reforecast cycle cut from three weeks to eight days'.",
+    "Reallocation: 'moved 11 million of trade spend away from low-return promotions'.",
+    "Scope: 'variance reporting for a 45 million operations budget across 34 departments'."
+  ],
+  "noExperience": [
+    "Feature a valuation or modelling project from university, a case competition or a student investment fund, with the outcome.",
+    "Include internships or summer analyst roles and say which kinds of deals or reports you worked on, without sharing confidential names.",
+    "List concrete technical skills you can demonstrate in an interview, such as building a three-statement model or writing SQL queries.",
+    "Mention exam progress (for example CFA Level I registered) with dates."
+  ],
+  "hardSkills": [
+    "Financial modelling",
+    "Three-statement models",
+    "Budgeting and forecasting",
+    "Variance analysis",
+    "Valuation (DCF, comparables)",
+    "Excel and Power Query",
+    "SQL",
+    "Python (pandas)",
+    "Power BI or Tableau",
+    "Planning tools (Anaplan, Adaptive)",
+    "Unit economics",
+    "Scenario and sensitivity analysis",
+    "Board and management reporting"
+  ],
+  "softSkills": [
+    {
+      "skill": "Business partnering",
+      "proof": "Name the function you support and a decision they made using your analysis."
+    },
+    {
+      "skill": "Clear communication",
+      "proof": "Mention presenting variance or plan reviews to executives or a board, and how often."
+    },
+    {
+      "skill": "Healthy scepticism",
+      "proof": "Describe a number you challenged that turned out to be wrong, and what it changed."
+    },
+    {
+      "skill": "Prioritisation",
+      "proof": "Show you delivered a reforecast or month-end pack to a fixed deadline while handling ad hoc requests."
+    }
+  ],
+  "education": "A degree in finance, economics, accounting, mathematics or engineering is the usual starting point. List relevant modules or a dissertation only at entry level. MBAs and master's degrees help for senior or corporate finance roles. Professional exams such as CFA levels should appear with the year passed.",
+  "certifications": [
+    {
+      "name": "CFA (CFA Institute)",
+      "note": "Valued for investment, equity research and corporate finance roles worldwide; list each level passed and the year."
+    },
+    {
+      "name": "CPA, CA or CIMA",
+      "note": "Common in FP&A and finance business partnering roles, especially where accounting depth matters."
+    },
+    {
+      "name": "FRM (GARP)",
+      "note": "Relevant for risk and treasury analysis roles in banks and insurers."
+    },
+    {
+      "name": "Planning tool certifications (Anaplan, Workday Adaptive Planning)",
+      "note": "Worth listing if the employer uses that tool; otherwise a single line is enough."
+    },
+    {
+      "name": "Securities licences",
+      "note": "Required only for certain regulated roles, such as broker-dealer or research analyst positions; check the local regulator."
+    }
+  ],
+  "summaryExample": "Financial analyst with five years in FP&A for consumer goods and retail. Owns the monthly variance pack and annual budget for a 300 million revenue division, and built the promotion-return model that moved 8 million of trade spend to higher-return channels.",
+  "objectiveExample": "Economics graduate with a first-class degree and a summer analyst internship, looking for a graduate financial analyst role. I can build three-statement models and write SQL, and I managed reporting for our student investment fund.",
+  "summaryVsObjective": "Experienced analysts should use a summary with their specialism, scale and a decision their work drove. Students and career changers can use an objective that names the analyst track they want and two concrete skills they can already show.",
+  "extraSections": [
+    "Professional exams with level and year.",
+    "Selected projects or models, such as an acquisition case or pricing analysis, described without confidential details.",
+    "Technical skills grouped by type: modelling, data, visualisation, planning systems.",
+    "Languages, for roles covering several markets."
+  ],
+  "weakStrong": [
+    {
+      "weak": "Prepared monthly reports for management.",
+      "strong": "Prepared the monthly variance pack for the CFO, splitting price, volume and mix effects for a 250 million product portfolio.",
+      "why": "Names the audience, the analysis and the scale."
+    },
+    {
+      "weak": "Built financial models.",
+      "strong": "Built the lender sensitivity cases for a construction loan, showing debt cover under low-wind and price-cap scenarios; the loan closed on schedule.",
+      "why": "Ties the model to a real decision and outcome."
+    },
+    {
+      "weak": "Used Python to automate tasks.",
+      "strong": "Wrote a Python script that combines ERP cost-centre exports, cutting report preparation from two hours to fifteen minutes.",
+      "why": "Shows the problem, the tool and the time saved."
+    }
+  ],
+  "takeaways": [
+    "Lead with the type of finance work you do and the scale involved.",
+    "Connect your analysis to decisions and money, not just reports.",
+    "Show forecast accuracy and cycle-time improvements with numbers.",
+    "List exams and tools you can genuinely demonstrate."
+  ],
+  "countryNotes": {
+    "us": "CFA and CPA are the most recognised credentials. Roles at broker-dealers may need FINRA exams such as the SIE and Series 7 or 79, usually sponsored by the employer. 'FP&A' and 'corporate finance' are standard terms. Use US dollars and American spelling.",
+    "uk": "CFA, ACCA, CIMA and ACA are common for analysts. In FCA-regulated firms some roles fall under the Senior Managers and Certification Regime; check with the employer. Use terms like FP&A, management accounts, business partnering and reforecast. Show degree classifications (First, 2:1) at graduate level.",
+    "ca": "CFA and CPA are widely recognised. Investment dealer roles may require courses such as the Canadian Securities Course and registration through CIRO; requirements depend on the role. Mention IFRS and, for roles in Québec, French. Use CAD with a plain $ sign.",
+    "au": "CA ANZ, CPA Australia and CFA are all valued. Titles include financial analyst, commercial analyst and finance business partner. Financial advice and some markets roles have separate ASIC requirements, so check the regulator if the role is client-facing. Use AUD and Australian spelling.",
+    "de": "FP&A is often called Controlling, and analysts may be titled Controller or Financial Analyst. CFA and the DVFA's CEFA or CIIA are known in investment roles. Show HGB and IFRS awareness, SAP CO and Excel, and give German and English levels (CEFR). Working-student (Werkstudent) experience is valued at entry level.",
+    "in": "CA, CFA and FRM are respected; an MBA or PGDM in finance is common. SEBI-registered research analysts and certain market roles need NISM certifications; check SEBI and NISM for the current list. Terms include MIS, AOP (annual operating plan) and unit economics. Use ₹ with lakh and crore."
+  }
+}

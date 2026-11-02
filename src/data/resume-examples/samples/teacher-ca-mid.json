@@ -1,0 +1,128 @@
+{
+  "id": "teacher-ca-mid",
+  "category": "teaching-education",
+  "role": "teacher",
+  "country": "ca",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Émilie Bouchard",
+    "title": "French Immersion Teacher, Grade 5",
+    "phone": "(613) 555-0115",
+    "email": "emilie.bouchard@example.com",
+    "linkedin": "linkedin.com/in/emilie-bouchard",
+    "location": "Ottawa, ON",
+    "summary": "OCT-certified French Immersion teacher with nine years in Ottawa elementary schools, from occasional teaching to a permanent Grade 5 classroom. I hold Additional Qualifications in French as a Second Language and Special Education, and 21 of my 26 students finished last year reading at or above grade level on GB+ French reading assessments.",
+    "experience": [
+      {
+        "title": "Occasional Teacher",
+        "company": "Ottawa Valley Lakes District School Board",
+        "location": "Ottawa, ON",
+        "start": "2017-09",
+        "end": "2018-06",
+        "bullets": [
+          "Covered daily and short-term absences in K–8 classrooms across 14 schools, in both English and French Immersion programs.",
+          "Kept detailed day plans and notes for returning teachers and was requested back by 9 schools.",
+          "Built a portable kit of French phonics games used to keep immersion lessons on track during supply days."
+        ]
+      },
+      {
+        "title": "Long-Term Occasional Teacher, Grade 3 French Immersion",
+        "company": "Ottawa Valley Lakes District School Board",
+        "location": "Ottawa, ON",
+        "start": "2018-09",
+        "end": "2019-06",
+        "bullets": [
+          "Taught a Grade 3 French Immersion class of 24 for a full school year, including report cards and parent conferences.",
+          "Introduced daily guided reading groups in French, moving 15 of 24 students up at least two reading levels.",
+          "Co-planned science units with an English partner teacher so students received consistent vocabulary in both languages."
+        ]
+      },
+      {
+        "title": "French Immersion Teacher, Grade 5",
+        "company": "Ottawa Valley Lakes District School Board",
+        "location": "Ottawa, ON",
+        "start": "2019-09",
+        "end": "present",
+        "bullets": [
+          "Teach French language, math, science and social studies in French to a Grade 5 class of 26, with 4 students on IEPs.",
+          "Raised the number of students reading at or above grade level on GB+ French reading assessments from 14 to 21 over the 2024–25 year.",
+          "Led the transition to remote learning on Google Classroom for my grade team, delivering 5 hours of live lessons a day in 2020–21.",
+          "Run the school's Franco-Ontarian Day celebrations and a lunchtime theatre club of 20 students.",
+          "Mentor teacher candidates from the University of Ottawa on their practicum, supervising 4 candidates since 2021."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Education (B.Ed.), Primary/Junior",
+        "school": "University of Ottawa",
+        "location": "Ottawa, ON",
+        "start": "2015-09",
+        "end": "2017-06",
+        "details": "Two-year consecutive program taught in French."
+      },
+      {
+        "degree": "Honours BA, French Studies",
+        "school": "University of Ottawa",
+        "location": "Ottawa, ON",
+        "start": "2011-09",
+        "end": "2015-04"
+      }
+    ],
+    "courses": [
+      {
+        "name": "French as a Second Language, Part 1 (AQ)",
+        "provider": "University of Ottawa, Faculty of Education",
+        "year": 2019
+      },
+      {
+        "name": "Special Education, Part 1 (AQ)",
+        "provider": "Queen's University Continuing Teacher Education",
+        "year": 2021
+      },
+      {
+        "name": "Teaching English Language Learners, Part 1 (AQ)",
+        "provider": "Queen's University Continuing Teacher Education",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "French",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Ontario College of Teachers (OCT)",
+        "detail": "Certificate of Qualification and Registration, Primary and Junior divisions, since 2017."
+      },
+      {
+        "title": "School recognition",
+        "detail": "Nominated by parents for the board's annual Teaching Excellence award, 2023."
+      }
+    ],
+    "skills": [
+      "French Immersion instruction",
+      "Ontario curriculum",
+      "GB+ reading assessment",
+      "Guided reading",
+      "IEP implementation",
+      "Assessment and report cards",
+      "Google Classroom",
+      "Differentiated instruction",
+      "Classroom management",
+      "Mentoring teacher candidates"
+    ],
+    "interests": [
+      "Community theatre",
+      "Cycling the canal pathways",
+      "Francophone music"
+    ]
+  }
+}

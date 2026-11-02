@@ -1,0 +1,140 @@
+{
+  "id": "teacher-au-senior",
+  "category": "teaching-education",
+  "role": "teacher",
+  "country": "au",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Rebecca Nguyen-Harris",
+    "title": "Head Teacher English",
+    "phone": "0491 573 770",
+    "email": "rebecca.nguyen-harris@example.com",
+    "linkedin": "linkedin.com/in/rebecca-nguyen-harris",
+    "location": "Sydney NSW",
+    "summary": "Secondary English teacher with 17 years in Sydney schools and certification as a Highly Accomplished Teacher, leading a faculty of 13. My HSC Advanced English classes have averaged above the state mean for eight years, and our faculty lifted Band 5–6 results by 11 percentage points since I became Head Teacher.",
+    "experience": [
+      {
+        "title": "English Teacher",
+        "company": "Parramatta River High School",
+        "location": "Sydney NSW",
+        "start": "2009-01",
+        "end": "2013-12",
+        "bullets": [
+          "Taught English to Years 7–12 across 6 classes, including a Year 11 Standard class and a Year 9 extension group.",
+          "Co-ordinated the school's public speaking and debating program, taking a team to the regional final in 2012.",
+          "Gained accreditation at Professional Competence with the NSW Institute of Teachers (now NESA) in 2010."
+        ]
+      },
+      {
+        "title": "English Teacher and Year Adviser",
+        "company": "Lane Cove Hills High School",
+        "location": "Sydney NSW",
+        "start": "2014-01",
+        "end": "2018-12",
+        "bullets": [
+          "Taught HSC Advanced and Extension 1 English, with Advanced class averages above the state mean each year.",
+          "Served as Year Adviser for a cohort of 190 students from Year 7 to Year 11, coordinating wellbeing support with the learning and support team.",
+          "Marked HSC English papers for NESA for four years, bringing standards back into faculty assessment design.",
+          "Rewrote the Year 10 assessment schedule to align with the new HSC syllabus, reducing assessment clashes for students by a third."
+        ]
+      },
+      {
+        "title": "Relieving Head Teacher English",
+        "company": "Lane Cove Hills High School",
+        "location": "Sydney NSW",
+        "start": "2019-01",
+        "end": "2020-12",
+        "bullets": [
+          "Led a faculty of 11 during the Head Teacher's leave, managing timetabling, budgets and NESA compliance.",
+          "Moved faculty programs and assessment tasks online in two weeks during the 2020 school closures.",
+          "Introduced moderated marking for every Stage 6 task, narrowing marker variation between classes."
+        ]
+      },
+      {
+        "title": "Head Teacher English",
+        "company": "Hornsby Ridge High School",
+        "location": "Sydney NSW",
+        "start": "2021-01",
+        "end": "present",
+        "bullets": [
+          "Lead a faculty of 13 English and EAL/D teachers serving 1,250 students and manage an annual faculty budget of $42,000.",
+          "Lifted the proportion of HSC English Advanced results in Bands 5–6 from 49% to 60% over four years.",
+          "Built a Years 7–10 explicit writing program using shared exemplars, used by every class in the school.",
+          "Supervise 3 early career teachers each year through their accreditation at Proficient Teacher.",
+          "Achieved certification as a Highly Accomplished Teacher (HALT) in 2023."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Teaching (Secondary)",
+        "school": "The University of Sydney",
+        "location": "Sydney NSW",
+        "start": "2007-02",
+        "end": "2008-11"
+      },
+      {
+        "degree": "Bachelor of Arts (English and History)",
+        "school": "The University of Sydney",
+        "location": "Sydney NSW",
+        "start": "2004-02",
+        "end": "2006-11"
+      }
+    ],
+    "courses": [
+      {
+        "name": "HSC marking (English)",
+        "provider": "NSW Education Standards Authority",
+        "year": 2018
+      },
+      {
+        "name": "Leading Curriculum and Assessment",
+        "provider": "NSW Department of Education professional learning",
+        "year": 2021
+      },
+      {
+        "name": "Mental Health First Aid",
+        "provider": "Mental Health First Aid Australia",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Vietnamese",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "NESA accreditation",
+        "detail": "Accredited at Highly Accomplished Teacher level; current NSW Working With Children Check."
+      },
+      {
+        "title": "Faculty results",
+        "detail": "English Advanced Band 5–6 share up 11 percentage points since 2021."
+      }
+    ],
+    "skills": [
+      "HSC English",
+      "Faculty leadership",
+      "Curriculum and assessment design",
+      "Explicit writing instruction",
+      "EAL/D support",
+      "Mentoring early career teachers",
+      "NESA compliance",
+      "Data analysis (RAP and SCOUT)",
+      "Timetabling",
+      "Student wellbeing"
+    ],
+    "interests": [
+      "Book clubs",
+      "Ocean swimming",
+      "Theatre"
+    ]
+  }
+}

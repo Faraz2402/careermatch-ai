@@ -1,0 +1,62 @@
+{
+  "id": "project-manager-ca-entry",
+  "category": "project-management",
+  "role": "project-manager",
+  "country": "ca",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Jasleen Gill",
+    "title": "Project Coordinator",
+    "phone": "(403) 555-0108",
+    "email": "jasleen.gill@example.com",
+    "linkedin": "linkedin.com/in/jasleen-gill",
+    "location": "Calgary, AB",
+    "summary": "Project coordinator at a Calgary civic construction firm, with a BBA from Mount Royal University and a co-op term in engineering project controls. CAPM-certified and working towards the PMP, I keep schedules, RFIs and meeting actions moving on recreation centre and library builds. Punjabi and English speaker who works well with crews, consultants and city staff.",
+    "experience": [
+      {
+        "title": "Project Coordinator",
+        "company": "Beltline Civic Builders",
+        "location": "Calgary, AB",
+        "start": "2024-06",
+        "end": "present",
+        "bullets": [
+          "Coordinate documents and schedules for two municipal builds worth a combined $46 million, including a recreation centre expansion.",
+          "Track 400+ RFIs and submittals in Procore and chase overdue items so average response time dropped from 11 days to 7.",
+          "Take minutes and maintain action logs for weekly site meetings with the architect, the city and 12 trades.",
+          "Prepare the monthly progress report the project manager sends to the owner."
+        ]
+      },
+      {
+        "title": "Project Controls Co-op Student",
+        "company": "Nose Hill Engineering",
+        "location": "Calgary, AB",
+        "start": "2023-05",
+        "end": "2023-12",
+        "bullets": [
+          "Updated cost and schedule tracking for 18 small water and road design projects.",
+          "Built an Excel template for timesheet-to-budget comparisons that the controls lead adopted for all projects.",
+          "Helped prepare a bid package for a municipal stormwater contract that the firm won."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "Bachelor of Business Administration (BBA), Supply Chain Management", "school": "Mount Royal University", "location": "Calgary, AB", "start": "2020-09", "end": "2024-04", "details": "Co-operative education option" }
+    ],
+    "courses": [
+      { "name": "Certified Associate in Project Management (CAPM)", "provider": "Project Management Institute", "year": 2024 },
+      { "name": "Standard First Aid with CPR C", "provider": "Canadian Red Cross", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Punjabi", "level": "Fluent" },
+      { "name": "French", "level": "Basic" }
+    ],
+    "achievements": [
+      { "title": "Co-op award", "detail": "Recognized by Nose Hill Engineering as the top co-op student of the 2023 cohort." },
+      { "title": "Student association", "detail": "Event coordinator for the university supply chain club, running four industry nights a year." }
+    ],
+    "skills": ["Project scheduling", "Procore", "MS Project", "Excel", "RFI and submittal tracking", "Meeting minutes and action logs", "Cost tracking", "Document control", "Bluebeam", "Stakeholder communication"],
+    "interests": ["Bhangra dance", "Volunteering at a gurdwara kitchen", "Road trips"]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "slug": "software-engineer",
+  "name": "Software Engineer",
+  "category": "software-engineering",
+  "updated": "2026-11-02",
+  "intro": "A software engineer résumé has one job: show that you can build and run software that other people depend on. Hiring managers want to see what you built, how big or busy it was, the stack you used, and what changed because it shipped. Keep it to one or two pages, lead with your most relevant work, and let concrete results carry the weight.",
+  "recruiterFocus": [
+    "Whether your recent stack overlaps with theirs (languages, frameworks, cloud, databases) and how deeply you used it.",
+    "Scope: the size of the system, the traffic or data volume, and how many people or teams relied on what you built.",
+    "Ownership: features or services you took from design to production, including on-call and fixing what broke.",
+    "Engineering habits such as testing, code review, documentation and sensible trade-offs, shown through outcomes rather than claims.",
+    "Growth over time: bigger problems, more autonomy, mentoring or technical leadership as you move up."
+  ],
+  "experienceTips": [
+    "Describe each role as a short list of things you built or changed, not a list of duties. One bullet per project or improvement is usually enough.",
+    "Name the technology inside the bullet where it matters (\"rewrote the scheduler in Go\") so the reader connects skills to real work.",
+    "Show the before and after: latency, error rate, release frequency, cost or manual effort removed.",
+    "For senior roles, include design decisions you drove, standards you set and people you mentored or hired, not just code you wrote.",
+    "If your work is confidential, describe the domain and scale in general terms instead of naming internal systems."
+  ],
+  "numbersTips": [
+    "Performance: \"cut p95 API latency from 1.8 s to 400 ms\" or \"page load from 3.2 s to 0.9 s\".",
+    "Scale: requests per second, records processed per day, active users, or number of services and teams supported.",
+    "Reliability: availability (99.9% to 99.95%), incidents per quarter, mean time to recovery.",
+    "Delivery: deploy frequency (monthly to daily), pipeline duration, lead time from merge to production.",
+    "Cost and effort: cloud spend saved per month or year, hours of manual work removed, test coverage before and after."
+  ],
+  "noExperience": [
+    "Put two or three substantial projects near the top, each with a one-line description, the stack, and a link to the code or a live demo.",
+    "Count internships, co-op terms, teaching-assistant roles, open-source contributions and hackathons as real experience and describe them with results.",
+    "List relevant coursework only if it adds something your projects don't, such as distributed systems or databases.",
+    "Show you can work in a team: pull requests reviewed, issues closed in an open-source project, or a group project you coordinated."
+  ],
+  "hardSkills": ["One or two core languages (e.g. Java, Go, Python, TypeScript, C#)", "Data structures and algorithms", "SQL and relational databases", "REST and/or gRPC API design", "Automated testing (unit, integration)", "Git and code review workflows", "CI/CD pipelines", "Cloud platforms (AWS, Azure or GCP)", "Containers (Docker, Kubernetes)", "Observability (logs, metrics, tracing)", "System design and scalability", "Security basics (auth, OWASP Top 10)"],
+  "softSkills": [
+    { "skill": "Communication", "proof": "Mention design docs you wrote, talks you gave, or how you explained a trade-off that changed a product decision." },
+    { "skill": "Ownership", "proof": "Show a feature you took from idea to production, including on-call or the fix after launch." },
+    { "skill": "Collaboration", "proof": "Describe cross-team work: an API contract you agreed with another team, or pairing that unblocked a release." },
+    { "skill": "Mentoring", "proof": "Give numbers: engineers onboarded, interview loops run, juniors who now own features." },
+    { "skill": "Pragmatism", "proof": "Describe a time you chose the simpler option and what it saved in time or cost." }
+  ],
+  "education": "A degree in computer science, software engineering or a related field is common but not required everywhere; strong projects and experience can stand in for it. List degree, institution and dates; add grades or classification only when they help, usually early in your career. Bootcamp graduates should list the bootcamp with its main projects. After five or so years of experience, education moves below your work history.",
+  "certifications": [
+    { "name": "AWS Certified Developer or Solutions Architect", "note": "Useful when the role is cloud-heavy or you lack production cloud experience; less important than shipped work for senior roles." },
+    { "name": "Microsoft Certified: Azure Developer Associate", "note": "Relevant for .NET and Azure shops, common in enterprise and public-sector employers." },
+    { "name": "Certified Kubernetes Application Developer (CKAD)", "note": "Helps when you deploy and debug services on Kubernetes yourself." },
+    { "name": "Professional engineering titles (e.g. P.Eng., CEng)", "note": "Rarely required for software roles, but in some countries the word 'engineer' is a regulated title. See the country notes below." }
+  ],
+  "summaryExample": "Backend software engineer with six years building payment and billing services in Java and Kotlin. Led the move of a nightly batch settlement job to an event-driven pipeline that now processes 3 million transactions a day with results in minutes rather than hours. Mentors two junior engineers and enjoys making systems easier to operate.",
+  "objectiveExample": "Computer science graduate looking for a junior backend role. Built a Go and PostgreSQL appointment-booking API as a final-year project, used by a student clinic for one semester, and contributed bug fixes to an open-source testing library. Keen to learn from a team that values code review and testing.",
+  "summaryVsObjective": "Use a summary once you have paid experience: two or three sentences on your specialism, years, domain and a standout result. Use an objective only when you are a student, graduate or career changer with no relevant job yet, and make it about what you can already do, not just what you want.",
+  "extraSections": [
+    "Projects: two to four with the stack, your role, a result and a link to code or a demo.",
+    "Open source: projects you maintain or contribute to, with the type of contribution.",
+    "Publications, talks or patents, if you have them.",
+    "Languages, if the employer works across countries or with customers in other languages."
+  ],
+  "weakStrong": [
+    { "weak": "Responsible for backend development.", "strong": "Built the order-history API in Go and PostgreSQL, serving 1,200 requests per second with p95 latency under 150 ms.", "why": "It names the system, the stack and the scale, so the reader can judge the level of the work." },
+    { "weak": "Improved performance of the application.", "strong": "Profiled and rewrote three slow SQL queries on the dashboard, cutting load time from 4.5 s to 1.1 s for 20,000 daily users.", "why": "It says how you improved it and by how much, and who benefited." },
+    { "weak": "Worked on CI/CD.", "strong": "Replaced manual releases with a GitHub Actions pipeline, moving the team from fortnightly to daily deploys with automatic rollback.", "why": "It shows the change you caused, not just the area you touched." },
+    { "weak": "Mentored junior developers.", "strong": "Mentored three junior engineers through weekly pairing; two now own services end to end and run their own on-call rotations.", "why": "It gives a count and an outcome that proves the mentoring worked." }
+  ],
+  "takeaways": [
+    "Lead with what you built, its scale and its result, then the technology.",
+    "Tailor the skills section to the job ad, but only list tools you could discuss in an interview.",
+    "Use numbers for performance, reliability, delivery speed and cost.",
+    "Graduates should let projects, internships and open source do the work.",
+    "Check the country notes for title rules and local conventions before you send."
+  ],
+  "countryNotes": {
+    "us": "No licence is needed to work as a software engineer. NCEES stopped offering a PE exam in software engineering after 2019, so PE licensure is not a practical route. Use a one- or two-page résumé without photo or date of birth. Mention work authorization only if the ad asks. Degrees are written B.S. or M.S.; GPA is optional and usually dropped after your first job.",
+    "uk": "No licence is needed. Most employers say CV rather than résumé. Write degrees as BSc (Hons) with classification (First, 2:1). Chartered Engineer (CEng) or CITP through BCS or the IET is optional and more common in defence, government and safety-critical work. Government and defence roles may require security clearance (e.g. SC or DV); say so if you already hold it.",
+    "ca": "'Engineer' is a regulated title in Canadian provinces, and regulators such as PEO (Ontario) and APEGA (Alberta) have raised concerns about the use of 'software engineer' by people who are not licensed. Practice varies and is changing, so check your provincial regulator. Degrees: BSc, BEng, BASc; co-op terms count as experience. French is an asset in Québec and federal roles.",
+    "au": "No licence is needed. Employers often say resume or CV interchangeably. Degrees: Bachelor of Computer Science, Bachelor of IT, or Bachelor of Engineering (Software) (Hons). The Australian Computer Society (ACS) offers professional membership and is the skills assessing authority for most ICT occupations for skilled migration. Government roles may require an AGSVA security clearance.",
+    "de": "No licence is needed. International tech companies often accept English CVs; many German employers still expect a tabular Lebenslauf and may ask for Arbeitszeugnisse (employer references). Write degrees as B.Sc./M.Sc. Informatik or Wirtschaftsinformatik; Werkstudent jobs during study count as experience. State German and English levels using CEFR (e.g. German C1). Non-EU applicants should check the EU Blue Card rules at make-it-in-germany.com.",
+    "in": "No licence is needed. Degrees are usually B.Tech or B.E., often with CGPA out of 10; Class X and XII marks are expected mainly from freshers. Many employers ask for notice period and current and expected CTC on application forms rather than on the CV. Leave out date of birth, religion, marital status and father's name. NPTEL certificates can support a fresher CV."
+  }
+}

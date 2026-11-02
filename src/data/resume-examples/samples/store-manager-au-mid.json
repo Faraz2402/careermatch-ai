@@ -1,0 +1,88 @@
+{
+  "id": "store-manager-au-mid",
+  "category": "sales-retail",
+  "role": "store-manager",
+  "country": "au",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Ben Papadopoulos",
+    "title": "Store Manager",
+    "phone": "0491 570 110",
+    "email": "ben.papadopoulos@example.com",
+    "linkedin": "linkedin.com/in/ben-papadopoulos",
+    "location": "Adelaide SA",
+    "summary": "Store manager with nine years in Adelaide retail across footwear, surf and fresh food. Leads a $12m independent grocery and liquor store with 48 team members, where new rostering and fresh-department changes lifted gross margin by 2.4 points.",
+    "experience": [
+      {
+        "title": "Store Manager",
+        "company": "Norwood Fresh Market",
+        "location": "Adelaide SA",
+        "start": "2022-12",
+        "end": "present",
+        "bullets": [
+          "Lead a $12m independent supermarket with an attached bottle shop, managing 48 team members across fresh, grocery, deli and liquor.",
+          "Lifted gross margin from 27.1% to 29.5% by renegotiating local produce supply and trimming slow-moving grocery lines by 900 SKUs.",
+          "Moved rostering to Deputy with forecast-based shifts, keeping wages under 11% of sales while meeting award and break requirements.",
+          "Keep the liquor licence compliant, with all bottle-shop staff holding current RSA and refusal logs reviewed weekly."
+        ]
+      },
+      {
+        "title": "Store Manager",
+        "company": "Glenelg Surf & Skate",
+        "location": "Glenelg SA",
+        "start": "2019-10",
+        "end": "2022-11",
+        "bullets": [
+          "Managed a beachside store with $2.6m turnover and 14 staff, most of them casual and under 25.",
+          "Added board hire and lessons with a local surf school, bringing in $190,000 a year in new revenue.",
+          "Ran stocktakes with variance under 0.8% three years running."
+        ]
+      },
+      {
+        "title": "Assistant Store Manager",
+        "company": "Rundle Street Footwear",
+        "location": "Adelaide SA",
+        "start": "2017-04",
+        "end": "2019-09",
+        "bullets": [
+          "Supported the manager of a CBD footwear store and ran the floor on late-night trading and weekends.",
+          "Introduced a shoe-care add-on routine at the counter that took accessory attachment from 12% to 26%.",
+          "Trained 10 new casuals a year on POS, lay-bys and returns under consumer law."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diploma of Retail Leadership",
+        "school": "TAFE SA",
+        "location": "Adelaide SA",
+        "start": "2020-02",
+        "end": "2021-06",
+        "details": "Completed part-time while managing a store."
+      },
+      {
+        "degree": "Certificate IV in Retail Management",
+        "school": "TAFE SA",
+        "location": "Adelaide SA",
+        "start": "2016-02",
+        "end": "2016-12"
+      }
+    ],
+    "courses": [
+      { "name": "Responsible Service of Alcohol (RSA)", "provider": "Consumer and Business Services SA approved provider", "year": 2022 },
+      { "name": "Provide First Aid (HLTAID011)", "provider": "St John Ambulance SA", "year": 2025 },
+      { "name": "Food Safety Supervisor", "provider": "Registered training organisation", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Greek", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Margin improvement", "detail": "Gross margin up 2.4 points within two years at Norwood Fresh Market." },
+      { "title": "Clean stocktakes", "detail": "Stock variance under 0.8% for three consecutive years at Glenelg." }
+    ],
+    "skills": ["Store P&L", "Gross margin management", "Rostering (Deputy)", "Award compliance", "Liquor licensing compliance", "Fresh food operations", "Supplier negotiation", "Stocktakes", "Team leadership", "Customer service", "Range reviews"],
+    "interests": ["Greek community soccer", "Cooking for family events", "Fishing off Glenelg jetty"]
+  }
+}

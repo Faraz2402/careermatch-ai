@@ -1,0 +1,69 @@
+{
+  "id": "store-manager-ca-entry",
+  "category": "sales-retail",
+  "role": "store-manager",
+  "country": "ca",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Megan MacDonald",
+    "title": "Store Manager",
+    "phone": "(902) 555-0138",
+    "email": "megan.macdonald@example.com",
+    "linkedin": "linkedin.com/in/megan-macdonald",
+    "location": "Halifax, NS",
+    "summary": "First-time store manager with a Saint Mary's BCom, now running a busy downtown bookstore and gift shop in Halifax. Took over in early 2025 and grew sales 12% in the first year by adding author events and a cruise-season gift section.",
+    "experience": [
+      {
+        "title": "Store Manager",
+        "company": "Spring Garden Books & Gifts",
+        "location": "Halifax, NS",
+        "start": "2025-01",
+        "end": "present",
+        "bullets": [
+          "Manage a $1.4M bookstore and gift shop with nine staff, owning scheduling, ordering, cash and monthly reporting to the owner.",
+          "Grew 2025 sales by 12% by booking 22 author events and creating a local-makers section aimed at cruise ship visitors.",
+          "Reduced overstock returns to publishers by 18% by switching to weekly sell-through reviews by category.",
+          "Hired and trained four new part-time booksellers, including two Dalhousie students for the evening shift."
+        ]
+      },
+      {
+        "title": "Assistant Store Manager",
+        "company": "Bluenose Home & Garden",
+        "location": "Dartmouth, NS",
+        "start": "2023-05",
+        "end": "2024-12",
+        "bullets": [
+          "Supported the store manager of a garden centre with 25 seasonal staff, running the floor on weekends and evenings.",
+          "Organized spring receiving for 400 pallets of plants and soil, keeping best sellers in stock during the eight-week peak.",
+          "Created a simple closing checklist that cut cash variances from an average of $45 a night to under $10.",
+          "Handled customer complaints and refunds, keeping Google reviews above 4.5."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Commerce, Major in Marketing",
+        "school": "Saint Mary's University",
+        "location": "Halifax, NS",
+        "start": "2018-09",
+        "end": "2022-05",
+        "details": "Retail strategy course project on independent bookstores in Atlantic Canada."
+      }
+    ],
+    "courses": [
+      { "name": "Standard First Aid & CPR Level C", "provider": "St. John Ambulance", "year": 2024 },
+      { "name": "Respectful Workplace training", "provider": "Online course", "year": 2025 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "French", "level": "Basic" }
+    ],
+    "achievements": [
+      { "title": "First-year growth", "detail": "Store sales up 12% in the first full year under my management." },
+      { "title": "Community events", "detail": "Author events series now fills 60 seats on average." }
+    ],
+    "skills": ["Store operations", "Staff scheduling", "Hiring and training", "Inventory and ordering", "Sell-through analysis", "Cash management", "Event planning", "Customer service", "Lightspeed Retail", "Excel"],
+    "interests": ["Book clubs", "Kayaking the Northwest Arm", "Fiddle music"]
+  }
+}

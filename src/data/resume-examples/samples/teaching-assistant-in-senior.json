@@ -1,0 +1,150 @@
+{
+  "id": "teaching-assistant-in-senior",
+  "category": "teaching-education",
+  "role": "teaching-assistant",
+  "country": "in",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Ritu Malhotra",
+    "title": "Head of Learning Support Assistants and Senior Co-Teacher",
+    "phone": "+91 00000 95148",
+    "email": "ritu.malhotra@example.com",
+    "linkedin": "linkedin.com/in/ritu-malhotra",
+    "location": "Gurugram, Haryana",
+    "summary": "Learning support professional with 14 years in Delhi NCR schools, moving from assistant teacher to heading a team of 22 co-teachers and shadow teachers in an IB PYP school. RCI-registered special educator who built the school's inclusion programme, now supporting 85 students with learning needs.",
+    "experience": [
+      {
+        "title": "Assistant Teacher, Pre-Primary",
+        "company": "Little Banyan Montessori House",
+        "location": "New Delhi, Delhi",
+        "start": "2012-04",
+        "end": "2015-03",
+        "bullets": [
+          "Assisted the class teacher in a nursery class of 25, preparing Montessori materials and running small-group phonics.",
+          "Observed and recorded developmental milestones for each child, sharing notes at quarterly parent meetings.",
+          "Planned the annual day performance for 120 children."
+        ]
+      },
+      {
+        "title": "Shadow Teacher (Special Needs)",
+        "company": "Aravalli Heritage School",
+        "location": "Gurugram, Haryana",
+        "start": "2015-04",
+        "end": "2018-03",
+        "bullets": [
+          "Supported 3 students with autism and ADHD in mainstream classes, adapting worksheets and managing sensory breaks.",
+          "Worked with the school counsellor on individual education plans reviewed every term with parents.",
+          "Helped one student move from full-day shadow support to half-day support within two years."
+        ]
+      },
+      {
+        "title": "Senior Co-Teacher, IB PYP",
+        "company": "Sohna Road International School",
+        "location": "Gurugram, Haryana",
+        "start": "2018-04",
+        "end": "2022-03",
+        "bullets": [
+          "Co-taught Grade 3 with the homeroom teacher, leading inquiry stations and small-group literacy for 28 students.",
+          "Introduced a weekly reading assessment that identified 14 students for early intervention.",
+          "Kept 85% of students with learning needs attending live sessions during remote learning in 2020–21.",
+          "Trained 9 new co-teachers on PYP planners and differentiation strategies."
+        ]
+      },
+      {
+        "title": "Head of Learning Support Assistants",
+        "company": "Sohna Road International School",
+        "location": "Gurugram, Haryana",
+        "start": "2022-04",
+        "end": "present",
+        "bullets": [
+          "Lead 22 co-teachers and shadow teachers across Grades 1–8 and manage a support budget of ₹38 lakh a year.",
+          "Built the school's inclusion programme, now supporting 85 students with IEPs and termly progress reviews.",
+          "Cut co-teacher attrition from 30% to 12% by setting up a training calendar, mentoring and a clear growth path.",
+          "Run parent workshops on dyslexia and ADHD attended by 300+ parents each year."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diploma in Education (Special Education – Learning Disability)",
+        "school": "RCI-recognised institute, New Delhi",
+        "location": "New Delhi, Delhi",
+        "start": "2013-07",
+        "end": "2015-05"
+      },
+      {
+        "degree": "Nursery Teacher Training (NTT) Diploma",
+        "school": "Delhi institute (recognised)",
+        "location": "New Delhi, Delhi",
+        "start": "2011-07",
+        "end": "2012-03"
+      },
+      {
+        "degree": "B.A. (Hons) Psychology",
+        "school": "Lady Shri Ram College for Women, University of Delhi",
+        "location": "New Delhi, Delhi",
+        "start": "2008-07",
+        "end": "2011-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "IB PYP Category 1 Workshop: Making the PYP Happen",
+        "provider": "International Baccalaureate",
+        "year": 2018
+      },
+      {
+        "name": "Learning Disabilities: Assessment and Intervention",
+        "provider": "NPTEL",
+        "year": 2020
+      },
+      {
+        "name": "Leadership in Inclusive Schools",
+        "provider": "Coursera",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Hindi",
+        "level": "Native"
+      },
+      {
+        "name": "Punjabi",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "RCI registration",
+        "detail": "Registered with the Rehabilitation Council of India as a special educator since 2015."
+      },
+      {
+        "title": "Inclusion programme",
+        "detail": "Grew support from 20 to 85 students with IEPs in four years."
+      }
+    ],
+    "skills": [
+      "Team leadership",
+      "Inclusive education",
+      "IEP planning",
+      "IB PYP",
+      "Learning disability support",
+      "Co-teaching",
+      "Parent workshops",
+      "Staff training",
+      "Budget management",
+      "Differentiation"
+    ],
+    "interests": [
+      "Kathak",
+      "Reading",
+      "Volunteering with NGOs"
+    ]
+  }
+}

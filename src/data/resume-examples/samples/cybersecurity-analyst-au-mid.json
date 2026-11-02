@@ -1,0 +1,81 @@
+{
+  "id": "cybersecurity-analyst-au-mid",
+  "category": "information-technology",
+  "role": "cybersecurity-analyst",
+  "country": "au",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Priya Raman",
+    "title": "Cyber Security Analyst",
+    "phone": "0491 570 110",
+    "email": "priya.raman@example.com",
+    "linkedin": "linkedin.com/in/priya-raman",
+    "location": "Canberra ACT",
+    "summary": "Cyber security analyst with nine years in Canberra, moving from IT support into a managed SOC and now protecting a regional water utility's corporate and operational networks. Led the utility's Essential Eight uplift from Maturity Level One to Two across seven strategies. Holds a Baseline security clearance and GCIH.",
+    "experience": [
+      {
+        "title": "IT Support Officer",
+        "company": "Belconnen Legal Services",
+        "location": "Canberra ACT",
+        "start": "2017-02",
+        "end": "2019-06",
+        "bullets": [
+          "Supported 90 lawyers and staff, handling accounts, devices and the document management system.",
+          "Volunteered to own the firm's patching schedule, bringing monthly patch compliance from 60% to 97%.",
+          "Configured email filtering rules that blocked a run of invoice-fraud emails targeting the accounts team."
+        ]
+      },
+      {
+        "title": "SOC Analyst",
+        "company": "Capital Region Cyber Pty Ltd",
+        "location": "Canberra ACT",
+        "start": "2019-07",
+        "end": "2023-03",
+        "bullets": [
+          "Monitored and investigated alerts for 18 clients, including not-for-profits and two Commonwealth contractors.",
+          "Wrote Elastic detection rules for living-off-the-land techniques, adopted across all client tenants.",
+          "Prepared incident timelines for clients reporting to the ACSC, meeting their contractual deadlines in every case.",
+          "Mentored three junior analysts and led the weekly threat-intelligence round-up."
+        ]
+      },
+      {
+        "title": "Cyber Security Analyst",
+        "company": "Molonglo Water Services",
+        "location": "Canberra ACT (hybrid)",
+        "start": "2023-04",
+        "end": "present",
+        "bullets": [
+          "Monitor corporate IT and operational technology networks for a utility supplying 210,000 residents.",
+          "Led the Essential Eight uplift from Maturity Level One to Two in seven of eight strategies over 18 months.",
+          "Segmented SCADA networks from corporate IT with the OT team, removing 40 unnecessary cross-network firewall paths.",
+          "Run the vulnerability management programme, reducing critical findings older than 30 days from 120 to 9."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Information Technology",
+        "school": "Australian National University (ANU)",
+        "location": "Canberra ACT",
+        "start": "2013-02",
+        "end": "2016-11"
+      }
+    ],
+    "courses": [
+      { "name": "GIAC Certified Incident Handler (GCIH)", "provider": "GIAC", "year": 2022 },
+      { "name": "GIAC Global Industrial Cyber Security Professional (GICSP)", "provider": "GIAC", "year": 2024 },
+      { "name": "CompTIA Security+", "provider": "CompTIA", "year": 2018 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Tamil", "level": "Conversational" }
+    ],
+    "achievements": [
+      { "title": "Baseline security clearance (AGSVA)", "detail": "Held since 2020 for work with Commonwealth contractor clients." },
+      { "title": "Volunteer, school cyber safety talks", "detail": "Give online-safety sessions to Year 7 and 8 students at ACT schools each term." }
+    ],
+    "skills": ["ASD Essential Eight", "Elastic Security", "Microsoft Sentinel", "OT / SCADA security", "Network segmentation", "Incident response", "Vulnerability management (Tenable)", "Threat intelligence", "PowerShell", "Risk assessments"],
+    "interests": ["Rock climbing", "Bushwalking in Namadgi", "Carnatic violin"]
+  }
+}

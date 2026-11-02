@@ -1,0 +1,102 @@
+{
+  "id": "cybersecurity-analyst-uk-senior",
+  "category": "information-technology",
+  "role": "cybersecurity-analyst",
+  "country": "uk",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Oluwaseun Adeyemi",
+    "title": "Lead Security Analyst",
+    "phone": "07700 900745",
+    "email": "oluwaseun.adeyemi@example.com",
+    "linkedin": "linkedin.com/in/oluwaseun-adeyemi",
+    "location": "London",
+    "summary": "Lead security analyst with 16 years in insurance, managed security and asset management, now heading detection and response for a retail group with 410 stores. Built a 24/7 hybrid SOC of eight analysts and an MSSP partner that contains most incidents within an hour. CISSP holder with an MSc in Information Security from Royal Holloway.",
+    "experience": [
+      {
+        "title": "IT Security Administrator",
+        "company": "Brindleyplace Insurance Services",
+        "location": "Birmingham",
+        "start": "2010-09",
+        "end": "2012-08",
+        "bullets": [
+          "Managed antivirus, web proxy and firewall changes for 700 staff across two offices.",
+          "Ran monthly user-access reviews for the claims system and removed 140 leaver accounts in the first cycle.",
+          "Assisted the external auditor during the firm's first ISO/IEC 27001 certification."
+        ]
+      },
+      {
+        "title": "SOC Analyst",
+        "company": "Thamesgate Managed Security Ltd",
+        "location": "London",
+        "start": "2013-10",
+        "end": "2017-03",
+        "bullets": [
+          "Monitored and analysed alerts for 25 clients in finance, law and local government on a rotating shift pattern.",
+          "Wrote the playbook for ransomware triage that became the SOC standard for all tiers.",
+          "Led technical investigation on 12 major incidents, producing client reports that met regulator notification timelines.",
+          "Moved from Tier 1 to Tier 3 analyst and ran the internal training programme for new starters."
+        ]
+      },
+      {
+        "title": "Senior Cyber Security Analyst",
+        "company": "Canary Row Asset Management",
+        "location": "London",
+        "start": "2017-04",
+        "end": "2021-12",
+        "bullets": [
+          "Built the in-house threat detection function, including SIEM onboarding of 180 log sources.",
+          "Ran a red-team-informed hardening programme that closed 85% of high-risk findings within one year.",
+          "Produced security reporting for the board and evidence for FCA operational resilience requirements.",
+          "Managed a £350,000 annual tooling budget for SIEM, EDR and email security."
+        ]
+      },
+      {
+        "title": "Lead Security Analyst",
+        "company": "Wyvern Retail Group plc",
+        "location": "London (hybrid)",
+        "start": "2022-01",
+        "end": "present",
+        "bullets": [
+          "Lead a team of eight analysts and an MSSP partner providing 24/7 detection across 410 stores, distribution centres and e-commerce.",
+          "Brought median time to contain confirmed incidents from 6 hours to 50 minutes through automated SOAR playbooks.",
+          "Directed the response to a credential-stuffing attack on the loyalty app, protecting 1.2 million customer accounts with no confirmed losses.",
+          "Maintain PCI DSS v4.0 logging and monitoring controls and present quarterly threat briefings to the executive committee."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "MSc Information Security",
+        "school": "Royal Holloway, University of London",
+        "location": "Egham, Surrey",
+        "start": "2012-09",
+        "end": "2013-09",
+        "details": "Distinction. Dissertation on detecting lateral movement from Windows event logs."
+      },
+      {
+        "degree": "BSc (Hons) Computer Science, 2:1",
+        "school": "University of Birmingham",
+        "location": "Birmingham",
+        "start": "2007-09",
+        "end": "2010-06"
+      }
+    ],
+    "courses": [
+      { "name": "CISSP", "provider": "ISC2", "year": 2016 },
+      { "name": "GIAC Certified Intrusion Analyst (GCIA)", "provider": "GIAC", "year": 2015 },
+      { "name": "ISO/IEC 27001 Lead Implementer", "provider": "BSI", "year": 2019 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Yoruba", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Speaker, UK security conference", "detail": "Presented on building hybrid in-house and MSSP SOCs to an audience of about 250." },
+      { "title": "Mentor, CyberFirst outreach", "detail": "Volunteer mentor for sixth-form students interested in security careers." }
+    ],
+    "skills": ["Security operations leadership", "Microsoft Sentinel", "Splunk Enterprise Security", "EDR (Defender for Endpoint)", "SOAR automation", "Incident response", "Threat intelligence", "PCI DSS v4.0", "ISO/IEC 27001", "FCA operational resilience", "Board-level reporting", "Budget management"],
+    "interests": ["Long-distance cycling", "Afrobeat drumming", "Mentoring young people into tech"]
+  }
+}

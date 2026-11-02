@@ -1,0 +1,129 @@
+{
+  "slug": "recruiter",
+  "name": "Recruiter",
+  "category": "human-resources",
+  "updated": "2026-11-02",
+  "intro": "Recruiters are measured in hires, speed and quality, so a recruiter résumé that only lists duties wastes its best material. Show the roles you fill, how many, how fast, at what cost, and what you changed to make hiring work better for candidates and hiring managers.",
+  "recruiterFocus": [
+    "The kinds of roles you hire for (technical, executive, volume, trades, healthcare) and the seniority range.",
+    "Agency, RPO or in-house experience, and for agency roles, billings or placements against target.",
+    "Hiring metrics: hires per year, time to hire, offer acceptance, cost per hire and source of hire.",
+    "Sourcing ability beyond job boards, such as Boolean search, referrals, events or talent communities.",
+    "Tools: your ATS, LinkedIn Recruiter, local job boards and any CRM or scheduling tools."
+  ],
+  "experienceTips": [
+    "State the hiring scope in the first bullet: role types, number of hiring managers and annual hires.",
+    "Use the metrics your employer tracks and give before-and-after values where you changed something.",
+    "Show how you work with hiring managers, such as intake meetings, interview standards and scorecards.",
+    "Include candidate experience improvements like faster feedback or better show rates.",
+    "At senior level, cover team size, budgets, workforce planning and vendor or agency management."
+  ],
+  "numbersTips": [
+    "Volume: 'closed 45 to 55 engineering roles a year'.",
+    "Speed: 'average time to hire cut from 52 to 34 days'.",
+    "Cost: 'agency spend reduced by £240k a year' or 'cost per hire down 29%'.",
+    "Sourcing: 'active sourcing grew from 15% to 45% of hires'.",
+    "Agency performance: '46 placements against a target of 36' or 'billed £310k in a year'."
+  ],
+  "noExperience": [
+    "Show sales, customer service or hospitality work where you hit targets, handled phone calls or built relationships.",
+    "Include any recruiting or coordinating for clubs, events or volunteer programmes, with numbers.",
+    "Mention an internship or coordinator role in HR, even if short, and the volume of interviews you scheduled.",
+    "List the tools you have practised with, such as LinkedIn search or an ATS, and any basic sourcing course."
+  ],
+  "hardSkills": [
+    "Full-cycle recruiting",
+    "Sourcing and Boolean search",
+    "Applicant tracking systems",
+    "LinkedIn Recruiter",
+    "Structured interviewing",
+    "Intake and job briefs",
+    "Offer management",
+    "Recruitment metrics",
+    "Employer branding",
+    "Campus recruiting",
+    "Volume hiring",
+    "Candidate assessment"
+  ],
+  "softSkills": [
+    {
+      "skill": "Persuasion",
+      "proof": "Give your offer acceptance rate or a hard-to-fill role you closed."
+    },
+    {
+      "skill": "Stakeholder management",
+      "proof": "Mention hiring managers you support and an agreement like interview SLAs that you introduced."
+    },
+    {
+      "skill": "Resilience",
+      "proof": "Show steady target achievement over several quarters in a high-activity role."
+    },
+    {
+      "skill": "Candidate care",
+      "proof": "Point to better show rates, feedback times or candidate survey results."
+    },
+    {
+      "skill": "Fair judgement",
+      "proof": "Describe structured or inclusive hiring practices you put in place and their effect on the hiring mix."
+    }
+  ],
+  "education": "There is no single required degree. Psychology, business, HR and communications are common, and many agency recruiters come from sales. List your degree or diploma, then any recruitment or HR qualification and relevant short courses such as sourcing or interviewing training.",
+  "certifications": [
+    {
+      "name": "Recruitment body qualifications (for example REC in the UK)",
+      "note": "Useful for agency recruiters and a signal of professional practice where the body is well known."
+    },
+    {
+      "name": "HR qualifications (SHRM, CIPD, CRHA, CHRP)",
+      "note": "Helpful for in-house recruiters who want to move into broader HR or TA leadership."
+    },
+    {
+      "name": "Sourcing certifications (for example AIRS)",
+      "note": "Worth listing for sourcing-heavy or technical recruiting roles."
+    },
+    {
+      "name": "LinkedIn Certified Professional, Recruiter",
+      "note": "A tool certification; list it if the employer relies heavily on LinkedIn for sourcing."
+    }
+  ],
+  "summaryExample": "In-house recruiter with five years hiring for software and product teams. Closes about 40 roles a year across eight hiring managers, cut time to offer from 45 to 30 days with structured interviews, and grew referral hires to a third of all hires.",
+  "objectiveExample": "Communications graduate with two years in retail sales and a recruiting internship, looking for a recruiting coordinator or associate recruiter role. I am comfortable on the phone all day, met my sales targets for six straight quarters and have scheduled over 300 interviews.",
+  "summaryVsObjective": "Recruiters with any hiring experience should use a summary that shows role types, volume and one metric. An objective suits sales or customer service professionals moving into recruiting, and should name the transferable skills.",
+  "extraSections": [
+    "Tools and platforms: ATS, CRM, job boards and sourcing tools.",
+    "Recruitment or HR qualifications.",
+    "Employer branding or campus events you ran.",
+    "Languages, which matter for bilingual and international hiring."
+  ],
+  "weakStrong": [
+    {
+      "weak": "Recruited for various roles.",
+      "strong": "Ran full-cycle hiring for nursing and allied health roles, averaging seven placements a month.",
+      "why": "Defines role types and volume."
+    },
+    {
+      "weak": "Improved the hiring process.",
+      "strong": "Agreed interview SLAs with hiring managers and introduced scorecards, cutting average time to hire from 52 to 34 days.",
+      "why": "Shows the change and the measurable outcome."
+    },
+    {
+      "weak": "Used LinkedIn to find candidates.",
+      "strong": "Built an active sourcing programme on LinkedIn and local platforms that grew from 15% to 45% of hires.",
+      "why": "Turns a tool into a result."
+    }
+  ],
+  "takeaways": [
+    "Lead with what you hire, how many and for whom.",
+    "Use real recruiting metrics: time to hire, acceptance, cost and source.",
+    "Show how you improved the process for hiring managers and candidates.",
+    "Include local compliance knowledge for the market you recruit in."
+  ],
+  "countryNotes": {
+    "us": "No licence is needed for in-house recruiters, though some states regulate employment agencies. Several states and cities require pay ranges in job postings, and fair chance (ban-the-box) laws limit when you can ask about criminal history; rules vary, so check state law. Federal contractors face OFCCP record-keeping duties.",
+    "uk": "Agencies must follow the Employment Agencies Act 1973 and the Conduct of Employment Agencies and Employment Businesses Regulations 2003. REC membership and its Certificate in Recruitment Practice are common. Right-to-work checks are essential. Agency résumés often show billings and perm or contract split.",
+    "ca": "Rules vary by province. Ontario now licenses temporary help agencies and recruiters, British Columbia licenses employment agencies and foreign worker recruiters, and Québec's CNESST licenses certain placement and foreign worker recruitment agencies. Check provincial rules on pay transparency in postings. French matters in Québec.",
+    "au": "Labour hire licensing schemes operate in several states and territories, including Victoria, Queensland, South Australia and the ACT, so agency recruiters should note compliance experience. The RCSA is the main industry body. Check licences like White Cards for site roles. SEEK and LinkedIn are the main platforms.",
+    "de": "Job adverts must comply with the AGG, which is why they usually include '(m/w/d)'. Works councils have participation rights in hiring under the BetrVG. Temporary staffing needs a permit from the Bundesagentur für Arbeit under the AÜG. LinkedIn and XING are both used; mention EU Blue Card experience for international hiring.",
+    "in": "Recruiting agents who place workers overseas must be registered under the Emigration Act 1983; domestic in-house recruiting needs no licence. Common terms include CTC, notice period, lateral hiring, campus drives and offer drop-off. Naukri, LinkedIn and referrals are the main channels. Background verification is standard."
+  }
+}

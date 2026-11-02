@@ -12,7 +12,7 @@
     "email": "tobias.nguyen@example.com",
     "linkedin": "linkedin.com/in/tobias-nguyen",
     "location": "Berlin",
-    "summary": "Digital marketing specialist with 16 years in Berlin, from an IHK apprenticeship to leading performance marketing for a green energy supplier. Manages €3.6m in annual media across search, social and comparison portals and rebuilt tracking under TTDSG consent rules without losing conversion visibility.",
+    "summary": "Digital marketing specialist with 16 years in Berlin, from an IHK apprenticeship to leading performance marketing for a green energy supplier. Manages €3.6m in annual media across search, social and comparison portals and rebuilt tracking under German consent rules (TTDSG, now TDDDG) without losing conversion visibility.",
     "experience": [
       {
         "title": "Lead Digital Marketing Specialist",
@@ -23,7 +23,7 @@
         "bullets": [
           "Lead a team of four running search, social, affiliate and comparison-portal acquisition for a renewable electricity and gas supplier, with €3.6m annual media.",
           "Brought customer acquisition cost down from €96 to €71 per contract by moving budget from portals to search and tightening portal bonus rules.",
-          "Rebuilt consent and tracking with the data protection officer under GDPR and TTDSG, using server-side tagging to restore 85% of measurable conversions.",
+          "Rebuilt consent and tracking with the data protection officer under GDPR and the TTDSG (now TDDDG), using server-side tagging to restore 85% of measurable conversions.",
           "Launched a heat-pump tariff campaign in six federal states that signed 4,800 contracts in its first winter."
         ]
       },
@@ -93,7 +93,7 @@
       { "title": "Consent-proof measurement", "detail": "Server-side tagging project recovered most conversion signals lost after consent banner changes." },
       { "title": "Crisis response", "detail": "Travel bookings back above pre-pandemic levels within two seasons." }
     ],
-    "skills": ["SEA", "Paid social", "Affiliate and comparison portals", "Value-based bidding", "Server-side tagging", "GDPR and TTDSG consent", "GA4", "Google Tag Manager", "BigQuery", "Looker Studio", "Team leadership", "Budget planning"],
+    "skills": ["SEA", "Paid social", "Affiliate and comparison portals", "Value-based bidding", "Server-side tagging", "GDPR and TDDDG consent", "GA4", "Google Tag Manager", "BigQuery", "Looker Studio", "Team leadership", "Budget planning"],
     "interests": ["Road cycling in Brandenburg", "Vietnamese cooking", "Board games"]
   }
 }

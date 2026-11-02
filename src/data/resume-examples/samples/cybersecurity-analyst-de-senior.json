@@ -1,0 +1,90 @@
+{
+  "id": "cybersecurity-analyst-de-senior",
+  "category": "information-technology",
+  "role": "cybersecurity-analyst",
+  "country": "de",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Katharina Vogel",
+    "title": "Lead Cyber Defence Analyst",
+    "phone": "+49 69 90009 471",
+    "email": "katharina.vogel@example.com",
+    "linkedin": "linkedin.com/in/katharina-vogel",
+    "location": "Frankfurt am Main",
+    "summary": "Lead cyber defence analyst with 15 years in Frankfurt across a data centre operator, a private bank and an energy network operator classed as critical infrastructure (KRITIS). Leads a six-person blue team and coordinated the company's BSI-facing incident reporting. Strong in detection engineering, OT security and regulatory evidence under BAIT, DORA and the IT-Sicherheitsgesetz.",
+    "experience": [
+      {
+        "title": "IT Security Analyst",
+        "company": "Mainufer Rechenzentrum GmbH",
+        "location": "Frankfurt am Main",
+        "start": "2011-11",
+        "end": "2015-06",
+        "bullets": [
+          "Monitored IDS and firewall logs for a colocation data centre hosting 150 business customers.",
+          "Built a vulnerability scanning routine for customer-facing management systems and tracked 900+ findings through remediation.",
+          "Supported ISO/IEC 27001 certification on the basis of IT-Grundschutz, writing 30 operating procedures."
+        ]
+      },
+      {
+        "title": "Senior Security Analyst",
+        "company": "Taunus Privatbank AG",
+        "location": "Frankfurt am Main",
+        "start": "2015-07",
+        "end": "2020-02",
+        "bullets": [
+          "Ran the bank's SIEM use-case catalogue, growing it from 20 to 110 detections mapped to MITRE ATT&CK.",
+          "Prepared security evidence for BaFin audits against BAIT, with no major findings in two consecutive reviews.",
+          "Coordinated the yearly external penetration test and drove remediation of 95% of findings within agreed deadlines.",
+          "Trained 400 employees a year on social engineering, with phishing simulation click rates falling from 14% to 4%."
+        ]
+      },
+      {
+        "title": "Lead Cyber Defence Analyst",
+        "company": "Rhein-Main Energie Netze GmbH",
+        "location": "Frankfurt am Main (hybrid)",
+        "start": "2020-03",
+        "end": "present",
+        "bullets": [
+          "Lead a six-person blue team covering IT and OT networks for an electricity and gas distribution operator.",
+          "Introduced attack detection systems for the control network, as required for KRITIS operators, and passed the first external evidence audit with minor observations only.",
+          "Coordinated the reporting chain to the BSI for significant incidents and ran four crisis exercises with management.",
+          "Built a threat-hunting practice that found and removed two long-dormant footholds in legacy systems.",
+          "Manage a €1.4 million annual security operations budget, including a co-managed SOC contract."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc. IT-Sicherheit (IT Security)",
+        "school": "Technische Universität Darmstadt",
+        "location": "Darmstadt",
+        "start": "2009-10",
+        "end": "2011-09"
+      },
+      {
+        "degree": "B.Sc. Informatik (Computer Science)",
+        "school": "Goethe-Universität Frankfurt",
+        "location": "Frankfurt am Main",
+        "start": "2006-10",
+        "end": "2009-09"
+      }
+    ],
+    "courses": [
+      { "name": "CISSP", "provider": "ISC2", "year": 2017 },
+      { "name": "GIAC Response and Industrial Defense (GRID)", "provider": "GIAC", "year": 2022 },
+      { "name": "IT-Grundschutz-Praktiker", "provider": "BSI-recognised training provider", "year": 2014 }
+    ],
+    "languages": [
+      { "name": "German", "level": "Native" },
+      { "name": "English", "level": "C1" },
+      { "name": "French", "level": "B1" }
+    ],
+    "achievements": [
+      { "title": "Speaker, German critical infrastructure security forum", "detail": "Presented lessons from deploying attack detection in an energy control network." },
+      { "title": "Member, Allianz für Cyber-Sicherheit working group", "detail": "Contribute to an energy-sector exchange on detection use cases." }
+    ],
+    "skills": ["Detection engineering", "Splunk", "OT / ICS security", "Threat hunting", "Incident response and crisis management", "MITRE ATT&CK", "BSI IT-Grundschutz", "KRITIS requirements", "BAIT and DORA", "ISO/IEC 27001", "Team leadership", "Budget management"],
+    "interests": ["Road cycling in the Taunus", "Choir singing", "Escape rooms"]
+  }
+}

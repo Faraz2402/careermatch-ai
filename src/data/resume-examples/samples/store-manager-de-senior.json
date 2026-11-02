@@ -1,0 +1,101 @@
+{
+  "id": "store-manager-de-senior",
+  "category": "sales-retail",
+  "role": "store-manager",
+  "country": "de",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Nikola Petrović",
+    "title": "Store Manager (Filialleiter)",
+    "phone": "+49 221 4710 365",
+    "email": "nikola.petrovic@example.com",
+    "linkedin": "linkedin.com/in/nikola-petrovic",
+    "location": "Köln",
+    "summary": "Store manager with 19 years in German retail, from an IHK apprenticeship to running a 6,000 sqm furniture and home store in Köln with 95 employees and €28m in sales. Geprüfter Handelsfachwirt (IHK) with a track record of cooperative work with the works council and a store that has been the company's most profitable for three years.",
+    "experience": [
+      {
+        "title": "Store Manager (Filialleiter)",
+        "company": "Kölner Wohnwelt GmbH",
+        "location": "Köln",
+        "start": "2020-04",
+        "end": "present",
+        "bullets": [
+          "Run a 6,000 sqm furniture and home store with €28m annual sales, 95 employees, seven department heads and a warehouse with delivery team.",
+          "Raised EBIT margin from 4.8% to 7.1% through a new kitchen planning studio, tighter delivery routes and lower credit-note rates.",
+          "Negotiated a shift model for Saturday and late openings with the works council that cut overtime by 2,900 hours a year.",
+          "Brought customer complaint resolution time down from 11 to four working days by giving department heads authority for goodwill decisions up to €500.",
+          "Developed three trainees into department heads and run the store's apprenticeship programme with 12 Auszubildende."
+        ]
+      },
+      {
+        "title": "Store Manager (Filialleiter)",
+        "company": "Severin Sport GmbH",
+        "location": "Köln",
+        "start": "2015-07",
+        "end": "2020-03",
+        "bullets": [
+          "Managed a two-floor sports store with €9.5m sales and 38 employees in a Köln city-centre shopping street.",
+          "Grew sales by 21% over four years by adding a running lab and partnering with local clubs for team kit orders.",
+          "Introduced click-and-reserve for the online shop, which accounted for 15% of store sales by 2019.",
+          "Kept inventory differences below 0.5% of sales at every annual stocktake."
+        ]
+      },
+      {
+        "title": "Department Manager (Abteilungsleiter)",
+        "company": "Domblick Warenhaus GmbH",
+        "location": "Köln",
+        "start": "2011-01",
+        "end": "2015-06",
+        "bullets": [
+          "Led the household goods and electronics department with €4.2m sales and 16 staff.",
+          "Reorganised the department layout around customer journeys, increasing sales per square metre by 13%.",
+          "Planned staffing for Christmas and seasonal sales events, including temporary staff onboarding."
+        ]
+      },
+      {
+        "title": "Sales Associate (Verkäufer)",
+        "company": "Rheinufer Elektronik GmbH",
+        "location": "Köln",
+        "start": "2007-07",
+        "end": "2010-12",
+        "bullets": [
+          "Advised customers on televisions, computers and home audio, regularly among the top three sellers in the store.",
+          "Took over ordering for the computer accessories range after one year.",
+          "Trained new apprentices on product knowledge and checkout processes."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Geprüfter Handelsfachwirt (IHK), advanced retail management qualification",
+        "school": "IHK Köln (part-time course)",
+        "location": "Köln",
+        "start": "2011-09",
+        "end": "2013-06"
+      },
+      {
+        "degree": "Kaufmann im Einzelhandel (IHK), retail sales apprenticeship",
+        "school": "Berufskolleg in Köln / IHK Köln",
+        "location": "Köln",
+        "start": "2004-08",
+        "end": "2007-06"
+      }
+    ],
+    "courses": [
+      { "name": "Ausbildereignungsprüfung (AEVO), trainer qualification", "provider": "IHK Köln", "year": 2012 },
+      { "name": "Arbeitsrecht für Führungskräfte (employment law for managers)", "provider": "IHK Köln", "year": 2021 }
+    ],
+    "languages": [
+      { "name": "German", "level": "Native (C2)" },
+      { "name": "Serbian", "level": "Native" },
+      { "name": "English", "level": "Advanced (B2)" }
+    ],
+    "achievements": [
+      { "title": "Most profitable store", "detail": "Kölner Wohnwelt's highest EBIT margin of all stores in 2023, 2024 and 2025." },
+      { "title": "Apprenticeship results", "detail": "All 14 apprentices in my store since 2020 passed their IHK final exams, five with 'good' or better." }
+    ],
+    "skills": ["Store P&L", "Works council cooperation", "Shift planning", "Kitchen and furniture retail", "Logistics and delivery", "Inventory control", "Apprentice training (AEVO)", "Complaint management", "Click-and-reserve", "SAP Retail", "Team leadership"],
+    "interests": ["1. FC Köln", "Rowing on the Rhine", "Balkan cooking"]
+  }
+}

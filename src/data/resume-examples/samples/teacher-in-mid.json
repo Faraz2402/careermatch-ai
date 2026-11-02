@@ -1,0 +1,137 @@
+{
+  "id": "teacher-in-mid",
+  "category": "teaching-education",
+  "role": "teacher",
+  "country": "in",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Kavya Nair",
+    "title": "TGT Mathematics and Grade 8 Coordinator",
+    "phone": "+91 00000 63027",
+    "email": "kavya.nair@example.com",
+    "linkedin": "linkedin.com/in/kavya-nair",
+    "location": "Bengaluru, Karnataka",
+    "summary": "CTET-qualified mathematics teacher with nine years in CBSE schools, now teaching Classes 6–10 and coordinating Grade 8. Known for activity-based maths, I helped my Class 10 batch reach a 94% first-division rate and lifted the school's average board maths score from 71 to 79.",
+    "experience": [
+      {
+        "title": "Primary Teacher (PRT)",
+        "company": "Hebbal Lakeside Public School",
+        "location": "Bengaluru, Karnataka",
+        "start": "2017-06",
+        "end": "2019-04",
+        "bullets": [
+          "Taught Mathematics and EVS to 4 sections of Classes 3–5, about 140 students.",
+          "Set up a maths lab corner with manipulatives that the school later extended to all primary classrooms.",
+          "Ran remedial sessions twice a week for 20 students below grade level; 16 reached grade level by year end."
+        ]
+      },
+      {
+        "title": "TGT Mathematics",
+        "company": "Whitefield Global School",
+        "location": "Bengaluru, Karnataka",
+        "start": "2019-06",
+        "end": "2023-03",
+        "bullets": [
+          "Taught Mathematics to Classes 6–10 across 5 sections, including CBSE Class 10 board preparation.",
+          "Moved all teaching online during 2020–21, using Google Classroom and GeoGebra for 180 students.",
+          "Raised the Class 10 board maths average from 71 to 79 marks over three batches through weekly practice tests and error analysis.",
+          "Trained 12 colleagues on competency-based question design aligned with NEP 2020."
+        ]
+      },
+      {
+        "title": "TGT Mathematics and Grade 8 Coordinator",
+        "company": "Sarjapur Vidya Mandir",
+        "location": "Bengaluru, Karnataka",
+        "start": "2023-04",
+        "end": "present",
+        "bullets": [
+          "Coordinate 7 sections of Grade 8 with 9 subject teachers, owning timetables, assessments and parent-teacher meetings.",
+          "Teach Mathematics to Classes 8–10; 94% of my 2025 Class 10 batch scored above 60% in the board exam.",
+          "Launched a maths Olympiad club of 45 students; 11 qualified for the second level of a national olympiad in 2025.",
+          "Introduced a weekly data review of unit test results that cut the number of students below 40% from 38 to 14."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Ed",
+        "school": "Regional Institute of Education, Mysuru",
+        "location": "Mysuru, Karnataka",
+        "start": "2015-07",
+        "end": "2017-05",
+        "details": "Mathematics and Physical Science methods."
+      },
+      {
+        "degree": "B.Sc (Mathematics, Physics, Computer Science)",
+        "school": "Mount Carmel College, Bengaluru",
+        "location": "Bengaluru, Karnataka",
+        "start": "2012-06",
+        "end": "2015-04",
+        "details": "CGPA 8.7/10."
+      }
+    ],
+    "courses": [
+      {
+        "name": "Central Teacher Eligibility Test (CTET), Papers I and II, qualified",
+        "provider": "CBSE",
+        "year": 2017
+      },
+      {
+        "name": "Competency-Based Education training",
+        "provider": "CBSE Centre of Excellence",
+        "year": 2022
+      },
+      {
+        "name": "Teaching and Learning in the Digital Age",
+        "provider": "NPTEL",
+        "year": 2021
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Malayalam",
+        "level": "Native"
+      },
+      {
+        "name": "Kannada",
+        "level": "Fluent"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Best Teacher Award, 2024",
+        "detail": "Awarded by the school management for academic results and the Olympiad club."
+      },
+      {
+        "title": "CBSE board evaluator",
+        "detail": "Evaluated Class 10 mathematics answer scripts in 2024 and 2025."
+      }
+    ],
+    "skills": [
+      "CBSE Mathematics",
+      "Activity-based learning",
+      "Competency-based assessment",
+      "GeoGebra",
+      "Google Classroom",
+      "Board exam preparation",
+      "Grade coordination",
+      "Remedial teaching",
+      "Parent communication",
+      "Olympiad coaching"
+    ],
+    "interests": [
+      "Carnatic music",
+      "Puzzles",
+      "Cycling"
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "project-manager-us-mid",
+  "category": "project-management",
+  "role": "project-manager",
+  "country": "us",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Andre Holloway",
+    "title": "Project Manager, Healthcare Construction",
+    "phone": "(512) 555-0182",
+    "email": "andre.holloway@example.com",
+    "linkedin": "linkedin.com/in/andre-holloway",
+    "location": "Austin, TX",
+    "summary": "PMP-certified construction project manager with nine years in commercial and healthcare building. Currently run clinic and outpatient projects up to $24 million for a Central Texas healthcare facilities group, most recently delivering a 42,000 sq ft surgery center two weeks early. Skilled at keeping owners, architects and trades aligned while patients and staff stay safe in occupied buildings.",
+    "experience": [
+      {
+        "title": "Project Manager",
+        "company": "Onion Creek Healthcare Facilities",
+        "location": "Austin, TX",
+        "start": "2022-04",
+        "end": "present",
+        "bullets": [
+          "Manage a portfolio of four to six clinic and outpatient projects at a time, with budgets from $3 million to $24 million.",
+          "Delivered a 42,000 sq ft ambulatory surgery center two weeks ahead of schedule and 1.8% under its $24 million budget.",
+          "Wrote infection control risk assessment plans with the hospital's infection prevention team for work in occupied buildings, with zero reportable incidents.",
+          "Lead weekly OAC meetings and keep schedules current in Primavera P6 and Procore."
+        ]
+      },
+      {
+        "title": "Assistant Project Manager",
+        "company": "Hill Country Commercial Construction",
+        "location": "Austin, TX",
+        "start": "2019-01",
+        "end": "2022-03",
+        "bullets": [
+          "Supported the project manager on office and retail builds totaling $61 million across three years.",
+          "Processed 1,200 RFIs and submittals with an average turnaround of four days.",
+          "Negotiated change orders with 15 subcontractors, recovering $410,000 in disputed costs for the company."
+        ]
+      },
+      {
+        "title": "Project Coordinator",
+        "company": "Cypress Creek Builders",
+        "location": "Round Rock, TX",
+        "start": "2017-01",
+        "end": "2018-12",
+        "bullets": [
+          "Tracked budgets, schedules and permits for 30 tilt-wall warehouse projects.",
+          "Built a closeout checklist that shortened retainage release by three weeks on average.",
+          "Organized safety documentation for OSHA-compliant site audits."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "B.S. Construction Science", "school": "Texas A&M University", "location": "College Station, TX", "start": "2012-08", "end": "2016-05" }
+    ],
+    "courses": [
+      { "name": "Project Management Professional (PMP)", "provider": "Project Management Institute", "year": 2021 },
+      { "name": "OSHA 30-Hour Construction", "provider": "OSHA Outreach Training Program", "year": 2018 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Spanish", "level": "Working proficiency" }
+    ],
+    "achievements": [
+      { "title": "Owner satisfaction", "detail": "Received the client's facilities team recognition for the surgery center handover (2025)." },
+      { "title": "Youth mentor", "detail": "Mentor high school students in a construction careers program run by a local builders association." }
+    ],
+    "skills": ["Construction project management", "Primavera P6", "Procore", "Budgeting and cost control", "Change order negotiation", "RFIs and submittals", "Infection control risk assessment", "OSHA safety", "Bluebeam", "Subcontractor management", "Stakeholder communication"],
+    "interests": ["Woodworking", "High school football officiating", "Fishing"]
+  }
+}

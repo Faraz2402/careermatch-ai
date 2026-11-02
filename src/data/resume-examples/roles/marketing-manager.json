@@ -1,0 +1,78 @@
+{
+  "slug": "marketing-manager",
+  "name": "Marketing Manager",
+  "category": "marketing",
+  "updated": "2026-11-02",
+  "intro": "A marketing manager résumé has to show that you can plan, spend a budget and prove what it returned. Hiring managers want to see the channels you ran, the people and agencies you directed, and the commercial results (revenue, leads, share, retention) that followed, not a list of campaigns you were near.",
+  "recruiterFocus": [
+    "Budget size and ownership: how much you controlled, who you reported results to and how you decided where the money went.",
+    "Commercial outcomes such as revenue, pipeline, customer acquisition cost, market share or retention, tied to specific campaigns or decisions.",
+    "Team and agency leadership: how many people or agencies you managed, and what changed because of how you led them.",
+    "Sector and audience fit: B2B or B2C, the industry, and whether you sold direct, through retailers, dealers or brokers.",
+    "Measurement habits: how you set targets, tracked attribution and changed course when something did not work."
+  ],
+  "experienceTips": [
+    "Open each role with one line of scope: budget, team size, product range or markets covered. Readers use it to judge the size of everything that follows.",
+    "Lead bullets with decisions you made (rebalanced spend, changed positioning, launched a programme) and finish with the measurable result.",
+    "Show cross-functional work with sales, finance, product or compliance; marketing managers are hired partly for how well they work with other teams.",
+    "Name the channels and tools you actually ran, such as paid search, trade marketing, CRM or events, rather than 'integrated marketing' on its own.",
+    "For agency-side or freelance work, name the client sector and the size of the account rather than every client name."
+  ],
+  "numbersTips": [
+    "Budget managed and what it returned, for example '£320,000 budget; direct revenue up from £690,000 to £1.1m in two years'.",
+    "Acquisition efficiency: cost per lead, cost per customer or CAC before and after a change, such as '$31 to $22 per new customer'.",
+    "Awareness and share: brand tracker or market share movement, such as 'unaided awareness 11% to 24%' or '+2.1 share points'.",
+    "Retention and loyalty: repeat purchase rate, programme members, churn or renewal rates.",
+    "Savings: agency consolidation, print reductions or media efficiencies, expressed as an annual amount."
+  ],
+  "noExperience": [
+    "If you are applying for your first marketing manager job, lead with the closest thing to ownership you have had: a student society, a family business, a freelance client or a capstone project with a real company.",
+    "Show any budget you have spent, however small, and what it produced, plus any campaign you planned from brief to report.",
+    "List practical certifications (Google, HubSpot, Meta, CIM or AMI entry-level courses) next to coursework, and include a short portfolio link if you have one."
+  ],
+  "hardSkills": ["Marketing strategy and planning", "Budget management", "Brand positioning", "Market research", "Campaign measurement and attribution", "CRM and email marketing", "Paid media (search and social)", "Trade or channel marketing", "Product launches", "Agency briefing", "GA4 or similar analytics", "Presentation and board reporting"],
+  "softSkills": [
+    { "skill": "Commercial judgement", "proof": "A bullet where you moved budget away from a channel because the numbers showed it was underperforming, with the result." },
+    { "skill": "Leadership", "proof": "Team size, plus someone you trained or promoted, or a process you set up that the team still uses." },
+    { "skill": "Stakeholder management", "proof": "A launch or campaign agreed with sales, finance or a regulator, and how you got sign-off." },
+    { "skill": "Communication", "proof": "Regular reporting to owners, directors or a board, or a briefing toolkit used by partners or retailers." }
+  ],
+  "education": "Most marketing managers hold a degree in marketing, business, communications or a related field, but employers usually weigh results more heavily after a few years of work. List your degree with the institution and dates; add a dissertation or capstone only if it is relevant. Professional marketing qualifications (CIM in the UK, AMI in Australia, AMA in the US) can strengthen a résumé, especially for career changers.",
+  "certifications": [
+    { "name": "CIM qualifications (Certificate, Diploma, Chartered Marketer)", "note": "Widely recognised in the UK and some Commonwealth markets; useful for promotion into management or for changing sector." },
+    { "name": "AMA Professional Certified Marketer (PCM)", "note": "Offered by the American Marketing Association; optional in the US but can help where employers value formal credentials." },
+    { "name": "AMI Certified Practising Marketer (CPM)", "note": "The Australian Marketing Institute's designation; recognised in Australia, though rarely a hard requirement." },
+    { "name": "Google Ads and GA4 certifications", "note": "Free and quick; worth listing if you manage or oversee paid media and analytics." },
+    { "name": "HubSpot or Salesforce Marketing Cloud credentials", "note": "Helpful when the job ad names the platform the team already uses." }
+  ],
+  "summaryExample": "Marketing manager with seven years in consumer brands across leisure and drinks. Leads a team of three and a £250,000 budget at an independent food producer, where a retail-led relaunch grew online and wholesale revenue by 32% in two years. Comfortable owning agency relationships and reporting results to the board.",
+  "objectiveExample": "Recent business graduate seeking a marketing coordinator or assistant marketing manager role in consumer retail. I bring a capstone go-to-market plan adopted by a local brand, a Google Ads certification and experience running social media and events for a 300-member student society.",
+  "summaryVsObjective": "Use a summary once you have run campaigns or budgets in a paid role: it lets you lead with scope and a result. Use an objective only if you are moving into marketing for the first time and need to explain the move and the evidence you bring instead.",
+  "extraSections": [
+    "Portfolio or case studies: a link to two or three campaigns with the brief, your role and the outcome.",
+    "Awards and shortlists: industry or regional marketing awards, with the year.",
+    "Speaking or writing: talks at meetups or articles in trade publications.",
+    "Languages: valuable for regional or international roles, with a level for each."
+  ],
+  "weakStrong": [
+    { "weak": "Responsible for managing the marketing budget.", "strong": "Managed a $140,000 annual budget across paid social, radio and events, reporting monthly ROI and cutting cost per new customer from $31 to $22.", "why": "The strong version gives the size, the channels, who saw the results and a measurable improvement." },
+    { "weak": "Worked on a rebrand project.", "strong": "Directed a rebrand across 38 broker offices and digital channels, doubling unaided awareness in Alberta within 20 months.", "why": "It makes your role (directed) clear and shows the scale and the outcome." },
+    { "weak": "Handled agencies and suppliers.", "strong": "Replaced four agencies with one lead agency and an in-house studio, saving $610,000 a year while increasing creative output.", "why": "A specific decision with a saving reads as management, not administration." },
+    { "weak": "Ran social media campaigns for the brand.", "strong": "Ran the brand's first Instagram shopping campaign, generating 640 tracked orders worth £182,000 in its opening quarter.", "why": "It names the channel, shows it was new and ties activity to orders and revenue." }
+  ],
+  "takeaways": [
+    "Start every role with scope: budget, team, markets or products.",
+    "Tie campaigns to commercial results such as revenue, leads, share or retention.",
+    "Show how you led people and agencies, not only what they produced.",
+    "Name the channels and tools you used so applicant tracking systems and readers can match them.",
+    "Mention compliance or legal sign-off where your sector is regulated."
+  ],
+  "countryNotes": {
+    "us": "No licence is needed to work as a marketing manager. The American Marketing Association's PCM is optional. Email marketing must follow the federal CAN-SPAM Act, and advertising claims fall under FTC rules, including its guidance on endorsements and influencers. Use 'résumé' or 'resume' and US dollar figures.",
+    "uk": "No licence is required. The Chartered Institute of Marketing (CIM) offers the best-known qualifications and Chartered Marketer status. Ads must follow the CAP and BCAP Codes enforced by the ASA, and email or SMS marketing must comply with UK GDPR and PECR. Most UK employers call it a CV.",
+    "ca": "No licence is required. The Canadian Marketing Association runs professional development and a Chartered Marketer designation. Commercial emails and texts fall under CASL, and misleading advertising under the Competition Act. In Québec, the Charter of the French Language sets French-language requirements for commercial communications, so French is a real asset there.",
+    "au": "No licence is required. The Australian Marketing Institute offers Certified Practising Marketer (CPM) status. Advertising must not be misleading under the Australian Consumer Law (enforced by the ACCC), and email or SMS marketing is covered by the Spam Act 2003. Industry codes such as the AANA Code of Ethics also apply to many advertisers.",
+    "de": "No licence is required. Common routes are a B.A./B.Sc. or M.Sc. in business or marketing, or an IHK apprenticeship such as Kaufmann/-frau für Marketingkommunikation; IHK also offers further qualifications in marketing. Marketing must comply with the GDPR (DSGVO), the UWG (unfair competition law, which restricts unsolicited ads) and the TDDDG for cookies and tracking.",
+    "in": "No licence is required; an MBA or PGDM in marketing is common for brand and marketing manager roles. Advertising is self-regulated by ASCI, whose code and influencer guidelines are widely followed, and the Digital Personal Data Protection Act 2023 affects how customer data is collected and used. Commercial SMS and calls are regulated by TRAI. Regional language skills are often valued."
+  }
+}

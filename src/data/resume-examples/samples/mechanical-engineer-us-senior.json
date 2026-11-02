@@ -1,0 +1,135 @@
+{
+  "id": "mechanical-engineer-us-senior",
+  "category": "engineering",
+  "role": "mechanical-engineer",
+  "country": "us",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Gregory Lindqvist",
+    "title": "Lead Mechanical Engineer, PE",
+    "phone": "(734) 555-0166",
+    "email": "gregory.lindqvist@example.com",
+    "linkedin": "linkedin.com/in/gregory-lindqvist",
+    "location": "Ann Arbor, MI",
+    "summary": "Licensed Professional Engineer (Michigan) with 15 years designing thermal systems, powertrain components, hydraulics and robotic end-effectors. Leads a team of seven engineers on automation products, and a redesigned gripper platform cut unit cost by 21% while doubling rated cycle life.",
+    "experience": [
+      {
+        "title": "Mechanical Engineer I",
+        "company": "Huron Valley Thermal Systems",
+        "location": "Plymouth, MI",
+        "start": "2011-06",
+        "end": "2014-08",
+        "bullets": [
+          "Designed brazed aluminum heat exchanger cores in SolidWorks for commercial vehicle cooling modules.",
+          "Ran thermal and pressure-drop tests on a wind tunnel rig, correlating results with CFD to within 6%.",
+          "Released 120-plus drawings to production using ASME Y14.5 GD&T and the company's ECN process."
+        ]
+      },
+      {
+        "title": "Mechanical Engineer II",
+        "company": "Washtenaw Powertrain Components",
+        "location": "Ann Arbor, MI",
+        "start": "2014-09",
+        "end": "2018-12",
+        "bullets": [
+          "Owned the design of transmission pump housings from concept through PPAP for two automotive OEM programs.",
+          "Led DFMEA sessions with manufacturing and quality, closing 34 high-priority risks before launch.",
+          "Cut casting porosity scrap from 7.5% to 3% by working with the foundry on gating changes and wall-thickness tweaks.",
+          "Passed the PE exam and became licensed in Michigan in 2016."
+        ]
+      },
+      {
+        "title": "Senior Mechanical Engineer",
+        "company": "Great Lakes Fluid Power",
+        "location": "Toledo, OH",
+        "start": "2019-01",
+        "end": "2022-05",
+        "bullets": [
+          "Led mechanical design of a compact hydraulic power unit line rated up to 3,000 psi.",
+          "Ran FEA on manifolds and mounting brackets in ANSYS, removing 14% of material without lowering the safety factor.",
+          "Managed a $1.4 million development budget and a team of four engineers and two designers.",
+          "Brought the product to market four weeks ahead of schedule, reaching $6 million in first-year sales."
+        ]
+      },
+      {
+        "title": "Lead Mechanical Engineer",
+        "company": "Saline Robotics",
+        "location": "Saline, MI",
+        "start": "2022-06",
+        "end": "present",
+        "bullets": [
+          "Lead a team of seven mechanical engineers designing grippers, end-effectors and safety guarding for industrial robots.",
+          "Redesigned the gripper platform around common modules, reducing unit cost by 21% and doubling rated cycle life to 10 million cycles.",
+          "Set up design review gates and a test lab plan that cut late engineering changes by about 40%.",
+          "Review and seal guarding and fixture calculations where customer contracts require a PE stamp.",
+          "Mentor two EIT engineers preparing for the PE exam and run quarterly GD&T training."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.S. in Mechanical Engineering",
+        "school": "University of Michigan",
+        "location": "Ann Arbor, MI",
+        "start": "2007-09",
+        "end": "2011-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Professional Engineer (PE), Mechanical",
+        "provider": "Michigan Department of Licensing and Regulatory Affairs",
+        "year": 2016
+      },
+      {
+        "name": "Certified SolidWorks Professional (CSWP)",
+        "provider": "Dassault Systèmes",
+        "year": 2013
+      },
+      {
+        "name": "GD&T Fundamentals (ASME Y14.5-2018)",
+        "provider": "ASME",
+        "year": 2019
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Swedish",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Patent",
+        "detail": "Co-inventor on a U.S. patent for a quick-change gripper finger mount."
+      },
+      {
+        "title": "Engineering excellence award",
+        "detail": "Recognized at Great Lakes Fluid Power in 2021 for the early launch of the compact HPU line."
+      }
+    ],
+    "skills": [
+      "SolidWorks",
+      "Creo",
+      "ANSYS Mechanical",
+      "GD&T (ASME Y14.5)",
+      "DFMEA",
+      "PPAP / APQP",
+      "Hydraulics",
+      "Thermal design",
+      "Robotic tooling",
+      "Team leadership",
+      "Engineering budgets"
+    ],
+    "interests": [
+      "Restoring a 1970s sailboat",
+      "Cross-country skiing",
+      "FIRST Robotics mentor"
+    ]
+  }
+}

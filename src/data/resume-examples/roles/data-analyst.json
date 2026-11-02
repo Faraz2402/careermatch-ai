@@ -1,0 +1,77 @@
+{
+  "slug": "data-analyst",
+  "name": "Data Analyst",
+  "category": "data-science",
+  "updated": "2026-11-02",
+  "intro": "A data analyst résumé has one job: show that your analysis changed what someone did. List the tools, but anchor every bullet in a decision, a saved hour or a number that moved. The examples below show how analysts at different levels and in different countries do that.",
+  "recruiterFocus": [
+    "The tools named in the advert (often SQL, Excel and one BI tool such as Power BI, Tableau or Looker), shown in context rather than only in a skills list.",
+    "Evidence that your work was used: a dashboard people opened daily, a report that replaced a manual process, a recommendation someone acted on.",
+    "Domain knowledge that matches the employer, such as retail, healthcare, finance or logistics data.",
+    "Data quality habits: cleaning, reconciliation, documentation and checks that stop wrong numbers reaching leadership.",
+    "The ability to explain findings to non-technical people, in writing and in meetings."
+  ],
+  "experienceTips": [
+    "Start each bullet with what you did (built, automated, traced, modelled) and finish with who used it or what changed.",
+    "Name the size of the data and the audience: 27 stores, 85,000 accounts, the weekly operations meeting.",
+    "Separate routine reporting from projects. One line on the reports you maintain is enough; spend the rest on analysis that led somewhere.",
+    "If you moved from MIS, finance or operations into analytics, keep those jobs and show the analytical parts of them.",
+    "Mention the stack once per job in a natural way (for example, 'rebuilt in Power BI on Snowflake') instead of repeating the full list."
+  ],
+  "numbersTips": [
+    "Time saved: 'cut month-end reporting from 9 days to 3' or 'saved the team 10 hours a week'.",
+    "Money: costs avoided, revenue protected or rebates recovered, in the local currency.",
+    "Scale: rows, records, users, stores or reports, such as 'matched 2.1 million records' or 'migrated 140 reports'.",
+    "Accuracy and quality: match rate from 82% to 97%, restatements avoided, forecast error reduced.",
+    "Behaviour change: no-shows down 18%, attrition from 9.4% to 7.9%, complaints down 15%."
+  ],
+  "noExperience": [
+    "Lead with a project section: two or three analyses using public data, each with a question, the method and what you found, plus a link to the notebook or dashboard.",
+    "Count placements, internships, part-time reporting tasks and student society treasurer roles as experience.",
+    "List relevant modules (statistics, databases, econometrics) and a dissertation if it used real data.",
+    "Show one finished certificate in SQL or a BI tool rather than many half-done courses."
+  ],
+  "hardSkills": ["SQL", "Excel (pivot tables, Power Query)", "Power BI", "Tableau", "Looker", "Python (pandas)", "R", "dbt", "Data cleaning", "Data modelling", "Statistics and A/B testing", "Forecasting", "Data warehousing (Snowflake, BigQuery)", "Dashboard design"],
+  "softSkills": [
+    { "skill": "Explaining results simply", "proof": "Mention presenting to a named group (quality committee, store managers) and what they decided afterwards." },
+    { "skill": "Curiosity", "proof": "Describe a time you traced an odd number to its cause, such as a geocoding error or duplicate records." },
+    { "skill": "Attention to detail", "proof": "Show reconciliations, zero restatements or data checks you introduced." },
+    { "skill": "Stakeholder management", "proof": "Name the teams you supported and how you agreed metric definitions with them." }
+  ],
+  "education": "Many analysts have degrees in statistics, maths, economics, computer science or business, but employers increasingly accept other degrees or apprenticeships plus proven SQL and BI skills. List degree, institution and dates; add classification, grade or GPA only where it is expected locally and helps you. A dissertation or capstone that used real data is worth one line.",
+  "certifications": [
+    { "name": "Microsoft Certified: Power BI Data Analyst Associate (PL-300)", "note": "Useful when the advert names Power BI, and for career changers who need proof of BI skills." },
+    { "name": "Tableau certifications", "note": "Worth listing for Tableau-heavy employers; less important if you can link to a public dashboard." },
+    { "name": "Google Data Analytics Professional Certificate", "note": "A reasonable starting point for career changers; experienced analysts can usually leave it off." },
+    { "name": "Cloud warehouse certificates (e.g. SnowPro Core, Databricks Data Analyst)", "note": "Helpful for mid-level and senior roles on those platforms." }
+  ],
+  "summaryExample": "Data analyst with six years in e-commerce and subscription businesses. Own retention and pricing reporting for a mid-sized online retailer, where my churn analysis shaped a loyalty change that cut cancellations by 12%. Strong in SQL, dbt and Looker, and comfortable presenting to directors.",
+  "objectiveExample": "Economics graduate with strong SQL and Power BI skills from two public-data projects and a summer reporting internship. Looking for a junior analyst role where I can turn operational data into clear weekly reporting and learn from an experienced analytics team.",
+  "summaryVsObjective": "Use a summary once you have at least one analyst job or placement: lead with years, domain and one result. Use an objective only when you have no analytics experience yet, and make it specific to the role and the skills you can already prove.",
+  "extraSections": [
+    "Projects: two or three analyses with links to a notebook, repository or public dashboard.",
+    "Courses and certificates: only the ones that match the tools in the advert.",
+    "Publications or talks: meetup talks, blog posts or open data contributions.",
+    "Languages: useful for multilingual reporting or international teams."
+  ],
+  "weakStrong": [
+    { "weak": "Responsible for creating dashboards.", "strong": "Built a daily delivery dashboard in Looker for nine depots that depot leads now use in morning briefings.", "why": "Names the tool, the scale and proof that people actually use it." },
+    { "weak": "Did analysis on customer data.", "strong": "Segmented 85,000 accounts by product mix, helping the retention team target outreach and cut annual attrition from 9.4% to 7.9%.", "why": "Shows the method, the size of the data and the business result." },
+    { "weak": "Automated reports using Python.", "strong": "Automated on-time delivery reporting with Python and Airflow, freeing about 25 hours a week of manual spreadsheet work.", "why": "Quantifies the time saved and says who benefited." }
+  ],
+  "takeaways": [
+    "Every bullet should end with an effect: a decision, time saved, money or a metric that moved.",
+    "Match the tools in the advert, and show them inside bullets, not only in a list.",
+    "Include data size and audience to show the scale you work at.",
+    "Link to a portfolio or public dashboard if you have one, especially early in your career.",
+    "Show data quality habits; trust in your numbers is part of the job."
+  ],
+  "countryNotes": {
+    "us": "No licence is needed to work as a data analyst. Match the advert's tool names exactly. Vendor certificates such as Microsoft PL-300 or Tableau certifications are optional extras. In healthcare roles, awareness of HIPAA helps; in public companies, finance reporting may sit under SOX controls. Use American spelling (analyze, modeling).",
+    "uk": "There is no licence or protected title. A Level 4 Data Analyst apprenticeship is an established entry route in England, and graduate schemes may ask for a degree classification. If you handle personal data, mention UK GDPR and Data Protection Act 2018 awareness. Use British spelling (analyse, visualisation).",
+    "ca": "No licence is required. English/French bilingual reporting is an advantage, particularly for federal and Québec employers. Privacy law varies: PIPEDA covers much private-sector work, while Alberta, British Columbia and Québec have their own private-sector privacy laws. Co-op terms count as real experience.",
+    "au": "No licence is required. Government and some large employers ask you to address selection criteria, so link your examples to each one. If you work with personal information, the Privacy Act 1988 and the Australian Privacy Principles apply, and state agencies may have their own privacy laws. Use Australian spelling.",
+    "de": "No licence is required. Working-student (Werkstudent) roles during your degree count as experience and should be listed as jobs. Show GDPR (DSGVO) awareness. In larger companies, analysing employee data or introducing monitoring tools can require works council (Betriebsrat) involvement. Give language levels using CEFR.",
+    "in": "No licence is required. Reporting roles are often titled MIS Executive or MIS Analyst; keep the title if that was yours. Freshers are often asked for CGPA and sometimes Class X/XII marks. The Digital Personal Data Protection Act, 2023 is relevant to customer data; its rules are being phased in, so check current status. Use lakh and crore."
+  }
+}

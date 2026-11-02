@@ -1,0 +1,76 @@
+{
+  "slug": "data-scientist",
+  "name": "Data Scientist",
+  "category": "data-science",
+  "updated": "2026-11-02",
+  "intro": "A data scientist résumé should prove that your models left the notebook and changed something: a forecast people plan with, a score that routes work, an experiment that settled a debate. Show the method briefly, then the business effect and how the model is used today.",
+  "recruiterFocus": [
+    "Models in production or in regular use, and what they changed (cost, revenue, error rates, time).",
+    "Sound methods: validation, experiment design, baselines and awareness of uncertainty and bias.",
+    "Engineering habits: version control, tests, pipelines, monitoring and reproducibility.",
+    "Domain fit, such as forecasting for retail or energy, credit risk for lending, or ranking for marketplaces.",
+    "Communication with non-specialists, especially explaining limits and trade-offs."
+  ],
+  "experienceTips": [
+    "Describe each model in one phrase (gradient-boosted classifier, hierarchical forecast) and spend the rest of the bullet on its impact.",
+    "Always compare against something: the old spreadsheet, the rules-based system, last year's results.",
+    "Say how the model is used: who sees the output, how often it retrains, what decision it feeds.",
+    "Include governance work for regulated sectors (validation, documentation, monitoring); it is valued, not boring.",
+    "At senior level, show team size, budget, hiring and the standards you set for others."
+  ],
+  "numbersTips": [
+    "Error reduction: 'cut forecast error by 19% against the legacy model' or 'MAPE from 8.1% to 5.6%'.",
+    "Business outcome: churn, conversion, fraud hit rate, stockouts or approval rates before and after.",
+    "Money: costs avoided or revenue added, stated as an estimate where it was one.",
+    "Scale and speed: rows, users, requests per second, retraining time from days to hours.",
+    "Adoption: number of teams or decisions using the model, or share of cases handled automatically."
+  ],
+  "noExperience": [
+    "Put two strong projects near the top, each with a real question, a baseline, your method, an honest result and a link to clean code.",
+    "Use theses, capstones, internships, research assistant roles and competitions as experience.",
+    "Show you can work like an engineer: a tested repository, a small deployed app or a documented pipeline.",
+    "Keep coursework short; list the advanced modules that match the role."
+  ],
+  "hardSkills": ["Python", "R", "SQL", "scikit-learn", "PyTorch or TensorFlow", "Statistics and experiment design", "Time-series forecasting", "Machine learning in production (MLOps)", "Spark or Databricks", "Cloud ML (SageMaker, Azure ML, Vertex AI)", "Causal inference", "NLP", "Git and testing", "Data visualisation"],
+  "softSkills": [
+    { "skill": "Explaining uncertainty", "proof": "Mention model explainers, readouts or briefings for managers and how they changed a decision." },
+    { "skill": "Product sense", "proof": "Show a time you chose a simpler model or a different problem because it fitted the business better." },
+    { "skill": "Collaboration", "proof": "Name the engineers, analysts or domain experts you worked with and what you built together." },
+    { "skill": "Mentoring", "proof": "Mention reading groups, code reviews or people you helped grow into new roles." }
+  ],
+  "education": "Many data scientists hold a master's or PhD in a quantitative field, but a bachelor's plus strong shipped work is often enough for applied roles. List degree, institution and dates, plus thesis topics that match the job. Add grades only where they are expected locally (for example GPA for US entry level or CGPA in India).",
+  "certifications": [
+    { "name": "Cloud ML certificates (e.g. AWS Machine Learning, Azure Data Scientist Associate)", "note": "Helpful when the employer uses that cloud and you have little production experience to show." },
+    { "name": "Statistical accreditations (ASA PStat, RSS CStat, SSC P.Stat., SSA AStat)", "note": "Optional; valued in statistics-heavy, public-sector and research roles." },
+    { "name": "Online specialisations (e.g. Coursera, NPTEL)", "note": "Useful early on to show breadth; drop them once your experience speaks for itself." }
+  ],
+  "summaryExample": "Data scientist with five years in insurance and online marketplaces, focused on pricing and demand models. Built a renewal pricing model now used for 300,000 policies a year, lifting retention by 3 points without lowering margin. Comfortable taking models from exploration to monitored production with engineers.",
+  "objectiveExample": "Statistics graduate with a thesis on demand forecasting and two deployed side projects in Python. Seeking a graduate data scientist role where I can build careful, well-tested models and learn production practices from an experienced team.",
+  "summaryVsObjective": "Write a summary if you have any paid data science work, internships included: years, domain, one model and its impact. Use an objective only if you are moving into the field with projects and study but no job yet.",
+  "extraSections": [
+    "Projects with links to code, a short write-up and the result.",
+    "Publications, patents or conference talks.",
+    "Open-source contributions to libraries you use.",
+    "Competitions, if you placed well and can explain what you learned."
+  ],
+  "weakStrong": [
+    { "weak": "Built machine learning models for the business.", "strong": "Trained a no-show classifier on booking history; dispatch now backfills risky jobs early, cutting same-day cancellations by 14%.", "why": "Names the model, how it is used and the measurable effect." },
+    { "weak": "Worked on forecasting.", "strong": "Delivered a hierarchical gas demand forecast that lowered day-ahead error by 19% against the previous model.", "why": "Shows the method and compares it with a baseline." },
+    { "weak": "Used MLOps tools.", "strong": "Moved training from desktop scripts to scheduled Azure ML jobs, cutting retraining from two days to three hours.", "why": "Turns a tool name into a concrete improvement." }
+  ],
+  "takeaways": [
+    "Lead with impact and use; keep the method to a phrase.",
+    "Always give a baseline so numbers mean something.",
+    "Show engineering habits, not just modelling skill.",
+    "Mention governance and privacy work in regulated sectors.",
+    "Link to code or write-ups, especially early in your career."
+  ],
+  "countryNotes": {
+    "us": "No licence is required. The American Statistical Association's PStat accreditation exists but is uncommon outside statistics-heavy roles. Research roles often ask for a master's or PhD; applied roles weigh shipped work more. If you modelled in credit, insurance or healthcare, mention the relevant rules (for example fair lending or HIPAA) that shaped your work.",
+    "uk": "No licence is required. The Royal Statistical Society awards Chartered Statistician (CStat), and the Alliance for Data Science Professionals sets data science standards; both are optional. Civil service roles often use Success Profiles with behaviour-based examples, so check each advert. Mention UK GDPR where you handled personal data.",
+    "ca": "No licence is required. The Statistical Society of Canada offers optional A.Stat. and P.Stat. accreditation. French is valued by federal and Québec employers. Privacy law varies by province; Québec's Law 25 includes rules on decisions made by automated processing, worth knowing if your models affect individuals.",
+    "au": "No licence is required. The Statistical Society of Australia offers optional AStat accreditation. Under the Privacy Act 1988, health information is sensitive information, so de-identification and privacy experience is worth highlighting. Government roles often use selection criteria. Use Australian spelling.",
+    "de": "No licence is required. A master's degree is a common baseline, and a doctorate is valued for research roles. Mention GDPR (DSGVO) and, if relevant, work under the EU AI Act or the Medical Device Regulation. Many teams work in English, but German helps with business-facing work; give CEFR levels.",
+    "in": "No licence is required. Recruiters often look at institute and CGPA early on, but production experience matters more over time. NPTEL and Coursera courses are common to list. In banking and NBFC roles, mention experience working within RBI regulatory requirements; for personal data, the DPDP Act, 2023 is relevant. Use lakh and crore."
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "id": "mechanical-engineer-ca-mid",
+  "category": "engineering",
+  "role": "mechanical-engineer",
+  "country": "ca",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Daniel Okonkwo",
+    "title": "Mechanical Engineer, P.Eng.",
+    "phone": "(780) 555-0129",
+    "email": "daniel.okonkwo@example.com",
+    "linkedin": "linkedin.com/in/daniel-okonkwo",
+    "location": "Edmonton, AB",
+    "summary": "Mechanical engineer (P.Eng., APEGA) with nine years in process equipment, pipeline facilities and modular fabrication in Alberta. Specialises in piping design and pressure equipment registration with ABSA, and has led design on modules worth up to $18 million.",
+    "experience": [
+      {
+        "title": "Engineer-in-Training, Mechanical",
+        "company": "Strathcona Process Equipment",
+        "location": "Edmonton, AB",
+        "start": "2017-01",
+        "end": "2019-08",
+        "bullets": [
+          "Designed skid-mounted pump and separator packages for oil and gas clients under senior engineer supervision.",
+          "Prepared pressure vessel calculations to ASME Section VIII Division 1 and assembled ABSA design registration submissions.",
+          "Checked fabrication drawings against the P&IDs and caught a nozzle orientation error before it reached the shop."
+        ]
+      },
+      {
+        "title": "Mechanical Engineer",
+        "company": "North Saskatchewan Pipeline Services",
+        "location": "Edmonton, AB",
+        "start": "2019-09",
+        "end": "2022-11",
+        "bullets": [
+          "Designed piping and supports for pump station and terminal upgrades to ASME B31.3 and B31.4.",
+          "Ran CAESAR II stress analysis on 60-plus lines and resolved nozzle-load issues with rotating equipment vendors.",
+          "Earned my P.Eng. with APEGA in 2021 after completing the experience requirements and the NPPE.",
+          "Wrote the mechanical scope for a $7 million terminal upgrade and reviewed contractor bids."
+        ]
+      },
+      {
+        "title": "Mechanical Engineer, P.Eng.",
+        "company": "Leduc Modular Fabricators",
+        "location": "Leduc, AB",
+        "start": "2022-12",
+        "end": "present",
+        "bullets": [
+          "Lead mechanical design for process modules worth up to $18 million, coordinating piping, structural and electrical disciplines.",
+          "Authenticate mechanical drawings and calculations for ABSA registration of piping systems and pressure vessels.",
+          "Mentor three EITs, reviewing their calculations weekly and tracking their progress toward P.Eng.",
+          "Standardized pipe support details across projects, cutting shop rework hours by about 15%."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc in Mechanical Engineering (Co-op)",
+        "school": "University of Alberta",
+        "location": "Edmonton, AB",
+        "start": "2011-09",
+        "end": "2016-04"
+      }
+    ],
+    "courses": [
+      {
+        "name": "CAESAR II Pipe Stress Analysis",
+        "provider": "Hexagon",
+        "year": 2020
+      },
+      {
+        "name": "ASME B31.3 Process Piping",
+        "provider": "ASME",
+        "year": 2019
+      },
+      {
+        "name": "National Professional Practice Exam (NPPE)",
+        "provider": "APEGA",
+        "year": 2020
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Igbo",
+        "level": "Conversational"
+      },
+      {
+        "name": "French",
+        "level": "Basic"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Professional licence",
+        "detail": "Registered as a Professional Engineer (P.Eng.) with APEGA, 2021."
+      },
+      {
+        "title": "Safety recognition",
+        "detail": "Named in a project safety award for zero recordable incidents on a 14-month module build."
+      }
+    ],
+    "skills": [
+      "Piping design (ASME B31.3)",
+      "Pressure vessels (ASME VIII)",
+      "CAESAR II",
+      "AutoCAD Plant 3D",
+      "SolidWorks",
+      "ABSA registration",
+      "P&ID review",
+      "Bid evaluation",
+      "Mentoring EITs"
+    ],
+    "interests": [
+      "Curling league",
+      "Volunteering with Engineers Without Borders",
+      "Camping in Jasper"
+    ]
+  }
+}

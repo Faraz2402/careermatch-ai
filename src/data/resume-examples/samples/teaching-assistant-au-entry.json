@@ -1,0 +1,110 @@
+{
+  "id": "teaching-assistant-au-entry",
+  "category": "teaching-education",
+  "role": "teaching-assistant",
+  "country": "au",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Chloe Brennan-Tui",
+    "title": "Teacher Aide (Primary)",
+    "phone": "0491 578 148",
+    "email": "chloe.brennan-tui@example.com",
+    "linkedin": "linkedin.com/in/chloe-brennan-tui",
+    "location": "Brisbane QLD",
+    "summary": "Teacher aide at a Brisbane state primary school with a Certificate IV in School Based Education Support and experience in outside school hours care. I support literacy groups and students with disability in Years 1–3, and hold a current blue card and HLTAID011 first aid.",
+    "experience": [
+      {
+        "title": "OSHC Educator (part-time)",
+        "company": "Moorooka Kids Club OSHC",
+        "location": "Brisbane QLD",
+        "start": "2023-06",
+        "end": "2024-12",
+        "bullets": [
+          "Supervised up to 45 children aged 5–12 before and after school and in vacation care.",
+          "Planned weekly art and science activities that lifted vacation care bookings by 15% over two holidays.",
+          "Completed incident and medication records accurately under the National Quality Framework."
+        ]
+      },
+      {
+        "title": "Teacher Aide",
+        "company": "Yeronga Creek State School",
+        "location": "Brisbane QLD",
+        "start": "2025-01",
+        "end": "present",
+        "bullets": [
+          "Run daily small-group reading for 3 groups of 5 Year 1 and 2 students, using decodable readers chosen by the teacher.",
+          "Support 2 students with verified disability in a Year 3 class, adjusting tasks in line with their personalised learning plans.",
+          "Help prepare resources for 6 classes, saving teachers around 3 hours a week in printing and laminating.",
+          "Supervise playground duty and assist with first aid during breaks."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Certificate IV in School Based Education Support",
+        "school": "TAFE Queensland",
+        "location": "Brisbane QLD",
+        "start": "2023-02",
+        "end": "2024-06"
+      },
+      {
+        "degree": "Queensland Certificate of Education (QCE)",
+        "school": "Yeronga State High School",
+        "location": "Brisbane QLD",
+        "start": "2017-01",
+        "end": "2022-11",
+        "details": "ATAR 79.40."
+      }
+    ],
+    "courses": [
+      {
+        "name": "Provide First Aid (HLTAID011)",
+        "provider": "Registered training organisation",
+        "year": 2025
+      },
+      {
+        "name": "Student Protection training",
+        "provider": "Queensland state school induction",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Samoan",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Blue card",
+        "detail": "Current Queensland working with children check (blue card)."
+      },
+      {
+        "title": "Vocational placement",
+        "detail": "Completed 100 hours of supervised placement in a Prep and Year 1 classroom."
+      }
+    ],
+    "skills": [
+      "Small-group literacy",
+      "Disability support",
+      "Behaviour support",
+      "Resource preparation",
+      "Playground supervision",
+      "First aid",
+      "Child safety",
+      "Classroom routines",
+      "Microsoft Office",
+      "Communication with families"
+    ],
+    "interests": [
+      "Touch football",
+      "Pacific dance",
+      "Art"
+    ]
+  }
+}

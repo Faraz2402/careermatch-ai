@@ -1,0 +1,130 @@
+{
+  "id": "teaching-assistant-uk-mid",
+  "category": "teaching-education",
+  "role": "teaching-assistant",
+  "country": "uk",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Joanne Pritchard",
+    "title": "Higher Level Teaching Assistant (HLTA)",
+    "phone": "07700 900519",
+    "email": "joanne.pritchard@example.com",
+    "linkedin": "linkedin.com/in/joanne-pritchard",
+    "location": "Nottingham",
+    "summary": "HLTA with eight years in Nottingham primary schools, covering classes across KS1 and KS2 and leading phonics and emotional literacy interventions. Since gaining HLTA status I have taught 3 afternoons a week of PPA cover, and my Year 1 phonics groups have reached a 91% pass rate in the screening check.",
+    "experience": [
+      {
+        "title": "Teaching Assistant",
+        "company": "Bulwell Meadows Primary School",
+        "location": "Nottingham",
+        "start": "2018-09",
+        "end": "2020-08",
+        "bullets": [
+          "Supported a Reception class of 30, setting up continuous provision and recording observations for the EYFS profile.",
+          "Delivered daily Read Write Inc. phonics to a group of 8 children who had fallen behind.",
+          "Led lunchtime games for 60 pupils to reduce playground incidents."
+        ]
+      },
+      {
+        "title": "Level 3 Teaching Assistant (SEND)",
+        "company": "Bulwell Meadows Primary School",
+        "location": "Nottingham",
+        "start": "2020-09",
+        "end": "2022-12",
+        "bullets": [
+          "Supported 2 pupils with EHCPs in Year 4, adapting resources and working towards their outcomes with the SENCo.",
+          "Trained as an ELSA and ran weekly emotional literacy sessions for 14 pupils, with fewer behaviour referrals logged for 11 of them.",
+          "Prepared home learning packs and phoned 20 vulnerable families weekly during the 2021 lockdown.",
+          "Ran Numicon catch-up groups that moved 9 of 12 pupils to age-related expectations in maths."
+        ]
+      },
+      {
+        "title": "Higher Level Teaching Assistant (HLTA)",
+        "company": "Sherwood Vale Primary School",
+        "location": "Nottingham",
+        "start": "2023-01",
+        "end": "present",
+        "bullets": [
+          "Teach planned lessons to whole classes from Year 1 to Year 6 during PPA time, 3 afternoons a week.",
+          "Lead the school's phonics intervention programme; 91% of my Year 1 group passed the phonics screening check in 2025.",
+          "Coordinate a team of 6 teaching assistants' intervention timetables and track impact on pupil progress data.",
+          "Run a nurture group for 8 pupils at lunch, working closely with the DSL and families."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Level 3 Diploma in Specialist Support for Teaching and Learning in Schools",
+        "school": "Nottingham College",
+        "location": "Nottingham",
+        "start": "2019-09",
+        "end": "2020-07"
+      },
+      {
+        "degree": "Level 2 Certificate in Supporting Teaching and Learning",
+        "school": "Nottingham College",
+        "location": "Nottingham",
+        "start": "2017-09",
+        "end": "2018-06"
+      },
+      {
+        "degree": "GCSEs: 7 at grades A*–C, including English and Maths",
+        "school": "The Bluecoat School",
+        "location": "Nottingham",
+        "start": "2002-09",
+        "end": "2007-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "HLTA status (assessed)",
+        "provider": "Regional HLTA assessment centre",
+        "year": 2022
+      },
+      {
+        "name": "Emotional Literacy Support Assistant (ELSA)",
+        "provider": "Local authority educational psychology service",
+        "year": 2021
+      },
+      {
+        "name": "Paediatric First Aid",
+        "provider": "St John Ambulance",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "HLTA status",
+        "detail": "Met the professional standards for Higher Level Teaching Assistants in 2022."
+      },
+      {
+        "title": "Phonics results",
+        "detail": "91% pass rate for my Year 1 intervention group in the 2025 screening check."
+      }
+    ],
+    "skills": [
+      "Whole-class cover (PPA)",
+      "Read Write Inc. phonics",
+      "SEND support",
+      "EHCP outcomes",
+      "ELSA",
+      "Nurture groups",
+      "Behaviour management",
+      "Numicon",
+      "Safeguarding",
+      "EYFS observations"
+    ],
+    "interests": [
+      "Running",
+      "Crafts",
+      "Brownies volunteer leader"
+    ]
+  }
+}

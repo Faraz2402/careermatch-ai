@@ -1,0 +1,131 @@
+{
+  "id": "mechanical-engineer-au-senior",
+  "category": "engineering",
+  "role": "mechanical-engineer",
+  "country": "au",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Liam Fitzgerald",
+    "title": "Principal Mechanical Engineer",
+    "phone": "0491 575 254",
+    "email": "liam.fitzgerald@example.com",
+    "linkedin": "linkedin.com/in/liam-fitzgerald",
+    "location": "Brisbane QLD",
+    "summary": "Principal mechanical engineer (CPEng, RPEQ) with 16 years in bulk materials handling, rail maintenance and mining services across Queensland. Leads a team of nine engineers and drafters, and a conveyor upgrade program I directed raised plant availability from 88% to 95%.",
+    "experience": [
+      {
+        "title": "Graduate Mechanical Engineer",
+        "company": "Gladstone Bulk Handling",
+        "location": "Gladstone QLD",
+        "start": "2010-02",
+        "end": "2012-12",
+        "bullets": [
+          "Supported maintenance engineers on stacker-reclaimers, conveyors and ship loaders at a coal export terminal.",
+          "Analysed failure records for conveyor pulleys and idlers, helping move 40 components onto condition-based maintenance.",
+          "Prepared engineering change packages and work instructions for shutdown crews."
+        ]
+      },
+      {
+        "title": "Mechanical Engineer",
+        "company": "Ipswich Rail Maintenance Services",
+        "location": "Ipswich QLD",
+        "start": "2013-01",
+        "end": "2016-06",
+        "bullets": [
+          "Managed bogie and brake system modifications for a fleet of 70 passenger rail cars.",
+          "Wrote technical specifications and supervised contractors during overhaul, keeping work within a $3 million annual budget.",
+          "Reduced wheel replacement frequency by about 15% after a wheel-rail interface study with the track team.",
+          "Achieved Chartered status (CPEng) with Engineers Australia in 2015."
+        ]
+      },
+      {
+        "title": "Senior Mechanical Engineer",
+        "company": "Bowen Basin Mining Services",
+        "location": "Mackay QLD",
+        "start": "2016-07",
+        "end": "2020-03",
+        "bullets": [
+          "Led mechanical design for coal handling and preparation plant upgrades worth up to $25 million.",
+          "Checked designs against AS 4024 machinery safety and AS 1210 pressure vessel requirements before sign-off.",
+          "Registered as an RPEQ in 2017 and certified mechanical designs for Queensland projects.",
+          "Ran root-cause analyses on chute blockages that removed about 120 hours of unplanned downtime a year."
+        ]
+      },
+      {
+        "title": "Principal Mechanical Engineer",
+        "company": "Moreton Process Engineering",
+        "location": "Brisbane QLD",
+        "start": "2020-04",
+        "end": "present",
+        "bullets": [
+          "Lead a team of nine mechanical engineers and drafters delivering materials handling and process projects for mining and port clients.",
+          "Directed a three-year conveyor upgrade program that lifted plant availability from 88% to 95% for a major client.",
+          "Set technical standards and review gates for all mechanical deliverables, and sign off designs as the RPEQ.",
+          "Grow and manage a client portfolio worth about $8 million in annual fees.",
+          "Mentor graduates and engineers working toward CPEng and RPEQ, with five registered so far."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Engineering (Honours) (Mechanical)",
+        "school": "Queensland University of Technology",
+        "location": "Brisbane QLD",
+        "start": "2006-02",
+        "end": "2009-11"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Registered Professional Engineer of Queensland (RPEQ)",
+        "provider": "Board of Professional Engineers of Queensland",
+        "year": 2017
+      },
+      {
+        "name": "Chartered Professional Engineer (CPEng), NER",
+        "provider": "Engineers Australia",
+        "year": 2015
+      },
+      {
+        "name": "Conveyor Design Fundamentals",
+        "provider": "Engineers Australia",
+        "year": 2018
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Engineering excellence award",
+        "detail": "Conveyor upgrade program commended in a state engineering awards program in 2023."
+      },
+      {
+        "title": "Industry contributor",
+        "detail": "Member of an Engineers Australia technical committee on materials handling."
+      }
+    ],
+    "skills": [
+      "Bulk materials handling",
+      "Conveyor design",
+      "Rotating equipment",
+      "Root-cause analysis",
+      "AS 4024 / AS 1210",
+      "Inventor",
+      "SolidWorks",
+      "FEA",
+      "Project leadership",
+      "Client management",
+      "RPEQ certification"
+    ],
+    "interests": [
+      "Fishing at Moreton Bay",
+      "Rugby league referee",
+      "Coaching junior cricket"
+    ]
+  }
+}

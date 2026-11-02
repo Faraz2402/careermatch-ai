@@ -1,0 +1,135 @@
+{
+  "id": "teacher-us-senior",
+  "category": "teaching-education",
+  "role": "teacher",
+  "country": "us",
+  "level": "senior",
+  "template": "horizon",
+  "content": {
+    "name": "Kendra Whitfield",
+    "title": "Mathematics Department Chair and High School Math Teacher",
+    "phone": "(919) 555-0158",
+    "email": "kendra.whitfield@example.com",
+    "linkedin": "linkedin.com/in/kendra-whitfield",
+    "location": "Raleigh, NC",
+    "summary": "National Board Certified math teacher with 16 years in North Carolina public high schools, now chairing a 14-teacher math department. My AP Calculus AB pass rate has stayed above 80% for six years, and I led the shift to a co-taught Math I model that raised end-of-course proficiency by 17 points.",
+    "experience": [
+      {
+        "title": "Mathematics Teacher",
+        "company": "Neuse Crossing High School",
+        "location": "Raleigh, NC",
+        "start": "2010-08",
+        "end": "2014-06",
+        "bullets": [
+          "Taught Math I, Math II and Honors Precalculus to 5 sections of about 28 students each.",
+          "Started a free after-school tutoring lab staffed by National Honor Society students, serving 70 students a week.",
+          "Raised the share of my Math I students scoring proficient on the end-of-course exam from 52% to 68% in three years."
+        ]
+      },
+      {
+        "title": "AP Calculus and Precalculus Teacher",
+        "company": "Crabtree Valley High School",
+        "location": "Raleigh, NC",
+        "start": "2014-08",
+        "end": "2019-06",
+        "bullets": [
+          "Grew AP Calculus AB enrollment from 2 sections to 5 by recruiting underrepresented students through a summer bridge course.",
+          "Kept my AP Calculus AB pass rate (score 3+) between 79% and 88% across five exam years.",
+          "Mentored 5 beginning teachers through North Carolina's beginning teacher support program.",
+          "Earned National Board Certification in Mathematics/Adolescence and Young Adulthood in 2017."
+        ]
+      },
+      {
+        "title": "Instructional Coach, Secondary Mathematics",
+        "company": "Wake Pines Public Schools",
+        "location": "Raleigh, NC",
+        "start": "2019-07",
+        "end": "2022-06",
+        "bullets": [
+          "Coached 22 math teachers across 4 high schools using observation cycles, co-planning and model lessons.",
+          "Designed a district remote-learning math toolkit during school closures, used by 90+ teachers.",
+          "Helped write a common Math I curriculum map and assessments, adopted districtwide in 2021."
+        ]
+      },
+      {
+        "title": "Mathematics Department Chair and AP Calculus Teacher",
+        "company": "Crabtree Valley High School",
+        "location": "Raleigh, NC",
+        "start": "2022-08",
+        "end": "present",
+        "bullets": [
+          "Lead a 14-teacher math department, setting course sequences, PLC agendas and a $31,000 annual materials budget.",
+          "Launched co-taught Math I sections with the special education team, raising end-of-course proficiency from 41% to 58%.",
+          "Secured a $24,000 local education foundation grant for graphing calculators and a data science elective.",
+          "Teach 3 sections of AP Calculus AB and keep the department's AP pass rate above 80%."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Ed. Curriculum and Instruction",
+        "school": "North Carolina State University",
+        "location": "Raleigh, NC",
+        "start": "2012-08",
+        "end": "2015-05"
+      },
+      {
+        "degree": "B.S. Mathematics Education",
+        "school": "North Carolina State University",
+        "location": "Raleigh, NC",
+        "start": "2006-08",
+        "end": "2010-05"
+      }
+    ],
+    "courses": [
+      {
+        "name": "AP Summer Institute: Calculus AB/BC",
+        "provider": "College Board endorsed provider",
+        "year": 2018
+      },
+      {
+        "name": "Culturally Responsive Teaching in Math",
+        "provider": "NC Council of Teachers of Mathematics",
+        "year": 2023
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "North Carolina Professional Educator's License",
+        "detail": "Continuing Professional License, Mathematics (9–12), with master's-level (M) designation."
+      },
+      {
+        "title": "National Board Certified Teacher",
+        "detail": "Mathematics/Adolescence and Young Adulthood, certified 2017 and renewed 2022."
+      },
+      {
+        "title": "School Teacher of the Year, 2018",
+        "detail": "Selected by staff at Crabtree Valley High School."
+      }
+    ],
+    "skills": [
+      "AP Calculus AB",
+      "Curriculum design",
+      "Department leadership",
+      "Instructional coaching",
+      "Co-teaching",
+      "Data-driven instruction",
+      "PLC facilitation",
+      "Desmos",
+      "Canvas LMS",
+      "Grant writing",
+      "Parent communication"
+    ],
+    "interests": [
+      "Running half marathons",
+      "Board games",
+      "Robotics club coaching"
+    ]
+  }
+}

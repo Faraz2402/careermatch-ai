@@ -1,0 +1,80 @@
+{
+  "id": "cybersecurity-analyst-us-mid",
+  "category": "information-technology",
+  "role": "cybersecurity-analyst",
+  "country": "us",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Ethan Caldwell",
+    "title": "Cybersecurity Analyst",
+    "phone": "(919) 555-0153",
+    "email": "ethan.caldwell@example.com",
+    "linkedin": "linkedin.com/in/ethan-caldwell",
+    "location": "Raleigh, NC",
+    "summary": "Cybersecurity analyst with nine years in IT and security, including three in a managed security operations center. Now the lead analyst for a 30-clinic medical group, where I cut mean time to contain endpoint threats from five hours to 40 minutes. Holds Security+, CySA+ and GCIH and writes detections mapped to MITRE ATT&CK.",
+    "experience": [
+      {
+        "title": "Network Operations Technician",
+        "company": "Neuse River Credit Union",
+        "location": "Raleigh, NC",
+        "start": "2017-08",
+        "end": "2019-10",
+        "bullets": [
+          "Monitored firewalls and branch connectivity for 14 branches and resolved most outages before tellers noticed.",
+          "Reviewed firewall rules with the security officer and removed 220 unused rules from a set of 900.",
+          "Helped prepare evidence for annual FFIEC-based IT examinations."
+        ]
+      },
+      {
+        "title": "SOC Analyst",
+        "company": "Oak City Managed Security",
+        "location": "Raleigh, NC",
+        "start": "2019-11",
+        "end": "2022-12",
+        "bullets": [
+          "Triaged roughly 90 SIEM alerts per shift across 40 client environments in Splunk, escalating confirmed incidents within 30 minutes.",
+          "Tuned noisy correlation searches, lowering false positives for the three largest clients by 45%.",
+          "Investigated a business email compromise for a client law firm and recovered $86,000 in a wire transfer by alerting the bank within hours.",
+          "Promoted from Tier 1 to Tier 2 after 14 months and trained six new analysts."
+        ]
+      },
+      {
+        "title": "Cybersecurity Analyst",
+        "company": "Cape Fear Medical Group",
+        "location": "Raleigh, NC (hybrid)",
+        "start": "2023-01",
+        "end": "present",
+        "bullets": [
+          "Lead day-to-day detection and response for 2,400 endpoints across 30 clinics, using CrowdStrike Falcon and Microsoft Sentinel.",
+          "Reduced mean time to contain endpoint threats from five hours to 40 minutes with automated isolation playbooks.",
+          "Wrote 35 detections mapped to MITRE ATT&CK techniques, focused on ransomware precursors seen in healthcare.",
+          "Run quarterly tabletop exercises with clinical leaders and supply findings for the annual HIPAA security risk analysis."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.S. Information Technology",
+        "school": "North Carolina State University",
+        "location": "Raleigh, NC",
+        "start": "2013-08",
+        "end": "2017-05"
+      }
+    ],
+    "courses": [
+      { "name": "CompTIA Security+", "provider": "CompTIA", "year": 2019 },
+      { "name": "CompTIA CySA+", "provider": "CompTIA", "year": 2021 },
+      { "name": "GIAC Certified Incident Handler (GCIH)", "provider": "GIAC", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Top 10% finish, regional capture-the-flag", "detail": "Placed in the top tenth of 300 teams at a Research Triangle CTF in 2024." },
+      { "title": "Volunteer, cyber safety talks", "detail": "Give scam-awareness talks to seniors at Raleigh community centers several times a year." }
+    ],
+    "skills": ["Splunk", "Microsoft Sentinel (KQL)", "CrowdStrike Falcon", "MITRE ATT&CK", "Incident response", "Threat hunting", "Phishing analysis", "Vulnerability management (Tenable)", "Python scripting", "HIPAA Security Rule", "Tabletop exercises"],
+    "interests": ["Lockpicking club", "Trail running at Umstead", "Amateur radio"]
+  }
+}

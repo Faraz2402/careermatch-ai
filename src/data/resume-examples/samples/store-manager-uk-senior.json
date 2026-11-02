@@ -1,0 +1,93 @@
+{
+  "id": "store-manager-uk-senior",
+  "category": "sales-retail",
+  "role": "store-manager",
+  "country": "uk",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Claire Donnelly",
+    "title": "Store Manager",
+    "phone": "07700 900863",
+    "email": "claire.donnelly@example.com",
+    "linkedin": "linkedin.com/in/claire-donnelly",
+    "location": "Nottingham",
+    "summary": "Store manager with 20 years in UK retail, from department stores and fashion to food halls. Runs a £19m food and drink store with 140 colleagues, and turned it from the region's worst-performing site on availability and waste into its best within two years.",
+    "experience": [
+      {
+        "title": "Store Manager",
+        "company": "Riverside Grocers",
+        "location": "Nottingham",
+        "start": "2020-02",
+        "end": "present",
+        "bullets": [
+          "Lead a £19m food hall and café with 140 colleagues and six department managers, accountable for sales, payroll, margin and compliance.",
+          "Raised on-shelf availability from 91% to 97.5% by redesigning overnight replenishment and ordering with the supply team.",
+          "Halved food waste as a share of sales through reduced-to-clear timings and a surplus food partnership with two local charities.",
+          "Hold the premises licence responsibilities as designated premises supervisor and maintained a clean record across three local authority inspections.",
+          "Ran the store through the 2020–21 lockdowns, setting up queue management and a click-and-collect service within ten days."
+        ]
+      },
+      {
+        "title": "Store Manager",
+        "company": "Sherwood Fresh Foods",
+        "location": "Mansfield",
+        "start": "2014-10",
+        "end": "2020-01",
+        "bullets": [
+          "Managed a £9m convenience-format supermarket with 65 colleagues.",
+          "Grew like-for-like sales by an average of 4.6% a year for five years against a flat regional market.",
+          "Cut colleague turnover from 52% to 31% by introducing fixed-hour contracts and a buddy system for new starters.",
+          "Achieved a five-rated food hygiene score at every inspection."
+        ]
+      },
+      {
+        "title": "Deputy Store Manager",
+        "company": "Lace Market Fashion Ltd",
+        "location": "Nottingham",
+        "start": "2010-04",
+        "end": "2014-09",
+        "bullets": [
+          "Deputised for the store manager of a three-floor fashion store with £6.5m turnover and 48 staff.",
+          "Led the move to a new stock management system, completing the switchover with two days of downtime instead of the planned five.",
+          "Planned rotas and annual leave for the whole store, keeping payroll within 0.5% of budget."
+        ]
+      },
+      {
+        "title": "Department Manager",
+        "company": "Hockley Home & Living",
+        "location": "Nottingham",
+        "start": "2006-08",
+        "end": "2010-03",
+        "bullets": [
+          "Ran the homewares and lighting departments, worth £2.2m a year, with a team of 12.",
+          "Negotiated concession space with three suppliers, adding £180,000 of rental income.",
+          "Trained as a fire marshal and first aider for the shop floor."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA (Hons) Retail Management, 2:1",
+        "school": "Nottingham Trent University",
+        "location": "Nottingham",
+        "start": "2003-09",
+        "end": "2006-06"
+      }
+    ],
+    "courses": [
+      { "name": "IOSH Managing Safely", "provider": "IOSH", "year": 2021 },
+      { "name": "Level 2 Award for Personal Licence Holders", "provider": "Accredited licensing trainer", "year": 2020 },
+      { "name": "Level 3 Award in Supervising Food Safety in Catering", "provider": "Highfield", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Regional turnaround", "detail": "Store moved from last to first in the region on availability and waste within two years." },
+      { "title": "People development", "detail": "Seven colleagues promoted to department manager or above since 2020." }
+    ],
+    "skills": ["Multi-department leadership", "P&L and payroll control", "Availability and replenishment", "Waste reduction", "Licensing compliance", "Food safety", "Health and safety", "Colleague engagement", "Recruitment and retention", "Click-and-collect operations", "Change management"],
+    "interests": ["Running the Robin Hood Half Marathon", "Allotment growing", "Community theatre"]
+  }
+}

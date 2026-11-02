@@ -1,0 +1,63 @@
+{
+  "id": "project-manager-in-entry",
+  "category": "project-management",
+  "role": "project-manager",
+  "country": "in",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Pranav Shinde",
+    "title": "Assistant Project Manager",
+    "phone": "+91 00000 64239",
+    "email": "pranav.shinde@example.com",
+    "linkedin": "linkedin.com/in/pranav-shinde",
+    "location": "Pune, Maharashtra",
+    "summary": "Assistant project manager at a Pune infrastructure contractor, with a B.E. in Civil Engineering from COEP and a year as a graduate trainee at an auto components plant expansion. CAPM-certified and comfortable with Primavera P6, MS Project and site billing. Helped bring a warehouse project in 3 weeks ahead of its handover date.",
+    "experience": [
+      {
+        "title": "Assistant Project Manager",
+        "company": "Kharadi Infra Projects Pvt Ltd",
+        "location": "Pune, Maharashtra",
+        "start": "2024-07",
+        "end": "present",
+        "bullets": [
+          "Support the project manager on a ₹48 crore warehousing park, updating the Primavera P6 schedule and running daily progress meetings.",
+          "Helped hand over the first 2 lakh sq ft warehouse 3 weeks early by re-sequencing roofing and flooring crews.",
+          "Verify subcontractor RA bills against measurements, catching ₹11 lakh in over-billing in the first year.",
+          "Maintain the site safety and quality checklists for a workforce of about 150."
+        ]
+      },
+      {
+        "title": "Graduate Engineer Trainee, Projects",
+        "company": "Chakan Auto Components Ltd",
+        "location": "Chakan, Maharashtra",
+        "start": "2023-07",
+        "end": "2024-06",
+        "bullets": [
+          "Tracked civil and utility works for a new machining shop, reporting weekly to the plant projects head.",
+          "Coordinated equipment foundation drawings with three vendors, avoiding rework on 12 machine bases.",
+          "Prepared material reconciliation statements for cement and steel."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "B.E., Civil Engineering", "school": "College of Engineering Pune (COEP Technological University)", "location": "Pune, Maharashtra", "start": "2019-08", "end": "2023-06", "details": "CGPA 8.3/10. Final-year project: planning a low-cost housing cluster using Primavera P6." },
+      { "degree": "Class XII (Maharashtra State Board), 88.6%", "school": "Nowrosjee Wadia College", "location": "Pune, Maharashtra", "end": "2019-03" }
+    ],
+    "courses": [
+      { "name": "Certified Associate in Project Management (CAPM)", "provider": "Project Management Institute", "year": 2025 },
+      { "name": "Project Planning and Control", "provider": "NPTEL", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Marathi", "level": "Native" },
+      { "name": "Hindi", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Best site trainee", "detail": "Named best graduate trainee in the Chakan Auto Components projects department (2024)." },
+      { "title": "Concrete canoe competition", "detail": "Led the college team's concrete canoe build at an inter-college civil engineering fest (2022)." }
+    ],
+    "skills": ["Primavera P6", "MS Project", "AutoCAD", "RA bill verification", "Quantity estimation", "Site coordination", "Safety checklists", "Excel", "Progress reporting", "Vendor coordination"],
+    "interests": ["Cricket", "Fort treks", "Photography"]
+  }
+}

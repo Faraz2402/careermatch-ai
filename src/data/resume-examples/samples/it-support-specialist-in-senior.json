@@ -1,0 +1,96 @@
+{
+  "id": "it-support-specialist-in-senior",
+  "category": "information-technology",
+  "role": "it-support-specialist",
+  "country": "in",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Farhan Qureshi",
+    "title": "IT Support Lead",
+    "phone": "+91 00000 39462",
+    "email": "farhan.qureshi@example.com",
+    "linkedin": "linkedin.com/in/farhan-qureshi",
+    "location": "Hyderabad, Telangana",
+    "summary": "IT support lead with 17 years in Hyderabad, from desktop support in a small office-services firm to running end-user IT for a pharmaceutical company with two manufacturing plants. Leads 14 engineers supporting 2,100 users and brought the plants' shop-floor PCs under central patching for the first time. Experienced with audits, vendor contracts and 24x7 shift rosters.",
+    "experience": [
+      {
+        "title": "Desktop Support Engineer",
+        "company": "Begumpet Office Solutions Pvt. Ltd.",
+        "location": "Hyderabad, Telangana",
+        "start": "2009-08",
+        "end": "2013-04",
+        "bullets": [
+          "Installed and repaired desktops, printers and LAN cabling for 60 small-business clients on annual maintenance contracts.",
+          "Reduced repeat visits by carrying a standard spares kit and logging each fault in a shared register.",
+          "Earned my first Microsoft certification within a year and began handling server issues for larger clients."
+        ]
+      },
+      {
+        "title": "IT Support Engineer (L2)",
+        "company": "Gachibowli Process Services Pvt. Ltd.",
+        "location": "Hyderabad, Telangana",
+        "start": "2013-05",
+        "end": "2017-10",
+        "bullets": [
+          "Supported 1,500 seats in a 24x7 back-office operation where every idle workstation cost billable hours.",
+          "Kept seat availability above 99% during client audits by pre-staging spare thin clients on each floor.",
+          "Rolled out Windows 7 to Windows 10 upgrades in phased weekend windows for 1,200 machines.",
+          "Trained 20 L1 engineers across three shifts on escalation and documentation standards."
+        ]
+      },
+      {
+        "title": "Senior IT Support Specialist",
+        "company": "Charminar Diagnostics Ltd.",
+        "location": "Hyderabad, Telangana",
+        "start": "2017-11",
+        "end": "2022-06",
+        "bullets": [
+          "Owned end-user support for 85 collection centres and four labs, coordinating local vendors in six cities.",
+          "Introduced remote management tools that let the central team resolve about 60% of centre issues without a site visit.",
+          "Cut annual hardware maintenance spend by ₹18 lakh by renegotiating contracts and retiring 300 out-of-warranty PCs.",
+          "Ran asset verification for the statutory audit with zero unexplained discrepancies two years running."
+        ]
+      },
+      {
+        "title": "IT Support Lead",
+        "company": "Banjara Pharma Pvt. Ltd.",
+        "location": "Hyderabad, Telangana",
+        "start": "2022-07",
+        "end": "present",
+        "bullets": [
+          "Lead 14 support engineers across head office and two plants, covering 2,100 users in a 24x7 roster.",
+          "Brought 380 shop-floor PCs under central patching and access control, closing a long-standing finding from GxP computer-system audits.",
+          "Moved the service desk to ServiceNow with defined SLAs; P1 resolution within four hours rose from 72% to 94%.",
+          "Manage a ₹2.1 crore annual end-user IT budget, including laptop refresh and support contracts."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Sc Computer Science",
+        "school": "Osmania University",
+        "location": "Hyderabad, Telangana",
+        "start": "2006-07",
+        "end": "2009-05"
+      }
+    ],
+    "courses": [
+      { "name": "ITIL 4 Foundation", "provider": "PeopleCert", "year": 2019 },
+      { "name": "Microsoft 365 Certified: Modern Desktop Administrator Associate", "provider": "Microsoft", "year": 2020 },
+      { "name": "CompTIA Security+", "provider": "CompTIA", "year": 2023 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Urdu", "level": "Native" },
+      { "name": "Hindi", "level": "Fluent" },
+      { "name": "Telugu", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Best Support Team award, Banjara Pharma", "detail": "Team recognised by management after the ServiceNow rollout and SLA improvement in 2024." },
+      { "title": "Guest lecturer", "detail": "Teach a yearly session on IT service management to final-year B.Sc students at a local college." }
+    ],
+    "skills": ["Service desk management", "ServiceNow", "ITIL 4", "Windows 10/11", "Microsoft Intune and SCCM", "Active Directory", "Patch management", "GxP computer-system compliance support", "Asset management", "Vendor and AMC management", "Shift roster planning", "Budgeting"],
+    "interests": ["Cricket commentary", "Hyderabadi cooking", "Urdu poetry"]
+  }
+}

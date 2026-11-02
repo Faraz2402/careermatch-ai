@@ -1,0 +1,134 @@
+{
+  "slug": "administrative-assistant",
+  "name": "Administrative Assistant",
+  "category": "office-administration",
+  "updated": "2026-11-02",
+  "intro": "An administrative assistant résumé has to prove you keep an office running: diaries, documents, suppliers, visitors and the small fixes nobody else notices. Show the people you supported, the volume you handled and the problems you solved, and name the software you used.",
+  "recruiterFocus": [
+    "Who you supported (one director, a team of 12, a whole office of 60) and how senior they were.",
+    "The tools you use every day: Microsoft 365 or Google Workspace, shared calendars, a CRM, booking or accounts software.",
+    "Evidence that you are accurate and discreet: confidential files, expenses, minutes, payroll paperwork or data protection.",
+    "Signs you improve things rather than just follow instructions, such as a new filing system or a supplier saving.",
+    "Steady communication with visitors, callers and senior staff, often in a second language."
+  ],
+  "experienceTips": [
+    "Open each role with scope: number of people supported, size of the office or volume of calls, bookings or invoices.",
+    "Group routine duties into one bullet, then spend the others on things you changed, fixed or saved.",
+    "Name the systems: 'managed travel in Concur' or 'logged tickets in Yardi' says more than 'used various software'.",
+    "If you covered for a manager, trained a newcomer or ran a project like an office move, give it its own bullet.",
+    "Keep the job title the employer actually used, then add a plain description if it was unusual (for example 'Team Secretary')."
+  ],
+  "numbersTips": [
+    "People and scale: 'supported three partners and 14 fee earners' or 'ran reception for a 200-person site'.",
+    "Volume: calls per day, meetings booked per week, invoices processed per month, trips arranged per year.",
+    "Money: supplier savings ('cut stationery spend by £4,000 a year'), budgets you tracked, petty cash you balanced.",
+    "Time: 'reduced onboarding from ten days to six' or 'minutes circulated within 24 hours of every meeting'.",
+    "Accuracy: 'no missed renewal deadlines in two years' or 'zero cash variances across 20 months'."
+  ],
+  "noExperience": [
+    "Use part-time retail, hospitality or volunteer roles to show phone manner, cash handling, scheduling and reliability.",
+    "List coursework or certificates that prove office skills: a business administration course, a typing speed test or an Excel certificate.",
+    "Mention organising work from clubs, events or family businesses, with numbers: attendees, budgets, volunteers.",
+    "Write a short objective that names the type of office you want to work in and the skills you already have."
+  ],
+  "hardSkills": [
+    "Microsoft 365 (Outlook, Word, Excel, Teams)",
+    "Google Workspace",
+    "Diary and calendar management",
+    "Travel booking and expenses",
+    "Minute taking",
+    "Document and records management",
+    "Data entry and typing speed",
+    "Accounts software (Xero, QuickBooks, Tally)",
+    "Purchase orders and invoices",
+    "Event and meeting coordination",
+    "SharePoint or a DMS",
+    "Data protection basics"
+  ],
+  "softSkills": [
+    {
+      "skill": "Organisation",
+      "proof": "Describe a system you set up, such as a shared calendar or filing structure, and what it prevented, like double bookings."
+    },
+    {
+      "skill": "Discretion",
+      "proof": "Mention confidential work you handled, for example board papers, HR files or client data, without giving any details away."
+    },
+    {
+      "skill": "Communication",
+      "proof": "Show who you dealt with (callers, visitors, executives) and in which languages, and any written work such as minutes."
+    },
+    {
+      "skill": "Prioritising",
+      "proof": "Give an example of handling competing deadlines, such as court bundles prepared at 24 hours' notice."
+    },
+    {
+      "skill": "Initiative",
+      "proof": "Point to a change you suggested and carried out, with the result in time or money."
+    }
+  ],
+  "education": "Most employers ask for a high school diploma or equivalent; a vocational qualification in business administration helps a lot. Examples include a US associate degree in office technology, a UK Level 3 apprenticeship, a Canadian college diploma, an Australian Certificate IV, a German Ausbildung as Kaufmann/Kauffrau für Büromanagement, or an Indian B.Com or BBA. List the highest one first; school results only matter early on.",
+  "certifications": [
+    {
+      "name": "Microsoft Office Specialist (MOS)",
+      "note": "Useful when a job ad stresses Excel or Word; it gives an independent check of skills you otherwise only claim."
+    },
+    {
+      "name": "Certified Administrative Professional (CAP), IAAP",
+      "note": "A recognised US credential for experienced administrators; most helpful for senior or executive assistant roles."
+    },
+    {
+      "name": "Level 3 Business Administration (UK) or Certificate IV in Business Administration (AU)",
+      "note": "Often the expected entry qualification; list it near the top if you have little work history."
+    },
+    {
+      "name": "First aid at work",
+      "note": "Many offices need trained first aiders, so a current certificate can tip the balance between candidates."
+    },
+    {
+      "name": "PRINCE2 Foundation or similar",
+      "note": "Worth including if you coordinate projects or support a project office."
+    }
+  ],
+  "summaryExample": "Administrative assistant with six years supporting legal and property teams. Manage diaries and travel for four senior managers, prepare minutes and board packs, and keep 1,000-plus client files in order. Rebuilt the supplier list last year and saved the office £7,500.",
+  "objectiveExample": "Recent business administration graduate looking for a first administrative assistant role in a busy professional office. Bringing fast, accurate typing (65 wpm), strong Excel skills and two summers of front-desk experience at a family-run hotel.",
+  "summaryVsObjective": "Use a summary once you have at least a year of office work: it leads with experience and a result. Use an objective if you are starting out or changing careers, so you can explain the role you want and the skills you bring from study or other jobs.",
+  "extraSections": [
+    "Languages, with a level for each, since many offices handle calls or correspondence in more than one language.",
+    "Certifications such as MOS, first aid or a business administration qualification.",
+    "Volunteer roles where you organised events, kept records or managed bookings.",
+    "Typing speed, if it is fast and you can back it up with a recent test."
+  ],
+  "weakStrong": [
+    {
+      "weak": "Responsible for answering phones and greeting visitors.",
+      "strong": "Ran reception for a 60-person practice, handling about 80 calls and 25 visitors a day and logging every visitor in a digital sign-in system.",
+      "why": "It shows scale and a concrete system instead of a job description."
+    },
+    {
+      "weak": "Helped with office supplies.",
+      "strong": "Renegotiated stationery, coffee and printer contracts, saving $9,800 a year without changing suppliers.",
+      "why": "It turns a minor task into a measurable saving the employer cares about."
+    },
+    {
+      "weak": "Did calendar management for managers.",
+      "strong": "Managed diaries and travel for three directors across two time zones, booking 60-plus trips a year within policy.",
+      "why": "It names who you supported, the complexity and the volume."
+    }
+  ],
+  "takeaways": [
+    "Say who you supported and how many people, then show volume with numbers.",
+    "Name the software you use daily.",
+    "Spend most bullets on things you improved, saved or organised, not routine duties.",
+    "Show discretion and accuracy with examples, not adjectives.",
+    "Match local qualification names so employers recognise them at a glance."
+  ],
+  "countryNotes": {
+    "us": "No licence is needed. An associate degree or certificate in office administration helps, and the IAAP's CAP credential is recognised for senior roles. Call it a résumé, use US Letter paper and leave out photos, age and marital status.",
+    "uk": "No licence is needed. Business administration apprenticeships (Level 2 or 3) are a common route, and GCSE English and maths are often requested. Call it a CV. Mention UK GDPR experience if you handled personal data.",
+    "ca": "No licence is needed. College diplomas or certificates in office administration are common. English/French bilingualism is a strong asset in Québec, Ottawa and federal workplaces, so state your level in each language.",
+    "au": "No licence is needed. A Certificate III or IV in Business Administration from TAFE or another registered training organisation is the usual qualification. Some roles in schools, health or disability services also require a Working with Children Check.",
+    "de": "No licence is needed. The standard route is a three-year Ausbildung as Kaufmann/Kauffrau für Büromanagement (IHK), which replaced older titles such as Bürokauffrau in 2014. Further qualifications like Geprüfte/r Wirtschaftsfachwirt/in (IHK) suit senior assistant roles. State German and English at CEFR levels.",
+    "in": "No licence is needed. A B.Com, BBA or other graduation degree is commonly asked for, and Tally and MS Office skills are frequently listed. Mention English plus Hindi or the regional language. Leave out date of birth, religion, caste, marital status and father's name."
+  }
+}

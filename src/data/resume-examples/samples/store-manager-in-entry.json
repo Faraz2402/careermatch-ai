@@ -1,0 +1,87 @@
+{
+  "id": "store-manager-in-entry",
+  "category": "sales-retail",
+  "role": "store-manager",
+  "country": "in",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Pooja Deshmukh",
+    "title": "Store Manager",
+    "phone": "+91 00000 53086",
+    "email": "pooja.deshmukh@example.com",
+    "linkedin": "linkedin.com/in/pooja-deshmukh",
+    "location": "Pune, Maharashtra",
+    "summary": "Store manager with three years in organised retail in Pune, promoted from management trainee to running a home essentials store within two years. Leads a team of 11 and took monthly sales from ₹28 lakh to ₹36 lakh in the first year in charge.",
+    "experience": [
+      {
+        "title": "Store Manager",
+        "company": "Baner Home Essentials Pvt Ltd",
+        "location": "Pune, Maharashtra",
+        "start": "2025-07",
+        "end": "present",
+        "bullets": [
+          "Run a 4,500 sq ft home and kitchen store with a team of 11, responsible for sales, staffing, stock and store P&L.",
+          "Grew monthly sales from ₹28 lakh to ₹36 lakh by adding a wedding-gifting corner and weekend demos of kitchen appliances.",
+          "Brought stock loss down from 1.9% to 1.1% by introducing weekly cycle counts and a check at every inward delivery."
+        ]
+      },
+      {
+        "title": "Assistant Store Manager",
+        "company": "Koregaon Park Fashion Pvt Ltd",
+        "location": "Pune, Maharashtra",
+        "start": "2024-04",
+        "end": "2025-06",
+        "bullets": [
+          "Supported the store manager of a women's ethnic wear store and managed the floor on weekends and during festive sales.",
+          "Planned staff rosters for 14 team members during Diwali and wedding season, when footfall doubled.",
+          "Started a WhatsApp catalogue for regular customers that brought in ₹4 lakh of orders a month."
+        ]
+      },
+      {
+        "title": "Retail Management Trainee",
+        "company": "Koregaon Park Fashion Pvt Ltd",
+        "location": "Pune, Maharashtra",
+        "start": "2023-07",
+        "end": "2024-03",
+        "bullets": [
+          "Rotated through billing, visual merchandising, inventory and customer service in two stores.",
+          "Reorganised the back room by size and style, cutting the time to find items for customers by half.",
+          "Prepared daily sales and footfall reports in Excel for the area manager."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BBA (Retail Management)",
+        "school": "Savitribai Phule Pune University (affiliated college)",
+        "location": "Pune, Maharashtra",
+        "start": "2020-07",
+        "end": "2023-05",
+        "details": "CGPA 7.9/10. Summer internship in a Pune supermarket chain's store operations team."
+      },
+      {
+        "degree": "Class XII (Maharashtra State Board), Commerce",
+        "school": "Junior college, Pune",
+        "location": "Pune, Maharashtra",
+        "end": "2020-03",
+        "details": "84%"
+      }
+    ],
+    "courses": [
+      { "name": "Principles of Management", "provider": "NPTEL", "year": 2022 },
+      { "name": "Advanced Excel for Business", "provider": "Coursera", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Marathi", "level": "Native" },
+      { "name": "Hindi", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Fast promotion", "detail": "Promoted from trainee to store manager in two years." },
+      { "title": "Best festive store", "detail": "Store ranked first in the Pune cluster for Diwali 2024 sales growth." }
+    ],
+    "skills": ["Store operations", "Team leadership", "Rostering", "Inventory control", "Visual merchandising", "Sales planning", "Customer service", "POS billing", "Excel", "WhatsApp Business"],
+    "interests": ["Rangoli", "Badminton", "Exploring Pune's food streets"]
+  }
+}

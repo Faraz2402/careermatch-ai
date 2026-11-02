@@ -1,0 +1,108 @@
+{
+  "id": "mechanical-engineer-uk-entry",
+  "category": "engineering",
+  "role": "mechanical-engineer",
+  "country": "uk",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Amira Haddad",
+    "title": "Graduate Mechanical Engineer",
+    "phone": "07700 900345",
+    "email": "amira.haddad@example.com",
+    "linkedin": "linkedin.com/in/amira-haddad",
+    "location": "Derby",
+    "summary": "Graduate mechanical engineer with a First-class MEng from the University of Nottingham and a summer placement in pump design. Now working on precision machined assemblies for rail and aerospace customers, enrolled on the IMechE's Monitored Professional Development Scheme towards CEng.",
+    "experience": [
+      {
+        "title": "Summer Engineering Placement",
+        "company": "Trent Valley Pumps",
+        "location": "Nottingham",
+        "start": "2023-06",
+        "end": "2023-09",
+        "bullets": [
+          "Modelled impeller and volute variants in SolidWorks and compared head-flow curves from test rig data.",
+          "Wrote a Python script to clean and plot test rig data, cutting report preparation from a day to about two hours.",
+          "Presented placement findings to the engineering manager, who used them to shortlist two impeller designs for prototyping."
+        ]
+      },
+      {
+        "title": "Graduate Mechanical Engineer",
+        "company": "Derwent Precision Engineering",
+        "location": "Derby",
+        "start": "2024-09",
+        "end": "present",
+        "bullets": [
+          "Design and detail jigs, fixtures and machined assemblies for rail and aerospace customers using SolidWorks and BS 8888 drawing standards.",
+          "Ran hand calculations and FEA checks on a lifting fixture, which passed its proof load test first time.",
+          "Supported a root-cause investigation into a recurring bore tolerance issue, contributing to a 12% drop in scrap on that part family.",
+          "Rotate through design, quality and production teams as part of the two-year graduate scheme."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "MEng (Hons) Mechanical Engineering, First Class",
+        "school": "University of Nottingham",
+        "location": "Nottingham",
+        "start": "2020-09",
+        "end": "2024-06",
+        "details": "IMechE-accredited; group project on a low-cost prosthetic knee"
+      },
+      {
+        "degree": "A-levels: Mathematics (A*), Further Mathematics (A), Physics (A)",
+        "school": "Derby College",
+        "location": "Derby",
+        "start": "2018-09",
+        "end": "2020-08"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Certified SolidWorks Associate (CSWA)",
+        "provider": "Dassault Systèmes",
+        "year": 2023
+      },
+      {
+        "name": "Introduction to GD&T",
+        "provider": "IMechE",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Arabic",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Formula Student",
+        "detail": "Suspension team lead for the university's Formula Student car in 2023."
+      },
+      {
+        "title": "Dean's prize",
+        "detail": "Awarded for the highest-scoring MEng individual project in the cohort."
+      }
+    ],
+    "skills": [
+      "SolidWorks",
+      "FEA (ANSYS)",
+      "BS 8888 drawings",
+      "GD&T",
+      "MATLAB",
+      "Python",
+      "Root-cause analysis",
+      "Tolerance stack-ups"
+    ],
+    "interests": [
+      "Formula Student",
+      "Climbing",
+      "STEM ambassador visits to schools"
+    ]
+  }
+}

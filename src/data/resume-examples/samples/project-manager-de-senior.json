@@ -1,0 +1,88 @@
+{
+  "id": "project-manager-de-senior",
+  "category": "project-management",
+  "role": "project-manager",
+  "country": "de",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Dimitri Papadakis",
+    "title": "Head of PMO",
+    "phone": "+49 221 4710 395",
+    "email": "dimitri.papadakis@example.com",
+    "linkedin": "linkedin.com/in/dimitri-papadakis",
+    "location": "Köln",
+    "summary": "Head of PMO with 18 years in insurance IT, energy and telecoms, trained as a Dipl.-Ing. in electrical engineering at RWTH Aachen. Lead a PMO of nine at a Cologne pharmaceutical logistics company and oversee a €41m portfolio, including a GDP-compliant cold-chain warehouse delivered on time. PMP and IPMA Level B certified, used to working with works councils and international vendors.",
+    "experience": [
+      {
+        "title": "Head of PMO",
+        "company": "Ehrenfeld Pharma Logistik GmbH",
+        "location": "Köln",
+        "start": "2021-07",
+        "end": "present",
+        "bullets": [
+          "Lead a PMO of nine project managers and controllers overseeing a €41m portfolio of 25 IT, automation and site projects.",
+          "Delivered a GDP-compliant cold-chain warehouse with automated storage on schedule, adding capacity for 18,000 pallets.",
+          "Introduced portfolio prioritisation with the executive board that stopped seven low-value projects and freed €3.2m.",
+          "Agreed a works agreement with the works council for the new warehouse management system before rollout."
+        ]
+      },
+      {
+        "title": "Senior Project Manager",
+        "company": "Deutzer Hafen Telekom GmbH",
+        "location": "Köln",
+        "start": "2015-04",
+        "end": "2021-06",
+        "bullets": [
+          "Managed fibre-to-the-home rollout projects connecting 65,000 households in North Rhine-Westphalia.",
+          "Negotiated civil works contracts with eight subcontractors, keeping cost per connection 6% below plan.",
+          "Led a team of five project managers through the shift to remote working without schedule slippage."
+        ]
+      },
+      {
+        "title": "Project Manager",
+        "company": "Domblick Energie GmbH",
+        "location": "Köln",
+        "start": "2011-01",
+        "end": "2015-03",
+        "bullets": [
+          "Ran substation modernisation and smart meter pilot projects worth up to €8m.",
+          "Coordinated grid operator, municipality and contractor approvals for 14 sites.",
+          "Built a risk register template that the engineering department adopted for all capital projects."
+        ]
+      },
+      {
+        "title": "Project Assistant, IT",
+        "company": "Rheinpark Versicherung AG",
+        "location": "Köln",
+        "start": "2008-01",
+        "end": "2010-12",
+        "bullets": [
+          "Supported the migration of policy data centres, maintaining plans and status reports for 30 workstreams.",
+          "Organised steering committee meetings and tracked decisions and actions.",
+          "Took over a small server consolidation project as acting project manager in 2010."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "Dipl.-Ing. Electrical Engineering (Elektrotechnik)", "school": "RWTH Aachen University", "location": "Aachen", "start": "2001-10", "end": "2007-09", "details": "Final grade 2.0" },
+      { "degree": "Abitur", "school": "Schiller-Gymnasium Köln", "location": "Köln", "end": "2001-06" }
+    ],
+    "courses": [
+      { "name": "Project Management Professional (PMP)", "provider": "Project Management Institute", "year": 2013 },
+      { "name": "IPMA Level B (Certified Senior Project Manager)", "provider": "GPM Deutsche Gesellschaft für Projektmanagement", "year": 2018 },
+      { "name": "SAFe Agilist", "provider": "Scaled Agile", "year": 2022 }
+    ],
+    "languages": [
+      { "name": "German", "level": "C2 (native)" },
+      { "name": "Greek", "level": "Native" },
+      { "name": "English", "level": "C1" }
+    ],
+    "achievements": [
+      { "title": "Portfolio savings", "detail": "Freed €3.2m in the first year of portfolio prioritisation." },
+      { "title": "GPM speaker", "detail": "Presented on PMO maturity at a GPM regional group meeting in Köln (2023)." }
+    ],
+    "skills": ["Portfolio management", "PMO leadership", "PMP", "IPMA", "SAFe", "Risk management", "Contract negotiation", "Works council coordination", "Budget control", "MS Project", "Jira Align", "Stakeholder management"],
+    "interests": ["Football (1. FC Köln season ticket)", "Greek cooking", "Cycling along the Rhine"]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "slug": "digital-marketing-specialist",
+  "name": "Digital Marketing Specialist",
+  "category": "marketing",
+  "updated": "2026-11-02",
+  "intro": "Digital marketing specialists are hired to make online channels pay for themselves. Your résumé should name the channels and platforms you run, the spend you manage, and the before-and-after numbers that show your changes worked, whether that is lower cost per lead, more organic traffic or higher conversion.",
+  "recruiterFocus": [
+    "Which channels you own (paid search, paid social, SEO, email, affiliates, marketplaces) and the monthly or annual spend.",
+    "Efficiency metrics that matter to the business: cost per lead, cost per acquisition, return on ad spend, conversion rate.",
+    "Hands-on platform skills: Google Ads, Meta Ads, GA4, Tag Manager, email and automation tools, CMS and e-commerce platforms.",
+    "Testing and measurement: A/B tests, tracking setups, attribution or incrementality work, and how you used the results.",
+    "Awareness of privacy and consent rules and how you kept tracking working within them."
+  ],
+  "experienceTips": [
+    "State the channel mix and budget at the start of each role so the reader can judge scale.",
+    "Write bullets around a change you made and its effect, such as restructuring an account, rewriting landing pages or connecting CRM data to bidding.",
+    "Name the business result alongside the platform metric: a better click-through rate matters more when it led to more sales or leads.",
+    "If you worked agency-side, give the number of client accounts, their sectors and combined spend instead of listing every client.",
+    "Show the tools you set up or own, not just the ones you logged into."
+  ],
+  "numbersTips": [
+    "Spend managed: '$1.1M a year across Google Ads and LinkedIn' or '₹9 lakh a month on Google and Meta'.",
+    "Cost metrics before and after: 'cost per SQL from $412 to $272' or 'CPA down 21%'.",
+    "Return metrics: ROAS ('5.2 to 7.4'), revenue from a channel, or orders attributed to a campaign.",
+    "Organic growth: sessions, rankings for a set of tracked terms, or leads from organic search.",
+    "Email and automation: list growth, open or click rates, and conversions from specific flows."
+  ],
+  "noExperience": [
+    "Run a small real campaign: help a local business, a club or your own project with a modest ad budget and report what happened, including what did not work.",
+    "Complete free platform certifications (Google Ads, GA4, Meta, HubSpot) and list them with the year.",
+    "Add a projects section with a site you built and optimised, a newsletter you grew or a content series you published, with numbers."
+  ],
+  "hardSkills": ["Google Ads", "Meta Ads", "LinkedIn Ads", "SEO (technical and content)", "GA4", "Google Tag Manager", "Email automation (Klaviyo, HubSpot, Braze)", "Conversion rate optimisation", "A/B testing", "Looker Studio or similar dashboards", "Shopify or WordPress", "Basic SQL or spreadsheet analysis", "Consent and privacy setup"],
+  "softSkills": [
+    { "skill": "Analytical thinking", "proof": "A bullet where data led you to change budget, targeting or a page, with the measurable effect." },
+    { "skill": "Curiosity and testing", "proof": "A testing routine you ran, how often, and a winning variant with its lift." },
+    { "skill": "Collaboration", "proof": "Work with developers, sales or compliance, such as a tracking migration or approved ad copy library." },
+    { "skill": "Clear reporting", "proof": "A dashboard or report someone else relies on to make decisions." }
+  ],
+  "education": "Degrees in marketing, communications, business or a technical field are common, but many specialists come in through short courses and platform certifications. Postgraduate certificates in digital marketing (such as Ontario college programs) and apprenticeships are respected entry routes. List certifications with the year, as platforms change quickly.",
+  "certifications": [
+    { "name": "Google Ads certifications (Search, Display, Measurement and others)", "note": "Free through Google Skillshop; expected for paid search roles and renewed periodically." },
+    { "name": "Google Analytics certification", "note": "Shows you can work with GA4 reporting and events; useful for almost every digital role." },
+    { "name": "Meta Certified Digital Marketing Associate", "note": "Paid exam from Meta; helpful for paid social roles." },
+    { "name": "HubSpot Academy certifications", "note": "Free; relevant for inbound, email and B2B automation roles, especially where HubSpot is the CRM." },
+    { "name": "CIM Diploma in Digital Marketing", "note": "A more formal UK qualification for people moving into senior digital roles." }
+  ],
+  "summaryExample": "Digital marketing specialist with five years in paid search and email for e-commerce and subscription brands. Manages $60,000 a month across Google and Meta and reduced cost per new subscriber by 24% by restructuring campaigns and rebuilding the welcome email series. Certified in Google Ads and GA4.",
+  "objectiveExample": "Marketing graduate looking for a junior digital marketing role. I have run a $1,500 Meta Ads test for a local café that brought in 180 tracked orders, hold Google Ads and GA4 certifications, and built and grew a food blog to 4,000 monthly visitors.",
+  "summaryVsObjective": "A summary suits anyone who has managed real campaigns or budgets, because it lets you lead with channel, spend and a result. An objective works for graduates and career changers who need to show certifications and side projects instead of job history.",
+  "extraSections": [
+    "Certifications with year, since platform certifications expire or change.",
+    "Projects: personal sites, side businesses or volunteer campaigns with numbers.",
+    "Tools: a short, honest list grouped by ads, analytics, automation and CMS.",
+    "Portfolio link to case studies or sample ads, with client details removed if needed."
+  ],
+  "weakStrong": [
+    { "weak": "Managed Google Ads campaigns.", "strong": "Restructured 3,000+ keywords into themed ad groups with negative lists, lifting Quality Scores and cutting CPC by 17% on a $190,000 monthly budget.", "why": "It shows the specific change, the scale and the effect on cost." },
+    { "weak": "Did SEO for the website.", "strong": "Planned 180 breed and health articles with a vet adviser, lifting organic quote starts by 52% in 18 months.", "why": "It names the strategy and links traffic to a business outcome." },
+    { "weak": "Set up email campaigns.", "strong": "Redesigned the Klaviyo welcome flow and added a subscribe-and-save offer, growing recurring monthly orders from 410 to 860.", "why": "Specific tool, specific change and a clear before-and-after." },
+    { "weak": "Worked on tracking and analytics.", "strong": "Migrated tagging to server-side Google Tag Manager and Consent Mode v2, recovering conversion visibility lost to cookie consent.", "why": "It shows technical depth and why the work mattered." }
+  ],
+  "takeaways": [
+    "Name the channels, tools and spend for every role.",
+    "Pair platform metrics with business results like leads, orders or revenue.",
+    "Show tests you ran and what you changed because of them.",
+    "List certifications with dates and keep them current.",
+    "Mention privacy and consent work if you have done it; employers increasingly need it."
+  ],
+  "countryNotes": {
+    "us": "No licence is required. Email must follow the CAN-SPAM Act and texts the TCPA, and the FTC's endorsement guides cover influencer and affiliate disclosures. State privacy laws (such as California's CCPA/CPRA) affect tracking and data use, and rules differ by state, so check the current position for the states you target.",
+    "uk": "No licence is required. Cookies, tracking and email marketing are governed by UK GDPR and PECR, with guidance from the ICO. Ads must follow the CAP Code enforced by the ASA. Financial services firms also need FCA-compliant financial promotions. CIM and the Digital Marketing Institute offer formal qualifications; most UK employers ask for a CV.",
+    "ca": "No licence is required. CASL governs commercial emails and texts and requires consent and an unsubscribe option. PIPEDA and provincial laws (notably Québec's Law 25) cover personal data and tracking. Ads in Québec must meet French-language rules, so French content skills are an advantage. Ontario college graduate certificates are a common entry route.",
+    "au": "No licence is required. The Spam Act 2003 covers email and SMS marketing, the Privacy Act 1988 covers personal information, and the Australian Consumer Law bans misleading claims. Financial and insurance advertising has additional rules from ASIC. TAFE and university short courses plus platform certifications are common entry routes.",
+    "de": "No licence is required. Tracking and cookies need consent under the TDDDG (formerly TTDSG) and the GDPR (DSGVO), and unsolicited advertising emails are restricted under the UWG. Many specialists hold an IHK qualification such as Kaufmann/-frau für Marketingkommunikation or a business degree. German job ads often say 'Online Marketing Manager' or 'SEA/SEO Manager'.",
+    "in": "No licence is required. The Digital Personal Data Protection Act 2023 governs consent for personal data, ASCI guidelines cover influencer disclosures, and TRAI rules (including DLT registration) apply to commercial SMS. Job titles often use 'Digital Marketing Executive'. Courses from Coursera, Google Skillshop and NPTEL are widely listed by applicants."
+  }
+}

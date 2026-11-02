@@ -1,0 +1,128 @@
+{
+  "slug": "customer-service-representative",
+  "name": "Customer Service Representative",
+  "category": "office-administration",
+  "updated": "2026-11-02",
+  "intro": "A customer service résumé should show that you solve problems for people quickly and leave them satisfied. Lead with the channels you handle, the volume, the quality scores you hit and any escalations, coaching or process fixes you took on.",
+  "recruiterFocus": [
+    "The channels you work on (phone, chat, email, social, in person) and your daily or weekly volume.",
+    "Quality measures such as CSAT, NPS, first-contact resolution, quality scores and handle time.",
+    "Experience with complaints, refunds, payment plans or vulnerable customers, and the rules you follow.",
+    "The systems you use, for example Zendesk, Salesforce, Freshdesk or Genesys.",
+    "Languages you can support customers in, with an honest level."
+  ],
+  "experienceTips": [
+    "Start each job with what you handled and for whom: 'billing and meter queries for 90,000 household customers'.",
+    "Pair speed with quality: a handle time figure means more next to a satisfaction or quality score.",
+    "Show escalation work, complaint sign-off or regulated tasks (disputes, hardship, claims) in their own bullets.",
+    "Mention fixes you suggested, like new templates or knowledge articles, and what changed afterwards.",
+    "For team lead roles, add team size, coaching routines and staff results such as promotions or lower turnover."
+  ],
+  "numbersTips": [
+    "Volume: '60 calls a day', '150 tickets a week', 'more than 9,000 rated chats'.",
+    "Quality: 'CSAT 4.6/5', 'quality score 92% against an 85% target', 'NPS up from 31 to 44'.",
+    "Resolution: 'first-contact resolution up from 71% to 84%' or 'complaints resolved in two days instead of five'.",
+    "Efficiency: 'handle time down by 90 seconds' or 'repeat calls about billing cut by 20%'.",
+    "Money: refunds or recoveries handled, retention saves, or reduced write-offs."
+  ],
+  "noExperience": [
+    "Retail, hospitality and call-heavy volunteer roles all count: they show patience, cash handling and dealing with complaints.",
+    "Describe a time you calmed down an upset customer or solved a problem, with the outcome.",
+    "List any languages, typing speed and familiarity with common tools such as Google Workspace or a ticketing system."
+  ],
+  "hardSkills": [
+    "Ticketing systems (Zendesk, Freshdesk)",
+    "CRM (Salesforce, HubSpot)",
+    "Contact centre telephony (Genesys, Five9)",
+    "Live chat and email support",
+    "Complaint handling",
+    "Refunds and billing adjustments",
+    "Payment plans and arrears",
+    "Knowledge base writing",
+    "Data protection rules",
+    "Typing speed and accuracy",
+    "Basic Excel reporting"
+  ],
+  "softSkills": [
+    {
+      "skill": "Empathy",
+      "proof": "Mention work with distressed or vulnerable customers and a satisfaction score or feedback that backs it up."
+    },
+    {
+      "skill": "Problem solving",
+      "proof": "Describe a recurring issue you spotted and the fix you suggested, with the drop in repeat contacts."
+    },
+    {
+      "skill": "Calm under pressure",
+      "proof": "Point to peak periods, outages or storm seasons you worked through while keeping quality targets."
+    },
+    {
+      "skill": "Clear communication",
+      "proof": "Show that you wrote templates, scripts or help articles that others now use."
+    },
+    {
+      "skill": "Coaching",
+      "proof": "If you trained new starters, say how many and how quickly they reached target."
+    }
+  ],
+  "education": "A high school diploma or equivalent is the usual minimum. A college diploma or degree in business or communication helps for team lead roles but is rarely required. Short courses in complaint handling, de-escalation or a ticketing tool are worth listing.",
+  "certifications": [
+    {
+      "name": "Vendor training for Zendesk, Salesforce or Freshdesk",
+      "note": "Useful when an ad names a specific tool, as it shows you can start without much training."
+    },
+    {
+      "name": "Customer service qualifications (e.g. NCFE or City & Guilds in the UK)",
+      "note": "Helpful for entry-level candidates without much paid experience."
+    },
+    {
+      "name": "Industry training such as complaints, anti-money laundering or claims handling",
+      "note": "Matters in banking, insurance, energy and telecoms, where customer contact is regulated."
+    },
+    {
+      "name": "Mental health first aid",
+      "note": "Good evidence for roles with vulnerable or distressed customers."
+    }
+  ],
+  "summaryExample": "Customer service representative with five years in telecom and insurance contact centres. Handle about 70 phone and chat contacts a day with a 4.6/5 satisfaction score, process complaints and refunds within policy, and coach new hires on our CRM.",
+  "objectiveExample": "Friendly and reliable school leaver seeking a first customer service role in a contact centre. Two years of weekend retail work handling tills, refunds and complaints, typing at 55 wpm, and fluent in English and Punjabi.",
+  "summaryVsObjective": "A summary suits anyone with contact-centre or customer-facing experience: lead with channels, volume and a quality result. An objective suits school leavers or career changers, who can explain the role they want and transferable experience from retail or volunteering.",
+  "extraSections": [
+    "Languages, since multilingual support is often paid more or fast-tracked.",
+    "Awards such as 'agent of the month' or customer compliments, with the date.",
+    "Training courses in complaints, de-escalation or specific software.",
+    "Volunteer roles that involved helplines, front desks or events."
+  ],
+  "weakStrong": [
+    {
+      "weak": "Answered customer calls and emails.",
+      "strong": "Handled about 65 calls and 20 emails a day on billing and plan changes, keeping a 93% quality score.",
+      "why": "It adds volume, topics and a quality measure."
+    },
+    {
+      "weak": "Dealt with angry customers.",
+      "strong": "Took over escalated complaints for a 140,000-member credit union and lifted first-contact resolution from 71% to 84%.",
+      "why": "It replaces a vague claim with scope and a measurable improvement."
+    },
+    {
+      "weak": "Helped train new staff.",
+      "strong": "Trained 12 new hires on the CRM and call flow; all reached quality target within six weeks.",
+      "why": "It shows the number trained and the result of the training."
+    }
+  ],
+  "takeaways": [
+    "Lead with channels and volume, then show quality scores.",
+    "Pair speed metrics with satisfaction so you don't look rushed.",
+    "Highlight complaints, escalations and regulated work.",
+    "Name the tools and languages you use.",
+    "Show a process fix or coaching to stand out for senior roles."
+  ],
+  "countryNotes": {
+    "us": "No licence is needed for general customer service. Some financial and insurance roles need a state insurance licence or background checks; check the job ad and your state's insurance department. Use 'résumé', and leave out photos and personal details.",
+    "uk": "No licence is needed. Energy, telecoms and financial services follow regulator rules on complaints and vulnerable customers (Ofgem, Ofcom, the FCA), so mention relevant experience. Common titles are Customer Service Advisor and Contact Centre Advisor. Call it a CV.",
+    "ca": "No licence is needed for most roles. Bilingual (English/French) service is highly valued in Québec, Ottawa and federally regulated sectors such as banking and telecom, so state your level in each language clearly.",
+    "au": "No licence is needed for most roles. Telecoms, energy and financial services have consumer protection rules (for example the Telecommunications Consumer Protections Code, and hardship obligations), so experience with them is worth naming. Contact centre 'consultant' is a common job title.",
+    "de": "No licence is needed. Common routes are an Ausbildung (e.g. Kaufmann/Kauffrau für Dialogmarketing) or a degree, and student jobs (Werkstudent) count as experience. Give German and English at CEFR levels, plus any other languages you support customers in.",
+    "in": "No licence is needed. Common titles include Customer Care Executive and Customer Support Associate. Fintech and insurance roles may involve RBI or IRDAI grievance rules, so mention them if relevant. List all languages you can support customers in."
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "id": "mechanical-engineer-in-mid",
+  "category": "engineering",
+  "role": "mechanical-engineer",
+  "country": "in",
+  "level": "mid",
+  "template": "meridian",
+  "content": {
+    "name": "Aditya Kulkarni",
+    "title": "Senior Design Engineer",
+    "phone": "+91 00000 69273",
+    "email": "aditya.kulkarni@example.com",
+    "linkedin": "linkedin.com/in/aditya-kulkarni",
+    "location": "Pune, Maharashtra",
+    "summary": "Mechanical design engineer with nine years in automotive components, thermal systems and industrial pumps around Pune. Leads design for a centrifugal pump range, and value engineering on a casing family saved ₹1.1 crore a year without affecting efficiency.",
+    "experience": [
+      {
+        "title": "Graduate Engineer Trainee",
+        "company": "Chakan Auto Components Pvt. Ltd.",
+        "location": "Pune, Maharashtra",
+        "start": "2017-07",
+        "end": "2019-06",
+        "bullets": [
+          "Rotated through design, production and quality for sheet-metal and machined brackets supplied to two-wheeler makers.",
+          "Prepared 2D drawings and BOMs in AutoCAD and Creo for about 80 parts, following customer drawing standards.",
+          "Supported a poka-yoke project on a welding line that reduced customer complaints for that part from 9 a month to 2."
+        ]
+      },
+      {
+        "title": "Design Engineer",
+        "company": "Hinjewadi Thermal Systems",
+        "location": "Pune, Maharashtra",
+        "start": "2019-07",
+        "end": "2021-12",
+        "bullets": [
+          "Designed radiator and charge-air cooler assemblies for tractors and gensets in Creo.",
+          "Ran thermal sizing and CFD checks in ANSYS Fluent, keeping prototype test deviations within 5% of simulation.",
+          "Worked with suppliers on brazing fixtures, helping bring the first-pass yield of a new core from 82% to 93%.",
+          "Released engineering changes through Windchill and kept the DFMEA up to date for six product families."
+        ]
+      },
+      {
+        "title": "Senior Design Engineer",
+        "company": "Talegaon Pumps & Valves Ltd.",
+        "location": "Pune, Maharashtra",
+        "start": "2022-01",
+        "end": "present",
+        "bullets": [
+          "Lead mechanical design for a range of end-suction centrifugal pumps for water supply and industrial customers.",
+          "Value-engineered a casing family with the foundry, saving ₹1.1 crore a year with no loss in hydraulic efficiency.",
+          "Guide two design engineers and a draughtsman, reviewing models and drawings before release.",
+          "Prepare technical documents for tenders and customer audits, including performance test reports to IS and ISO standards."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E. Mechanical Engineering",
+        "school": "College of Engineering Pune (COEP), Savitribai Phule Pune University",
+        "location": "Pune, Maharashtra",
+        "start": "2013-08",
+        "end": "2017-05",
+        "details": "CGPA 8.2/10"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Computational Fluid Dynamics",
+        "provider": "NPTEL (IIT)",
+        "year": 2020
+      },
+      {
+        "name": "GD&T as per ASME Y14.5",
+        "provider": "Coursera",
+        "year": 2022
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Fluent"
+      },
+      {
+        "name": "Marathi",
+        "level": "Native"
+      },
+      {
+        "name": "Hindi",
+        "level": "Fluent"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Cost-saving award",
+        "detail": "Received the company's annual value engineering award in 2024 for the casing project."
+      },
+      {
+        "title": "BAJA SAEINDIA",
+        "detail": "Design lead for the college ATV team, finishing in the top 20 nationally in 2016."
+      }
+    ],
+    "skills": [
+      "Creo",
+      "AutoCAD",
+      "ANSYS Mechanical and Fluent",
+      "GD&T",
+      "DFMEA",
+      "Value engineering",
+      "Pump hydraulics",
+      "Windchill PLM",
+      "Supplier development",
+      "Team guidance"
+    ],
+    "interests": [
+      "Trekking in the Sahyadris",
+      "Restoring old motorcycles",
+      "Chess"
+    ]
+  }
+}

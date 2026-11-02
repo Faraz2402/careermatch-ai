@@ -1,0 +1,85 @@
+{
+  "id": "project-manager-uk-senior",
+  "category": "project-management",
+  "role": "project-manager",
+  "country": "uk",
+  "level": "senior",
+  "template": "meridian",
+  "content": {
+    "name": "Rebecca Thornton",
+    "title": "Programme Manager",
+    "phone": "07700 900649",
+    "email": "rebecca.thornton@example.com",
+    "linkedin": "linkedin.com/in/rebecca-thornton",
+    "location": "Leeds",
+    "summary": "Programme manager with 17 years delivering change in social housing, water and rail, now leading a £68m digital signalling upgrade programme in the north of England. PRINCE2 Practitioner and APM PMQ holder with a strong record of recovering projects that were running late. Calm in front of boards, regulators and contractors alike.",
+    "experience": [
+      {
+        "title": "Programme Manager",
+        "company": "Northern Moor Rail Upgrade Alliance",
+        "location": "Leeds",
+        "start": "2021-01",
+        "end": "present",
+        "bullets": [
+          "Lead a £68m programme of six signalling and telecoms projects with 11 project managers and four delivery partners.",
+          "Recovered a project that was 14 weeks behind by re-sequencing possessions with the operator, returning it to its baseline date.",
+          "Report monthly to the alliance board on cost, schedule, risk and benefits, with forecast accuracy within 3% for two years.",
+          "Set up a shared lessons-learned log now used across all alliance programmes."
+        ]
+      },
+      {
+        "title": "Senior Project Manager",
+        "company": "Holbeck Digital Services",
+        "location": "Leeds",
+        "start": "2016-05",
+        "end": "2020-12",
+        "bullets": [
+          "Managed IT and business change projects for public sector clients worth up to £9m each.",
+          "Delivered a case management system for a regional probation services client used by 900 staff, on budget.",
+          "Introduced hybrid Agile and PRINCE2 governance that cut stage-gate approval time by 30%."
+        ]
+      },
+      {
+        "title": "Project Manager",
+        "company": "Aire and Calder Water",
+        "location": "Wakefield",
+        "start": "2012-03",
+        "end": "2016-04",
+        "bullets": [
+          "Ran asset improvement projects for treatment works, with budgets between £1m and £6m.",
+          "Coordinated contractors and operations during a smart metering pilot for 20,000 homes.",
+          "Kept CDM 2015 duties documented across every site and passed all internal health and safety audits."
+        ]
+      },
+      {
+        "title": "Project Officer",
+        "company": "West Riding Housing Association",
+        "location": "Bradford",
+        "start": "2009-02",
+        "end": "2012-02",
+        "bullets": [
+          "Organised kitchen and bathroom replacement works across 1,100 homes with three contractors.",
+          "Ran resident liaison and complaints tracking, reducing open complaints by 45% over a year.",
+          "Prepared project reports for the board's asset committee."
+        ]
+      }
+    ],
+    "education": [
+      { "degree": "BA (Hons) Geography, 2:1", "school": "University of Leeds", "location": "Leeds", "start": "2005-09", "end": "2008-06" }
+    ],
+    "courses": [
+      { "name": "PRINCE2 Practitioner", "provider": "AXELOS", "year": 2014 },
+      { "name": "APM Project Management Qualification (PMQ)", "provider": "Association for Project Management", "year": 2017 },
+      { "name": "MSP Foundation (Managing Successful Programmes)", "provider": "PeopleCert", "year": 2021 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" }
+    ],
+    "achievements": [
+      { "title": "Project recovery recognition", "detail": "Alliance director's commendation (2023) for bringing the signalling project back to baseline." },
+      { "title": "APM volunteer", "detail": "Volunteer speaker at APM regional branch events on programme recovery." }
+    ],
+    "skills": ["Programme management", "PRINCE2", "MSP", "Agile delivery", "Risk and issue management", "Earned value", "Benefits realisation", "Contract management (NEC4)", "Stakeholder engagement", "Board reporting", "Primavera P6", "MS Project"],
+    "interests": ["Cycling the Dales", "Choir", "Volunteering as a school governor"]
+  }
+}

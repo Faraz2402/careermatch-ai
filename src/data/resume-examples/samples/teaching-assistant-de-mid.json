@@ -1,0 +1,132 @@
+{
+  "id": "teaching-assistant-de-mid",
+  "category": "teaching-education",
+  "role": "teaching-assistant",
+  "country": "de",
+  "level": "mid",
+  "template": "horizon",
+  "content": {
+    "name": "Miriam Okonkwo-Schulz",
+    "title": "Staatlich anerkannte Erzieherin, Teaching Assistant and Schulbegleiterin",
+    "phone": "+49 69 90009 173",
+    "email": "miriam.okonkwo-schulz@example.com",
+    "linkedin": "linkedin.com/in/miriam-okonkwo-schulz",
+    "location": "Frankfurt am Main",
+    "summary": "State-recognised Erzieherin with nine years in after-school care, inclusion support and international schools in Frankfurt. Now a teaching assistant in a bilingual primary school, I lead small-group German support and co-planned an inclusion approach that let a pupil with autism move from one-to-one support to full class participation.",
+    "experience": [
+      {
+        "title": "Erzieherin, Hort (After-School Care)",
+        "company": "Kinderhaus Bornheimer Hang",
+        "location": "Frankfurt am Main",
+        "start": "2017-08",
+        "end": "2019-07",
+        "bullets": [
+          "Looked after a group of 22 primary pupils aged 6–10 each afternoon, including homework support and holiday programmes.",
+          "Introduced a weekly children's council so pupils could vote on activities, which the team kept as a standard practice.",
+          "Held 40+ parent conversations a year and wrote development reports for the school."
+        ]
+      },
+      {
+        "title": "Schulbegleiterin (Inclusion Support Assistant)",
+        "company": "Main-Taunus Inklusionsdienste gGmbH",
+        "location": "Frankfurt am Main",
+        "start": "2019-08",
+        "end": "2022-07",
+        "bullets": [
+          "Provided one-to-one school support for pupils with autism and ADHD at two primary schools, funded through integration assistance (Eingliederungshilfe).",
+          "Worked with class teachers to structure the day with visual plans and quiet zones, cutting lesson interruptions for my pupil from about 8 a day to 2.",
+          "Wrote half-yearly reports for the youth welfare office and joined review meetings with parents and therapists.",
+          "Kept learning going in online lessons during school closures by preparing printed weekly plans and daily video calls."
+        ]
+      },
+      {
+        "title": "Teaching Assistant (Primary)",
+        "company": "Westend Bilingual School Frankfurt",
+        "location": "Frankfurt am Main",
+        "start": "2022-08",
+        "end": "present",
+        "bullets": [
+          "Assist in a Year 2 bilingual class of 24, taking small groups for German literacy and maths.",
+          "Lead a German-as-a-second-language group for 9 newly arrived pupils; 7 joined regular German lessons within a year.",
+          "Co-planned an inclusion approach with the SEN coordinator that moved a pupil with autism from one-to-one support to full class participation over 18 months.",
+          "Coordinate the school's afternoon clubs timetable for 120 pupils and 10 club leaders."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Staatlich anerkannte Erzieherin (state-recognised educator)",
+        "school": "Fachschule für Sozialpädagogik, Frankfurt am Main",
+        "location": "Frankfurt am Main",
+        "start": "2014-08",
+        "end": "2017-07",
+        "details": "Three-year programme including a supervised practice year."
+      },
+      {
+        "degree": "Fachhochschulreife (vocational upper secondary qualification)",
+        "school": "Berufliche Schule, Frankfurt am Main",
+        "location": "Frankfurt am Main",
+        "start": "2012-08",
+        "end": "2014-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Autismus im Schulalltag (Autism in School)",
+        "provider": "Regional autism therapy centre",
+        "year": 2020
+      },
+      {
+        "name": "Deutsch als Zweitsprache (German as a Second Language) for educators",
+        "provider": "Volkshochschule Frankfurt",
+        "year": 2023
+      },
+      {
+        "name": "Erste Hilfe am Kind (Paediatric First Aid)",
+        "provider": "Johanniter-Unfall-Hilfe",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      },
+      {
+        "name": "Igbo",
+        "level": "Conversational"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Inclusion success",
+        "detail": "Supported one pupil from full one-to-one support to independent class participation."
+      },
+      {
+        "title": "Newcomer German group",
+        "detail": "7 of 9 newly arrived pupils moved into regular German lessons within a year."
+      }
+    ],
+    "skills": [
+      "Inclusion support",
+      "Autism-friendly strategies",
+      "German as a second language",
+      "Small-group teaching",
+      "Development reports",
+      "Parent communication",
+      "Bilingual classrooms",
+      "Behaviour support",
+      "Club coordination",
+      "Child protection"
+    ],
+    "interests": [
+      "Choir",
+      "Hiking in the Taunus",
+      "Children's books"
+    ]
+  }
+}

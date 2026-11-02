@@ -1,0 +1,133 @@
+{
+  "id": "teaching-assistant-ca-senior",
+  "category": "teaching-education",
+  "role": "teaching-assistant",
+  "country": "ca",
+  "level": "senior",
+  "template": "ledger",
+  "content": {
+    "name": "Tanya Fraser",
+    "title": "Lead Educational Assistant, Intensive Support Program",
+    "phone": "(905) 555-0122",
+    "email": "tanya.fraser@example.com",
+    "linkedin": "linkedin.com/in/tanya-fraser",
+    "location": "Hamilton, ON",
+    "summary": "Educational assistant with 15 years in Hamilton-area schools, specializing in autism and complex behaviour support. As lead EA in an intensive support classroom, I coordinate 6 EAs and helped reduce physical restraint incidents by 64% through consistent behaviour plans and staff training.",
+    "experience": [
+      {
+        "title": "Educational Assistant",
+        "company": "Niagara Escarpment District School Board",
+        "location": "Hamilton, ON",
+        "start": "2011-09",
+        "end": "2015-06",
+        "bullets": [
+          "Supported students with physical and developmental disabilities in Grades 1–4, including toileting, feeding and mobility.",
+          "Adapted materials into large print and Boardmaker visuals for 6 students on modified programs.",
+          "Built a sensory break routine with the occupational therapist that cut classroom exits for one student by half."
+        ]
+      },
+      {
+        "title": "Educational Assistant, Autism Spectrum Disorder Class",
+        "company": "Niagara Escarpment District School Board",
+        "location": "Hamilton, ON",
+        "start": "2015-09",
+        "end": "2019-06",
+        "bullets": [
+          "Worked in a self-contained ASD class of 8 students, running discrete trial and naturalistic teaching under a board-certified behaviour analyst.",
+          "Collected ABC data and supported 8 safety and behaviour plans reviewed with families each term.",
+          "Trained 10 new EAs on visual schedules and token systems.",
+          "Helped 3 students transition to partially integrated homerooms by the end of Grade 6."
+        ]
+      },
+      {
+        "title": "Educational Assistant, Secondary Life Skills",
+        "company": "Niagara Escarpment District School Board",
+        "location": "Stoney Creek, ON",
+        "start": "2019-09",
+        "end": "2021-08",
+        "bullets": [
+          "Supported 12 students aged 14–21 in a life skills program focused on cooking, money and community access.",
+          "Organized weekly community outings and co-op placements at 4 local businesses for 6 students.",
+          "Moved life skills lessons online during school closures, holding daily video check-ins with all 12 families."
+        ]
+      },
+      {
+        "title": "Lead Educational Assistant, Intensive Support Program",
+        "company": "Niagara Escarpment District School Board",
+        "location": "Hamilton, ON",
+        "start": "2021-09",
+        "end": "present",
+        "bullets": [
+          "Coordinate 6 EAs supporting 10 students with complex needs, building daily schedules and break coverage.",
+          "Cut physical restraint incidents by 64% over two years by aligning staff on behaviour plans and CPI de-escalation.",
+          "Deliver the board's half-day EA onboarding on safety plans to 40+ new hires each September.",
+          "Act as the classroom link with speech-language pathologists, OTs and families, keeping communication logs for each student."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Ontario College Certificate, Educational Support",
+        "school": "Mohawk College",
+        "location": "Hamilton, ON",
+        "start": "2010-09",
+        "end": "2011-06"
+      }
+    ],
+    "courses": [
+      {
+        "name": "Nonviolent Crisis Intervention (Advanced)",
+        "provider": "Crisis Prevention Institute (CPI)",
+        "year": 2025
+      },
+      {
+        "name": "Applied Behaviour Analysis Foundations",
+        "provider": "Mohawk College Continuing Education",
+        "year": 2016
+      },
+      {
+        "name": "Standard First Aid and CPR Level C",
+        "provider": "St. John Ambulance",
+        "year": 2024
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "American Sign Language",
+        "level": "Intermediate"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Board EA recognition award, 2023",
+        "detail": "Nominated by the principal and families for the intensive support program."
+      },
+      {
+        "title": "Behaviour data system",
+        "detail": "Created the shared tracking sheet now used in three of the board's intensive support classrooms."
+      }
+    ],
+    "skills": [
+      "Autism support",
+      "Behaviour plans",
+      "ABA strategies",
+      "CPI de-escalation",
+      "Personal care",
+      "Boardmaker visuals",
+      "ABC data collection",
+      "Life skills instruction",
+      "Team coordination",
+      "Family communication",
+      "ASL"
+    ],
+    "interests": [
+      "Para sports volunteering",
+      "Gardening",
+      "Camping"
+    ]
+  }
+}

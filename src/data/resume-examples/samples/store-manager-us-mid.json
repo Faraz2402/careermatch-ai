@@ -1,0 +1,81 @@
+{
+  "id": "store-manager-us-mid",
+  "category": "sales-retail",
+  "role": "store-manager",
+  "country": "us",
+  "level": "mid",
+  "template": "ledger",
+  "content": {
+    "name": "Brandon Hayes",
+    "title": "Store Manager",
+    "phone": "(602) 555-0135",
+    "email": "brandon.hayes@example.com",
+    "linkedin": "linkedin.com/in/brandon-hayes",
+    "location": "Phoenix, AZ",
+    "summary": "Store manager with nearly ten years in specialty retail across home goods, outdoor gear and pet supplies in the Phoenix area. Runs a $6.8M flagship pet store with 34 employees, where a grooming salon expansion and labor scheduling overhaul raised four-wall profit by $410,000 in two years.",
+    "experience": [
+      {
+        "title": "Store Manager (Flagship)",
+        "company": "Sonoran Pet Market",
+        "location": "Phoenix, AZ",
+        "start": "2022-07",
+        "end": "present",
+        "bullets": [
+          "Run the chain's highest-volume store at $6.8M in annual sales, leading 34 employees including two assistant managers and a grooming lead.",
+          "Doubled grooming salon capacity from six to twelve tables and filled the new slots within five months, adding $520,000 in annual service revenue.",
+          "Rebuilt the weekly schedule around hourly traffic counts, cutting labor from 14.2% to 12.6% of sales without longer checkout waits.",
+          "Brought inventory shrink down from 2.1% to 1.3% through cycle counts, receiving audits and camera placement reviews with loss prevention.",
+          "Coached one assistant manager into her own store and kept annual hourly turnover at 38%, well below the district average."
+        ]
+      },
+      {
+        "title": "Store Manager",
+        "company": "Camelback Outdoor Supply",
+        "location": "Scottsdale, AZ",
+        "start": "2019-03",
+        "end": "2022-06",
+        "bullets": [
+          "Managed a $3.9M store with 22 staff selling camping, climbing and hiking equipment.",
+          "Grew sales 17% in 2021 by adding a gear rental counter and weekend trailhead clinics.",
+          "Kept the store profitable through 2020 by launching curbside pickup within a week and reassigning staff to online order fulfillment.",
+          "Passed every quarterly operations audit with scores above 95%."
+        ]
+      },
+      {
+        "title": "Assistant Store Manager",
+        "company": "Desert Bloom Home Goods",
+        "location": "Tempe, AZ",
+        "start": "2017-01",
+        "end": "2019-02",
+        "bullets": [
+          "Supervised 15 associates across opening and closing shifts and managed truck processing of up to 1,200 cartons a week.",
+          "Ran seasonal resets for holiday and back-to-college, finishing floor sets a day ahead of the corporate deadline.",
+          "Handled hiring interviews and new-hire training, reducing 90-day turnover from 45% to 29%."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.S. in Business Administration",
+        "school": "W. P. Carey School of Business, Arizona State University",
+        "location": "Tempe, AZ",
+        "start": "2011-08",
+        "end": "2015-05"
+      }
+    ],
+    "courses": [
+      { "name": "OSHA 10-Hour General Industry", "provider": "OSHA Outreach Training Program", "year": 2023 },
+      { "name": "Retail Management Certificate", "provider": "Online professional certificate program", "year": 2020 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "Spanish", "level": "Intermediate" }
+    ],
+    "achievements": [
+      { "title": "Store of the Year", "detail": "Sonoran Pet Market flagship named company store of the year in 2024." },
+      { "title": "Leadership pipeline", "detail": "Two team members promoted to assistant manager and one to store manager." }
+    ],
+    "skills": ["P&L management", "Labor scheduling", "Shrink reduction", "Team leadership", "Hiring and training", "Inventory control", "Visual merchandising", "Service revenue growth", "Operations audits", "Customer experience", "Excel", "Workforce management software"],
+    "interests": ["Mountain biking South Mountain", "Volunteering at an animal shelter", "Fantasy football"]
+  }
+}

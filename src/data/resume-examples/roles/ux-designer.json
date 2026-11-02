@@ -1,0 +1,131 @@
+{
+  "slug": "ux-designer",
+  "name": "UX Designer",
+  "category": "design",
+  "updated": "2026-11-02",
+  "intro": "A UX designer's résumé should show how you find out what users need, turn it into designs and prove the result. Recruiters look for research, interaction design and measurable outcomes, plus a portfolio with case studies that explain your process.",
+  "recruiterFocus": [
+    "Case studies in a portfolio that show the problem, your research, design decisions and the result.",
+    "Research methods you use: interviews, usability testing, card sorting, analytics, surveys.",
+    "Outcomes such as higher task completion, fewer support tickets or better conversion.",
+    "Tool and system skills: Figma, prototyping, design systems and handoff to engineering.",
+    "Accessibility knowledge, such as WCAG and local accessibility laws."
+  ],
+  "experienceTips": [
+    "Name the product, the users and the scale: 'a medication reminder app with 600,000 monthly users'.",
+    "Show your research and how it changed the design, not only the final screens.",
+    "Give a before-and-after measure for at least one project per role.",
+    "Mention collaboration with product managers, engineers, content designers and researchers.",
+    "For senior roles, show leadership: team size, critique sessions, design systems and research operations."
+  ],
+  "numbersTips": [
+    "Completion and conversion: 'onboarding completion up from 58% to 74%'.",
+    "Effort: 'steps to reschedule an appointment cut from seven to four' or 'task time down from 9 minutes to 4'.",
+    "Support load: 'refund-status tickets down 26%' or 'repeat calls cut by a fifth'.",
+    "Research scale: '18 usability sessions', 'a panel of 900 customers', '25 contextual interviews'.",
+    "Adoption: 'design system used by 12 development teams'."
+  ],
+  "noExperience": [
+    "Build two or three detailed case studies from courses, bootcamps, hackathons or volunteer projects for real organisations.",
+    "Show research even on small projects: who you spoke to, what you learned and how you tested your solution.",
+    "Count transferable experience from psychology, customer service, development or graphic design.",
+    "Mention design jams, hackathons and UX meetups you took part in."
+  ],
+  "hardSkills": [
+    "User interviews",
+    "Usability testing",
+    "Information architecture",
+    "Card sorting and tree testing",
+    "Wireframing and prototyping",
+    "Figma",
+    "Design systems",
+    "Interaction design",
+    "Accessibility (WCAG)",
+    "Journey mapping",
+    "Analytics tools (e.g. Amplitude, Hotjar)",
+    "Content and form design",
+    "HTML/CSS basics"
+  ],
+  "softSkills": [
+    {
+      "skill": "Empathy",
+      "proof": "Describe research with specific user groups, such as warehouse staff or first-time digital savers."
+    },
+    {
+      "skill": "Communication",
+      "proof": "Mention presenting findings to stakeholders and how it changed the roadmap."
+    },
+    {
+      "skill": "Collaboration",
+      "proof": "Show how you worked with engineering on handoff or with compliance on wording."
+    },
+    {
+      "skill": "Critical thinking",
+      "proof": "Explain a decision you made from research that went against a stakeholder's first idea."
+    },
+    {
+      "skill": "Leadership",
+      "proof": "For senior roles, give team size and how you developed designers."
+    }
+  ],
+  "education": "There is no single required degree. UX designers come from HCI, cognitive science, psychology, design, computer science and many other fields. Bootcamps and professional certificates help career changers, but a portfolio of case studies matters most.",
+  "certifications": [
+    {
+      "name": "Nielsen Norman Group UX Certification",
+      "note": "Recognised in many markets; useful for showing structured training."
+    },
+    {
+      "name": "UXQB CPUX-F (Certified Professional for Usability and User Experience)",
+      "note": "Well known in Germany and parts of Europe; often valued by German employers."
+    },
+    {
+      "name": "Google UX Design Professional Certificate",
+      "note": "A common entry point for career changers; pair it with original case studies."
+    },
+    {
+      "name": "Accessibility training (e.g. IAAP CPACC or WAS)",
+      "note": "Increasingly useful where accessibility laws apply to digital services."
+    }
+  ],
+  "summaryExample": "UX designer with five years designing self-service for banking and insurance. Plan and run research, prototype in Figma and work closely with engineers. A redesigned claims form raised online completion from 49% to 70%.",
+  "objectiveExample": "Psychology graduate moving into UX design, looking for a junior role in a product team. Completed a UX certificate and two case studies with local charities, including usability testing with 14 participants.",
+  "summaryVsObjective": "A summary suits designers with professional experience: product area, methods and one measured result. An objective helps graduates and career changers explain the move and point to case studies and transferable research skills.",
+  "extraSections": [
+    "Portfolio with two to four case studies.",
+    "Talks, articles or meetups you have organised.",
+    "Hackathons or design jams and their results.",
+    "Languages, especially if you research with users in more than one language."
+  ],
+  "weakStrong": [
+    {
+      "weak": "Designed the onboarding flow.",
+      "strong": "Redesigned merchant onboarding after 18 usability sessions, raising completion from 58% to 74%.",
+      "why": "It shows the research behind the change and the measured result."
+    },
+    {
+      "weak": "Did user research.",
+      "strong": "Ran 25 contextual interviews in warehouses, which led to a one-handed scan-and-load workflow.",
+      "why": "It names the method, the scale and the design decision it drove."
+    },
+    {
+      "weak": "Worked on accessibility.",
+      "strong": "Audited 20 app screens against WCAG 2.1 AA with screen reader users and fixed contrast and focus issues.",
+      "why": "It gives a standard, a method and concrete fixes."
+    }
+  ],
+  "takeaways": [
+    "Show research, design and results for each role.",
+    "Use real metrics for completion, time or support load.",
+    "Link a portfolio with clear case studies.",
+    "Mention accessibility standards you work to.",
+    "Show leadership and systems thinking for senior roles."
+  ],
+  "countryNotes": {
+    "us": "No licence is needed. Accessibility expectations often refer to WCAG and the ADA, and government work uses Section 508. Titles vary (UX designer, product designer, interaction designer), so mirror the job ad.",
+    "uk": "No licence is needed. Public sector work follows the GOV.UK Service Standard and accessibility regulations for public sector websites, so experience with them is valuable. Senior titles include Lead and Principal Designer. Call it a CV.",
+    "ca": "No licence is needed. Ontario has accessibility rules under the AODA, and federal work falls under the Accessible Canada Act, so WCAG experience is useful. French language skills help in Québec and federal roles.",
+    "au": "No licence is needed. Government digital services follow the Digital Service Standard, and accessibility is shaped by the Disability Discrimination Act and WCAG. Use Australian spelling and link your portfolio.",
+    "de": "No licence is needed. The UXQB's CPUX certifications are well known. The Barrierefreiheitsstärkungsgesetz (BFSG), which applies to many consumer digital services from 28 June 2025, makes accessibility (EN 301 549 / WCAG) a strong selling point. Give language levels in CEFR.",
+    "in": "No licence is needed. Designers come from B.Des, B.Tech and other backgrounds, and NPTEL or Coursera courses are widely listed. Research in Hindi and regional languages is valuable for products aimed at users beyond English speakers. Leave out personal details like date of birth."
+  }
+}

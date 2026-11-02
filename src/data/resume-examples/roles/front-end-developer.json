@@ -1,0 +1,78 @@
+{
+  "slug": "front-end-developer",
+  "name": "Front-End Developer",
+  "category": "software-engineering",
+  "updated": "2026-11-02",
+  "intro": "A front-end developer résumé should prove you can turn designs into fast, accessible, maintainable interfaces that real users get through without friction. Show what you built, which frameworks you used, and what changed for users: conversion, load time, accessibility or support load. Link to a portfolio or live work, because many hiring managers will click it before reading further.",
+  "recruiterFocus": [
+    "Framework fit: React, Vue, Angular or Svelte, plus TypeScript, and how recently you used them in production.",
+    "Evidence of user impact, such as conversion, completion or task time, rather than just screens built.",
+    "Accessibility knowledge (WCAG, semantic HTML, screen-reader testing) and performance awareness (Core Web Vitals, bundle size).",
+    "Working style with designers and back-end engineers: design systems, component libraries, API contracts.",
+    "A portfolio, GitHub or live links that match the claims on the page."
+  ],
+  "experienceTips": [
+    "Lead each bullet with the user-facing outcome, then explain the technical change behind it.",
+    "Mention the scale of the product: monthly users, transactions, number of screens or teams using your components.",
+    "Call out accessibility and performance work explicitly; many candidates leave it out.",
+    "For design-system work, give adoption numbers: components built, teams using them, time saved per new page.",
+    "Senior candidates should show technical direction: migrations planned, standards set, hiring and mentoring."
+  ],
+  "numbersTips": [
+    "Performance: \"Largest Contentful Paint on mobile from 4.1 s to 2.0 s\" or \"JavaScript bundle down 30%\".",
+    "Conversion: sign-up, checkout or form completion rates before and after (e.g. 71% to 88%).",
+    "Accessibility: number of WCAG issues fixed, screens audited, or Lighthouse accessibility score before and after.",
+    "Quality: regressions caught by tests, front-end test coverage, bugs reported after release.",
+    "Adoption: components in your design system and the number of teams or products using them."
+  ],
+  "noExperience": [
+    "Build two or three polished projects that solve a real problem, deploy them, and link both the live site and the code.",
+    "Show accessibility from the start: keyboard navigation, labels and colour contrast in your projects, and say how you tested it.",
+    "Count freelance sites for local businesses, volunteer work and co-op terms as experience, with results where you have them.",
+    "Contribute small fixes to open-source UI libraries or documentation and list the merged pull requests."
+  ],
+  "hardSkills": ["Semantic HTML", "Modern CSS (Flexbox, Grid, custom properties)", "JavaScript (ES2020+)", "TypeScript", "React, Vue or Angular", "State management (Redux, Pinia, signals)", "Accessibility (WCAG 2.1/2.2, ARIA)", "Web performance (Core Web Vitals)", "Testing (Jest, Vitest, Testing Library, Playwright or Cypress)", "Design systems and Storybook", "REST and GraphQL integration", "Build tools (Vite, webpack)", "Internationalization", "Git and CI"],
+  "softSkills": [
+    { "skill": "Collaboration with design", "proof": "Mention design tokens or components you built with designers, or usability sessions you joined." },
+    { "skill": "User empathy", "proof": "Describe a change made after watching users struggle, and the measured result." },
+    { "skill": "Attention to detail", "proof": "Show accessibility or cross-device bugs found and fixed, with counts." },
+    { "skill": "Communication", "proof": "Point to documentation, Storybook guides or talks that helped other teams adopt your work." },
+    { "skill": "Mentoring", "proof": "Give numbers for juniors coached, review clinics run or guild sessions led." }
+  ],
+  "education": "Degrees in computer science, information science, multimedia or design are common, but many front-end developers are self-taught or bootcamp-trained. List any degree, diploma or bootcamp with dates; add relevant modules (human-computer interaction, accessibility) early in your career. Your portfolio and work history matter more than your education once you have a couple of years' experience.",
+  "certifications": [
+    { "name": "IAAP Web Accessibility Specialist (WAS)", "note": "Valuable where accessibility is a legal or contractual requirement, such as public sector, finance and large retail." },
+    { "name": "IAAP CPACC", "note": "A broader accessibility credential that suits leads working with designers, content teams and compliance." },
+    { "name": "Vendor or course certificates (e.g. Meta Front-End Developer, freeCodeCamp)", "note": "Can help entry-level candidates show structured learning; they do not replace a portfolio." }
+  ],
+  "summaryExample": "Front-end developer with five years building React and TypeScript interfaces for online retail. Rebuilt a checkout that lifted mobile conversion by 14% and cut Largest Contentful Paint to under two seconds. Maintains a 40-component design system used by three product teams and tests every release with a screen reader.",
+  "objectiveExample": "Junior front-end developer with a web development diploma and three deployed projects, including a bilingual event-booking site for a community centre built in Vue and tested for keyboard and screen-reader use. Looking for a first role where I can grow in accessibility and performance work.",
+  "summaryVsObjective": "Write a summary when you have professional front-end experience; focus on your framework, product area and a measurable result. Write an objective only if you are new to the field, and anchor it in a specific project so it shows ability rather than just ambition.",
+  "extraSections": [
+    "Portfolio: a link near your name, plus two or three highlighted projects with your role and the stack.",
+    "Open-source contributions to UI libraries, design systems or documentation.",
+    "Talks, meetups or articles on front-end topics.",
+    "Languages, especially for products with multilingual users."
+  ],
+  "weakStrong": [
+    { "weak": "Built pages using React.", "strong": "Built the subscription sign-up flow in React and TypeScript, raising completion from 64% to 79% across 30,000 monthly visitors.", "why": "It ties the framework to a specific feature and a measurable user outcome." },
+    { "weak": "Made the site accessible.", "strong": "Fixed 85 WCAG 2.1 AA issues across 60 screens, verified with NVDA, VoiceOver and automated axe checks in CI.", "why": "It shows the standard, the scope and how you tested, which makes the claim believable." },
+    { "weak": "Worked on site speed.", "strong": "Lazy-loaded images and split routes, shrinking the main bundle by 35% and bringing mobile LCP from 3.8 s to 2.1 s.", "why": "It names the techniques and gives before-and-after numbers." },
+    { "weak": "Helped create a component library.", "strong": "Co-built a Storybook design system of 45 components now used by four teams, cutting new-page build time by about a third.", "why": "Adoption and time saved show the library was actually useful." }
+  ],
+  "takeaways": [
+    "Put a portfolio or live link where it is easy to find.",
+    "Connect every technical change to a user or business result.",
+    "Make accessibility and performance work visible; they set strong candidates apart.",
+    "List the frameworks you can discuss in depth, not every library you have tried.",
+    "Check the country notes for accessibility laws that employers in that market care about."
+  ],
+  "countryNotes": {
+    "us": "No licence is needed. Accessibility work is often framed around the ADA and, for federal agencies and their vendors, Section 508; WCAG 2.1 AA is the usual technical target. Mention Section 508 experience if you have it for government roles. Use American spelling (color, optimize) and keep the résumé to one or two pages without a photo.",
+    "uk": "No licence is needed. Public sector websites must meet the Public Sector Bodies Accessibility Regulations 2018, so experience with WCAG and the GOV.UK Design System is valued in government, NHS and council roles. Call your document a CV, use British spelling, and write degrees as BSc (Hons) or BA (Hons) with classification.",
+    "ca": "No licence is needed. Ontario's AODA and the federal Accessible Canada Act make accessibility experience relevant, though exact obligations depend on the employer and province. In Québec, French-language requirements apply to many products and websites (see the OQLF), so bilingual or i18n experience is a strength. Co-op terms count as experience.",
+    "au": "No licence is needed. The Disability Discrimination Act 1992 underpins accessibility expectations, and government services follow the Digital Transformation Agency's Digital Service Standard, which references WCAG. Use Australian spelling and include a portfolio link. Government roles may require an AGSVA clearance.",
+    "de": "No licence is needed. The Barrierefreiheitsstärkungsgesetz (BFSG), Germany's implementation of the European Accessibility Act, has applied to many consumer digital services since June 2025, and public bodies follow BITV 2.0, so accessibility experience is in demand. Consent banners must respect GDPR and the TDDDG. State German and English levels on the CEFR scale.",
+    "in": "No licence is needed. Government websites follow the Guidelines for Indian Government Websites (GIGW), and the Rights of Persons with Disabilities Act 2016 supports accessibility expectations. Regional-language and low-bandwidth experience is a real plus for consumer apps. Freshers can list CGPA and Class XII; leave out date of birth, religion and marital status."
+  }
+}

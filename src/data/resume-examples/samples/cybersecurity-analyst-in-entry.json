@@ -1,0 +1,77 @@
+{
+  "id": "cybersecurity-analyst-in-entry",
+  "category": "information-technology",
+  "role": "cybersecurity-analyst",
+  "country": "in",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Ananya Deshpande",
+    "title": "Associate Security Analyst (SOC L1)",
+    "phone": "+91 00000 52817",
+    "email": "ananya.deshpande@example.com",
+    "linkedin": "linkedin.com/in/ananya-deshpande",
+    "location": "Pune, Maharashtra",
+    "summary": "SOC L1 analyst in Pune with a B.E. in Computer Engineering, a six-month security internship and ISC2 CC. Monitors alerts for banking and insurance clients and helped a client meet the CERT-In six-hour reporting window on a phishing incident. Active in college CTF teams and bug-bounty practice.",
+    "experience": [
+      {
+        "title": "Cybersecurity Intern",
+        "company": "Baner Secure Labs Pvt. Ltd.",
+        "location": "Pune, Maharashtra",
+        "start": "2025-01",
+        "end": "2025-06",
+        "bullets": [
+          "Tested 14 client web applications against the OWASP Top 10 under supervision, documenting 37 valid findings.",
+          "Wrote Burp Suite test notes and reproduction steps that senior testers reused in final client reports.",
+          "Automated subdomain enumeration with a Python script, cutting reconnaissance time per engagement by about two hours."
+        ]
+      },
+      {
+        "title": "Associate Security Analyst (SOC L1)",
+        "company": "Hinjewadi Cyber Defence Pvt. Ltd.",
+        "location": "Pune, Maharashtra",
+        "start": "2025-07",
+        "end": "present",
+        "bullets": [
+          "Monitor and triage around 120 SIEM alerts per shift for five banking and insurance clients in a 24x7 SOC.",
+          "Identified a credential-phishing campaign against a client's branch staff and escalated it in 20 minutes, helping them report to CERT-In within six hours.",
+          "Created 15 triage templates in the ticketing tool that brought L1 handling time per alert down by about 25%.",
+          "Rotate through night shifts and hand over open cases with clear notes to the next team."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E. Computer Engineering",
+        "school": "Pune Institute of Computer Technology (PICT)",
+        "location": "Pune, Maharashtra",
+        "start": "2021-08",
+        "end": "2025-06",
+        "details": "CGPA 8.9/10 (Savitribai Phule Pune University). Final-year project: phishing URL classifier."
+      },
+      {
+        "degree": "Class XII (Maharashtra State Board), Science",
+        "school": "Junior college in Pune",
+        "location": "Pune, Maharashtra",
+        "end": "2021-06",
+        "details": "88.5%."
+      }
+    ],
+    "courses": [
+      { "name": "Certified in Cybersecurity (CC)", "provider": "ISC2", "year": 2025 },
+      { "name": "Ethical Hacking", "provider": "NPTEL", "year": 2023 },
+      { "name": "Google Cybersecurity Professional Certificate", "provider": "Coursera", "year": 2024 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Fluent" },
+      { "name": "Marathi", "level": "Native" },
+      { "name": "Hindi", "level": "Fluent" }
+    ],
+    "achievements": [
+      { "title": "Top 20 finish, national student CTF", "detail": "Team of four placed 17th of about 450 teams in a 2024 online capture-the-flag." },
+      { "title": "Responsible disclosure acknowledgement", "detail": "Reported an access-control bug through a public bug-bounty programme in 2024." }
+    ],
+    "skills": ["SIEM triage (Splunk, QRadar)", "Phishing analysis", "OWASP Top 10", "Burp Suite", "Nmap", "Wireshark", "Linux", "Python scripting", "Incident documentation", "CERT-In reporting requirements"],
+    "interests": ["Capture-the-flag events", "Classical Kathak dance", "Trekking to Sinhagad"]
+  }
+}

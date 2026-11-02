@@ -1,0 +1,77 @@
+{
+  "slug": "sales-associate",
+  "name": "Sales Associate",
+  "category": "sales-retail",
+  "updated": "2026-11-02",
+  "intro": "A sales associate résumé should prove that customers buy more, come back and leave happier when you are on the floor. Show your sales against target, the products you know well, and the extra responsibilities you are trusted with, such as opening, cash handling or training new staff.",
+  "recruiterFocus": [
+    "Sales performance: personal sales, target attainment, average transaction value or items per transaction.",
+    "Product knowledge in the store's category, whether that is footwear fitting, appliances, jewellery or outdoor gear.",
+    "Reliability: keyholder duties, cash handling accuracy, availability for weekends and peak seasons.",
+    "Customer care: repeat clients, reviews, complaint handling and add-on sales such as warranties or accessories.",
+    "Teamwork and growth: training others, covering shifts, promotions to senior or lead roles."
+  ],
+  "experienceTips": [
+    "Start bullets with what you sold or did for customers, then show the result against a target or store average.",
+    "Name the product categories you specialise in; specialist knowledge is often what sets you apart.",
+    "Include trusted tasks like opening and closing, cash office, stock receiving or acting manager cover.",
+    "If you work on commission, say so and give annual or monthly personal sales.",
+    "For part-time or seasonal jobs, focus on the busiest periods and what you handled during them."
+  ],
+  "numbersTips": [
+    "Personal sales per year or month and percentage of target, for example '$640,000 in 2025' or '108% of monthly target'.",
+    "Average ticket or items per transaction, such as 'average ticket of $4,200' or '2.3 items per sale'.",
+    "Attachment rates for warranties, protection plans or accessories.",
+    "Customers served per shift, appointments booked, or close rate versus store average.",
+    "Operational accuracy: cash variances, stock counts or shrink percentage."
+  ],
+  "noExperience": [
+    "Show customer-facing experience from anywhere: volunteering, events, school fairs, hospitality or helping in a family shop.",
+    "List reliability signals such as school awards, a Duke of Edinburgh's Award or similar programme, sports teams and good attendance.",
+    "Mention availability (weekends, evenings, holiday periods) and any languages you speak; both matter to store managers."
+  ],
+  "hardSkills": ["Point-of-sale systems", "Cash and card handling", "Product knowledge", "Upselling and add-on sales", "Stock replenishment", "Visual merchandising", "Returns and exchanges", "Clienteling", "Inventory counts", "Click-and-collect or online order fulfilment"],
+  "softSkills": [
+    { "skill": "Customer focus", "proof": "Repeat clients, positive reviews or a close rate above the store average." },
+    { "skill": "Reliability", "proof": "Keyholder or cash office duties, or being trusted to run the floor on weekends." },
+    { "skill": "Teamwork", "proof": "Training new starters or covering other departments during peaks." },
+    { "skill": "Communication", "proof": "Explaining finance, warranties or technical products clearly, or serving customers in more than one language." }
+  ],
+  "education": "Most sales associate jobs do not require a degree. Secondary school results (GCSEs or A-levels, a high school diploma, Abitur, Class XII) are enough to list for entry-level roles. Retail apprenticeships and vocational certificates, such as the German Kaufmann/-frau im Einzelhandel or Australian TAFE retail certificates, are worth putting near the top.",
+  "certifications": [
+    { "name": "First aid certificate", "note": "Useful in any store and sometimes expected for keyholders." },
+    { "name": "Responsible service of alcohol or age-restricted sales training", "note": "Needed in stores selling alcohol in many places; requirements vary by country and region." },
+    { "name": "NRF Foundation RISE Up credentials (US)", "note": "Entry-level retail and customer service credentials that can help first-time job seekers." },
+    { "name": "Category or brand product training", "note": "For example gemmology, optical dispensing or gait analysis courses; list them when relevant to the store." }
+  ],
+  "summaryExample": "Sales associate with four years in specialty footwear and sports retail. Consistently above weekly target, trusted with opening and closing, and runs gait analysis appointments that turn most visits into sales. Available weekends and peak seasons.",
+  "objectiveExample": "Reliable school leaver looking for a part-time sales associate role. I have volunteered on the till at a charity shop for a year, helped run my school's enterprise fair, and can work weekends and holidays.",
+  "summaryVsObjective": "Write a summary if you have worked in retail or hospitality, focusing on your sales record and trusted duties. Use an objective if this is your first job, so you can explain your availability and the transferable experience you bring.",
+  "extraSections": [
+    "Languages, with a level for each; very useful in tourist areas.",
+    "Awards such as Employee of the Month or top seller recognition.",
+    "Product training or brand certifications.",
+    "Availability, if you are applying for part-time or seasonal roles."
+  ],
+  "weakStrong": [
+    { "weak": "Helped customers on the shop floor.", "strong": "Served 60 to 90 customers on a typical Saturday and beat my weekly sales target in 41 of the last 52 weeks.", "why": "Volume and a consistent target record show performance, not just presence." },
+    { "weak": "Sold extended warranties.", "strong": "Attached protection plans to 44% of eligible sales, the highest rate in the three-store group.", "why": "A rate with a comparison gives the reader a benchmark." },
+    { "weak": "Responsible for opening and closing the store.", "strong": "Open and close as keyholder, handling safe counts, deposits and alarm procedures for $3M in inventory.", "why": "It shows the level of trust and the value of what you protect." },
+    { "weak": "Good with customers.", "strong": "Maintain a 1,100-client book with anniversary outreach that produces about 40 appointments a month.", "why": "It proves customer relationships with a system and an outcome." }
+  ],
+  "takeaways": [
+    "Give sales numbers against target or store average wherever you can.",
+    "Name your product specialisms.",
+    "Show trusted responsibilities like keyholding and cash handling.",
+    "Include languages and availability; store managers look for both.",
+    "Keep it to one page unless you have many years of relevant experience."
+  ],
+  "countryNotes": {
+    "us": "No licence is needed for general retail. Minimum ages for selling alcohol or tobacco, and any server or seller training, differ by state and sometimes city, so check your state's alcohol control agency. Commission and bilingual (often English/Spanish) skills are common in job ads. Use 'resume' and do not include a photo or date of birth.",
+    "uk": "No licence is needed. Stores selling alcohol, tobacco, knives or other age-restricted goods train staff on schemes such as Challenge 25. Retail apprenticeships are available at Level 2 and above. Many UK ads say 'sales assistant' or 'retail assistant' rather than associate. A CV with GCSE and A-level results is normal for school leavers.",
+    "ca": "No licence is needed for general retail. Selling alcohol may require provincial training (for example Smart Serve in Ontario or Serving It Right in BC); rules differ by province and store type. Employment standards, including minimum wage, are provincial. In Québec and many bilingual areas, French is a strong advantage.",
+    "au": "No licence is needed for general retail. Staff selling alcohol need a Responsible Service of Alcohol (RSA) certificate, and requirements vary by state or territory. Certificate II and III in Retail are common TAFE or traineeship qualifications. Knowing customers' rights under the Australian Consumer Law (refunds, repairs, replacements) is useful.",
+    "de": "The usual qualifications are the IHK apprenticeships Verkäufer/-in (two years) and Kaufmann/-frau im Einzelhandel (three years, which can be shortened, for example with Abitur). The Jugendschutzgesetz sets age limits for selling alcohol and tobacco. Opening hours are set by each federal state. Many roles are also offered as part-time or Minijob positions.",
+    "in": "No licence is needed. The Retailers Association's Skill Council of India (RASCI) offers skill qualifications such as Retail Sales Associate under the national skills framework. Employers value fluency in English, Hindi and the local language, and familiarity with POS billing, GST invoices and EMI or consumer finance schemes."
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "teaching-assistant-us-entry",
+  "category": "teaching-education",
+  "role": "teaching-assistant",
+  "country": "us",
+  "level": "entry",
+  "template": "meridian",
+  "content": {
+    "name": "Gabriel Montoya",
+    "title": "Special Education Paraprofessional",
+    "phone": "(602) 555-0181",
+    "email": "gabriel.montoya@example.com",
+    "linkedin": "linkedin.com/in/gabriel-montoya",
+    "location": "Phoenix, AZ",
+    "summary": "Paraprofessional in a K–3 resource and self-contained special education program, with an Associate in Arts in Elementary Education and a passing ParaPro Assessment score. Bilingual in English and Spanish and trained in de-escalation, I support 8 students with IEPs daily and plan to complete my bachelor's and teacher certification.",
+    "experience": [
+      {
+        "title": "Before- and After-School Program Aide (part-time)",
+        "company": "Desert Sky Kids Club",
+        "location": "Phoenix, AZ",
+        "start": "2023-08",
+        "end": "2024-05",
+        "bullets": [
+          "Supervised groups of 20–25 K–5 students for homework help, snacks and outdoor games while studying full-time.",
+          "Led a weekly reading circle for 12 English learners using bilingual picture books.",
+          "Kept daily sign-in and sign-out logs with zero safety incidents across the school year."
+        ]
+      },
+      {
+        "title": "Special Education Paraprofessional",
+        "company": "Camelback Elementary School",
+        "location": "Phoenix, AZ",
+        "start": "2024-07",
+        "end": "present",
+        "bullets": [
+          "Support 8 students with IEPs in a K–3 self-contained classroom, delivering small-group reading and math lessons planned by the special education teacher.",
+          "Collect daily behavior and IEP goal data on tablets, giving the teacher accurate progress-monitoring data for 3 annual IEP meetings a month.",
+          "Use visual schedules and first-then boards that helped one student cut classroom exits from 6 a day to 1.",
+          "Translate parent notes and phone calls into Spanish for 5 families, improving homework folder return from about half to nearly all."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Associate in Arts in Elementary Education (AAEE)",
+        "school": "Phoenix College",
+        "location": "Phoenix, AZ",
+        "start": "2022-08",
+        "end": "2024-05",
+        "details": "GPA 3.5/4.0."
+      }
+    ],
+    "courses": [
+      {
+        "name": "ParaPro Assessment (passed)",
+        "provider": "ETS",
+        "year": 2024
+      },
+      {
+        "name": "Nonviolent Crisis Intervention",
+        "provider": "Crisis Prevention Institute (CPI)",
+        "year": 2024
+      },
+      {
+        "name": "CPR and First Aid",
+        "provider": "American Red Cross",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Spanish",
+        "level": "Native"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "IVP Fingerprint Clearance Card",
+        "detail": "Arizona Department of Public Safety, valid through 2030."
+      },
+      {
+        "title": "Phi Theta Kappa",
+        "detail": "Member of the community college honor society."
+      }
+    ],
+    "skills": [
+      "Small-group instruction",
+      "IEP data collection",
+      "Behavior support",
+      "Visual supports",
+      "De-escalation",
+      "Bilingual family communication",
+      "Reading intervention",
+      "Classroom routines",
+      "Google Workspace",
+      "Student supervision"
+    ],
+    "interests": [
+      "Youth soccer coaching",
+      "Drawing",
+      "Hiking"
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "id": "teacher-de-entry",
+  "category": "teaching-education",
+  "role": "teacher",
+  "country": "de",
+  "level": "entry",
+  "template": "ledger",
+  "content": {
+    "name": "Jana Becker",
+    "title": "Teacher of English and History (Gymnasium, Zweites Staatsexamen)",
+    "phone": "+49 30 23125 446",
+    "email": "jana.becker@example.com",
+    "linkedin": "linkedin.com/in/jana-becker",
+    "location": "Berlin",
+    "summary": "Fully qualified secondary teacher for English and History who completed my Referendariat at a Berlin Gymnasium in 2025 and now teaches at a bilingual international school. Experienced with mixed-ability classes, CLIL history lessons in English and preparing Year 10 students for the MSA.",
+    "experience": [
+      {
+        "title": "Lehramtsanwärterin / Studienreferendarin (Trainee Teacher)",
+        "company": "Gymnasium am Landwehrkanal",
+        "location": "Berlin",
+        "start": "2024-02",
+        "end": "2025-07",
+        "bullets": [
+          "Taught English and History in Years 7–12 for 18 months, including about 7 lessons a week of independent teaching, under the supervision of seminar leaders.",
+          "Designed a bilingual (CLIL) history unit on the Cold War in Berlin, later used by two colleagues.",
+          "Passed the Zweites Staatsexamen with an overall grade of 1.7, including two assessed demonstration lessons.",
+          "Organised a school exchange with a partner school in Leeds for 22 Year 9 students."
+        ]
+      },
+      {
+        "title": "Teacher of English and History",
+        "company": "Spreebogen International School",
+        "location": "Berlin",
+        "start": "2025-08",
+        "end": "present",
+        "bullets": [
+          "Teach 6 classes from Grade 7 to Grade 10, around 140 students, in a bilingual German-English school.",
+          "Prepare Grade 10 students for the English exam of the Mittlerer Schulabschluss (MSA); my class's mock average improved from 2.9 to 2.3.",
+          "Introduced a reading log and class library that raised the number of English books read per student from 2 to 6 in a term."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Zweites Staatsexamen (Second State Examination), Lehramt an Integrierten Sekundarschulen und Gymnasien",
+        "school": "Schulpraktisches Seminar (Vorbereitungsdienst Berlin)",
+        "location": "Berlin",
+        "start": "2024-02",
+        "end": "2025-07"
+      },
+      {
+        "degree": "Master of Education (M.Ed.), English and History",
+        "school": "Humboldt-Universität zu Berlin",
+        "location": "Berlin",
+        "start": "2021-10",
+        "end": "2023-09",
+        "details": "Equivalent to the Erstes Staatsexamen in Berlin. Final grade 1.5."
+      },
+      {
+        "degree": "Bachelor of Arts (teacher-training track), English and History",
+        "school": "Humboldt-Universität zu Berlin",
+        "location": "Berlin",
+        "start": "2018-10",
+        "end": "2021-09",
+        "details": "Semester abroad at the University of Glasgow."
+      }
+    ],
+    "courses": [
+      {
+        "name": "CLIL in the History Classroom",
+        "provider": "Berlin teacher training institute (LISUM)",
+        "year": 2024
+      },
+      {
+        "name": "Erste Hilfe für Lehrkräfte (First Aid)",
+        "provider": "German Red Cross (DRK)",
+        "year": 2025
+      }
+    ],
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C2"
+      },
+      {
+        "name": "French",
+        "level": "B2"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Second State Examination, grade 1.7",
+        "detail": "Full teaching qualification for Gymnasium (English and History)."
+      },
+      {
+        "title": "Erasmus+ semester abroad",
+        "detail": "Studied at the University of Glasgow, 2019–20."
+      }
+    ],
+    "skills": [
+      "Lesson planning",
+      "CLIL / bilingual teaching",
+      "Classroom management",
+      "Assessment and grading",
+      "MSA exam preparation",
+      "Differentiation",
+      "Moodle",
+      "Interactive whiteboard",
+      "Parent meetings",
+      "School exchanges"
+    ],
+    "interests": [
+      "Berlin history walks",
+      "Rowing",
+      "Contemporary fiction"
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "slug": "hr-generalist",
+  "name": "HR Generalist",
+  "category": "human-resources",
+  "updated": "2026-11-02",
+  "intro": "HR generalists cover a lot of ground, from onboarding and policies to employee relations, benefits and compliance. A good résumé shows the size of the workforce you support, the areas you own and the measurable difference you made to retention, process speed or risk.",
+  "recruiterFocus": [
+    "Workforce size and type: number of employees, sites, unionised or not, industry and countries or states covered.",
+    "Which HR areas you own: employee relations, onboarding, benefits, policy, payroll input, compliance or HRIS.",
+    "Knowledge of the local employment law and leave rules that apply to the role.",
+    "HRIS and tools such as Workday, BambooHR, Personio, SAP SuccessFactors or Keka.",
+    "Results like lower turnover, faster onboarding, closed cases or higher survey response rates."
+  ],
+  "experienceTips": [
+    "Lead with scope: who you support and how many managers rely on you.",
+    "Show case work in aggregate (cases closed per year, outcomes) without identifying any employee.",
+    "Name the policies you wrote or updated and the reason, such as a change in law or a merger.",
+    "Include one or two projects per role, such as an HRIS rollout, a review process redesign or an engagement survey.",
+    "At senior level, add team leadership, bargaining, workforce planning and work with executives."
+  ],
+  "numbersTips": [
+    "Retention: 'first-year turnover reduced from 31% to 19%'.",
+    "Process speed: 'time from offer to start cut from 26 to 15 days'.",
+    "Participation: 'performance review completion up from 58% to 96%'.",
+    "Case work: 'investigated and closed about 45 employee relations cases a year'.",
+    "Systems: 'moved leave and attendance for 900 employees into a new HRMS'."
+  ],
+  "noExperience": [
+    "Highlight HR placements, internships or HR modules in your degree, with the projects you completed.",
+    "Use customer service or team-leader work to show confidentiality, tact and organisation.",
+    "Add an entry-level HR qualification if your country has one, and say when you finished it.",
+    "Mention volunteering roles where you recruited, scheduled or supported people."
+  ],
+  "hardSkills": [
+    "Employee relations",
+    "Workplace investigations",
+    "Onboarding and offboarding",
+    "Employment law compliance",
+    "Leave and absence management",
+    "Benefits administration",
+    "Policy writing",
+    "Performance management",
+    "HRIS administration",
+    "Payroll input",
+    "HR reporting and analytics",
+    "Compensation and pay bands"
+  ],
+  "softSkills": [
+    {
+      "skill": "Discretion",
+      "proof": "Show you handle sensitive cases or investigations, using totals rather than any personal details."
+    },
+    {
+      "skill": "Coaching managers",
+      "proof": "Mention managers you coached through performance plans and how many cases improved."
+    },
+    {
+      "skill": "Fairness and judgement",
+      "proof": "Point to investigations or disciplinary processes that held up under appeal or external review."
+    },
+    {
+      "skill": "Organisation",
+      "proof": "Give volumes you keep on track, such as new starters a month or training renewals."
+    },
+    {
+      "skill": "Change communication",
+      "proof": "Describe a policy or system change you explained to staff and the adoption rate."
+    }
+  ],
+  "education": "Degrees in HR, business, psychology or law are common, but not always required. Many generalists add a professional HR qualification as they progress. List your degree, then the HR qualification and any employment-law or investigations training, with dates.",
+  "certifications": [
+    {
+      "name": "SHRM-CP / SHRM-SCP or HRCI PHR / SPHR",
+      "note": "The most recognised US HR certifications; often preferred for generalist and HR manager roles."
+    },
+    {
+      "name": "CIPD (Level 3, 5 or 7)",
+      "note": "The standard UK route. Many UK HR job adverts ask for a specific CIPD level or membership grade."
+    },
+    {
+      "name": "CHRP / CHRL, CPHR or CRHA",
+      "note": "Canadian designations that depend on the province; name the issuing association."
+    },
+    {
+      "name": "AHRI certification (CAHRI)",
+      "note": "Recognised in Australia for experienced HR practitioners."
+    },
+    {
+      "name": "Workplace investigations training",
+      "note": "Worth listing for any role with employee relations responsibility."
+    }
+  ],
+  "summaryExample": "HR generalist with five years in healthcare and logistics. Supports 700 employees across six sites with employee relations, onboarding and leave management, and introduced stay interviews that cut first-year turnover from 28% to 20%.",
+  "objectiveExample": "Business graduate with an HR placement year and an entry-level HR qualification, looking for an HR assistant or coordinator role. I have supported onboarding for 300 staff and built an exit-interview summary that helped my placement team spot a retention issue.",
+  "summaryVsObjective": "Choose a summary if you have worked in HR, giving workforce size, focus areas and one result. Use an objective if you are moving into HR from another field or graduating, and say which transferable skills you bring.",
+  "extraSections": [
+    "HR qualifications and membership level.",
+    "HR systems and tools you administer.",
+    "Policies written or projects led, in one line each.",
+    "Languages, where you advise staff in more than one language."
+  ],
+  "weakStrong": [
+    {
+      "weak": "Handled employee relations issues.",
+      "strong": "Investigated and closed about 45 employee relations cases a year, with no external claims upheld.",
+      "why": "Shows volume and quality of outcomes without revealing any case."
+    },
+    {
+      "weak": "Did onboarding for new hires.",
+      "strong": "Coordinated onboarding for 25 new care staff a month and cut offer-to-start time from 26 to 15 days.",
+      "why": "Gives volume and a measurable improvement."
+    },
+    {
+      "weak": "Updated company policies.",
+      "strong": "Rewrote the remote work policy and handbook sections after a law change, briefing 45 people leaders before launch.",
+      "why": "Explains the trigger, the work and the rollout."
+    }
+  ],
+  "takeaways": [
+    "Say how many employees you support and in what kind of organisation.",
+    "Name the laws, leave schemes and HR systems you work with.",
+    "Quantify outcomes: turnover, speed, completion rates and case volumes.",
+    "Never include identifiable details about employees or cases.",
+    "List professional HR qualifications with their level or designation."
+  ],
+  "countryNotes": {
+    "us": "SHRM-CP/SCP and HRCI PHR/SPHR are the main certifications. Generalists are expected to know FMLA, ADA, FLSA and EEO rules, plus state leave and pay laws, which vary widely by state. Name the states you cover. Leave age, photo and marital status off the résumé.",
+    "uk": "CIPD qualifications (Levels 3, 5 and 7) and membership grades are widely requested. Show familiarity with the ACAS Code of Practice on disciplinary and grievance procedures, right-to-work checks and UK GDPR. DBS checks matter in care, education and other regulated sectors. Use British spelling.",
+    "ca": "Designations depend on the province: CHRP and CHRL from HRPA in Ontario, CPHR in most other provinces, and CRHA/CRIA in Québec. Employment standards and health and safety are mostly provincial, while federally regulated employers follow the Canada Labour Code. French is often needed in Québec.",
+    "au": "The Fair Work Act, the National Employment Standards, Modern Awards and enterprise agreements shape most HR work; the Fair Work Ombudsman and Fair Work Commission publish guidance. AHRI offers the CAHRI certification. Workers' compensation and WHS rules are state-based, so name the scheme you work with.",
+    "de": "Common titles are Personalreferent/in and HR Generalist. Personalfachkaufmann/-frau (IHK) is a recognised qualification. Show knowledge of works council rights (BetrVG), the AGG, Arbeitszeugnisse and payroll input via DATEV or SAP. Give German and English levels using CEFR.",
+    "in": "MBA or PGDM in HR is common. Generalists handle PF, ESIC and gratuity compliance, state Shops and Establishments rules and the POSH Act Internal Committee. India is moving to four consolidated labour codes, so check current requirements. Name HRMS tools such as Keka, Darwinbox or SAP SuccessFactors."
+  }
+}

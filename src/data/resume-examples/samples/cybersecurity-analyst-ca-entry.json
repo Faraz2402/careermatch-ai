@@ -1,0 +1,69 @@
+{
+  "id": "cybersecurity-analyst-ca-entry",
+  "category": "information-technology",
+  "role": "cybersecurity-analyst",
+  "country": "ca",
+  "level": "entry",
+  "template": "horizon",
+  "content": {
+    "name": "Aaliyah Thompson",
+    "title": "Junior Cybersecurity Analyst",
+    "phone": "(604) 555-0192",
+    "email": "aaliyah.thompson@example.com",
+    "linkedin": "linkedin.com/in/aaliyah-thompson",
+    "location": "Vancouver, BC",
+    "summary": "Junior cybersecurity analyst with a BCIT diploma, Security+ and a six-month security operations internship. Now triages alerts and phishing reports for a credit union in the Lower Mainland, and built a reporting button flow that tripled staff phishing reports. Practises regularly on home labs and capture-the-flag challenges.",
+    "experience": [
+      {
+        "title": "Security Operations Intern",
+        "company": "Kitsilano Freight Brokers Ltd.",
+        "location": "Vancouver, BC",
+        "start": "2024-06",
+        "end": "2024-12",
+        "bullets": [
+          "Reviewed Microsoft Defender alerts daily for 180 users and escalated three confirmed malware cases to the IT manager.",
+          "Ran a Nessus scan of the office network and tracked 64 findings to closure with the infrastructure team.",
+          "Drafted an incident response checklist that the company adopted for after-hours events."
+        ]
+      },
+      {
+        "title": "Junior Cybersecurity Analyst",
+        "company": "Fraser Delta Credit Union",
+        "location": "Burnaby, BC (hybrid)",
+        "start": "2025-02",
+        "end": "present",
+        "bullets": [
+          "Triage 40–60 SIEM alerts a day in Microsoft Sentinel and escalate confirmed incidents to the senior analyst.",
+          "Built a one-click phishing report flow in Outlook with automatic sandboxing, which tripled reports from staff in four months.",
+          "Wrote KQL queries that flag impossible-travel sign-ins for 520 member-facing and back-office staff.",
+          "Keep vulnerability tickets up to date and prepare the weekly patch-compliance summary for the IT director."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diploma, Computer Information Technology",
+        "school": "British Columbia Institute of Technology (BCIT)",
+        "location": "Burnaby, BC",
+        "start": "2022-09",
+        "end": "2024-05",
+        "details": "Network security and Linux administration electives. GPA 84%."
+      }
+    ],
+    "courses": [
+      { "name": "CompTIA Security+", "provider": "CompTIA", "year": 2024 },
+      { "name": "Certified in Cybersecurity (CC)", "provider": "ISC2", "year": 2023 },
+      { "name": "Microsoft Certified: Security Operations Analyst Associate (SC-200)", "provider": "Microsoft", "year": 2026 }
+    ],
+    "languages": [
+      { "name": "English", "level": "Native" },
+      { "name": "French", "level": "Intermediate (B1)" }
+    ],
+    "achievements": [
+      { "title": "Top 5 student team, regional cyber competition", "detail": "Placed fifth of 38 teams in a BC post-secondary capture-the-flag event in 2024." },
+      { "title": "Home lab project", "detail": "Run a home SOC lab with a pfSense firewall, Wazuh and two Windows victims; write-ups published on a personal blog." }
+    ],
+    "skills": ["Microsoft Sentinel (KQL)", "Microsoft Defender XDR", "Wazuh", "Nessus", "Wireshark", "Phishing analysis", "Windows and Linux logs", "Incident documentation", "Python (basic)", "Networking fundamentals"],
+    "interests": ["Capture-the-flag challenges", "Paddleboarding", "Volunteering at a youth coding club"]
+  }
+}
