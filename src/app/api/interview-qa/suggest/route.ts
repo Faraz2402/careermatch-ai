@@ -11,7 +11,7 @@ export async function GET(req: Request) {
   if (error) return error;
   const q = (new URL(req.url).searchParams.get("q") ?? "").trim().toLowerCase().slice(0, 100);
   if (q.length < 2) return NextResponse.json({ facets: [], questions: [] });
-  const all = await publishedQuestions();
+  const all = await publishedQuestions().catch(() => []);
   const companies = [...new Set(all.map((x) => x.company).filter((c): c is string => !!c))];
   const pick = (kind: string, list: string[]) => list.filter((v) => v.toLowerCase().includes(q)).slice(0, 4).map((value) => ({ kind, value }));
   const facets = [...pick("dept", DEPARTMENT_NAMES), ...pick("role", ALL_ROLES), ...pick("tool", TOOLS.map((t) => t.name)), ...pick("skill", ALL_SKILLS), ...pick("company", companies)].slice(0, 8);
