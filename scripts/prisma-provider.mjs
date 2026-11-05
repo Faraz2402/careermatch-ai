@@ -1,7 +1,7 @@
 // Runs before `prisma generate` in the Vercel build. Local development uses
-// SQLite; when DATABASE_URL points at Postgres (e.g. Neon on Vercel), switch
-// the schema's datasource to postgresql. Uses the unpooled URL for schema
-// changes when Neon provides one.
+// SQLite; when DATABASE_URL points at Postgres (e.g. Supabase on Vercel),
+// switch the schema's datasource to postgresql. Uses the unpooled URL for
+// schema changes when one is provided.
 import fs from "node:fs";
 
 const file = new URL("../prisma/schema.prisma", import.meta.url);
