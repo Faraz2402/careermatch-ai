@@ -1,51 +1,46 @@
-// CareerMatch AI data model. SQLite for local dev; switch the provider to
-// "postgresql" for production (all JSON payloads are stored as TEXT so the
-// schema stays portable).
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 model User {
-  id           String   @id @default(cuid())
-  email        String   @unique
-  name         String?
-  passwordHash String
-  isDemo       Boolean  @default(false)
-  role         String   @default("user") // user | admin
-  emailVerifiedAt DateTime?
-  googleId     String?  @unique
-  microsoftId  String?  @unique
-  linkedinId   String?  @unique
-  plan         String   @default("free") // free | pro
+  id               String               @id @default(cuid())
+  email            String               @unique
+  name             String?
+  passwordHash     String
+  isDemo           Boolean              @default(false)
+  role             String               @default("user")
+  emailVerifiedAt  DateTime?
+  googleId         String?              @unique
+  microsoftId      String?              @unique
+  linkedinId       String?              @unique
+  plan             String               @default("free")
   /// Pro is prepaid: it stays active until this date (then reverts to free)
-  planRenewsAt DateTime?
+  planRenewsAt     DateTime?
   /// Daily 7 AM "best new matches" email (Pro): opt-out flag and last send time
-  digestOptOut     Boolean   @default(false)
+  digestOptOut     Boolean              @default(false)
   digestLastSentAt DateTime?
   /// Unused (was the Stripe customer id). Kept so the switch to Razorpay
   /// needs no destructive migration.
-  legacyBillingRef String? @unique @map("stripeCustomerId")
-  createdAt    DateTime @default(now())
-
-  sessions    Session[]
-  resetTokens PasswordResetToken[]
-  profile     Profile?
-  preferences Preferences?
-  jobStates   UserJob[]
-  generations Generation[]
-  resumeVersions ResumeVersion[]
-  savedSearches  SavedSearch[]
-  usage          UsageEvent[]
-  payments       Payment[]
-  uploads        ResumeUpload[]
-  tailorDrafts   TailorDraft[]
+  legacyBillingRef String?              @unique @map("stripeCustomerId")
+  createdAt        DateTime             @default(now())
+  generations      Generation[]
+  resetTokens      PasswordResetToken[]
+  payments         Payment[]
+  preferences      Preferences?
+  profile          Profile?
+  uploads          ResumeUpload[]
+  resumeVersions   ResumeVersion[]
+  savedSearches    SavedSearch[]
+  sessions         Session[]
+  tailorDrafts     TailorDraft[]
+  usage            UsageEvent[]
+  jobStates        UserJob[]
 }
 
 model Session {
@@ -62,7 +57,7 @@ model Session {
 /// Single-use emailed tokens (password reset, email verification).
 model PasswordResetToken {
   id        String    @id @default(cuid())
-  purpose   String    @default("reset") // reset | verify
+  purpose   String    @default("reset")
   tokenHash String    @unique
   userId    String
   expiresAt DateTime
@@ -101,90 +96,89 @@ model Preferences {
 /// Normalized listing as returned by a connected source. Never created
 /// except from a source response (or a user-imported URL).
 model Job {
-  id             String    @id // `${source}:${externalId}`
-  source         String
-  externalId     String
-  title          String
-  company        String
-  location       String    @default("")
+  id              String        @id
+  source          String
+  externalId      String
+  title           String
+  company         String
+  location        String        @default("")
   /// Detected from `location` (src/lib/geo/detect.ts): primary ISO country,
   /// all named countries (comma list), city, and remote eligibility scope.
-  country        String?
-  countries      String    @default("")
-  city           String?
-  remoteScope    String? // "any" | comma list of regions
-  workMode       String    @default("unknown") // remote | hybrid | onsite | unknown
-  employmentType String    @default("")
-  salaryMin      Int?
-  salaryMax      Int?
-  salaryCurrency String?
-  salaryPeriod   String?
+  country         String?
+  countries       String        @default("")
+  city            String?
+  remoteScope     String?
+  workMode        String        @default("unknown")
+  employmentType  String        @default("")
+  salaryMin       Int?
+  salaryMax       Int?
+  salaryCurrency  String?
+  salaryPeriod    String?
   /// Salary normalised to yearly USD (approximate FX) for filtering/insights
   salaryYearlyUsd Int?
-  description    String
-  url            String
-  postedAt       DateTime?
-  fetchedAt      DateTime  @default(now())
-  firstSeenAt    DateTime  @default(now())
+  description     String
+  url             String
+  postedAt        DateTime?
+  fetchedAt       DateTime      @default(now())
+  firstSeenAt     DateTime      @default(now())
   /// Last time the source still returned this listing
-  lastSeenAt     DateTime  @default(now())
-  embedding      String?
+  lastSeenAt      DateTime      @default(now())
+  embedding       String?
   /// The user that imported this job via URL (null for feed listings)
-  importedById   String?
+  importedById    String?
   /// JSON (src/lib/jobs/enrich.ts): verified original posting, full
   /// description, AI-extracted requirements and market salary
-  enrichment     String?
-  enrichedAt     DateTime?
+  enrichment      String?
+  enrichedAt      DateTime?
   /// Marked "no longer accepting applications" (by a user report or detected
   /// on the original posting). Hidden from the feed after the next daily refresh.
-  expiredAt      DateTime?
+  expiredAt       DateTime?
   /// "auto" or the reporting user's id
-  expiredBy      String?
-
-  states       UserJob[]
-  generations  Generation[]
-  tailorDrafts TailorDraft[]
+  expiredBy       String?
+  generations     Generation[]
+  tailorDrafts    TailorDraft[]
+  states          UserJob[]
 
   @@index([source, lastSeenAt])
   @@index([country, city])
 }
 
 model UserJob {
-  id        String   @id @default(cuid())
-  userId    String
-  jobId     String
-  saved     Boolean  @default(false)
-  hidden    Boolean  @default(false)
-  status    String   @default("none") // none | interested | applied | interviewing | offer | rejected
-  notes     String   @default("")
-  appliedAt DateTime?
-  followUpAt DateTime?
+  id                 String    @id @default(cuid())
+  userId             String
+  jobId              String
+  saved              Boolean   @default(false)
+  hidden             Boolean   @default(false)
+  status             String    @default("none")
+  notes              String    @default("")
+  appliedAt          DateTime?
+  followUpAt         DateTime?
   followUpNotifiedAt DateTime?
-  contactName  String @default("")
-  contactEmail String @default("")
-  resumeVersionId String?
-  position  Int      @default(0)
-  updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  contactName        String    @default("")
+  contactEmail       String    @default("")
+  resumeVersionId    String?
+  position           Int       @default(0)
+  updatedAt          DateTime  @updatedAt
+  job                Job       @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  user               User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, jobId])
 }
 
 model Generation {
-  id        String   @id @default(cuid())
-  userId    String
-  jobId     String?
-  kind      String // ats_resume | cover_letter | match_analysis | missing_skills | talking_points
+  id              String   @id @default(cuid())
+  userId          String
+  jobId           String?
+  kind            String
   /// JSON payload of the generated result (encrypted at rest)
-  content   String
+  content         String
   /// User-reviewed version (after accepting/rejecting changes)
-  finalContent String?
+  finalContent    String?
   resumeVersionId String?
-  engine    String // model id, or "template" when AI is not configured
-  createdAt DateTime @default(now())
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  job       Job?     @relation(fields: [jobId], references: [id], onDelete: SetNull)
+  engine          String
+  createdAt       DateTime @default(now())
+  job             Job?     @relation(fields: [jobId], references: [id])
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId, createdAt])
 }
@@ -220,8 +214,8 @@ model TailorDraft {
   state      String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+  job        Job?     @relation(fields: [jobId], references: [id])
   user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  job        Job?     @relation(fields: [jobId], references: [id], onDelete: SetNull)
 
   @@index([userId, updatedAt])
 }
@@ -240,15 +234,15 @@ model ResumeVersion {
 }
 
 model SavedSearch {
-  id          String    @id @default(cuid())
+  id          String   @id @default(cuid())
   userId      String
   name        String
   /// JSON SearchFilters
   filters     String
-  frequency   String    @default("weekly") // off | daily | weekly
-  lastAlertAt DateTime  @default(now())
-  createdAt   DateTime  @default(now())
-  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  frequency   String   @default("weekly")
+  lastAlertAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }
@@ -268,13 +262,13 @@ model SourceRun {
 
 /// Operator overrides for sources (secrets stay in env vars).
 model SourceSetting {
-  id      String   @id // source id
-  enabled Boolean?
+  id           String   @id
+  enabled      Boolean?
   /// comma-separated board tokens for employer feeds
-  boards  String?
+  boards       String?
   /// Lifetime API requests made (for sources with a hard per-key quota, e.g. Jooble)
-  requestsUsed Int @default(0)
-  updatedAt DateTime @updatedAt
+  requestsUsed Int      @default(0)
+  updatedAt    DateTime @updatedAt
 }
 
 /// Metered AI actions for plan limits.
@@ -306,8 +300,8 @@ model Payment {
   /// Amount in paise (INR x 100)
   amount    Int
   currency  String    @default("INR")
-  period    String // monthly | yearly
-  status    String    @default("created") // created | paid
+  period    String
+  status    String    @default("created")
   /// upi | card | netbanking | wallet | emi ... as reported by Razorpay
   method    String?
   createdAt DateTime  @default(now())
@@ -320,30 +314,30 @@ model Payment {
 /// Interview questions from openly licensed collections (with attribution) and
 /// questions users report they were asked (published after review).
 model InterviewQuestion {
-  id              String    @id // `${source}:${sourceId}`
-  source          String // source key, or "user"
+  id              String    @id
+  source          String
   sourceUrl       String
   license         String
   attribution     String
   company         String?
   department      String
-  roles           String // JSON string[]; empty = any role in the department
+  roles           String
   experienceLevel String?
-  questionType    String // Coding | System Design | Conceptual | Behavioral | SQL | Case
+  questionType    String
   roundType       String?
   question        String
-  answer          String? // Markdown
-  answerOrigin    String? // source | ai | user
-  tools           String // JSON string[]
-  skills          String // JSON string[]
+  answer          String?
+  answerOrigin    String?
+  tools           String
+  skills          String
   /// Only for user reports: when the user was asked this.
   dateAsked       DateTime?
   /// Last change to the source file (collections) or the report date (users).
   sourceUpdatedAt DateTime?
-  hash            String // content hash, to skip unchanged rows on refresh
+  hash            String
   firstSeenAt     DateTime  @default(now())
   lastSeenAt      DateTime  @default(now())
-  status          String    @default("published") // published | pending | rejected
+  status          String    @default("published")
   submittedById   String?
 
   @@index([status, department])
