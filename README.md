@@ -24,8 +24,8 @@ Everything optional degrades gracefully. Without each key:
 | Claude or Gemini key | Rule-based parser and template drafts, both labelled in the UI |
 | Voyage key | Lexical similarity plus role-family matching |
 | Resend key | Emails go to the dev outbox at `/dev/outbox` |
-| Razorpay keys | Pricing page says payments aren't set up |
-| Google keys | The Google sign-in button is hidden |
+| Razorpay keys | Pricing page says payments are set up |
+| Google keys | The Google sign-in is live |
 | Redis | Rate limits are kept in memory |
 
 ## Stack
