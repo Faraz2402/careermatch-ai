@@ -182,12 +182,18 @@ export function refreshSources(opts: { force?: boolean; onlyIds?: string[]; extr
       .filter((s) => s !== null)
       .sort((a, b) => a.lastAt - b.lastAt);
     let next = 0;
+    let started = 0;
     await Promise.all(
       Array.from({ length: REFRESH_CONCURRENCY }, async () => {
         while (next < due.length) {
           const { def, ctx, estimate } = due[next++];
-          if (Date.now() + estimate > deadline) ran.push({ id: def.id, ok: true, count: 0, skipped: "deferred" });
-          else ran.push(await runSource(def, ctx, keywordSets));
+          // The most overdue source always starts (a slow source would otherwise be deferred forever);
+          // its own fetch timeout keeps it inside the request limit.
+          if (started > 0 && Date.now() + estimate > deadline) ran.push({ id: def.id, ok: true, count: 0, skipped: "deferred" });
+          else {
+            started++;
+            ran.push(await runSource(def, ctx, keywordSets));
+          }
         }
       }),
     );
