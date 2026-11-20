@@ -6,8 +6,8 @@ export function Logo({ className }: { className?: string }) {
     <Link href="/" className={cx("flex items-center gap-2.5 text-slate-900", className)} aria-label="CareerMatch AI home">
       {/* A highlighter stroke under a check: "this matches you". */}
       <svg viewBox="0 0 32 32" className="size-8" aria-hidden>
-        <rect width="32" height="32" rx="8" fill="#18212e" />
-        <rect x="6" y="17" width="20" height="7" rx="1.5" fill="#ffe36e" />
+        <rect width="32" height="32" rx="8" fill="#173a2f" />
+        <rect x="6" y="17" width="20" height="7" rx="1.5" fill="#3fd29b" />
         <path d="M9.5 15.5l4 4 9-10" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
       <span className="text-lg font-bold tracking-tight">CareerMatch</span>

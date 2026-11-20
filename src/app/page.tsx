@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { DemoButton } from "@/components/client";
+import { HomeSlider, type Slide } from "@/components/home-slider";
 import { JsonLd, organization, softwareApplication } from "@/components/json-ld";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { db } from "@/lib/db";
 import { appUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
@@ -13,200 +14,230 @@ export const metadata: Metadata = {
   openGraph: { url: "/", title: "CareerMatch: jobs ranked against your résumé", description: "Every score is computed from the complete job description, with the skills you have and the ones you're missing." },
 };
 
-// Static, refreshed hourly: the page is served from the edge cache, so it loads instantly.
+// Static, refreshed hourly: served from the edge cache, so it loads instantly.
 export const revalidate = 3600;
 
-/** Live numbers for the sources section; nothing is shown if the database can't be read at build time. */
-async function liveNumbers() {
-  try {
-    const since = new Date(Date.now() - 7 * 86_400_000);
-    const where = { lastSeenAt: { gte: since }, descriptionFull: true, expiredAt: null, importedById: null, source: { not: "demo" } };
-    const [listings, companies] = await Promise.all([
-      db.job.count({ where }),
-      db.job.groupBy({ by: ["company"], where, _count: true, orderBy: { _count: { company: "desc" } }, take: 24 }),
-    ]);
-    return { listings, companies: companies.map((c) => c.company).filter((c) => c && !/not listed|unknown/i.test(c)) };
-  } catch {
-    return null;
-  }
-}
+const Arrow = () => (
+  <span aria-hidden className="arrow-chip grid size-9 shrink-0 place-items-center rounded-full border border-current">
+    <svg viewBox="0 0 16 16" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+  </span>
+);
 
-// The scoring weights, exactly as src/lib/jobs/rank.ts applies them.
-const SCORE_PARTS: [string, string, string][] = [
-  ["Skills", "40", "Each skill the posting asks for, checked against your résumé. Required skills count fully, nice-to-haves half."],
-  ["Role", "20", "How close the title is to the roles you want. A UI Engineer counts as a frontend role."],
-  ["Relevance", "10", "How much the whole description overlaps the work you've described."],
-  ["Seniority and experience", "10", "The level in the title, and the years of experience the posting asks for against yours."],
-  ["Location and arrangement", "10", "Your cities, and remote, hybrid or on-site."],
-  ["Salary", "5", "Posted pay against your minimum. Neutral when no pay is posted."],
-  ["Recency", "5", "Newer postings first. Anything past 30 days is flagged."],
-  ["Your feedback", "±5", "Jobs like the ones you save rise; jobs like the ones you hide sink."],
+const Photo = ({ src, alt, className = "", position = "50% 30%", sizes, priority }: { src: string; alt: string; className?: string; position?: string; sizes: string; priority?: boolean }) => (
+  <div className={`${/\babsolute\b/.test(className) ? "" : "relative "}overflow-hidden ${className}`}>
+    <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="zoom-img object-cover" style={{ objectPosition: position }} />
+  </div>
+);
+
+const OFFER: { title: string; body: string; tone: string; card: React.ReactNode }[] = [
+  {
+    title: "Matches",
+    body: "Live jobs from employer career sites, ranked against your résumé, with the reason for every score.",
+    tone: "bg-peri",
+    card: (
+      <div className="mx-auto w-56 rounded-2xl bg-white p-4 text-center text-forest-deep shadow-[0_18px_40px_-20px_rgb(7_33_26/0.5)]">
+        <p className="serif-display text-xl">Ananya R.</p>
+        <Photo src="/people/persona-early.jpg" alt="" sizes="96px" className="mx-auto mt-3 size-20 rounded-full" position="65% 25%" />
+        <p className="mt-3 text-xs text-forest/70">Senior Data Analyst · Bengaluru</p>
+        <p className="mt-2 inline-block rounded-full bg-mintwash px-3 py-1 text-xs font-semibold text-forest">82 match · 9 of 11 skills</p>
+      </div>
+    ),
+  },
+  {
+    title: "Résumé and cover letter",
+    body: "Tailor your résumé to one posting. Each rewrite comes with its reason, and you approve it line by line.",
+    tone: "bg-leaf",
+    card: (
+      <div className="mx-auto w-56 rounded-2xl border border-white/25 bg-white/10 p-4 text-white backdrop-blur-sm">
+        <p className="text-sm font-semibold">Before → after</p>
+        <div className="mt-3 space-y-2 text-xs">
+          <p className="rounded-lg bg-white/10 p-2 line-through decoration-white/50">Handled vendor reports</p>
+          <p className="rounded-lg bg-white/20 p-2">Built weekly vendor reports in Power BI for 40 suppliers</p>
+        </div>
+        <p className="mt-3 text-xs text-white/80">ATS alignment 61 → 84</p>
+      </div>
+    ),
+  },
+  {
+    title: "Interview practice",
+    body: "Questions asked for your role, and a skills test that shows exactly where you'd lose marks.",
+    tone: "bg-apricot",
+    card: (
+      <div className="mx-auto w-56 rounded-2xl bg-white p-4 text-forest-deep shadow-[0_18px_40px_-20px_rgb(7_33_26/0.5)]">
+        <div className="flex items-center gap-3">
+          <Photo src="/people/portrait-emma.jpg" alt="" sizes="48px" className="size-10 rounded-full" position="50% 20%" />
+          <div><p className="text-sm font-semibold">Mock interview</p><p className="text-xs text-forest/70">Question 3 of 5</p></div>
+        </div>
+        <p className="mt-3 rounded-lg bg-cream p-2 text-xs">&ldquo;Tell me about a time you cut costs without losing quality.&rdquo;</p>
+        <p className="mt-2 text-xs font-semibold text-leaf">Strong answer · add one number</p>
+      </div>
+    ),
+  },
 ];
 
-const TOOLS: [string, string, string][] = [
-  ["Matches", "A ranked list of live jobs, each with its score, the skills you're missing and the employer's own apply link.", "/signup"],
-  ["Résumé and cover letter", "Tailor your résumé to one posting. Every rewrite is proposed with its reason, and you accept or reject it line by line.", "/signup"],
-  ["Interview practice", "Questions asked for your role, and a skills test that shows where you'd lose marks.", "/signup"],
+const STEPS: { word: string; title: string; body: string }[] = [
+  { word: "Match", title: "Every posting, read in full", body: "We load each job's complete description from the employer's own site before anything is scored, then rank it against your résumé on skills, role, seniority, location and pay." },
+  { word: "Tailor", title: "Your résumé, aimed at one job", body: "See which requirements you meet, with your own lines as evidence. Accept the rewrites you agree with; nothing is added that isn't true." },
+  { word: "Apply", title: "Straight to the employer", body: "Apply on the company's own posting, track every application on one board, and get a reminder when it's time to follow up." },
 ];
 
-/** The hero: one job posting, read in full, marked up the way a recruiter would. Sample content. */
-function MarkedPosting() {
-  const m = (i: number, text: string) => <mark className="marker mark-in bg-transparent text-inherit" style={{ "--i": i } as React.CSSProperties}>{text}</mark>;
-  const gap = (text: string) => <span className="underline decoration-rose-500 decoration-wavy decoration-1 underline-offset-4">{text}</span>;
-  return (
-    <figure className="card overflow-hidden">
-      <div className="flex items-start justify-between gap-4 border-b border-slate-200 p-5">
-        <div>
-          <p className="text-lg font-semibold text-slate-900">Senior Data Analyst</p>
-          <p className="text-sm text-slate-600">Fintech company, Bengaluru (hybrid)</p>
-        </div>
-        <div className="text-right">
-          <p className="text-4xl leading-none font-bold tracking-tight text-slate-900 tabular-nums">82</p>
-          <p className="mt-1 text-xs text-slate-500">of 100</p>
-        </div>
-      </div>
-      <div className="grid gap-0 md:grid-cols-[1.35fr_1fr]">
-        <div className="space-y-3 p-5 text-[0.93rem] leading-7 text-slate-700">
-          <p>You will own reporting for our payments business and work with product and risk teams on how merchants grow.</p>
-          <p>
-            What you&rsquo;ll need: {m(0, "4+ years in analytics")}, strong {m(1, "SQL")} and {m(2, "Python")}, experience building dashboards in {m(3, "Power BI")} or Tableau, and comfort explaining numbers to people who don&rsquo;t work with them.
-          </p>
-          <p>Good to have: {gap("dbt")}, {m(4, "A/B testing")}, and an understanding of {gap("credit risk")}.</p>
-          <p className="text-slate-500">The full description continues: benefits, team, hiring process…</p>
-        </div>
-        <div className="border-t border-slate-200 bg-slate-50 p-5 text-sm md:border-t-0 md:border-l">
-          <p className="font-semibold text-slate-900">Why 82</p>
-          <dl className="stagger mt-3 space-y-2 tabular-nums">
-            {[["Skills", 33, 40], ["Role", 18, 20], ["Relevance", 8, 10], ["Seniority and experience", 10, 10], ["Location", 10, 10], ["Salary", 2, 5], ["Recency", 5, 5]].map(([label, got, max]) => (
-              <div key={label as string} className="flex justify-between gap-3">
-                <dt className="text-slate-600">{label}</dt>
-                <dd className="font-medium text-slate-900">{got}/{max}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="mt-4 text-slate-600"><span className="marker">Highlighted</span>: on your résumé. <span className="underline decoration-rose-500 decoration-wavy decoration-1 underline-offset-4">Underlined</span>: missing.</p>
-        </div>
-      </div>
-      <figcaption className="border-t border-slate-200 px-5 py-2.5 text-xs text-slate-500">Sample posting and résumé, for illustration.</figcaption>
-    </figure>
-  );
-}
+const PEOPLE: { photo: string; alt: string; pos: string; who: string; line: string }[] = [
+  { photo: "/people/persona-grad.jpg", alt: "A smiling graduate in a cap and gown", pos: "55% 30%", who: "Graduating students", line: "Turn a degree and a few projects into a résumé recruiters read." },
+  { photo: "/people/persona-early.jpg", alt: "A young professional smiling at his laptop", pos: "68% 30%", who: "Early in your career", line: "Show what you did in your first roles and find the step up." },
+  { photo: "/people/persona-senior.jpg", alt: "A professional in a blue suit at his desk", pos: "50% 28%", who: "Experienced professionals", line: "Aim years of experience at each role without diluting it." },
+  { photo: "/people/persona-switch.jpg", alt: "A woman with curly hair and glasses in a bright office", pos: "76% 35%", who: "Changing careers", line: "Reframe what you've already done for a new field, honestly." },
+];
 
-export default async function Landing() {
-  const live = await liveNumbers();
+const SLIDES: Slide[] = [
+  { label: "Upload", title: "Start with the résumé you have", body: "PDF, Word or LinkedIn export. It becomes a clean profile you can edit in minutes.", photo: "/people/laptop-cafe.jpg", alt: "A woman working on her laptop in a café", position: "50% 40%" },
+  { label: "Read the score", title: "Know why a job scored 82", body: "Skills you have in green, gaps in red, and the experience the employer asks for against yours.", photo: "/people/portrait-marcus.jpg", alt: "A man in a suit, arms crossed, smiling", position: "50% 25%" },
+  { label: "Prepare", title: "Walk in having practised", body: "Real questions for your role, feedback on each answer, and a skills test before the interview.", photo: "/people/team.jpg", alt: "Colleagues talking around a table", position: "50% 40%" },
+];
 
+export default function Landing() {
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-white text-forest-deep">
       <JsonLd
         data={{
           "@context": "https://schema.org",
           "@graph": [organization(), { "@type": "WebSite", "@id": `${appUrl()}/#site`, name: "CareerMatch AI", url: `${appUrl()}/`, inLanguage: "en-IN", publisher: { "@id": `${appUrl()}/#org` } }, softwareApplication()],
         }}
       />
-      <SiteHeader dark />
+      <SiteHeader />
+
       <main id="main">
-        <div className="hero-night">
-          <div aria-hidden className="hero-grid" />
-          <section className="shell grid items-center gap-12 pt-[124px] pb-20 lg:grid-cols-[1fr_1.15fr] lg:pt-[150px] lg:pb-28">
-            <div className="parallax-text">
-              <div className="intro max-w-xl">
-                <h1 className="text-[clamp(2.5rem,4.8vw,4.1rem)] leading-[1.03] font-bold text-white">Jobs ranked against your résumé, read from the whole posting.</h1>
-                <p className="mt-6 text-lg leading-8 text-white/70">
-                  Upload your résumé once. CareerMatch reads every job description in full, marks what you already have and what you&rsquo;re missing, and shows you why each job scored the way it did.
-                </p>
-                <div className="mt-9 flex flex-wrap items-center gap-3">
-                  <Link href="/signup" className="btn bg-[#ffe36e] px-6 py-3 text-base text-[#0b1524] shadow-[0_10px_30px_-10px_rgb(255_227_110/0.6)] hover:bg-[#ffd84a]">Upload your résumé</Link>
-                  <DemoButton className="btn border border-white/20 px-6 py-3 text-base text-white hover:border-white/40 hover:bg-white/5">Try it with a sample résumé</DemoButton>
-                </div>
-                <p className="mt-4 text-sm text-white/50">Free to start, no card needed.</p>
+        {/* Hero */}
+        <section className="bg-forest text-white">
+          <div className="shell grid lg:grid-cols-2">
+            <div className="intro py-16 pr-0 lg:border-r lg:border-white/15 lg:py-24 lg:pr-14">
+              <h1 className="serif-display text-[clamp(3rem,6.4vw,6rem)] leading-[0.98]">Your next job.<br />Matched.</h1>
+              <p className="mt-8 max-w-xl text-lg leading-8 text-white/80">
+                Upload your résumé once. CareerMatch reads every job description in full, ranks live jobs from employer career sites across India against you, and shows why each one scored the way it did.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
+                <Link href="/signup" className="btn rounded-full bg-leaf-bright px-7 py-3.5 text-base text-forest-deep hover:bg-white">Upload your résumé</Link>
+                <DemoButton className="text-base font-semibold text-white underline decoration-white/50 underline-offset-[6px] hover:decoration-white">Try it with a sample résumé</DemoButton>
+              </div>
+              <p className="mt-5 text-sm text-white/55">Free to start, no card needed.</p>
+            </div>
+            <div className="relative min-h-[26rem] pb-10 lg:min-h-0 lg:pb-0">
+              <div className="intro-late absolute inset-x-6 top-10 bottom-0 overflow-hidden rounded-t-[999px] sm:inset-x-16 lg:inset-x-14 lg:top-14">
+                <Image src="/people/hero-main.jpg" alt="A smiling professional at her desk" fill priority sizes="(min-width: 1024px) 40vw, 90vw" className="photo-settle object-cover" style={{ objectPosition: "50% 22%" }} />
+              </div>
+              <div className="bob absolute top-1/3 left-0 rounded-2xl bg-white p-4 text-forest-deep shadow-[0_24px_50px_-24px_rgb(0_0_0/0.6)] sm:left-4">
+                <p className="text-xs text-forest/60">Procurement Analyst · Hyderabad</p>
+                <p className="mt-1 flex items-baseline gap-2"><span className="text-3xl font-bold tabular-nums">82</span><span className="text-sm text-forest/60">match</span></p>
+                <div className="mt-2 flex gap-1.5 text-[11px]"><span className="rounded-full bg-mintwash px-2 py-0.5 font-semibold text-forest">SAP Ariba</span><span className="rounded-full bg-mintwash px-2 py-0.5 font-semibold text-forest">Sourcing</span></div>
+              </div>
+              <div className="bob-late absolute right-2 bottom-16 flex items-center gap-3 rounded-full bg-peri py-2 pr-4 pl-2 text-forest-deep shadow-[0_24px_50px_-24px_rgb(0_0_0/0.6)] sm:right-8">
+                <Photo src="/people/portrait-sara.jpg" alt="" sizes="40px" className="size-9 rounded-full" position="50% 25%" />
+                <span className="text-sm font-semibold">Interview booked</span>
               </div>
             </div>
-            <div className="parallax-card">
-              <div className="intro-late float-card rounded-xl"><MarkedPosting /></div>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
 
-        <section id="sources" className="scroll-mt-16 border-y border-slate-200 bg-slate-50">
-          <div className="reveal shell grid gap-8 py-12 lg:grid-cols-[1fr_2fr]">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900">Where the jobs come from</h2>
-              <p className="mt-3 text-slate-600">
-                Straight from employers&rsquo; own career sites (Workday, Greenhouse, Lever, Ashby, SmartRecruiters, Oracle and SuccessFactors) plus Adzuna, Jooble and remote-job boards. Listings are checked every few hours and drop out when the employer takes them down.
-              </p>
+        {/* What you get */}
+        <section className="bg-mintwash">
+          <div className="shell py-20 lg:py-24">
+            <h2 className="reveal serif-display text-[clamp(2.4rem,4.4vw,4rem)] leading-tight">What you get</h2>
+            <div className="reveal-stagger mt-12 grid gap-8 md:grid-cols-3 lg:gap-10">
+              {OFFER.map((o) => (
+                <Link key={o.title} href="/signup" className="group flex flex-col bg-mintwash">
+                  <div className={`${o.tone} grid h-72 place-items-center overflow-hidden rounded-3xl p-6`}>{o.card}</div>
+                  <div className="mt-6 flex flex-1 items-start justify-between gap-4 border-t border-forest/20 pt-6">
+                    <div>
+                      <h3 className="serif-display text-3xl">{o.title}</h3>
+                      <p className="mt-2 max-w-xs leading-7 text-forest/75">{o.body}</p>
+                    </div>
+                    <Arrow />
+                  </div>
+                </Link>
+              ))}
             </div>
-            <div>
-              {live && live.listings > 0 && (
-                <p className="text-slate-900">
-                  <span className="text-4xl font-bold tracking-tight tabular-nums">{live.listings.toLocaleString("en-IN")}</span>
-                  <span className="ml-2 text-slate-600">live jobs with their complete description, this week</span>
-                </p>
-              )}
-              {live && live.companies.length > 0 && (
-                <div className="marquee mt-6" aria-label="Employers hiring now">
-                  <ul className="marquee-track">
-                    {[...live.companies, ...live.companies].map((c, i) => (
-                      <li key={i} aria-hidden={i >= live.companies.length || undefined} className="shrink-0 pr-10 text-xl font-semibold whitespace-nowrap text-slate-400 transition-colors hover:text-slate-900">{c}</li>
-                    ))}
-                  </ul>
+          </div>
+        </section>
+
+        {/* Statement */}
+        <section className="bg-forest-deep text-white">
+          <div className="shell py-20 lg:py-28">
+            <p className="reveal serif-display max-w-5xl text-[clamp(1.9rem,3.6vw,3.3rem)] leading-[1.15] text-white/90">
+              Most job sites show you a list. CareerMatch reads every posting in full, checks it against what you&rsquo;ve actually done, and tells you plainly where you stand.
+            </p>
+          </div>
+        </section>
+
+        {/* Match / Tailor / Apply: words light up as their step scrolls past */}
+        <section id="how" className="steps-scope scroll-mt-20 bg-mintsoft">
+          <div className="shell grid gap-10 py-20 lg:grid-cols-2 lg:gap-0 lg:py-0">
+            <div className="lg:sticky lg:top-[68px] lg:flex lg:h-[calc(100vh-68px)] lg:flex-col lg:justify-center lg:pr-14">
+              {STEPS.map((s, k) => (
+                <p key={s.word} className={`word word-${k + 1} serif-display text-[clamp(3.2rem,7vw,6.5rem)] leading-[1.02] text-forest-deep`}>{s.word}</p>
+              ))}
+              <Link href="/signup" className="mt-10 inline-flex w-fit items-center rounded-full border border-forest-deep px-5 py-2.5 text-sm font-semibold hover:bg-forest-deep hover:text-white">Start with your résumé</Link>
+            </div>
+            <div className="relative lg:border-l lg:border-forest/15">
+              <span aria-hidden className="grow-line absolute top-0 -left-px hidden h-full w-0.5 bg-leaf lg:block" />
+              {STEPS.map((s, k) => (
+                <div key={s.word} className={`step-${k + 1} flex flex-col justify-center py-10 lg:min-h-[85vh] lg:py-0 lg:pl-14`}>
+                  <p className="text-sm font-semibold text-leaf">{s.word}</p>
+                  <h3 className="mt-3 serif-display text-[clamp(2rem,3.2vw,3rem)] leading-tight">{s.title}</h3>
+                  <p className="mt-4 max-w-md text-lg leading-8 text-forest/75">{s.body}</p>
                 </div>
-              )}
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="scoring" className="shell scroll-mt-16 py-16 lg:py-20">
-          <div className="reveal grid gap-10 lg:grid-cols-[1fr_2fr]">
+        {/* Who it's for */}
+        <section id="who" className="scroll-mt-20 bg-cream">
+          <div className="shell py-20 lg:py-24">
+            <h2 className="reveal serif-display max-w-3xl text-[clamp(2.4rem,4.4vw,4rem)] leading-tight">Whether it&rsquo;s your first résumé or your fifth career move</h2>
+            <div className="reveal-stagger mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+              {PEOPLE.map((p) => (
+                <article key={p.who} className="group relative aspect-[3/4] overflow-hidden rounded-3xl bg-forest">
+                  <Photo src={p.photo} alt={p.alt} position={p.pos} sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw" className="absolute inset-0" />
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/40 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                    <h3 className="serif-display text-3xl leading-tight">{p.who}</h3>
+                    <p className="mt-2 leading-6 text-white/85">{p.line}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <p className="mt-6 text-xs text-forest/55">Portraits are licensed stock photographs, not customers. Cards above use sample data.</p>
+          </div>
+        </section>
+
+        {/* How it works slider */}
+        <section className="bg-white">
+          <div className="shell py-20 lg:py-24">
+            <h2 className="reveal serif-display max-w-3xl text-[clamp(2.4rem,4.4vw,4rem)] leading-tight">From résumé to interview</h2>
+            <div className="reveal mt-12"><HomeSlider slides={SLIDES} /></div>
+          </div>
+        </section>
+
+        {/* Closing calls to action */}
+        <section className="grid bg-cream md:grid-cols-2">
+          <div className="group flex flex-col justify-between gap-10 border-b border-forest/10 p-10 sm:p-14 md:border-r md:border-b-0 lg:p-20">
             <div>
-              <h2 className="text-3xl font-bold text-slate-900">How the score works</h2>
-              <p className="mt-4 text-slate-600">
-                Out of 100, from fixed rules you can see on every job. The complete description is loaded before anything is scored; a job whose full text hasn&rsquo;t loaded yet is labelled as an estimate.
-              </p>
+              <h2 className="serif-display text-[clamp(2rem,3.4vw,3.2rem)] leading-tight">Find the right job</h2>
+              <p className="mt-4 max-w-md text-lg leading-8 text-forest/75">See live roles ranked for you, with the skills you have and the ones you&rsquo;re missing.</p>
             </div>
-            <table className="w-full text-left">
-              <caption className="sr-only">Points in the match score</caption>
-              <thead>
-                <tr className="border-b border-slate-300 text-sm text-slate-500">
-                  <th scope="col" className="py-2 pr-4 font-medium">Part</th>
-                  <th scope="col" className="py-2 pr-4 text-right font-medium">Points</th>
-                  <th scope="col" className="hidden py-2 font-medium sm:table-cell">What it measures</th>
-                </tr>
-              </thead>
-              <tbody className="reveal-stagger divide-y divide-slate-200">
-                {SCORE_PARTS.map(([part, pts, what]) => (
-                  <tr key={part} className="align-top">
-                    <th scope="row" className="py-3 pr-4 font-semibold text-slate-900">
-                      {part}
-                      <span className="mt-1 block text-sm font-normal text-slate-600 sm:hidden">{what}</span>
-                    </th>
-                    <td className="py-3 pr-4 text-right text-lg font-semibold text-slate-900 tabular-nums">{pts}</td>
-                    <td className="hidden py-3 text-slate-600 sm:table-cell">{what}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section className="border-t border-slate-200">
-          <div className="reveal-stagger shell grid gap-10 py-16 md:grid-cols-3">
-            {TOOLS.map(([title, body, href]) => (
-              <div key={title}>
-                <h3 className="text-xl font-bold text-slate-900">{title}</h3>
-                <p className="mt-2 leading-7 text-slate-600">{body}</p>
-                <Link href={href} className="mt-3 inline-block font-semibold text-brand-700 underline decoration-brand-300 underline-offset-4 hover:decoration-brand-700">Start with your résumé</Link>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="border-t border-slate-200 bg-[#18212e] text-white">
-          <div className="reveal shell flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:items-center">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl font-bold">Nothing invented, nothing sold.</h2>
-              <p className="mt-3 text-white/75">Suggestions only use experience that&rsquo;s already on your résumé. No jobs are read from behind logins. Your résumé is encrypted, never sold, and you can delete your account and data at any time.</p>
+            <div className="flex items-end justify-between gap-6">
+              <Link href="/signup" className="btn rounded-full bg-leaf px-6 py-3 text-base text-white hover:bg-forest">Upload your résumé</Link>
+              <Photo src="/people/portrait-lena.jpg" alt="A smiling professional in a striped cardigan" sizes="160px" className="hidden size-36 rounded-full sm:block" position="50% 20%" />
             </div>
-            <Link href="/signup" className="btn bg-[#ffe36e] px-5 py-3 text-base text-[#18212e] hover:bg-[#ffd84a]">Upload your résumé</Link>
+          </div>
+          <div className="group flex flex-col justify-between gap-10 p-10 sm:p-14 lg:p-20">
+            <div>
+              <h2 className="serif-display text-[clamp(2rem,3.4vw,3.2rem)] leading-tight">See it with a sample résumé</h2>
+              <p className="mt-4 max-w-md text-lg leading-8 text-forest/75">Explore matches, scores and the résumé studio with a fictional profile. Nothing to upload.</p>
+            </div>
+            <div className="flex items-end justify-between gap-6">
+              <DemoButton className="btn rounded-full border border-forest-deep px-6 py-3 text-base text-forest-deep hover:bg-forest-deep hover:text-white">Try the demo</DemoButton>
+              <Photo src="/people/hero-face-a.jpg" alt="A smiling man in a suit" sizes="160px" className="hidden size-36 rounded-full sm:block" position="50% 25%" />
+            </div>
           </div>
         </section>
       </main>

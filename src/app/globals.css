@@ -8,27 +8,27 @@
 @theme {
   --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
   /* Older pages ask for "serif" / "display" headings: same family, so the product reads as one voice. */
-  --font-serif: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
   --font-display: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
 
-  /* Pen blue */
-  --color-brand-50: #eef2fd;
-  --color-brand-100: #dfe6fb;
-  --color-brand-200: #bfccf6;
-  --color-brand-300: #94a8ee;
-  --color-brand-400: #6580e3;
-  --color-brand-500: #3e5dd6;
-  --color-brand-600: #2445c8;
-  --color-brand-700: #1d37a3;
-  --color-brand-800: #1a2f82;
-  --color-brand-900: #172866;
+  /* Leaf green (actions, links, focus) */
+  --color-brand-50: #ecf8f2;
+  --color-brand-100: #d3f0e3;
+  --color-brand-200: #a8e0c8;
+  --color-brand-300: #72c9a6;
+  --color-brand-400: #3fae84;
+  --color-brand-500: #17936a;
+  --color-brand-600: #0b7a55;
+  --color-brand-700: #0a6346;
+  --color-brand-800: #0b4f39;
+  --color-brand-900: #0a3f2e;
 
   /* Named accents kept for older components, now drawn from the same palette. */
-  --color-ai: #2445c8;
-  --color-ai-soft: #dfe6fb;
-  --color-indigo-deep: #1d37a3;
-  --color-cyan-brand: #2445c8;
-  --color-sky-brand: #6580e3;
+  --color-ai: #0b7a55;
+  --color-ai-soft: #d3f0e3;
+  --color-indigo-deep: #0a6346;
+  --color-cyan-brand: #0b7a55;
+  --color-sky-brand: #7d8fef;
   --color-coral: #d4493f;
   --color-mint: #1f8a5b;
   --color-sun: #ffe36e;
@@ -36,9 +36,21 @@
   --color-lavender: #f3f5f8;
   --color-mist: #f3f5f8;
 
-  --color-ink: #18212e;
-  --color-marker: #ffe36e;
+  --color-ink: #10231c;
+  --color-marker: #c3eedb;
   --color-surface: #ffffff;
+
+  /* Home page palette: forest, mint, cream, periwinkle, apricot. */
+  --color-forest: #173a2f;
+  --color-forest-deep: #07211a;
+  --color-mintwash: #d3f5e9;
+  --color-mintsoft: #effaf5;
+  --color-cream: #f8f4f0;
+  --color-peri: #b9c8fb;
+  --color-peri-deep: #7d8fef;
+  --color-apricot: #f4ae6b;
+  --color-leaf: #0b7a55;
+  --color-leaf-bright: #3fd29b;
 }
 
 :root {
@@ -47,8 +59,8 @@
   --color-slate-100: #edf0f4;
   --color-slate-200: #dde2ea;
   --color-slate-300: #c6cdd8;
-  --marker: #ffe36e;
-  --marker-ink: #18212e;
+  --marker: #c3eedb;
+  --marker-ink: #10231c;
   --on-brand: #ffffff;
 }
 
@@ -56,7 +68,7 @@
    the user picks Dark, or picks System and the OS is dark. */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --marker: rgb(232 201 74 / 0.38);
+  --marker: rgb(63 210 155 / 0.3);
   --marker-ink: #f3f5f8;
   --on-brand: #0f141d;
   --color-surface: #161d29;
@@ -71,14 +83,14 @@
   --color-slate-800: #e3e7ee;
   --color-slate-900: #f3f5f8;
   --color-ink: #f3f5f8;
-  --color-brand-50: #172036;
-  --color-brand-100: #1d2846;
-  --color-brand-200: #2a3a66;
-  --color-brand-300: #4a64b8;
-  --color-brand-500: #7d95ea;
-  --color-brand-600: #8ea6ff;
-  --color-brand-700: #aebfff;
-  --color-brand-800: #cbd6ff;
+  --color-brand-50: #0f2a21;
+  --color-brand-100: #13352a;
+  --color-brand-200: #1b4d3c;
+  --color-brand-300: #2f8a68;
+  --color-brand-500: #4cc496;
+  --color-brand-600: #5fd3a4;
+  --color-brand-700: #8be3bf;
+  --color-brand-800: #b9eed7;
   --color-emerald-50: #0c2219;
   --color-emerald-100: #103022;
   --color-emerald-200: #195239;
@@ -106,7 +118,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --marker: rgb(232 201 74 / 0.38);
+    --marker: rgb(63 210 155 / 0.3);
     --marker-ink: #f3f5f8;
     --on-brand: #0f141d;
   --on-brand: #0f141d;
@@ -122,14 +134,14 @@
     --color-slate-800: #e3e7ee;
     --color-slate-900: #f3f5f8;
     --color-ink: #f3f5f8;
-    --color-brand-50: #172036;
-    --color-brand-100: #1d2846;
-    --color-brand-200: #2a3a66;
-    --color-brand-300: #4a64b8;
-    --color-brand-500: #7d95ea;
-    --color-brand-600: #8ea6ff;
-    --color-brand-700: #aebfff;
-    --color-brand-800: #cbd6ff;
+    --color-brand-50: #0f2a21;
+    --color-brand-100: #13352a;
+    --color-brand-200: #1b4d3c;
+    --color-brand-300: #2f8a68;
+    --color-brand-500: #4cc496;
+    --color-brand-600: #5fd3a4;
+    --color-brand-700: #8be3bf;
+    --color-brand-800: #b9eed7;
     --color-emerald-50: #0c2219;
     --color-emerald-100: #103022;
     --color-emerald-200: #195239;
@@ -372,7 +384,7 @@ html { scroll-behavior: smooth; }
   height: 2px;
   transform-origin: left;
   transform: scaleX(0);
-  background: linear-gradient(90deg, #2445c8, #0f766e 60%, #e8c94a);
+  background: linear-gradient(90deg, #0b7a55, #3fd29b 60%, #b9c8fb);
   pointer-events: none;
 }
 /* Sticky headers turn to frosted glass once the page moves. */
@@ -569,4 +581,54 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 @media (prefers-reduced-motion: reduce) {
   .mark-in, .iq-card-in, .iq-typing span, .sa-step, .sa-option, .sa-ring, .sa-bar { animation: none !important; }
+}
+
+/* ---------------------------------------------------------------------------
+   Home page (forest / mint / cream / periwinkle)
+--------------------------------------------------------------------------- */
+.serif-display {
+  font-family: var(--font-newsreader), ui-serif, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+/* Hero photo settles in once. */
+@keyframes settle { from { transform: scale(1.08); } to { transform: none; } }
+.photo-settle { animation: settle 1600ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+/* Floating cards bob gently over the hero photo. */
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.bob { animation: bob 6s ease-in-out infinite; }
+.bob-late { animation: bob 7s ease-in-out infinite 1.2s; }
+
+/* Arrow buttons in cards slide on hover. */
+.arrow-chip { transition: transform 220ms var(--ease-out), background-color 220ms ease, color 220ms ease; }
+.group:hover .arrow-chip { transform: translateX(4px); background: var(--color-forest); color: #fff; }
+/* Card images zoom slightly on hover. */
+.zoom-img { transition: transform 700ms var(--ease-out); }
+.group:hover .zoom-img { transform: scale(1.05); }
+
+/* "Match / Tailor / Apply": each word lights up while its step scrolls past. */
+.steps-scope { timeline-scope: --step-1, --step-2, --step-3; }
+.step-1 { view-timeline-name: --step-1; }
+.step-2 { view-timeline-name: --step-2; }
+.step-3 { view-timeline-name: --step-3; }
+@keyframes word-on { 0% { opacity: 0.22; } 30%, 70% { opacity: 1; } 100% { opacity: 0.22; } }
+@supports (animation-timeline: view()) {
+  .word { opacity: 0.22; animation: word-on linear both; animation-range: cover 15% cover 85%; }
+  .word-1 { animation-timeline: --step-1; }
+  .word-2 { animation-timeline: --step-2; }
+  .word-3 { animation-timeline: --step-3; }
+  /* The line between the columns grows as you scroll through. */
+  .grow-line { transform-origin: top; animation: grow-y linear both; animation-timeline: view(); animation-range: entry 20% exit 80%; }
+}
+@keyframes grow-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+/* Slider progress bars (the active one fills over its duration). */
+@keyframes fill-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.progress-fill { transform-origin: left; animation: fill-x var(--dur, 6s) linear both; }
+.progress-paused .progress-fill { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-settle, .bob, .bob-late, .progress-fill { animation: none !important; }
+  .word { opacity: 1 !important; animation: none !important; }
+  .group:hover .zoom-img, .group:hover .arrow-chip { transform: none; }
 }

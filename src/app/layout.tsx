@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Schibsted_Grotesk } from "next/font/google";
+import { Newsreader, Schibsted_Grotesk } from "next/font/google";
 import { appUrl } from "@/lib/site-url";
 import { THEME_SCRIPT } from "@/lib/theme-script";
 import { ToastProvider } from "@/components/toast";
@@ -7,6 +7,8 @@ import "./globals.css";
 
 // One variable font for the whole product (headings, UI and long job descriptions).
 const schibsted = Schibsted_Grotesk({ variable: "--font-schibsted", subsets: ["latin"], display: "swap" });
+// Serif for large headlines.
+const newsreader = Newsreader({ variable: "--font-newsreader", subsets: ["latin"], display: "swap", style: ["normal", "italic"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl()),
@@ -21,14 +23,14 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5f7fa" },
+    { media: "(prefers-color-scheme: light)", color: "#173a2f" },
     { media: "(prefers-color-scheme: dark)", color: "#0f141d" },
   ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={schibsted.variable}>
+    <html lang="en" suppressHydrationWarning className={`${schibsted.variable} ${newsreader.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
