@@ -337,7 +337,7 @@ export async function searchJobs(userId: string, f: SearchFilters) {
   const previewsWaiting = showPreviews || f.countOnly ? 0 : pool.filter((j) => !j.descriptionFull && inLocation(j)).length;
   const facets = f.countOnly ? null : locationFacets(full, country, includeRemote);
 
-  let cards = candidates.map((j) => toCard(j, scoreJob(j, ctx), stateMap.get(jobId(j))));
+  const cards = candidates.map((j) => toCard(j, scoreJob(j, ctx), stateMap.get(jobId(j))));
   cards.sort((a, b) =>
     f.sort === "date"
       ? (b.postedAt ?? "").localeCompare(a.postedAt ?? "")
