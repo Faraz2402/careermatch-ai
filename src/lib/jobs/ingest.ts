@@ -125,7 +125,7 @@ async function runSource(src: SourceDefinition, ctx: { boards: string[] }, keywo
     const warnings: string[] = [];
     for (const country of countries)
       for (const keywords of sets.slice(0, Math.max(1, Math.floor(8 / countries.length)))) {
-        const got: BoardJobs = await src.fetchJobs({ keywords, country, maxDaysOld: MAX_LISTING_AGE_DAYS, titleOnly: keywords.length > 0 }, AbortSignal.timeout(40_000), ctx);
+        const got: BoardJobs = await src.fetchJobs({ keywords, country, maxDaysOld: MAX_LISTING_AGE_DAYS, titleOnly: keywords.length > 0 }, AbortSignal.timeout(30_000), ctx);
         all.push(...got);
         warnings.push(...(got.warnings ?? []));
       }

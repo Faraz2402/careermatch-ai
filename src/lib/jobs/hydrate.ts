@@ -168,9 +168,13 @@ export function hydrateDescriptions(opts: { budgetMs?: number; limit?: number } 
       Array.from({ length: 4 }, async () => {
         while (next < queue.length && Date.now() < deadline - 3_000) {
           const row = queue[next++];
+          // Aggregator jobs need a web search plus page reads (slow): only start one with plenty of time left.
+          if (SNIPPET_SOURCES.has(row.source) && deadline - Date.now() < 25_000) continue;
           checked++;
           try {
-            const full = await loadFull(row, AbortSignal.timeout(Math.min(20_000, Math.max(3_000, deadline - Date.now()))));
+            const ms = Math.min(20_000, Math.max(3_000, deadline - Date.now()));
+            // Hard stop per listing, even for steps that don't take an abort signal.
+            const full = await Promise.race([loadFull(row, AbortSignal.timeout(ms)), new Promise<null>((resolve) => setTimeout(() => resolve(null), ms + 1_000))]);
             if (full) {
               // AI requirement reads are rate-limited by the provider; the rest use keyword matching on the full text until opened.
               await saveFull(row, full, { readRequirements: aiReads++ < 8 });
