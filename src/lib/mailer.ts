@@ -40,10 +40,10 @@ const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&
 export function emailLayout(title: string, bodyHtml: string, cta?: { label: string; url: string }) {
   return `<!doctype html><html><body style="margin:0;background:#f8fafc;font-family:Inter,Arial,sans-serif;color:#0f172a">
 <div style="max-width:560px;margin:0 auto;padding:32px 16px">
-<div style="font-weight:800;font-size:18px;margin-bottom:16px">CareerMatch <span style="color:#4f46e5">AI</span></div>
+<div style="font-weight:800;font-size:18px;margin-bottom:16px">CareerMatch <span style="color:#2445c8">AI</span></div>
 <div style="background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:24px">
 <h1 style="font-size:20px;margin:0 0 12px">${esc(title)}</h1>${bodyHtml}
-${cta ? `<p style="margin:24px 0 0"><a href="${esc(cta.url)}" style="background:#4f46e5;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600">${esc(cta.label)}</a></p>` : ""}
+${cta ? `<p style="margin:24px 0 0"><a href="${esc(cta.url)}" style="background:#2445c8;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600">${esc(cta.label)}</a></p>` : ""}
 </div><p style="font-size:12px;color:#64748b;margin-top:16px">You're receiving this because of your CareerMatch AI account.</p></div></body></html>`;
 }
 

@@ -76,7 +76,7 @@ export function GeneratorPanel({ jobId, labels, initial, aiEnabled, bases, expor
         <p className="mt-1 text-xs text-slate-500">
           {aiEnabled ? "Generated with AI from your resume only — it won't invent experience." : "AI isn't configured, so drafts are rule-based templates built from your resume."}
         </p>
-        <p className="mt-2 rounded-lg bg-violet-500/10 p-2 text-xs text-slate-600">For a tailored résumé and cover letter, use <b>Tailor résumé &amp; cover letter</b> at the top of this page.</p>
+        <p className="mt-2 rounded-lg bg-brand-500/10 p-2 text-xs text-slate-600">For a tailored résumé and cover letter, use <b>Tailor résumé &amp; cover letter</b> at the top of this page.</p>
         <label className="mt-3 flex items-center gap-2 text-xs text-slate-600">
           Base resume
           <select className="input py-1 text-xs" value={baseId ?? ""} onChange={(e) => setBaseId(e.target.value || null)}>

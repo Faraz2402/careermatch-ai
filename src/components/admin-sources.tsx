@@ -39,15 +39,19 @@ export function AdminSources({ initial }: { initial: SourceHealth[] }) {
           <tbody className="divide-y divide-slate-100">
             {initial.map((s) => {
               const live = s.enabled && s.configured;
+              const failing = !!s.lastRun && !s.lastRun.ok;
+              const degraded = !!s.lastRun && s.lastRun.ok && !!s.lastRun.error;
+              const status = !live ? (s.enabled ? "Needs config" : "Disabled") : failing ? "Failing" : degraded ? "Degraded" : s.lastRun ? "Active" : "Waiting for first run";
               return (
                 <tr key={s.id} className="align-top">
                   <td className="px-4 py-3"><p className="font-semibold">{s.name}</p><p className="text-xs text-slate-500">{s.kind.replace("_", " ")} · every {s.cacheMinutes >= 60 ? `${s.cacheMinutes / 60}h` : `${s.cacheMinutes || 60}m`} · {s.requestsPerMinute}/min</p></td>
                   <td className="px-4 py-3">
-                    <span className={cx("chip", live ? (s.lastRun && !s.lastRun.ok ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-700") : "bg-slate-100 text-slate-500")}>
-                      {live ? (s.lastRun && !s.lastRun.ok ? "Degraded" : "Active") : s.enabled ? "Needs config" : "Disabled"}
+                    <span className={cx("chip", !live ? "bg-slate-100 text-slate-500" : failing ? "bg-rose-50 text-rose-800" : degraded ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-700")}>
+                      {status}
                     </span>
                     {s.overridden && <p className="mt-1 text-[11px] text-slate-400">admin override</p>}
                     {s.reason && <p className="mt-1 max-w-48 text-[11px] text-amber-700">{s.reason}</p>}
+                    {live && s.lastRun?.error && <p className={cx("mt-1 max-w-64 text-[11px] break-words", failing ? "text-rose-700" : "text-amber-700")}>{s.lastRun.error}</p>}
                   </td>
                   <td className="px-4 py-3 text-xs text-slate-600">
                     <p>{s.listings} live listings{s.onDemandOnly && " · runs on user searches"}</p>
@@ -60,6 +64,7 @@ export function AdminSources({ initial }: { initial: SourceHealth[] }) {
                       <div className="flex gap-1">
                         <input className="input py-1 text-xs" aria-label={`${s.name} board tokens`} placeholder="stripe, figma" value={boards[s.id]} onChange={(e) => setBoards({ ...boards, [s.id]: e.target.value })} />
                         <button className="btn-secondary px-2 py-1 text-xs" disabled={busy === s.id} onClick={() => act(s.id, async () => { await api(`/api/admin/sources/${s.id}`, { method: "PUT", json: { boards: boards[s.id] } }); return "Boards saved"; })}>Save</button>
+                        <button className="btn-ghost px-2 py-1 text-xs" title="Use the built-in, tested list of boards" disabled={busy === s.id} onClick={() => act(s.id, async () => { await api(`/api/admin/sources/${s.id}`, { method: "PUT", json: { boards: null } }); return "Using the default boards"; })}>Defaults</button>
                       </div>
                     ) : <span className="text-xs text-slate-400">—</span>}
                   </td>

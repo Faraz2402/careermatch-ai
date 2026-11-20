@@ -91,8 +91,14 @@ export async function fetchJson<T>(url: string, signal: AbortSignal, init?: Requ
     cache: "no-store",
   });
   if (res.status === 429) throw new Error("Rate limited by provider");
+  if (res.status === 404) throw new Error("HTTP 404 (board not found: check the name)");
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return (await res.json()) as T;
+  const text = await res.text();
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    throw new Error(/^\s*</.test(text) ? "Got a web page instead of the job API (wrong host or path)" : "Invalid JSON from provider");
+  }
 }
 
 export const csvEnv = (name: string) =>

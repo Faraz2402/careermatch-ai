@@ -7,7 +7,7 @@ const page = (title: string, body: string) =>
     `<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title}</title></head>
 <body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#050505;color:#fafafa;font-family:system-ui,sans-serif">
 <div style="max-width:420px;padding:32px;text-align:center"><h1 style="font-family:Georgia,serif;font-weight:500">${title}</h1><p style="color:#d4d4d8;line-height:1.6">${body}</p>
-<p><a href="${appUrl()}/settings" style="color:#c4b5fd">Email settings</a></p></div></body></html>`,
+<p><a href="${appUrl()}/settings" style="color:#94a8ee">Email settings</a></p></div></body></html>`,
     { headers: { "Content-Type": "text/html; charset=utf-8" } },
   );
 

@@ -1,12 +1,16 @@
-import Image from "next/image";
 import Link from "next/link";
 import { cx } from "@/lib/format";
 
 export function Logo({ className }: { className?: string }) {
   return (
     <Link href="/" className={cx("flex items-center gap-2.5 text-slate-900", className)} aria-label="CareerMatch AI home">
-      <Image src="/brand/mark.png" alt="" width={32} height={32} priority unoptimized className="size-8" />
-      <span className="font-display text-xl">CareerMatch</span>
+      {/* A highlighter stroke under a check: "this matches you". */}
+      <svg viewBox="0 0 32 32" className="size-8" aria-hidden>
+        <rect width="32" height="32" rx="8" fill="#18212e" />
+        <rect x="6" y="17" width="20" height="7" rx="1.5" fill="#ffe36e" />
+        <path d="M9.5 15.5l4 4 9-10" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <span className="text-lg font-bold tracking-tight">CareerMatch</span>
     </Link>
   );
 }
@@ -19,7 +23,7 @@ export function ScoreRing({ value, size = 64, label }: { value: number; size?: n
     <div className="relative inline-grid place-items-center" style={{ width: size, height: size }} aria-label={`${label ?? "Score"}: ${value} out of 100`}>
       <svg width={size} height={size} className="-rotate-90">
         <circle cx={size / 2} cy={size / 2} r={r} strokeWidth={6} className="fill-none stroke-slate-100" />
-        <circle cx={size / 2} cy={size / 2} r={r} strokeWidth={6} strokeLinecap="round" className={cx("fill-none transition-all", color)} strokeDasharray={c} strokeDashoffset={c * (1 - value / 100)} />
+        <circle cx={size / 2} cy={size / 2} r={r} strokeWidth={6} strokeLinecap="round" className={cx("ring-draw fill-none transition-all", color)} strokeDasharray={c} strokeDashoffset={c * (1 - value / 100)} style={{ "--full": c, "--rest": c * (1 - value / 100) } as React.CSSProperties} />
       </svg>
       <span className="absolute font-display text-sm font-bold text-slate-900" style={{ fontSize: size / 4 }}>{value}</span>
     </div>
@@ -31,7 +35,7 @@ export function SourceBadge({ kind, name, stale }: { kind: string; name: string;
     demo: "bg-amber-100 text-amber-800 ring-1 ring-amber-200",
     user_link: "bg-sky-50 text-sky-700 ring-1 ring-sky-200",
     employer_feed: "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200",
-    official_api: "bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200",
+    official_api: "bg-sky-50 text-sky-700 ring-1 ring-sky-200",
     aggregator: "bg-slate-100 text-slate-700 ring-1 ring-slate-200",
   };
   return (
@@ -47,7 +51,6 @@ export function SourceBadge({ kind, name, stale }: { kind: string; name: string;
 export function EmptyState({ title, body, action }: { title: string; body: string; action?: React.ReactNode }) {
   return (
     <div className="card flex flex-col items-center gap-3 px-6 py-14 text-center">
-      <div className="grid size-12 place-items-center rounded-full bg-brand-50 text-brand-600">✦</div>
       <h3 className="font-display text-lg font-bold">{title}</h3>
       <p className="max-w-md text-sm text-slate-600">{body}</p>
       {action}
@@ -59,7 +62,7 @@ export function PageHeader({ title, subtitle, actions }: { title: string; subtit
   return (
     <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
       <div>
-        <h1 className="font-serif text-4xl leading-tight font-normal tracking-[-0.01em] text-slate-900 sm:text-5xl">{title}</h1>
+        <h1 className="text-3xl leading-tight font-bold text-slate-900 sm:text-4xl">{title}</h1>
         {subtitle && <p className="mt-1 text-sm text-slate-600">{subtitle}</p>}
       </div>
       {actions && <div className="flex flex-wrap gap-2">{actions}</div>}
@@ -76,8 +79,8 @@ export function ScoreExplainer({ match, size = 56 }: { match: MatchLike; size?: 
       <button type="button" className="rounded-full focus-visible:outline-2 focus-visible:outline-brand-500" aria-label={`Match score ${match.score}: ${match.breakdown.map((b) => `${b.label} ${b.points} of ${b.max}`).join(", ")}`}>
         <ScoreRing value={match.score} size={size} label="Match score" />
       </button>
-      <span className="mt-1 text-[10px] font-semibold tracking-wide text-slate-500 uppercase">Match ⓘ</span>
-      <div role="tooltip" className="pointer-events-none invisible absolute top-full right-0 z-20 mt-2 w-60 rounded-xl bg-[#0f172a] p-3 text-left text-xs text-white opacity-0 shadow-xl transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+      <span className="mt-1 text-[11px] text-slate-500">Match</span>
+      <div role="tooltip" className="pointer-events-none invisible absolute top-full right-0 z-20 mt-2 w-60 rounded-xl bg-[#18212e] p-3 text-left text-xs text-white opacity-0 shadow-xl transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
         <p className="mb-2 font-semibold">How this score is built</p>
         {match.breakdown.map((b) => (
           <div key={b.label} className="flex justify-between gap-3 py-0.5">

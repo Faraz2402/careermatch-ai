@@ -7,7 +7,7 @@ import "server-only";
 import { db } from "../db";
 import { arbeitnow } from "./sources/arbeitnow";
 import { demo } from "./sources/demo";
-import { oracle, smartrecruiters, successfactors, workable } from "./sources/ats-boards";
+import { oracle, smartrecruiters, successfactors, workable, workday } from "./sources/ats-boards";
 import { ashby, greenhouse, lever } from "./sources/employer-boards";
 import { jooble } from "./sources/jooble";
 import { adzuna } from "./sources/keyed-apis";
@@ -16,7 +16,10 @@ import { remotive } from "./sources/remotive";
 import type { SourceContext, SourceDefinition } from "./types";
 import { csvEnv } from "./util";
 
-export const ALL_SOURCES: SourceDefinition[] = [demo, remotive, arbeitnow, ...REMOTE_BOARDS, greenhouse, lever, ashby, smartrecruiters, workable, successfactors, oracle, adzuna, jooble];
+export const ALL_SOURCES: SourceDefinition[] = [demo, remotive, arbeitnow, ...REMOTE_BOARDS, greenhouse, lever, ashby, workday, smartrecruiters, workable, successfactors, oracle, adzuna, jooble];
+
+/** Sources that always come with a short snippet, never the full description. */
+export const SNIPPET_SOURCES = new Set(["adzuna", "jooble"]);
 
 /** Listings the user imported from a URL or pasted in. */
 export const USER_LINK_SOURCE = {
@@ -25,10 +28,14 @@ export const USER_LINK_SOURCE = {
   attribution: "Added by you from a job link or pasted description.",
 } as const;
 
-const DEFAULT_ENABLED = "demo,remotive,arbeitnow,remoteok,weworkremotely,jobicy,himalayas,workingnomads,realworkfromanywhere,findwork,greenhouse,lever,ashby,smartrecruiters,workable,successfactors,oracle,adzuna,jooble";
+const DEFAULT_ENABLED = "demo,remotive,arbeitnow,remoteok,weworkremotely,jobicy,himalayas,workingnomads,realworkfromanywhere,findwork,greenhouse,lever,ashby,workday,smartrecruiters,workable,successfactors,oracle,adzuna,jooble";
+
+/** Sources added after an operator pinned JOB_SOURCES_ENABLED still switch on (they can be disabled in Admin). */
+const ADDED_LATER = ["workday"];
 
 function envEnabled(): Set<string> {
-  return new Set(csvEnv("JOB_SOURCES_ENABLED").length ? csvEnv("JOB_SOURCES_ENABLED") : DEFAULT_ENABLED.split(","));
+  const list = csvEnv("JOB_SOURCES_ENABLED");
+  return new Set(list.length ? [...list, ...ADDED_LATER] : DEFAULT_ENABLED.split(","));
 }
 
 type Resolved = { def: SourceDefinition; enabled: boolean; ctx: SourceContext; reason: string | null; overridden: boolean; requestsUsed: number };
@@ -41,7 +48,8 @@ export async function resolveSources(fresh = false): Promise<Resolved[]> {
   const env = envEnabled();
   const value = ALL_SOURCES.map((def) => {
     const s = settings.get(def.id);
-    const boards = s?.boards != null ? s.boards.split(",").map((b) => b.trim()).filter(Boolean) : def.boardsEnv ? csvEnv(def.boardsEnv) : [];
+    const envBoards = def.boardsEnv ? csvEnv(def.boardsEnv) : [];
+    const boards = s?.boards != null ? s.boards.split(",").map((b) => b.trim()).filter(Boolean) : envBoards.length ? envBoards : def.defaultBoards ?? [];
     const ctx = { boards };
     const enabled = s?.enabled ?? env.has(def.id);
     const missing = def.missingConfig(ctx);

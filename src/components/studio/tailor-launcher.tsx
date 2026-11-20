@@ -58,7 +58,7 @@ export function TailorLauncher({ jobId, canUsePro, className }: { jobId: string;
 
   return (
     <>
-      <button onClick={open} disabled={busy} className={className ?? "inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:-translate-y-0.5 hover:shadow-xl disabled:opacity-60"}>
+      <button onClick={open} disabled={busy} className={className ?? "inline-flex items-center gap-2 rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-xl disabled:opacity-60"}>
         <Sparkles className="size-4" aria-hidden /> {busy ? "Analysing the job…" : "Tailor résumé & cover letter"}
       </button>
       {error && (

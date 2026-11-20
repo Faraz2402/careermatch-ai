@@ -6,14 +6,14 @@
 // Sources. Listings are limited to EMPLOYER_BOARD_COUNTRIES (default India),
 // and SuccessFactors / Oracle hosts are only read where robots.txt allows it.
 
-import { countryByCode } from "../../geo/detect";
+import { countryByCode, detectLocation } from "../../geo/detect";
 import type { NormalizedJob, SourceDefinition } from "../types";
-import { USER_AGENT, csvEnv, decodeEntities, detectWorkMode, fetchJson, htmlToText, robotsTxtAllows, rssItems, rssTag as tag, toDate } from "../util";
-import { forEachBoard, titleCase } from "./employer-boards";
+import { USER_AGENT, decodeEntities, detectWorkMode, fetchJson, htmlToText, robotsTxtAllows, rssItems, rssTag as tag, toDate } from "../util";
+import { boardCountries as allBoardCountries, forEachBoard, titleCase } from "./employer-boards";
 
-/** ISO codes (upper case) to collect from employer platforms. */
+/** Concrete ISO codes to query ("ALL" means no country filter, which these APIs need a value for). */
 export const boardCountries = () => {
-  const list = csvEnv("EMPLOYER_BOARD_COUNTRIES").map((c) => c.toUpperCase());
+  const list = allBoardCountries().filter((c) => c !== "ALL");
   return list.length ? list : ["IN"];
 };
 
@@ -82,8 +82,8 @@ type SrDetail = SrPosting & {
   jobAd?: { sections?: Record<string, { title?: string; text?: string }> };
 };
 
-/** Full job ads fetched per company per run; older postings keep their saved text. */
-const SR_DETAILS_PER_COMPANY = 30;
+/** Full job ads fetched per company per run; the rest are filled in by the background description task. */
+const SR_DETAILS_PER_COMPANY = 40;
 
 export function mapSmartRecruiters(p: SrPosting, detail?: SrDetail | null): NormalizedJob {
   const loc = p.location ?? {};
@@ -121,6 +121,7 @@ export function mapSmartRecruiters(p: SrPosting, detail?: SrDetail | null): Norm
 export const smartrecruiters: SourceDefinition = {
   id: "smartrecruiters",
   boardsEnv: "SMARTRECRUITERS_COMPANIES",
+  defaultBoards: ["BoschGroup", "ServiceNow", "Experian", "AbbVie", "Freshworks", "Ubisoft2"],
   name: "SmartRecruiters career sites",
   kind: "employer_feed",
   homepage: "https://developers.smartrecruiters.com/docs/posting-api",
@@ -168,7 +169,9 @@ type WorkableJob = {
 
 export function mapWorkable(j: WorkableJob, company: string, countries: string[]): NormalizedJob | null {
   const locs = j.locations?.length ? j.locations : [{ city: j.city, region: j.state, country: j.country, countryCode: "" }];
-  const here = locs.find((l) => countries.includes((l.countryCode || "").toUpperCase()) || countries.some((c) => countryName(c) === l.country));
+  const local = locs.find((l) => countries.includes((l.countryCode || "").toUpperCase()) || countries.some((c) => countryName(c) === l.country));
+  // Fully remote roles are kept too; their location shows where the team sits.
+  const here = local ?? (j.telecommuting ? locs[0] : undefined);
   if (!here) return null;
   const location = [here.city, here.region, here.country].filter(Boolean).join(", ");
   return {
@@ -192,6 +195,7 @@ export function mapWorkable(j: WorkableJob, company: string, countries: string[]
 export const workable: SourceDefinition = {
   id: "workable",
   boardsEnv: "WORKABLE_ACCOUNTS",
+  defaultBoards: ["huggingface"],
   name: "Workable career pages",
   kind: "employer_feed",
   homepage: "https://help.workable.com/hc/en-us/articles/115012771647",
@@ -258,6 +262,7 @@ export function parseSuccessFactorsRss(xml: string, host: string, company: strin
 export const successfactors: SourceDefinition = {
   id: "successfactors",
   boardsEnv: "SUCCESSFACTORS_SITES",
+  defaultBoards: ["careers.tatamotors.com=Tata Motors"],
   name: "SAP SuccessFactors career sites",
   kind: "employer_feed",
   homepage: "https://www.sap.com/products/hcm/recruiting-software.html",
@@ -306,17 +311,32 @@ type OrcDetail = {
 };
 
 const ORC_PAGE = 25;
-/** Listings per site per run, newest first, and how many of those get the full text. */
+/** Listings per site per run, newest first, and how many of those get the full text here (the rest in the background). */
 const ORC_MAX_PER_SITE = 150;
-const ORC_DETAILS_PER_SITE = 20;
+const ORC_DETAILS_PER_SITE = 30;
+
+/** Oracle's candidate-experience API for one requisition (also used by the background description task). */
+export async function fetchOracleDetail(host: string, site: string, id: string, signal: AbortSignal): Promise<OrcDetail | null> {
+  const d = await fetchJson<{ items: OrcDetail[] }>(
+    `https://${host}/hcmRestApi/resources/latest/recruitingCEJobRequisitionDetails?expand=all&onlyData=true&finder=ById;Id=${encodeURIComponent(`"${id}"`)},siteNumber=${site}`,
+    signal,
+  );
+  return d.items?.[0] ?? null;
+}
+
+/** The full text of an Oracle requisition ("" when it has none). */
+export function oracleDescription(detail: OrcDetail) {
+  return [
+    detail.ExternalDescriptionStr && htmlToText(detail.ExternalDescriptionStr),
+    detail.ExternalResponsibilitiesStr && `Responsibilities\n${htmlToText(detail.ExternalResponsibilitiesStr)}`,
+    detail.ExternalQualificationsStr && `Qualifications\n${htmlToText(detail.ExternalQualificationsStr)}`,
+  ]
+    .filter(Boolean)
+    .join("\n\n");
+}
 
 export function mapOracleRequisition(r: OrcRequisition, host: string, site: string, company: string, detail?: OrcDetail | null): NormalizedJob {
-  const full = detail
-    ? [detail.ExternalDescriptionStr, detail.ExternalResponsibilitiesStr && `Responsibilities\n${htmlToText(detail.ExternalResponsibilitiesStr)}`, detail.ExternalQualificationsStr && `Qualifications\n${htmlToText(detail.ExternalQualificationsStr)}`]
-        .filter(Boolean)
-        .map((s, i) => (i === 0 ? htmlToText(s as string) : (s as string)))
-        .join("\n\n")
-    : "";
+  const full = detail ? oracleDescription(detail) : "";
   const wt = `${r.WorkplaceType ?? ""} ${r.WorkplaceTypeCode ?? ""}`.toLowerCase();
   const location = r.PrimaryLocation ?? "";
   return {
@@ -341,6 +361,8 @@ export function mapOracleRequisition(r: OrcRequisition, host: string, site: stri
 export const oracle: SourceDefinition = {
   id: "oracle",
   boardsEnv: "ORACLE_SITES",
+  // The API host is the "*.fa.*.oraclecloud.com" one, not the company's public careers domain.
+  defaultBoards: ["eeho.fa.us2.oraclecloud.com/CX_45001=Oracle"],
   name: "Oracle Recruiting Cloud (Taleo) career sites",
   kind: "employer_feed",
   homepage: "https://docs.oracle.com/en/cloud/saas/human-resources/farws/api-recruiting-candidate-experience-job-requisitions.html",
@@ -353,8 +375,7 @@ export const oracle: SourceDefinition = {
   fetchJobs: (_query, signal, ctx) =>
     forEachBoard(ctx.boards, async (board) => {
       const { host, site, label } = parseBoard(board);
-      if (!site) throw new Error(`Oracle site "${board}" needs host/SITE`);
-      const company = label || titleCase(host.split(".")[0]);
+      if (!site) throw new Error(`Oracle site "${board}" needs host/SITE, e.g. eeho.fa.us2.oraclecloud.com/CX_45001`);      const company = label || titleCase(host.split(".")[0]);
       const api = `https://${host}/hcmRestApi/resources/latest`;
       const reqs: OrcRequisition[] = [];
       for (const cc of boardCountries()) {
@@ -370,14 +391,140 @@ export const oracle: SourceDefinition = {
           if ((page?.requisitionList?.length ?? 0) < ORC_PAGE || offset + ORC_PAGE >= (page?.TotalJobsCount ?? 0)) break;
         }
       }
-      const details = await mapLimit(reqs.slice(0, ORC_DETAILS_PER_SITE), 5, (r) =>
-        fetchJson<{ items: OrcDetail[] }>(
-          `${api}/recruitingCEJobRequisitionDetails?expand=all&onlyData=true&finder=ById;Id=${encodeURIComponent(`"${r.Id}"`)},siteNumber=${site}`,
-          signal,
-        )
-          .then((d) => d.items?.[0] ?? null)
-          .catch(() => null),
-      );
+      const details = await mapLimit(reqs.slice(0, ORC_DETAILS_PER_SITE), 5, (r) => fetchOracleDetail(host, site, r.Id, signal).catch(() => null));
       return reqs.map((r, i) => mapOracleRequisition(r, host, site, company, details[i]));
+    }),
+};
+
+// --- Workday (career-site "cxs" JSON API) ------------------------------------
+// The same public API every Workday career site's own pages call. Boards are
+// "tenant.wdN/Site=Company", e.g. "intel.wd1/External=Intel".
+
+type WdPosting = { title: string; externalPath: string; locationsText?: string; postedOn?: string; bulletFields?: string[] };
+type WdDetail = {
+  jobPostingInfo?: {
+    title?: string;
+    jobDescription?: string;
+    location?: string;
+    additionalLocations?: string[];
+    startDate?: string;
+    timeType?: string;
+    remoteType?: string;
+    jobReqId?: string;
+    externalUrl?: string;
+  };
+  hiringOrganization?: { name?: string };
+};
+
+const WD_PAGE = 20;
+const WD_MAX_PER_SITE = 120;
+const WD_DETAILS_PER_SITE = 20;
+
+/** "intel.wd1" or "intel.wd1.myworkdayjobs.com" -> host + tenant. */
+export function workdayHost(host: string) {
+  const full = host.endsWith(".myworkdayjobs.com") ? host : `${host}.myworkdayjobs.com`;
+  return { host: full, tenant: full.split(".")[0] };
+}
+
+/** "Posted Today" / "Posted 3 Days Ago" / "Posted 30+ Days Ago" -> a date. */
+export function workdayPostedOn(text = "", now = Date.now()): Date | null {
+  const t = text.toLowerCase();
+  if (/today/.test(t)) return new Date(now);
+  if (/yesterday/.test(t)) return new Date(now - 86_400_000);
+  const n = Number(t.match(/(\d+)\+?\s*days?/)?.[1]);
+  return Number.isFinite(n) && n > 0 ? new Date(now - n * 86_400_000) : null;
+}
+
+export async function fetchWorkdayDetail(host: string, tenant: string, site: string, externalPath: string, signal: AbortSignal) {
+  return fetchJson<WdDetail>(`https://${host}/wday/cxs/${tenant}/${site}${externalPath}`, signal);
+}
+
+/** The full text and exact location of a Workday posting. */
+export function workdayDetailFields(d: WdDetail) {
+  const info = d.jobPostingInfo ?? {};
+  const locations = [info.location, ...(info.additionalLocations ?? [])].filter(Boolean) as string[];
+  return {
+    description: htmlToText(info.jobDescription ?? ""),
+    location: locations.join(" · "),
+    postedAt: toDate(info.startDate),
+    employmentType: (info.timeType ?? "").toLowerCase(),
+    remote: /remote/i.test(info.remoteType ?? ""),
+  };
+}
+
+export const workday: SourceDefinition = {
+  id: "workday",
+  boardsEnv: "WORKDAY_SITES",
+  defaultBoards: [
+    "intel.wd1/External=Intel",
+    "nvidia.wd5/NVIDIAExternalCareerSite=NVIDIA",
+    "salesforce.wd12/External_Career_Site=Salesforce",
+    "adobe.wd5/external_experienced=Adobe",
+    "mastercard.wd1/CorporateCareers=Mastercard",
+    "hpe.wd5/Jobsathpe=Hewlett Packard Enterprise",
+    "pwc.wd3/Global_Experienced_Careers=PwC",
+  ],
+  name: "Workday career sites",
+  kind: "employer_feed",
+  homepage: "https://www.workday.com/en-us/products/talent-management/recruiting.html",
+  attribution: "Published by the employer on its Workday career site.",
+  cacheTtlMs: 3 * 60 * 60 * 1000,
+  requestsPerMinute: 30,
+  missingConfig: (ctx) => (ctx.boards.length ? null : "Add career sites in Admin → Sources as tenant.wdN/Site=Company (or set WORKDAY_SITES)."),
+  queryIndependent: true,
+  fetchJobs: (_query, signal, ctx) =>
+    forEachBoard(ctx.boards, async (board) => {
+      const parsed = parseBoard(board);
+      if (!parsed.site) throw new Error(`Workday site "${board}" needs tenant.wdN/Site`);
+      const { host, tenant } = workdayHost(parsed.host);
+      const site = parsed.site;
+      const company = parsed.label || titleCase(tenant);
+      const api = new URL(`https://${host}/wday/cxs/${tenant}/${site}/jobs`);
+      await assertRobots(api, signal);
+      const out: NormalizedJob[] = [];
+      const seen = new Set<string>();
+      for (const cc of boardCountries()) {
+        const country = countryName(cc);
+        const postings: WdPosting[] = [];
+        for (let offset = 0; offset < WD_MAX_PER_SITE; offset += WD_PAGE) {
+          const page = await fetchJson<{ total?: number; jobPostings?: WdPosting[] }>(api.href, signal, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ appliedFacets: {}, limit: WD_PAGE, offset, searchText: country }),
+          });
+          postings.push(...(page.jobPostings ?? []).filter((p) => p?.title && p.externalPath));
+          if ((page.jobPostings?.length ?? 0) < WD_PAGE || offset + WD_PAGE >= (page.total ?? 0)) break;
+        }
+        const details = await mapLimit(postings.slice(0, WD_DETAILS_PER_SITE), 4, (p) => fetchWorkdayDetail(host, tenant, site, p.externalPath, signal).catch(() => null));
+        postings.forEach((p, i) => {
+          const d = details[i] ? workdayDetailFields(details[i]!) : null;
+          // "3 Locations" says nothing; the search was for this country, so name it until the detail is read.
+          const listed = p.locationsText && !/^\d+\s+locations?$/i.test(p.locationsText) ? p.locationsText : country;
+          const location = d?.location || listed;
+          if (d?.location && !detectLocation(location).countries.includes(cc) && !d.remote) return; // matched the word, not the place
+          const reqId = p.bulletFields?.[0] ?? p.externalPath.split("_").pop() ?? p.externalPath;
+          const externalId = `${tenant}-${site}-${reqId}`.slice(0, 180);
+          if (seen.has(externalId)) return;
+          seen.add(externalId);
+          out.push({
+            source: "workday",
+            externalId,
+            title: p.title.trim(),
+            company,
+            location,
+            workMode: d?.remote ? "remote" : detectWorkMode(location, p.title),
+            employmentType: d?.employmentType ?? "",
+            salaryMin: null,
+            salaryMax: null,
+            salaryCurrency: null,
+            salaryPeriod: null,
+            description: d?.description || `${p.title} at ${company}. ${location}.`,
+            url: `https://${host}/${site}${p.externalPath}`,
+            postedAt: d?.postedAt ?? workdayPostedOn(p.postedOn),
+            ...(d?.description ? {} : { summaryOnly: true }),
+          });
+        });
+      }
+      return out;
     }),
 };

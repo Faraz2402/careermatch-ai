@@ -6,7 +6,7 @@ export const contentType = "image/png";
 export const alt = "CareerMatch AI profile";
 
 const GRADIENT: Record<string, string> = {
-  aurora: "linear-gradient(135deg, #4338ca, #4f46e5 50%, #6d28d9)",
+  aurora: "linear-gradient(135deg, #172866, #1d37a3 50%, #0f766e)",
   sunset: "linear-gradient(135deg, #f97316, #f43f5e 50%, #c026d3)",
   minimal: "linear-gradient(135deg, #0f172a, #1e293b)",
 };

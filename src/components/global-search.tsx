@@ -71,14 +71,14 @@ function GoogleOverlay({ query, onClose }: { query: string; onClose: () => void 
   return createPortal(
     <div className="fixed inset-0 z-[70] flex items-start justify-center bg-[#0b1020]/70 p-4 pt-[6vh] backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Google search" onClick={onClose}>
       <div onClick={(e) => e.stopPropagation()} className="menu-in flex max-h-[88vh] w-full max-w-3xl flex-col overflow-hidden rounded-3xl bg-surface shadow-2xl">
-        <header className="bg-gradient-to-br from-[#10152b] via-[#1a2160] to-[#232b7a] px-5 py-4 text-white">
+        <header className="bg-[#18212e] px-5 py-4 text-white">
           <div className="flex items-start gap-3">
-            <Search className="mt-1 size-5 shrink-0 text-[#ffc857]" />
+            <Search className="mt-1 size-5 shrink-0 text-[#d9a514]" />
             <p className="min-w-0 flex-1 text-lg font-semibold">{query}</p>
             <button onClick={onClose} className="grid size-8 place-items-center rounded-lg hover:bg-white/10" aria-label="Close"><X className="size-5" /></button>
           </div>
           <div className="mt-3 flex flex-wrap gap-2">
-            <a href={googleAiUrl(query)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-[#10152b] transition hover:-translate-y-0.5"><Sparkles className="size-3.5 text-[#8457ff]" /> Ask Google AI Mode <ExternalLink className="size-3" /></a>
+            <a href={googleAiUrl(query)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-[#10152b] transition hover:-translate-y-0.5"><Sparkles className="size-3.5 text-brand-600" /> Ask Google AI Mode <ExternalLink className="size-3" /></a>
             <a href={googleUrl(query)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-white/25 px-3.5 py-1.5 text-xs font-bold transition hover:bg-white/10">Open on Google <ExternalLink className="size-3" /></a>
           </div>
         </header>
@@ -162,10 +162,10 @@ export function GlobalSearch() {
     <div ref={wrap} className="relative w-full max-w-xl">
       <form
         onSubmit={(e) => { e.preventDefault(); submit(); }}
-        className={cx("flex items-center gap-2 rounded-full border bg-surface py-1 pr-1 pl-3.5 shadow-sm transition focus-within:shadow-md", g ? "border-[#8457ff]/60 ring-2 ring-[#8457ff]/15" : "border-slate-200 focus-within:border-brand-400")}
+        className={cx("flex items-center gap-2 rounded-full border bg-surface py-1 pr-1 pl-3.5 shadow-sm transition focus-within:shadow-md", g ? "border-brand-400 ring-2 ring-brand-100" : "border-slate-200 focus-within:border-brand-400")}
         role="search"
       >
-        {g ? <Sparkles className="size-4 shrink-0 text-[#8457ff]" /> : <Search className="size-4 shrink-0 text-slate-400" />}
+        {g ? <Sparkles className="size-4 shrink-0 text-brand-600" /> : <Search className="size-4 shrink-0 text-slate-400" />}
         <input
           value={q}
           onChange={(e) => { setQ(e.target.value); setOpen(true); }}
@@ -175,8 +175,8 @@ export function GlobalSearch() {
           aria-label="Search"
         />
         {loading && <Loader2 className="size-4 animate-spin text-slate-400" />}
-        <button type="button" role="switch" aria-checked={g} aria-label="Google mode" title={g ? "Google mode: uses Google, not your AI actions" : "Standard: search CareerMatch"} onClick={() => setMode(g ? "standard" : "google")} className={cx("relative flex h-8 shrink-0 items-center rounded-full px-1 text-[11px] font-bold transition-colors", g ? "bg-gradient-to-r from-[#4263ff] to-[#8457ff] text-white" : "bg-slate-100 text-slate-600")}>
-          <span className={cx("grid size-6 place-items-center rounded-full bg-white shadow transition-transform duration-300", g ? "translate-x-[4.6rem] text-[#8457ff]" : "text-slate-500")}>{g ? <Sparkles className="size-3.5" /> : <Search className="size-3.5" />}</span>
+        <button type="button" role="switch" aria-checked={g} aria-label="Google mode" title={g ? "Google mode: uses Google, not your AI actions" : "Standard: search CareerMatch"} onClick={() => setMode(g ? "standard" : "google")} className={cx("relative flex h-8 shrink-0 items-center rounded-full px-1 text-[11px] font-bold transition-colors", g ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-600")}>
+          <span className={cx("grid size-6 place-items-center rounded-full bg-white shadow transition-transform duration-300", g ? "translate-x-[4.6rem] text-brand-600" : "text-slate-500")}>{g ? <Sparkles className="size-3.5" /> : <Search className="size-3.5" />}</span>
           <span className={cx("absolute transition-all", g ? "left-2.5" : "left-8")}>{g ? "Google AI" : "Standard"}</span>
           <span className="w-[4.7rem]" />
         </button>
@@ -198,12 +198,12 @@ export function GlobalSearch() {
           {data.questions.length > 0 && <p className="px-2.5 pt-2 pb-1 text-[10px] font-bold tracking-[0.12em] text-slate-500 uppercase">Questions</p>}
           {data.questions.map((x) => (
             <button key={x.id} onClick={() => go(`/interview-qa?q=${encodeURIComponent(x.question.slice(0, 80))}`)} className="flex w-full items-start gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm hover:bg-brand-50">
-              <MessageSquareText className="mt-0.5 size-4 shrink-0 text-[#8457ff]" />
+              <MessageSquareText className="mt-0.5 size-4 shrink-0 text-brand-600" />
               <span className="min-w-0 flex-1 text-slate-700">{x.question}</span>
               <span className="shrink-0 text-[11px] text-slate-500">{x.type}</span>
             </button>
           ))}
-          <button onClick={() => askGoogle(q.trim())} className="mt-1 flex w-full items-center gap-2 rounded-xl bg-gradient-to-r from-[#4263ff]/10 to-[#8457ff]/10 px-2.5 py-2 text-left text-sm font-semibold text-[#4735b5] hover:from-[#4263ff]/20 hover:to-[#8457ff]/20">
+          <button onClick={() => askGoogle(q.trim())} className="mt-1 flex w-full items-center gap-2 rounded-xl bg-brand-50 px-2.5 py-2 text-left text-sm font-semibold text-brand-700 hover:bg-brand-100">
             <Sparkles className="size-4" /> Ask Google AI Mode about “{q.trim()}”
           </button>
         </div>

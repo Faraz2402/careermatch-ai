@@ -50,7 +50,7 @@ export function UpgradeButton({ period, label, configured, className }: { period
         name: "CareerMatch AI",
         description: period === "yearly" ? "Pro — 12 months" : "Pro — 1 month",
         prefill: { name: o.name, email: o.email },
-        theme: { color: "#4f46e5" },
+        theme: { color: "#2445c8" },
         handler: async (r: RazorpayResponse) => {
           try {
             await api("/api/billing/verify", { method: "POST", json: r });

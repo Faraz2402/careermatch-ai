@@ -64,17 +64,16 @@ export function StudioHome({ drafts: initial, jobs, bases, uploads: initialUploa
   return (
     <div className="space-y-10">
       {/* Hero */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-700 via-indigo-600 to-cyan-500 p-6 text-white shadow-xl sm:p-10">
+      <section className="relative overflow-hidden rounded-3xl bg-brand-600 p-6 text-white shadow-xl sm:p-10">
         <div aria-hidden className="absolute -top-20 -right-16 size-72 rounded-full bg-white/10 blur-2xl" />
-        <div aria-hidden className="absolute -bottom-24 left-1/3 size-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
         <p className="relative inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold"><Sparkles className="size-3.5" aria-hidden /> Make Resume & Cover Letter</p>
-        <h1 className="relative mt-4 max-w-2xl font-serif text-5xl leading-tight font-normal sm:text-6xl">What are we applying for today?</h1>
+        <h1 className="relative mt-4 max-w-2xl font-bold text-4xl leading-tight sm:text-5xl">What are we applying for today?</h1>
         <p className="relative mt-3 max-w-2xl text-white/85">Paste a job or pick a saved one. We find the keywords you&apos;re missing, rewrite every bullet for the role — truthfully — write the matching cover letter, and show how your estimated ATS alignment moves.</p>
 
         <form onSubmit={start} className="relative mt-6 rounded-2xl bg-white p-4 text-zinc-900 shadow-2xl sm:p-5">
           <div className="mb-3 flex gap-1 rounded-full bg-zinc-100 p-1 text-sm font-semibold" role="tablist">
-            {jobs.length > 0 && <button type="button" role="tab" aria-selected={mode === "saved"} onClick={() => setMode("saved")} className={cx("flex-1 rounded-full px-3 py-1.5", mode === "saved" ? "bg-violet-600 text-white" : "text-zinc-600")}>A saved job</button>}
-            <button type="button" role="tab" aria-selected={mode === "paste"} onClick={() => setMode("paste")} className={cx("flex-1 rounded-full px-3 py-1.5", mode === "paste" ? "bg-violet-600 text-white" : "text-zinc-600")}>Paste a job description</button>
+            {jobs.length > 0 && <button type="button" role="tab" aria-selected={mode === "saved"} onClick={() => setMode("saved")} className={cx("flex-1 rounded-full px-3 py-1.5", mode === "saved" ? "bg-brand-600 text-white" : "text-zinc-600")}>A saved job</button>}
+            <button type="button" role="tab" aria-selected={mode === "paste"} onClick={() => setMode("paste")} className={cx("flex-1 rounded-full px-3 py-1.5", mode === "paste" ? "bg-brand-600 text-white" : "text-zinc-600")}>Paste a job description</button>
           </div>
           {mode === "saved" ? (
             <select className="w-full rounded-xl border border-zinc-300 bg-white px-3 py-2.5 text-sm" value={jobId} onChange={(e) => setJobId(e.target.value)} aria-label="Saved job">
@@ -92,11 +91,11 @@ export function StudioHome({ drafts: initial, jobs, bases, uploads: initialUploa
               <select className="rounded-lg border border-zinc-300 bg-white px-2 py-1.5" value={baseId ?? ""} onChange={(e) => setBaseId(e.target.value || null)}>{bases.map((b) => <option key={b.id ?? "p"} value={b.id ?? ""}>{b.name}</option>)}</select>
             </label>
             <span className="flex items-center gap-1.5 text-zinc-600">Template: <b className="text-zinc-900">{templateById(templateId).name}</b> <TierBadge tier={templateById(templateId).tier} /></span>
-            <button className="ml-auto rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 px-5 py-2.5 font-semibold text-white shadow-lg disabled:opacity-60" disabled={busy || atLimit || !resume}>{busy ? "Analysing the job…" : "✨ Start tailoring"}</button>
+            <button className="ml-auto rounded-full bg-brand-600 px-5 py-2.5 font-semibold text-white shadow-lg disabled:opacity-60" disabled={busy || atLimit || !resume}>{busy ? "Analysing the job…" : "✨ Start tailoring"}</button>
           </div>
           {!resume && <p className="mt-3 text-sm text-amber-700">First add your résumé: <Link href="/onboarding" className="font-semibold underline">upload it here</Link>.</p>}
           {atLimit && (
-            <div className="mt-3 flex flex-wrap items-center gap-2 rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-3 text-sm text-amber-900">
+            <div className="mt-3 flex flex-wrap items-center gap-2 rounded-xl bg-amber-50 p-3 text-sm text-amber-900">
               <Crown className="size-4 text-amber-500" aria-hidden /> You&apos;ve made your free tailored résumé and cover letter. Pro tailors for every job, unlocks every premium template and unlimited downloads.
               <Link href="/pricing" className="ml-auto rounded-full bg-amber-500 px-3 py-1 font-semibold text-white">Go Pro</Link>
             </div>

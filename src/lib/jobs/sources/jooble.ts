@@ -48,6 +48,7 @@ export function mapJoobleJob(j: JoobleJob, countryCode: string): NormalizedJob {
     description: htmlToText(j.snippet ?? ""),
     url: j.link,
     postedAt: toDate(j.updated),
+    summaryOnly: true,
   };
 }
 

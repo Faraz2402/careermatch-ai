@@ -3,10 +3,10 @@ import type { ResumeData, Visibility } from "@/lib/resume/schema";
 export const THEME_STYLES = {
   aurora: {
     label: "Aurora",
-    hero: "bg-gradient-to-br from-[#4338ca] via-[#4f46e5] to-[#6d28d9] text-white",
+    hero: "bg-gradient-to-br from-[#172866] via-[#1d37a3] to-[#0f766e] text-white",
     sub: "text-white/80",
     avatar: "bg-white/15 ring-white/30",
-    cta: "bg-surface text-[#4338ca] hover:bg-indigo-50",
+    cta: "bg-surface text-[#1d37a3] hover:bg-sky-50",
     chip: "bg-brand-50 text-brand-700",
     dot: "bg-brand-500 ring-brand-100",
     line: "border-brand-100",
@@ -23,7 +23,7 @@ export const THEME_STYLES = {
   },
   sunset: {
     label: "Sunset",
-    hero: "bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600 text-white",
+    hero: "bg-gradient-to-br from-orange-500 via-rose-500 to-amber-600 text-white",
     sub: "text-orange-50",
     avatar: "bg-white/20 ring-white/40",
     cta: "bg-surface text-[#e11d48] hover:bg-[#fff1f2]",
@@ -55,7 +55,7 @@ export function ProfileView({ data: r, visibility: v, preview, theme = "aurora",
         <div className="relative mx-auto flex max-w-4xl flex-col items-start gap-6 sm:flex-row sm:items-center">
           <div className={`grid size-24 shrink-0 place-items-center rounded-2xl font-display text-3xl font-extrabold ring-1 ${t.avatar}`}>{initials(r.name)}</div>
           <div className="flex-1">
-            <h1 className="font-serif text-5xl font-normal sm:text-6xl">{r.name || "Your name"}</h1>
+            <h1 className="font-bold text-5xl sm:text-6xl">{r.name || "Your name"}</h1>
             <p className={`mt-1 text-lg ${t.sub}`}>{r.headline}</p>
             <div className={`mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm ${t.sub}`}>
               {v.showLocation && r.location && <span>📍 {r.location}</span>}

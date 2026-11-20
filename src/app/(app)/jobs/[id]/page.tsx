@@ -16,6 +16,7 @@ import { formatMoney, formatSalary, relativeDate } from "@/lib/format";
 import { KIND_LABELS, type Kind } from "@/lib/generate";
 import { decodeGeneration } from "@/lib/generations";
 import { needsEnrichment } from "@/lib/jobs/enrich";
+import { ensureFullDescription } from "@/lib/jobs/hydrate";
 import { scoreJob } from "@/lib/jobs/rank";
 import { sourceMeta } from "@/lib/jobs/registry";
 import { formatUsdK } from "@/lib/jobs/salary";
@@ -31,8 +32,11 @@ async function loadJob(userId: string, rawId: string) {
   const id = decodeURIComponent(rawId);
   const row = await db.job.findUnique({ where: { id } });
   if (!row || (row.importedById && row.importedById !== userId)) return null;
-  return row;
+  // The rule: load the complete description before anything is scored or shown.
+  return ensureFullDescription(row, 12_000);
 }
+
+export const maxDuration = 30;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const row = await db.job.findUnique({ where: { id: decodeURIComponent((await params).id) }, select: { title: true, company: true } });
@@ -82,7 +86,7 @@ export default async function JobPage({ params }: Props) {
         <header className="card p-6">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <h1 className="font-serif text-4xl font-normal">{job.title}</h1>
+              <h1 className="font-bold text-4xl">{job.title}</h1>
               <p className="mt-1 font-medium text-slate-700">{job.company}</p>
               <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600">
                 <span>{job.location || "Location not stated"}</span>
@@ -139,7 +143,7 @@ export default async function JobPage({ params }: Props) {
               : "Skills are spotted by keyword in the listing text."}{" "}
             Bars are green when strong, amber when partial and red when weak.
           </p>
-          <div className="mt-4 divide-y divide-slate-100">
+          <div className="stagger mt-4 divide-y divide-slate-100">
             {match.breakdown.map((b) => {
               const ratio = Math.abs(b.points) / b.max;
               return (
@@ -148,7 +152,7 @@ export default async function JobPage({ params }: Props) {
                   <span className="text-right font-semibold tabular-nums sm:order-last">{b.points > 0 && b.label === "Your feedback" ? "+" : ""}{b.points}/{b.max}</span>
                   <div className="col-span-2 sm:col-span-1">
                     <div className="h-2 overflow-hidden rounded-full bg-slate-100" role="meter" aria-valuemin={0} aria-valuemax={b.max} aria-valuenow={b.points} aria-label={b.label}>
-                      <div className={`h-full rounded-full ${b.points < 0 ? "bg-rose-400" : barColor(ratio)}`} style={{ width: `${ratio * 100}%` }} />
+                      <div className={`bar-fill h-full rounded-full ${b.points < 0 ? "bg-rose-400" : barColor(ratio)}`} style={{ width: `${ratio * 100}%` }} />
                     </div>
                     <p className="mt-1 text-xs text-slate-500">{b.detail}</p>
                   </div>
@@ -160,7 +164,7 @@ export default async function JobPage({ params }: Props) {
           <div className="mt-5">
             <p className="text-sm font-semibold">Skills this job asks for</p>
             {match.matched.length + match.missing.length ? (
-              <div className="mt-2 flex flex-wrap gap-1.5">
+              <div className="stagger mt-2 flex flex-wrap gap-1.5">
                 {match.matched.map((s) => <span key={s} className="chip bg-emerald-50 text-emerald-800 ring-1 ring-emerald-200">✓ {s}</span>)}
                 {match.missing.map((s) => <span key={s} className="chip bg-rose-50 text-rose-800 ring-1 ring-rose-200">✗ {s}</span>)}
               </div>
@@ -206,7 +210,7 @@ export default async function JobPage({ params }: Props) {
           {market ? (
             <div className="mt-3">
               <p className="text-sm text-slate-600">{market.basis || `Market pay for similar roles (${market.period === "month" ? "monthly" : "yearly"}).`}</p>
-              <div className="mt-4 grid grid-cols-3 gap-2 text-center">
+              <div className="stagger mt-4 grid grid-cols-3 gap-2 text-center">
                 {([["Low", market.low], ["Typical", market.median], ["High", market.high]] as const).map(([label, v]) => (
                   <div key={label} className={`rounded-xl border p-3 ${label === "Typical" ? "border-brand-300 bg-brand-50" : "border-slate-200"}`}>
                     <p className="text-xs text-slate-500">{label}</p>
@@ -237,13 +241,13 @@ export default async function JobPage({ params }: Props) {
         <section className="card p-6">
           <h2 className="font-display text-lg font-bold">Job description</h2>
           <p className="mt-1 text-xs text-slate-500">
-            {e?.fullDescription
-              ? `Full description from the original posting on ${e.descriptionFrom}.`
-              : job.source === "adzuna" || job.source === "jooble"
-                ? `${meta.name} only provides a short preview of the description.${job.verifiedLink ? "" : " Open the listing for the full text."}`
-                : `From ${meta.name}.`}
+            {job.descriptionFull
+              ? e?.descriptionFrom
+                ? `Complete description from the original posting on ${e.descriptionFrom}. The match score above is computed from all of it.`
+                : `Complete description, as published by the employer through ${meta.name}. The match score above is computed from all of it.`
+              : `Only a short preview is available so far: ${meta.name} publishes snippets, and the employer's full posting couldn't be loaded yet (we keep trying in the background). The score is an estimate until then.${job.url ? " The apply link opens the full posting." : ""}`}
           </p>
-          <div className="mt-4 max-h-[600px] overflow-y-auto text-sm leading-relaxed whitespace-pre-line text-slate-700">{job.description || "No description provided by the source."}</div>
+          <div className="mt-4 text-[0.95rem] leading-7 whitespace-pre-line text-slate-700">{job.description || "No description provided by the source."}</div>
         </section>
       </div>
 

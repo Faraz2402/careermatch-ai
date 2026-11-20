@@ -34,7 +34,7 @@ export function LegalPage({ title, intro, sections, references, effective = LEGA
 
         <article className="min-w-0 max-w-3xl">
           <p className="text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase">Legal</p>
-          <h1 className="mt-3 font-serif text-6xl font-normal sm:text-7xl">{title}</h1>
+          <h1 className="mt-3 font-bold text-6xl sm:text-7xl">{title}</h1>
           <p className="mt-4 text-sm text-slate-500">
             Effective {effective} · Version {version}
           </p>

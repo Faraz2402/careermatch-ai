@@ -15,7 +15,7 @@ import { describeFilters } from "./saved-searches";
 import { useToast } from "./toast";
 import { EmptyState } from "./ui";
 
-type Result = { total: number; page: number; totalPages: number; jobs: Job[]; sources: SourceStatus[]; companies: string[] };
+type Result = { total: number; page: number; totalPages: number; jobs: Job[]; sources: SourceStatus[]; companies: string[]; previewsWaiting?: number };
 
 type Filters = {
   q: string;
@@ -32,11 +32,13 @@ type Filters = {
   jobType: string[];
   sources: string[];
   onlySalary: boolean;
+  /** Include listings whose full description is still loading (scores are estimates). */
+  previews: boolean;
   view: string;
   sort: string;
 };
 
-const EMPTY: Filters = { q: "", skills: "", company: "", country: "", city: "", includeRemote: true, workMode: [], salaryMin: "", posted: "", seniority: [], levels: [], jobType: [], sources: [], onlySalary: false, view: "all", sort: "match" };
+const EMPTY: Filters = { q: "", skills: "", company: "", country: "", city: "", includeRemote: true, workMode: [], salaryMin: "", posted: "", seniority: [], levels: [], jobType: [], sources: [], onlySalary: false, previews: false, view: "all", sort: "match" };
 
 const DATE_OPTIONS = [
   { id: "", label: "Past month" },
@@ -162,7 +164,7 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
     <div>
       <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="font-serif text-4xl font-normal sm:text-5xl">Discover jobs</h1>
+          <h1 className="font-bold text-4xl sm:text-5xl">Discover jobs</h1>
           <p className="text-sm text-slate-600">Ranked against your profile and preferences. Every listing shows where it came from.</p>
         </div>
         <div className="flex gap-2">
@@ -250,8 +252,14 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
             <button key={v.id} onClick={() => apply({ view: v.id })} className={cx("rounded-md px-3 py-1 text-sm font-medium", filters.view === v.id ? "bg-surface shadow-sm" : "text-slate-600")}>{v.label}</button>
           ))}
         </div>
-        <div className="flex items-center gap-3 text-sm text-slate-600">
+        <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600">
           {data && !loading && <span>{data.total} {data.total === 1 ? "job" : "jobs"}</span>}
+          {(filters.previews || !!data?.previewsWaiting) && (
+            <label className="flex items-center gap-1.5 text-xs" title="Every job is shown and scored from its complete description. Turn this on to also see jobs whose full text is still loading in the background; their scores are estimates.">
+              <input type="checkbox" className="accent-brand-600" checked={filters.previews} onChange={(e) => apply({ previews: e.target.checked })} />
+              Include {data?.previewsWaiting ? `${data.previewsWaiting} ` : ""}short previews
+            </label>
+          )}
           <select aria-label="Sort" className="rounded-md border border-slate-200 bg-surface px-2 py-1 text-sm" value={filters.sort} onChange={(e) => apply({ sort: e.target.value })}>
             <option value="match">Best match</option>
             <option value="date">Most recent</option>
@@ -272,10 +280,10 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
             action={filters.view === "all" ? <button className="btn-secondary" onClick={() => setImportOpen(true)}>Add a job link</button> : undefined}
           />
         ) : (
-          <div className={cx("grid gap-4", preview ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]" : "grid-cols-[repeat(auto-fill,minmax(min(100%,27rem),1fr))]", loading && "opacity-60 transition")}>
+          <div key={`${data?.page ?? 0}-${filters.view}-${filters.sort}`} className={cx("grid gap-4", !preview && "stagger", preview ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]" : "grid-cols-[repeat(auto-fill,minmax(min(100%,27rem),1fr))]", loading && "opacity-60 transition")}>
             {preview ? (
               <>
-                <div className="space-y-4">
+                <div className="stagger space-y-4">
                   {data?.jobs.map((j) => <JobCard key={j.id} job={j} selected={j.id === preview} reading={reading.has(j.id)} onPreview={setPreview} onChange={(p) => patchJob(j.id, p)} />)}
                 </div>
                 <JobPreview id={preview} onClose={() => setPreview(null)} />

@@ -12,7 +12,8 @@ const Body = z.object({
   boards: z
     .string()
     .max(2000)
-    .regex(/^[\w,\s-]*$/, "Board tokens may only contain letters, numbers, dashes and commas.")
+    // Hosted boards need dots, slashes and "=Company" labels, e.g. "intel.wd1/External=Intel".
+    .regex(/^[\w,\s.\/=&'()-]*$/, "Boards may only contain letters, numbers, spaces and . / = & ' ( ) - , characters.")
     .nullable()
     .optional(),
 });

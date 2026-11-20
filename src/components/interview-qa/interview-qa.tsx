@@ -16,7 +16,7 @@ type Facets = { total: number; departments: Record<string, number>; roles: Recor
 type Data = { total: number; items: InterviewQ[]; pageSize: number; facets: Facets; overall: number };
 type Filters = { dept: string[]; role: string[]; tool: string[]; skill: string[]; company: string[]; type: string[]; q: string };
 
-const TYPE_TONE: Record<string, string> = { Coding: "#4263ff", SQL: "#0891b2", "System Design": "#8457ff", Conceptual: "#4735b5", Behavioral: "#e8553f", Case: "#d99a00" };
+const TYPE_TONE: Record<string, string> = { Coding: "#2445c8", SQL: "#0891b2", "System Design": "#0f766e", Conceptual: "#1d37a3", Behavioral: "#d4493f", Case: "#d99a00" };
 const KEYS = ["dept", "role", "tool", "skill", "company", "type"] as const;
 
 const monthYear = (iso: string | null) => (iso ? new Date(iso).toLocaleDateString("en-GB", { month: "short", year: "numeric" }) : "");
@@ -35,15 +35,15 @@ const isTech = (f: Filters) => f.dept.some((d) => d === "Engineering & Technolog
 const GATES: Gate[] = [
   { label: "Solve SQL & coding problems on LeetCode", href: "https://leetcode.com/problemset/", note: "SQL 50 and coding interview sets", when: (f) => f.tool.includes("SQL") || isTech(f), tone: "#ffa116" },
   { label: "Practise data analytics on StrataScratch", href: "https://www.stratascratch.com/", note: "Real data-science and SQL challenges", when: (f) => f.tool.includes("SQL") || f.dept.includes("Data & Analytics"), tone: "#0891b2" },
-  { label: "Practise coding challenges on HackerRank", href: "https://www.hackerrank.com/", note: "Language tracks and skill certifications", when: isTech, tone: "#20c997" },
-  { label: "Review core tech concepts on InterviewBit", href: "https://www.interviewbit.com/", note: "Topic-wise programming and system design", when: isTech, tone: "#4263ff" },
+  { label: "Practise coding challenges on HackerRank", href: "https://www.hackerrank.com/", note: "Language tracks and skill certifications", when: isTech, tone: "#1f8a5b" },
+  { label: "Review core tech concepts on InterviewBit", href: "https://www.interviewbit.com/", note: "Topic-wise programming and system design", when: isTech, tone: "#2445c8" },
   { label: "Practise on GeeksforGeeks", href: "https://www.geeksforgeeks.org/", note: "DSA, CS fundamentals and company archives", when: isTech, tone: "#2f8d46" },
   { label: "Earn badges on Salesforce Trailhead", href: "https://trailhead.salesforce.com/", note: "Apex, SOQL and admin trails", when: (f) => f.tool.includes("Salesforce") || f.dept.includes("Sales & Business Development"), tone: "#00a1e0" },
   { label: "Learn Power BI and Excel on Microsoft Learn", href: "https://learn.microsoft.com/training/powerplatform/power-bi", note: "Free DAX, modelling and Excel modules", when: (f) => f.tool.some((t) => t === "Power BI" || t === "Excel"), tone: "#f2c811" },
   { label: "Free SAP courses on SAP Learning", href: "https://learning.sap.com/", note: "MM, SD, FI/CO and S/4HANA", when: (f) => f.tool.includes("SAP") || f.dept.includes("Supply Chain & Procurement"), tone: "#0a6ed1" },
   { label: "Free Tableau training", href: "https://www.tableau.com/learn/training", note: "Calculations, LOD and dashboards", when: (f) => f.tool.includes("Tableau"), tone: "#e8762d" },
-  { label: "Simulate mock interviews on Prepfully", href: "https://prepfully.com/", note: "Practise with interviewers from top firms", when: (f) => !isTech(f) || f.type.includes("Behavioral"), tone: "#7c3aed" },
-  { label: "Master corporate & PM cases on IGotAnOffer", href: "https://igotanoffer.com/", note: "Consulting, PM and case frameworks", when: (f) => f.dept.some((d) => ["Business Analysis & Strategy", "Product & Design", "Finance, Legal & Operations"].includes(d)) || f.type.includes("Case"), tone: "#ff716b" },
+  { label: "Simulate mock interviews on Prepfully", href: "https://prepfully.com/", note: "Practise with interviewers from top firms", when: (f) => !isTech(f) || f.type.includes("Behavioral"), tone: "#0f766e" },
+  { label: "Master corporate & PM cases on IGotAnOffer", href: "https://igotanoffer.com/", note: "Consulting, PM and case frameworks", when: (f) => f.dept.some((d) => ["Business Analysis & Strategy", "Product & Design", "Finance, Legal & Operations"].includes(d)) || f.type.includes("Case"), tone: "#d4493f" },
 ];
 
 function googleSite(site: string, f: Filters) {
@@ -57,7 +57,7 @@ function QuestionCard({ q, index, onAnswer }: { q: InterviewQ; index: number; on
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
   const toast = useToast();
-  const tone = TYPE_TONE[q.questionType] ?? "#4263ff";
+  const tone = TYPE_TONE[q.questionType] ?? "#2445c8";
   const [title, ...rest] = q.question.split("\n");
   const detail = rest.join("\n").trim();
   const user = q.source === "user";
@@ -91,7 +91,7 @@ function QuestionCard({ q, index, onAnswer }: { q: InterviewQ; index: number; on
       <div className="mt-3 flex flex-wrap gap-1.5">
         {q.roles.slice(0, 2).map((r) => <span key={r} className="flex items-center gap-1 rounded-full border border-slate-200 px-2 py-0.5 text-[11px] font-semibold text-slate-600"><Briefcase className="size-3" />{r}</span>)}
         {q.tools.map((t) => <span key={t} className="flex items-center gap-1 rounded-full bg-[#fff1d1] px-2 py-0.5 text-[11px] font-semibold text-[#8a5a00]"><Wrench className="size-3" />{t}</span>)}
-        {q.skills.slice(0, 3).map((s) => <span key={s} className="rounded-full bg-[#e9e4ff] px-2 py-0.5 text-[11px] font-semibold text-[#4735b5]">{s}</span>)}
+        {q.skills.slice(0, 3).map((s) => <span key={s} className="rounded-full bg-[#e9e4ff] px-2 py-0.5 text-[11px] font-semibold text-brand-700">{s}</span>)}
       </div>
       <div className="mt-4 border-t border-slate-200 pt-3">
         {q.answer ? (
@@ -102,7 +102,7 @@ function QuestionCard({ q, index, onAnswer }: { q: InterviewQ; index: number; on
             </button>
             {open && (
               <div className="menu-in mt-2">
-                {q.answerOrigin === "ai" && <p className="mb-2 rounded-lg bg-[#e9e4ff] px-2.5 py-1.5 text-xs font-semibold text-[#4735b5]">{q.questionType === "Behavioral" ? "Sample STAR answer (AI-drafted, illustrative). Swap in a story from your own experience." : "AI-drafted answer. Check it, and use your own examples."}</p>}
+                {q.answerOrigin === "ai" && <p className="mb-2 rounded-lg bg-[#e9e4ff] px-2.5 py-1.5 text-xs font-semibold text-brand-700">{q.questionType === "Behavioral" ? "Sample STAR answer (AI-drafted, illustrative). Swap in a story from your own experience." : "AI-drafted answer. Check it, and use your own examples."}</p>}
                 {q.answerOrigin === "user" && <p className="mb-2 rounded-lg bg-[#dff7ee] px-2.5 py-1.5 text-xs font-semibold text-[#0b7a5a]">Answer shared by the person who was asked.</p>}
                 <Markdown text={q.answer} />
               </div>
@@ -246,12 +246,12 @@ export function InterviewQa({ initial }: { initial: Data }) {
       <section className="relative overflow-hidden rounded-[2rem] bg-[#0a1020] px-6 py-10 text-white sm:px-10 lg:py-14">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(600px_300px_at_85%_0%,rgba(132,87,255,0.45),transparent_70%),radial-gradient(500px_300px_at_0%_100%,rgba(25,198,232,0.3),transparent_70%)]" />
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_70%_80%_at_50%_30%,#000,transparent)]" />
-        {[["SQL", "12%", "18%", "#19c6e8", "-6deg", "6s"], ["STAR", "78%", "14%", "#ff716b", "5deg", "7.5s"], ["System Design", "68%", "70%", "#8457ff", "-4deg", "8s"], ["React", "88%", "52%", "#4263ff", "7deg", "6.5s"], ["DAX", "4%", "78%", "#ffc857", "4deg", "9s"]].map(([t, l, top, c, rot, dur]) => (
+        {[["SQL", "12%", "18%", "#1b8aa6", "-6deg", "6s"], ["STAR", "78%", "14%", "#d4493f", "5deg", "7.5s"], ["System Design", "68%", "70%", "#0f766e", "-4deg", "8s"], ["React", "88%", "52%", "#2445c8", "7deg", "6.5s"], ["DAX", "4%", "78%", "#d9a514", "4deg", "9s"]].map(([t, l, top, c, rot, dur]) => (
           <span key={t} aria-hidden className="iq-bob pointer-events-none absolute hidden rounded-full border border-white/15 px-3 py-1 text-xs font-bold backdrop-blur lg:block" style={{ left: l, top, background: `${c}33`, color: c, "--rot": rot, "--dur": dur } as React.CSSProperties}>{t}</span>
         ))}
         <div className="relative max-w-3xl">
-          <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase"><Sparkles className="size-3.5 text-[#ffc857]" /> Interview Q&amp;A</p>
-          <h1 className="mt-4 font-serif text-5xl leading-[1.02] font-normal tracking-[-0.01em] sm:text-6xl">Real interview questions, <em className="iq-shimmer italic">answered.</em></h1>
+          <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase"><Sparkles className="size-3.5 text-[#d9a514]" /> Interview Q&amp;A</p>
+          <h1 className="mt-4 font-bold text-4xl leading-[1.02] sm:text-5xl">Real interview questions, answered.</h1>
           <p className="mt-4 max-w-2xl text-lg text-[#c9d0ea]">Searchable by department, role, tool and skill. Every question links to its source; behavioural answers use STAR; and you can download any set as Word or PDF.</p>
           <div className="mt-6 flex flex-wrap gap-3 text-sm">
             {[[String(data.overall), "questions"], [String(Object.keys(fc.companies).length), "companies named"], [String(Object.keys(fc.types).length), "question types"]].map(([n, l]) => (
@@ -275,8 +275,8 @@ export function InterviewQa({ initial }: { initial: Data }) {
           </div>
         </div>
         <div className="mt-3 grid gap-2.5 sm:grid-cols-2 xl:grid-cols-5">
-          <MultiSelect label="Department" icon={Layers} tone="#4263ff" options={DEPARTMENT_NAMES.map((d) => ({ value: d, count: (fc.departments[d] ?? 0) + (fc.departments[ALL_DEPARTMENTS] ?? 0) }))} selected={f.dept} onChange={(dept) => setF({ ...f, dept, role: f.role.filter((r) => !dept.length || dept.some((d) => DEPARTMENTS[d]?.includes(r))) })} />
-          <MultiSelect label="Job role" icon={Briefcase} tone="#8457ff" options={roleOptions} selected={f.role} onChange={(role) => setF({ ...f, role })} />
+          <MultiSelect label="Department" icon={Layers} tone="#2445c8" options={DEPARTMENT_NAMES.map((d) => ({ value: d, count: (fc.departments[d] ?? 0) + (fc.departments[ALL_DEPARTMENTS] ?? 0) }))} selected={f.dept} onChange={(dept) => setF({ ...f, dept, role: f.role.filter((r) => !dept.length || dept.some((d) => DEPARTMENTS[d]?.includes(r))) })} />
+          <MultiSelect label="Job role" icon={Briefcase} tone="#0f766e" options={roleOptions} selected={f.role} onChange={(role) => setF({ ...f, role })} />
           <MultiSelect label="Tools" icon={Wrench} tone="#d99a00" options={TOOLS.map((t) => ({ value: t.name, count: fc.tools[t.name] ?? 0 }))} selected={f.tool} onChange={(tool) => setF({ ...f, tool })} />
           <MultiSelect label="Skills" icon={Tag} tone="#0891b2" options={skillOptions} selected={f.skill} onChange={(skill) => setF({ ...f, skill })} placeholder="Type a skill…" />
           <MultiSelect label="Company" icon={Building2} tone="#10152b" options={companyOptions} selected={f.company} onChange={(company) => setF({ ...f, company })} placeholder="Type a company…" disabledHint="No company-attributed questions in this selection yet" />
@@ -329,7 +329,7 @@ export function InterviewQa({ initial }: { initial: Data }) {
       </section>
 
       {/* Practice hub */}
-      <section className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#10152b] via-[#1a2160] to-[#232b7a] p-6 text-white sm:p-8">
+      <section className="relative overflow-hidden rounded-[2rem] bg-[#18212e] p-6 text-white sm:p-8">
         <div className="flex items-center gap-3">
           <span className="grid size-11 place-items-center rounded-2xl bg-white/10"><Code2 className="size-6" /></span>
           <div>
@@ -343,7 +343,7 @@ export function InterviewQa({ initial }: { initial: Data }) {
             return (
               <a key={g.href} href={g.href} target="_blank" rel="noopener noreferrer" className={cx("group relative rounded-2xl border p-4 transition hover:-translate-y-1", hot ? "border-white/40 bg-white/15" : "border-white/10 bg-white/5 hover:bg-white/10")}>
                 <span aria-hidden className="absolute top-4 right-4 size-2.5 rounded-full" style={{ background: g.tone, boxShadow: `0 0 12px ${g.tone}` }} />
-                {hot && <span className="mb-2 inline-block rounded-full bg-[#ffc857] px-2 py-0.5 text-[10px] font-bold text-[#4a3000]">Recommended</span>}
+                {hot && <span className="mb-2 inline-block rounded-full bg-[#d9a514] px-2 py-0.5 text-[10px] font-bold text-[#4a3000]">Recommended</span>}
                 <p className="pr-6 font-bold">{g.label}</p>
                 <p className="mt-1 text-xs text-[#aab3d1]">{g.note}</p>
                 <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-white/90 group-hover:underline">Open <ExternalLink className="size-3" /></span>

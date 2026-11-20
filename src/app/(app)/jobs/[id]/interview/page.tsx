@@ -16,7 +16,7 @@ export default async function InterviewPage({ params }: { params: Promise<{ id: 
   return (
     <div className="w-full">
       <Link href={`/jobs/${encodeURIComponent(id)}`} className="text-sm font-medium text-brand-600 hover:underline">← Back to job</Link>
-      <h1 className="mt-3 font-serif text-4xl font-normal">Mock interview</h1>
+      <h1 className="mt-3 font-bold text-4xl">Mock interview</h1>
       <p className="text-sm text-slate-600">{job.title} · {job.company}</p>
       <MockInterview jobId={id} aiEnabled={aiEnabled()} versions={[{ id: null, name: "Primary profile" }, ...versions]} />
     </div>

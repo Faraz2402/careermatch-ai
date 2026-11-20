@@ -9,7 +9,7 @@ import { useAgent, type AgentMessage, type AgentMode } from "./use-agent";
 export function ModeSwitch({ mode, onChange, compact }: { mode: AgentMode; onChange: (m: AgentMode) => void; compact?: boolean }) {
   return (
     <div className="relative flex rounded-full bg-white/10 p-1 text-xs font-bold" role="radiogroup" aria-label="Answer mode">
-      <span aria-hidden className={cx("absolute top-1 bottom-1 w-[calc(50%-4px)] rounded-full bg-gradient-to-r shadow transition-all duration-300", mode === "ai" ? "left-1 from-[#4263ff] to-[#8457ff]" : "left-[calc(50%+2px)] from-[#0891b2] to-[#20c997]")} />
+      <span aria-hidden className={cx("absolute top-1 bottom-1 w-[calc(50%-4px)] rounded-full shadow transition-all duration-300", mode === "ai" ? "left-1 bg-brand-600" : "left-[calc(50%+2px)] from-[#0891b2] to-[#1f8a5b]")} />
       {(["ai", "web"] as const).map((m) => (
         <button key={m} role="radio" aria-checked={mode === m} onClick={() => onChange(m)} className={cx("relative z-10 flex flex-1 items-center justify-center gap-1.5 rounded-full px-3 py-1.5 whitespace-nowrap transition-colors", mode === m ? "text-white" : "text-white/70 hover:text-white")}>
           {m === "ai" ? <Sparkles className="size-3.5" /> : <Globe2 className="size-3.5" />}
@@ -71,13 +71,13 @@ export function ChatWidget() {
 
   return (
     <>
-      <button onClick={() => setOpen((v) => !v)} aria-label={open ? "Close interview coach" : "Open interview coach"} className="fixed right-5 bottom-5 z-50 grid size-14 place-items-center rounded-full bg-gradient-to-br from-[#4263ff] via-[#8457ff] to-[#19c6e8] text-white shadow-[0_12px_32px_-8px_rgba(66,99,255,0.8)] transition hover:scale-105">
-        {!open && <span aria-hidden className="absolute inset-0 animate-ping rounded-full bg-[#8457ff]/40" />}
+      <button onClick={() => setOpen((v) => !v)} aria-label={open ? "Close interview coach" : "Open interview coach"} className="fixed right-5 bottom-5 z-50 grid size-14 place-items-center rounded-full bg-brand-600 text-white shadow-md transition hover:scale-105">
+        
         {open ? <X className="relative size-6" /> : <MessageCircle className="relative size-6" />}
       </button>
       {open && (
         <section className="menu-in fixed right-5 bottom-24 z-50 flex h-[min(38rem,calc(100vh-8rem))] w-[min(26rem,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-surface shadow-2xl" aria-label="Interview coach">
-          <header className="bg-gradient-to-br from-[#10152b] via-[#1a2160] to-[#232b7a] px-4 pt-4 pb-3 text-white">
+          <header className="bg-[#18212e] px-4 pt-4 pb-3 text-white">
             <div className="flex items-center gap-2.5">
               <span className="grid size-9 place-items-center rounded-xl bg-white/15"><Bot className="size-5" /></span>
               <div className="min-w-0 flex-1">
@@ -99,7 +99,7 @@ export function ChatWidget() {
             )}
             {messages.map((m, i) =>
               m.role === "user" ? (
-                <div key={i} className="ml-8 rounded-2xl rounded-br-md bg-gradient-to-br from-[#4263ff] to-[#8457ff] px-3.5 py-2 text-sm text-white">{m.content}</div>
+                <div key={i} className="ml-8 rounded-2xl rounded-br-md bg-brand-600 px-3.5 py-2 text-sm text-white">{m.content}</div>
               ) : (
                 <div key={i} className="mr-4 rounded-2xl rounded-bl-md bg-slate-100 px-3.5 py-2.5">
                   <AgentReply m={m} />

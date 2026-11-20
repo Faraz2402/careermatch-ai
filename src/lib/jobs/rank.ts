@@ -190,7 +190,14 @@ function titleJaccard(a: string, b: string) {
   return inter / (A.size + B.size - inter);
 }
 
-type ScorableJob = NormalizedJob & { embedding?: string | null; salaryYearlyUsd?: number | null; requirements?: JobRequirements | null };
+type ScorableJob = NormalizedJob & { embedding?: string | null; salaryYearlyUsd?: number | null; requirements?: JobRequirements | null; descriptionFull?: boolean };
+
+/** "5+ years", "minimum of 3 years", "3-5 years of experience" -> the minimum, read from the text itself. */
+export function minYearsFromText(text: string): number | null {
+  const m = text.match(/(\d{1,2})\s*(?:\+|plus)?\s*(?:-|–|to)?\s*(?:\d{1,2})?\s*\+?\s*(?:years?|yrs?)(?:'|’)?\s+(?:of\s+)?(?:[\w-]+\s+){0,3}?(?:experience|exp\b)/i);
+  const n = m ? Number(m[1]) : NaN;
+  return Number.isFinite(n) && n > 0 && n <= 25 ? n : null;
+}
 
 const lowerWords = (s: string) => ` ${s.toLowerCase().replace(/[^a-z0-9+#]+/g, " ").trim()} `;
 
@@ -216,7 +223,8 @@ function analyze(job: ScorableJob): Analysis {
   const hit = analysisCache.get(key);
   if (hit) return hit;
   const text = `${job.title}\n${job.description}`;
-  const a = { text, found: new Set(extractSkills(text).map((s) => s.name)), terms: terms(`${job.title} ${job.title} ${job.title} ${job.description.slice(0, 6000)}`) };
+  // The whole posting counts: requirements are often at the end.
+  const a = { text, found: new Set(extractSkills(text).map((s) => s.name)), terms: terms(`${job.title} ${job.title} ${job.title} ${job.description.slice(0, 40_000)}`) };
   if (analysisCache.size > 20_000) analysisCache.delete(analysisCache.keys().next().value!);
   analysisCache.set(key, a);
   return a;
@@ -259,11 +267,14 @@ export function scoreJob(job: ScorableJob, resumeOrCtx: ResumeData | MatchContex
     : "The posting doesn't name specific skills.";
   if (matched.length) reasons.push(skillDetail);
   if (missing.length) concerns.push(`Not on your profile: ${missing.slice(0, 6).join(", ")}${missing.length > 6 ? "…" : ""}.`);
-  if (weighted.size < 3 && skillsFrom === "keywords") concerns.push("The listing is only a short snippet, so few skills could be checked.");
-  if (req?.minYears) {
-    const yrs = yearsOfExperience(resume);
-    if (yrs && yrs < req.minYears) concerns.push(`Asks for ${req.minYears}+ years of experience; your profile shows about ${yrs}.`);
-    else if (yrs) reasons.push(`Meets the ${req.minYears}+ years of experience asked for.`);
+  if (job.descriptionFull === false) concerns.push("Only a snippet of this job has loaded so far, so this score is an estimate.");
+  else if (weighted.size < 3 && skillsFrom === "keywords") concerns.push("The posting names few specific skills, so the skills score is based on little evidence.");
+  // Years asked for: from the AI-read requirements, else from the posting's own wording.
+  const minYears = req?.minYears ?? minYearsFromText(job.description);
+  const yrs = yearsOfExperience(resume);
+  if (minYears) {
+    if (yrs && yrs < minYears) concerns.push(`Asks for ${minYears}+ years of experience; your profile shows about ${yrs}.`);
+    else if (yrs) reasons.push(`Meets the ${minYears}+ years of experience asked for.`);
   }
 
   // 2. Title / role (20) - includes role-family equivalence
@@ -302,8 +313,11 @@ export function scoreJob(job: ScorableJob, resumeOrCtx: ResumeData | MatchContex
   const levels: Seniority[] = prefs.seniorities?.length ? prefs.seniorities : prefs.seniority && prefs.seniority !== "any" ? [prefs.seniority] : [inferSeniority(resume)];
   const wanted = levels.reduce((best, l) => (Math.abs(LEVELS.indexOf(seniority) - LEVELS.indexOf(l)) < Math.abs(LEVELS.indexOf(seniority) - LEVELS.indexOf(best)) ? l : best), levels[0]);
   const gap = Math.abs(LEVELS.indexOf(seniority) - LEVELS.indexOf(wanted));
-  const senPts = gap === 0 ? 10 : gap === 1 ? 6 : 0;
-  if (gap === 0) reasons.push(`Seniority (${seniority}) fits your level.`);
+  const titlePtsSen = gap === 0 ? 10 : gap === 1 ? 6 : 0;
+  // A stated experience requirement is more precise than the title: a "Software Engineer" asking for 8+ years is senior.
+  const yearsPts = minYears && yrs ? (yrs >= minYears ? 10 : yrs >= minYears - 1 ? 6 : yrs >= minYears * 0.6 ? 3 : 0) : null;
+  const senPts = yearsPts == null ? titlePtsSen : Math.round((titlePtsSen + 2 * yearsPts) / 3);
+  if (gap === 0 && (yearsPts == null || yearsPts >= 6)) reasons.push(`Seniority (${seniority}) fits your level.`);
   else if (gap >= 2) concerns.push(`Seniority looks like ${seniority}; you're closer to ${wanted}.`);
 
   // 5. Location & work arrangement (10)
@@ -360,7 +374,12 @@ export function scoreJob(job: ScorableJob, resumeOrCtx: ResumeData | MatchContex
       detail: viaFamily ? `Same role family (${viaFamily}) as your targets.` : `Compared with your targets: ${targets.slice(0, 2).join(", ") || "none set"}.`,
     },
     { label: semantic === "embeddings" ? "Relevance (AI)" : "Relevance", points: relPts, max: 10, detail: `How much the description overlaps your experience (${Math.round(relevance * 100)}%).` },
-    { label: "Seniority", points: senPts, max: 10, detail: `Job reads as ${seniority}; you're ${wanted}.` },
+    {
+      label: "Seniority & experience",
+      points: senPts,
+      max: 10,
+      detail: `Job reads as ${seniority}; you're ${wanted}.${minYears ? ` It asks for ${minYears}+ years; your profile shows ${yrs ? `about ${yrs}` : "no dated roles"}.` : ""}`,
+    },
     {
       label: "Location & arrangement",
       points: locPts,

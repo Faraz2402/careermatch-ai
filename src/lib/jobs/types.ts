@@ -44,6 +44,8 @@ export type SourceDefinition = {
   kind: SourceKind;
   /** Env var holding default board tokens (employer feeds only). */
   boardsEnv?: string;
+  /** Boards used when neither the admin nor the env var sets any (checked to return live jobs). */
+  defaultBoards?: string[];
   /** ISO codes this source can search by country (first = default). */
   countries?: string[];
   /** Env var listing countries to ingest by default (e.g. ADZUNA_COUNTRIES). */

@@ -36,7 +36,7 @@ export function TierBadge({ tier, className }: { tier: TemplateDef["tier"]; clas
   return tier === "free" ? (
     <span className={cx("inline-flex items-center rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold tracking-wide text-white uppercase shadow", className)}>Free</span>
   ) : (
-    <span className={cx("inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-2 py-0.5 text-[10px] font-bold tracking-wide text-white uppercase shadow", className)}>
+    <span className={cx("inline-flex items-center gap-1 rounded-full bg-amber-600 px-2 py-0.5 text-[10px] font-bold tracking-wide text-white uppercase shadow", className)}>
       <Crown className="size-3" aria-hidden /> Pro
     </span>
   );
@@ -44,7 +44,7 @@ export function TierBadge({ tier, className }: { tier: TemplateDef["tier"]; clas
 
 export function ModeBadge({ mode, className }: { mode: TemplateDef["mode"]; className?: string }) {
   return (
-    <span className={cx("inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold shadow", mode === "ats" ? "bg-sky-600 text-white" : "bg-fuchsia-600 text-white", className)}>
+    <span className={cx("inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold shadow", mode === "ats" ? "bg-sky-600 text-white" : "bg-amber-600 text-white", className)}>
       {mode === "ats" ? "ATS-first" : "Visual"}
     </span>
   );
@@ -235,7 +235,7 @@ export function TemplateGallery({ resume, personal, selected, onPick, canUsePro,
                 key={t.id}
                 className={cx("group relative flex flex-col overflow-hidden rounded-2xl border bg-surface transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-24px_rgba(16,21,43,0.45)]", selected === t.id ? "border-brand-500 ring-2 ring-brand-500" : "border-slate-200")}
               >
-                <button type="button" onClick={() => setPreview(t)} className="relative block bg-gradient-to-br from-slate-100 to-slate-200/70 p-4 text-left focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none" aria-label={`Preview ${t.name}`}>
+                <button type="button" onClick={() => setPreview(t)} className="relative block bg-slate-100 p-4 text-left focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none" aria-label={`Preview ${t.name}`}>
                   <Thumb doc={doc} />
                   <span className="absolute top-3 left-3 flex gap-1"><TierBadge tier={t.tier} /><ModeBadge mode={t.mode} /></span>
                   {t.samplePhoto && <span className="absolute right-3 bottom-3 rounded-full bg-[#10152b]/80 px-2 py-0.5 text-[10px] font-semibold text-white">Sample photo · add yours</span>}

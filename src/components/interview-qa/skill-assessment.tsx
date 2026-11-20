@@ -7,7 +7,7 @@ import { useToast } from "@/components/toast";
 import { cx } from "@/lib/format";
 import { DIFFICULTIES, LEVELS, LOCALES, localeLabel, OTHER_LOCALE, parsePastedAssessment, QUANTITIES, scoreAssessment, shuffle, SKILL_GROUPS, type AssessmentRequest, type Difficulty, type Level, type McqItem } from "@/lib/interview-qa/assessment";
 
-const TONE: Record<Difficulty, string> = { Beginner: "#20c997", Intermediate: "#4263ff", Advanced: "#8457ff" };
+const TONE: Record<Difficulty, string> = { Beginner: "#1f8a5b", Intermediate: "#2445c8", Advanced: "#0f766e" };
 const LETTERS = ["A", "B", "C", "D"];
 const SECONDS = 60;
 const RTL = /^(ar|ur|he|fa)\b|arabic|urdu|hebrew|persian|farsi/i;
@@ -179,7 +179,7 @@ function SetupForm({ initial, onStart }: { initial: Setup; onStart: (t: Test) =>
         </div>
         <label className="flex cursor-pointer items-center justify-between gap-3 rounded-2xl border border-slate-200 px-4 py-3">
           <span className="flex items-center gap-2 text-sm font-semibold text-slate-700">{s.timer ? <Timer className="size-4 text-brand-600" /> : <TimerOff className="size-4 text-slate-400" />} {SECONDS}-second timer per question</span>
-          <input type="checkbox" className="size-4 accent-[#4263ff]" checked={s.timer} onChange={(e) => setS({ ...s, timer: e.target.checked })} />
+          <input type="checkbox" className="size-4 accent-brand-600" checked={s.timer} onChange={(e) => setS({ ...s, timer: e.target.checked })} />
         </label>
         <button disabled={busy} type="button" onClick={generateHere} className="btn-primary w-full !py-3 text-base">
           {busy ? <Loader2 className="size-5 animate-spin" /> : <Sparkles className="size-5" />} {busy ? `Writing ${s.count} questions…` : "Generate test"}
@@ -272,9 +272,9 @@ function Runner({ test, onDone, onQuit }: { test: Test; onDone: (answers: (strin
         </div>
       </div>
       <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-valuemin={0} aria-valuemax={items.length} aria-valuenow={i + (pick ? 1 : 0)} aria-label="Progress">
-        <div className="h-full rounded-full bg-gradient-to-r from-[#4263ff] via-[#8457ff] to-[#19c6e8] transition-[width] duration-500" style={{ width: `${pct}%` }} />
+        <div className="h-full rounded-full bg-brand-600 transition-[width] duration-500" style={{ width: `${pct}%` }} />
       </div>
-      {setup.timer && <div className="mt-1 h-0.5 overflow-hidden rounded-full bg-transparent"><div className="h-full bg-[#ffc857] transition-[width] duration-1000 ease-linear" style={{ width: `${(left / SECONDS) * 100}%` }} /></div>}
+      {setup.timer && <div className="mt-1 h-0.5 overflow-hidden rounded-full bg-transparent"><div className="h-full bg-[#d9a514] transition-[width] duration-1000 ease-linear" style={{ width: `${(left / SECONDS) * 100}%` }} /></div>}
 
       <div key={i} className="sa-step mt-6" lang={langAttr(setup)} dir={dir}>
         <span className="rounded-full px-2.5 py-1 text-[11px] font-bold text-white" style={{ background: TONE[it.difficulty] }}>{it.difficulty}</span>
@@ -283,7 +283,7 @@ function Runner({ test, onDone, onQuit }: { test: Test; onDone: (answers: (strin
           {it.options.map((o, k) => {
             const on = pick === o;
             return (
-              <button key={o} type="button" role="radio" aria-checked={on} onClick={() => choose(o)} className={cx("sa-option group flex items-start gap-3 rounded-2xl border-2 px-4 py-3.5 text-start text-[15px] transition", on ? "border-brand-500 bg-brand-50 text-slate-900 shadow-[0_0_0_4px_rgba(66,99,255,0.12)]" : "border-slate-200 text-slate-700 hover:-translate-y-0.5 hover:border-brand-300")} style={{ "--i": k } as React.CSSProperties}>
+              <button key={o} type="button" role="radio" aria-checked={on} onClick={() => choose(o)} className={cx("sa-option group flex items-start gap-3 rounded-2xl border-2 px-4 py-3.5 text-start text-[15px] transition", on ? "border-brand-500 bg-brand-50 text-slate-900 shadow-[0_0_0_4px_rgba(36,69,200,0.12)]" : "border-slate-200 text-slate-700 hover:-translate-y-0.5 hover:border-brand-300")} style={{ "--i": k } as React.CSSProperties}>
                 <span className={cx("grid size-7 shrink-0 place-items-center rounded-lg text-xs font-extrabold transition", on ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-600 group-hover:bg-brand-100")}>{on ? <Check className="size-4" /> : k + 1}</span>
                 <span className="pt-0.5">{o}</span>
               </button>
@@ -306,7 +306,7 @@ function Runner({ test, onDone, onQuit }: { test: Test; onDone: (answers: (strin
 // --- Results --------------------------------------------------------------------------------------
 function ScoreRing({ percent }: { percent: number }) {
   const r = 54, c = 2 * Math.PI * r;
-  const tone = percent >= 80 ? "#20c997" : percent >= 50 ? "#4263ff" : "#ff716b";
+  const tone = percent >= 80 ? "#1f8a5b" : percent >= 50 ? "#2445c8" : "#d4493f";
   return (
     <svg viewBox="0 0 128 128" className="size-36 shrink-0 -rotate-90" role="img" aria-label={`Score ${percent}%`}>
       <circle cx="64" cy="64" r={r} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="11" />
@@ -350,7 +350,7 @@ function Results({ test, answers, onRetake, onNew }: { test: Test; answers: (str
         <div className="relative flex flex-col items-center gap-6 sm:flex-row sm:items-center">
           <ScoreRing percent={s.percent} />
           <div className="min-w-0 flex-1 text-center sm:text-left">
-            <p className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase"><Trophy className="size-3.5 text-[#ffc857]" /> {test.setup.skill} · {languageOf(test.setup)}</p>
+            <p className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase"><Trophy className="size-3.5 text-[#d9a514]" /> {test.setup.skill} · {languageOf(test.setup)}</p>
             <h2 className="mt-3 font-display text-3xl font-bold">{s.correct} of {s.total} correct</h2>
             <p className="mt-1 text-[#c9d0ea]">{verdict}</p>
             <div className="mt-4 grid gap-2 sm:max-w-md">
@@ -379,7 +379,7 @@ function Results({ test, answers, onRetake, onNew }: { test: Test; answers: (str
           const ok = a === it.correct_answer;
           return (
             <article key={i} className="iq-card-in card relative overflow-hidden p-5" style={{ "--i": i } as React.CSSProperties} lang={langAttr(test.setup)} dir={dir}>
-              <span aria-hidden className="absolute inset-y-0 start-0 w-1.5" style={{ background: ok ? "#20c997" : "#ff716b" }} />
+              <span aria-hidden className="absolute inset-y-0 start-0 w-1.5" style={{ background: ok ? "#1f8a5b" : "#d4493f" }} />
               <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold">
                 {ok ? <span className="flex items-center gap-1 rounded-full bg-[#dff7ee] px-2.5 py-1 text-[#0b7a5a]"><CheckCircle2 className="size-3.5" /> Correct</span> : <span className="flex items-center gap-1 rounded-full bg-[#ffe9e7] px-2.5 py-1 text-[#c4413a]"><XCircle className="size-3.5" /> {a ? "Incorrect" : "Not answered"}</span>}
                 <span className="rounded-full px-2.5 py-1 text-white" style={{ background: TONE[it.difficulty] }}>{it.difficulty}</span>
@@ -425,12 +425,12 @@ export function SkillAssessment() {
         <>
           <section className="relative overflow-hidden rounded-[2rem] bg-[#0a1020] px-6 py-9 text-white sm:px-10">
             <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(560px_280px_at_85%_0%,rgba(132,87,255,0.45),transparent_70%),radial-gradient(480px_280px_at_0%_100%,rgba(25,198,232,0.3),transparent_70%)]" />
-            {[["A", "84%", "18%", "#19c6e8", "-6deg", "6s"], ["B", "92%", "58%", "#8457ff", "5deg", "7.5s"], ["C", "74%", "70%", "#ffc857", "-4deg", "8s"], ["✓", "66%", "24%", "#20c997", "6deg", "6.5s"]].map(([t, l, top, c, rot, dur]) => (
+            {[["A", "84%", "18%", "#1b8aa6", "-6deg", "6s"], ["B", "92%", "58%", "#0f766e", "5deg", "7.5s"], ["C", "74%", "70%", "#d9a514", "-4deg", "8s"], ["✓", "66%", "24%", "#1f8a5b", "6deg", "6.5s"]].map(([t, l, top, c, rot, dur]) => (
               <span key={t} aria-hidden className="iq-bob pointer-events-none absolute hidden size-10 place-items-center rounded-xl border border-white/15 text-sm font-extrabold backdrop-blur lg:grid" style={{ left: l, top, background: `${c}33`, color: c, "--rot": rot, "--dur": dur } as React.CSSProperties}>{t}</span>
             ))}
             <div className="relative max-w-2xl">
-              <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase"><BrainCircuit className="size-3.5 text-[#ffc857]" /> Skill Assessment</p>
-              <h1 className="mt-4 font-serif text-4xl leading-[1.05] font-normal sm:text-5xl">Test yourself on <em className="iq-shimmer italic">any skill.</em></h1>
+              <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold tracking-wide uppercase"><BrainCircuit className="size-3.5 text-[#d9a514]" /> Skill Assessment</p>
+              <h1 className="mt-4 font-bold text-4xl leading-[1.05] sm:text-5xl">Test yourself on any skill.</h1>
               <p className="mt-3 text-lg text-[#c9d0ea]">Pick a skill and a language. Google AI Mode writes a scenario-based multiple-choice test, and CareerMatch checks it, scores it instantly and explains every answer.</p>
             </div>
           </section>

@@ -130,7 +130,7 @@ export function StudioEditor({ initial, canUsePro, onBack, backLabel = "Back to 
   return (
     <div className="flex h-full min-h-0 flex-col bg-slate-100">
       {/* Top bar */}
-      <header className="flex shrink-0 flex-wrap items-center gap-2 bg-gradient-to-r from-violet-700 via-indigo-600 to-cyan-600 px-3 py-2 text-white">
+      <header className="flex shrink-0 flex-wrap items-center gap-2 bg-brand-600 px-3 py-2 text-white">
         {onBack ? (
           <button onClick={onBack} className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-sm font-semibold hover:bg-white/25 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none">
             <ArrowLeft className="size-4" aria-hidden /> {backLabel}
@@ -147,7 +147,7 @@ export function StudioEditor({ initial, canUsePro, onBack, backLabel = "Back to 
           <b>{before}</b>
           {delta !== 0 && <><span aria-hidden>→</span><b>{after}</b><span className={cx("rounded-full px-1.5 text-xs font-bold", delta > 0 ? "bg-emerald-400 text-emerald-950" : "bg-rose-400 text-rose-950")}>{delta > 0 ? `+${delta}` : delta}</span></>}
         </button>
-        <button onClick={() => setTab("export")} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-violet-700 hover:bg-violet-50"><Download className="size-4" aria-hidden /> Download</button>
+        <button onClick={() => setTab("export")} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-brand-700 hover:bg-brand-50"><Download className="size-4" aria-hidden /> Download</button>
       </header>
 
       <div className="flex min-h-0 flex-1 flex-col md:flex-row">
@@ -155,7 +155,7 @@ export function StudioEditor({ initial, canUsePro, onBack, backLabel = "Back to 
         <nav aria-label="Studio tools" className="order-last flex shrink-0 overflow-x-auto bg-zinc-900 md:order-none md:w-20 md:flex-col md:overflow-visible">
           {TABS.map(({ id, label, icon: Icon }) => (
             <button key={id} onClick={() => setTab(id)} aria-current={tab === id ? "page" : undefined} className={cx("flex min-w-16 flex-1 flex-col items-center gap-1 px-1 py-2.5 text-[10px] font-medium md:flex-none", tab === id ? "bg-zinc-800 text-white" : "text-zinc-400 hover:bg-zinc-800 hover:text-white")}>
-              <Icon className={cx("size-5", tab === id && "text-violet-400")} aria-hidden />
+              <Icon className={cx("size-5", tab === id && "text-brand-400")} aria-hidden />
               {label}
             </button>
           ))}
@@ -171,7 +171,7 @@ export function StudioEditor({ initial, canUsePro, onBack, backLabel = "Back to 
                 <h2 className="font-display text-lg font-bold">{s.source.title}</h2>
                 <p className="font-medium text-slate-600">{s.source.company}{s.source.location ? ` · ${s.source.location}` : ""}</p>
                 {s.analysis && s.analysis.responsibilities.length > 0 && (
-                  <div className="mt-3 rounded-xl bg-violet-500/10 p-3 text-slate-600"><p className="font-semibold">Key responsibilities</p><ul className="mt-1 list-disc space-y-0.5 pl-4">{s.analysis.responsibilities.slice(0, 6).map((r) => <li key={r}>{r}</li>)}</ul></div>
+                  <div className="mt-3 rounded-xl bg-brand-500/10 p-3 text-slate-600"><p className="font-semibold">Key responsibilities</p><ul className="mt-1 list-disc space-y-0.5 pl-4">{s.analysis.responsibilities.slice(0, 6).map((r) => <li key={r}>{r}</li>)}</ul></div>
                 )}
                 <p className="mt-3 leading-relaxed whitespace-pre-line text-slate-700">{s.source.description}</p>
               </div>
@@ -192,7 +192,7 @@ export function StudioEditor({ initial, canUsePro, onBack, backLabel = "Back to 
           <div className="sticky top-0 z-10 flex flex-wrap items-center gap-2 border-b border-slate-200 bg-slate-100/90 px-4 py-2 backdrop-blur">
             <div className="flex rounded-full bg-surface p-0.5 shadow-sm" role="tablist" aria-label="Document">
               {(["resume", "letter"] as const).map((v) => (
-                <button key={v} role="tab" aria-selected={view === v} onClick={() => setView(v)} className={cx("inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold", view === v ? "bg-violet-600 text-white" : "text-slate-600")}>
+                <button key={v} role="tab" aria-selected={view === v} onClick={() => setView(v)} className={cx("inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold", view === v ? "bg-brand-600 text-white" : "text-slate-600")}>
                   {v === "resume" ? <FileText className="size-3.5" aria-hidden /> : <Mail className="size-3.5" aria-hidden />} {v === "resume" ? "Résumé" : "Cover letter"}
                 </button>
               ))}
@@ -213,7 +213,7 @@ export function StudioEditor({ initial, canUsePro, onBack, backLabel = "Back to 
               <span className="text-slate-500">{view === "resume" ? "Résumé" : "Cover letter"} · {template.market} · {template.paper}</span>
               {template.tier === "pro" && !canUsePro && <Link href="/pricing" className="font-semibold text-amber-700 underline">Pro template — preview free, upgrade to download</Link>}
             </div>
-            {busy && <p className="animate-pulse text-sm font-medium text-violet-700" aria-live="polite">{busy}</p>}
+            {busy && <p className="animate-pulse text-sm font-medium text-brand-700" aria-live="polite">{busy}</p>}
             <TemplateCanvas doc={doc} letter={s.letter} view={view} scale={zoom} className="rounded-sm shadow-2xl" />
           </div>
         </main>
@@ -273,8 +273,8 @@ function KeywordsPanel({ s, patch, busy }: { s: StoredState; patch: (b: Record<s
                   )}
                   <p className="mt-1 text-slate-500">{m.suggestion.why} Fits in: {m.suggestion.fits.join(", ")}.</p>
                   <div className="mt-2 flex flex-wrap gap-3">
-                    <label className="flex items-center gap-1.5"><input type="checkbox" className="accent-violet-600" checked={s.selected.includes(id)} disabled={!!busy} onChange={() => toggle(id, "selected")} />{missing ? "I have this — add it" : "Include in skills"}</label>
-                    {missing && <label className="flex items-center gap-1.5"><input type="checkbox" className="accent-violet-600" checked={s.learning.includes(id)} disabled={!!busy} onChange={() => toggle(id, "learning")} />Add as “Currently learning”</label>}
+                    <label className="flex items-center gap-1.5"><input type="checkbox" className="accent-brand-600" checked={s.selected.includes(id)} disabled={!!busy} onChange={() => toggle(id, "selected")} />{missing ? "I have this — add it" : "Include in skills"}</label>
+                    {missing && <label className="flex items-center gap-1.5"><input type="checkbox" className="accent-brand-600" checked={s.learning.includes(id)} disabled={!!busy} onChange={() => toggle(id, "learning")} />Add as “Currently learning”</label>}
                   </div>
                   {missing && s.selected.includes(id) && <p className="mt-1.5 rounded bg-amber-500/10 p-1.5 text-[11px] text-amber-600">Only keep this if you genuinely have hands-on experience. Then click “Suggest changes” so it&apos;s worked into a relevant bullet.</p>}
                 </li>
@@ -310,7 +310,7 @@ function SuggestionsPanel({ s, patch, busy, onSuggest }: { s: StoredState; patch
           <li key={c.id} className={cx("rounded-xl border bg-surface p-3 text-xs", c.status === "accepted" ? "border-emerald-300" : c.status === "rejected" ? "border-slate-200 opacity-60" : "border-slate-200")}>
             <div className="flex items-center justify-between gap-2">
               <p className="font-semibold text-slate-800">{label(c)}</p>
-              <span className={cx("chip text-[10px]", c.status === "accepted" ? "bg-emerald-500/15 text-emerald-500" : c.status === "rejected" ? "bg-zinc-500/15 text-zinc-500" : "bg-violet-500/15 text-violet-500")}>{c.status}</span>
+              <span className={cx("chip text-[10px]", c.status === "accepted" ? "bg-emerald-500/15 text-emerald-500" : c.status === "rejected" ? "bg-zinc-500/15 text-zinc-500" : "bg-brand-500/15 text-brand-500")}>{c.status}</span>
             </div>
             <p className="mt-2 rounded-md bg-rose-500/10 p-2 text-rose-500 line-through decoration-rose-400">{c.original || "(empty)"}</p>
             {editing === c.id ? (
@@ -431,7 +431,7 @@ function ScorePanel({ before, after }: { before: AlignmentScore | null; after: A
         <h2 className="font-display text-lg font-bold">Estimated ATS Alignment</h2>
         <p className="text-slate-500">{SCORE_DISCLAIMER}</p>
       </div>
-      <div className="grid grid-cols-3 items-center gap-2 rounded-2xl bg-gradient-to-br from-violet-600 to-cyan-500 p-4 text-center text-white">
+      <div className="grid grid-cols-3 items-center gap-2 rounded-2xl bg-brand-600 p-4 text-center text-white">
         <div><p className="text-[11px] text-white/80">Before</p><p className="text-3xl font-bold">{before.total}</p></div>
         <div className={cx("rounded-full py-1 text-lg font-bold", delta > 0 ? "bg-emerald-400 text-emerald-950" : delta < 0 ? "bg-rose-400 text-rose-950" : "bg-white/20")}>{delta > 0 ? `+${delta}` : delta}</div>
         <div><p className="text-[11px] text-white/80">After your changes</p><p className="text-3xl font-bold">{after.total}</p></div>
@@ -443,7 +443,7 @@ function ScorePanel({ before, after }: { before: AlignmentScore | null; after: A
           return (
             <li key={c.key}>
               <div className="flex justify-between"><span className="font-medium">{c.label} <span className="text-slate-400">({c.weight}%)</span></span><span className="tabular-nums">{b.points} → <b>{c.points}</b>{d !== 0 && <span className={d > 0 ? "text-emerald-600" : "text-rose-600"}> ({d > 0 ? "+" : ""}{d})</span>}</span></div>
-              <div className="mt-1 h-2 overflow-hidden rounded-full bg-slate-200"><div className="h-full rounded-full bg-gradient-to-r from-violet-500 to-cyan-400" style={{ width: `${c.score}%` }} /></div>
+              <div className="mt-1 h-2 overflow-hidden rounded-full bg-slate-200"><div className="h-full rounded-full bg-brand-600" style={{ width: `${c.score}%` }} /></div>
               <p className="mt-0.5 text-[11px] text-slate-500">{c.detail}</p>
             </li>
           );
@@ -538,7 +538,7 @@ function DesignPanel({ s, templateId, patch }: { s: StoredState; templateId: str
       </div>
       <div>
         <span className="label">Accent colour</span>
-        <div className="flex flex-wrap gap-2">{ACCENTS.map((c) => <button key={c} onClick={() => patch({ design: { accent: c } })} aria-label={`Accent ${c}`} className={cx("size-7 rounded-full ring-offset-2", (design.accent ?? t.style.accent) === c && "ring-2 ring-violet-500")} style={{ background: c }} />)}</div>
+        <div className="flex flex-wrap gap-2">{ACCENTS.map((c) => <button key={c} onClick={() => patch({ design: { accent: c } })} aria-label={`Accent ${c}`} className={cx("size-7 rounded-full ring-offset-2", (design.accent ?? t.style.accent) === c && "ring-2 ring-brand-500")} style={{ background: c }} />)}</div>
       </div>
       {showsPhoto(t) && <PhotoPicker photo={s.photo} patch={patch} />}
       {t.layout !== "form" && (
@@ -585,7 +585,7 @@ function ExportPanel({ draft, canUsePro }: { draft: DraftView; canUsePro: boolea
     <div className="space-y-4 text-xs">
       <h2 className="font-display text-lg font-bold">Download</h2>
       {locked && (
-        <div className="rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 p-3 text-white">
+        <div className="rounded-xl bg-amber-600 p-3 text-white">
           <p className="font-bold">“{t.name}” is a Pro template</p>
           <p className="mt-1 text-white/90">Preview it free. Upgrade to download it, or switch to a Free template.</p>
           <Link href="/pricing" className="mt-2 inline-block rounded-full bg-white px-3 py-1 font-semibold text-orange-600">See Pro</Link>

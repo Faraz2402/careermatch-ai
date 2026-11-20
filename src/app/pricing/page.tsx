@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd, softwareApplication } from "@/components/json-ld";
-import { LandingFx } from "@/components/landing-fx";
 import { PlanPicker } from "@/components/plan-picker";
-import { ThemeToggle } from "@/components/theme";
-import { Logo } from "@/components/ui";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { getCurrentUser } from "@/lib/auth";
 import { LEGAL } from "@/lib/legal";
 import { billingConfigured, PLANS, planOf, proPrices } from "@/lib/plans";
 import { FREE_TEMPLATE_IDS, TEMPLATES } from "@/lib/templates/catalog";
-import { LEGAL_LINKS } from "@/lib/legal";
 
 export const metadata: Metadata = {
   title: "Pricing: Free & Pro Plans in ₹",
@@ -67,8 +64,7 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
   const perDay = Math.ceil(prices.yearly / 365);
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <LandingFx />
+    <div className="min-h-screen bg-surface">
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -81,26 +77,17 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
           ],
         }}
       />
-      <div aria-hidden className="lux-aurora pointer-events-none absolute -top-72 left-1/2 h-[640px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.13),rgba(8,145,178,0.04)_55%,transparent)] blur-xl" />
-      <header className="relative shell flex  items-center justify-between py-4">
-        <Logo />
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <Link href={user ? "/dashboard" : "/login"} className="btn-ghost">{user ? "Dashboard" : "Sign in"}</Link>
-        </div>
-      </header>
+      <SiteHeader />
 
-      <main className="relative shell  pt-10 pb-16">
+      <main id="main" className="shell pt-12 pb-16">
         {limit === "export" && (
           <div className="mx-auto mb-8 max-w-2xl rounded-2xl border border-amber-200 bg-amber-50 p-4 text-center text-sm text-amber-900">
             You&rsquo;ve used the Free plan&rsquo;s export for this document type. Re-downloading the one you exported is still free; upgrade to Pro to export documents for other jobs.
           </div>
         )}
 
-        <section className="text-center">
-          <h1 className="font-serif text-6xl font-normal leading-[1.02] sm:text-7xl">
-            Land more interviews with <em className="text-brand-700">CareerMatch Pro</em>
-          </h1>
+        <section className="intro text-center">
+          <h1 className="text-4xl leading-tight font-bold sm:text-5xl">CareerMatch Pro</h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-700">Unlimited exports and job analyses, 80× the AI, and your best matches in your inbox every morning.</p>
           <p className="mt-2 text-base font-semibold text-slate-900">All for about {inr(perDay)} a day on the 12-month pass.</p>
         </section>
@@ -128,7 +115,7 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
               <span className="text-center text-brand-700">Pro</span>
               <span className="text-center">Free</span>
             </div>
-            <ul className="divide-y divide-slate-200">
+            <ul className="reveal-stagger divide-y divide-slate-200">
               {FEATURES.map(([name, what, p, f]) => (
                 <li key={name} className="grid grid-cols-[minmax(0,1fr)_90px_90px] items-center gap-x-4 px-5 py-4 sm:grid-cols-[minmax(0,1fr)_150px_150px] sm:px-7">
                   <div>
@@ -145,7 +132,7 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
 
         <section className="mx-auto mt-16 max-w-3xl" aria-labelledby="faq">
           <h2 id="faq" className="text-center font-display text-3xl sm:text-4xl">Questions</h2>
-          <div className="card mt-8 divide-y divide-slate-200">
+          <div className="reveal-stagger card mt-8 divide-y divide-slate-200">
             {FAQ.map(([q, a]) => (
               <details key={q} className="group px-5 py-4 sm:px-7">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-slate-900">
@@ -163,11 +150,7 @@ export default async function PricingPage({ searchParams }: { searchParams: Prom
 
         <p className="mt-10 text-center text-sm text-slate-600">Prices in Indian Rupees, inclusive of applicable taxes. Payments processed by Razorpay.</p>
       </main>
-      <footer className="relative border-t border-slate-200 py-8">
-        <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-slate-600" aria-label="Legal">
-          {LEGAL_LINKS.map((l) => <Link key={l.href} href={l.href} className="hover:text-slate-900">{l.label}</Link>)}
-        </nav>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

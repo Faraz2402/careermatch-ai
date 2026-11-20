@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { runAlerts } from "@/lib/alerts";
 import { cronAuthorized, cronDenied } from "@/lib/cron";
+import { hydrateDescriptions } from "@/lib/jobs/hydrate";
 import { cleanup, refreshSources } from "@/lib/jobs/ingest";
 import { reportError } from "@/lib/log";
 
@@ -21,8 +22,9 @@ export async function GET(req: Request) {
     }
   };
   // A shorter budget leaves time for alerts and cleanup; deferred sources refresh on later calls.
-  const refresh = await run("refresh", () => refreshSources({ budgetMs: 30_000 }));
+  const refresh = await run("refresh", () => refreshSources({ budgetMs: 25_000 }));
   const alerts = await run("alerts", () => runAlerts());
   const retention = await run("cleanup", () => cleanup());
-  return NextResponse.json({ refresh, alerts, retention });
+  const descriptions = await run("hydrate", () => hydrateDescriptions({ budgetMs: 15_000 }));
+  return NextResponse.json({ refresh, alerts, retention, descriptions });
 }

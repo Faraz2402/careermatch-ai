@@ -88,7 +88,7 @@ export function digestEmail(user: Pick<User, "id" | "name">, jobs: JobCard[]) {
     <h1 style="margin:0;font-family:Georgia,serif;font-weight:500;font-size:24px">${first ? `${esc(first)}, here` : "Here"} ${jobs.length === 1 ? "is your best new match" : `are your ${jobs.length} best new matches`}</h1>
     <p style="margin:8px 0 0;font-size:14px;color:#52525b">New since your last email, ranked against your résumé and target roles. <span style="color:#047857">✓ green</span> skills are on your profile; <span style="color:#be123c">✗ red</span> ones are missing.</p>
     <table role="presentation" style="width:100%;border-collapse:collapse;margin-top:12px">${jobs.map(jobCard).join("")}</table>
-    <p style="margin:20px 0 0"><a href="${appUrl()}/jobs" style="font-size:14px;font-weight:600;color:#6d28d9">See all your matches →</a></p>
+    <p style="margin:20px 0 0"><a href="${appUrl()}/jobs" style="font-size:14px;font-weight:600;color:#2445c8">See all your matches →</a></p>
   </div>
   <p style="font-size:12px;color:#71717a;margin-top:16px;line-height:1.6">
     You get this daily email at 7 AM because you're a CareerMatch Pro member. Matches use your <a href="${appUrl()}/preferences" style="color:#52525b">preferences</a> and profile.<br>

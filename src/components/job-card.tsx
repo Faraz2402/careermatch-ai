@@ -18,7 +18,7 @@ const MODE: Record<string, { label: string; icon: typeof Globe2 }> = {
 };
 
 // Company "logo": initial on a colour picked from the name, so the same employer always looks the same.
-const TONES = ["#4263ff", "#8457ff", "#19c6e8", "#20c997", "#ff716b", "#e0a100"];
+const TONES = ["#2445c8", "#0f766e", "#1b8aa6", "#1f8a5b", "#d4493f", "#e0a100"];
 const toneFor = (name: string) => TONES[[...name].reduce((a, c) => a + c.charCodeAt(0), 0) % TONES.length];
 
 export function JobCard({ job, onChange, onPreview, selected, reading }: { job: Job; onChange: (patch: Partial<Job>) => void; onPreview?: (id: string) => void; selected?: boolean; reading?: boolean }) {
@@ -85,6 +85,11 @@ export function JobCard({ job, onChange, onPreview, selected, reading }: { job: 
             <span title={job.postedAt ?? undefined}>Posted {relativeDate(job.postedAt).toLowerCase()}</span>
           </div>
           {job.expiredAt && <ExpiredBadge className="mt-2" />}
+          {!job.descriptionFull && (
+            <p className="mt-2 text-[11px] text-amber-700" title="Only a snippet of this job has loaded so far. The complete description is being fetched in the background; the score updates once it's in.">
+              Preview · full description loading, score is an estimate
+            </p>
+          )}
         </div>
         <ScoreExplainer match={job.match} />
       </div>
@@ -149,13 +154,13 @@ export function JobCard({ job, onChange, onPreview, selected, reading }: { job: 
 
 export function JobCardSkeleton() {
   return (
-    <div className="card animate-pulse space-y-3 p-5">
-      <div className="h-5 w-2/3 rounded bg-slate-200" />
-      <div className="h-4 w-1/3 rounded bg-slate-100" />
-      <div className="h-3 w-full rounded bg-slate-100" />
+    <div className="card space-y-3 p-5">
+      <div className="skeleton h-5 w-2/3 rounded" />
+      <div className="skeleton h-4 w-1/3 rounded" />
+      <div className="skeleton h-3 w-full rounded" />
       <div className="flex gap-2">
-        <div className="h-5 w-16 rounded-full bg-slate-100" />
-        <div className="h-5 w-20 rounded-full bg-slate-100" />
+        <div className="skeleton h-5 w-16 rounded-full" />
+        <div className="skeleton h-5 w-20 rounded-full" />
       </div>
     </div>
   );

@@ -145,10 +145,10 @@ export default async function Dashboard() {
       />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Stat label="Saved jobs" value={savedCount} sub="Shortlisted roles" href="/jobs" icon={Bookmark} tone="#4263ff" />
-        <Stat label="Applications tracked" value={tracked.length} sub={followUps.length ? `${followUps.length} follow-up overdue` : tracked[0] ? `Latest: ${STATUS_LABELS[tracked[0].status]}` : "Track status from any job"} href="/applications" icon={KanbanSquare} tone="#8457ff" />
-        <Stat label="Documents generated" value={recentGens.length} sub="Resumes, letters & analyses" href="/jobs" icon={FileText} tone="#20c997" />
-        <Stat label="AI actions" value={<><CountUp to={used} /><span className="text-base font-semibold text-slate-400"> / {plan.aiActionsPerMonth}</span></>} sub={`${plan.name} plan · this month`} href="/settings" icon={Sparkles} tone="#19c6e8" />
+        <Stat label="Saved jobs" value={savedCount} sub="Shortlisted roles" href="/jobs" icon={Bookmark} tone="#2445c8" />
+        <Stat label="Applications tracked" value={tracked.length} sub={followUps.length ? `${followUps.length} follow-up overdue` : tracked[0] ? `Latest: ${STATUS_LABELS[tracked[0].status]}` : "Track status from any job"} href="/applications" icon={KanbanSquare} tone="#0f766e" />
+        <Stat label="Documents generated" value={recentGens.length} sub="Resumes, letters & analyses" href="/jobs" icon={FileText} tone="#1f8a5b" />
+        <Stat label="AI actions" value={<><CountUp to={used} /><span className="text-base font-semibold text-slate-400"> / {plan.aiActionsPerMonth}</span></>} sub={`${plan.name} plan · this month`} href="/settings" icon={Sparkles} tone="#1b8aa6" />
       </div>
 
       <div className="grid gap-4 lg:grid-cols-3">

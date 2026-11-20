@@ -10,6 +10,7 @@ import { rateLimit } from "../rate-limit";
 import { embedTexts, embeddingsEnabled, jobEmbeddingText } from "./embeddings";
 import { activeSources } from "./registry";
 import { normalizeSalaryYearlyUsd } from "./salary";
+import type { BoardJobs } from "./sources/employer-boards";
 import type { NormalizedJob, SourceDefinition } from "./types";
 import { csvEnv } from "./util";
 
@@ -22,30 +23,47 @@ let running: Promise<IngestReport> | null = null;
 
 export type IngestReport = { ran: { id: string; ok: boolean; count: number; error?: string; skipped?: string }[] };
 
+/**
+ * Save a source's listings. New listings are inserted in bulk; listings we
+ * already have only get "still live" timestamps, plus a row update when
+ * something the user sees changed. A snippet never overwrites a complete
+ * description we already loaded.
+ */
 export async function persistJobs(jobs: NormalizedJob[], opts: { importedById?: string } = {}) {
   const now = new Date();
-  for (let i = 0; i < jobs.length; i += 100) {
-    const chunk = jobs.slice(i, i + 100);
-    await db.$transaction(
-      chunk.map(({ summaryOnly, ...j }) => {
-        const data = {
-          ...j,
-          salaryYearlyUsd: normalizeSalaryYearlyUsd(j),
-          ...geoFields(j.location),
-          fetchedAt: now,
-          lastSeenAt: now,
-          importedById: opts.importedById ?? null,
-        };
-        // Keep the first posting date we recorded (or a corrected one): aggregators
-        // re-index old jobs with fresh dates, which would make them look new.
-        const update: Partial<typeof data> = { ...data };
-        delete update.postedAt;
-        if (summaryOnly) delete update.description;
-        return db.job.upsert({ where: { id: jobId(j) }, create: { id: jobId(j), ...data }, update });
-      }),
+  const unique = [...new Map(jobs.map((j) => [jobId(j), j])).values()];
+  for (let i = 0; i < unique.length; i += 500) {
+    const chunk = unique.slice(i, i + 500);
+    const ids = chunk.map(jobId);
+    const existing = new Map(
+      (await db.job.findMany({ where: { id: { in: ids } }, select: { id: true, title: true, location: true, description: true, descriptionFull: true, salaryMin: true, salaryMax: true, url: true } })).map((r) => [r.id, r]),
     );
+    const toCreate = [];
+    const toUpdate = [];
+    const unchanged: string[] = [];
+    for (const { summaryOnly, ...j } of chunk) {
+      const id = jobId(j);
+      const data = { ...j, salaryYearlyUsd: normalizeSalaryYearlyUsd(j), ...geoFields(j.location), fetchedAt: now, lastSeenAt: now, importedById: opts.importedById ?? null };
+      const old = existing.get(id);
+      if (!old) {
+        toCreate.push({ id, ...data, descriptionFull: !summaryOnly });
+        continue;
+      }
+      // Keep the first posting date we recorded (aggregators re-date old jobs) and
+      // never replace a complete description with a feed snippet.
+      const { postedAt: _keepDate, description, ...rest } = data;
+      void _keepDate;
+      const newText = !summaryOnly && description !== old.description && description.length >= Math.min(old.description.length, 400);
+      const changed = newText || old.title !== j.title || old.location !== j.location || old.url !== j.url || old.salaryMin !== j.salaryMin || old.salaryMax !== j.salaryMax;
+      if (changed) toUpdate.push({ id, data: { ...rest, ...(newText ? { description, descriptionFull: true } : {}) } });
+      else unchanged.push(id);
+    }
+    if (toCreate.length) await db.job.createMany({ data: toCreate, skipDuplicates: true });
+    if (unchanged.length) await db.job.updateMany({ where: { id: { in: unchanged } }, data: { fetchedAt: now, lastSeenAt: now } });
+    for (let k = 0; k < toUpdate.length; k += 50)
+      await db.$transaction(toUpdate.slice(k, k + 50).map((u) => db.job.update({ where: { id: u.id }, data: u.data })));
   }
-  if (embeddingsEnabled()) await embedMissing(jobs.map(jobId)).catch((e) => log.warn("embed.failed", { message: String(e) }));
+  if (embeddingsEnabled()) await embedMissing(unique.map(jobId)).catch((e) => log.warn("embed.failed", { message: String(e) }));
 }
 
 /** Fill country/city for rows saved before location detection existed. */
@@ -104,12 +122,18 @@ async function runSource(src: SourceDefinition, ctx: { boards: string[] }, keywo
     const sets = src.queryIndependent ? [[]] : keywordSets.length ? keywordSets : [["software engineer"]];
     const countries = await targetCountries(src);
     const all: NormalizedJob[] = [];
+    const warnings: string[] = [];
     for (const country of countries)
-      for (const keywords of sets.slice(0, Math.max(1, Math.floor(8 / countries.length))))
-        all.push(...(await src.fetchJobs({ keywords, country, maxDaysOld: MAX_LISTING_AGE_DAYS, titleOnly: keywords.length > 0 }, AbortSignal.timeout(30_000), ctx)));
+      for (const keywords of sets.slice(0, Math.max(1, Math.floor(8 / countries.length)))) {
+        const got: BoardJobs = await src.fetchJobs({ keywords, country, maxDaysOld: MAX_LISTING_AGE_DAYS, titleOnly: keywords.length > 0 }, AbortSignal.timeout(40_000), ctx);
+        all.push(...got);
+        warnings.push(...(got.warnings ?? []));
+      }
     await persistJobs(all);
-    await db.sourceRun.create({ data: { source: src.id, durationMs: Date.now() - started, ok: true, count: all.length } });
-    return { id: src.id, ok: true, count: all.length };
+    // A run that worked but had broken or empty boards is saved as ok with a note: the admin page shows it as degraded.
+    const note = warnings.length ? `Partly working: ${warnings.slice(0, 4).join("; ")}${warnings.length > 4 ? ` (+${warnings.length - 4} more)` : ""}` : all.length === 0 && src.boardsEnv ? "No current listings on any configured board." : null;
+    await db.sourceRun.create({ data: { source: src.id, durationMs: Date.now() - started, ok: true, count: all.length, error: note?.slice(0, 300) ?? null } });
+    return { id: src.id, ok: true, count: all.length, ...(note ? { error: note } : {}) };
   } catch (err) {
     const error = err instanceof Error ? (err.name === "TimeoutError" ? "Timed out" : err.message) : "Unknown error";
     await db.sourceRun.create({ data: { source: src.id, durationMs: Date.now() - started, ok: false, count: 0, error: error.slice(0, 300) } });
@@ -121,7 +145,7 @@ async function runSource(src: SourceDefinition, ctx: { boards: string[] }, keywo
 /** Default time budget for one refresh: serverless requests stop at 60s. */
 export const REFRESH_BUDGET_MS = 40_000;
 /** Sources fetched at the same time (they compete for the same database). */
-const REFRESH_CONCURRENCY = 3;
+const REFRESH_CONCURRENCY = 5;
 /** Assumed run time for a source that has never run. */
 const FIRST_RUN_ESTIMATE_MS = 20_000;
 

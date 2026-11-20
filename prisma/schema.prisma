@@ -117,6 +117,12 @@ model Job {
   /// Salary normalised to yearly USD (approximate FX) for filtering/insights
   salaryYearlyUsd Int?
   description     String
+  /// `description` is the complete posting (not a feed snippet). Snippets are
+  /// replaced by the background description task (src/lib/jobs/hydrate.ts).
+  descriptionFull Boolean       @default(false)
+  /// Last attempt to load the complete description, and how many have failed
+  descriptionCheckedAt DateTime?
+  descriptionTries     Int      @default(0)
   url             String
   postedAt        DateTime?
   fetchedAt       DateTime      @default(now())
@@ -141,6 +147,7 @@ model Job {
 
   @@index([source, lastSeenAt])
   @@index([country, city])
+  @@index([descriptionFull, lastSeenAt])
 }
 
 model UserJob {

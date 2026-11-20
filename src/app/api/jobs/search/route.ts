@@ -33,6 +33,7 @@ export async function GET(req: Request) {
     jobType: list(p.get("jobType")),
     sources: list(p.get("sources")),
     onlySalary: p.get("onlySalary") === "1",
+    previews: p.get("previews") === "1",
     view: view === "saved" || view === "hidden" || view === "applied" ? view : "all",
     sort: p.get("sort") === "date" ? "date" : "match",
     page: num(p.get("page")),

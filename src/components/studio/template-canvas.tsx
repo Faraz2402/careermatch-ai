@@ -256,8 +256,8 @@ export function TemplateCanvas({ doc, letter, view = "resume", scale = 1, guides
         {body}
         {guides &&
           [1, 2, 3].map((n) => (
-            <div key={n} aria-hidden style={{ position: "absolute", left: 0, right: 0, top: page.h * n, borderTop: "1px dashed #c4b5fd", pointerEvents: "none" }}>
-              <span style={{ position: "absolute", right: 8, top: 2, fontSize: 10, color: "#8b5cf6", fontFamily: "system-ui" }}>Page {n + 1}</span>
+            <div key={n} aria-hidden style={{ position: "absolute", left: 0, right: 0, top: page.h * n, borderTop: "1px dashed #94a8ee", pointerEvents: "none" }}>
+              <span style={{ position: "absolute", right: 8, top: 2, fontSize: 10, color: "#2445c8", fontFamily: "system-ui" }}>Page {n + 1}</span>
             </div>
           ))}
       </div>

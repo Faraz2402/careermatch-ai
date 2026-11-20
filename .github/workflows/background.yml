@@ -1,0 +1,41 @@
+# Keeps job listings live while nobody is on the site. Vercel Hobby only
+# allows one cron a day, so this schedule calls the app's background tick:
+# refresh sources whose cache window has passed, then load the complete
+# description of new listings. It also keeps the database active.
+#
+# Setup (once): in GitHub → Settings → Secrets and variables → Actions, add
+#   CRON_SECRET  - the same value as CRON_SECRET in Vercel
+# and optionally the variable SITE_URL (defaults to https://careermatch.online).
+
+name: Background jobs
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: background-jobs
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Refresh sources and load full descriptions
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          SITE_URL: ${{ vars.SITE_URL || 'https://careermatch.online' }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then
+            echo "::warning::CRON_SECRET is not set for this repository; skipping."
+            exit 0
+          fi
+          code=$(curl -sS -o response.json -w "%{http_code}" --max-time 90 \
+            -H "Authorization: Bearer $CRON_SECRET" "$SITE_URL/api/cron/tick")
+          head -c 2000 response.json; echo
+          if [ "$code" != "200" ]; then
+            echo "::error::Background tick returned HTTP $code"
+            exit 1
+          fi

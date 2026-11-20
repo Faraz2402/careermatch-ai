@@ -8,6 +8,7 @@ import { defaultPreferences, emptyResume, type JobPreferences, type ResumeData }
 import { embedTexts, embeddingsEnabled } from "./embeddings";
 import { readEnrichment, type JobEnrichment, type JobRequirements, type PostedOn } from "./enrich";
 import { REMOTE_WORLDWIDE, cityMatches, jobAvailableIn, remoteWorldwide, storedGeo } from "../geo/detect";
+import { hydrateDescriptions } from "./hydrate";
 import { fetchForCountry, jobId, MAX_LISTING_AGE_DAYS, refreshSources } from "./ingest";
 import { buildMatchContext, familiesOf, scoreJob, type Feedback, type MatchContext, type MatchResult } from "./rank";
 import { activeSources, sourceMeta } from "./registry";
@@ -32,7 +33,7 @@ export const REMOTE_ANYWHERE = "REMOTE";
 const LIVE_WINDOW_DAYS = 7; // listings not re-seen by their source within this window are dropped
 
 export function jobRowToNormalized(j: Job): NormalizedJob &
-  Pick<Job, "embedding" | "salaryYearlyUsd" | "country" | "countries" | "city" | "remoteScope" | "expiredAt"> & {
+  Pick<Job, "embedding" | "salaryYearlyUsd" | "country" | "countries" | "city" | "remoteScope" | "expiredAt" | "descriptionFull"> & {
     sourceUrl: string;
     verifiedLink: boolean;
     requirements: JobRequirements | null;
@@ -48,7 +49,8 @@ export function jobRowToNormalized(j: Job): NormalizedJob &
     url: e?.applyUrl ?? j.url,
     sourceUrl: j.url,
     verifiedLink: !!e?.applyUrl,
-    description: e?.fullDescription ?? j.description,
+    description: e?.fullDescription && e.fullDescription.length > j.description.length ? e.fullDescription : j.description,
+    descriptionFull: j.descriptionFull || !!e?.fullDescription || !!j.importedById,
     requirements: e?.requirements ?? null,
     enrichment: e,
     postedOn: e?.postedOn ?? [],
@@ -87,6 +89,12 @@ export type SearchFilters = {
   levels?: string[];
   /** Only the total is needed (filter menus) - skip fetching from sources */
   countOnly?: boolean;
+  /**
+   * Also list jobs whose complete description hasn't loaded yet (their score is
+   * an estimate from a snippet). Off by default: every listed job is shown and
+   * scored from its complete description.
+   */
+  previews?: boolean;
 };
 
 export type JobCard = {
@@ -118,6 +126,8 @@ export type JobCard = {
   /** The same job on LinkedIn, Naukri etc. */
   postedOn: PostedOn[];
   analysed: boolean;
+  /** The description (and so the score) is the complete posting, not a snippet. */
+  descriptionFull: boolean;
   match: MatchResult;
   saved: boolean;
   hidden: boolean;
@@ -195,6 +205,7 @@ export function toCard(j: ReturnType<typeof jobRowToNormalized>, match: MatchRes
     postedOn: j.postedOn,
     expiredAt: j.expiredAt?.toISOString() ?? null,
     analysed: j.analysed,
+    descriptionFull: j.descriptionFull,
     match,
     saved: state?.saved ?? false,
     hidden: state?.hidden ?? false,
@@ -246,14 +257,17 @@ export async function searchJobs(userId: string, f: SearchFilters) {
   } else if (active.length && (await db.job.count({ where: { source: { in: active }, lastSeenAt: { gte: since } } })) === 0) {
     await refreshSources({ onlyIds: active, budgetMs: 25_000 }); // cold start: wait for the first fetch
   } else {
-    // Keep sources fresh after responding (TTL-aware); survives serverless shutdown.
-    after(() => refreshSources().catch(() => undefined));
+    // Keep sources fresh after responding (TTL-aware), then upgrade new snippets to full descriptions.
+    after(async () => {
+      await refreshSources({ budgetMs: 25_000 }).catch(() => undefined);
+      await hydrateDescriptions({ budgetMs: 20_000 }).catch(() => undefined);
+    });
   }
 
   const includeImports = !f.sources?.length || f.sources.includes("user_link");
   const where: Prisma.JobWhereInput = {
     AND: [
-      { OR: [{ source: { in: active }, importedById: null, lastSeenAt: { gte: since } }, ...(includeImports ? [{ importedById: userId }] : [])] },
+      { OR: [{ source: { in: active }, importedById: null, lastSeenAt: { gte: since }, ...(f.previews || f.view === "saved" || f.view === "applied" ? {} : { descriptionFull: true }) }, ...(includeImports ? [{ importedById: userId }] : [])] },
       ...(f.workMode?.length ? [{ workMode: { in: f.workMode } }] : []),
       ...(f.company ? [{ company: { contains: f.company } }] : []),
       // Undated listings (e.g. pasted jobs) only appear in the default 30-day view.
@@ -269,6 +283,7 @@ export async function searchJobs(userId: string, f: SearchFilters) {
     ],
   };
   const rows = await db.job.findMany({ where, take: 5000 });
+  const previewsWaiting = f.previews || f.countOnly ? 0 : await db.job.count({ where: { source: { in: active }, importedById: null, lastSeenAt: { gte: since }, descriptionFull: false, expiredAt: null } });
 
   const states = await db.userJob.findMany({ where: { userId } });
   const stateMap = new Map(states.map((s) => [s.jobId, s]));
@@ -320,6 +335,8 @@ export async function searchJobs(userId: string, f: SearchFilters) {
     strongMatches: cards.filter((c) => c.match.score >= STRONG_MATCH).length,
     top: cards.slice(0, 3),
     semantic: ctx.profileEmbedding ? "embeddings" : "lexical",
+    /** Listings left out because their complete description is still loading. */
+    previewsWaiting,
   };
 }
 

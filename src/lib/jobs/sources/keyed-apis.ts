@@ -90,6 +90,8 @@ export const adzuna: SourceDefinition = {
         description: htmlToText(j.description),
         url: j.redirect_url,
         postedAt: toDate(j.created),
+        // The API only returns a ~500 character snippet; the full text is fetched in the background.
+        summaryOnly: true,
       };
     });
   },

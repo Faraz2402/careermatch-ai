@@ -23,7 +23,7 @@ export function NavLinks() {
   const wrap = useRef<HTMLElement>(null);
   const [bar, setBar] = useState<{ left: number; width: number } | null>(null);
 
-  // Slide the gradient indicator under whichever link is active.
+  // Slide the indicator under whichever link is active.
   useLayoutEffect(() => {
     const place = () => {
       const el = wrap.current?.querySelector<HTMLElement>("[aria-current=page]");
@@ -35,7 +35,7 @@ export function NavLinks() {
   }, [path]);
 
   return (
-    <nav ref={wrap} aria-label="Main" className="relative order-last -mx-2 flex w-full gap-0.5 overflow-x-auto pb-1.5 md:order-none md:mx-0 md:w-auto md:overflow-visible">
+    <nav ref={wrap} aria-label="Main" className="relative -mx-2 flex gap-0.5 overflow-x-auto">
       {LINKS.map((l) => {
         const active = path === l.href || path.startsWith(`${l.href}/`);
         return (
@@ -43,16 +43,16 @@ export function NavLinks() {
             key={l.href}
             href={l.href}
             aria-current={active ? "page" : undefined}
-            className={cx("group flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-sm font-semibold whitespace-nowrap transition-colors", active ? "bg-brand-50 text-brand-700" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900")}
+            className={cx("flex items-center gap-1.5 px-2.5 pt-1.5 pb-2.5 text-sm font-medium whitespace-nowrap transition-colors", active ? "text-slate-900" : "text-slate-600 hover:text-slate-900")}
           >
-            <l.icon className={cx("size-4 shrink-0 transition-transform duration-300 group-hover:scale-110", active ? "text-brand-600" : "text-slate-400 group-hover:text-brand-500")} aria-hidden />
+            <l.icon className={cx("size-4 shrink-0", active ? "text-brand-600" : "text-slate-400")} aria-hidden />
             {l.label}
           </Link>
         );
       })}
       <span
         aria-hidden
-        className="pointer-events-none absolute -bottom-px h-[3px] rounded-full bg-gradient-to-r from-[#4263ff] via-[#8457ff] to-[#19c6e8] transition-[left,width,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        className="pointer-events-none absolute bottom-0 h-0.5 bg-slate-900 transition-[left,width,opacity] duration-200 ease-out"
         style={{ left: bar?.left ?? 0, width: bar?.width ?? 0, opacity: bar ? 1 : 0 }}
       />
     </nav>
