@@ -62,6 +62,8 @@ export type SourceDefinition = {
   requestsPerMinute: number;
   /** Only call when a user searches (never from background ingestion). */
   onDemandOnly?: boolean;
+  /** Can search by keyword: also called with the user's keywords when they search. */
+  keywordSearch?: boolean;
   /** Hard lifetime request cap for the API key (e.g. Jooble free plan: 500). */
   lifetimeQuota?: number;
   /** Returns a reason when the source can't run (missing key, no boards). */

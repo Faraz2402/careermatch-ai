@@ -66,7 +66,9 @@ export const adzuna: SourceDefinition = {
       params.set("title_only", query.keywords.join(" "));
     }
     const results: AdzunaResult[] = [];
-    for (let page = 1; page <= 2; page++) {
+    // A user's keyword search reads deeper (up to 200 newest matches); background refreshes stay light.
+    const pages = query.keywords.length && query.titleOnly ? 4 : 2;
+    for (let page = 1; page <= pages; page++) {
       const data = await fetchJson<{ results: AdzunaResult[] }>(`https://api.adzuna.com/v1/api/jobs/${country}/search/${page}?${params}`, signal);
       results.push(...data.results);
       if (data.results.length < 50) break; // no further pages

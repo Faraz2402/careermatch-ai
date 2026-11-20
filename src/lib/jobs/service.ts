@@ -7,10 +7,12 @@ import { getBaseResume, getProfile } from "../profile";
 import { defaultPreferences, emptyResume, type JobPreferences, type ResumeData } from "../resume/schema";
 import { embedTexts, embeddingsEnabled } from "./embeddings";
 import { readEnrichment, type JobEnrichment, type JobRequirements, type PostedOn } from "./enrich";
-import { REMOTE_WORLDWIDE, cityMatches, jobAvailableIn, remoteWorldwide, storedGeo } from "../geo/detect";
+import { COUNTRIES } from "../geo/data";
+import { REMOTE_WORLDWIDE, cityMatches, countryByCode, jobAvailableIn, remoteCounts, remoteWorldwide, storedGeo } from "../geo/detect";
+import { expandTitleTerms, titleMatches } from "./synonyms";
 import { hydrateDescriptions } from "./hydrate";
 import { fetchForCountry, jobId, MAX_LISTING_AGE_DAYS, refreshSources } from "./ingest";
-import { buildMatchContext, familiesOf, scoreJob, type Feedback, type MatchContext, type MatchResult } from "./rank";
+import { buildMatchContext, detectSeniority, experienceLevel, familiesOf, scoreJob, type Feedback, type MatchContext, type MatchResult } from "./rank";
 import { activeSources, sourceMeta } from "./registry";
 import { salaryInsight } from "./salary";
 import type { NormalizedJob, SourceStatus } from "./types";
@@ -246,8 +248,13 @@ export async function searchJobs(userId: string, f: SearchFilters) {
   // Listings are never older than 30 days; "Date posted" narrows that further.
   const maxAge = Math.max(1, Math.min(f.postedWithinDays ?? MAX_LISTING_AGE_DAYS, MAX_LISTING_AGE_DAYS));
   const cutoff = new Date(Date.now() - maxAge * 86_400_000);
-  if (country && !f.newSince && !f.countOnly)
-    await Promise.race([fetchForCountry(country, titleTerms.length ? titleTerms : skillTerms, f.client, maxAge, titleTerms.length > 0), new Promise((r) => setTimeout(r, 8000))]).catch(() => undefined);
+  // A keyword search also asks the keyword-searchable sources (Adzuna, Jooble, Workday) for more
+  // matches; waits a few seconds, and whatever arrives later shows on the next search.
+  if ((country || titleTerms.length) && !f.newSince && !f.countOnly) {
+    const fetching = fetchForCountry(country ?? "IN", titleTerms.length ? titleTerms : skillTerms, f.client, maxAge, titleTerms.length > 0, f.city && country ? f.city : undefined).catch(() => undefined);
+    after(() => fetching);
+    await Promise.race([fetching, new Promise((r) => setTimeout(r, 9000))]);
+  }
 
   if (f.countOnly) {
     // Live counts for the filter menus never trigger fetches.
@@ -265,9 +272,13 @@ export async function searchJobs(userId: string, f: SearchFilters) {
   }
 
   const includeImports = !f.sources?.length || f.sources.includes("user_link");
+  // "procurement" also finds purchasing, sourcing and buyer roles.
+  const titleAny = expandTitleTerms(titleTerms);
   const where: Prisma.JobWhereInput = {
     AND: [
-      { OR: [{ source: { in: active }, importedById: null, lastSeenAt: { gte: since }, ...(f.previews || f.view === "saved" || f.view === "applied" ? {} : { descriptionFull: true }) }, ...(includeImports ? [{ importedById: userId }] : [])] },
+      { OR: [{ source: { in: active }, importedById: null, lastSeenAt: { gte: since } }, ...(includeImports ? [{ importedById: userId }] : [])] },
+      // Narrow in the database first (exact whole-word matching happens below).
+      ...(titleAny.length ? [{ OR: titleAny.flatMap((t) => [{ title: { contains: t, mode: "insensitive" as const } }, { company: { contains: t, mode: "insensitive" as const } }]) }] : []),
       ...(f.workMode?.length ? [{ workMode: { in: f.workMode } }] : []),
       ...(f.company ? [{ company: { contains: f.company } }] : []),
       // Undated listings (e.g. pasted jobs) only appear in the default 30-day view.
@@ -277,45 +288,56 @@ export async function searchJobs(userId: string, f: SearchFilters) {
       ...(f.newSince ? [{ firstSeenAt: { gt: f.newSince } }] : []),
       // Expired jobs leave the feed at the next daily refresh (kept in saved/applied views).
       ...(f.view === "saved" || f.view === "applied" ? [] : [{ OR: [{ expiredAt: null }, { expiredAt: { gt: expiryCutoff() } }] }]),
-      ...(f.country === REMOTE_ANYWHERE ? [{ workMode: "remote" }] : []),
-      // Coarse DB pre-filter; exact eligibility is checked below.
-      ...(country ? [{ OR: [{ countries: { contains: country } }, ...(includeRemote ? [{ workMode: "remote" }, { remoteScope: { not: null } }] : [])] }] : []),
     ],
   };
-  const rows = await db.job.findMany({ where, take: 5000 });
-  const previewsWaiting = f.previews || f.countOnly ? 0 : await db.job.count({ where: { source: { in: active }, importedById: null, lastSeenAt: { gte: since }, descriptionFull: false, expiredAt: null } });
+  const rows = await db.job.findMany({ where, take: 8000 });
 
   const states = await db.userJob.findMany({ where: { userId } });
   const stateMap = new Map(states.map((s) => [s.jobId, s]));
+  const showPreviews = f.previews || f.view === "saved" || f.view === "applied";
 
+  // 1. Every filter except location. The location dropdown counts come from
+  //    exactly these jobs, so "India (8)" always agrees with the results.
   const seen = new Set<string>();
-  const candidates = rows.map(jobRowToNormalized).filter((j) => {
+  const pool = rows.map(jobRowToNormalized).filter((j) => {
     const st = stateMap.get(jobId(j));
     if (f.view === "saved" && !st?.saved) return false;
     if (f.view === "hidden" ? !st?.hidden : st?.hidden) return false;
     if (f.view === "applied" && (!st || st.status === "none")) return false;
-    // Title terms must appear in the job title or company - not just somewhere
-    // in the description - so "procurement" doesn't return sales roles.
-    if (titleTerms.length && !titleTerms.some((t) => `${j.title} ${j.company}`.toLowerCase().includes(t.toLowerCase()))) return false;
+    // Title terms (or their equivalents) must be in the job title or company - not just
+    // somewhere in the description - so "procurement" doesn't return sales roles.
+    if (titleAny.length && !titleMatches(`${j.title} ${j.company}`, titleAny)) return false;
     if (skillTerms.length && !matchesKeywords(j, skillTerms)) return false;
-    if (country && !jobAvailableIn(storedGeo(j), country, includeRemote)) return false;
-    if (f.country === REMOTE_ANYWHERE && f.city) {
-      // With Remote, the second choice is who can take the role: worldwide, or someone in a given country.
-      const g = storedGeo(j);
-      if (f.city === REMOTE_WORLDWIDE ? !remoteWorldwide(g) : !jobAvailableIn(g, f.city.toUpperCase(), true)) return false;
-    } else if (f.city && !cityMatches(j.city, j.location, f.city)) return false;
-    if (f.location && j.workMode !== "remote" && !j.location.toLowerCase().includes(f.location.toLowerCase())) return false;
     if (f.jobType?.length && !f.jobType.some((t) => j.employmentType.toLowerCase().includes(t))) return false;
+    if (f.seniority?.length && !f.seniority.includes(detectSeniority(j.title))) return false;
+    if (f.levels?.length && !f.levels.includes(experienceLevel(j.title))) return false;
     // De-duplicate the same role cross-posted on several sources.
     const k = `${j.title}|${j.company.replace(/\s*\(sample\)$/, "")}`.toLowerCase();
     if (seen.has(k)) return false;
     seen.add(k);
     return true;
   });
+  const full = showPreviews ? pool : pool.filter((j) => j.descriptionFull);
+
+  // 2. Location.
+  const inLocation = (j: (typeof pool)[number]) => {
+    const g = storedGeo(j);
+    if (f.country === REMOTE_ANYWHERE) {
+      if (j.workMode !== "remote") return false;
+      // With Remote, the second choice is who can take the role: worldwide, or someone in a given country.
+      if (f.city) return f.city === REMOTE_WORLDWIDE ? remoteWorldwide(g) : jobAvailableIn(g, f.city.toUpperCase(), true);
+      return true;
+    }
+    if (country && !jobAvailableIn(g, country, includeRemote)) return false;
+    if (f.city && !cityMatches(j.city, j.location, f.city)) return false;
+    if (f.location && j.workMode !== "remote" && !j.location.toLowerCase().includes(f.location.toLowerCase())) return false;
+    return true;
+  };
+  const candidates = full.filter(inLocation);
+  const previewsWaiting = showPreviews || f.countOnly ? 0 : pool.filter((j) => !j.descriptionFull && inLocation(j)).length;
+  const facets = f.countOnly ? null : locationFacets(full, country, includeRemote);
 
   let cards = candidates.map((j) => toCard(j, scoreJob(j, ctx), stateMap.get(jobId(j))));
-  if (f.seniority?.length) cards = cards.filter((c) => f.seniority!.includes(c.match.seniority));
-  if (f.levels?.length) cards = cards.filter((c) => f.levels!.includes(c.match.level));
   cards.sort((a, b) =>
     f.sort === "date"
       ? (b.postedAt ?? "").localeCompare(a.postedAt ?? "")
@@ -337,7 +359,50 @@ export async function searchJobs(userId: string, f: SearchFilters) {
     semantic: ctx.profileEmbedding ? "embeddings" : "lexical",
     /** Listings left out because their complete description is still loading. */
     previewsWaiting,
+    /** Job counts per country / city / remote for the current keywords and filters. */
+    facets,
   };
+}
+
+export type LocationFacets = {
+  countries: Record<string, number>;
+  remote: number;
+  cities: Record<string, number>;
+  remoteWorldwide: number;
+  remoteOpenTo: Record<string, number>;
+};
+
+/** Counts for the location dropdowns, using the same eligibility rules as the search. */
+function locationFacets(jobs: ReturnType<typeof jobRowToNormalized>[], country: string | null, includeRemote: boolean): LocationFacets {
+  const countries: Record<string, number> = {};
+  const cities: Record<string, number> = {};
+  let remote = 0;
+  const geos = jobs.map((j) => ({ j, g: storedGeo(j) }));
+  for (const { j, g } of geos) {
+    if (j.workMode === "remote") remote++;
+    for (const c of new Set(g.countries)) countries[c] = (countries[c] ?? 0) + 1;
+  }
+  // Remote roles open to a country count for it too when "also show remote roles" is on.
+  if (includeRemote) {
+    const open = geos.filter(({ g }) => g.remote && !g.countries.length);
+    for (const c of COUNTRIES) {
+      const extra = open.filter(({ g }) => jobAvailableIn(g, c.code, true)).length;
+      if (extra) countries[c.code] = (countries[c.code] ?? 0) + extra;
+    }
+  }
+  if (country) {
+    const where = countryByCode(country);
+    const names = new Set([...(where?.cities ?? []), ...jobs.filter((j) => j.country === country && j.city).map((j) => j.city!)]);
+    const local = jobs.filter((j) => storedGeo(j).countries.includes(country));
+    for (const name of names) {
+      const n = local.filter((j) => cityMatches(j.city, j.location, name)).length;
+      if (n) cities[name] = n;
+    }
+  }
+  // With "Remote" chosen: worldwide roles, and per country the remote roles open to it.
+  const rc = remoteCounts(geos.filter(({ j }) => j.workMode === "remote").map(({ g }) => g), COUNTRIES);
+  const remoteOpenTo = Object.fromEntries(rc.countries.filter((c) => c.jobs > 0).map((c) => [c.code, c.jobs]));
+  return { countries, remote, cities, remoteWorldwide: rc.worldwide, remoteOpenTo };
 }
 
 /** Where this job's pay sits among similar roles we've seen recently. */

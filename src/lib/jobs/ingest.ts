@@ -11,6 +11,7 @@ import { embedTexts, embeddingsEnabled, jobEmbeddingText } from "./embeddings";
 import { activeSources } from "./registry";
 import { normalizeSalaryYearlyUsd } from "./salary";
 import type { BoardJobs } from "./sources/employer-boards";
+import { expandTitleTerms } from "./synonyms";
 import type { NormalizedJob, SourceDefinition } from "./types";
 import { csvEnv } from "./util";
 
@@ -223,13 +224,15 @@ async function takeQuota(sourceId: string, cap: number) {
  * (e.g. Adzuna India) for that query. Each source/country/query combination
  * is fetched at most once per 30 minutes and still obeys the source limit.
  */
-export async function fetchForCountry(country: string, keywords: string[], client?: { ip: string; userAgent: string }, maxDaysOld = MAX_LISTING_AGE_DAYS, titleOnly = false) {
-  const sources = (await activeSources()).filter((s) => s.def.countries?.includes(country));
-  const kw = keywords.length ? keywords.slice(0, 3) : (await popularRoles(1)).slice(0, 1);
-  if (kw.length === 0) return;
+export async function fetchForCountry(country: string, keywords: string[], client?: { ip: string; userAgent: string }, maxDaysOld = MAX_LISTING_AGE_DAYS, titleOnly = false, city?: string) {
+  const sources = (await activeSources()).filter((s) => s.def.countries?.includes(country) || (s.def.keywordSearch && keywords.length));
+  const base = keywords.length ? keywords.slice(0, 3) : (await popularRoles(1)).slice(0, 1);
+  if (base.length === 0) return;
+  // Ask for the related titles as well ("procurement" -> purchasing, sourcing), a few at most.
+  const sets = titleOnly ? expandTitleTerms(base).slice(0, 4).map((t) => [t]) : [base];
   await Promise.all(
-    sources.map(async ({ def, ctx }) => {
-      const key = `${def.id}|${country}|${kw.join("+").toLowerCase()}|${maxDaysOld}d|${titleOnly ? "title" : "any"}`;
+    sources.flatMap(({ def, ctx }) => (def.lifetimeQuota ? sets.slice(0, 1) : sets).map((kw) => ({ def, ctx, kw }))).map(async ({ def, ctx, kw }) => {
+      const key = `${def.id}|${country}|${city ?? ""}|${kw.join("+").toLowerCase()}|${maxDaysOld}d|${titleOnly ? "title" : "any"}`;
       // Quota-limited keys (Jooble) reuse results for their whole cache window.
       const window = def.lifetimeQuota ? def.cacheTtlMs : 30 * 60_000;
       if (Date.now() - (onDemandSeen.get(key) ?? 0) < window) return;
@@ -238,7 +241,7 @@ export async function fetchForCountry(country: string, keywords: string[], clien
       if (!(await rateLimit(`source:${def.id}`, def.requestsPerMinute, 60_000)).ok) return;
       const started = Date.now();
       try {
-        const jobs = await def.fetchJobs({ keywords: kw, country, client, maxDaysOld, titleOnly }, AbortSignal.timeout(20_000), ctx);
+        const jobs = await def.fetchJobs({ keywords: kw, country, location: city, client, maxDaysOld, titleOnly }, AbortSignal.timeout(20_000), ctx);
         await persistJobs(jobs);
         await db.sourceRun.create({ data: { source: def.id, durationMs: Date.now() - started, ok: true, count: jobs.length } });
       } catch (err) {

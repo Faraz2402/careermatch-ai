@@ -417,8 +417,9 @@ type WdDetail = {
 };
 
 const WD_PAGE = 20;
-const WD_MAX_PER_SITE = 120;
-const WD_DETAILS_PER_SITE = 20;
+// Background refresh per site (24 sites); the rest arrive through keyword searches and later refreshes.
+const WD_MAX_PER_SITE = 60;
+const WD_DETAILS_PER_SITE = 8;
 
 /** "intel.wd1" or "intel.wd1.myworkdayjobs.com" -> host + tenant. */
 export function workdayHost(host: string) {
@@ -463,8 +464,28 @@ export const workday: SourceDefinition = {
     "mastercard.wd1/CorporateCareers=Mastercard",
     "hpe.wd5/Jobsathpe=Hewlett Packard Enterprise",
     "pwc.wd3/Global_Experienced_Careers=PwC",
+    // Large employers with operations, finance, procurement and shared-service teams in India.
+    "accenture.wd103/AccentureCareers=Accenture",
+    "citi.wd5/2=Citi",
+    "statestreet.wd1/Global=State Street",
+    "gsk.wd5/GSKCareers=GSK",
+    "novartis.wd3/Novartis_Careers=Novartis",
+    "sanofi.wd3/SanofiCareers=Sanofi",
+    "pfizer.wd1/PfizerCareers=Pfizer",
+    "astrazeneca.wd3/Careers=AstraZeneca",
+    "jci.wd5/JCI=Johnson Controls",
+    "3m.wd1/Search=3M",
+    "philips.wd3/jobs-and-careers=Philips",
+    "motorolasolutions.wd5/Careers=Motorola Solutions",
+    "target.wd5/targetcareers=Target",
+    "lowes.wd5/LWS_External_CS=Lowe's",
+    "nike.wd1/nke=Nike",
+    "bakerhughes.wd5/BakerHughes=Baker Hughes",
+    "boeing.wd1/EXTERNAL_CAREERS=Boeing",
   ],
   name: "Workday career sites",
+  // Searched with the user's keywords too (e.g. "procurement"), not just in the background.
+  keywordSearch: true,
   kind: "employer_feed",
   homepage: "https://www.workday.com/en-us/products/talent-management/recruiting.html",
   attribution: "Published by the employer on its Workday career site.",
@@ -472,8 +493,14 @@ export const workday: SourceDefinition = {
   requestsPerMinute: 30,
   missingConfig: (ctx) => (ctx.boards.length ? null : "Add career sites in Admin → Sources as tenant.wdN/Site=Company (or set WORKDAY_SITES)."),
   queryIndependent: true,
-  fetchJobs: (_query, signal, ctx) =>
+  fetchJobs: (query, signal, ctx) =>
     forEachBoard(ctx.boards, async (board) => {
+      const searching = query.keywords.length > 0;
+      // Background: newest jobs in the country, with full text for the first few. Keyword search:
+      // the matching jobs only, listed fast (their full text loads in the background).
+      const maxPerSite = searching ? 40 : WD_MAX_PER_SITE;
+      const detailsPerSite = searching ? 0 : WD_DETAILS_PER_SITE;
+      const ccs = query.country ? [query.country.toUpperCase()] : boardCountries();
       const parsed = parseBoard(board);
       if (!parsed.site) throw new Error(`Workday site "${board}" needs tenant.wdN/Site`);
       const { host, tenant } = workdayHost(parsed.host);
@@ -483,19 +510,20 @@ export const workday: SourceDefinition = {
       await assertRobots(api, signal);
       const out: NormalizedJob[] = [];
       const seen = new Set<string>();
-      for (const cc of boardCountries()) {
+      for (const cc of ccs) {
         const country = countryName(cc);
+        const searchText = searching ? `${query.keywords.join(" ")} ${query.location || country}` : country;
         const postings: WdPosting[] = [];
-        for (let offset = 0; offset < WD_MAX_PER_SITE; offset += WD_PAGE) {
+        for (let offset = 0; offset < maxPerSite; offset += WD_PAGE) {
           const page = await fetchJson<{ total?: number; jobPostings?: WdPosting[] }>(api.href, signal, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ appliedFacets: {}, limit: WD_PAGE, offset, searchText: country }),
+            body: JSON.stringify({ appliedFacets: {}, limit: WD_PAGE, offset, searchText }),
           });
           postings.push(...(page.jobPostings ?? []).filter((p) => p?.title && p.externalPath));
           if ((page.jobPostings?.length ?? 0) < WD_PAGE || offset + WD_PAGE >= (page.total ?? 0)) break;
         }
-        const details = await mapLimit(postings.slice(0, WD_DETAILS_PER_SITE), 4, (p) => fetchWorkdayDetail(host, tenant, site, p.externalPath, signal).catch(() => null));
+        const details = await mapLimit(postings.slice(0, detailsPerSite), 4, (p) => fetchWorkdayDetail(host, tenant, site, p.externalPath, signal).catch(() => null));
         postings.forEach((p, i) => {
           const d = details[i] ? workdayDetailFields(details[i]!) : null;
           // "3 Locations" says nothing; the search was for this country, so name it until the detail is read.

@@ -20,11 +20,30 @@ const REGION_ORDER = ["Asia", "Middle East", "Europe", "North America", "Latin A
  * With Remote chosen, the second dropdown says who can take the role instead:
  * anyone worldwide, or someone in a given country.
  */
-export function LocationPicker({ value, onChange }: { value: LocationValue; onChange: (v: LocationValue) => void }) {
-  const [countries, setCountries] = useState<CountryOpt[]>([]);
-  const [remoteCount, setRemoteCount] = useState(0);
-  const [cities, setCities] = useState<CityOpt[]>([]);
-  const [remote, setRemote] = useState<RemoteOpts | null>(null);
+/** Counts for the current search (keywords and filters applied); they replace the all-jobs totals. */
+export type LocationFacets = { countries: Record<string, number>; remote: number; cities: Record<string, number>; remoteWorldwide: number; remoteOpenTo: Record<string, number> };
+
+export function LocationPicker({ value, onChange, facets }: { value: LocationValue; onChange: (v: LocationValue) => void; facets?: LocationFacets | null }) {
+  const [baseCountries, setCountries] = useState<CountryOpt[]>([]);
+  const [baseRemoteCount, setRemoteCount] = useState(0);
+  const [baseCities, setCities] = useState<CityOpt[]>([]);
+  const [baseRemote, setRemote] = useState<RemoteOpts | null>(null);
+
+  // The search's own counts win, so the dropdowns always agree with the results.
+  const countries = useMemo(() => (facets ? baseCountries.map((c) => ({ ...c, jobs: facets.countries[c.code] ?? 0 })) : baseCountries), [baseCountries, facets]);
+  const remoteCount = facets ? facets.remote : baseRemoteCount;
+  const cities = useMemo(() => {
+    if (!facets) return baseCities;
+    const names = [...new Set([...baseCities.map((c) => c.name), ...Object.keys(facets.cities)])];
+    const major = new Set(baseCities.filter((c) => c.major).map((c) => c.name));
+    return names.map((name) => ({ name, jobs: facets.cities[name] ?? 0, major: major.has(name) })).sort((a, b) => b.jobs - a.jobs);
+  }, [baseCities, facets]);
+  const remote = useMemo<RemoteOpts | null>(() => {
+    if (!facets) return baseRemote;
+    const names = new Map(baseCountries.map((c) => [c.code, c.name]));
+    const list = Object.entries(facets.remoteOpenTo).map(([code, jobs]) => ({ code, name: names.get(code) ?? code, jobs })).sort((a, b) => b.jobs - a.jobs || a.name.localeCompare(b.name));
+    return { total: facets.remote, worldwide: facets.remoteWorldwide, countries: list };
+  }, [baseRemote, baseCountries, facets]);
   const [loading, setLoading] = useState(false);
   const isRemote = value.country === REMOTE_ANYWHERE;
   const hasCountry = !!value.country && !isRemote;
@@ -83,10 +102,11 @@ export function LocationPicker({ value, onChange }: { value: LocationValue; onCh
         <option value="">Any country</option>
         <option value={REMOTE_ANYWHERE}>🌍 Remote{remoteCount ? count(remoteCount) : ""}</option>
         {withJobs.length > 0 && (
-          <optgroup label="Countries with listings">
+          <optgroup label={facets ? "Countries with matching jobs" : "Countries with listings"}>
             {withJobs.map((c) => <option key={`j-${c.code}`} value={c.code}>{label(c)}</option>)}
           </optgroup>
         )}
+        {/* Keep the chosen country selectable even when it has no matches for this search. */}
         {byRegion.map(({ region, list }) => (
           <optgroup key={region} label={region}>
             {list.map((c) => <option key={c.code} value={c.code}>{label(c)}</option>)}
@@ -115,9 +135,9 @@ export function LocationPicker({ value, onChange }: { value: LocationValue; onCh
           value={value.city}
           onChange={(e) => onChange({ ...value, city: e.target.value })}
         >
-          <option value="">{!hasCountry ? "All cities" : loading ? "Loading cities…" : `All cities in ${countryName}`}</option>
+          <option value="">{!hasCountry ? "All cities" : loading ? "Loading cities…" : `All cities in ${countryName}${facets && facets.countries[value.country] != null ? ` (${facets.countries[value.country]})` : ""}`}</option>
           {cities.some((c) => c.jobs > 0) && (
-            <optgroup label="Cities with listings">
+            <optgroup label={facets ? "Cities with matching jobs" : "Cities with listings"}>
               {cities.filter((c) => c.jobs > 0).map((c) => <option key={`j-${c.name}`} value={c.name}>{c.name} ({c.jobs})</option>)}
             </optgroup>
           )}

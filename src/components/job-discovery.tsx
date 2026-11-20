@@ -10,12 +10,12 @@ import { Alert, api } from "./client";
 import { JobCard, JobCardSkeleton } from "./job-card";
 import { FilterMenu } from "./filter-menu";
 import { JobPreview } from "./job-preview";
-import { LocationPicker } from "./location-picker";
+import { LocationPicker, type LocationFacets } from "./location-picker";
 import { describeFilters } from "./saved-searches";
 import { useToast } from "./toast";
 import { EmptyState } from "./ui";
 
-type Result = { total: number; page: number; totalPages: number; jobs: Job[]; sources: SourceStatus[]; companies: string[]; previewsWaiting?: number };
+type Result = { total: number; page: number; totalPages: number; jobs: Job[]; sources: SourceStatus[]; companies: string[]; previewsWaiting?: number; facets?: LocationFacets | null };
 
 type Filters = {
   q: string;
@@ -38,7 +38,7 @@ type Filters = {
   sort: string;
 };
 
-const EMPTY: Filters = { q: "", skills: "", company: "", country: "", city: "", includeRemote: true, workMode: [], salaryMin: "", posted: "", seniority: [], levels: [], jobType: [], sources: [], onlySalary: false, previews: false, view: "all", sort: "match" };
+const EMPTY: Filters = { q: "", skills: "", company: "", country: "", city: "", includeRemote: true, workMode: [], salaryMin: "", posted: "", seniority: [], levels: [], jobType: [], sources: [], onlySalary: false, previews: true, view: "all", sort: "match" };
 
 const DATE_OPTIONS = [
   { id: "", label: "Past month" },
@@ -57,6 +57,10 @@ const VIEWS = [
 function toQuery(f: Filters, page: number, refresh = false) {
   const p = new URLSearchParams();
   for (const [k, v] of Object.entries(f)) {
+    if (k === "previews") {
+      p.set(k, v ? "1" : "0"); // always explicit: the server's default is complete descriptions only
+      continue;
+    }
     if (k === "includeRemote") {
       if (!v && f.country) p.set(k, "0"); // default is on
       continue;
@@ -185,7 +189,7 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
         <input className="input" placeholder="Job title (e.g. Procurement Analyst)" value={draft.q} onChange={(e) => setDraft({ ...draft, q: e.target.value })} aria-label="Job title" />
         <input className="input" placeholder="Skills (comma-separated)" value={draft.skills} onChange={(e) => setDraft({ ...draft, skills: e.target.value })} aria-label="Skills" />
         <div className="md:col-span-1">
-          <LocationPicker value={{ country: draft.country, city: draft.city, includeRemote: draft.includeRemote }} onChange={(loc) => apply(loc)} />
+          <LocationPicker value={{ country: draft.country, city: draft.city, includeRemote: draft.includeRemote }} onChange={(loc) => apply(loc)} facets={data?.facets} />
         </div>
         <button type="button" className="btn-secondary" onClick={() => setShowFilters((v) => !v)} aria-expanded={showFilters}>
           Filters{activeCount ? ` (${activeCount})` : ""}
@@ -254,12 +258,10 @@ export function JobDiscovery({ sources, defaultCountry }: { sources: { id: strin
         </div>
         <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600">
           {data && !loading && <span>{data.total} {data.total === 1 ? "job" : "jobs"}</span>}
-          {(filters.previews || !!data?.previewsWaiting) && (
-            <label className="flex items-center gap-1.5 text-xs" title="Every job is shown and scored from its complete description. Turn this on to also see jobs whose full text is still loading in the background; their scores are estimates.">
-              <input type="checkbox" className="accent-brand-600" checked={filters.previews} onChange={(e) => apply({ previews: e.target.checked })} />
-              Include {data?.previewsWaiting ? `${data.previewsWaiting} ` : ""}short previews
-            </label>
-          )}
+          <label className="flex items-center gap-1.5 text-xs" title="Jobs whose complete description is still loading in the background are labelled Preview, and their scores are estimates. Tick this to see only jobs scored from their complete description.">
+            <input type="checkbox" className="accent-brand-600" checked={!filters.previews} onChange={(e) => apply({ previews: !e.target.checked })} />
+            Only complete descriptions
+          </label>
           <select aria-label="Sort" className="rounded-md border border-slate-200 bg-surface px-2 py-1 text-sm" value={filters.sort} onChange={(e) => apply({ sort: e.target.value })}>
             <option value="match">Best match</option>
             <option value="date">Most recent</option>
