@@ -52,9 +52,8 @@ export function SiteFooter() {
         </nav>
       </div>
       <div className="border-t border-white/10">
-        <div className="shell flex flex-col gap-1 py-5 text-xs text-white/50 sm:flex-row sm:justify-between">
+        <div className="shell py-5 text-xs text-white/50">
           <span>© {new Date().getFullYear()} CareerMatch AI</span>
-          <span>Photographs from Unsplash, used under the Unsplash licence.</span>
         </div>
       </div>
     </footer>

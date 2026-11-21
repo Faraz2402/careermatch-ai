@@ -37,8 +37,8 @@ const OFFER: { title: string; body: string; tone: string; card: React.ReactNode 
     tone: "bg-peri",
     card: (
       <div className="mx-auto w-56 rounded-2xl bg-white p-4 text-center text-forest-deep shadow-[0_18px_40px_-20px_rgb(7_33_26/0.5)]">
-        <p className="serif-display text-xl">Ananya R.</p>
-        <Photo src="/people/persona-early.jpg" alt="" sizes="192px" className="mx-auto mt-3 size-20 rounded-full" position="65% 25%" />
+        <p className="serif-display text-xl">Rohan M.</p>
+        <Photo src="/people/portrait-rohan.jpg" alt="" sizes="192px" className="mx-auto mt-3 size-20 rounded-full" position="50% 22%" />
         <p className="mt-3 text-xs text-forest/70">Senior Data Analyst · Bengaluru</p>
         <p className="mt-2 inline-block rounded-full bg-mintwash px-3 py-1 text-xs font-semibold text-forest">82 match · 9 of 11 skills</p>
       </div>

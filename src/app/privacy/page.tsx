@@ -302,6 +302,29 @@ const SECTIONS: LegalSection[] = [
     ),
   },
   {
+    id: "photographs",
+    title: "Photographs on this website",
+    body: (
+      <>
+        <p>
+          The photographs of people on our public pages are stock images from{" "}
+          <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-700 underline underline-offset-2">Unsplash</a>, used under
+          the{" "}
+          <a href="https://unsplash.com/license" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-700 underline underline-offset-2">Unsplash License</a>,
+          which allows free use on websites without asking permission. The people shown are models, not CareerMatch users or customers, and the names and details beside
+          them are examples.
+        </p>
+        <p>
+          You can read the full terms on the{" "}
+          <a href="https://unsplash.com/license" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-700 underline underline-offset-2">Unsplash License page</a>{" "}
+          and Unsplash&rsquo;s{" "}
+          <a href="https://unsplash.com/terms" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-700 underline underline-offset-2">Terms of Service</a>.
+          These photographs involve none of your personal data.
+        </p>
+      </>
+    ),
+  },
+  {
     id: "changes",
     title: "Changes to this policy",
     body: (
