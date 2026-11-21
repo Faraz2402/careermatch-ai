@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { DemoButton } from "@/components/client";
+import { HomeFeatures } from "@/components/home-features";
 import { HomeSlider, type Slide } from "@/components/home-slider";
 import { JsonLd, organization, softwareApplication } from "@/components/json-ld";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
@@ -25,7 +26,7 @@ const Arrow = () => (
 
 const Photo = ({ src, alt, className = "", position = "50% 30%", sizes, priority }: { src: string; alt: string; className?: string; position?: string; sizes: string; priority?: boolean }) => (
   <div className={`${/\babsolute\b/.test(className) ? "" : "relative "}overflow-hidden ${className}`}>
-    <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="zoom-img object-cover" style={{ objectPosition: position }} />
+    <Image src={src} alt={alt} fill sizes={sizes} priority={priority} quality={90} className="zoom-img object-cover" style={{ objectPosition: position }} />
   </div>
 );
 
@@ -37,7 +38,7 @@ const OFFER: { title: string; body: string; tone: string; card: React.ReactNode 
     card: (
       <div className="mx-auto w-56 rounded-2xl bg-white p-4 text-center text-forest-deep shadow-[0_18px_40px_-20px_rgb(7_33_26/0.5)]">
         <p className="serif-display text-xl">Ananya R.</p>
-        <Photo src="/people/persona-early.jpg" alt="" sizes="96px" className="mx-auto mt-3 size-20 rounded-full" position="65% 25%" />
+        <Photo src="/people/persona-early.jpg" alt="" sizes="192px" className="mx-auto mt-3 size-20 rounded-full" position="65% 25%" />
         <p className="mt-3 text-xs text-forest/70">Senior Data Analyst · Bengaluru</p>
         <p className="mt-2 inline-block rounded-full bg-mintwash px-3 py-1 text-xs font-semibold text-forest">82 match · 9 of 11 skills</p>
       </div>
@@ -65,7 +66,7 @@ const OFFER: { title: string; body: string; tone: string; card: React.ReactNode 
     card: (
       <div className="mx-auto w-56 rounded-2xl bg-white p-4 text-forest-deep shadow-[0_18px_40px_-20px_rgb(7_33_26/0.5)]">
         <div className="flex items-center gap-3">
-          <Photo src="/people/portrait-emma.jpg" alt="" sizes="48px" className="size-10 rounded-full" position="50% 20%" />
+          <Photo src="/people/portrait-emma.jpg" alt="" sizes="96px" className="size-10 rounded-full" position="50% 20%" />
           <div><p className="text-sm font-semibold">Mock interview</p><p className="text-xs text-forest/70">Question 3 of 5</p></div>
         </div>
         <p className="mt-3 rounded-lg bg-cream p-2 text-xs">&ldquo;Tell me about a time you cut costs without losing quality.&rdquo;</p>
@@ -120,18 +121,21 @@ export default function Landing() {
               </div>
               <p className="mt-5 text-sm text-white/55">Free to start, no card needed.</p>
             </div>
-            <div className="relative min-h-[26rem] pb-10 lg:min-h-0 lg:pb-0">
-              <div className="intro-late absolute inset-x-6 top-10 bottom-0 overflow-hidden rounded-t-[999px] sm:inset-x-16 lg:inset-x-14 lg:top-14">
-                <Image src="/people/hero-main.jpg" alt="A smiling professional at her desk" fill priority sizes="(min-width: 1024px) 40vw, 90vw" className="photo-settle object-cover" style={{ objectPosition: "50% 22%" }} />
+            {/* Photo and floating cards never overlap: cards sit in the green space (desktop) or below the photo (phones). */}
+            <div className="pb-14 lg:relative lg:pb-0">
+              <div className="intro-late relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-t-[999px] sm:max-w-md lg:absolute lg:top-14 lg:right-4 lg:bottom-0 lg:left-[36%] lg:mx-0 lg:aspect-auto lg:w-auto lg:max-w-none">
+                <Image src="/people/hero-main.jpg" alt="A smiling professional at her desk" fill priority quality={90} sizes="(min-width: 1024px) 70vw, 150vw" className="photo-settle object-cover" style={{ objectPosition: "50% 22%" }} />
               </div>
-              <div className="bob absolute top-1/3 left-0 rounded-2xl bg-white p-4 text-forest-deep shadow-[0_24px_50px_-24px_rgb(0_0_0/0.6)] sm:left-4">
-                <p className="text-xs text-forest/60">Procurement Analyst · Hyderabad</p>
-                <p className="mt-1 flex items-baseline gap-2"><span className="text-3xl font-bold tabular-nums">82</span><span className="text-sm text-forest/60">match</span></p>
-                <div className="mt-2 flex gap-1.5 text-[11px]"><span className="rounded-full bg-mintwash px-2 py-0.5 font-semibold text-forest">SAP Ariba</span><span className="rounded-full bg-mintwash px-2 py-0.5 font-semibold text-forest">Sourcing</span></div>
-              </div>
-              <div className="bob-late absolute right-2 bottom-16 flex items-center gap-3 rounded-full bg-peri py-2 pr-4 pl-2 text-forest-deep shadow-[0_24px_50px_-24px_rgb(0_0_0/0.6)] sm:right-8">
-                <Photo src="/people/portrait-sara.jpg" alt="" sizes="40px" className="size-9 rounded-full" position="50% 25%" />
-                <span className="text-sm font-semibold">Interview booked</span>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3 lg:mt-0">
+                <div className="bob w-52 rounded-2xl bg-white p-4 text-forest-deep shadow-[0_24px_50px_-24px_rgb(0_0_0/0.6)] lg:absolute lg:top-[28%] lg:left-0">
+                  <p className="text-xs text-forest/60">Procurement Analyst · Hyderabad</p>
+                  <p className="mt-1 flex items-baseline gap-2"><span className="text-3xl font-bold tabular-nums">82</span><span className="text-sm text-forest/60">match</span></p>
+                  <div className="mt-2 flex gap-1.5 text-[11px]"><span className="rounded-full bg-mintwash px-2 py-0.5 font-semibold text-forest">SAP Ariba</span><span className="rounded-full bg-mintwash px-2 py-0.5 font-semibold text-forest">Sourcing</span></div>
+                </div>
+                <div className="bob-late flex items-center gap-3 rounded-full bg-peri py-2 pr-4 pl-2 text-forest-deep shadow-[0_24px_50px_-24px_rgb(0_0_0/0.6)] lg:absolute lg:bottom-12 lg:left-0">
+                  <Photo src="/people/portrait-sara.jpg" alt="" sizes="96px" className="size-9 rounded-full" position="50% 25%" />
+                  <span className="text-sm font-semibold">Interview booked</span>
+                </div>
               </div>
             </div>
           </div>
@@ -189,6 +193,8 @@ export default function Landing() {
           </div>
         </section>
 
+        <HomeFeatures />
+
         {/* Who it's for */}
         <section id="who" className="scroll-mt-20 bg-cream">
           <div className="shell py-20 lg:py-24">
@@ -196,7 +202,7 @@ export default function Landing() {
             <div className="reveal-stagger mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
               {PEOPLE.map((p) => (
                 <article key={p.who} className="group relative aspect-[3/4] overflow-hidden rounded-3xl bg-forest">
-                  <Photo src={p.photo} alt={p.alt} position={p.pos} sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw" className="absolute inset-0" />
+                  <Photo src={p.photo} alt={p.alt} position={p.pos} sizes="(min-width: 1280px) 40vw, (min-width: 640px) 75vw, 150vw" className="absolute inset-0" />
                   <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/40 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                     <h3 className="serif-display text-3xl leading-tight">{p.who}</h3>
@@ -226,7 +232,7 @@ export default function Landing() {
             </div>
             <div className="flex items-end justify-between gap-6">
               <Link href="/signup" className="btn rounded-full bg-leaf px-6 py-3 text-base text-white hover:bg-forest">Upload your résumé</Link>
-              <Photo src="/people/portrait-lena.jpg" alt="A smiling professional in a striped cardigan" sizes="160px" className="hidden size-36 rounded-full sm:block" position="50% 20%" />
+              <Photo src="/people/portrait-lena.jpg" alt="A smiling professional in a striped cardigan" sizes="320px" className="hidden size-36 rounded-full sm:block" position="50% 20%" />
             </div>
           </div>
           <div className="group flex flex-col justify-between gap-10 p-10 sm:p-14 lg:p-20">
@@ -236,7 +242,7 @@ export default function Landing() {
             </div>
             <div className="flex items-end justify-between gap-6">
               <DemoButton className="btn rounded-full border border-forest-deep px-6 py-3 text-base text-forest-deep hover:bg-forest-deep hover:text-white">Try the demo</DemoButton>
-              <Photo src="/people/hero-face-a.jpg" alt="A smiling man in a suit" sizes="160px" className="hidden size-36 rounded-full sm:block" position="50% 25%" />
+              <Photo src="/people/hero-face-a.jpg" alt="A smiling man in a suit" sizes="320px" className="hidden size-36 rounded-full sm:block" position="50% 25%" />
             </div>
           </div>
         </section>

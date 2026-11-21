@@ -23,7 +23,7 @@ export function HomeSlider({ slides, seconds = 7 }: { slides: Slide[]; seconds?:
           <p className="max-w-lg text-lg leading-8 text-forest/80">{s.body}</p>
         </div>
         <div key={`p-${i}`} className="fade-in relative min-h-72 lg:min-h-[30rem]">
-          <Image src={s.photo} alt={s.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="photo-settle object-cover" style={{ objectPosition: s.position ?? "50% 30%" }} />
+          <Image src={s.photo} alt={s.alt} fill quality={90} sizes="(min-width: 1024px) 75vw, 150vw" className="photo-settle object-cover" style={{ objectPosition: s.position ?? "50% 30%" }} />
         </div>
       </div>
       <div className="mt-6 grid gap-4" style={{ gridTemplateColumns: `repeat(${slides.length}, minmax(0, 1fr))` }} role="tablist" aria-label="How it works">

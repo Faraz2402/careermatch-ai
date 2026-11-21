@@ -632,3 +632,28 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .word { opacity: 1 !important; animation: none !important; }
   .group:hover .zoom-img, .group:hover .arrow-chip { transform: none; }
 }
+
+/* --- Home features: small looping previews (8s cycles, transform/opacity only) --- */
+@keyframes loop-rise { 0%, 4% { opacity: 0; transform: translateY(12px); } 12%, 88% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: translateY(-6px); } }
+.loop-rise { animation: loop-rise 8s var(--ease-out) infinite; animation-delay: calc(var(--i, 0) * 350ms); }
+@keyframes loop-ring { 0%, 8% { stroke-dashoffset: var(--full); } 30%, 90% { stroke-dashoffset: var(--rest); } 100% { stroke-dashoffset: var(--full); } }
+.loop-ring { animation: loop-ring 8s var(--ease-out) infinite; animation-delay: calc(var(--i, 0) * 350ms); }
+@keyframes loop-bar { 0%, 10% { transform: scaleX(var(--from, 0.2)); } 45%, 90% { transform: scaleX(var(--to, 1)); } 100% { transform: scaleX(var(--from, 0.2)); } }
+.loop-bar { transform-origin: left; animation: loop-bar 8s var(--ease-out) infinite; }
+@keyframes loop-write { 0%, 6% { transform: scaleX(0); } 22%, 90% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+.loop-write { transform-origin: left; animation: loop-write 8s var(--ease-out) infinite; animation-delay: calc(var(--i, 0) * 180ms); }
+@keyframes loop-pop { 0%, 30% { opacity: 0; transform: scale(0.6); } 38%, 90% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+.loop-pop { animation: loop-pop 8s var(--ease-spring) infinite; animation-delay: calc(var(--i, 0) * 220ms); }
+/* A tracker card moves from "Applied" to "Interview" and back. */
+@keyframes loop-move { 0%, 25% { transform: translateX(0); } 45%, 75% { transform: translateX(calc(100% + 0.75rem)); } 95%, 100% { transform: translateX(0); } }
+.loop-move { animation: loop-move 8s cubic-bezier(0.6, 0, 0.3, 1) infinite; }
+@keyframes loop-glow { 0%, 40% { box-shadow: 0 0 0 0 rgb(63 210 155 / 0); } 50% { box-shadow: 0 0 0 6px rgb(63 210 155 / 0.35); } 70%, 100% { box-shadow: 0 0 0 0 rgb(63 210 155 / 0); } }
+.loop-glow { animation: loop-glow 8s ease-out infinite; }
+/* Templates fan out on hover. */
+.fan > * { transition: transform 500ms var(--ease-out); }
+.group:hover .fan > :nth-child(1) { transform: translateX(-18px) rotate(-6deg); }
+.group:hover .fan > :nth-child(3) { transform: translateX(18px) rotate(6deg); }
+@media (prefers-reduced-motion: reduce) {
+  .loop-rise, .loop-ring, .loop-bar, .loop-write, .loop-pop, .loop-move, .loop-glow { animation: none !important; }
+  .loop-ring { stroke-dashoffset: var(--rest); }
+}

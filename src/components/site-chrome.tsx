@@ -12,6 +12,7 @@ export function SiteHeader() {
           <Logo className="text-forest-deep!" />
           <nav aria-label="Site" className="hidden items-center gap-7 text-[0.95rem] text-forest-deep/80 md:flex">
             <Link href="/#how" className="hover:text-forest-deep">How it works</Link>
+            <Link href="/#features" className="hover:text-forest-deep">Features</Link>
             <Link href="/#who" className="hover:text-forest-deep">Who it&rsquo;s for</Link>
             <Link href="/pricing" className="hover:text-forest-deep">Pricing</Link>
           </nav>
